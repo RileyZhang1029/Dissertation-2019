@@ -1,0 +1,599 @@
+C. R. Biologies 326 (2003) 501–508
+
+Model-driven acquisition / Acquisition conduite par le modèle
+
+Dynamic simulation of pollutant effects on the threonine pathway
+in Escherichia coli
+
+Christophe Chassagnole a,∗
+
+, Éric Quentin a,1 , David A. Fell b , Pedro de Atauri c ,
+Jean-Pierre Mazat a
+
+a INSERM EMI 9929 & université Bordeaux-2, 146, rue Léo-Saignat, 33076 Bordeaux cedex, France
+b School of Biological and Molecular Sciences, Oxford Brookes University, Oxford OX3 0BP, UK
+c Departement de Bioquimic i Biologia Molecular, Universitat de Barcelona, Marti i Franques 1, 08028 Barcelona, Spain
+Received 27 May 2002; accepted 12 November 2002
+
+Presented by Michel Thellier
+
+Abstract
+
+The enzymatic activities of threonine pathway in Escherichia coli are sensitive to pollutants such as cadmium, copper and
+mercury, which, even at low concentration, can substantially decrease or even block the pathway at several steps. Our aim was
+to investigate the complex effects on a metabolic pathway of such general enzyme inhibitors with several sites of action, using
+a previously developed computer simulation of the pathway. For this purpose, the inhibition parameters were experimentally
+determined and incorporated in the model. The calculation of the ﬂux control coefﬁcient distribution between the ﬁve steps
+of the threonine pathway showed that control remains shared between the three ﬁrst steps under most inhibition conditions.
+Response coefﬁcient analysis shows that the inhibition of aspartate semialdehyde dehydrogenase is quantitatively dominant in
+most circumstances. To cite this article: C. Chassagnole et al., C. R. Biologies 326 (2003).
+ 2003 Académie des sciences. Published by Éditions scientiﬁques et médicales Elsevier SAS. All rights reserved.
+Résumé
+
+Simulation dynamique d ’effets de pelluants sur la chaîne de biosynthèse de la thréonine d ’ Escherichia coli. Les activités
+enzymatiques de la chaîne de biosynthèse de la thréonine d’ Escherichia coli sont particulièrement sensibles à des polluants tels
+que le cadmium, le cuivre et le mercure, qui peuvent diminuer ou bloquer le métabolisme bactérien. Les paramètres cinétiques de
+ces inhibitions ont été déterminés expérimentalement, puis incorporé dans un modèle mathématique de la voie. Ce modèle a été
+utilisé pour simuler l ’effet de ces inhibitions sur le ﬂux de biosynthèse de la thréonine et calculer la répartition des coefﬁcients
+de contrôle entre les étapes de la voie. On montre que le contrôle est toujours reparti entre les trois premières étapes, l ’aspartate
+semialdehyde dehydrogenase jouant souvent un r ôle prépondérant. Pour citer cet article : C. Chassagnole et al., C. R. Biologies
+326 (2003).
+ 2003 Académie des sciences. Published by Éditions scientiﬁques et médicales Elsevier SAS. All rights reserved.
+
+Keywords: threonine; computer simulation; metabolic control analysis; biosynthetic pathway; pollutants
+
+Mots-clés :thréonine ; simulation du métabolisme ; théorie du contrôle du métabolisme ; voie de biosynthèse ; polluants
+
+* Corresponding author. Present address: INSA–dGBA, 135, av. de Rangueil, 31077 Toulouse cedex, France.
+E-mail address: christophe.chassagnole@insa-tlse.fr (C. Chassagnole).
+1 Present address: DIOSYNTH France, BP 26, 60590 Éragny-sur-Epte, France.
+
+1631-0691/03/$ – see front matter
+reserved.
+doi:10.1016/S1631-0691(03)00098-2
+
+2003 Académie des sciences. Published by Éditions scientiﬁques et médicales Elsevier SAS. All rights
+
+502
+
+C. Chassagnole et al. / C. R. Biologies 326 (2003) 501–508
+
+1. Introduction
+
+The enzymatic activities of the threonine pathway
+in Escherichia coli are sensitive to pollutants such
+as cadmium, copper and mercury, which, even at
+low concentration, can substantially decrease or even
+block the pathway at several steps. Such multiple sites
+of action must be taken into account when consider-
+ing two important environmental roles of bacteria: in
+bioremediation of soils and as commensals of mam-
+malian organisms.
+The effects that can arise in the interaction between
+threonine pathway and general inhibitors that can
+have multiple site of interaction such as pollutants
+are complex. For this reason, a computer simulation
+of the threonine pathway synthesis [1 –3] was used.
+This model is based on kinetic functions developed
+from measurements on the pathway enzymes under
+near-physiological conditions. In order to represent
+the effects of the different pollutants on the threonine
+pathway, the model was extended with kinetic terms
+for the inhibition.
+For this purpose, the kinetic parameters describ-
+ing these inhibitions have been determined experimen-
+tally. In the ﬁrst part of this experimental work, the
+more potent inhibitors were chosen by screening. Then
+the effects of these compounds on the different steps
+of the pathway were measured by titration of the en-
+zyme activities.
+The threonine pathway in E. coli involves ﬁve steps
+from aspartate (Fig. 1). The ﬁrst step is important ow-
+ing to its regulation. It is catalysed by three isoen-
+
+zymes: the aspartokinase I (AKI), which is inhib-
+ited by threonine, and the synthesis of which is re-
+pressed in presence of threonine and isoleucine (an
+amino acid synthesized from threonine); aspartokinase
+III (AKIII), which is inhibited by lysine (which is also
+synthesized from aspartate in E. coli), and the syn-
+thesis of which is repressed by lysine; and aspartok-
+inase II (AKII), the synthesis of which is repressed
+by methionine, an amino-acid synthesized from aspar-
+tate in E. coli (for a review, see Cohen [4] and Nei-
+dhardt [5]). AKI and AKII are bifunctional enzymes
+that also catalyse the homoserine dehydrogenase re-
+action (AKI-HDHI and AKII-HDHII). The amount of
+aspartokinase II-homoserine dehydrogenase II is low,
+so it may be omitted in an initial modelling approach.
+The model will allow simulation not only of thre-
+onine production as a function of pollutant concentra-
+tions but also of the variations of control coefﬁcients
+and of the partial response coefﬁcients [6 –10]. We will
+show that these parameters are useful for understand-
+ing the pollutants’ effects on the whole threonine path-
+way.
+
+2. Materials and methods
+
+2.1. Cells
+
+An E. coli strain K12 thiaisoleucine-resistant deriv-
+ative (Tir-8) [11], de-repressed for the threonine oper-
+on [12], was used in the study. Bacteria were grown in
+a minimal medium at 37
+C with 0.4% (w/v) glucose
+as the carbon source. At the end of the exponential
+phase, the cells were harvested, washed and frozen at
+−80
+C in extraction buffer.
+
+◦
+
+◦
+
+Fig. 1. Threonine pathway from threonine in E. coli. The different
+steps are catalysed by aspartokinases I, II and III (AKI, AKII and
+AKIII), aspartate semi-aldehyde dehydrogenase (ASD), homoserine
+dehydrogenase (HDH), homoserine kinase (HK) and threonine syn-
+thase (TS). β-aspartyl phosphate (aspp), aspartic β-semialdehyde
+(asa), homoserine (hs) and O -phosphohomoserine (hsp) are the in-
+termediate metabolites. (cid:1) means retroinhibition.
+
+2.2. Chemicals
+
+The different pollutants tested, KNO3 , KNO2 ,
+CuCl2 , CdCl2 , HgCl2 and ZnCl2 , were purchased
+from Sigma. The other chemicals were as described
+by Chassagnole et al. [1].
+
+2.3. Enzyme assays
+
+The details of this work can be found in a previous
+paper [1].
+
+C. Chassagnole et al. / C. R. Biologies 326 (2003) 501–508
+
+503
+
+2.4. Initial screening
+
+In order to study the pollutants’ effects, we decided
+in the ﬁrst instance to determine the potential inhi-
+bitions by all of these compounds through a rough
+screening on all the enzymatic activities, at 5 mM or
+the highest possible concentration given the solubility
+of the compound in the buffer. All the activities were
+measured at substrate concentrations around the Km
+value and the percentage inhibition calculated relative
+to controls.
+
+2.5. KI , IC50 and Hill-coefﬁcient determination
+
+Each enzyme activity was measured as a function
+of the concentration of the inhibitory ion. The KI
+and the Hill coefﬁcient were determined by ﬁtting the
+inhibition curves with a classical Hill equation using
+SigmaPlot 2000.
+
+2.6. Threonine pathway model
+
+The threonine pathway model used here is the cul-
+mination of a combined experimental and theoretical
+study, the details of this work can be found in [1 –3].
+In order to reproduce the in vivo the steady state of
+the pathway, the measured in vivo concentrations of
+the different substrates and effectors and the enzyme
+activities have been introduced into the model.
+
+2.7. Incorporation of the effects of heavy metals in
+the model
+
+In order to represent the effects of the different
+heavy metals on the different steps of the threonine
+pathway, a non-competitive inhibition term, with a
+Hill coefﬁcient, had been incorporated in each enzy-
+matic rate equation (equation (1)).
+
+v =
+
+(Km + S )(1 + (I /KI )n )
+Vm S
+
+2.8. Simulation
+
+(1)
+
+The dynamic modelling of the ﬂux, the interme-
+diates metabolites and the ﬂux control coefﬁcient de-
+terminations have been done with the SCAMP (Sim-
+ulation, Control Analysis, Modelling Package) soft-
+ware developed by Sauro and Fell [13 –16]. With this
+
+software, the ﬂux control coefﬁcients and the over-
+all ﬂux response coefﬁcient to an inhibitor are deter-
+mined by numerical perturbations of the enzyme ac-
+tivities or inhibitor concentration respectively and re-
+calculation of the corresponding steady state over a
+speciﬁed range of inhibitor concentrations. The pro-
+gram also allows calculation of enzyme elasticity
+with respect to the inhibitors, and partial response
+coefﬁcients (the product of an enzyme ’s ﬂux con-
+trol coefﬁcient and elasticity with respect to an in-
+hibitor) [6] in order to assess the relative contribu-
+tion of each enzyme to the total response to the in-
+hibitor.
+
+3. Results and discussion
+
+3.1. Initial screening
+
+The pollutants tested on the threonine pathway
+were nitrate, nitrite, copper, cadmium, mercury and
+zinc. The results of the initial screen of each of these
+compounds are shown in Table 1.
+We can see that neither nitrite nor nitrate inhibits
+the activities, except for weak inhibitions of AKI by
+nitrate and threonine synthase (TS) by nitrite. Thus
+we consider that these compounds will not inhibit
+the threonine pathway signiﬁcantly at environmental
+concentrations. On the other hand, we can see that
+heavy metals inhibit all enzyme activities; moreover
+these inhibitions are strong and in some cases total.
+We decided to study further three of these compounds:
+cadmium, copper and mercury.
+
+3.2. Kinetic characterisation of the inhibition by
+heavy metals
+
+Each enzyme activity was measured as a function
+of the concentration of the three toxic compounds cad-
+mium, copper and mercury, at a constant concentra-
+tion of substrate. Figs. 2 and 3 give two examples
+of these measurements. All the enzymes were inhib-
+ited by these heavy metals, particularly aspartate semi-
+aldehyde dehydrogenase (ASD) by cadmium, copper
+and mercury, TS by copper, AKI and homoserine ki-
+nase (HK) by mercury. Mercury is the most potent
+inhibitor of the whole threonine pathway, though the
+
+504
+
+C. Chassagnole et al. / C. R. Biologies 326 (2003) 501–508
+
+Table 1
+Percentage of inhibition of toxic compound on enzyme activities
+
+Nitrate
+Nitrite
+Cadmium
+Copper
+Mercury
+Zinc
+
+mM
+5
+5
+5
+0.2
+1
+5
+
+AKI
+14
+n.I.
+79
+85
+100
+100
+
+AKIII
+n.I.
+n.I.
+100
+63
+74
+99
+
+ASD
+n.I.
+n.I.
+97
+100
+100
+78 (1)
+
+n.I.: no inhibition; (1): 0.5 mM; (2): 1 mM
+
+HDHI
+n.I.
+n.I.
+60
+50
+100
+88
+
+HK
+n.I.
+n.I.
+98
+36
+100
+100
+
+TS
+n.I.
+32
+100
+80
+95
+99 (2)
+
+Table 2
+KI (µM) of different heavy metals on enzyme activities and IC50 (µM) of threonine ﬂux
+AKI
+AKIII
+ASD
+HDHI
+1946 ± 136
+112 ± 16
+18.2 ± 1
+3350 ± 67
+64 ± 2
+165 ± 11
+32 ± 2
+250 ± 17
+0.92 ± 0.02
+703 ± 40
+1.33 ± 0.04
+497 ± 14
+
+Cadmium
+Copper
+Mercury
+
+HK
+675 ± 23
+474 ± 22
+4.8 ± 0.1
+
+TS
+122 ± 12
+15 ± 2
+88.3 ± 5.3
+
+Threonine Flux
+69
+68
+2.1
+
+Table 3
+Hill number of different heavy metals on enzyme activities
+
+Cadmium
+Copper
+Mercury
+
+AKI
+1.52 ± 0.14
+1.47 ± 0.07
+2.25 ± 0.13
+
+AKIII
+0.79 ± 0.08
+0.81 ± 0.06
+1.74 ± 0.17
+
+ASD
+0.98 ± 0.06
+1.49 ± 0.10
+3.05 ± 0.25
+
+HDHI
+1.91 ± 0.07
+1.07 ± 0.11
+1.98 ± 0.11
+
+HK
+1.67 ± 0.09
+1.38 ± 0.12
+3.59 ± 0.32
+
+TS
+1.00 ± 0.10
+0.99 ± 0.11
+1.31 ± 0.09
+
+Fig. 2. Aspartate semi-aldehyde dehydrogenase activity as a func-
+tion of copper chloride concentration. The activity is measured in
+the presence of asa 0.2 mM. The curve is drawn according to equa-
+tion (1) using the corresponding parameters of Tables 2 and 3.
+
+Fig. 3. Homoserine kinase activity as a function of the mer-
+cury-chloride concentration. The activity is assessed in the presence
+of hs 1 mM. The curve is drawn according to equation (1) using the
+corresponding parameters of Tables 2 and 3.
+
+most sensitive enzyme varies with the metal. The KI s
+and the Hill coefﬁcients of these inhibitions were de-
+termined by ﬁtting the data according to equation (1)
+and are summarized in Tables 2 and 3.
+
+3.3. Simulation of the effects of different pollutants
+
+The mathematical model, already developed for
+threonine pathway [3], has been used to simulate
+the effects of the different heavy metals (cadmium,
+
+C. Chassagnole et al. / C. R. Biologies 326 (2003) 501–508
+
+505
+
+copper and mercury) on threonine pathway ﬂux values
+(Fig. 4). We can see that the IC50 for the whole
+pathway ﬂux is always larger than the smallest KI for
+the individual steps (Table 2) by a factor of two to four.
+With the model it was also possible to calculate
+the ﬂux control coefﬁcient distribution between the
+different steps of the threonine pathway. In the in
+vivo steady-state conditions, the control is shared
+between the three ﬁrst steps 0.282, 0.249 and 0.466,
+respectively for AK, ASD and HDH. The HK and
+the TS (respectively 0.005 and 0.000) ﬂux control
+coefﬁcients can be considered as negligible [3].
+By increasing the cadmium concentration, we ob-
+serve (Fig. 5a) a transfer of the control from AK and
+HDH to ASD; the control coefﬁcient of ASD reaches a
+maximum of 0.9 beyond 2 mM. This can be explained
+by the highest cadmium afﬁnity for ASD. The partial
+response coefﬁcients (Fig. 6a) emphasize these varia-
+tions and show a slight increase in the participation of
+HDH.
+These variations in control are accompanied by an
+increase in β-aspartyl phosphate (aspp) concentration
+and a decrease in homoserine (hs) concentrations, due
+to ASD inhibition. Then hs concentration increases as
+cadmium concentration, which inhibits HK.
+The zero-control coefﬁcient of TS explains why its
+contribution to ﬂux inhibition (cf. TS partial response
+coefﬁcient in Fig. 6a) is close to zero, even in a
+cadmium concentration range inhibiting its activity.
+By increasing the copper concentration, we also ob-
+serve (Fig. 5b) a transfer of the control from AK and
+HDH to the ASD, which attains a ﬂux control co-
+efﬁcient of nearly 1.0. Thus by increasing the cop-
+per concentration, the ASD becomes the only con-
+trolling step and the response of the pathway to
+copper is accounted for, almost entirely, by the re-
+sponse of ASD (Fig. 6b), even though all the en-
+zymes exhibit signiﬁcant inhibitions (elasticities) with
+respect to copper throughout the range; as a mat-
+ter of fact, TS is more inhibited by copper than
+ASD, but this inhibition has practically no effect on
+the ﬂux. However, it has an effect on the O -phos-
+phohomoserine (hsp) concentrations, which ﬁrst in-
+creases (Fig. 7b); the subsequent hsp decrease is due
+to the ﬂux decrease following ASD inhibition.
+When the mercury concentration increases, we
+once again observe (Fig. 5c) a transfer of the control
+from AK and HDH to the ASD, up to a maximum
+
+Fig. 4. Threonine ﬂux as a function of cadmium ( a), copper (b) and
+mercury (c) concentrations.
+
+506
+
+C. Chassagnole et al. / C. R. Biologies 326 (2003) 501–508
+
+Fig. 5. Flux control coefﬁcient of the threonine pathway activities as
+a function of cadmium (a), copper (b) and mercury (c). — AK,
+ASD and –
+– HDH (the HK and TS ﬂux control coefﬁcients are not
+represented because their values are always close to zero).
+
+· · ·
+
+Fig. 6. Partial response coefﬁcients of each step as a function of
+· · · ASD and
+cadmium (a), copper (b) and mercury (c). — AK,
+– HDH (the HK and TS partial response coefﬁcients are not
+represented because their values are always close to zero).
+
+C. Chassagnole et al. / C. R. Biologies 326 (2003) 501–508
+
+507
+
+of 1 with sigmoid behaviour due to the cooperativity
+of mercury inhibition. This dominant role of ASD in
+ﬂux response to mercury inhibition is highlighted in
+Fig. 6c. As expected, we observe an increase in aspp
+and a decrease in all other metabolites.
+
+4. Conclusions
+
+All these results show the value of using model
+for understanding the effects of pollutants such as
+heavy metals because these compounds could have
+multiple targets in a metabolic pathway. Indeed, it is
+not possible to predict the global effect on the ﬂux
+from the simple consideration of the KI or IC50 values
+of the individual steps. As a matter of fact, an enzyme
+modulation can only be transmitted to the whole ﬂux
+if its control coefﬁcient is appreciable. This is well
+illustrated by the TS inhibition, which has no effect
+on the ﬂux due to its zero control coefﬁcient.
+Because pollutants affect several steps in the path-
+way it is also convenient to plot the partial response
+coefﬁcients (response of the step scaled by the re-
+sponse of the ﬂux), which gives a quantitative mea-
+surement of the participation of each step.
+
+Acknowledgements
+
+The authors wish to thank EC for supporting
+this work through a Copernicus contract No. ER-
+BIC15CT960307.
+
+References
+
+[1] C. Chassagnole, B. Raïs, E. Quentin, D.A. Fell, J.-P. Mazat,
+An integrated study of threonine pathway enzyme kinetics in
+Escherichia coli, Biochem. J. 356 (2001) 415–423.
+[2] B. Raïs, C. Chassagnole, T. Letellier, D.A. Fell, J.-P. Mazat,
+Threonine synthesis from aspartate in Escherichia coli cell-
+free extracts: pathway dynamics, Biochem. J. 356 (2001) 425–
+432.
+[3] C. Chassagnole, D.A. Fell, B. Raïs, B. Kudla, J.-P. Mazat,
+Control of the threonine synthesis pathway in Escherichia
+coli: a theoretical and experimental approach, Biochem. J. 356
+(2001) 433–444.
+[4] G.N. Cohen, Le métabolisme cellulaire et sa régulation, Her-
+mann, Paris, 1967.
+
+Fig. 7. Intermediate metabolite concentrations of the threonine
+pathway as a function of cadmium (a), copper (b) and mercury (c).
+· · · asa, –
+·· – hsp.
+— aspp,
+– hs and –
+
+508
+
+C. Chassagnole et al. / C. R. Biologies 326 (2003) 501–508
+
+[5] F.C. Neidhardt, Escherichia coli and Salmonella typhimurium,
+Cellular and Molecular Biology, American Society for Micro-
+biology, Washington DC, 1987.
+[6] H. Kacser, J.A. Burns, The control of ﬂux, Symp. Soc. Exp.
+Biol. 27 (1973) 65–104, reprinted in Biochem. Soc. Trans. 23
+(1995) 341–366.
+[7] D.A. Fell, Metabolic control analysis: a survey of its theoretical
+and experimental developments, Biochem. J. 286 (1992) 313–
+330.
+[8] D.A. Fell, Understanding the Control of Metabolism, Portland
+Press, London, 1997.
+[9] R. Heinrich, T.A. Rapoport, A linear steady-state treatment
+of enzymatic chains; general properties, control and effector
+strength, Eur. J. Biochem. 42 (1974) 89–95.
+[10] C. Reder, Metabolic control theory: a structural approach,
+J. Theor. Biol. 135 (1988) 175–201.
+[11] A. Szentirmai, M. Szentirmai, H.E. Umbarger, Isoleucine
+
+and valine metabolism properties of Escherichia coli XV.
+Biochemical properties of mutants resistant to thiaisoleucine,
+J. Bacteriol. 95 (1968) 1672–1679.
+[12] M. Szczesiul, D.E. Wampler, Regulation of a metabolic system
+in vitro: synthesis of threonine from aspartate, Biochemistry 15
+(1976) 2236–2244.
+[13] H.M. Sauro, Control Analysis and simulation of metabolism,
+PhD thesis, Oxford Polytechnic, 1986.
+[14] H.M. Sauro, D.A. Fell, SCAMP: a metabolic simulator and
+control analysis program, Math. Comput. Model. 15 (1991)
+15–28.
+[15] H.M. Sauro, SCAMP: a general-purpose simulator and
+metabolic control analysis program, CABIOS 9 (1993) 441–
+450.
+[16] D.A. Fell, H.M. Sauro, Metabolic control analysis by com-
+puter: progress and prospects, Biomed. Biochim. Acta 49
+(1990) 811–816.
+
