@@ -1,0 +1,1863 @@
+Glycobiology vol. 21 no. 12 pp. 1651–1662, 2011
+doi:10.1093/glycob/cwr101
+Advance Access publication on August 1, 2011
+
+Is N-acetyl-D-glucosamine a rigid 4C1 chair?
+
+Benedict M Sattelle and Andrew Almond1
+
+Introduction
+
+Manchester Interdisciplinary Biocentre, 131 Princess Street, Manchester M1
+7DN, UK
+
+Received on June 3, 2011; revised on June 28, 2011; accepted on July 19,
+2011
+
+(3D)
+
+Understanding microsecond-timescale dynamics is crucial
+structure–activity
+to establish three-dimensional
+relationships in sugars but has been intractable to exper-
+iments and simulations. As a consequence, whether argu-
+ably the most important chemical scaffold in glycobiology,
+N-acetyl-D-glucosamine (GlcNAc), deviates from a rigid
+4C1 chair is unknown. Here, conformer populations and
+exchange kinetics were quantiﬁed from the
+longest
+aqueous carbohydrate simulations to date (0.2 ms total) of
+GlcNAc, four derivatives from heparan sulfate and their
+methylglycosides. Unmodiﬁed GlcNAc took 3–5 μs
+to
+reach a conformational equilibrium, which comprised a
+metastable 4C1 chair that underwent 4C1 ↔ 1C4 transitions
+at a predicted forward rate of 0.8 μs−1 with an average
+1C4-chair lifetime of 3 ns. These predictions agree with
+high-resolution crystallography and nuclear magnetic res-
+onance but not with the hypothesis that GlcNAc is a rigid
+4C1 chair, concluded from previous experimental analyses
+and non-aqueous modeling. The methylglycoside was cal-
+culated to have a slower forward rate (0.3 μs−1) and a
+more stable 4C1 conformer (0.2 kcal mol−1), suggesting
+that pivotal 3D intermediates (particularly 2SO, 1S5 and
+B2,5) increased in energy, and water was implicated as a
+major cause. Sulfonation (N-, 3-O and 6-O) signiﬁcantly
+augmented this effect by blocking pseudorotation, but did
+not alter the rotational preferences of hydroyxl or hydro-
+xymethyl groups. We therefore propose that GlcNAc
+undergoes puckering exchange that
+is dependent on
+polymerization and sulfo substituents. Our analyses, and
+3D model of the equilibrium GlcNAc conformer in water,
+can be used as dictionary data and present new opportu-
+nities to rationally modify puckering and carbohydrate
+bioactivity, with diverse applications from improving crop
+yields to disease amelioration.
+
+Keywords: glucosamine / heparan sulfate / kinetics / pucker /
+simulation
+
+1To whom correspondence should be addressed: Tel: +44-161-306-4199;
+Fax: +44-161-306-5201; e-mail: andrew.almond@manchester.ac.uk
+
+The
+
+chemical
+
+hexosamine
+
+Understanding carbohydrate three-dimensional (3D) structure–
+activity relationships (SARs) is a difﬁcult but critical mile-
+stone in glycomics. Elucidating molecular details of glycan
+equilibrium 3D structure, presently in its infancy, are central
+to realizing accurate SARs and will enable rational exploita-
+tion of the vast medicinal and industrial potential of polysac-
+charides.
+of
+N-acetyl-D-glucosamine (GlcNAc) is ubiquitous and mediates
+some of
+important processes in glycobiology.
+Consequently, establishing SARs in GlcNAc and its deriva-
+tives will engender innumerable opportunities to impact some
+of the most challenging scientiﬁc problems of our time. For
+example, as well as being a versatile scaffold for novel drug
+discovery (Wang et al. 2009), chemically modiﬁed GlcNAc is
+present in chitin and glycosaminoglycans, which hold great
+potential as novel biomaterials and medicines (Gama et al.
+2006; Murrey and Hsieh-Wilson 2008; Khoushab and
+Yamabhai 2010).
+
+the most
+
+scaffold
+
+The 3D structures of GlcNAc polysaccharides are deﬁned
+by two dynamic conformational determinants: glycosidic
+linkage geometry and pyranose ring conformation (or pucker).
+Nanosecond gycosidic-linkage dynamics are better understood
+because they are amenable to study by both nuclear magnetic
+resonance (NMR) spectroscopy and simulation. However,
+while puckering is central to glycobiology, e.g. ribose differs
+from deoxyribose by having different equilibrium confor-
+mations (Rich 2003), whether substituents affect the ensemble
+of pyranose ring conformers remains enigmatic because
+exchange occurs on microsecond timescales, which has been
+problematic for NMR and simulations, until recently (Sattelle
+et al. 2010).
+
+There is circumstantial experimental evidence to suggest
+that pyranoses, such as glucose and GlcNAc (considered to
+exist as exclusively stable 4C1 chairs), are not as stable as
+once thought. For example, atomic force microscopy has
+inferred that glucose polymers contain non-4C1 geometries
+(Marszalek et al. 1998; Heymann and Grubmuller 1999; Li
+et al. 1999), and non-4C1 GlcNAc is observed in high-
+resolution
+diverse
+(non-enzyme) protein co-complexes (Ikemizu et al. 1999;
+Chang et al. 2003; Maveyraud et al. 2009; Xu et al.
+2010). Furthermore, studies have also shown that appar-
+ently stable 4C1 chairs can be perturbed by chemical modi-
+ﬁcations, e.g. glucuronic acid (β-D-GlcA) deviates from a
+4C1 chair in fully O-sulfonated chondroitin and hyaluronan
+(Wessel and Bartsch 1995; Maruyama et al. 1998; Toida
+et al. 1999, 2000).
+
+crystallographic
+
+3D structures
+
+of
+
+ 2011 The Author(s). Published by Oxford University Press.
+All rights reserved.This is an Open Access article distributed under the terms of the Creative Commons Attribution Non-Commercial License (http://creativecom-
+mons.org/licenses/by-nc/2.5), which permits unrestricted non-commercial use, distribution, and reproduction in any medium, provided the original work is
+1651
+properly cited.
+
+BM Sattelle and A Almond
+
+of
+
+are
+
+The
+
+insight
+
+rewards
+
+potential
+
+polysaccharides
+
+While NMR would be an ideal technique to explore these
+observations, puckering exchange occurs on the microsecond
+timescale, which is fast-enough to ensure that standard exper-
+iments cannot discriminate between conformers (resonances
+represent “average” puckers) and interpretation of anything
+but the simplest situation is difﬁcult. Under ideal conditions,
+using scalar couplings, the minimum percentage of percepti-
+ble conformers is around 10%. Simulations are crucially
+important in this microsecond “blind spot,” but have not been
+routinely possible with explicit solvent due to lack of proces-
+sing power (most previous simulations are <100 ns). Recently,
+implementation of molecular dynamics (MD) programs to run
+on graphics processing units have made it possible to perform
+deterministic unperturbed explicit solvent
+simulations on
+microsecond timescales (Harvey et al. 2009; Klepeis et al.
+2009). Extended molecular mechanics studies are currently
+restricted to single chemistries but have recently revealed
+biologically relevant
+into carbohydrate puckering
+populations and exchange kinetics (Sattelle et al. 2010).
+Measurements from NMR (e.g. pyranose ring vicinal coup-
+lings) can then be usefully applied to test the simulations.
+understanding SARs
+exempliﬁed
+
+in
+GlcNAc-containing
+by
+heparan sulfate (HS) and structurally related heparin (Powell
+et al. 2004; Lamanna et al. 2007; Turnbull 2010). Localized
+in the extracellular matrix, HS mediates of some of the most
+important processes in biology, e.g. neuronal development
+(Zhu et al. 2010), anticoagulation (Liu and Pedersen 2007)
+and angiogenesis (Sasisekharan et al. 2002). In vivo, hetero-
+geneous HS polymers of variable length are bound to proteins
+via rigid sulfonated (S-)domains (Bishop et al. 2007), which
+are ﬂanked by ﬂexible unsulfonated (NA-)regions (Mobli
+et al. 2008). The monosaccharides GlcA and GlcNAc com-
+prise the disaccharide repeat in NA domains, while sulfonated
+derivatives of α-L-iduronic acid (IdoA) and GlcNAc predomi-
+nate in S-domains; IdoA can be 2-O-sulfonated (IdoA2S) and
+GlcNAc can be N-, 6-O- and 3-O-sulfonated, leading most
+commonly to GlcNS, GlcNS6S, GlcNS6S3S and GlcNS3S
+(Figure 1). Anticoagulant heparin is one of the oldest and
+most widely used natural product drugs; synthetic alternatives
+are highly desirable due to clinical dangers associated with
+impure material (Liu et al. 2009). Heparin potency is depen-
+dent on the charged carboxyl and sulfo substituents of its
+uronic acid and hexosamine residues (Hricovini et al. 2001;
+Avci et al. 2003). Puckering is also a key contributor, the
+protein antithrombin (ATIII) binds the 2SO pucker of the
+heparin IdoA2S residue (Hricovini et al. 2001) and derivatives
+exhibiting 2SO-biased IdoA2S are highly efﬁcacious (Das
+et al. 2001; Boltje et al. 2009). Exactly how different sulfona-
+tion patterns impart functional diversity in HS and heparin
+remains unclear; however,
+they are well characterized and
+therefore provide excellent model systems for chemically
+modiﬁed carbohydrates in general.
+
+space
+
+phase
+
+3 , R2 = H, R3 ¼ SO
+ 
+
+ 
+3 , R2 = H, R3 = H;
+ 
+3 ,
+
+Fig. 1. Schematic of the GlcNAc scaffold in biological conditions. This
+ubiquitous carbohydrate building block, four derivatives from HS and their
+methylglycosides were studied using 20 μs simulations and 900 MHz NMR.
+For GlcNAc, R1 = Ac, R2 = H, R3 = H; for GlcNS, R1 ¼ SO
+for GlcNS6S, R1 ¼ SO
+3 , R2 ¼ SO
+3 , R3 = H; for GlcNS6S3S, R1 ¼ SO
+ 
+ 
+R3 ¼ SO
+3 , R3 ¼ SO
+3 ; for GlcNS3S, R1 ¼ SO
+ 
+ 
+ 
+3 .
+GlcNS3S as free α-anomers and methylglycosides. Our ﬁnd-
+ings suggested that in water, despite being a metastable 4C1
+chair, the GlcNAc pyranose ring explores the majority of con-
+formational
+and
+undergoes microsecond-
+timescale 4C1 ↔ 1C4 puckering,
+the kinetics of which are
+modiﬁed by substituents. These predictions were consistent
+with our observations from NMR and the Protein Data Bank
+that non-4C1 GlcNAc puckers are
+(PDB), which suggest
+important in protein interactions. The simulations complete
+our computational studies of equilibrium puckering for the
+major hexosamine and uronic acid (Sattelle et al. 2010) con-
+stituents of HS. They also provide fundamental information to
+the wider glycobiology ﬁeld by demonstrating the great poten-
+tial of extended unperturbed aqueous simulations to facilitate
+rational modiﬁcation of carbohydrate puckering kinetics and
+concomitant bioactivity. Our detailed analysis and 3D model
+of the equilibrium GlcNAc conformation in water can be used
+to drive the development of novel biotechnologies.
+
+Results
+
+ring puckering kinetics were
+
+investigated in
+Pyranose
+O-sulfonated, N-sulfonated and O-methylated GlcNAc using
+solvent MD simulations.
+microsecond all-atom explicit
+Calculations were
+performed
+on
+the monosaccharides
+GlcNAc, GlcNS, GlcNS6S, GlcNS6S3S and GlcNS3S as free
+reducing sugars (the α-anomer) and α-1-O-methylglycosides
+(1-OMe). The simulations were initiated in both the 4C1 and
+1C4 chairs and performed for 10 µs each. Thermodynamic
+equilibrium was conﬁrmed by comparing averages of the
+Cremer–Pople θ-parameter (Sattelle et al. 2010); when con-
+vergence had occurred, both simulations (a total of 20 μs)
+were used in further analysis.
+
+In this study, we aim to explore the equilibrium populations
+and exchange kinetics of GlcNAc puckers and also the effects
+of sulfo substituents and methylglycosides on them. The most
+extensive all-atom explicit solvent carbohydrate simulations to
+date were performed (0.2 ms in total), and experimentally
+validated, for GlcNAc, GlcNS, GlcNS6S, GlcNS6S3S and
+
+Microsecond-conformational exchange in GlcNAc
+In the GlcNAc simulations, equilibrium of ring pucker was
+realized within 3–5 μs. As expected, the 4C1 chair was the
+dominant conformer, present for 99.6% of the trajectory. The
+average Cremer–Pople puckering parameters for these 4C1
+
+1652
+
+conformers were: Q = 0.54 (±0.04) and θ = 10.1° (±5.5°). The
+hydroxyl groups were calculated to have the following prefer-
+ences: O1 (t, 69%; g+, 19%; g−, 12%), O3 (t, 65%; g+,
+22%; g−, 13%), O4 (t, 71%; g+, 18%; g−, 11%) and O6
+(t, 67%; g+, 20%; g−, 13%). The hydroxymethyl populated
+the gg (59%), gt (39%) and tg (2%) conformers and the aceta-
+mido group was trans (165 ± 25°). For comparison, the exper-
+imental hydroxymethyl rotamer populations were estimated
+from the two experimental measurements
+(J5,6proR and
+J5,6proS, Table I) and a three-site model to be: gg (96%), gt
+(4%) and tg (0%).
+
+Ring and acetamido vicinal couplings of the free reducing
+GlcNAc α-anomer were accurately measured from 900 MHz
+[1H]-1D NMR spectra in water. The 3J2,3, 3J3,4,3J4,5 and
+3JHN,H2 values were in the range 8–10 Hz, the 3J1,2 coupling
+was (cid:1)3 Hz (Table I). Compared with experimental values, the
+computed ring vicinal couplings 3J1,2 and 3J2,3 were smaller,
+3J3,4 was identical and 3J4,5 and 3JHN,H2 were greater in mag-
+nitude. Computed values of 3J5,6 were also very similar to
+NMR measurements, one being smaller and one larger. Since
+the calculated values were all within 1 Hz of experiment and
+the deviations were not systematic, errors could be assumed to
+propagate from either the Karplus equations used or the
+force-ﬁeld parameters (less likely as these would be expected
+to be systematic across sets of couplings). Calculation of ring
+vicinal couplings from only GlcNAc 4C1 conformers (99.6%
+of
+results. This comparison
+
+the trajectory) gave identical
+
+Table I. Observed (Obs.) and calculated (Calc.) three-bond proton–proton
+vicinal couplings (JH,H, Hz) for the five α-D-monosaccharides in water
+
+Hexosamine
+
+Coupling
+
+GlcNAc
+GlcNAc
+GlcNAc
+GlcNAc
+GlcNAc
+GlcNAc
+GlcNAc
+GlcNS
+GlcNS
+GlcNS
+GlcNS
+GlcNS6S
+GlcNS6S
+GlcNS6S
+GlcNS6S
+GlcNS6S3S
+GlcNS6S3S
+GlcNS6S3S
+GlcNS6S3S
+GlcNS3S
+GlcNS3S
+GlcNS3S
+GlcNS3S
+
+J1,2
+J2,3
+J3,4
+J4,5
+JHN,H2
+J5,6proR
+J5,6proS
+J1,2
+J2,3
+J3,4
+J4,5
+J1,2
+J2,3
+J3,4
+J4,5
+J1,2
+J2,3
+J3,4
+J4,5
+J1,2
+J2,3
+J3,4
+J4,5
+
+Obs.
+
+3.5
+10.7
+9.9
+9.3
+8.8
+5.2a
+2.3a
+3.5
+10.4
+9.0
+10.2
+3.5
+10.4
+9.1
+10.1
+3.3
+10.7
+8.9
+10.1
+3.3
+10.7
+8.8
+10.1
+
+Calc.
+
+3.2
+10.1
+9.9
+10.0
+9.7
+4.5
+3.2
+2.6
+10.2
+9.9
+10.0
+2.6
+8.8
+9.8
+9.9
+2.7
+10.2
+8.3
+10.0
+2.7
+10.2
+9.9
+8.5
+
+The Karplus equations of Hricovini and Bizik, Altona and Haasnoot
+(1980) and Mobli and Almond (2007) were used for pyranose ring,
+hydroxymethyl and acetamido vicinal couplings, respectively.
+Experimental errors were estimated to be ±0.2 Hz and standard deviations
+of calculated ring vicinal couplings were estimated to be at most 0.01 Hz.
+(except GlcNAc J5,6proR which was ±0.1 Hz).
+aData from a previous NMR study (Blundell et al. 2009).
+
+Is N-acetyl-D-glucosamine a rigid chair?
+
+suggested that the simulation and the ensemble of predicted
+puckers were consistent with experiment.
+
+chairs
+
+involved
+
+predominantly
+
+All of the 4C1 hemisphere and boat and skew boat (equator-
+ial) canonical puckers were populated in the simulation of
+GlcNAc. Although the 4C1 pucker was dominant, the 1C4 chair
+was also transiently occupied, with averages Q = 0.52 (±0.04)
+and θ = 166.3° (±6.5°). The computed pathway between the
+4C1 ↔ 2H3 ↔ 2SO
+two
+↔ 1S3 ↔ 1S5 ↔ 5H4 ↔ 1C4; however, 27 of the 36 canonical
+non-chair puckers were populated (Figure 2). A total of 16
+4C1 → 1C4 transitions were observed (Figure 3), occurring at a
+computed (forward) rate of 0.8 μs−1. The average lifetime of
+the GlcNAc 1C4-chair puckers was (cid:1)3 ns, giving a 1C4 → 4C1
+(backward) rate of 292 μs−1 and an equilibrium constant of
+Keq = 2.9 × 10−3 (assuming ﬁrst-order kinetics). Using the
+simulated equilibrium data, the GlcNAc 4C1 chair was lower in
+free energy than the 1C4 chair, by ΔG = 3.5 kcal mol−1. The
+dominant non-chair puckers in the 4C1 hemisphere were half-
+chairs and envelopes with either C2 up or C3 down (2H3, 2E,
+2H1 and E3). Three transition states between skew boats and
+the 1C4 chair were predicted; namely, the unstable envelopes
+and half-chair conformers E4, 5H4 and 5E. Representative 3D
+structures of the key 4C1- and 1C4-hemisphere intermediates
+from the simulation are illustrated in Figure 4. Transition to the
+2SO-conformer allowed facile pseudorotation in the equatorial
+region. The primary boat and skew boat puckers were those
+with w-values in the range 150–330°; the most populated were
+2SO, B3,O, 1S3 and OS2 (Figure 5). However, conversion to the
+1C4 chair occurred from the much less populated 1,4B, 1S5 and
+B2,5 conformers (Figure 6).
+
+The effect of 1-O-methylation: a model for polymerization
+Simulations of 1-OMe-GlcNAc reached a conformational
+equilibrium after (cid:1)3–5 μs. Consistent with the free reducing
+α-anomer simulation, a range of puckers were predicted (28
+of the 36 non-chair canonical conformers, Figure 2) with the
+4C1 chair as the major conformer. The average 4C1 pucker for
+1-OMe-GlcNAc had values of Q = 0.56 (±0.04) and θ = 9.7°
+(±5.3), similar to GlcNAc. Five 4C1 → 1C4 transitions were
+predicted and their computed pathway was similar to that of
+the free α-anomer; however, differences in the population of
+conformers were predicted (Figure 6B). Neighboring the 4C1
+pucker, envelopes and half-chairs with either O5 up or C1
+down (OE, OH1, E1 and 2H1) were more populated in the
+1-OMe-GlcNAc simulation. Those with C2 up or C3 on
+down (2E, 2H3, E3 and 4H3) and with C4 up or C5 down
+(4E, 4H5, E5 and OH5) were less populated than in GlcNAc.
+This trend in equatorial conformer populations was identical
+to GlcNAc; however, all puckers except 1S3 were less popu-
+lated. In particular, the population of B2,5 was almost pre-
+cluded by the 1-O-methylsubstitution (Figures 2 and 6B). In
+the 1C4 hemisphere, compared with the GlcNAc simulation,
+the envelope E4 was less populated, 5H4 was more populated
+and 5E was absent
+in the methylglycoside simulation.
+Calculated orientations of the hydroxyl, hydroxymethyl and
+acetamido groups were identical
+to those computed for
+the rate of 4C1 ↔ 1C4 transition was
+GlcNAc. In contrast,
+reduced in the 1-OMe-GlcNAc simulation (cf. GlcNAc).
+Forward and backward rates were computed to be 0.3 and
+
+1653
+
+BM Sattelle and A Almond
+
+146 μs−1, respectively, which resulted in a calculated equili-
+brium constant of Keq = 1.9 × 10−3. Using this equilibrium
+data, the 4C1 chair was calculated to be ΔG = 3.7 kcal mol−1
+lower in free energy than the 1C4 chair. Therefore, the two
+chair conformers in GlcNAc and 1-OMe-GlcNAc had similar
+equilibria and relative free energies, but methylation slowed
+the conformational exchange kinetics.
+
+Quantum mechanical (QM) energy calculations were per-
+formed to further explore the relative energies of the chair
+puckers and the energy barriers separating them,
+in the
+absence of explicit solvent. The GlcNAc 4C1 pucker was pre-
+dicted by QM to be 19.1 kcal mol−1 lower in energy than the
+1C4 conformer and the lowest energy equatorial pucker, 1S3
+(w= 213°), was 11.4 kcal mol−1 above the 4C1 chair. For
+1-OMe-GlcNAc, the two chairs were separated by 16.8 kcal
+mol−1 and the lowest energy equatorial pucker, 1S5 (w= 270°),
+was 11.4 kcal mol−1 above the 4C1 pucker energy. The QM
+calculations trended in agreement with the MD simulations
+with respect
+likely predicted pathway of
+4C1 ↔ 1C4 exchange. The magnitude of predicted relative
+energies was
+in MD than QM calculations and
+inclusion of implicit solvent exacerbated the disagreement
+(the energy difference between chairs increased to 21.6 and
+20.3 kcal mol−1 for GlcNAc and 1-OMe-GlcNAc, respect-
+ively). Furthermore, QM predicted the 2SO pucker (abundantly
+populated in aqueous simulations) to be the highest energy
+equatorial pucker (30 kcal mol−1 above the 4C1 chair energy)
+in both GlcNAc and 1-OMe-GlcNAc.
+
+to the most
+
+lower
+
+Fig. 2. Relative occupancy (y-axis, arbitrary units) of the 36 canonical
+non-chair conformers in the 20 μs explicit solvent simulations of GlcNAc,
+1-OMe-GlcNAc and GlcNS. (A) 4C1 hemisphere, (B) equatorial region and
+(C) 1C4 hemisphere. Dashed arrows highlight predicted transitions between
+polar and equatorial regions and pseudorotation. Asterisks denote
+intermediates notably suppressed by 1-O-methyl and N-sulfo substituents.
+
+The effects of sulfonation on microsecond dynamics
+In the case of GlcNS (N-sulfonated free α-anomer), the simu-
+lations equilibrated to an essentially 100% 4C1 conformation
+(Figure 7A), which had an average pucker of Q = 0.55 (±0.04)
+and θ = 9.5° (±5.2). When initiated in the 1C4 pucker, the
+molecule rapidly exchanged to the 4C1 chair (during the 250
+
+Fig. 3. Evidence for microsecond-timescale puckering in aqueous GlcNAc.
+The 4C1 ↔ 1C4 transitions, computed exchange rates and short-lived ((cid:1)3 ns)
+1C4-chair puckers are shown on a time-series plot of the Cremer–Pople
+parameter θ. Data are from the 10 μs 4C1-initiated explicit solvent GlcNAc
+simulation.
+
+1654
+
+Fig. 4. Representative GlcNAc conformers from the 20 μs explicit solvent
+simulation involved in transitions between chairs and skew boats. Hydrogen
+atoms are hidden for clarity.
+
+Is N-acetyl-D-glucosamine a rigid chair?
+
+Fig. 7. Conformational space of free α-anomer hexosamines that explored
+only the 4C1 hemisphere of Cremer–Pople phase space during the 20 μs
+explicit solvent simulations: (A) GlcNS, (B) GlcNS3S and (C) GlcNS6S3S.
+Each hemisphere is orientated, labeled and colored as in Figure 6.
+
+ns discarded equilibration phase) and did not return to the 1C4
+conformation. The N-sulfo substitution did not signiﬁcantly
+perturb the distribution of rotamer states at the hydroxyl and
+hydroxymethyl groups (cf. GlcNAc) and the N-sulfonyl occu-
+pied three distinct acetamido rotamer states, centered on +60,
+−90 and −160°. Computed and experimental pyranose ring
+vicinal couplings were in excellent agreement. As
+for
+GlcNAc, all calculated values were within 1 Hz of the exper-
+imentally measured value (Table I). In contrast to the GlcNAc
+simulation, only a small number of canonical puckers were
+observed other than 4C1 (Figure 2); the most populated of
+these were the envelopes and half-chairs with C2 up (2E, 2H1
+and 2H3). The only GlcNS boats and skew boats had w-values
+in the rather limited range 90–150°, which were 5S1, 2SO, 2,5B
+and B1,4. No transition states were predicted between these
+puckers and the (unpopulated) 1C4 chair. For 1–OMe-GlcNS,
+the 1C4-initiated trajectory remained in the 1C4 chair for
+several hundred nanoseconds. During the remaining simu-
+lation time, no transitions were observed from 4C1 to 1C4.
+Thus,
+the kinetic rate for exchange
+between the two chair forms had been slowed signiﬁcantly
+due to N-sulfonation and further still by methylation.
+
+it was concluded that
+
+(cf.
+
+using
+
+3.0 kcal mol−1
+
+13.8 kcal mol−1
+
+Using QM, the relative energy of the two GlcNS chairs
+was
+implicit
+solvent), with the 4C1 chair lower in energy. Notably,
+the
+GlcNS 4C1 chair and the equatorial B2,5 pucker (w= 300°)
+were predicted by QM to be energetically degenerate, which
+was at odds with the explicit solvent MD simulations.
+The 1,4B conformer (w= 240°) was just 1.6 kcal mol−1 above
+the 4C1 chair and three 4C1-hemisphere puckers (with θ in the
+range 150–170° and win the range 240–270°) were computed
+by QM to be within 3.0 kcal mol−1 of the 4C1 chair.
+
+In the case of the GlcNS6S free α-anomer, this molecule
+was predicted to be a stable 4C1 chair with average Q- and
+θ-values of 0.55 (±0.04) and 9.5° (±5.2), respectively. In the
+4C1-initiated simulation of GlcNS6S, a single 4C1 ↔ 1C4 tran-
+sition occurred after (cid:1)6 μs (Figure 6C), in which the 1C4
+chair was populated for (cid:1)160 ns. Thus,
+the backward
+
+1655
+
+Fig. 5. Representative GlcNAc skew boat conformers involved in
+pseudorotation; the structures were derived from a 20 μs explicit solvent
+simulation. Hydrogen atoms are hidden for clarity.
+
+Fig. 6. Conformers explored by hexosamines that underwent 4C1 ↔ 1C4
+transitions during 20 μs explicit solvent simulations: (A) GlcNAc, (B)
+1-OMe-GlcNAc and (C) GlcNS6S. Puckers are plotted in spherical Cremer–
+Pople phase space with the 1S5-conformer orientated at the front. Hence, data
+points at the front (black) and back (gray) of the sphere denote puckers with
+w-values in the range 180–360° and 0–180°, respectively. The skew boat and
+boat labels (S and B, respectively) are situated above or below their positions
+on the equator. The half-chairs (H) are labeled adjacent to their positions on
+the sphere.
+
+BM Sattelle and A Almond
+
+remained at 3 × 10−3,
+
+exchange rate was estimated to be (cid:1)6 μs−1. Assuming the
+equilibrium constant
+the rate of
+4C1 ↔ 1C4 conformational exchange was estimated to be (cid:1)50
+times slower in GlcNS6S than in GlcNAc, suggesting a
+forward rate of 0.02 μs−1 and explaining why so few tran-
+sitions had been observed within even 20 μs. This ﬁnding
+also suggested that
+the activation free energy barrier was
+increased in GlcNS6S (cf. GlcNAc) by (cid:1)2.3 kcal mol−1.
+Although the non-equilibrium GlcNS6S simulations precluded
+calculation of the relative energy between chairs, prediction of
+an accessible 4C1 ↔ 1C4 pathway in the 4C1-initiated trajec-
+tory allowed further investigation by QM. The prediction that
+the two conformers and the equatorial B2,5 pucker (w= 300°)
+had the same energy was at odds with the MD simulations, in
+which B2,5 was rather minimally populated compared with the
+5S1 and 2SO conformers (w= 90 and 150°, respectively), both
+of which were predicted to be very unfavorable by QM (>30
+kcal mol−1 above the 4C1-chair energy).
+
+For 3-O-sulfonated GlcNS3S and GlcNS6S3S, only the 4C1
+conformer was observed (Figure 7B and C). Again, exchange
+from the 1C4 pucker occurred rapidly during the equilibration
+phase. Average Q-values for the 4C1 conformers of these hex-
+osamines were identical, 0.56 (±0.04), and the θ-values were
+9.5 (±5.2) and 9.6 (±5.3) for GlcNS3S and GlcNS6S3S,
+respectively. All of the di- and tri-sulfonated hexosamines had
+computed vicinal couplings within 1 Hz of the measured
+value (Table I) with two exceptions, 3J2,3 of GlcNS6S and
+3J4,5 of GlcNS3S, which were smaller than the corresponding
+experimental data by 1.2–1.6 Hz, suggesting that the abun-
+dance of sulfate groups had made the general Karplus
+the hydroxyl rotamer
+equations used less accurate. Again,
+states and hydroxymethyl conformations were identical
+in
+GlcNS3S and GlcNS6S3S compared with unsulfonated
+GlcNAc. In the 3–O-sulfonated GlcNS3S and GlcNS6S3S
+simulations, the N-sulfonyl group was different from GlcNS,
+being predicted to populate only two rotamer states (+60 and
+−160°), rather than the three found in GlcNS.
+
+None of the 4C1- or 1C4-initiated sulfonated methylglycoside
+simulations reached conformational equilibrium. This was
+attributed to the extended time taken for the 1C4-initiated trajec-
+tories to undergo the 1C4 → 4C1 exchange. The 1C4-pucker life-
+time was correlated with the degree of sulfonation and estimated
+to be: 1-OMe-GlcNAc (<250 ns), 1-OMe-GlcNS (600 ns),
+1–OMe-GlcNS3S (1.2 μs), 1-OMe-GlcNS6S (2.8 μs)
+and
+1-OMe-GlcNS6S3S (5.7 μs). A lifetime of 5 μs corresponds to
+a back transition rate of 0.2 μs−1 or (cid:1)1000 times slower than in
+GlcNAc. Assuming the equilibrium constant was similar to
+GlcNAc, this equates to an increase in activation energy of
+(cid:1)4.1 kcal mol−1. For the 4C1-initiated simulations, which did
+not populate any 1C4-hemisphere puckers, increased sulfonation
+resulted in an increased population of 4C1-hemisphere envelopes
+and half-chairs. The 2H1 half-chair was the most populated
+intermediate in all 4C1-initiated simulations and envelopes E1
+and 2E were the next most populated. Only boats and skew
+boats with w-values in the range 60–150° (B1,4, 5S1, 2,5B and
+2SO) were occupied. Here,
+the 5S1 conformer of 1-OMe-
+GlcNS6S3S was signiﬁcantly more stable than in any of the
+other sulfonated methylglycosides. In the 1C4-initiated trajec-
+tories, the distribution of transition states between skew boats
+
+1656
+
+and the 1C4 chair was similar for the mono- and di-sulfonated
+hexosamines. However, for 1-OMe-GlcNS6S3S, the puckers
+5H4 and 5E were much more populated. At the equator, puckers
+with w-values in the range 270–330° (1S5, B2,5 and OS2) were
+occupied by all of the sulfonated methylglycosides, although
+the 1S3 and 1,4B conformers were comparatively inaccessible
+to 1-OMe-GlcNS6S3S. The 1-OMe-GlcNS and 1–OMe-
+GlcNS6S3S 1C4-initiated simulations were predicted to populate
+B2,5 and OS2 almost equally and much more so than in
+1-OMe-GlcNS6S and 1-OMe-GlcNS3S.
+
+In the di- and tri-sulfonated free reducing and methylglyco-
+side hexosamines (1C4-initiated trajectory), the sulfo moieties
+rearranged during the single transition to the favored 4C1
+pucker. This transition brings all of the sulfo groups from the
+axial to the equatorial position with a consequent increase in
+the distance from the 6-O-sulfo to both N- and 3-O-sulfo. For
+example, in 1–OMe-GlcNS6S3S, these distances increased on
+average by (cid:1)1 Å (Figure 8) and the distance between the
+adjacent N- and 3-O-sulfo moieties decreased slightly follow-
+ing the transition. These observations indicate that solvation
+forces and electrostatic repulsion between sulfo groups play
+an important role in favoring the 4C1 pucker over 1C4.
+
+of
+
+viral
+
+hemagglutinin, SNA-II, CD2
+
+Analysis of crystallographic data
+In an analysis of crystallographic high-resolution (≤2.0 Å) PDB
+GlcNAc depositions, 96.9% of the 3137 occurrences were in
+the 4C1 conformation. However, 0.5% were 1C4 puckers and
+2.6% were boats or skew boats, such as in the non-enzyme
+structures
+and
+interlukin-19 (Ikemizu et al. 1999; Chang et al. 2003;
+Maveyraud et al. 2009; Xu et al. 2010). For the 4C1 conformers,
+average puckering parameters were Q = 0.57 and θ = 9.1°; in the
+1C4 conformers, the averages were Q = 0.59 and θ = 163°. For
+reference, average values from our simulations were as follows:
+4C1 puckers: Q = 0.54 (±0.04), θ = 10.1° (±5.5°); and 1C4
+puckers: Q = 0.52 (±0.04), θ = 166°
+(±6.5°). From the
+Cambridge Structural Database (CSD), the two entries for free
+α-D-GlcNAc [ACGLUA10 (Johnson 1966) and ACGLUA11
+(Mo and Jensen 1975)] are 4C1 chairs; they exhibit Q-values of
+0.62 and 0.58, with respective θ-values of 7.6 and 3.1°. In the
+recent 1 Å resolution crystal structure of chitin (Nishiyama et al.
+2011), the GlcNAc θ parameter is identical to the simulation
+4C1 average (10°). Sulfonated hexosamines were also found in
+these repositories. For GlcNS6S, 16 ligands were identiﬁed in
+13 crystallographic PDB depositions (≤2.0 Å resolution), 12
+were 4C1 chairs, 3 were 1C4 chairs and 3 were equatorial confor-
+mers. Average puckering parameters in the 4C1 conformers were
+Q = 0.59 and θ = 10.3°; our computed data for this GlcNS6S
+pucker were Q = 0.55 (±0.04) and θ = 9.5° (±5.2°). In the CSD,
+two GlcNS molecules were identiﬁed [ZULPIF (Ojala et al.
+1995) and ZULPIF01 (Yates et al. 1995)], which exist as 4C1
+chairs and have Q-values of 0.56 and 0.55 and θ-values 4.0 and
+2.9°, respectively.
+
+Discussion
+
+Extended-timescale simulations can exaggerate even small
+force-ﬁeld inaccuracies and lead to errors in 3D-structural
+
+Is N-acetyl-D-glucosamine a rigid chair?
+
+crystals devoid of water and protein, were slightly more rigid
+than our predictions. The trend for non-4C1 puckers of
+GlcNAc in the PDB and our simulations was similar. Our
+comparisons of calculated and experimental data provide con-
+ﬁdence that the simulated puckering was representative of real
+conformational exchange in GlcNAc and its derivatives.
+Furthermore, these similarities support the view that, while
+GlcNAc exists predominantly as a 4C1 chair in water, other
+puckers may be biologically important, particularly in unsul-
+fonated GlcNAc.
+
+Our QM data of GlcNAc conformers (without explicit
+solvent) were consistent with previous studies, such as those
+of glucose (Barrows et al. 1995; Appell et al. 2004), but in
+general provided larger relative chair energies than MD and
+also predicted a different set of boat and skew boat intermedi-
+ates. However,
+it should be noted that energies computed
+without water may be sensitive to small geometrical pertur-
+bations due to unnatural intramolecular hydrogen bonding and
+the large relative QM energies may be a consequence of this.
+For example, QM predicted GlcNAc to be a rigid 4C1 chair,
+whereas MD suggested the barrier height was (cid:1)5 times the
+thermal energy at room temperature, which is in close agree-
+ment with many other studies of pyranoses (Dowd et al.
+1994; Barnett and Naidoo 2010; Barnett et al. 2010; Spiwok
+et al. 2010). The ﬁnding that the majority of conformational
+phase space was computed to be accessible in GlcNAc,
+including the 1C4 chair, also challenges the notion that
+GlcNAc is rigid. We now propose that aqueous GlcNAc
+undergoes microsecond-timescale conformational exchange,
+which would not be concluded from straightforward interpret-
+ation of NMR vicinal couplings, sub-microsecond unequili-
+brated MD and gas-phase QM energy calculations. Whether
+similar conclusions would be made for other biologically
+important hexosamines, such as N-acetyl-D-galactosamine,
+remains to be seen.
+
+timescale
+
+4C1 ↔ 1C4
+
+The hypothesis that GlcNAc undergoes room-temperature-
+accessible microsecond
+transitions
+(separated by ΔG = 3.5 kcal mol−1) that are consistent with
+protein co-crystals, but which cannot be predicted by gas phase
+or implicit solvent QM calculations (in which the chair forms
+were predicted to be 19.1 kcal mol−1 different), suggests a
+major role for water in stabilizing the ensemble of GlcNAc
+puckers. It has been theorized that water is essential to predict
+carbohydrate conformation (Kirschner and Woods 2001) and
+our data concurs. As concluded previously (Sattelle and
+Almond 2010), we again found that extensive empirical simu-
+lations were preferential to restricted studies at higher levels of
+theory for carbohydrates, due to their ability to resolve micro-
+second dynamics. Figure 9 illustrates the 3D structure of
+GlcNAc with the pucker and substituents in the most fre-
+quently encountered conformation in the 20 µs simulation.
+This 3D model (available as Supplementary data) could be
+used as 4C1-dictionary data for structural reﬁnement, protein
+docking or structure-based design.
+
+In the absence of unambiguous atomic-resolution exper-
+imental data and extended aqueous simulations,
+it has not
+been possible to robustly quantify equilibrium conformer
+populations or the kinetics of puckering exchange at the mol-
+ecular level. Our simulations of GlcNAc and uronic acid
+
+1657
+
+Fig. 8. Evidence that electrostatic repulsion contributes to stabilization of the
+4C1 chair in highly sulfonated hexosamines. In the case of the 10 μs
+1C4-initiated methylglycoside GlcNS6S3S explicit solvent simulation,
+time-series plots illustrate the change in distances between sulfur atoms
+resulting from the single 1C4 → 4C1 transition after (cid:1)5.6 μs. Representative
+3D structures of 1C4 and 4C1 chairs show how conformational rearrangement
+increased the distance between NS/6S and 3S/6S sulfate pairs. Hydrogen
+atoms were hidden for clarity.
+
+suffer
+
+suggested that our
+
+ensembles
+(Orozco et al. 2008; Klepeis et al. 2009).
+Comparison with experiment
+simu-
+lations, using GLYCAM06, did not
+from this
+phenomenon (Table I) and,
+in the cases of GlcNAc and
+1-OMe-GlcNAc, equilibration of puckering in took (cid:1)3–5
+µs. Although in polymers the timescale of equilibration
+may differ, this ﬁnding suggests that previous (nanosecond)
+GlcNAc simulations explored only a small fraction of con-
+formational phase space. Consequently, previous thermo-
+dynamic and kinetic interpretations of simulated GlcNAc
+puckering should be treated with caution. Importantly,
+the
+predicted microsecond-timescale exchange between GlcNAc
+chair puckers was not in disagreement with NMR measure-
+ments reported here (Table I) and elsewhere (Mulloy and
+Johnson 1987; Jin et al. 2009).
+
+Average Q- and θ-values for chair puckers of GlcNAc and
+GlcNS6S from the simulations were similar to their respective
+values derived from the PDB, whereas GlcNAc was identical
+to a 1 Å resolution 3D structure of chitin (Nishiyama et al.
+2011). The CSD data for GlcNAc and GlcNS, derived from
+
+BM Sattelle and A Almond
+
+Fig. 9. A 3D model for the equilibrium GlcNAc conformation in water. The
+pucker is a 4C1 chair, the pyranose conformation and rotamer states
+(hydroxyl, hydroxymethyl and acetamido) represent the most populated in a
+20 μs explicit solvent simulation. Non-polar hydrogen atoms are hidden for
+clarity and the 3D coordinates are provided in Supplementary data S4.
+
+derivatives (Sattelle et al. 2010) clearly demonstrate that
+recent progress in computer hardware and software (Harvey
+et al. 2009; Klepeis et al. 2009) has enabled conformationally
+equilibrated simulations to be performed for carbohydrates
+involved in microsecond-puckering exchange without
+the
+need for enhanced sampling (i.e. artiﬁcial perturbation of the
+simulation temperature or Hamiltonian; Gao et al. 2008).
+Although enhanced sampling is useful for predicting equili-
+brium populations,
+kinetic
+phenomena should be treated with caution (Schlick 2009).
+
+interpretation
+
+biological
+
+of
+
+Neither the methylglycoside nor the N- or O-sulfo deriva-
+tive was predicted to alter the rotational preferences of hydro-
+yxl or hydroxmethyl groups. The simulations suggested that
+the effect of these substituents was instead to add steric bulk
+and charge, and hence to modify pyranose ring puckering.
+The methylglycoside has previously been shown to inﬂuence
+pyranose conformation (Marszalek et al. 1998; Heymann and
+Grubmuller 1999; Li et al. 1999), and this reinforces our
+thesis that knowledge of equilibrium populations and kinetics
+are crucial for a complete understanding of carbohydrate 3D
+SARs. For example, the slower rate of 4C1 → 1C4 transition in
+1-OMe-GlcNAc (three times cf. GlcNAc) implied a 0.4 kcal
+mol−1 increase in activation energy. This was found to be due
+intermediates in
+to the relative inaccessibility of several
+2SO,
+1-OMe-GlcNAc,
+and B2,5
+(Figures 2 and 6), indicating a higher-energy barrier to pseu-
+dorotation. Sulfonation further increased this energy barrier,
+making it more difﬁcult for the 1C4-initiated methylglycosides
+to the exchange from this pucker to the 4C1 chair.
+
+and in particular
+
+1S5
+
+for
+
+2SO),
+
+The equilibrium of GlcNS puckers was shifted toward the
+4C1 chair (cf. GlcNAc). Puckers involved in the transition
+between GlcNAc 4C1 and 1C4 chair conformers were largely
+precluded in GlcNS (except
+implying that
+N-sulfonation signiﬁcantly slows the rate of 4C1 ↔ 1C4 con-
+formational exchange by blocking these intermediates. The
+N-sulfo substituent
+is ubiquitous in HS, where GlcNAc is
+sequentially modiﬁed by N-deacetylase and N-sulfotransferase
+enzymes prior to sequential O-sulfotransferase-catalyzed sul-
+fonation at
+the 6-O- and 3-O-positions (Rabenstein 2002).
+Our results intimate that this modiﬁcation both rigidiﬁes and
+stabilizes the 4C1 pucker of HS GlcNAc residues.
+
+Rearrangement of sulfo groups from the axial to the more
+solvent-favorable equatorial orientation is probably a major
+driver of the 1C4 → 4C1 transition in the di- and tri-sulfonated
+
+1658
+
+the distance between
+hexosamines orientations. However,
+sulfo groups also increased as a result of this transition,
+suggesting that it was partially driven by electrostatic repul-
+sion (Figure 8). Together, these observations infer that pucker-
+ing of the GlcNAc pyranose scaffold is strongly dependent on
+sulfo substituents and polymerization, but further studies are
+required to conﬁrm this. Such insights will facilitate molecular
+design by making it possible to predict substitutions that
+perturb the aqueous conformational equilibrium,
+rates of
+puckering and concomitant bioactivity. For example, based on
+our simulations, we now hypothesize that GlcNAc glycosides
+more bulky than a methyl group would further decrease the
+rate of 4C1 ↔ 1C4 conformational exchange in water.
+
+Equilibration of pucker was realized on the same timescale
+as seen previously for uronic acids (Sattelle et al. 2010), but
+the predicted 1-OMe-GlcNAc forward (4C1 → 1C4) exchange
+rate (0.3 μs−1) was much slower
+than in 1-OMe-IdoA
+(19 μs−1), again indicating that epimerization at the C5 pos-
+ition signiﬁcantly lowers the barrier to kinetic exchange of
+pucker. In both GlcNAc and IdoA, the 1C4 conformer was
+computed to be accessible at room temperature; the key differ-
+ence was the kinetics of exchange, which was slower in
+GlcNAc due to the relatively-higher free energy of the 1C4
+pucker ((cid:1)3 kcal mol−1 higher than in IdoA). The effect of
+IdoA2S on 1-OMe-IdoA was to shift the equilibrium confor-
+mation
+(1-OMe-IdoA and
+1-OMe-IdoA2S were predicted to be 76 and 91% 1C4,
+respectively), whereas in C5-epimerised and N-acetylated
+GlcNAc, N-, 6-O- and 3-O-sulfonation favored the 4C1 chair.
+Furthermore, the studies performed here suggest that our pre-
+vious work on methylglycosides of uronic acids may be more
+representative of puckering exchange rates in polysaccharides
+than monosaccharides. Together, these data provide a basis
+for understanding glycosaminoglycan 3D structure.
+
+toward
+
+pucker
+
+1C4
+
+the
+
+Characterization of glycosaminoglycan 3D structures will
+enable the design of biotechnological devices and medicines
+(Gama et al. 2006; Ghosh et al. 2009). The predicted substitu-
+ent dependence of GlcNAc puckering, and that of uronic
+acids (Sattelle et al. 2010), leads us to hypothesize that the
+slower exchange kinetics of sulfonated GlcNAc residues
+(favoring a more rigid 4C1 chair) may, in concert with electro-
+static repulsion of sulfo moieties, contribute to the observation
+that HS S-domains are more rigid than NA-domains (Mobli
+et al. 2008). The simulations also suggest
+that puckering
+could have a signiﬁcant effect on HS-domain structure by
+altering chain direction, and it is conceivable that it has a
+more dominating effect on bioactivity than the glycosidic
+linkage motions, which are unperturbed by sulfonation
+(Mulloy and Forster 2000). Insight into the relative contri-
+bution of microscopic uronic acid and hexosamine puckering
+to macroscopic HS-domain 3D structure will be gained from
+future conformationally equilibrated (microsecond-timescale)
+co-polymer simulations. It will be interesting to establish if
+bioactivity
+relevant HS motif
+(GlcNS6S-IdoA2S)3 (Smits et al. 2010) and the heparin pen-
+tasaccharide are modulated by incorporation of conformation-
+ally locked GlcNAc derivatives, as is the case for heparin
+derivatives exhibiting 2SO-biased IdoA2S (Das et al. 2001;
+Boltje et al. 2009). It has been proposed that IdoA ﬂexibility
+
+therapeutically
+
+the
+
+of
+
+inconsistent with our data,
+
+the molecular shape of heparin (Jin et al.
+does not affect
+2009). Although not
+this con-
+clusion was derived from 4 ns of restrained MD or 0.1% of
+the (cid:1)3 μs now known to be required to equilibrate puckering
+(explore all conformational phase space) in monosaccharides
+studied to date, and the analogous effect of GlcNAc pucker-
+ing has not yet been considered.
+
+Substituent-dependent microsecond-timescale puckering in
+GlcNAc has important ramiﬁcations in wider glycobiology.
+Despite being rare events, the proposed 4C1 ↔ 1C4 transitions
+equate to (cid:1)1 million s−1 in GlcNAc and we therefore hypoth-
+esize that they may be an important factor in protein selectiv-
+ity. In total, 75% of canonical non-4C1 puckers were predicted
+to be accessible for this hexosamine in water at room tempera-
+ture. High-resolution data from the PDB suggest that non-4C1
+puckers may play an important role in protein recognition and
+carbohydrate
+the
+2SO-skew boat of IdoA2S in heparin (Hricovini et al. 2001),
+β-mannosidases bind their substrate in the 1S5 conformation
+(Ardevol et al. 2010) and cellobiohydrolase I of Trichoderma
+reesei drives the envelope and half-chair conformations
+(4E and 4H3) of glucose and renders both chair conformers
+highly unfavorable (Barnett et al. 2010).
+
+example, ATIII prefers
+
+catalysis. For
+
+Knowledge of puckering in GlcNAc will lead to new molecu-
+lar design opportunities. For example, GlcNAc is an essential
+constituent of protein post-translational modiﬁcations (Marino
+et al. 2010; Nothaft and Szymanski 2010). Rational modiﬁcation
+of epitope GlcNAc puckering kinetics can be expected to modu-
+late protein recognition and thereby facilitate development of
+therapeutics (Jefferis 2009). Also, there are no available 3D struc-
+tures of Rhizobium nodulation factors, which are characterized by
+a backbone of between three and ﬁve substituted (sulfonated)
+GlcNAc residues. Recent work has begun to address this knowl-
+edge gap with NMR and nanosecond-simulations (Morando et al.
+2011). Deﬁnition of nodulation factor SARs and generation of
+synthetic derivatives will
+accelerate production of non-
+leguminous plants that can ﬁx nitrogen themselves, toward which
+our extended microsecond-simulations now contribute. Our pre-
+dictions also provide a new avenue for development of novel pep-
+tidoglycans (for amelioration of bacterial pathogenicity) and
+biomaterials from marine carbohydrates and chitin (Khoushab
+and Yamabhai 2010). Furthermore, understanding equilibrium
+conformer populations and the kinetics of exchange in atomic
+detail, as has been described, will rationalize decision-making in
+structure-based design and facilitate generation of increasingly
+high-afﬁnity, typically weak-binding, carbohydrate-based ligands.
+
+Conclusions
+
+The longest carbohydrate simulations to date were performed
+on the ubiquitous monosaccharide GlcNAc and biologically
+important derivatives to investigate microsecond dynamics
+that cannot currently be quantiﬁed by experiments or other
+computational approaches. In water, at equilibrium, GlcNAc
+underwent microsecond-timescale exchange between chair
+in good agreement with NMR measurements and
+puckers,
+high-resolution
+protein-bound
+GlcNAc ligands, where an appreciable number are not 4C1
+conformers. These results challenge the hypothesis that
+
+crystallographic
+
+data
+
+for
+
+Is N-acetyl-D-glucosamine a rigid chair?
+
+GlcNAc is a perfectly rigid 4C1 chair, as predicted by high-
+level energy calculations without explicit water, straightfor-
+ward interpretation of NMR data
+and non-equilibrium
+nanosecond-simulations.
+
+A major role for water in deﬁning the equilibrium ensemble
+of GlcNAc puckers is proposed. Conformational exchange
+kinetics may therefore be difﬁcult to predict without detailed
+and extended simulations. We re-iterate that for carbohydrates,
+longer empirical aqueous simulations are preferable to higher-
+level computation on short
+timescales and without water.
+Recent progress
+in computer hardware and software is
+enabling this for many carbohydrates without the need for
+artiﬁcial perturbation of systemic physical properties, as in
+enhanced sampling.
+
+populations
+
+Substitution of the GlcNAc chemical scaffold did not affect
+rotamer preferences but did impact equilibrium ring puckering
+conformer
+kinetics. Methylglycosides
+(a model for the glycosidic linkage) had slowed exchange kin-
+etics due to reduced accessibility of biologically important
+skew boat intermediates. Sulfonation shifted the ensemble of
+puckers toward 4C1, likely due to electrostatic repulsion and
+favorable solvation of equatorial sulfo groups.
+
+and
+
+Our 3D-structural and kinetic insights have extensive rami-
+ﬁcations for understanding and exploiting 3D SARs in glyco-
+biology. The importance of puckering in a myriad of
+GlcNAc-containing sugars (e.g. glycosaminoglycans, nodula-
+tion factors and glycosylation fragments) can now be tested
+experimentally. This
+interdisciplinary approach,
+identiﬁcation of pivotal kinetic 3D intermediates
+and
+concomitant-directed chemical modiﬁcation of equilibrium
+conformer populations and exchange kinetics, has great poten-
+tial to revolutionize glycan design.
+
+iterative
+
+the
+
+using
+
+processors
+
+Materials and methods
+MD simulations
+The monosaccharides were prepared using the AMBER tool
+Leap (Case et al. 2005) and in-house software (to deﬁne 4C1
+and 1C4 puckers). Each of the 10 initial conﬁgurations was
+explicitly solvated in a cubic water box ((cid:1)25 × 25 × 25 Å)
+and neutralized with the appropriate number of Na+ counter-
+ions, followed by 1000 steps of energy minimization. MDs
+were performed with ACEMD (Harvey et al. 2009) on
+force-ﬁelds
+NVIDIA graphics
+GLYCAM06g (Kirschner et al. 2008) and TIP3P (Jorgensen
+et al. 1983). Hydrogen atoms were constrained using the
+M-SHAKE
+The
+velocity-Verlet
+integration algorithm and a hydrogen mass
+repartitioning scheme were used to achieve a 4 fs time-step
+without affecting the equilibrium distribution (Buch et al.
+2010). Electrostatic and van der Waals interactions were trun-
+cated at 9 Å and the recommended scaling factor for carbo-
+hydrate 1–4 interactions (1.0) was used. Parameters not
+present
+in GLYCAM06 (the angle O-S-O and the torsion
+C2-O2-S-O) were
+appended from the General Amber
+Force-ﬁeld (Wang et al. 2004). Merz–Singh–Kollman (Singh
+and Kollman 1984) electrostatic potential-derived partial
+charges for the sulfonated monosaccharides were computed
+using Gaussian 03 (Frisch et al. 2004) following gas-phase
+
+algorithm (Krautler
+
+2001).
+
+al.
+
+et
+
+1659
+
+BM Sattelle and A Almond
+
+geometry optimization at the HF/6-31G(d)//HF/6-31G(d) level
+of theory (consistent with GLYCAM06). Following 20 ns of
+heating and 250 ns of thermal equilibration at 298 K (which
+were discarded), MD simulations of each monosaccharide
+were performed for 10 µs in the NVT ensemble. Data were
+saved to ﬁle every 10 ps.
+
+NMR spectroscopy
+Natural abundance samples were prepared from lyophilized
+material (Dextra, Reading, UK) reconstituted in 594 µL of
+D2O, 99.990% (w/v) and 6 µL of DSS (4,4-dimethyl-
+4-silapentane-1-sulfonic acid). Samples were adjusted to pD =
+7.0 and ﬁnal concentrations were in the range 41–56 mM. All
+spectra were recorded at 25°C. Chemical shifts of 1H and 13C
+atoms were assigned from the following standard heteronuclear
+NMR spectra recorded with a 1H frequency of 600 MHz on a
+Bruker spectrometer equipped with a z-gradient TXI cryop-
+robe: [1H–13C] HSQC, [1H–1H] COSY, [1H–1H] TOCSY and a
+[1H–13C] HSQC–TOCSY. [1H] 1D spectra were also recorded
+with a 1H frequency of 900 MHz (Varian INOVA 900), 32,768
+points, an acquisition time of 2949.17 ms and a dwell time of
+45.5 µs. Vicinal couplings were measured from 900 MHz [1H]
+1D spectra unless otherwise stated. Spectra were processed
+with NMRPipe (Delaglio et al. 1995) and analyzed with
+Sparky (Goddard and Kneller 2006) and Analysis (Vranken
+et al. 2005). Proton chemical shifts were referenced relative to
+internal DSS and heteronuclei were referenced indirectly. As
+detailed previously (Blundell et al. 2004; Blundell, Deangelis,
+et al. 2006; Blundell, Reed, et al. 2006), appropriate linear pre-
+diction, window functions and zero-ﬁlling were used to
+achieve the maximum possible resolution from each data set.
+
+QM calculations
+Conformers representative of the complete pyranose Cremer–
+Pople (Cremer and Pople 1975) conformational space (74 in
+total) were built using in-house software, which systematically
+increments θ- and w-parameters (by 30°) and then performs
+constrained gas-phase energy minimization (to maintain the
+pucker) using the UFF force ﬁeld (Rappe et al. 1992).
+Single-point energy density functional
+theory calculations
+were performed on each geometry optimized conformer using
+Gaussian 03 (Frisch et al. 2004) at the B3LYP/6-311++G(d,p)
+level of theory in the gas phase and using the self-consistent
+reaction ﬁeld polarizable continuum model (Cances et al.
+1997; Cossi et al. 2002), whereby the electrostatic shielding
+effect of bulk solvent is treated as a continuous medium. The
+dielectric constant was set to 78.38, representative of water at
+298.15 K. Charge and multiplicity values of 0/1, −1/1, −2/1
+and −3/1 were used for GlcNAc and the mono-, di- and tri-
+sulfonated hexosamines, respectively.
+
+Computed vicinal couplings and rotamer populations
+Vicinal couplings were calculated using torsional data from
+the full 20 µs simulations for GlcNAc and 1-OMe-GlcNAc
+and from the 10 µs 4C1-initiated trajectories for all other mol-
+ecules. The sulfate-adjusted Karplus equation of Hricovini
+and Bizik (Altona and Haasnoot 1980; Hricovini and Bizik
+2007) was used for ring vicinal couplings. The relationships
+
+1660
+
+and
+
+used
+
+(1980) and Mobli and Almond
+of Altona and Haasnoot
+(2007) were
+acetamido
+hydroxymethyl
+for
+(HN-N2-C2-H2) vicinal couplings, respectively. Values and
+standard deviations were obtained by computing the vicinal
+coupling for each 1 μs sub-trajectory and averaging. Hydroxyl
+orientations were binned as gauche(−), anti(t) or gauche(+)
+centered on −60, 180 and 60°, respectively. Hydroxymethyl
+conformations (tg, gt and gg) were deﬁned by the torsions
+O6-C6-C5-O5 and O6-C6-C5-C4. To estimate hydroxymethyl
+rotamer populations directly from NMR data, the scalar coup-
+lings H5 to H6proR/S were ﬁtted to a rigid three-site model
+(Poppe 1993) comprising variable populations of tg, gt and
+gg conformers using the
+and
+Haasnoot.
+
+relationships of Altona
+
+Cremer–Pople analysis
+Puckers were classiﬁed (using the pyranose ring atoms O5,
+C1, C2, C3, C4 and C5) by analysis of the Cremer–Pople
+(Cremer and Pople 1975) parameters Q, θ and w, which are
+the radius, azimuthal and meridian angles (respectively) of the
+spherical puckering coordinate system describing all possible
+puckers for a six-membered ring. The Q-value represents the
+puckering magnitude (deviation from a ﬂat ring), θ describes
+the type of pucker (chair, half-chair, boat, etc.) and w is a
+phase angle describing pseudorotation.
+In the text and
+Supplementary data, a value of θ = 0° corresponds to 4C1 and
+θ = 180° to 1C4. Plots of each parameter, for each simulation,
+are reported in the Supplementary data S1. Equilibration of
+the simulations was assessed by comparing the convergence
+of the Cremer–Pople polar angle ácosθñ (which represents the
+average ring pucker, see Supplementary data S1), for simu-
+lations started in 4C1 and 1C4 puckers, as described previously
+(Sattelle et al. 2010). For analysis of GlcNAc 3D structures
+from the PDB, 794 and 13 GlcNAc and GlcNS6S crystallo-
+graphic depositions were identiﬁed with resolution ≤2.0 Å,
+containing,
+3D structures.
+Acceptable limits of Q were deﬁned as 0.8 (maximum) and
+0.4 (minimum).
+
+respectively,
+
+3137
+
+and
+
+16
+
+Free energy and rate constant and calculations
+Free energies were derived from the relationship ΔG = |RT ln
+(p1/p2)|, where p1 and p2 are the equilibrium populations of
+4C1 and 1C4 conformers, respectively, R the gas constant and
+T the temperature. Conformational exchange rates (k1 and k2)
+were derived by calculating the average time for transitions
+(4C1 → 1C4 and 1C4 → 4C1) and taking the reciprocal. The
+reported equilibrium constants are the ratio of the rates, Keq =
+k1/k2. The relationship G = |RT ln Keq| was used to conﬁrm
+computed free energies. These equations can be found in stan-
+dard chemistry textbooks.
+
+Supplementary data
+
+Supplementary data for this article is available online at http://
+glycob.oxfordjournals.org/. Simulation data (S1 and S2),
+chemical shifts from NMR (S3) and 3D coordinates of the
+equilibrium GlcNAc conformer in water (S4) are provided.
+
+Funding
+
+This work was supported by the BBSRC UK (grant number
+BBG006768).
+
+Acknowledgements
+
+We gratefully acknowledge Dr. Sara Whittaker for useful dis-
+cussions and also the University of Birmingham UK (Henry
+Welcome Building)
+their 900 MHz NMR
+spectrometer.
+
+for use of
+
+Conﬂict of interest
+None declared.
+
+Abbreviations
+
+CSD, Cambridge Structural Database; COSY, correlation
+spectroscopy; 3D, three-dimension; DSS, 4,4-dimethyl-4-sila-
+pentane-1-sulfonic acid; GlcA, β-D-glucuronic acid; GlcNAc,
+N-acetyl-D-glucosamine; HS, heparan sulfate; HSQC, hetero-
+nuclear single quantum coherence; IdoA, α-L-iduronic acid;
+IdoA2S,
+IdoA 2-sulfate; MD, molecular dynamics; Me,
+methyl; NMR,
+1-OMe,
+α-1-O-methylglycosides; PDB, Protein Data Bank; QM,
+structure–activity relationship;
+quantum mechanics; SAR,
+TOCSY, total correlation spectroscopy.
+
+nuclear magnetic
+
+resonance;
+
+References
+
+Altona C, Haasnoot CAG. 1980. Prediction of anti and gauche vicinal
+proton-proton coupling constants in carbohydrates: A simple additivity rule
+for pyranose rings. Org Magn Reson. 13:417–429.
+
+Appell M, Strati G, Willett JL, Momany FA. 2004. B3LYP/6-311++G**
+study of α- and β-D-glucopyranose and 1,5-anhydro-D-glucitol: 4C1 and
+1C4 chairs, 3,OB and B3,O boats, and skew-boat conformations. Carbohydr
+Res. 339:537–551.
+
+Ardevol A, Biarnes X, Planas A, Rovira C. 2010. The conformational free-
+energy landscape of β-D-mannopyranose: Evidence for a 1S5 → B2,5 → OS2
+catalytic itinerary in β-mannosidases. J Am Chem Soc. 132:16058–16065.
+
+Avci FY, Karst NA, Linhardt RJ. 2003. Synthetic oligosaccharides as heparin-
+properties. Curr Pharm Des.
+
+anticoagulant
+
+displaying
+
+mimetics
+9:2323–2335.
+
+Barnett CB, Naidoo KJ. 2010. Ring puckering: A metric for evaluating the
+accuracy of AM1, PM3, PM3CARB-1, and SCC-DFTB carbohydrate QM/
+MM simulations. J Phys Chem B. 114:17142–17154.
+
+Barnett CB, Wilkinson KA, Naidoo KJ. 2010. Pyranose ring transition state is
+derived from cellobiohydrolase I induced conformational stability and gly-
+cosidic bond polarization. J Am Chem Soc. 132:12800–12803.
+
+Barrows SE, Dulles FJ, Cramer CJ, French AD, Truhlar DG. 1995. Relative
+stability of alternative chair forms and hydroxymethyl conformations of
+β-D-glucopyranose. Carbohydr Res. 276:219–251.
+
+Bishop JR, Schuksz M, Esko JD. 2007. Heparan sulphate proteoglycans ﬁne-
+
+tune mammalian physiology. Nature. 446:1030–1037.
+
+Blundell CD, Deangelis PL, Almond A. 2006. Hyaluronan: The absence of
+amide-carboxylate hydrogen bonds and the chain conformation in aqueous
+solution are incompatible with stable secondary and tertiary structure
+models. Biochem J. 396:487–498.
+
+Blundell CD, DeAngelis PL, Day AJ, Almond A. 2004. Use of 15N-NMR to
+resolve molecular
+carbohydrates:
+Sequence-speciﬁc observations in hyaluronan oligomers up to decasacchar-
+ides. Glycobiology. 14:999–1009.
+
+isotopically-enriched
+
+details
+
+in
+
+Blundell CD, Reed MA, Overduin M, Almond A. 2006. NMR spectra of
+oligosaccharides at ultra-high ﬁeld (900 MHz) have better resolution than
+expected due
+tumbling. Carbohydr Res.
+341:1985–1991.
+
+to favourable molecular
+
+Is N-acetyl-D-glucosamine a rigid chair?
+
+Blundell CD, Roberts IS, Sheehan JK, Almond A. 2009. Investigating the
+molecular basis for the virulence of Escherichia coli K5 by nuclear mag-
+netic resonance analysis of the capsule polysaccharide. J Mol Microbiol
+Biotechnol. 17:71–82.
+
+Boltje TJ, Buskas T, Boons GJ. 2009. Opportunities and challenges
+in synthetic oligosaccharide and glycoconjugate research. Nat Chem.
+1:611–622.
+
+Buch I, Harvey MJ, Giorgino T, Anderson DP, De Fabritiis G. 2010.
+High-throughput all-atom molecular dynamics simulations using distributed
+computing. J Chem Inf Model. 50:397–403.
+
+Cances E, Mennucci B, Tomasi J. 1997. A new integral equation formalism
+for the polarizable continuum model: Theoretical background and appli-
+cations
+J Chem Phys.
+107:3032–3041.
+
+anisotropic
+
+dielectrics.
+
+isotropic
+
+and
+
+to
+
+Case DA, Cheatham TE, 3rd, Darden T, Gohlke H, Luo R, Merz KM, Jr.,
+Onufriev A, Simmerling C, Wang B, Woods RJ. 2005. The Amber biomo-
+lecular simulation programs. J Comput Chem. 26:1668–1688.
+
+Chang C, Magracheva E, Kozlov S, Fong S, Tobin G, Kotenko S, Wlodawer
+A, Zdanov A. 2003. Crystal structure of interleukin-19 deﬁnes a new sub-
+family of helical cytokines. J Biol Chem. 278:3308–3313.
+
+Cossi M, Scalmani G, Rega N, Barone V. 2002. New developments in the
+polarizable continuum model for quantum mechanical and classical calcu-
+lations on molecules in solution. J Chem Phys. 117:43–54.
+
+Cremer D, Pople JA. 1975. General deﬁnition of ring puckering coordinates.
+
+J Am Chem Soc. 97:1354–1358.
+
+Das SK, Mallet JM, Esnault J, Driguez PA, Duchaussoy P, Sizun P, Herault
+JP, Herbert JM, Petitou M, Sinay P. 2001. Synthesis of conformationally
+locked L-iduronic acid derivatives: Direct evidence for a critical role of the
+skew-boat 2S0 conformer in the activation of antithrombin by heparin.
+Chemistry. 7:4821–4834.
+
+Delaglio F, Grzesiek S, Vuister GW, Zhu G, Pfeifer J, Bax A. 1995.
+NMRPipe: A multidimensional spectral processing system based on UNIX
+pipes. J Biomol NMR. 6:277–293.
+
+Dowd MK, French AD, Reilly PJ. 1994. Modeling of aldopyranosyl ring
+
+puckering with MM3(92). Carbohydr Res. 264:1–19.
+
+Frisch MJ, Trucks GW, Schlegel HB, Scuseria GE, Robb MA, Cheeseman
+JR, Montgomery JJA, Vreven T, Kudin KN, Burant JC, et al. 2004.
+Gaussian 03, Revision C.02.
+
+Gama CI, Tully SE, Sotogaku N, Clark PM, Rawat M, Vaidehi N, Goddard
+WA, 3rd, Nishi A, Hsieh-Wilson LC. 2006. Sulfation patterns of glycosa-
+minoglycans encode molecular recognition and activity. Nat Chem Biol.
+2:467–473.
+
+Gao YQ, Yang LJ, Fan YB, Shao Q. 2008. Thermodynamics and kinetics
+simulations of multi-time-scale processes for complex systems. Int Rev
+Phys Chem. 27:201–227.
+
+Ghosh T, Chattopadhyay K, Marschall M, Karmakar P, Mandal P, Ray B.
+2009. Focus on antivirally active sulfated polysaccharides: From structure-
+activity analysis to clinical evaluation. Glycobiology. 19:2–15.
+
+Goddard TD, Kneller DG. 2006. SPARKY 3. San Francisco: University of
+
+California.
+
+Harvey MJ, Giupponi G, De Fabritiis G. 2009. ACEMD: Accelerating biomo-
+lecular dynamics in the microsecond time scale. J Chem Theory Comput.
+5:1632–1639.
+
+Heymann B, Grubmuller H. 1999. ‘Chair-boat’ transitions and side groups
+
+affect the stiffness of polysaccharides. Chem Phys Lett. 305:202–208.
+
+Hricovini M, Bizik F. 2007. Relationship between structure and three-bond
+proton-proton coupling constants in glycosaminoglycans. Carbohydr Res.
+342:779–783.
+
+Hricovini M, Guerrini M, Bisio A, Torri G, Petitou M, Casu B. 2001.
+Conformation of heparin pentasaccharide bound to antithrombin III.
+Biochem J. 359:265–272.
+
+Ikemizu S, Sparks LM, van der Merwe PA, Harlos K, Stuart DI, Jones EY,
+Davis SJ. 1999. Crystal structure of the CD2-binding domain of CD58
+(lymphocyte function-associated antigen 3) at 1.8-A resolution. Proc Natl
+Acad Sci USA. 96:4289–4294.
+
+Jefferis R. 2009. Glycosylation as a strategy to improve antibody-based thera-
+
+peutics. Nat Rev Drug Discovery. 8:226–234.
+
+Jin L, Hricovini M, Deakin JA, Lyon M, Uhrin D. 2009. Residual dipolar
+coupling investigation of a heparin tetrasaccharide conﬁrms the limited
+effect of ﬂexibility of the iduronic acid on the molecular shape of heparin.
+Glycobiology. 19:1185–1196.
+
+Johnson LN. 1966. The crystal structure of N-acetyl-α-D-glucosamine. Acta
+
+Crystallogr. 21:885–891.
+
+1661
+
+BM Sattelle and A Almond
+
+Jorgensen WL, Chandrasekhar J, Madura JD, Impey RW, Klein ML. 1983.
+Comparison of simple potential functions for simulating liquid water. J
+Chem Phys. 79:926–935.
+
+Khoushab F, Yamabhai M. 2010. Chitin research revisited. Mar Drugs.
+
+8:1988–2012.
+
+Kirschner KN, Woods RJ. 2001. Solvent interactions determine carbohydrate
+
+conformation. Proc Natl Acad Sci USA. 98:10541–10545.
+
+Kirschner KN, Yongye AB, Tschampel SM, Gonzalez-Outeirino J, Daniels
+CR, Foley BL, Woods RJ. 2008. GLYCAM06: A generalizable biomolecu-
+lar force ﬁeld. Carbohydrates. J Comput Chem. 29:622–655.
+
+Klepeis JL, Lindorff-Larsen K, Dror RO, Shaw DE. 2009. Long-timescale
+molecular dynamics simulations of protein structure and function. Curr
+Opin Struct Biol. 19:120–127.
+
+Krautler V, Van Gunsteren WF, Hunenberger PH. 2001. A fast SHAKE:
+Algorithm to solve distance constraint equations for small molecules in
+molecular dynamics simulations. J Comput Chem. 22:501–508.
+
+Lamanna WC, Kalus I, Padva M, Baldwin RJ, Merry CLR, Dierks T. 2007.
+The heparanome—The enigma of encoding and decoding heparan sulfate
+sulfation. J Biotechnol. 129:290–307.
+
+Li HB, Rief M, Oesterhelt F, Gaub HE, Zhang X, Shen JC. 1999.
+Single-molecule force spectroscopy on polysaccharides by AFM – nano-
+mechanical ﬁngerprint of α-(1,4)-linked polysaccharides. Chem Phys Lett.
+305:197–201.
+
+Liu J, Pedersen LC. 2007. Anticoagulant heparan sulfate: Structural speci-
+
+ﬁcity and biosynthesis. Appl Microbiol Biotechnol. 74:263–272.
+
+Liu H, Zhang Z, Linhardt RJ. 2009. Lessons learned from the contamination
+
+of heparin. Nat Prod Rep. 26:313–321.
+
+Marino K, Bones J, Kattla JJ, Rudd PM. 2010. A systematic approach to
+protein glycosylation analysis: A path through the maze. Nat Chem Biol.
+6:713–723.
+
+Marszalek PE, Oberhauser AF, Pang YP, Fernandez JM. 1998. Polysaccharide
+transitions of the glucopyranose ring.
+
+elasticity governed by chair-boat
+Nature. 396:661–664.
+
+Maruyama T, Toida T, Imanari T, Yu GY, Linhardt RJ. 1998. Conformational
+changes and anticoagulant activity of chondroitin sulfate following its
+O-sulfonation. Carbohydr Res. 306:35–43.
+
+Maveyraud L, Niwa H, Guillet V, Svergun DI, Konarev PV, Palmer RA,
+Peumans WJ, Rouge P, Van Damme EJA, Reynolds CD, et al. 2009.
+Structural basis for sugar recognition, including the Tn carcinoma antigen,
+by the lectin SNA-II from Sambucus nigra. Proteins Struct Funct Bioinf.
+75:89–103.
+
+Mo F, Jensen LH. 1975. Reﬁned model for N-acetyl-α-D-glucosamine. Acta
+
+Crystallogr Sect B: Struct Sci. 31:2867–2873.
+
+Mobli M, Almond A. 2007. N-Acetylated amino sugars: The dependence of
+NMR 3J(HNH2)-couplings on conformation, dynamics and solvent. Org
+Biomol Chem. 5:2243–2251.
+
+Mobli M, Nilsson M, Almond A. 2008. The structural plasticity of heparan
+sulfate NA-domains and hence their role in mediating multivalent inter-
+actions is conﬁrmed by high-accuracy 15N-NMR relaxation studies.
+Glycoconj J. 25:401–414.
+
+Morando MA, Nurisso A, Grenouillat N, Vauzeilles B, Beau JM, Canada FJ,
+Jimenez-Barbero J, Imberty A. 2011. NMR and molecular modeling reveal
+key structural
+features of synthetic nodulation factors. Glycobiology.
+21:824–833.
+
+Mulloy B, Forster MJ. 2000. Conformation and dynamics of heparin and
+
+heparan sulfate. Glycobiology. 10:1147–1156.
+
+Mulloy B, Johnson EA. 1987. Assignment of the 1H-n.m.r. spectra of heparin
+
+and heparan sulphate. Carbohydr Res. 170:151–165.
+
+Murrey HE, Hsieh-Wilson LC. 2008. The chemical neurobiology of carbo-
+
+hydrates. Chem Rev. 108:1708–1731.
+
+Nishiyama Y, Noishiki Y, Wada M. 2011. X-ray structure of anhydrous
+
+β-chitin at 1 angstrom resolution. Macromolecules. 44:950–957.
+
+Nothaft H, Szymanski CM. 2010. Protein glycosylation in bacteria: Sweeter
+
+than ever. Nat Rev Microbiol. 8:765–778.
+
+Ojala WH, Albers KE, Gleason WB, Choo CG. 1995. Carbohydrates with rel-
+evance to the structure of glycosaminoglycans: The crystal-structures of
+2-deoxy-2-(sulfoamino)-α-D-glucopyranose
+dihydrate,
+2-amino-2-deoxy-α,β-D-glucopyranose 3-(hydrogen sulfate) monohydrate,
+and 2-amino-2-deoxy-α-D-glucopyranose 6-(hydrogen sulfate) monohy-
+drate. Carbohydr Res. 275:49–65.
+
+sodium
+
+salt
+
+1662
+
+Orozco M, Noy A, Perez A. 2008. Recent advances in the study of nucleic
+acid ﬂexibility by molecular dynamics. Curr Opin Struct Biol.
+18:185–193.
+
+Poppe L. 1993. Modeling carbohydrate conformations from NMR data:
+Maximum-entropy rotameric distribution about the C5-C6 bond in gentio-
+biose. J Am Chem Soc. 115:8421–8426.
+
+Powell AK, Yates EA, Fernig DG, Turnbull JE. 2004. Interactions of heparin/
+heparan sulfate with proteins: Appraisal of structural factors and exper-
+imental approaches. Glycobiology. 14:17R–30R.
+
+Rabenstein DL. 2002. Heparin and heparan sulfate: Structure and function.
+
+Nat Prod Rep. 19:312–331.
+
+Rappe AK, Casewit CJ, Colwell KS, Goddard WA, Skiff WM. 1992. Uff, a
+full periodic-table force-ﬁeld for molecular mechanics and molecular-
+dynamics simulations. J Am Chem Soc. 114:10024–10035.
+
+Rich A. 2003. The double helix: A tale of two puckers. Nat Struct Biol.
+
+10:247–249.
+
+Sasisekharan R, Shriver Z, Venkataraman G, Narayanasami U. 2002. Roles of
+in cancer. Nat Rev Cancer.
+
+heparan-sulphate glycosaminoglycans
+2:521–528.
+
+Sattelle BM, Almond A. 2010. Less is more when simulating unsulfated gly-
+cosaminoglycan
+of GLYCAM06/TIP3P,
+PM3-CARB1/TIP3P, and SCC-DFTB-D/TIP3P predictions with exper-
+iment. J Comput Chem. 31:2932–2947.
+
+3D-structure: Comparison
+
+Sattelle BM, Hansen SU, Gardiner J, Almond A. 2010. Free energy land-
+scapes of iduronic acid and related monosaccharides. J Am Chem Soc.
+132:13132–13134.
+
+Schlick T. 2009. Molecular dynamics-based approaches
+
+for enhanced
+large-scale conformational changes in biomole-
+
+sampling of long-time,
+cules. F1000 Biol Rep. 1:51.
+
+Singh UC, Kollman PA. 1984. An approach to computing electrostatic
+
+charges for molecules. J Comput Chem. 5:129–145.
+
+Smits NC, Kurup S, Rops AL, ten Dam GB, Massuger LF, Hafmans T,
+Turnbull JE, Spillmann D, Li JP, Kennel SJ, et al. 2010. The heparan
+sulfate motif (GlcNS6S-IdoA2S)3, common in heparin, has a strict topo-
+graphy and is involved in cell behavior and disease. J Biol Chem.
+285:41143–41151.
+
+Spiwok V, Kralova B, Tvaroska I. 2010. Modelling of β-D-glucopyranose ring
+distortion in different force ﬁelds: A metadynamics study. Carbohydr Res.
+345:530–537.
+
+Toida T, Maruyama T, Ogita Y, Suzuki A, Toyoda H, Imanari T, Linhardt RJ.
+1999. Preparation and anticoagulant activity of fully O-sulphonated glyco-
+saminoglycans. Int J Biol Macromol. 26:233–241.
+
+Toida T, Suzuki A, Nakajima K, Chaidedgumjorn A, Imanari T. 2000. Effect
+of 6-O-sulfonate hexosamine residue on anticoagulant activity of fully
+O-sulfonated glycosaminoglycans. Glycoconj J. 17:393–399.
+
+Turnbull JE. 2010. Heparan sulfate glycomics: Towards systems biology strat-
+
+egies. Biochem Soc Trans. 38:1356–1360.
+
+Vranken WF, Boucher W, Stevens TJ, Fogh RH, Pajon A, Llinas M, Ulrich
+EL, Markley JL, Ionides J, Laue ED. 2005. The CCPN data model for
+NMR spectroscopy: Development of a software pipeline. Proteins.
+59:687–696.
+
+Wang Z, Du J, Che PL, Meledeo MA, Yarema KJ. 2009. Hexosamine
+analogs: From metabolic glycoengineering to drug discovery. Curr Opin
+Chem Biol. 13:565–572.
+
+Wang JM, Wolf RM, Caldwell
+
+JW, Kollman PA, Case DA. 2004.
+Development and testing of a general amber force ﬁeld. J Comput Chem.
+25:1157–1174.
+
+Wessel HP, Bartsch S. 1995. Conformational ﬂexibility in highly
+Res.
+
+β-D-glucopyranoside
+
+derivatives.
+
+Carbohydr
+
+sulfated
+274:1–9.
+
+Xu R, McBride R, Paulson JC, Basler CF, Wilson IA. 2010. Structure, recep-
+tor binding, and antigenicity of inﬂuenza virus hemagglutinins from the
+1957 H2N2 pandemic. J Virol. 84:1715–1721.
+
+Yates EA, Mackie W, Lamba D. 1995. The crystal and molecular-structure of
+2-sulfamino-2-deoxy-α-D-glucopyranose sodium salt.2H2O (glucosamine
+2-sulfate). Int J Biol Macromol. 17:219–226.
+
+Zhu HL, Fernandez C, Fan JB, Shewmaker F, Chen J, Minton AP, Liang Y.
+2010. Quantitative characterization of heparin binding to Tau protein:
+Implication for inducer-mediated Tau ﬁlament formation. J Biol Chem.
+285:3592–3599.
+
+

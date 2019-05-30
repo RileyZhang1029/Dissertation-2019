@@ -1,0 +1,796 @@
+MINI REVIEW ARTICLE
+published: 20 March 2012
+doi: 10.3389/fmicb.2012.00107
+
+Contribution of MS-based proteomics to the understanding
+of herpes simplex virus type 1 interaction with host cells
+
+Enrique Santamaría1, Virginia Sánchez-Quiles 2, Joaquín Fernández-Irigoyen1 and Fernando Corrales 2*
+
+1 Proteomics Unit, Biomedical Research Centre, Navarra Health Service, Pamplona, Spain
+2 Proteomics Unit, Centre for Applied Medical Research, University of Navarra, Pamplona, Spain
+
+Edited by:
+Kevin Coombs, University of
+Manitoba, Canada
+Reviewed by:
+Kevin Coombs, University of
+Manitoba, Canada
+Roger Lippé, University of Montreal,
+Canada
+*Correspondence:
+Fernando Corrales, Proteomics Unit,
+Centre for Applied Medical Research,
+University of Navarra, Pío XII Avenue,
+55, 31008 Pamplona, Spain.
+e-mail: fjcorrales@unav.es
+
+Like other DNA viruses, herpes simplex virus type 1 (HSV-1) replicates and proliferates in
+host cells continuously modulating the host molecular environment. Following a sophis-
+ticated temporal expression pattern, HSV-1 encodes at least 89 multifunctional proteins
+that interplay with and modify the host cell proteome. During the last decade, advances
+in mass spectrometry applications coupled to the development of proteomic separation
+methods have allowed to partially monitor the impact of HSV-1 infection in human cells.
+In this review, we discuss the current use of different proteome fractionation strategies
+to deﬁne HSV-1 targets in two major application areas: (i) viral-protein interactomics to
+decipher viral-protein interactions in host cells and (ii) differential quantitative proteomics
+to analyze the virally induced changes in the cellular proteome. Moreover, we will also
+discuss the potential application of high-throughput proteomic approaches to study global
+proteome dynamics and also post-translational modiﬁcations in HSV-1-infected cells that
+will greatly improve our molecular knowledge of HSV-1 infection.
+
+Keywords: HSV-1, fractionation, labeling, proteomics, mass spectrometry
+
+INTRODUCTION
+Herpes simplex virus type 1 (HSV-1) is a large, double stranded
+DNA virus with a genome of 152 kbp that replicates in the nucleus
+of the host cells and presents a unique genetic ﬂexibility (Tay-
+lor et al., 2002). Its gene expression follows a temporal pattern
+including three stages: immediate early (IE), early (E), and late
+(L) genes (Clements et al., 1977). The process of infection begins
+when the virions bind heparin sulfate moieties present on host cell
+plasma membrane. Within the ﬁrst 30 min of infection, the initial
+attachment triggers a cascade of molecular interactions involv-
+ing multiple viral and host cell proteins and receptors, leading
+to penetration of the viral nucleocapsid and tegument proteins
+into the cytoplasm (Dohner et al., 2006). After penetration, viral
+capsids and associated tegument proteins interact with dynein
+and utilize the microtubule network to transit the cytosol to
+the nuclear envelope, where they dock with nuclear pores and
+release their genomes into the nucleus. The HSV-1 genome repli-
+cation starts around 3–4 h post infection (hpi) reaching maximum
+efﬁciency between 8 and 16 hpi (Phelan and Barklie Clements,
+1997).
+
+A large amount of information is available about the cellular
+fate of viral proteins and their constitutive functions in infected
+cells (Taylor et al., 2002). However, little is known about host
+effectors involved in viral replication and their virally induced
+functions, a crucial issue to understand the molecular pathogene-
+sis of HSV-1 in human cells. This biological information is critical
+to boost novel vaccines and treatments for the broad-spectrum
+of pathological disorders caused by HSV-1 infection (Al-Dujaili
+et al., 2011; Chisholm and Lopez, 2011;Rozenberg et al., 2011)
+and also to promote the development of conditionally replicating
+HSV-1 vectors expressing cellular genes as anticancer therapeutic
+
+agents (Argnani et al., 2011; Shen and Nemunaitis, 2006; Nguyen
+and Blaho, 2007). In spite of the different genomic approaches
+carried out to understand the molecular alterations induced by
+HSV-1 infection in different mammalian cells (Mossman et al.,
+2001; Higaki et al., 2002; Paludan et al., 2002; Taddeo et al., 2002;
+Ray and Enquist, 2004; Sun et al., 2004; Clement et al., 2008, 2009;
+Zeier et al., 2009), changes in mRNA abundance do not always cor-
+relate to changes at protein level (Tian et al., 2004). Proteomics,
+therefore, is expected to provide a more extensive and complemen-
+tary description of the cellular mechanisms altered upon HSV-1
+infection. In this review, we focus on various protein fractionation
+methods coupled to mass spectrometry (MS) previously used to
+decipher novel HSV-1 targets. The results discussed here anticipate
+the future impact of high-throughput proteomic applications in
+the ﬁeld of HSV-1 biology.
+
+HSV-1 PROTEIN INTERACTOME
+In the last few years, LC–MS/MS analyses coupled to diverse
+puriﬁcation steps has emerged as a powerful technique to eluci-
+date viral proteins interactions with host proteome. In fact, some
+immediate-early viral-protein interactomes have been partially
+characterized (Figure 1). Using immunoprecipitation procedures
+coupled to MS and validation techniques, Fontaine-Rodriguez
+et al. (2004) identiﬁed eIF3 subunits p47 and p116, eIF4G, and
+poly A binding protein as cellular interactors of ICP27 viral pro-
+tein in human epidermoid (Hep-2) cells, suggesting that ICP27
+may interfere in viral or host mRNA translation. Using a simi-
+lar approach, Taylor and Knipe (2004) analyzed the interaction
+partners of ICP8 in Hep-2 cells identifying over 50 cellular pro-
+teins (and also some viral proteins) that coimmunoprecipitate or
+localize with ICP8 in replication compartments. This potential
+
+www.frontiersin.org
+
+March 2012 | Volume 3 | Article 107 | 1
+
+Santamaría et al.
+
+Proteomic focus on HSV-1 infection
+
+FIGURE 1 | Current and future applications of mass spectrometry to
+HSV-1 infection. Schematic representation of how proteomic
+technologies have been used to detect and identify HSV-1 targets in
+protein interactome experiments and also in differential quantitative
+protein expression studies. Gray boxes refer to alternative unexplored
+approaches that can be used to obtain more detailed information about the
+composition of HSV-1 particle (structural virology) and to analyze
+large-scale proteome perturbations and signaling pathways in host cells
+
+upon HSV-1 infection (Global and site speciﬁc quantitative glyco- and
+phosphoproteomics). IP, immunoprecipitation; LC–MS/MS, liquid
+chromatography coupled to tandem mass spectrometry; TAP, tandem
+afﬁnity puriﬁcation; Y2H, yeast two-hybrid system; MRM, multiple reaction
+monitoring; MS, mass spectrometry; 2-DE, two-dimensional
+electrophoresis; 2D-DIGE, two-dimensional ﬂuorescence difference gel
+electrophoresis; TMT, Tandem mass tag isobaric labeling; SILAC, stable
+isotope labeling with amino acids in cell culture.
+
+interactome was involved in different molecular function such as
+transcription, replication and recombination, chromatin remod-
+eling, and RNA splicing (Taylor and Knipe, 2004). More recently,
+Lester and Deluca (2011) have isolated the ICP4-containing com-
+plexes from HeLa-infected cells using tandem afﬁnity puriﬁcation
+(TAP-ICP4) and protein fractionation by 1D gel SDS-PAGE, iden-
+tifying more than 40 cellular proteins present in theses complexes
+by LC–MS/MS from which 11 and 4 proteins were components of
+the transcription factor TFIID and the mediator complex respec-
+tively. In this case, proteomic data were functionally validated by
+immunoﬂuorescence and chromatin immunoprecipitation exper-
+iments showing that TFIID and mediator are recruited to viral pro-
+moters as a function of ICP4 during infection (Lester and Deluca,
+2011). On the other hand, more than 40 binary interactions have
+
+been detected between capsid, envelope, and tegument viral pro-
+teins using protein–protein interaction yeast two-hybrid system
+(Bernhard et al., 2005; Vittone et al., 2005; Lee et al., 2008). Differ-
+ent proteome composition of puriﬁed mature extracellular viruses
+has been also characterized by MS-based proteomics technology.
+The carefully developed workﬂow used by Loret et al. (2008)
+allowed the identiﬁcation of 8 viral capsid proteins, 23 potential
+tegument proteins, and 13 viral glycoproteins. In this workﬂow,
+a multiple reaction monitoring (MRM) approach was used to
+detect speciﬁc viral glycoproteins in mature virion preparations.
+Interestingly, 49 different host proteins mainly involved in trans-
+port, cytoskeleton, and nucleotide binding were also accurately
+identiﬁed. Although it is necessary to functionally validate the
+presence of these host proteins in the extracellular virion structure,
+
+Frontiers in Microbiology | Virology
+
+March 2012 | Volume 3 | Article 107 | 2
+
+Santamaría et al.
+
+Proteomic focus on HSV-1 infection
+
+these data clearly demonstrate that HSV-1 tegumentation may be
+considered as a highly dynamic process.
+
+PROTEOMIC PROFILING OF HSV-1-INFECTED CELLS
+Comparative proteomic strategies have been also used in HSV-
+1 research to elucidate host proteome modiﬁcations during the
+early stages of HSV-1 infection (Figure 1). One of the most popu-
+lar methods for protein separation is 2D-electrophoresis (2-DE).
+Based on two independent biochemical characteristics of proteins,
+it combines isoelectric focusing, which separates proteins accord-
+ing to their isoelectric point (pI), and SDS-PAGE, which separates
+them further according to their molecular mass (Westermeier and
+Gorg, 2011). Using 35S labeling and 2-DE, Greco et al. (2000)
+demonstrated that although a strong shutoff in protein synthe-
+sis is induced in HSV-1 infection, the synthesis of some acidic
+ribosomal proteins is sustained or even induced early in infec-
+tion. On the other hand, Antrobus et al. identiﬁed more than 100
+protein species differentially expressed between non-infected and
+infected Hep-2 cells at 6 hpi. They used conventional 2-DE for
+protein separation and MS for protein identiﬁcation. The host
+proteins identiﬁed in this study participate in a plethora of bio-
+logical process and some of them were validated by western-blot
+analysis also in human diploid ﬁbroblast (HF) cells (Antrobus
+et al., 2009).
+
+Advanced prefractionation strategies in combination with MS,
+have provided powerful means to enrich and analyze organelle-
+speciﬁc subproteomes, obtaining valuable information that greatly
+expand our knowledge of the molecular mechanisms altered dur-
+ing HSV-1 infection. With the aim of detecting non-ribosomal
+proteins associated to the ribosome that may contribute to the
+HSV-1-induced translational control, Greco et al. extracted basic
+proteins from the ribosomal fraction from mock-infected and
+HSV-1-HeLa-infected cells. Using 35S, 2-DE, N-terminal sequenc-
+ing, and MS, viral proteins such as VP19C and VP26, and host
+poly(A) binding protein 1 were identiﬁed associated to ribo-
+somes with different kinetics upon HSV-1 infection (Greco et al.,
+2001). More recently, we have used complementary protein and
+peptide labeling strategies to understand the dynamics of the
+human hepatoma cell proteome behavior upon HSV-1 infection.
+To increase the efﬁciency of proteomic analysis, Santamaría et
+al. fractionated mock-infected and HuH7-infected cells to obtain
+cytosolic and microsomal proteomes independently, at different
+early time points of HSV-1 infection. After validating the efﬁ-
+ciency of the enrichment procedure, proteome dynamics was
+analyzed in both subcellular fractions by two-dimensional ﬂuo-
+rescence difference gel electrophoresis (2D-DIGE). This approach
+is based on direct labeling of lysine groups on proteins with
+cyanine CyDye DIGE Fluor minimal dyes before isoelectric focus-
+ing, enabling the labeling of two to three samples with different
+dyes and electrophoresis of all the samples on the same 2D gel,
+minimizing spot pattern variability and the number of gels in
+an experiment (Tannu and Hemby, 2006). Using this approach,
+16 unique deregulated host protein species mainly involved in
+apoptosis, signal transduction, and endoplasmic reticulum associ-
+ated degradation pathway were identiﬁed in HuH7-infected cells
+by LC–MS/MS analyses (Santamaria et al., 2009). Interestingly,
+three of these proteins (FK506-binding protein 4, hnRNPK and
+
+eukaryotic translation initiation factor 3 subunit 2) were also
+deregulated early upon infection in Hep-2 cells (Antrobus et al.,
+2009). These coincident proteins suggest that cellular mecha-
+nisms involved in microtubule dynamics and mRNA processing
+are common in infected cells with different origin indicating the
+importance of these targets for HSV-1 infection. Santamaria et al.
+(2009) demonstrated the activation of mitochondrial apoptotic
+and different canonical signaling pathways identifying PP2A as
+a pivotal target that may mediate the transduction of cell death
+signals and promote cell survival pathway arrest in HuH7 cells.
+In the near future, it would be interesting to study the speciﬁc
+role of PP2A in different kind of cells infected with other HSV-1
+strains to obtain robust conclusions. Moreover, deciphering the
+potential interactome of PP2A together with phosphoproteome-
+wide analysis of infected cells would increase our knowledge
+about the speciﬁc role of phosphorylation in HSV-1-infected
+cells.
+
+Taking into account that HSV-1 replicates in the nucleus of
+the host cells, Sanchez-Quiles et al. (2011) have combined 2D-
+DIGE and tandem mass tag isobaric labeling (TMT) techniques
+to analyze nuclear proteome alterations in HuH7-infected cells.
+TMT is a liquid-based method that labels samples at the pep-
+tide level (Dayon et al., 2008). While DIGE separates only soluble
+proteins included in a pH range of 3–11 and a determined mol-
+ecular weight, TMT can identify proteins outside these ranges.
+Moreover, DIGE is able to detect differential post-translationally
+modiﬁed proteins as well as different isoforms by resolving spots
+at different pI and molecular weight. However, these isoforms
+may not be distinguished with TMT approach, since labeling is
+completed at the peptide level and most peptide sequences are
+identical among a group of isoforms. In addition, proteins with
+extreme isoelectric points, large molecular weights, low solubility
+(hydrophobic proteins) and low copy numbers are poorly repre-
+sented in 2D-DIGE experiments. The application of two different
+proteomic strategies was particularly useful in obtaining comple-
+mentary information, identifying 62 differential components of
+the nuclear proteome of Huh7 hepatoma cells that may regulate
+host–virus interaction, cell cycle regulation, and RNA homeosta-
+sis upon infection (Sanchez-Quiles et al., 2011). In particular,
+Lamin A–C, also differentially expressed in Hep-2 infected cells
+(Antrobus et al., 2009), showed a complex differential isoform
+pattern upon HSV-1 infection, suggesting regulatory mechanisms
+based on post-translational modiﬁcation events. Interestingly, 32
+host proteins were enriched in infected nuclei. One of these early
+up-regulated proteins was protein quaking (QKI), involved in the
+regulation of mRNA stability, nuclear retention, and RNA trans-
+port (Galarneau and Richard, 2005). Using immunoﬂuorescence
+assays, Sánchez-Quiles et al. have demonstrated that QKI-5 suf-
+fers a time-dependent redistribution in infected cells, shuttling
+from the nucleus to the cytosol upon HSV-1 infection. Inter-
+estingly, QKI depletion by knockdown strategy induces a clear
+delay in viral-protein synthesis, reducing the viral yield in infected
+cells (Sanchez-Quiles et al., 2011). Although the viral necessity of
+maintaining high expression levels of QKI during the infection
+should be demonstrated as a possible global mechanism of HSV-1
+interference with host cells, these data suggest that QKI may be a
+potential target in the development of antiviral therapy.
+
+www.frontiersin.org
+
+March 2012 | Volume 3 | Article 107 | 3
+
+Santamaría et al.
+
+Proteomic focus on HSV-1 infection
+
+All differential proteins provided by proteomic studies have
+undoubtedly extended our knowledge about HSV-1 infection at
+the molecular level. However, the protein repertoires reported
+are barely coincident. This variability is likely associated with
+speciﬁc biological properties of the samples analyzed (differ-
+ent cell lines, HSV-1 strains, and time point of infection used)
+and the heterogeneity of the analytical procedures used (frac-
+tionation methods to isolate speciﬁc organelles, and the use
+of gel-based or gel free proteomic workﬂows). Although dif-
+ferential proteomics has contributed to a better understanding
+about the speciﬁc proteome changes that occur early in infec-
+tion, additional research is needed to elucidate whether these
+differentially expressed proteins are cellular targets used for HSV-
+1 to modulate the host proteome or are part of molecular
+events orchestrated by the cell to limit viral replication and
+propagation.
+
+FUTURE DIRECTIONS
+Although 2D-electrophoresis has been the technique of choice
+to monitor changes at protein level in HSV-1-infected cells, this
+approach presents some inherent disadvantages such as many pro-
+tein spots are likely comprised of multiple proteins, poor spot res-
+olution at higher pI values, and the difﬁculty in electrophoresing
+large and hydrophobic proteins in the ﬁrst dimension separa-
+tion. However, the rapid advances in high-resolution MS-based
+proteomics strategies may facilitate the global analysis of pro-
+tein interacting partners of HSV-1 virion proteomes (Bailer and
+Haas, 2009), host protein components in HSV-1-infected secre-
+tome (Higa et al., 2008; Deng et al., 2010; Lietzen et al., 2011), and
+
+also the detection, identiﬁcation, and quantitation of thousands
+of novel HSV-1 targets in host cells to ﬁnally obtain an integra-
+tive view of proteome modiﬁcations during the viral cycle. In the
+near future, alternative proteomics methods such as SILAC (Ong
+and Mann, 2006; Harsha et al., 2008) or stable isotope dimethyl
+labeling (Boersema et al., 2009) will lead to more comprehensive
+and time-dependent analysis of HSV-1-induced changes in host
+proteomes. Nowadays, these high-throughput approaches have
+been established and constantly optimized in order to improve
+our understanding of phosphorylation events. Large-scale pro-
+teomic studies based on SILAC in combination with strong cation
+exchange (SCX) and titanium dioxide (TiO2) for phosphopep-
+tide enrichment (Macek et al., 2009) would greatly contribute
+to the study of phosphorylation dynamics in HSV-1-infected
+cells. Using this shotgun approach, unexpected novel phospho-
+rylation sites could be discovered in HSV-1 proteome, increasing
+our biological knowledge about the activation/deactivation status
+of multiple host signaling pathways during the infection. More-
+over, the combination of immunoafﬁnity chromatography and
+MS-based quantitative MS (Pan et al., 2011), will be a valuable
+approach to characterize the glycoproteome of HSV-1-infected
+cells and also to map the speciﬁc changes in glycosylation patterns
+of HSV-1 surface proteins during the viral cycle. Finally, the appli-
+cation of native and ion-mobility MS in the near future (Uetrecht
+et al., 2011) will provide useful information about viral-protein
+and protein-complex structure, conformation, stoichiometry of
+an assembly, binding afﬁnities, and the topology of a viral-protein
+complex (Uetrecht and Heck, 2011) increasing our knowledge on
+structural HSV-1 biology.
+
+REFERENCES
+Al-Dujaili, L. J., Clerkin, P. P., Clement,
+C., Mcferrin, H. E., Bhattacharjee, P.
+S., Varnell, E. D., Kaufman, H. E.,
+and Hill, J. M. (2011) Ocular herpes
+simplex virus: how are latency, reac-
+tivation, recurrent disease and ther-
+apy interrelated? Future Microbiol. 6,
+877–907.
+
+Antrobus, R., Grant, K., Gangadha-
+ran, B., Chittenden, D., Everett,
+R. D., Zitzmann, N., and Boutell,
+C. (2009). Proteomic analysis of
+cells in the early stages of her-
+pes simplex virus type-1 infection
+reveals widespread changes in the
+host cell proteome. Proteomics 9,
+3913–3927.
+
+Argnani, R., Marconi, P., Volpi,
+
+I.,
+Bolanos, E., Carro, E., Ried, C., San-
+tamaria, E., Pourchet, A., Epstein,
+A. L., Brocker, T., Corrales, F. J.,
+Manservigi, R., Goicoechea, I., Fos-
+chini, M., and Hernandez-Alcoceba,
+R. (2011). Characterization of her-
+pes
+simplex virus 1 strains as
+platforms for the development of
+oncolytic viruses against liver cancer.
+Liver Int. 31, 1542–1553.
+
+Bailer, S. M., and Haas, J. (2009).
+viral with cellular
+
+Connecting
+
+interactomes. Curr. Opin. Microbiol.
+12, 453–459.
+
+Bernhard, O. K., Diefenbach, R. J., and
+Cunningham, A. L. (2005). New
+insights into viral structure and
+virus-cell interactions through pro-
+teomics. Expert Rev. Proteomics 2,
+577–588.
+
+Boersema, P. J., Raijmakers, R., Lemeer,
+S., Mohammed, S., and Heck, A.
+J. (2009). Multiplex peptide stable
+isotope dimethyl labeling for quan-
+titative proteomics. Nat. Protoc. 4,
+484–494.
+
+Chisholm, C., and Lopez, L. (2011).
+Cutaneous infections caused by Her-
+pesviridae: a review. Arch. Pathol.
+Lab. Med. 135, 1357–1362.
+
+Clement, C., Bhattacharjee, P. S., Kauf-
+man, H. E., and Hill, J. M. (2009).
+Heat-induced reactivation of HSV-
+1 in latent mice: upregulation in
+the TG of CD83 and other immune
+response genes and their LAT-ICP0
+locus. Invest. Ophthalmol. Vis. Sci.
+50, 2855–2861.
+
+Clement, C., Popp, M. P., Bloom, D.
+C., Schultz, G., Liu, L., Neumann,
+D. M., Bhattacharjee, P. S., and Hill,
+J. M. (2008). Microarray analysis of
+host gene expression for comparison
+
+between naive and HSV-1 latent rab-
+bit trigeminal ganglia. Mol. Vis. 14,
+1209–1221.
+
+Clements, J. B., Watson, R. J., and
+Wilkie, N. M. (1977). Temporal reg-
+ulation of herpes simplex virus type
+1 transcription:
+location of tran-
+scripts on the viral genome. Cell 12,
+275–285.
+
+Dayon, L., Hainard, A., Licker, V., Turck,
+N., Kuhn, K., Hochstrasser, D. F.,
+Burkhard, P. R., and Sanchez, J.
+C. (2008). Relative quantiﬁcation of
+proteins in human cerebrospinal ﬂu-
+ids by MS/MS using 6-plex isobaric
+tags. Anal. Chem. 80, 2921–2931.
+
+Deng, W., De Hoog, C. L., Yu, H.
+B., Li, Y., Croxen, M. A., Thomas,
+N. A., Puente, J. L., Foster, L. J.,
+and Finlay, B. B. A. (2010). Com-
+prehensive proteomic analysis of
+the type III secretome of Citrobac-
+ter rodentium. J. Biol. Chem. 285,
+6790–6800.
+
+simplex virus
+
+Dohner, K., Radtke, K., Schmidt, S.,
+and Sodeik, B. (2006). Eclipse phase
+of herpes
+type 1
+infection: efﬁcient dynein-mediated
+capsid transport without the small
+capsid protein VP26. J. Virol. 80,
+8211–8224.
+
+Fontaine-Rodriguez, E. C., Taylor, T. J.,
+Olesky, M., and Knipe, D. M. (2004).
+Proteomics of herpes simplex virus
+infected cell protein 27: association
+with translation initiation factors.
+Virology 330, 487–492.
+
+Galarneau, A., and Richard, S. (2005).
+Target RNA motif and target mRNAs
+of the quaking STAR protein. Nat.
+Struct. Mol. Biol. 12, 691–698.
+
+Greco, A., Bausch, N., Coute, Y., and
+Diaz, J. J. (2000). Characterization by
+two-dimensional gel electrophore-
+sis of host proteins whose synthe-
+sis is sustained or stimulated during
+the course of herpes simplex virus
+type 1 infection. Electrophoresis 21,
+2522–2530.
+
+Greco, A., Bienvenut, W., Sanchez,
+J. C., Kindbeiter, K., Hochstrasser,
+D., Madjar, J. J., and Diaz, J. J.
+(2001). Identiﬁcation of ribosome-
+associated viral and cellular basic
+proteins during the course of infec-
+tion with herpes simplex virus type
+1. Proteomics 1, 545–549.
+
+Harsha, H. C., Molina, H., and Pandey,
+A. (2008). Quantitative proteomics
+using stable isotope labeling with
+amino acids in cell culture. Nat.
+Protoc. 3, 505–516.
+
+Frontiers in Microbiology | Virology
+
+March 2012 | Volume 3 | Article 107 | 4
+
+Santamaría et al.
+
+Proteomic focus on HSV-1 infection
+
+Higa, L. M., Caruso, M. B., Canellas,
+F., Soares, M. R., Oliveira-Carvalho,
+A. L., Chapeaurouge, D. A., Almeida,
+P. M., Perales, J., Zingali, R. B., and
+Da Poian, A. T. (2008). Secretome
+of HepG2 cells infected with dengue
+virus: implications for pathogene-
+sis. Biochim. Biophys. Acta 1784,
+1607–1616.
+
+Higaki, S., Gebhardt, B. M., Lukiw, W.
+J., Thompson, H. W., and Hill, J. M.
+(2002). Effect of immunosuppres-
+sion on gene expression in the HSV-
+1 latently infected mouse trigeminal
+ganglion. Invest. Ophthalmol. Vis.
+Sci. 43, 1862–1869.
+
+Lee, J. H., Vittone, V., Diefenbach, E.,
+Cunningham, A. L., and Diefenbach,
+R. J. (2008). Identiﬁcation of struc-
+tural protein-protein interactions of
+herpes simplex virus type 1. Virology
+378, 347–354.
+
+Lester, J. T., and Deluca, N. A. (2011).
+Herpes simplex virus 1 ICP4 forms
+complexes with TFIID and media-
+tor in virus-infected cells. J. Virol. 85,
+5733–5744.
+
+Julkunen,
+
+Lietzen, N., Ohman, T., Rintahaka,
+I., Aittokallio, T.,
+J.,
+Matikainen, S., and Nyman, T. A.
+(2011). Quantitative
+subcellular
+proteome and secretome proﬁl-
+inﬂuenza A virus-infected
+ing of
+human
+primary macrophages.
+PLoS
+e1001340.
+doi:10.1371/journal.ppat.1001340
+
+Pathog.
+
+7,
+
+Loret, S., Guay, G., and Lippe, R.
+(2008). Comprehensive characteri-
+zation of extracellular herpes sim-
+plex virus type 1 virions. J. Virol. 82,
+8605–8618.
+
+Macek, B., Mann, M., and Olsen,
+J. V.
+(2009). Global and site-
+speciﬁc quantitative phosphopro-
+teomics: principles and applications.
+Annu. Rev. Pharmacol. Toxicol. 49,
+199–221.
+
+Mossman, K. L., Macgregor, P. F., Roz-
+mus, J. J., Goryachev, A. B., Edwards,
+A. M., and Smiley, J. R. (2001). Her-
+pes simplex virus triggers and then
+disarms a host antiviral response. J.
+Virol. 75, 750–758.
+
+Nguyen, M. L., and Blaho, J. A. (2007).
+Apoptosis during herpes simplex
+
+virus infection. Adv. Virus Res. 69,
+67–97.
+
+Ong, S. E., and Mann, M. (2006). A prac-
+tical recipe for stable isotope label-
+ing by amino acids in cell culture
+(SILAC). Nat. Protoc. 1, 2650–2660.
+Paludan, S. R., Melchjorsen, J., Malm-
+gaard, L., and Mogensen, S. C.
+(2002). Expression of genes
+for
+cytokines and cytokine-related func-
+tions in leukocytes infected with
+herpes simplex virus: comparison
+between resistant and susceptible
+mouse strains. Eur. Cytokine Netw.
+13, 306–316.
+
+Pan, S., Chen, R., Aebersold, R., and
+Brentnall, T. A. (2011). Mass spec-
+trometry based glycoproteomics –
+from a proteomics perspective. Mol.
+Cell Proteomics 10, R110.003251.
+
+Phelan, A., and Barklie Clements, J.
+(1997). Functional domains within
+the nucleus of
+infected
+with HSV-1. Rev. Med. Virol. 7,
+229–237.
+
+a cell
+
+Ray, N., and Enquist, L. W. (2004).
+Transcriptional response of a com-
+mon permissive cell type to infection
+by two diverse alphaherpesviruses. J.
+Virol. 78, 3489–3501.
+
+Rozenberg, F., Deback, C., and Agut, H.
+(2011). Herpes simplex encephalitis:
+from virus to therapy. Infect. Disord.
+Drug Targets 11, 235–250.
+
+Sanchez-Quiles, V., Mora, M. I., Segura,
+V., Greco, A., Epstein, A. L., Fos-
+chini, M. G., Dayon, L., Sanchez,
+J. C., Prieto, J., Corrales, F. J., and
+Santamaria, E. (2011). HSV-1 Cgal+
+infection promotes quaking RNA
+binding protein production and
+induces nuclear-cytoplasmic shut-
+tling of quaking I-5 isoform in
+human hepatoma cells. Mol. Cell
+Proteomics 10, M111.009126.
+
+Santamaria, E., Mora, M.
+
+I., Potel,
+C., Fernandez-Irigoyen, J., Carro-
+Roldan, E., Hernandez-Alcoceba,
+R., Prieto, J., Epstein, A. L., and
+Corrales, F. J. (2009). Identiﬁca-
+tion of replication-competent HSV-
+1 Cgal+ strain signaling targets in
+human hepatoma cells by functional
+organelle proteomics. Mol. Cell Pro-
+teomics 8, 805–815.
+
+Shen,Y., and Nemunaitis, J. (2006). Her-
+pes simplex virus 1 (HSV-1) for can-
+cer treatment. Cancer Gene Ther. 13,
+975–992.
+
+Sun, A., Devi-Rao, G. V., Rice, M. K.,
+Gary, L. W., Bloom, D. C., Sandri-
+Goldin, R. M., Ghazal, P., and Wag-
+ner, E. K. (2004). Immediate-early
+expression of the herpes simplex
+virus type 1 ICP27 transcript
+is
+not critical for efﬁcient replication
+in vitro or in vivo. J. Virol. 78,
+10470–10478.
+
+Taddeo, B., Esclatine, A., and Roizman,
+B. (2002). The patterns of accu-
+mulation of cellular RNAs in cells
+infected with a wild-type and a
+mutant herpes simplex virus 1 lack-
+ing the virion host shutoff gene.
+Proc. Natl. Acad. Sci. U.S.A. 99,
+17031–17036.
+
+Tannu, N. S., and Hemby, S. E. (2006).
+Two-dimensional ﬂuorescence dif-
+ference gel electrophoresis for com-
+parative proteomics proﬁling. Nat.
+Protoc. 1, 1732–1742.
+
+Taylor, T. J., Brockman, M. A., Mcnamee,
+E. E., and Knipe, D. M. (2002). Her-
+pes simplex virus. Front. Biosci. 7,
+d752–d764.
+
+Taylor, T.
+
+J., and Knipe, D. M.
+(2004). Proteomics of herpes sim-
+plex virus
+replication compart-
+ments: association of cellular DNA
+replication, repair, recombination,
+and chromatin remodeling pro-
+teins with ICP8.
+J. Virol. 78,
+5856–5866.
+
+Tian, Q., Stepaniants, S. B., Mao, M.,
+Weng, L., Feetham, M. C., Doyle, M.
+J.,Yi, E. C., Dai, H., Thorsson,V., Eng,
+J., Goodlett, D., Berger, J. P., Gunter,
+B., Linseley, P. S., Stoughton, R. B.,
+Aebersold, R., Collins, S. J., Han-
+lon, W. A., and Hood, L. E. (2004).
+Integrated genomic and proteomic
+analyses of gene expression in mam-
+malian cells. Mol. Cell Proteomics 3,
+960–969.
+
+Uetrecht, C., Barbu, I. M., Shoemaker,
+G. K., Van Duijn, E., and Heck, A.
+J. (2011). Interrogating viral cap-
+sid assembly with ion mobility-
+mass spectrometry. Nat. Chem. 3,
+126–132.
+
+Uetrecht, C., and Heck, A. J. (2011).
+Modern biomolecular mass spec-
+trometry and its role in study-
+ing virus structure, dynamics, and
+assembly. Angew. Chem. Int. Ed.
+Engl. 50, 8248–8262.
+
+Vittone, V., Diefenbach, E., Triffett, D.,
+Douglas, M. W., Cunningham, A. L.,
+and Diefenbach, R. J. (2005). Deter-
+mination of
+interactions between
+tegument proteins of herpes simplex
+virus type 1. J. Virol. 79, 9566–9571.
+Westermeier, R., and Gorg, A. (2011).
+Two-dimensional electrophoresis in
+proteomics. Methods Biochem. Anal.
+54, 411–439.
+
+Zeier, Z., Aguilar, J. S., Lopez, C. M.,
+Devi-Rao, G. B., Watson, Z. L., Baker,
+H. V., Wagner, E. K., and Bloom, D.
+C. (2009). A limited innate immune
+response is induced by a replication-
+defective herpes simplex virus vec-
+tor following delivery to the murine
+central nervous system. J. Neurovi-
+rol. 15, 411–424.
+
+Conﬂict of Interest Statement: The
+authors declare that the research was
+conducted in the absence of any com-
+mercial or ﬁnancial relationships that
+could be construed as a potential con-
+ﬂict of interest.
+
+Received: 02 February 2012; accepted: 02
+March 2012; published online: 20 March
+2012.
+Citation: Santamaría E, Sánchez-Quiles
+V, Fernández-Irigoyen J and Corrales F
+(2012) Contribution of MS-based pro-
+teomics to the understanding of herpes
+simplex virus type 1 interaction with
+host cells. Front. Microbio. 3:107. doi:
+10.3389/fmicb.2012.00107
+This article was submitted to Frontiers
+in Virology, a specialty of Frontiers in
+Microbiology.
+Copyright  2012 Santamaría, Sánchez-
+Quiles, Fernández-Irigoyen and Cor-
+rales. This is an open-access article dis-
+tributed under the terms of the Cre-
+ative Commons Attribution Non Com-
+mercial License, which permits non-
+commercial use, distribution, and repro-
+duction in other forums, provided the
+original authors and source are credited.
+
+www.frontiersin.org
+
+March 2012 | Volume 3 | Article 107 | 5
+
+

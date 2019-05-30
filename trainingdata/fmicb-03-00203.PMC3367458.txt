@@ -1,0 +1,1125 @@
+MINI REVIEW ARTICLE
+published: 05 June 2012
+doi: 10.3389/fmicb.2012.00203
+
+Engineering microbial consortia to enhance biomining
+and bioremediation
+Karl D. Brune and Travis S. Bayer*
+
+Centre for Synthetic Biology and Innovation, Division of Molecular Biosciences, Imperial College London, London, UK
+
+Edited by:
+Weiwen Zhang, Tianjin University,
+China
+Reviewed by:
+Romy Chakraborty, Lawrence
+Berkeley National Lab, USA
+Lei Chen, Tianjin University, China
+*Correspondence:
+Travis S. Bayer, Centre for Synthetic
+Biology and Innovation, Division of
+Molecular Biosciences, Imperial
+College London, London SW7 2AZ,
+UK. e-mail: t.bayer@imperial.ac.uk
+
+In natural environments microorganisms commonly exist as communities of multiple
+species that are capable of performing more varied and complicated tasks than clonal
+populations. Synthetic biologists have engineered clonal populations with characteristics
+such as differentiation, memory, and pattern formation, which are usually associated with
+more complex multicellular organisms. The prospect of designing microbial communities
+has alluring possibilities for environmental, biomedical, and energy applications, and is likely
+to reveal insight into how natural microbial consortia function. Cell signaling and commu-
+nication pathways between different species are likely to be key processes for designing
+novel functions in synthetic and natural consortia. Recent efforts to engineer synthetic
+microbial interactions will be reviewed here, with particular emphasis given to research
+with signiﬁcance for industrial applications in the ﬁeld of biomining and bioremediation of
+acid mine drainage.
+
+Keywords: acid mine drainage, bioleaching, biomining, bioremediation, microbial consortia, synthetic biology,
+synthetic microbial consortia
+
+INTRODUCTION
+Natural microbial consortia are known to facilitate a wide range of
+complex tasks such as inter-species bioﬁlm formation that allows
+microorganisms to persist in inhospitable environments (Keller
+and Surette, 2006). Syntrophic degradation of complex molecules
+also allows two species to complete metabolic reactions from
+which neither species would gain energy without the coopera-
+tion of the other (Zhou et al., 2011). Consortia play a crucial role
+in the human gut microbiome (Kau et al., 2011) and are known
+to heavily inﬂuence the ecological dynamics of the marine com-
+munity (Giovannoni and Vergin, 2012). Humans have made use
+of natural consortia for millennia and selected them for better
+performance or desired properties in areas such as dairy process-
+ing (Reid, 2012), beer, and wine fermentation (Di Maio et al.,
+2012), and more recently in biogas processing (Lynd et al., 2002)
+and biomining (Rawlings, 2007).
+
+The ﬁeld of synthetic biology has developed a wide range
+of highly engineered clonal populations of bacteria to perform
+complex tasks such as differentiation (Süel et al., 2006), memory
+(Ham et al., 2008), counting (Friedland et al., 2009), and pattern
+formation (Liu et al., 2011a) as well as industrial applications such
+as production of antimalarial drug precursors (Ro et al., 2006),
+fuel like long-chain alcohols (Atsumi et al., 2008), and biosensors
+for arsenic in drinking water (Stocker et al., 2003). The construc-
+tion and analysis of synthetic gene circuits has not only provided us
+with new tools for genetic engineering but has given deeper insight
+into naturally occurring gene circuits, their evolution, architec-
+tures, and properties as well (Sprinzak and Elowitz, 2005; Ça˘gatay
+et al., 2009; Elowitz and Lim, 2010).
+
+Considering that most synthetic circuits have been engi-
+neered in clonal populations it has been proposed that engi-
+neering synthetic consortia may allow for more complex tasks
+in industrial applications (Brenner et al., 2008; Sabra et al., 2010;
+
+Momeni et al., 2011). Synthetic consortia may empower scien-
+tists and engineers to cultivate and make use of some of the 99%
+percent of microbes that have not been cultured yet and also to
+elucidate the role of the many genes that have yet unknown func-
+tion(s), which might well be of particular relevance in microbial
+consortia (Wintermute and Silver, 2010). So far several proof-of-
+concept and industrial synthetic consortia have been engineered
+and reviewed (Brenner et al., 2008; Rollié et al., 2012); highlighted
+by a recent review focusing on engineered communication and
+biofuel processing (Shong et al., 2012).
+
+The industrial practice of biomining (Olson et al., 2003) and
+bioremediation of heavy metal contaminations (Haferburg and
+Kothe, 2010) could potentially beneﬁt from synthetic consortia as
+natural consortia have been shown to play crucial roles in these
+processes. This review focuses on using microbial isolates to con-
+struct consortia that would otherwise not be found together in
+Nature and discusses the potential use of genetically engineered
+species in bioremediation and biomining processes.
+
+MICROBIAL CONSORTIA IN BIOMINING
+BIOLOGICAL PROCESSES IN METAL RECOVERY
+Biomining entails the use of acidophilic microbes to facilitate the
+recovery process of metals from sulﬁde minerals in the processes
+of bioleaching and biooxidation. Biooxidation is the enrichment
+of metals, particularly gold, by mobilization and thus removal of
+interfering metal sulﬁdes from ores bearing the precious met-
+als (Rohwerder et al., 2003). Bioleaching is the solubilization of
+metals of interest such as cobalt, copper, and nickel from sul-
+ﬁde minerals. The two processes are industrially well established
+and are commercially applied worldwide (Rawlings, 2007). The
+microbes found in these environments are (extreme) acidophiles
+growing at a pH of 3 or lower and span a wide range of different
+phyla. The majority belong to the bacterial and archaea domains;
+
+www.frontiersin.org
+
+June 2012 | Volume 3 | Article 203 | 1
+
+“fmicb-03-00203” — 2012/6/1 — 18:18 — page 1 — #1
+
+Brune and Bayer
+
+Engineering microbial consortia
+
+however, unicellular eukaryotes have also been reported (Baker
+and Banﬁeld, 2003; Bonnefoy and Holmes, 2011).
+
+The impact of microbial consortia in bioleaching, particularly
+in copper recovery, is widely recognized in literature and indus-
+try (Olson et al., 2003; Rohwerder et al., 2003). Microorganisms
+oxidize both sulfur and iron of sulﬁde minerals, such as pyrite.
+It is generally accepted that leaching takes place via an “indi-
+rect” mechanism, which can be divided into the “contact” and
+“non-contact” mode (Baker and Banﬁeld, 2003; Rohwerder et al.,
+2003). The “indirect” mechanism assumes that chemoautotrophic
+iron-oxidizing microorganisms like Acidithiobacillus ferrooxidans
+or Leptospirillum ferrooxidans generate ferric ions by oxidation of
+ferrous iron (Rawlings, 2002). During the “non-contact” mode
+planktonic microbes oxidize aqueous ferrous ions to ferric ions,
+which in turn attack the mineral surface by chemical oxidation.
+The “contact” mode assumes a small reaction space between the
+microbial cell wall and the mineral surface where ferric ions are
+concentrated in bioﬁlms for a localized attack of the sulﬁde min-
+eral. Either mode yields different intermediate and ﬁnal sulfur
+species depending on the ore leached. The thiosulfate mecha-
+nism applies for acid-insoluble metal sulﬁdes such as molybdenite
+2−
+(MoS2) and pyrite (FeS2), and eventually yields sulfate (SO4
+)
+as the main end product. The so-called polysulﬁde mechanism
+applies for acid-soluble metal sulﬁdes such as arsenopyrite (FeAsS)
+and chalcopyrite (CuFeS2), eventually yielding elemental sul-
+fur as the main end product (Rawlings, 2002; Rohwerder et al.,
+2003). Accumulating sulfur layers may act as a leaching inhibitor
+because of sterically impeding the ferric ion attack on the ore and
+thus affecting the growth of iron-oxidizing microbes. Chalcopy-
+rite leaching is particularly sensitive to inactivation by formation
+of jarosite layers as a function of redox potential and is thus
+one of the most recalcitrant ore to leach (Viramontes-Gamboa
+et al., 2010). These sulfur layers however can be oxidized to sol-
+uble sulfate by sulfur-oxidizing bacteria such as Acidithiobacillus
+caldus or Acidithiobacillus thiooxidans (Dopson and Lindstrom,
+1999; Sand et al., 2001; Mangold et al., 2011). Hence naturally
+occurring consortia of autotrophic iron-oxidizing microbes and
+sulfur-oxidizing microbes have been proposed to be symbiotic,
+potentially mutualistic (Rawlings et al., 1999) or at least synergetic
+in substrate use (Johnson, 1998; Roger Morin in Donati and Sand,
+2007, 136).
+
+COMMUNICATION IN NATURAL BIOMINING CONSORTIA
+Research on extracellular polymeric substances (EPS) of A. fer-
+rooxidans suggests that bioﬁlm formation, which is crucial for the
+contact leaching mechanism, leads to an increase in redox poten-
+tial and thus increase leaching rates as iron ions are trapped in the
+EPS (Sand and Gehrke, 2006). It is known that communication
+plays a major role in microbial bioﬁlm formation (McDougald
+et al., 2012). The model bioleaching organism A. ferrooxidans pro-
+duces and responds to compounds of the acyl homoserine lactones
+(AHLs) family used in auto-inducer 1 (AI-1) type quorum-sensing
+(QS) system (Keller and Surette, 2006) as well as to the c-di-
+GMP pathway (Hengge, 2009), which is also employed in QS. Two
+loci have been identiﬁed encoding for AHL synthases, the clas-
+sical LuxI-type afeI acyl synthase (Farah et al., 2005; Rivas et al.,
+2005) and act which is related to the LPA acyltransferase family
+
+(Rivas et al., 2007). Both systems are involved in response to iron
+and sulfur substrates respectively, though act may be alternatively
+(or additionally) involved in cell membrane formation via fatty
+acid synthesis which is yet to be elucidated (Valdés et al., 2008).
+Recent studies also suggest a role of AHL-mediated QS in resis-
+tance toward high copper concentrations (Wenbin et al., 2011).
+The existence of a c-di-GMP pathway in A. ferrooxidans was dis-
+covered by analysis of its genome sequence (Ruiz et al., 2007).
+The pathway has been shown to respond to changes of the ener-
+getic substrate (iron and sulfur) as well as to the lifestyle of the
+bacteria (planktonic or bioﬁlm-associated growth) by determi-
+nation of intracellular c-di-GMP levels (Ruiz et al., 2011). Even
+though AHL type QS systems are absent from A. caldus and
+A. thiooxidans as inferred by genome analysis (Valdés et al., 2008),
+sequence analysis of the psychrotolerant Acidithiobacillus ferrivo-
+rans SS3 performed in our group (unpublished) suggests presence
+of an AHL type QS as we were able to identify an act homolog
+with 84% identity giving rise to the possibility for inter-species
+communication. Potential inter-species communication may also
+occur via the more common c-di-GMP QS. Related genes and the
+signaling compound were identiﬁed and isolated from A. caldus
+and A. thiooxidans (Castro et al., 2009). As bioﬁlm formation is
+crucial for the leaching process it may be suitable to modulate
+AHL- and c-di-GMP levels to optimize attachment to ore particles
+for example, which may enhance bioleaching processes. How-
+ever, although the existence of the above-mentioned pathways
+suggests that QS regulated bioﬁlm formation plays a role in min-
+eral solubilization, further experiments are required to prove this
+assumption.
+
+CONSORTIA OF NATURALLY OCCURRING SPECIES
+Whereas most studies have been performed on pure cultures
+of A. ferrooxidans, many early studies characterized mixed cul-
+tures of bioleaching organisms, mainly due to the difﬁculty in
+full separation of species in natural consortia (Harrison, 1984).
+Hence naturally occurring consortia have been characterized as
+well as deﬁned consortia of naturally occurring organisms in
+order to elucidate mechanisms and synergies that improve the
+leaching process (Rawlings and Johnson, 2007). The impact of
+natural consortia was shown to be profound. In one example, a
+synergetic effect was observed by Qiu et al. (2005) during chal-
+copyrite leaching with a deﬁned consortia of A. ferrooxidans and
+A. thiooxidans. The mixed culture was more efﬁcient at leach-
+ing chalcopyrite than the pure cultures. The authors concluded
+that co-culture reduced the formation of inhibiting jarosite lay-
+ers by the generation of sulfuric acid due to sulfur oxidation of
+A. thiooxidans.
+
+Employment of heterotrophic acidophiles to remove inhibiting
+organic compounds that accumulate during growth led to acceler-
+ation of the leaching process. This was attributed to the increased
+growth rate of A. ferrooxidans while it was co-cultured with the
+heterotroph Acidiphilium acidophilum (Liu et al., 2011b).
+
+Further examples for advantages of consortia are increased acid
+production (Okibe and Johnson, 2004), improved attachment to
+mineral surfaces (Noël et al., 2010), increased growth, and leaching
+rates (Bacelar-Nicolau and Johnson, 1999; Okibe and Johnson,
+2004; Fu et al., 2008; Liu et al., 2011d; Naghavi et al., 2011).
+
+Frontiers in Microbiology | Microbiotechnology, Ecotoxicology and Bioremediation
+
+June 2012 | Volume 3 | Article 203 | 2
+
+“fmicb-03-00203” — 2012/6/1 — 18:18 — page 2 — #2
+
+Brune and Bayer
+
+Engineering microbial consortia
+
+While some of the above-mentioned consortia are most likely to
+occur in nature, engineering deﬁned natural consortia has opened
+new possibilities for enhanced bioleaching (Rawlings and Johnson,
+2007). Considering that researchers can choose from a wide range
+of microbes from different geographic locations, there is poten-
+tial for additional, yet unexplored synergetic effects that may arise
+as these artiﬁcially assembled microbial consortia would not be
+encountered in nature. The use of consortia assembled from nat-
+urally occurring species is furthermore interesting because they
+would not be considered genetically modiﬁed and are hence not
+susceptible to regulatory procedures.
+
+CONSORTIA OF NATURAL AND ENGINEERED SPECIES
+To our best knowledge, hybrid consortia consisting of geneti-
+cally engineered and naturally occurring bioleaching bacteria have
+not been reported so far. Even though some bioleaching organ-
+isms, in particular those of the Acidithiobacillus genus have been
+successfully transformed, genetic manipulations are difﬁcult as
+transformation efﬁciencies are extremely low (Kusano et al., 1992;
+Peng et al., 1994). In fact only two knockouts (Liu et al., 2000;
+Wang et al., 2012) and two expression mutants have been reported
+in the scientiﬁc literature. One rus overexpressing A. ferrooxidans
+strain and another expressing the mer determinant for a mer-
+cury resistant A. caldus strain (Chen et al., 2011; Liu et al., 2011c).
+Once more suitable transformation protocols have been devel-
+oped, it may be feasible to modulate QS signals with engineered
+microbes by either attenuating or amplifying natural signals or
+sending artiﬁcial signals to promote bioﬁlm formation or mobi-
+lization respectively as recently demonstrated with engineered
+E. coli cells (Hong et al., 2012). Interestingly, it has been shown
+that once an initial consortia has been established, the power of
+evolution can be used to drive novel species interactions poten-
+tially resulting in increased consortia stability and productivity
+(Hansen et al., 2007).
+
+Ultimately, engineered consortia could be deployed in indus-
+trial scale heap and tank leaching operations to improve bioleach-
+ing and biooxidation processes. However, as highlighted by
+Rawlings and Johnson (2007) it is crucial to consider that the
+tailored consortia have to compete with other microbes and their
+associated consortia in the non-sterile leaching environment. Usu-
+ally this is not too much of a problem as the fastest growing species
+is usually the one leading to increased leaching. Depending on
+the ore leached, however, in particular chalcopyrite ores, high
+redox potential, which is associated with dominant iron-oxidizing
+microbes such as A. ferrooxidans or L. ferrooxidans is not appre-
+ciated as the continuous leaching process will stall after an initial
+high rate of recovery (Ohata et al., 2010).
+
+Furthermore, hybrid consortia might be used to culture many
+of the yet uncultured microbes. There are abundant microbes in
+acid environments which are still to be cultured, characterized and
+their role in the ecosystem to be elucidated (Baker et al., 2010).
+
+MICROBIAL CONSORTIA IN ACID MINE DRAINAGE
+BIOREMEDIATION
+One major environmental consequence of industries such as min-
+ing, galvanic processing, and construction is the possibility of
+acid rock drainage (ARD) or in the particular case of mining,
+
+acid mine drainage (AMD), where wastewater efﬂuents and mine
+run-off are not properly managed. AMD may occur where access
+of oxidants to sulﬁde minerals, in particular pyrite, is facilitated
+due to mining operations as the surface area of the minerals is
+increased (Baker and Banﬁeld, 2003). Both inorganic and biologi-
+cal reactions drive the acidiﬁcation and heavy metal contamination
+of water due to oxidation of sulﬁde minerals (Ma and Banﬁeld,
+2011). The biological reactions account for the gross of AMD
+production with estimates as high as 75% (Baker and Banﬁeld,
+2003). The same organisms and consortia that are used in bio-
+mining operations are the major contributors to AMD generation,
+though AMD bioﬁlms are mainly dominated by the chemoau-
+totrophic Nitrospirae phylum bacteria Leptospirillum spp. (Gadd,
+2009; Wilmes et al., 2009). AMD is dealt with usually in two ways,
+either by migration control or source control in case the axiom
+“prevention is better than cure” is feasible (Johnson and Hall-
+berg, 2005; Das et al., 2009). In industrial environments AMD is
+usually managed at source by neutralization of wastewater and
+run-offs in rather costly abiotic neutralization processes with
+limestone. Therefore, the above-mentioned microbes and their
+bioﬁlm environments are an interesting target for AMD manage-
+ment. Abiotic AMD mitigation control options as well as biological
+remediation processes have been recently reviewed (Johnson and
+Hallberg, 2005; Gadd, 2009) and are beyond the scope of this
+review. We will therefore focus on the few examples of biolog-
+ical AMD source control of AMD and discuss potential future
+applications.
+
+Johnson et al. (2007) reported the use of heterotrophic aci-
+dophiles to colonize pyrite prior to exposure to iron-oxidizing
+bacteria to reduce dissolution of the mineral. The process, named
+“bioshrouding” was capable of decreasing the dissolution rate
+between 57 and 75%. This was presumably due to the het-
+erotrophs’ bioﬁlm that impeded attachment of the autotrophic
+iron-oxidizer. It remains to be seen if this approach is viable in
+industrial scale operations as iron-oxidizing autotrophs may out-
+compete the heterotrophs in the non-sterile environment though
+their growth could be impeded by the necessary supply of artiﬁ-
+cial carbon sources such as yeast extracts to foster the growth of
+the heterotrophs, which is known to inhibit growth of autotrophic
+organisms (Harrison, 1984).
+
+Eukaryotic organisms such as algae and fungi have been
+reported in aquatic AMD environments, and could be engineered
+to mitigate AMD. Their natural role and potential application in
+bioremediation of AMD has been recently reviewed (Das et al.,
+2009). Engineering these eukaryotes for quenching of QS may
+be a very attractive option as resistance to quenching is unlikely
+to evolve (Defoirdt et al., 2010) and a broad range of quench-
+ing mechanisms are available. One example is the production
+of AI-1 type interfering halogenated furanones secreted by the
+algae Delisea pulchra (Czajkowski and Jafra, 2009). These small
+molecules mimic bacterial QS compounds and thus interfere with
+bacterial signaling and bioﬁlm colonization.
+
+Furthermore, the use of tailored bacteriophages and viruses
+(Lu and Collins, 2007) could potentially impede bioﬁlm formation
+of autotrophs as naturally occurring viruses have been reported
+in AMD environments (Andersson and Banﬁeld, 2008; Denef
+et al., 2010). Engineers employing this approach would have to
+
+www.frontiersin.org
+
+June 2012 | Volume 3 | Article 203 | 3
+
+“fmicb-03-00203” — 2012/6/1 — 18:18 — page 3 — #3
+
+Brune and Bayer
+
+Engineering microbial consortia
+
+contend with bacterial defense mechanisms. The CRISPR (for
+Clustered Regularly Interspaced Short Palindromic Repeats) inter-
+ference mechanisms are one such strategy bacteria and archaea
+use to evade phage treatment. Exogenous DNA is inactivated and
+processed to small elements of ∼30 bp due to proteins encoded
+by the CRISPR-associated (cas) genes. These are then incorpo-
+rated into the CRISPR locus from which they are constitutively
+expressed, processed and remain with an accompanying ﬂanking
+region. The resulting CRISPR RNA (crRNA) binds to complemen-
+tary RNA or DNA molecules and recruits Cas proteins to cleave
+the targeted nucleic acid depending on the organism (Marrafﬁni
+and Sontheimer, 2010). This system has been used to ratio-
+nally engineer crRNA-mediated mRNA cleavage in the extreme
+thermophilic archaea Pyrococcus furiosus using the native Cmr
+protein (Hale et al., 2012). Desired beneﬁcial strains and consor-
+tia could therefore be potentially rendered “immune” by CRISPR
+engineering.
+
+synthetic consortia will also seep into other industrial sectors,
+which are currently mainly abiotic processes as microbial consor-
+tia are capable of more complex behaviors due to the combined
+properties of the individual organisms and the additional layers of
+regulation and adaptation to changing conditions.
+
+The engineering of consortia will also be aided by the further
+characterization of the diverse species in bioleaching environ-
+ments, which may have unique metabolic and physiological
+features. Prime candidates are the abundant archaea in biomining
+processes, which have not yet been subject to thorough research
+and are an untapped ﬁeld of biological resources for industrial
+applications. The design and construction of synthetic and mixed
+microbial consortia will not only become a powerful tool in opti-
+mizing industrial processes but will also give us an insight into the
+evolution and emergence of naturally occurring microbial con-
+sortia. This will foster our understanding of higher-level system
+organization that is indispensible for designing complex functions.
+
+CONCLUSIONS AND FUTURE PERSPECTIVES
+The ability to design and manipulate microbial consortia may
+allow biologists and engineers to enhance mineral recovery in bio-
+mining processes beyond the yields and productivities observed
+with naturally occurring consortia. Furthermore, it is likely that
+
+ACKNOWLEDGMENTS
+The authors would like to thank Axel Nyström for a critical reading
+of the manuscript. Research on microbial consortia in the Bayer
+lab is funded by EPSRC, BBSRC, and the Rio Tinto Centre for
+Advanced Mineral Recovery.
+
+REFERENCES
+Andersson, A. F., and Banﬁeld, J. F.
+(2008). Virus population dynamics
+and acquired virus resistance in nat-
+ural microbial communities. Science
+320, 1047–1050.
+
+Atsumi, S., Hanai, T., and Liao,
+
+J.
+C. (2008). Non-fermentative path-
+ways for synthesis of branched-chain
+higher alcohols as biofuels. Nature
+451, 86–89.
+
+Bacelar-Nicolau,
+
+P.,
+
+and Johnson,
+D. B. (1999). Leaching of pyrite
+by acidophilic heterotrophic iron-
+oxidizing bacteria in pure and mixed
+cultures. Appl. Environ. Microbiol. 65,
+585–590.
+
+Baker, B. J., and Banﬁeld, J. F. (2003).
+Microbial communities in acid mine
+drainage. FEMS Microbiol. Ecol. 44,
+139–152.
+
+Baker, B. J., Comolli, L. R., Dick, G.
+J., Hauser, L. J., Hyatt, D., Dill, B.
+D., Land, M. L., VerBerkmoes, N.
+C., Hettich, R. L., and Banﬁeld, J. F.
+(2010). Enigmatic, ultrasmall, uncul-
+tivated Archaea. Proc. Natl. Acad. Sci.
+U.S.A. 107, 8806–8811.
+
+Bonnefoy, V., and Holmes, D. S. (2011).
+Genomic insights into microbial iron
+oxidation and iron uptake strategies
+in extremely acidic environments.
+Environ. Microbiol. doi: 10.1111/
+j.1462-2920.2011.02626.x
+[Epub ahead of print].
+
+Brenner, K., You, L., and Arnold,
+F. H. (2008). Engineering microbial
+consortia: a new frontier in syn-
+thetic biology. Trends Biotechnol. 26,
+483–489.
+
+Ça˘gatay, T., Turcotte, M., Elowitz, M.
+B., Garcia-Ojalvo, J., and Süel, G.
+M. (2009). Architecture-dependent
+noise discriminates functionally anal-
+ogous differentiation circuits. Cell
+139, 512–522.
+
+Castro, M., Ruíz,
+
+L. M.,
+
+Bar-
+Jerez, C. A., Holmes,
+riga, A.,
+D. S.,
+and Guiliani, N. (2009).
+C-di-GMP pathway in biomining
+bacteria. Adv. Mat. Res. 71–73,
+223–226.
+
+Chen, D., Lin, J., Che, Y., Liu, X., and Lin,
+J. (2011). Construction of recombi-
+nant mercury resistant Acidithiobacil-
+lus
+166,
+515–520.
+
+caldus. Microbiol. Res.
+
+of
+
+Czajkowski, R., and Jafra, S. (2009).
+Quenching
+acyl-homoserine
+lactone-dependent quorum sensing
+by enzymatic disruption of signal
+molecules. Acta Biochim. Pol. 56,
+1–16.
+
+Das, B. K., Roy, A., Koschorreck, M.,
+Mandal, S. M., Wendt-Potthoff, K.,
+and Bhattacharya, J. (2009). Occur-
+rence and role of algae and fungi in
+acid mine drainage environment with
+special reference to metals and sul-
+fate immobilization. Water Res. 43,
+883–894.
+
+Defoirdt, T., Boon, N., and Bossier,
+P. (2010). Can bacteria evolve resis-
+tance to quorum sensing disrup-
+tion? PLoS Pathog. 6, e1000989. doi:
+10.1371/journal.ppat.1000989
+
+Denef, V. J., Mueller, R. S., and Ban-
+ﬁeld, J. F. (2010). AMD bioﬁlms:
+using model communities to study
+microbial evolution and ecological
+
+complexity in nature.
+599–610.
+
+ISME J. 4,
+
+Di Maio, S., Polizzotto, G., Di Gangi,
+E., Foresta, G., Genna, G., Verz-
+era, A., Scacco, A., Amore, G.,
+and Oliva, D. (2012). Biodiversity
+of indigenous Saccharomyces popu-
+lations from Old Wineries of South-
+Eastern Sicily (Italy): preservation
+and economic potential. PLoS ONE
+7,
+e30428. doi: 10.1371/journal.
+pone.0030428
+
+Donati, E. R., and Sand, W. (2007).
+Microbial Processing of Metal Sulﬁdes.
+Dordrecht: Springer.
+
+Dopson, M., and Lindstrom, E. B.
+(1999). Potential role of Thiobacil-
+lus caldus in arsenopyrite bioleach-
+ing. Appl. Environ. Microbiol. 65,
+36–40.
+
+Elowitz, M., and Lim, W. A. (2010).
+Build life to understand it. Nature
+468, 889–890.
+
+Farah, C., Vera, M., Morin, D.,
+Haras, D., Jerez, C. A., and Guil-
+iani, N. (2005). Evidence for a func-
+tional quorum-sensing type AI-1 sys-
+tem in the extremophilic bacterium
+Acidithiobacillus ferrooxidans. Appl.
+Environ. Microbiol. 71, 7033–7040.
+
+Friedland, A. E., Lu, T. K., Wang, X.,
+Shi, D., Church, G., and Collins, J. J.
+(2009). Synthetic gene networks that
+count. Science 324, 1199–1202.
+
+Fu, B., Zhou, H., Zhang, R., and
+Qiu, G. (2008). Bioleaching of chal-
+copyrite by pure and mixed cultures
+of Acidithiobacillus spp. and Lep-
+tospirillum ferriphilum. Int. Biodeter.
+Biodegr. 62, 109–115.
+
+Gadd, G. M. (2009). Metals, minerals
+and microbes: geomicrobiology and
+bioremediation. Microbiology 156,
+609–643.
+
+J.,
+
+Giovannoni, S.
+
+(2012).
+
+and Vergin, K.
+Seasonality in ocean
+L.
+microbial communities. Science 335,
+671–676.
+
+Haferburg, G., and Kothe, E. (2010).
+Metallomics:
+lessons for metallifer-
+ous soil remediation. Appl. Microbiol.
+Biotechnol. 87, 1271–1280.
+
+Hale, C. R., Majumdar, S., Elmore, J.,
+Pﬁster, N., Compton, M., Olson, S.,
+Resch, A. M., Glover, C. V. C., Grav-
+eley, B. R., Terns, R. M., and Terns,
+M. B. (2012). Essential features and
+rational design of CRISPR RNAs that
+function with the Cas RAMP module
+complex to cleave RNAs. Mol. Cell.
+45, 292–302.
+
+Ham, T. S., Lee, S. K., Keasling, J.
+D., and Arkin, A. P. (2008). Design
+and construction of a double inver-
+sion recombination switch for herita-
+ble sequential genetic memory. PLoS
+ONE 3, e2815. doi: 10.1371/journal.
+pone.0002815
+
+Hansen, S. K., Rainey, P. B., Haa-
+gensen, J. A. J., and Molin, S. (2007).
+Evolution of species interactions in
+a bioﬁlm community. Nature 445,
+533–536.
+
+Harrison, A. P. (1984). The acidophilic
+thiobacilli and other acidophilic bac-
+teria that share their habitat. Annu.
+Rev. Microbiol. 38, 265–292.
+
+Hengge, R. (2009). Principles of c-di-
+GMP signalling in bacteria. Nat. Rev.
+Microbiol. 7, 263–273.
+
+Frontiers in Microbiology | Microbiotechnology, Ecotoxicology and Bioremediation
+
+June 2012 | Volume 3 | Article 203 | 4
+
+“fmicb-03-00203” — 2012/6/1 — 18:18 — page 4 — #4
+
+Brune and Bayer
+
+Engineering microbial consortia
+
+Hong, S. H., Hegde, M., Kim,
+
+J.,
+Wang, X., Jayaraman, A., and Wood,
+T. K. (2012). Synthetic quorum-
+sensing circuit to control consortial
+bioﬁlm formation and dispersal in a
+microﬂuidic device. Nat. Commun. 3,
+613.
+
+Johnson, D. B. (1998). Biodiversity
+and ecology of acidophilic microor-
+ganisms. FEMS Microbiol. Ecol. 27,
+307–317.
+
+Johnson, D. B., and Hallberg, K. B.
+(2005). Acid mine drainage remedi-
+ation options: a review. Sci. Total.
+Environ. 338, 3–14.
+
+Johnson, D. B., Yajie, L., and Okibe,
+N. (2007). “Bioshrouding” – a novel
+approach for securing reactive min-
+eral tailings. Biotechnol. Lett. 30,
+445–449.
+
+Kau, A. L., Ahern, P. P., Grifﬁn, N.
+W., Goodman, A. L., and Gordon, J.
+I. (2011). Human nutrition, the gut
+microbiome and the immune system.
+Nature 474, 327–336.
+
+Keller, L., and Surette, M. G. (2006).
+Communication in bacteria: an eco-
+logical and evolutionary perspective.
+Nat. Rev. Microbiol. 4, 249–258.
+
+Kusano, T., Sugawara, K., Inoue, C.,
+Takeshima, T., Numata, M., and Shi-
+ratori, T. (1992). Electrotransforma-
+tion of Thiobacillus ferrooxidans with
+plasmids containing a mer determi-
+nant. J. Bacteriol. 174, 6617–6623.
+
+Liu, C., Fu, X., Liu, L., Ren, X., Chau,
+C. K. L., Li, S., Xiang, L., Zeng, H.,
+Chen, G., Tang, L.-H., Lenz, P., Cui,
+X., Huang, W., Hwa, T., and Huang,
+J. D. (2011a). Sequential establish-
+ment of stripe patterns in an expand-
+ing cell population. Science 334,
+238–241.
+
+Liu, H., Yin, H., Dai, Y., Dai, Z., Liu, Y.,
+Li, Q., Jiang, H., and Liu, X. (2011b).
+The co-culture of Acidithiobacillus
+ferrooxidans and Acidiphilium aci-
+dophilum enhances the growth, iron
+oxidation, and CO2 ﬁxation. Arch.
+Microbiol. 193, 857–866.
+
+Liu, W., Lin, J., Pang, X., Cui, S., Mi, S.,
+and Lin, J. (2011c). Overexpression
+of
+rusticyanin in Acidithiobacillus
+ferrooxidans ATCC19859 increased
+Fe(II) oxidation activity. Curr. Micro-
+biol. 62, 320–324.
+
+Liu, Y., Yin, H., Zeng, W., Liang, Y., Liu,
+Y., Baba, N., Qiu, G., Shen, L., Fu,
+X., and Liu, X. (2011d). The effect of
+the introduction of exogenous strain
+Acidithiobacillus thiooxidans A01 on
+functional gene expression,
+struc-
+ture and function of indigenous con-
+sortium during pyrite bioleaching.
+Bioresour. Technol. 102, 8092–8098.
+
+Liu, Z., Guiliani, N., Appia-Ayme, C.,
+Borne, F., Ratouchniak, J., and Bon-
+nefoy, V. (2000). Construction and
+
+characterization of a recA mutant of
+Thiobacillus ferrooxidans by marker
+exchange mutagenesis.
+J. Bacteriol.
+182, 2269–2276.
+
+Lu, T. K., and Collins, J. J. (2007).
+Dispersing bioﬁlms with engineered
+enzymatic bacteriophage. Proc. Natl.
+Acad. Sci. U.S.A. 104, 11197–11202.
+
+Lynd, L. R., Weimer, P. J., van Zyl, W.
+H., and Pretorius, I. S. (2002). Micro-
+bial cellulose utilization: fundamen-
+tals and biotechnology. Microbiol.
+Mol. Biol. Rev. 66, 506–577.
+J. F. (2011).
+Ma, S., and Banﬁeld,
+Micron-scale Fe2+
+/Fe3+
+interme-
+diate sulfur species and O2 gra-
+dients across the bioﬁlm–solution–
+sediment interface control bioﬁlm
+organization. Geochim. Cosmochim.
+Acta 75, 3568–3580.
+
+,
+
+S., Valdés,
+J., Holmes,
+Mangold,
+D. S.,
+and Dopson, M. (2011).
+Sulfur metabolism in the extreme
+acidophile Acidithiobacillus
+caldus.
+Front. Microbiol. 2:17. doi: 10.3389/
+fmicb.2011.00017
+
+Marrafﬁni, L. A., and Sontheimer, E. J.
+(2010). CRISPR interference: RNA-
+directed adaptive immunity in bacte-
+ria and archaea. Nat. Rev. Genet. 11,
+181–190.
+
+McDougald, D., Rice, S. A., Barraud,
+N., Steinberg, P. D., and Kjelleberg, S.
+(2012). Should we stay or should we
+go: mechanisms and ecological con-
+sequences for bioﬁlm dispersal. Nat.
+Rev. Microbiol. 10, 39–50.
+
+Momeni, B., Chen, C.-C., Hillesland, K.
+L., Waite, A., and Shou, W. (2011).
+Using artiﬁcial systems to explore the
+ecology and evolution of symbioses.
+Cell. Mol. Life Sci. 68, 1353–1368.
+
+Naghavi, N. S., Emami, Z. D., and Emti-
+azi, G. (2011). Synergistic copper
+extraction activity of Acidithiobacil-
+lus ferrooxidans isolated from copper
+coal mining areas. Asian J. Appl. Sci.
+4, 447–452.
+
+Noël, N., Florian, B., and Sand, W.
+(2010). AFM & EFM study on attach-
+ment of acidophilic leaching organ-
+isms. Hydrometallurgy 104, 370–375.
+Ohata, A., Manabe, M., and Para-
+daValdecantos, P. A. (2010). United
+States Patent: 7700343 – Sulfur-
+oxidizing bacteria and their use in
+bioleaching processes for sulfured
+copper minerals. Available at: http://
+patft.uspto.gov/netacgi/nph-Parser?
+Sect2=PTO1&Sect2=HITOFF&p=1
+&u=/netahtml/PTO/search-bool.
+html&r=1&f=G&l=50&d=PALL&
+RefSrch=yes&Query=PN/7700343
+(Accessed March 28, 2012).
+
+Okibe, N.,
+
+and Johnson, D. B.
+(2004). Biooxidation of pyrite by
+deﬁned mixed cultures of mod-
+erately thermophilic acidophiles in
+
+pH-controlled bioreactors:
+icance of microbial
+Biotechnol. Bioeng. 87, 574–583.
+
+signif-
+interactions.
+
+Olson, G. J., Brierley, J. A., and Brier-
+ley, C. L. (2003). Bioleaching review
+part B: progress in bioleaching: appli-
+cations of microbial processes by the
+minerals industries. Appl. Microbiol.
+Biotechnol. 63, 249–257.
+
+Peng, J. B., Yan, W. M., and Bao, X.
+Z. (1994). Plasmid and transposon
+transfer to Thiobacillus ferrooxidans.
+J. Bacteriol. 176, 2892–2897.
+
+Qiu, M., Xiong, S., Zhang, W., and
+Wang, G. (2005). A comparison
+of bioleaching of chalcopyrite using
+pure culture or a mixed culture.
+Miner. Eng. 18, 987–990.
+
+Rawlings, D. E. (2002). Heavy metal
+mining using microbes. Annu. Rev.
+Microbiol. 56, 65–91.
+
+Rawlings, D. E. (2007). Biomining.
+
+Berlin: Springer.
+
+Rawlings, D. E., and Johnson, D. B.
+(2007). The microbiology of biomin-
+ing: development and optimization
+of mineral-oxidizing microbial con-
+sortia. Microbiology 153, 315–324.
+
+Rawlings, D. E., Tributsch, H., and
+Hansford, G. S. (1999). Reasons why
+“Leptospirillum”-like species rather
+than Thiobacillus ferrooxidans are the
+dominant iron-oxidizing bacteria in
+many commercial processes for the
+biooxidation of pyrite and related
+ores. Microbiology (Reading, Engl.)
+145(Pt 1), 5–13.
+
+Reid, A. J. (2012). Adapting to domes-
+
+ticity. Nat. Rev. Microbiol. 10, 163.
+
+Rivas, M., Seeger, M., Holmes, D.
+S., and Jedlicki, E. (2005). A Lux-
+like quorum sensing system in the
+extreme acidophile Acidithiobacil-
+lus
+38,
+283–297.
+
+ferrooxidans. Biol. Res.
+
+Rivas, M., Seeger, M.,
+
+Jedlicki, E.,
+and Holmes, D. S. (2007). Second
+acyl homoserine lactone production
+system in the extreme acidophile
+Acidithiobacillus ferrooxidans. Appl.
+Environ. Microbiol. 73, 3225–3231.
+
+Ro, D.-K., Paradise, E. M., Ouel-
+let, M., Fisher, K. J., Newman,
+K. L., Ndungu, J. M., Ho, K. A.,
+Eachus, R. A., Ham, T. S., Kirby,
+J., Chang, M. C., Withers, S. T.,
+Shiba, Y., Sarpong, R., and Keasling,
+J. D. (2006). Production of the anti-
+malarial drug precursor artemisinic
+acid in engineered yeast. Nature 440,
+940–943.
+
+Rohwerder, T., Gehrke, T., Kinzler, K.,
+and Sand, W. (2003). Bioleaching
+review part A: progress in bioleach-
+ing: fundamentals and mechanisms
+of bacterial metal
+sulﬁde oxida-
+tion. Appl. Microbiol. Biotechnol. 63,
+239–248.
+
+Rollié, S., Mangold, M., and Sund-
+macher, K. (2012). Designing bio-
+logical systems: Systems Engineering
+meets Synthetic Biology. Chem. Eng.
+Sci. 69, 1–29.
+
+Ruiz, L. M., Castro, M., Barriga, A.,
+Jerez, C. A., and Guiliani, N. (2011).
+The extremophile Acidithiobacillus
+ferrooxidans possesses a c-di-GMP
+signalling pathway that could play a
+signiﬁcant role during bioleaching of
+minerals. Lett. Appl. Microbiol. 54,
+133–139.
+
+Ruiz, L. M., Sand, W.,
+
+Jerez, C.
+A., and Guiliani, N. (2007). C-
+di-GMP pathway in Acidithiobacil-
+lus ferrooxidans: analysis of puta-
+tive diguanyl atecyclases (DGCs) and
+phosphodiesterases (PDEs) bifunc-
+tional proteins. Adv. Mat. Res. 20–21,
+551–555.
+
+Sabra, W., Dietz, D., Tjahjasari, D.,
+and Zeng, A.-P. (2010). Biosys-
+tems analysis and engineering of
+microbial consortia for industrial
+biotechnology. Eng. Life Sci. 10,
+407–421.
+
+Sand, W., and Gehrke, T. (2006).
+Extracellular polymeric substances
+mediate
+bioleaching/biocorrosion
+via
+involv-
+ing iron(III) ions and acidophilic
+bacteria. Res. Microbiol. 157, 49–56.
+
+interfacial processes
+
+Sand, W., Gehrke, T., Jozsa, P.-G., and
+Schippers, A. (2001). (Bio)chemistry
+of bacterial leaching – direct vs. indi-
+rect bioleaching. Hydrometallurgy 59,
+159–175.
+
+Shong, J., Jimenez Diaz, M. R., and
+Collins, C. H. (2012). Towards syn-
+thetic microbial consortia for biopro-
+cessing. Curr. Opin. Biotechnol. doi:
+10.1016/j.copbio.2012.02.001 [Epub
+ahead of print].
+
+Sprinzak, D., and Elowitz, M. B. (2005).
+Reconstruction of genetic circuits.
+Nature 438, 443–448.
+
+Stocker,
+
+J., Balluch, D., Gsell, M.,
+Harms, H., Feliciano, J., Daunert,
+S., Malik, K. A., and van der Meer,
+J. R. (2003). Development of a set
+of simple bacterial biosensors for
+quantitative and rapid measurements
+of arsenite and arsenate in potable
+water. Environ. Sci. Technol. 37, 4743–
+4750.
+
+Süel, G. M., Garcia-Ojalvo, J., Liberman,
+L. M., and Elowitz, M. B. (2006).
+An excitable gene regulatory circuit
+induces transient cellular differentia-
+tion. Nature 440, 545–550.
+
+Valdés, J., Pedroso, I., Quatrini, R., and
+Holmes, D. S. (2008). Comparative
+genome analysis of Acidithiobacillus
+ferrooxidans, A. thiooxidans and A.
+caldus: insights into their metabolism
+and ecophysiology. Hydrometallurgy
+94, 180–184.
+
+www.frontiersin.org
+
+June 2012 | Volume 3 | Article 203 | 5
+
+“fmicb-03-00203” — 2012/6/1 — 18:18 — page 5 — #5
+
+Brune and Bayer
+
+Engineering microbial consortia
+
+Viramontes-Gamboa, G., Peña-Gomar,
+M. M., and Dixon, D. G. (2010).
+and
+Electrochemical
+hysteresis
+bistability
+in
+pas-
+chalcopyrite
+sivation.
+105,
+Hydrometallurgy
+140–147.
+
+J., Lin,
+
+Wang, H., Liu, X., Liu, S., Yu, Y.,
+J., Pang, X., and
+Lin,
+J. (2012). Development of
+Zhao,
+a markerless gene replacement sys-
+tem for Acidithiobacillus ferrooxidans
+and construction of a pfkB mutant.
+Appl. Environ. Microbiol. 78, 1826–
+1835.
+
+Wenbin, N., Dejuan, Z., Feifan, L.,
+Lei, Y., Peng, C., Xiaoxuan, Y., and
+Hongyu, L. (2011). Quorum-sensing
+
+system in Acidithiobacillus ferroox-
+idans involved in its resistance to
+Cu2+
+. Lett. Appl. Microbiol. 53,
+84–91.
+
+Wilmes, P., Simmons, S. L., Denef, V.
+J., and Banﬁeld, J. F. (2009). The
+dynamic genetic repertoire of micro-
+bial communities. FEMS Microbiol.
+Rev. 33, 109–132.
+
+Wintermute, E. H.,
+
+and Silver, P.
+A. (2010). Dynamics in the mixed
+microbial concourse. Gene. Dev. 24,
+2603–2614.
+
+Zhou,
+
+J., He, Q., Hemme, C. L.,
+Mukhopadhyay, A., Hillesland, K.,
+Zhou, A., He, Z., Van Nostrand,
+J. D., Hazen, T. C., Stahl, D. A.,
+
+Wall, J. D., and Arkin, A. P. (2011).
+How sulphate-reducing microorgan-
+isms cope with stress: lessons from
+systems biology. Nat. Rev. Microbiol.
+9, 452–466.
+
+Conflict of Interest Statement: The
+authors declare that the research was
+conducted in the absence of any com-
+mercial or ﬁnancial relationships that
+could be construed as a potential con-
+ﬂict of interest.
+
+Received: 10 April 2012; accepted: 17
+May 2012; published online: 05 June
+2012.
+
+Citation: Brune KD and Bayer TS
+(2012) Engineering microbial consortia
+to enhance biomining and bioremedi-
+ation. Front. Microbio. 3:203. doi:
+10.3389/fmicb.2012.00203
+This article was submitted to Frontiers
+Ecotoxicology
+in Microbiotechnology,
+and Bioremediation,
+a specialty of
+Frontiers in Microbiology.
+Copyright  2012 Brune and Bayer.
+This is an open-access article distributed
+under the terms of the Creative Commons
+Attribution Non Commercial License,
+which permits non-commercial use, dis-
+tribution, and reproduction in other
+forums, provided the original authors and
+source are credited.
+
+Frontiers in Microbiology | Microbiotechnology, Ecotoxicology and Bioremediation
+
+June 2012 | Volume 3 | Article 203 | 6
+
+“fmicb-03-00203” — 2012/6/1 — 18:18 — page 6 — #6
+
+

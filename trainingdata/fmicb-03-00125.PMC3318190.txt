@@ -1,0 +1,2336 @@
+ORIGINAL RESEARCH ARTICLE
+published: 04 April 2012
+doi: 10.3389/fmicb.2012.00125
+
+The phn island: a new genomic island encoding catabolism
+of polynuclear aromatic hydrocarbons
+
+William J. Hickey *, Shicheng Chen and Jiangchao Zhao
+
+O.N. Allen Laboratory for Soil Microbiology, Department of Soil Science, University of Wisconsin, Madison, WI, USA
+
+Edited by:
+Jeremy Semrau, The University of
+Michigan, USA
+Reviewed by:
+Carl James Yeoman, University of
+Illinois at Champaign–Urbana, USA
+Christopher L. Hemme, University of
+Oklahoma, USA
+*Correspondence:
+William J. Hickey, Department of Soil
+Science, O.N. Allen Laboratory for
+Soil Microbiology, University of
+Wisconsin, 1525 Observatory Drive,
+Madison, WI 53706, USA.
+e-mail: wjhickey@wisc.edu
+
+Bacteria are key in the biodegradation of polycyclic aromatic hydrocarbons (PAH), which
+are widespread environmental pollutants. At least six genotypes of PAH degraders are
+distinguishable via phylogenies of the ring-hydroxylating dioxygenase (RHD) that initiates
+bacterial PAH metabolism. A given RHD genotype can be possessed by a variety of bacterial
+genera, suggesting horizontal gene transfer (HGT) is an important process for dissemi-
+nation of PAH-degrading genes. But, mechanisms of HGT for most RHD genotypes are
+unknown. Here, we report in silico and functional analyses of the phenanthrene-degrading
+bacterium Delftia sp. Cs1-4, a representative of the phnAFK2 RHD group.The phnAFK2 geno-
+type predominates PAH degrader communities in some soils and sediments, but, until now,
+their genomic biology has not been explored. In the present study, genes for the entire
+phenanthrene catabolic pathway were discovered on a novel ca. 232 kb genomic island
+(GEI), now termed the phn island. This GEI had characteristics of an integrative and con-
+jugative element with a mobilization/stabilization system similar to that of SXT/R391-type
+GEI. But, it could not be grouped with any known GEI, and was the ﬁrst member of a new
+GEI class. The island also carried genes predicted to encode: synthesis of quorum sensing
+signal molecules, fatty acid/polyhydroxyalkanoate biosynthesis, a type IV secretory sys-
+tem, a PRTRC system, DNA mobilization functions and >50 hypothetical proteins. The
+50% G+ C content of the phn gene cluster differed signiﬁcantly from the 66.7% G+ C
+level of the island as a whole and the strain Cs1-4 chromosome, indicating a divergent
+phylogenetic origin for the phn genes. Collectively, these studies added new insights into
+the genetic elements affecting the PAH biodegradation capacity of microbial communities
+speciﬁcally, and the potential vehicles of HGT in general.
+
+Keywords: polynuclear aromatic hydrocarbons, phenanthrene, biodegradation, horizontal gene transfer, genomic
+island, Delftia, bioremediation, genomics
+
+INTRODUCTION
+Bacteria are key agents affecting the fate and behavior of polycyclic
+aromatic hydrocarbons (PAH), which are widespread environ-
+mental pollutants. At least six genotypes of PAH degraders have
+been identiﬁed from phylogenies of the ring-hydroxylating dioxy-
+genase (RHD) that initiates PAH metabolism (Moser and Stahl,
+2001). The RHD genotypes also show conservation in the orga-
+nization of other PAH degradation enzymes that are associated
+with the RHD (Moser and Stahl, 2001; Stolz, 2009). A given RHD
+genotype can be possessed by a variety of bacterial genera, sug-
+gesting horizontal gene transfer (HGT) is an important process
+for dissemination of PAH-degrading genes. Moreover, the RHD
+genotypes have characteristic patterns of distribution, and typi-
+cally occur within genera of a single bacterial family (Moser and
+
+Abbreviations: AHL, N -acylhomoserine lactone; CoA, coenzyme-A; GEI, genomic
+island; HGT, horizontal gene transfer; ICE, integrating conjugative elements; OAA,
+oxaloacetic acid; oph, ortho-phthalate degradation genes; PAH, polycyclic aromatic
+hydrocarbon; PCA, protocatechuate; PHA, polyhydroxyalkanoate; phn, phenan-
+threne degradation genes; pmd, protocatechuate meta-dioxygenase and other proto-
+catechuate degradation genes; RHD, ring-hydroxylating dioxygenase; ROS, reactive
+oxygen species; T4SS, type IV secretion system.
+
+Stahl, 2001), possibly reﬂecting different pathways of gene ﬂow
+that are operative within differing phylogenetic groups. Informa-
+tion on such pathways is limited, but their elucidation is essen-
+tial to understand processes shaping the function of microbial
+communities.
+
+Information on mechanisms of HGT in proteobacterial PAH
+degraders is mostly derived from analyses of sphingomonads
+(Romine et al., 1999; Demaneche et al., 2004; Stolz, 2009), and
+species of Pseudomonas (Dennis and Zylstra, 2004; Li et al., 2004;
+Basu and Phale, 2008; Heinaru et al., 2009). For both, studies
+have focused on plasmids. In Pseudomonas, PAH-degrading genes
+are characteristically of the nah phylotype, which are invariably
+located on IncP-9 plasmids. Complete sequencing of one such ele-
+ment, pDTG1, revealed all nah genes were contained within a Tn3-
+like transposon (Dennis and Zylstra, 2004), potentially providing
+a means of intracellular gene movement as well. But, although
+IncP-9 plasmids have a host range that spans the alpha-, beta-, and
+gamma-proteobacteria (Suzuki et al., 2010), these elements have
+not yet been identiﬁed to carry PAH-degrading genes beyond the
+genus Pseudomonas. Plasmids of the sphingomonads show a sim-
+ilar pattern, and are limited to that group. Thus, mechanisms of
+HGT for other RHD genotypes are largely unknown.
+
+www.frontiersin.org
+
+April 2012 | Volume 3 | Article 125 | 1
+
+Hickey et al.
+
+The phn island
+
+Many vehicles of HGT exist as elements integrated into bacterial
+chromosomes rather than autonomously replicating plasmids, and
+are termed integrating conjugative elements (ICE) or genomic
+islands (GEI). High throughput sequencing has revealed that GEI
+are wide spread in bacterial genomes, and can encode a variety of
+adaptive traits (van der Meer and Sentchilo, 2003; Dobrindt et al.,
+2004; Mario et al., 2009). However, while there has been exten-
+sive study of GEI associated with pathogenicity-related functions,
+comparatively little is known about GEI that confer other types
+of phenotypes, including biodegradation activities. To date, the clc
+element is the only biodegradation-related GEI examined in some
+detail, and it is a pKLC102/PAGI-type GEI (Toleman and Walsh,
+2011) that encodes degradation of chlorocatechols/aminophenols
+(Gaillard et al., 2006). Involvement of GEI in PAH biodegradation
+has not been examined, although these are now being revealed by
+genome sequencing projects. For example, in Alteromonas sp. SN2
+(Jin et al., 2011), genes for an nah-type RHD are carried on 100 kb
+Tn3-like transposon, a structure similar to that of the nah genes
+on pDTG1. Also, in Polaromonas naphthalenivorans CJ2, nag -type
+RHD genes are associated with an unclassiﬁed GEI (Yagi et al.,
+2009).
+
+Recently, genomes were determined for two bacteria of the
+phnAFK2 genotype: Delftia sp. Cs1-4 (closed genome sequence) and
+Burkholderia sp. Ch1-1 (shotgun genome sequence). The phnAFK2
+genotype is interesting as it has appeared as a predominant class
+of PAH degraders in surveys of some soils and marine sediments
+(Lozada et al., 2008; Ding et al., 2010), but relatively little is known
+about this group. To date, the most extensive genetic informa-
+tion about the phnAFK2 genotype has been limited to a ca. 24 kb
+GenBank entry (AB024945) from Alcaligenes faecalis AFK2 that
+included genes for the RHD and nine downstream enzymes. This
+GenBank entry, however, was not associated with any empirical
+evidence for the predicted functionality, which as yet remains un-
+established. Furthermore, while HGT of the phnAFK2 genotype is
+indicated by its structural conservation across multiple genera, the
+vehicle(s) mediating transfer are unknown.
+
+Here, we present the ﬁrst genomic and functional analyses of
+the phnAFK2 genotype. The studies focused on the closed sequence
+of Delftia sp. Cs1-4 and, where relevant, additional analyses were
+done with Burkholderia sp. Ch1-1. Our ﬁndings included: elu-
+cidation of a new ca. 232 kb GEI that encoded the entire path-
+way for PAH (phenanthrene) catabolism, discovery of four new
+genes associated with PAH degradation and elucidation of a novel
+operon structure for a key pathway enzyme (o-phthalate dioxy-
+genase). Collectively, these studies provided new insights into
+the evolutionary and metabolic processes associated with PAH
+degradation and HGT in microbial communities.
+
+MATERIALS AND METHODS
+BACTERIAL STRAINS, PLASMIDS, AND CULTURE CONDITIONS
+Bacterial strains and plasmids used in this study are listed in Table
+S1 in Supplementary Material. Burkholderia sp. strain Ch1-1 and
+Delftia sp. strain Cs1-4 were isolated from PAH-contaminated soil
+collected in Chippewa Falls, WI, USA, based on their abilities to
+grow on phenanthrene as sole carbon source (Vacca et al., 2005).
+Cells of strain Ch1-1 and Cs1-4 were routinely grown on min-
+eral salt medium (MSM; Hickey and Focht, 1990) supplemented
+with phenanthrene as a sole carbon source (1 g/l) and incubated
+
+at 25˚C with shaking at 150 rpm. When pyruvate was used as a
+substrate, it was added to MSM from a ﬁlter-sterilized stock to a
+ﬁnal concentration of 50 mM. E. coli strains were grown at 28 or
+37˚C on Luria–Bertani (LB) medium supplemented as appropriate
+with antibiotics. The PAH were obtained from Aldrich Chemicals
+(Milwaukee, WI, USA), Packard (La Grange, IL, USA), ACROS
+Organics, and PFALTZ and Bauer (Waterbury, CT, USA) at the
+highest purity available.
+
+PROTEOMICS
+
+Phenanthrene-grown cells (200 ml, OD600 = 0.6) were ﬁltered
+through glass wool and then recovered by centrifugation at
+3,800× g for 5 min. The cells were washed twice with phosphate
+buffer and resuspended in phosphate buffered saline. Pyruvate-
+grown cells were prepared similarly, except for omission of the ﬁl-
+tration step. “In Liquid” digestion and mass spectrometric analysis
+was done at the University of Wisconsin–Madison, Biotechnol-
+ogy Center, Mass Spectrometry Facility. Cells were incubated on
+ice (15 min) in 20% (w/v) trichloroacetic acid/acetone (10-fold
+excess) and precipitated proteins were collected by centrifugation
+(10 min, 16,000× g ). The protein pellets were washed sequentially
+with ice-cold acetone (2×), ice-cold methanol (1×), and then sol-
+ubilized in 4 μl of 8 M urea in 100 mM NH4HCO3 (ABC). After a
+10-min incubation, this denatured protein solution was diluted to
+25 μl by addition of 1.25 μl 25 mM dithiothreitol, 2 μl acetonitrile
+(ACN), 15.12 μl 25 mM ABC, 0.12 μl 1 M Tris–HCl (pH 7.5), and
+2.5 μl trypsin [100 ng/μl Trypsin Gold (Promega Corp.) in 25 mM
+ABC]. Following a 12-h of trypsin digestion (37˚C) another 2 μl
+of trypsin was added and a second digestion done for 2 h at 42˚C.
+Digestion was terminated by addition of triﬂuoroacetic acid to a
+ﬁnal concentration of 0.3% (w/v).
+
+Peptides were analyzed by nanoLC–MS/MS using an Agilent
+1100 nanoﬂow system (Agilent Technologies, Palo Alto, CA, USA)
+connected to a hybrid linear ion trap-orbitrap mass spectrometer
+(LTQ-Orbitrap XL, Thermo Fisher Scientiﬁc, San Jose, CA, USA)
+equipped with a nanoelectrospray ion source. Capillary HPLC was
+done using an in-house fabricated column with integrated elec-
+trospray emitter essentially as described by (Martin et al., 2000)
+except that 360 μm× 75 μm fused silica tubing was used. The
+column was packed with Jupiter 4 μm C12 particles (Phenomenex
+Inc., Torrance, CA, USA) to ca. 12 cm. Sample loading (8 μl) and
+desalting were achieved using a trapping column in line with the
+autosampler (Zorbax 300SB-C18, 5 μm, 5 mm× 0.3 mm, Agilent
+
+Technologies). During sample loading and desalting, an isocratic
+mobile phase of 1% (v/v) ACN, 0.1% formic acid (w/v) was used,
+and run at 10 μl/min. Peptides were then eluted by a gradient
+(200 nl/min) of 0.1% (w/v) formic acid in water (Buffer A) and
+95% (v/v) ACN, 0.1% (w/v) formic acid in water (Buffer B) with
+increasing Buffer A from 0 to 40% (75 min), 40 to 60% (20 min),
+and 60 to 100% (5 min). The LTQ-Orbitrap acquired MS/MS
+spectra in data-dependent mode with MS survey scans (m/z 300–
+2,000) collected in centroid mode at a resolving power of 100,000.
+Spectra were collected on the ﬁve most-abundant signals in each
+survey scan. Dynamic exclusion was used to increase dynamic
+range and maximize peptide identiﬁcations, and excluded pre-
+cursors between 0.55 m/z below and 1.05 m/z above previously
+selected precursors; precursors remained on the exclusion list for
+15 s. Singly charged ions and ions for which the charge state could
+
+Frontiers in Microbiology | Microbiotechnology, Ecotoxicology and Bioremediation
+
+April 2012 | Volume 3 | Article 125 | 2
+
+Hickey et al.
+
+The phn island
+
+not be assigned were rejected from consideration for MS/MS.
+Raw MS/MS data was searched against the non-redundant Delftia
+sp. Cs1-4 amino acid sequence database (5,867 protein entries;
+GenBank entry NC_015563) using an in-house Mascot search
+engine allowing variable modiﬁcations (methionine oxidation;
+glutamine, asparagine deamidation) a peptide mass tolerance of
+15 ppm and 0.6 Da fragment mass.
+
+Protein annotation and signiﬁcance of protein identiﬁcations
+were done with Scaffold (version 3.00.07, Proteome Software Inc.,
+Portland, OR, USA). Peptide identiﬁcations were accepted if iden-
+tities of at least two unique, matching peptides were established
+at ≥90.0% probability via the Peptide Prophet algorithm (Keller
+et al., 2002). Protein identiﬁcation probabilities were assigned by
+the Protein Prophet algorithm (Nesvizhskii et al., 2003). Pro-
+teins that contained similar peptides and could not be differen-
+tiated based on MS/MS analysis alone were grouped to satisfy the
+principles of parsimony.
+
+DNA MANIPULATIONS, CLONING, AND SEQUENCE ANALYSIS
+Standard procedures were used for DNA manipulations (Sam-
+brook et al., 1989). Restriction enzymes were obtained from
+Promega (Madison, WI, USA) or New England Biolabs (Beverly,
+MA, USA). Genomic DNA was extracted using Wizard Genomic
+DNA Puriﬁcation kit (Promega, Madison, WI, USA). Primers
+were synthesized by the UW–Madison Biotechnology Center. Ex
+Taq DNA polymerase (Takara, Madison, WI, USA) was used in
+PCR ampliﬁcation reactions. DNA Fragments were puriﬁed from
+agarose gels with QIAquick spin columns (QIAGEN, Valencia,
+CA, USA) and sequenced at the Univ. Wisconsin Biotechnol-
+ogy Center. GenBank ﬁles of all sequences used in this study
+were imported into Geneious (v. 5.4.5; Biomatters Ltd., Auck-
+land 1010, New Zealand) for manual curation, and alignment
+by Clustal, MUSCLE, or MAUVE, as appropriate. Whole genome
+sequences were uploaded to Islandviewer1 for identiﬁcation of
+GEIs. Alignment ﬁgures were generated with Geneious v. 5.4.5
+(http://www.geneious.com).
+
+GENERATION OF ΔphnAcAd MUTANTS AND MUTANT
+COMPLEMENTATION
+Genes putatively encoding the phenanthrene dioxygenase large
+and small subunits (phnAcAd), upstream (Cs1-4 genome positions
+1959578–1960237) and downstream (strain Cs1-4 genome posi-
+tions 1962038–1962817) fragments were ampliﬁed with primers
+phnAcbglII/phnACKpnI and phnACsacII/phnAcsacI, respectively
+(Table S2 in Supplementary Material). The amplicons were gel
+puriﬁed and cloned into pGEM-T Easy (pSCH448 and pSCH449).
+These fragments were sequentially assembled on the same sites
+on pJK100 (pSCH453). Next, pSCH453 was introduced into E.
+coli BW19851 (λ pir) then conjugated into strain Cs1-4 and
+Tcs and Kmr transconjugants were selected (strain SCH455,
+ΔphnAcAd:Km). Replacement of phnAcAd with the kanamycin
+resistance gene was conﬁrmed by PCR using primers phndectF
+and phndetcR.
+
+For
+
+complementation, a 2,064-bp fragment
+
+containing
+phnAcAd (strain Cs1-4 genome positions 1960120–1962184) was
+
+1http://www.pathogenomics.sfu.ca/islandviewer/
+
+ampliﬁed with primers PhnAcNdeF1 and PhnAcSacIIR1 (Table
+S2 in Supplementary Material) using strain Cs1-4 genomic DNA
+as a template. The amplicon was then cloned into pGEM-
+T easy (pSCH434). The insertion was released by SacII and
+cloned into the site on pSCH442 and under the control of a
+strong promoter (PnpdA) identiﬁed in strain Cs1-4 (Chen and
+Hickey, 2011). A construct with the correct insertion (pSCH462,
+PnpdA+ phenAcAd) was identiﬁed by sequencing multiple ran-
+dom colonies, which was then introduced into the ΔphenAcAd:Km
+mutant, yielding strain SCH471. The phenAcAd expression vector
+pSCH453 was used in a similar manner to test for complementa-
+tion of a Burkholderia sp. Ch1-1 ΔphnAcAd:Km mutant.
+
+HETEROLOGOUS EXPRESSION
+The pET5a expression system (Promega, Madison, WI, USA) was
+used for gene expression in E. coli. Primers, phnF and phnR (Table
+S2 in Supplementary Material) were used for cloning of the 5.3-kb
+phn RHD (phnAb–Ad) cluster from genomic DNA of Burkholde-
+ria sp. Ch1-1. The puriﬁed fragment was cloned into pGEM-T
+Easy, yielding pTPHE2 and propagated in E. coli DH5α. The
+Fragment inserted into pTPHE2 was released by digestion with
+NdeI, and then puriﬁed and ligated into NdeI-digested pET5a
+to give pPHE2. The orientation and sequence of phnAb–Ad in
+pPHE2 was conﬁrmed by sequencing. Plasmids were introduced
+by electroporation into E. coli strain BL21 AI strain for heterol-
+ogous expression. Single colonies of E. coli BL21 AI (pPHE2)
+and the negative control E. coli BL21 AI (pET5a) were inocu-
+lated into separate tubes of LB (3 ml) and incubated overnight at
+37˚C. Aliquots of each culture (2 ml) were then inoculated into
+
+fresh LB (100 ml), incubated at 37˚C. Upon reaching OD600 = 0.6,
+
+arabinose was added to a ﬁnal concentration of 0.2% (w/v) for
+induction. Following overnight incubation at 25˚C, cells were col-
+lected by centrifugation (3,800× g, 5 min) then washed with, and
+resuspended in, M9 medium (43). For substrate speciﬁcity tests,
+PAH were added from hexane stocks to a ﬁnal concentration of
+100 μM. The cells were incubated at 25˚C, and the reaction was
+stopped by addition of an equal volume of ethyl acetate. Analy-
+sis of phenanthrene and phenanthrene metabolites was done in a
+manner similar to that described by Kang et al. (2003).
+
+RESULTS
+STRUCTURE OF THE phn ISLAND
+The Delftia sp. Cs1-4 genome consisted of a single, 6.8 Mb chro-
+mosome. MAUVE Alignment of the strain Cs1-4 chromosome
+with that of its closest relative with a complete genome sequence,
+Delftia acidovorans SPH1, indicated that genes encoding the
+entire pathway for phenanthrene catabolism were located within
+a 232,325-bp region absent in D. acidovorans SPH1 (Figure 1A).
+Analysis by GEI detection algorithms also identiﬁed this 232 kb
+region as a GEI (Figure 1B), now termed the phn island. The 3
+ter-
+minus of the island was located in a non-coding region, upstream
+of a gene putatively encoding an S ﬁmbrial protein. This terminus
+was delimited by a 57-bp sequence, which also occurred nearby in
+the chromosomal region as an inverted repeat (Figures 2A,B).
+
+(cid:3)
+
+There were 10 clusters of genes related by encoding: (1) phenan-
+threne catabolism to o-phthalate, (2) o-phthalate degradation
+to protocatechuate, (3) protocatechuate catabolism to central
+
+www.frontiersin.org
+
+April 2012 | Volume 3 | Article 125 | 3
+
+Hickey et al.
+
+The phn island
+
+FIGURE 1 | (A) MAUVE alignment of chromosomes from Delftia acidovorans
+SPH1 (top, NC_010002) and Delftia sp. Cs1-4 (bottom, NC_015563). The
+location of the phn island in strain Cs1-4 is indicated by the brackets and the
+insertion site in strain SPH1 indicated by the arrow. In strain Cs1-4, loci
+
+bordering the island are (5(cid:3)–3(cid:3)) DelCs14_1618 and DelCs14_1848;
+corresponding loci in strain SPH1 are Daci_4996 and Daci_4997, respectively.
+(B) IslandViewer analyses of the Delftia sp. Cs1-4 chromosome, with colored
+regions indicating genomic islands.
+
+intermediates, (4) fatty acid/polyhydroxyalkanoate biosynthesis,
+(5) a type IV secretory system, (6) a PRTRC system, (7) ele-
+ment integration, and (8–10) hypothetical proteins. The island
+also contained genes encoding quorum sensing signal molecules
+(Figure 2A). Genes encoding phage-like mobilization functions
+and prophage stabilization were distributed across the element,
+and a 32-bp palindromic sequence was present at two locations
+(Figures 2A,B). While the G+ C content of the phn island as a
+whole was similar to that of the strain Cs1-4 chromosome (66.7%),
+that of the region encoding the upper pathway for phenanthrene
+
+degradation (phn cluster; Figure 2A) showed a marked divergence
+at ca. 50% G+ C.
+
+The cluster encoding phenanthrene catabolism to o-phthalate
+encompassed 17 phn genes (phnAa to phnI ; Figures 3 and 4)
+interspersed with genes for glutathione S-transferase, regula-
+tory elements, transposons/integrases and hypothetical proteins.
+Alignment of the phn clusters of strain Cs1-4 with those of A.
+faecalis AFK2 and Burkholderia sp. Ch1-1 revealed general con-
+servation of phnAb–phnD, the exception being strain Ch1-1 in
+which a transposon was inserted between phnAb–Aa (Figure 4).
+
+Frontiers in Microbiology | Microbiotechnology, Ecotoxicology and Bioremediation
+
+April 2012 | Volume 3 | Article 125 | 4
+
+Hickey et al.
+
+A
+
+The phn island
+
+B
+
+32 bp Palindromic Repeat:
+CTGCCCGGCCGCCCTGCAGGGCGGCCGGGCAG
+
+57 bp Repeat:
+GGCCCTGCCCGCAGCATACGCAAATGCTTGATCTACTCGTCATTCACGCCACGCTGC
+
+FIGURE 2 | (A) Summary of phn island features. Major regions discussed
+in the text and the associated genes are indicated by colored bars and
+arrows, respectively. The values within the bars are the ranges of Delftia
+sp. Cs1-4 loci that are encompassed by each region. Highlighted regions
+are the: phn cluster (blue), oph cluster (light blue), pmd cluster (turquoise),
+tra region (dark green), PRTRC cluster (orange), fatty
+acid/polyhydroxyalkanoate (PHA) biosynthesis (brown). Other colored
+genes are: phage/plasmid integration/excision (red), phage/plasmid
+
+regulation/stabilization (purple), transposons (yellow), pseudogenes (bright
+green half arrows), and other genes including hypothetical (black).
+Additional genes and features discussed in the text are colored and
+labeled. Lines beneath the gene diagram indicate the average%G+ C
+(blue) and average%A+T (green) of the overlaying region. (B) Sequences
+of the 32-bp palindromic and 57-bp repeats indicated in (A) and discussed
+in the text. The two halves of the palindrome are distinguished by normal
+vs. boldface type.
+
+www.frontiersin.org
+
+April 2012 | Volume 3 | Article 125 | 5
+
+Hickey et al.
+
+The phn island
+
+OH
+
+H
+
+HO
+
+H
+
+OH
+
+HO
+
+CO2H
+OH
+
+O
+
+O
+
+OH
+
+CO2H
+
+2 
+
+3 
+
+4 
+
+1 
+
+X 
+10 
+
+H
+
+HO
+
+HO
+
+H
+
+I 
+
+9
+
+CO2H
+
+CO2H
+
+II 
+
+O
+
+8 
+
+CO2H
+CO2H
+
+III 
+
+OH
+
+IV 
+
+7 
+
+CO2H
+H
+
+OH
+
+6
+
+CO2H
+
+IX 
+
+VIII 
+
+O
+
+VII 
+
+V 
+
+5
+
+OH
+OH
+
+O
+
+VI 
+
+CO2H
+
+CO2H
+
+11 
+
+HO
+
+CO2H
+
+HO
+
+12 
+
+HO
+
+HO
+
+CO2H
+
+CO2H
+
+XI 
+
+XII 
+
+OH
+
+O
+
+O
+
+HI2OC
+
+CH3
+
+XIX 
+
+CO2H
+
+O
+
+XVIII 
+
+CO2H
+
+HO
+
+13 
+
+CO2H
+
+14 
+
+XIII 
+
+17 
+
+CO2H
+
+OH
+
+HO2C
+
+O
+
+CO2H
+
+XVII 
+
+CO2H
+
+O
+
+XIV 
+
+16 
+
+HO2C
+HO C
+
+O
+
+O
+
+XV 
+
+15 
+
+CO2H
+
+HO2C
+
+O
+
+CO2H
+
+XVI 
+ 
+
+FIGURE 3 | Pathway of phenanthrene degradation through o-phthalate
+and meta-cleavage of protocatechuate. Compounds are: phenanthrene (I),
+phenanthrene-cis-3,4-dihydrodiol (II), 3,4-dihydroxyphenanthrene (III),
+2-hydroxy-2H-benzo[h]chromene-2-carboxylate (IV), trans-4-
+(1(cid:3)-hydroxynaphth-2(cid:3)-yl)-2-oxobut-3-enoate (V), 1-hydroxy-2-naphthaldehyde
+(VI), 1-hydroxy-2-naphthoate (VII), trans-2(cid:3)-carboxy-benzalpyruvate (VIII),
+2-carboxy-benzaldehyde (IX), o-phthalate (X), phthalate-4,5-cis-dihydrodiol (XI),
+4,5-dihydroxyphthalate (XII), protocatechuate (XIII), 4-carboxy-
+2-hydroxymuconate semialdehyde (XIV), 2-pyrone-4,6-dicarboxylate (XV),
+4-carboxy-2-hydroxy-6-methoxy-6-oxohexa-2,4-dienoate (XVI),
+4-oxalomesaconate (XVII), 4-oxalocitramalate (XVIII), pyruvate (XIX),
+oxaloacetate (XX). Numbers above arrows correspond to enzymes and
+cognate genes mediating each step and are: phnAb, ferredoxin reductase (1);
+phnAa, ferredoxin (1); phnAc, phenanthrene dioxygenase large subunit (1);
+phnAd, phenanthrene dioxygenase small subunit (1); phnB, phenanthrene
+
+dihydrodiol dehydrogenase (2); phnC, 3,4-dihydroxyphenanthrene
+dioxygenase (3); phnD, 2-hydroxychromene-2-carboxylate isomerase (4);
+phnE, trans-o-hydroxybenzylidenepyruvate hydratase-aldolase (5); phnF,
+1-hydroxy-2-naphtoaldehyde dehydrogenase (6); phnG, 1-hydroxy-2-
+naphthoate dioxygenase (7); phnH, trans-2(cid:3)-carboxy-benzalpyruvate
+hydratase-aldolase (8); phnI, 2-carboxybenzaldehyde dehydrogenase (9);
+ophA1, phthalate 4,5-dioxygenase reductase (10); ophA2, phthalate
+4,5-dioxygenase oxygenase (10); ophB, cis-phthalate dihydrodiol
+dehydrogenase (11); ophC, 4,5-dihydroxyphthalate decarboxylase (12);
+pmdA, protocatechuate meta-dioxygenase large subunit (13); pmdB,
+protocatechuate meta-dioxygenase small subunit (13); pmdC,
+2-hydroxy-4-carboxymuconate semialdehyde dehydrogenase (14);
+pmdD, 2-pyrone-4,6-dicarboxylic acid hydrolase (15); pmdE,
+4-oxalomesaconate hydratase (16); pmdF, 4-oxalocitramalate
+aldolase (17).
+
+Further downstream, there were two regulatory genes: tetR was
+present in strains Cs1-4 and Ch1-1, but fragmented in A. faecalis
+AFK2, while a marR regulator was conserved between the clusters.
+The gst gene was also conserved, as were phnH–G. But, the clus-
+ters diverged at phnI, which was interrupted by a transposase in
+strain Cs1-4. In strain Cs1-4, phnI was the last gene in the cluster
+(Figure 4).
+
+Four new genes (termed phnJKLM ) were identiﬁed (Figure 4),
+which proteomics indicated were linked to phenanthrene degra-
+dation (see below). The ﬁrst of these, phnJ, encoded a pro-
+tein containing a signal peptide, and a conserved domain of
+unknown function (DUF) 1302. The product of the follow-
+ing gene, phnK, contained a signal peptide and DUF 1329. The
+phnL product was a Ycf48-like protein, which in phototrophs,
+
+Frontiers in Microbiology | Microbiotechnology, Ecotoxicology and Bioremediation
+
+April 2012 | Volume 3 | Article 125 | 6
+
+Hickey et al.
+
+The phn island
+
+FIGURE 4 | Alignment of all currently available phn clusters. Sequences
+are from: (1) A. facaelis AFK2 (AB024945), (2) Acidovorax sp. AN3 (EU910094),
+(3) Burkholderia sp. Ch1-1 (NZ_ADNR01000074), and (4) Delftia sp. Cs1-4
+(NC_015563). Values across the top of the diagram indicate position (bp) within
+the alignment, while those above each sequence indicate position in the
+original source of that sequence. Colors indicate phn genes (blue), transposons
+
+(yellow), regulatory elements (dark green), integrases (red), fragmented genes
+(brown), pseudogenes (bright green half arrows), and regions of sequence
+gaps (purple). Reactions catalyzed for all gene products except phnJ, phnK,
+phnL, and phnM (function unknown) are summarized in Figure 3. For A.
+facaelis AFK2, features not annotated in the original GenBank entry included:
+phnJ, phnK, marR, the RVE-type integrase and all fragmented genes.
+
+functions in the assembly of Photosystem II (Komenda et al.,
+2008; Rengstl et al., 2011). Lastly, phnM, encoded an RND-type
+hydrophobe/amphiphile efﬂux protein. In the other phnAFK2 phy-
+lotypes, phnJ was either truncated (A. faecalis AFK2) or frag-
+mented (Burkholderia sp. Ch1-1). Further comparison of the
+phnJKLM cluster could be done only with strain AFK2, which dif-
+fered from strain Cs1-4 in that phnLM were fragmented and only
+phnK was intact. GenBank searches revealed the phnJKLM cluster
+was widely distributed across diverse alpha-, beta-, and gamma-
+proteobacteria, the latter with representatives from terrestrial and
+marine environments (Table 1). A common feature linking these
+diverse organisms was the location of phnJKLM adjacent to genes
+for oxidoreductases (Table 1).
+
+In strain Cs1-4, the lower pathway of phenanthrene catab-
+olism entails transformation of o-phthalate to protocatechuate
+(PCA), and PCA degradation to oxaloacetate and pyruvate via
+the meta pathway (Figure 3). The genes for o-phthalate and PCA
+degradation (oph and pmd, respectively) occurred in separate clus-
+ters (Figures 2A, 5, and 6). The organization of the oph cluster
+(Figure 5) was generally similar to that of Comamonas testos-
+teroni KF-1. However, a signiﬁcant difference between the oph
+clusters of strain Cs1-4 and that of C. testosteroni KF-1 was the
+presence in the strain Cs1-4 cluster of two non-identical copies
+of ophA2 (Figure 5), which encodes the oxygenase component of
+phthalate-4,5-dioxygenase (Batie et al., 1987).
+
+The pmd cluster occurred in two loci, one located on the phn
+island (Cluster 1; Figures 2A and 6) and the other outside of it
+(Cluster 2; Figure 6). There was also a third locus in strain Cs1-4
+where additional copies of pmdAB [protocatechuate 4,5 (meta)-
+dioxygenase] were located, but were not associated with any other
+PCA degradation genes (DelCs14_3008, 3009). The structure of
+pmd Cluster 1 was similar to that of Ramlibacter tataouinensis
+TTB310 while Cluster 2 organization was like that of other Coma-
+monadaceae as exempliﬁed by Comamonas sp. DJ-12 (Figure 6).
+The structures of the pmd clusters diverged in two ways (Figure 6).
+
+First, Cluster 1 lacked pmdK/pmcT (putatively encoding an aro-
+matic acid transporter) and instead had a gene for a predicted
+LTTR-domain protein located in that position. Secondly, Cluster
+1 encompassed a gene predicted to encode an NAD-binding dehy-
+drogenase, the function of which in the meta pathway is unknown.
+The latter gene was conserved in the pmd clusters of strains Cs1-
+4 and TTB310, but the NAD-binding dehydrogenase was present
+only in strain Cs1-4 (Figure 6).
+
+(cid:3)
+A cluster of genes near the 5
+
+end of the island-encoded
+enzymes were predicted to link biosynthesis of fatty acids with
+that of the carbon storage polymers, polyhydroxyalkanoates (PHA;
+Figure 2A). Key intermediates of fatty acid synthesis used in
+production of medium chain length PHA are enoyl-CoA, 3-
+ketoacyl-CoA, (S)-3-hydroxyacyl-CoA and 3-hydroxyacyl-acyl-
+carrier-protein (Witholt and Kessler, 1999). Enzymes linking
+these to PHA synthesis are enoyl-CoA hydratase (Fiedler et al.,
+2002; Tsuge et al., 2003), 3-ketoacyl-(acyl-carrier-protein) reduc-
+tase (Ren et al., 2000), and epimerase (Madison and Huisman,
+1999; Witholt and Kessler, 1999). Within the putative PHA clus-
+ter, three genes (DelCs14_1623, 1625, 1627) were predicted to
+encode MaoC-like proteins, which have been demonstrated as
+important in PHA biosynthesis (Park and Lee, 2003). These
+MaoC-like proteins were orthologs of the (R)-speciﬁc enoyl-
+CoA hydratase, PhaJ1 (Park and Lee, 2003). The product of
+DelCs14_1636 was a FabG ortholog, which is a 3-ketoacyl-
+(acyl-carrier-protein) reductase. Epimerase activity could be pro-
+vided by two genes predicted to encode MmgE/PrpD family
+proteins (DelCs14_1624, DelCs14_1635) for which this func-
+tion has recently been established (Lohkamp et al., 2006).
+Other genes with potential
+links to fatty acid biosynthesis
+were (locus): enoyl-CoA reductase (a.k.a. butyrl-CoA dehydro-
+genase; DelCs14_1626), acetyl-CoA synthetase (DelCs14_1645),
+crotonase (DelCs14_1643), and NAD(P)(H)-dependent oxidore-
+ductases (DelCs14_1637) for the inter-conversion of aldehy-
+des/ketones and alcohols.
+
+www.frontiersin.org
+
+April 2012 | Volume 3 | Article 125 | 7
+
+Hickey et al.
+
+The phn island
+
+Table 1 | Examples of phnJKLM orthologs and adjacent oxidoreductase genes.
+
+Organism
+
+phnJKLM Ortholog loci
+
+Adjacent oxidoreductase(s)
+
+Predicted function
+
+Locus
+
+AZL_c01100-c01130
+
+Formaldehyde dehydrogenase
+
+AZL_c01090
+
+ALPHAPROTEOBACTERIA
+Azospirillum sp. B510; pAB510c
+BETAPROTEOBACTERIA
+Burkholderia sp. CCGE1002
+Cupriavidus necator N-1; pBB2
+Cupriavidus necator N-1; pBB2
+Polaromonas sp. JS666
+Methylibium petroleiphilum PM1
+Azoarcus sp. BH72
+Aromatoleum aromaticum EbN1
+GAMMAPROTEOBACTERIA
+Pseudomonas ﬂuorescens WH6
+
+Pseudomonas sp. TJI-51
+Pseudomonas brassicacearum subsp.
+brassicacearum NFM421
+
+BC1002_4161-4176
+CNE_BB2p00960-00990
+CNE_BB2p02150-02180
+Bpro_01300-0133
+Mpe_A0964-A0967
+azo1836-1839
+ebA5768-63
+
+PFWH6_2044-48
+
+G1E_19560-19545
+PSEBR_a2136-a2133
+
+Marinomonas mediterranea MMB-1
+
+Marme_2214-2220b
+
+Marinomonas posidonica IVIA-Po-18
+
+Mar181_2384-2390
+
+FAD-Binding monooxygenase
+Gentisate 1,2-dioxygenase
+Type I extradiol dioxygenase
+Benzaldehyde dehydrogenase
+Vanillate O-demethylase oxygenase
+Phenol 2-monooxygenasea
+Medium chain dehydrogenase/reductase
+
+Lignostilbene dioxygenase
+Vanillate monooxygenase
+2-Polyprenyl-6-methoxyphenol hydroxylase
+NAD(P)-binding oxidoreductase
+
+Vanillate monooxygenase
+Phthalate 4,5-dioxygenase reductase
+Type I extradiol dioxygenase
+Rieske non-heme iron oxygenase
+Type I extradiol dioxygenase
+
+BC1002_4160
+CNE_BB2p00870
+CNE_BB2p02130
+bpro_0128
+Mpe_A0963
+azo1846
+ebA5761
+
+PFWH6_203
+PFWH6_2050
+G1E_19565
+PSEBR_a2132
+
+PSEBR_a2138-39
+PSEBR_a2140
+Marme_2217
+Marme_2221
+Mar181_2387
+
+aPart of lap cluster of alkylphenol degradation genes.
+bphnJK are Marme_2214-15, phnLM are Marme_2219-20, Type I extradiol dioxygenase occurs between these along with a transporter and hypothetical protein.
+
+FIGURE 5 | Alignment of oph clusters from Comamonas testosteroni
+KF-1 (top, NZ_AAUJ02000001) and Delftia sp. Cs1-4 (bottom,
+NC_015563). Values across the top of the diagram indicate position (bp)
+within the alignment, while those above each sequence indicate position in
+
+the original source of that sequence. Colors indicate oph genes (light blue),
+transposons (yellow), integrases (red), regulatory elements (dark green),
+hemerythrin (brown), and genes for hypothetical proteins (turquoise).
+Reactions catalyzed by oph gene products are summarized in Figure 3.
+
+Another function of the PHA cluster may be to synthesize pan-
+tothenate. This compound is essential for coenzyme-A (CoA),
+which in turn is required for fatty acid metabolism, and thus
+PHA biosynthesis as well. β-Alanine is required for pantothenate
+production, and is produced primarily by aspartate decarboxyla-
+tion (Williamson and Brown, 1979); the enzyme catalyzing this
+reaction, l-aspartate decarboxylase, was the predicted product
+of DelCs14_1648. Aspartate formation in turn proceeds from
+oxaloacetic acid (OAA), a product of the phenanthrene lower
+pathway. Levels of OAA (and acetyl-CoA) could also be modu-
+lated by formyl-CoA transferase (DelCs14_1628), which catalyzes
+the reversible transfer of CoA between acetyl-CoA and OAA,
+and citryl-CoA lyase (DelCs14_1639, _1629), which transforms
+
+citryl-CoA into acetyl-CoA and OAA. The PHA cluster contained
+ﬁve proteins of a complete ABC transport system with similar-
+ity to that for branched chain amino acids. The function of the
+transporter is unknown, but the presence of a periplasmic binding
+protein (DelCs14_1630) suggested substrate import.
+
+The phn island contained 25 genes predicted to be involved
+in some aspect of DNA mobilization (Table 2). Like other GEI,
+it possessed a bacteriophage P4-like integrase located near the
+site of insertion, which had the greatest similarity to an integrase
+from Burkholderia phage BcepC6B (Table 3). While additional
+
+close orthologs (≥60% homology; Bi et al., 2012) of IntCs14
+
+were not identiﬁed, a number of low similarity hits were found
+in betaproteobacterial genera of the Burkholderiales, including
+
+Frontiers in Microbiology | Microbiotechnology, Ecotoxicology and Bioremediation
+
+April 2012 | Volume 3 | Article 125 | 8
+
+Hickey et al.
+
+The phn island
+
+FIGURE 6 | Alignment of pmd/pmc clusters. Sequences are from: (1)
+Comamonas sp. DJ-12 (AY866410), (2) Delftia sp. Cs1-4 Cluster 1
+(NC_015563), (3) Delftia sp. Cs1-4 Cluster 2 (NC_015563), (4) Ramlibacter
+tataouinensis TTB310 (CP000245). Values across the top of the diagram
+indicate position (bp) within the alignment, while those above each sequence
+
+indicate position in the original source of that sequence. Colors indicate:
+pmd/pmc genes (light blue), genes for LTTR-Domain proteins (orange), genes
+for dehydrogenase-Rossmann fold-NAD(H) binding proteins (brown). Other
+genes including those encoding hypothetical proteins are black. Reactions
+catalyzed by pmd gene products are summarized in Figure 3.
+
+Table 2 | Genes encoding DNA mobilization functions.
+
+Name/function
+
+DelCs14 locus
+
+PHAGE/PLASMID INTEGRATION/EXCISION
+P4-type integrase
+DNA breaking-rejoining enzyme
+RVE-type integrase
+Primase
+DinG-type helicase
+Topoisomerase-primase
+UvrD/REP-type helicase
+PHAGE/PLASMID STABILIZATION/REGULATION
+FlhC
+LexA
+PIN domain
+Fic/Doc
+TRANSPOSONS
+IS116/110/902
+IS3/911
+Mutator
+IS66
+IS4
+
+1846
+1719, 1814, 1827, 1841
+1664, 1765
+1710
+1771
+1845
+1844
+
+1706
+1708
+1716
+1718, 1784
+
+1834
+1739, 1832
+1830
+1738, 1764
+1746, 1752, 1761
+
+the pathogens Burkholderia pseudomallei and Burkholderia thai-
+landensis (Table 3). A feature common to most of these was
+integrase localization adjacent to genes predicted to encode
+RngG/CafA-orthologs (RNaseG; Table 3).
+
+The type IV secretion system (T4SS) of the phn island was
+similar to that of the F-plasmid in overall arrangement of the tra
+functions, and possession of ﬁve tra genes speciﬁc to F-plasmid-
+like T4SS (Lawley et al., 2003; Table 4). But, the phn island T4SS
+lacked a number of the F-plasmid T4SS genes, and contained seven
+hypothetical genes the F-plasmid lacks. One gene notably absent
+from the phn island was traJ that, on the F-plasmid, controls T4SS
+gene transcription (Frost et al., 1994). The phn island TraI protein
+belonged to the PFL_4751 family of relaxases, which are required
+for transfer of SXT/R391 elements, as well as ICE of Pseudomonas
+ﬂuorescens Pf-5 (Flannery et al., 2011).
+
+Genes encoding other types of DNA integration/excision func-
+tions were dispersed throughout the island (Figure 2A; Table 2).
+There were 10 transposases, and those of the IS4- and IS66-type
+were closely associated with the phn cluster. Seven genes had
+predicted functions that could have roles in GEI stabilization or
+regulation of GEI excision. Potential regulators were a LexA-like
+protein and FlhC ortholog (Flagellar transcriptional activator).
+The LexA family includes bacterial prophage repressor proteins
+involved in the SOS response (Beaber et al., 2004) while FlhC (ﬂa-
+gellar transcriptional activator) orthologs can function in global
+regulation of cellular processes. Both LexA and FlhC are part of a
+regulatory loop that is activated as part of the SOS response, which
+controls excision and transfer of SXT-type GEI (Beaber et al.,
+2002; Burrus and Waldor, 2003). Proteins that encoded potential
+toxin/antitoxin systems that could function in GEI stabilization
+included (Table 2): a protein with a PIN (PilT N terminus) domain,
+two Fic/Doc (Filamentation induced by cAMP/Death on curing)-
+like proteins and the OLD protein/UvrD pair (Overcome lysogeny
+defect/UV repair). The latter combination is commonly associ-
+ated with putative GEI, and has been hypothesized to be either a
+toxin–antitoxin system (RNase toxin linked with an antitoxin), or
+a recombinase possibly involved in GEI integration (Khan et al,
+2010). The phn island also contained all seven constituents of a
+“PRTRC” system, which is cataloged in TFAM as “a genetic system
+associated with mobile elements”2
+
+Lastly, the lasI /luxR pair (Figure 2A) could direct the forma-
+tion of N -acylhomoserine lactone (AHL) cell signaling molecules.
+The role of AHL as global regulators of many cellular functions
+is well established, and lasI /luxR orthologs have been identiﬁed
+on GEI in Burkholderia cepacia (Baldwin et al., 2004). However, in
+strain Cs1-4, deletion of lasI had no detectable effect on its growth
+or degradation of phenantherene (Chen and Hickey, 2011); thus,
+the function of a LasI-encoded AHL are unknown.
+
+COMPARATIVE PROTEOMIC ANALYSIS
+More than 600 proteins were identiﬁed in each of the proteomes
+of pyruvate- and phenanthrene-grown Delftia sp. Cs1-4, including
+
+2http://www.jcvi.org/cgi-bin/tigrfams/index.cgi.
+
+www.frontiersin.org
+
+April 2012 | Volume 3 | Article 125 | 9
+
+Hickey et al.
+
+The phn island
+
+Table 3 | Orthologs of intCs14 and adjoining rngG genes.
+
+Organism
+
+% Identitya
+
+Orthologsb
+
+Burkholderia phage BcepC6B
+Burkholderia sp. CCGE1002
+Herminiimonas arsenicoxydans
+Burkholderia pseudomallei 305
+Burkholderia sp. CCGE1001
+Burkholderia pseudomallei K96243
+Burkholderia thailandensis TXDOH
+Burkholderia sp. 383
+Comamonas sp. NCIMB 9872
+Achromobacter piechaudii ATCC 43553
+Achromobacter sp. SY8
+Achromobacter xylosoxidans A8
+
+60
+52
+47
+46
+45
+45
+45
+44
+43
+43
+43
+40
+
+intCs14
+
+rngG
+
+BcepC6B_gp25
+BC1002_6580
+HEAR0550
+BURPS305_2640
+BC1001_1032
+BPSL1157
+BthaT_010100019559
+Bcep18194_A5642
+orf3
+HMPREF0004_2444
+KYC_17542
+AXYL_02094
+
+NA
+NA
+HEAR0551
+BURPS305_2639
+BC1001_1033
+BPSL1158
+BthaT_010100019564
+NA
+orf4
+HMPREF0004_2445
+KYC_17547
+AXYL_02095
+
+aIdentity of IntCs14 to the product predicated for the intCs14 ortholog. Proteins predicted for orf3 and orf4 were BAC22654 and BAC22655, respectively. NA, not applicable,
+rngG absent.
+bLocus in the indicated organism.
+
+Table 4 | Type IV secretion system (T4SS) and F-speciﬁc transfersome components.
+
+Locusa
+
+Gene
+
+Description/function
+
+Orthologb
+
+Functionc
+
+Occurrenced
+
+1680
+1681
+1682
+1684
+1685
+1686
+1687
+1689
+1691
+1692
+1694
+1696
+1697
+1704
+1705
+
+traG
+traH
+traF
+traN
+trbC
+traU
+traW
+traF
+traC
+traV
+traB
+traE
+traL
+traD
+traI
+
+Inner membrane protein
+Periperhal outer membrane protein
+Outer membrane protein, thoiredoxin
+Mating pair stabilization
+Pre-pilin
+Outer membrane protein
+Outer membrane lipoprotein
+Peptidase S26C, conjugative transfer signal pep
+Perpheral inner membrane
+Anchor protein, outer membrane
+DNA-binding protein
+Unknown
+Peripheral membrane protein
+Conjugative coupling factor, SXT/TOL subfamily
+Relaxase, PFL_4751 family
+
+Ajs_1524
+Ajs_1525
+Ajs_1526
+Ajs_1528
+Ajs_1529
+Ajs_1530
+Ajs_1531
+Ajs_1533
+Ajs_1535
+Ajs_1536
+Ajs_1538
+Ajs_1540
+Ajs_1541
+Daro_2307
+Daro_2597
+
+1 and 2
+2
+2
+1
+2
+2
+2
+2
+Unknown
+2
+3
+2
+2
+3
+3
+
+T4
+F
+T4
+F
+F
+F
+F
+T4
+T4
+T4
+T4
+T4
+T4
+T4
+T4
+
+aNumbering in Delftia sp. Cs1-4 genome.
+bLoci of closest protein match: Ajs, Acidovorax sp. JS42; Daro, Dechloromonas aromatica RCB.
+cFunction in conjugal transfer: 1, Mating pair stabilization; 2, Pili assembly and production; 3, DNA transfer.
+dT4, common to all T4SS; F, Speciﬁc to F-plasmid type T4SS.
+
+12 proteins of the phenantherene degradation upper pathway and
+13 proteins of the lower pathway (Table 5). The relative abundance
+of PhnF was the greatest of all phenanthrene degradation pathway
+proteins detected, and ranked third overall in relative abundance
+in the phenanthrene proteome (Table S3 in Supplementary Mate-
+rial). In the pyruvate proteome, the same array of upper pathway
+proteins were identiﬁed, but at lower abundances. In contrast, no
+proteins of the lower pathway were detected in the pyruvate-grown
+cells. Based on comparative abundance of peptide scans in pyru-
+vate vs. phenanthrene-grown cells, all phenanthrene degradation
+
+proteins detected exhibited induction during growth on phenan-
+threne, except perhaps PhnG (Table 5). Peptides were detected
+for all four of the new phenanthrene degradation genes described
+above (phnJKLM ), and of these PhnJ ranked just behind PhnF in
+terms of overall abundance (Table S3 in Supplementary Mater-
+ial). Furthermore, all four proteins showed apparent induction by
+growth on phenanthrene. In the lower pathway, peptides match-
+ing both copies of OphA2 were identiﬁed, with those from locus
+DelCs14_1655 more abundant. Likewise, peptides matching gene
+products from both pmd clusters were detected, including both
+
+Frontiers in Microbiology | Microbiotechnology, Ecotoxicology and Bioremediation
+
+April 2012 | Volume 3 | Article 125 | 10
+
+Hickey et al.
+
+The phn island
+
+Table 5 | Comparative proteomic analysis of pyruvate- and
+phenanthrene-grown cells of Delftia sp. Cs1-4.
+
+Protein
+
+Locus
+
+Relative abundancea
+
+Pyruvate
+
+Phenanthrene
+
+PhnAa
+PhnB
+PhnAc
+PhnAd
+PhnH
+PhnG
+PhnC
+PhnF
+PhnJ
+PhnK
+PhnL
+PhnM
+PhnE
+OphA2
+OphC
+OphA1
+OphB
+OphA2
+PmdE
+PmdF
+PmdB
+PmdC
+PmdE
+PmdF
+PmdB
+PmdC
+
+1741
+1742
+1743
+1744
+1749
+1750
+1754
+1755
+1756
+1757
+1758
+1759
+1760
+1655
+1656
+1658
+1659
+1661
+1668
+1669
+1673
+1674
+2355
+2356
+2359
+2360
+
+0.03
+0.34
+0.19
+0.02
+0.02
+0.43
+0.37
+2.24
+0.32
+0.80
+0.03
+0.21
+0.09
+0b
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+
+0.13
+1.46
+1.14
+0.05
+0.04
+0.50
+0.74
+4.30
+4.19
+1.37
+0.12
+0.60
+0.27
+0.60
+0.14
+0.02
+0.09
+0.10
+0.04
+0.05
+0.04
+0.13
+0.04
+0.24
+0.05
+0.04
+
+aPercent of total peptides scanned: 11,454 (pyruvate) or 11,174 (phenanthrene).
+bNo matching peptides scanned.
+
+copies of pmdB,C,J,K. However, peptides matching the third copy
+of pmdAB (DelCs14_3008-09) were not detected.
+
+GENETIC ANALYSES OF phnAa–d
+The genes encoding the RHD large and small subunits, phnAcAd,
+were deleted by allelic exchange in strain Cs1-4, and the resul-
+tant ΔphnAcAd mutant was unable to grow on phenanthrene
+(Figure 7A). Complementation in trans with phnAcAd restored
+growth of the ΔphnAcAd mutant to levels similar to that of the
+wild type (Figure 7A). The growth impairment imposed upon the
+ΔphnAcAd mutant was speciﬁc to use of phenanthrene as a sole
+carbon source, as the mutant’s growth on pyruvate was indistin-
+guishable from that of the wild type or complemented mutant
+(Figure 7B). The phnAa–d cluster was cloned from Burkholde-
+ria sp. Ch1-1, and expressed in E. coli; phnAa–d from Ch1-1 to
+determine if interruption by a transposon (see above) affected the
+ability of the cluster to produce a functional enzyme. Heterol-
+ogous expression was successful, and E. coli harboring phnAa–d
+transformed all PAH tested (Figure 7C). No transformation was
+detected by the control E. coli BL21 (AI)(pET5a). Naphthalene
+
+FIGURE 7 | Functional analyses of the phn RHD genes. Growth on
+phenanthrene (A) and pyruvate (B) by Delftia sp. Cs1-4 wild type (wild
+type), ΔphnAcAd:Km mutant (mutant), and mutant complemented with
+phnAcAd (complement). (C) Heterologous expression in E. coli of
+phnAaAbAcAd and transformation of: naphthalene (Npn), ﬂuorene (Fln),
+phenanthrene (Phn), anthracene (Atn), and pyrene (Pyn). Data points are
+the means of three biological replicates; error bars are the SD.
+
+and ﬂuorene were most rapidly transformed, and the parent com-
+pounds were not detectable by HPLC after 1 h of incubation. For
+the remaining PAH tested, the apparent preference of the RHD
+decreased in the order of phenanthrene > anthracene > pyrene
+(Figure 7C). Notably, the RHD transformed ca. 50% of pyrene
+to pyrene dihydrodiols.
+
+DISCUSSION
+The phn island represented a type of GEI that, to the best of our
+knowledge, has not been previously reported. Classes of GEI are
+
+www.frontiersin.org
+
+April 2012 | Volume 3 | Article 125 | 11
+
+Hickey et al.
+
+The phn island
+
+deﬁned by having an integrase homology of ≥60%, signiﬁcant
+structural synteny and a common site of chromosomal integra-
+tion (Bi et al., 2012). For the phn island, the only protein reaching
+the 60% homology threshold with IntCs14 was the integrase of the
+podophage BcepC68, an element with no additional similarities to
+the phn island. Thus, other GEI of the phn island class have not
+yet been revealed by genome sequencing projects.
+
+The preferred site(s) of integration for phn island-like ele-
+ments cannot be conclusively identiﬁed without orthologs of
+IntCs14 for comparison. But, one of the most common targets
+for GEI, tRNA genes, can probably be ruled out as the nearest such
+gene was ca. 60 kb downstream of the phn island. Integration of
+GEI at sites besides tRNA loci is most extensively studied with
+the SXT/R391-type elements, which target prfC (Peptide Chain
+Release Factor 3; Burrus and Waldor, 2003). Because tRNA genes
+and prfC encode essential functions, they are widely conserved
+and sequences embedded in these can serve as effective targets
+(attB sites) for homologous regions (attP site) in an ICE (Tole-
+man and Walsh, 2011). It is unclear whether the ﬁmbrial protein
+(cid:3)
+gene present in the chromosome at the 3
+end of the phn island had
+the broad conservation typical of ICE integration loci. However,
+(cid:3)
+the 57-bp sequence located in the 3
+terminus of the phn island
+and repeated in the adjacent chromosomal region strongly resem-
+bled an attP–attB pair, but was far larger than any such sequence
+recognition site yet reported. Further study is needed to elucidate
+the potential function of that 57-bp motif.
+
+Processes governing GEI mobilization are key components of
+their biology and, while these are currently undetermined for
+the phn island, that element possessed genes known to mediate
+mobilization of SXT/R391-type GEI. Conjugal transfer of the SXT
+element occurs via a T4SS, and TraD (T4SS conjugal coupling
+factor) of the phn island was a protein of the SXT/TOL subfamily.
+Also, both the phn island and the SXT element possessed orthologs
+of FlhC and the lambda CI repressor (SetC and SetR, respectively
+in the SXT element), which are key (along with FlhD) in reg-
+ulating SXT element’s excision and circularization (Burrus and
+Waldor, 2003). The phn island and SXT element differed in that
+the latter has an ﬂhD ortholog (setD) adjoining setC, whereas the
+phn island did not. But, there was a second locus in strain Cs1-4
+(DelCs14_4452, _4453) that could supply FlhD. With the SXT ele-
+ment, these regulatory proteins are part of a system that triggers
+its excision in response to DNA damage, which can result from
+exposure to UV light or reactive oxygen species (ROS). A simi-
+lar system could operate with the phn island and ROS exposure
+might be particularly important, as ROS would be generated via
+activity of oxygenases the island encodes for phenanthrene catab-
+olism, and/or catecholic metabolites that are produced during that
+process (Elstner, 1982; Dalton et al., 1999; Schweigert et al., 2001).
+Genomic islands are emerging as key elements shaping the
+biodegradative capacity of bacterial communities. Other GEI that
+carry biodegradation functions are the (substrates degraded):
+100 kb clc element (chlorocatechols, aminophenols; Gaillard et al.,
+2006), 90 kb bph–sal element (biphenyl; Nishi et al., 2000), 55 kb
+biphenyl catabolic transposon Tn4371 (biphenyl; Toussaint et al.,
+2003), 100 kb Tn3-like Alteromonas sp. SN2 transposon (naph-
+thalene; Jin et al., 2011) and an unclassiﬁed GEI in P. naph-
+thalenivorans CJ2 (naphthalene; Yagi et al., 2009). In terms of
+
+catabolic activity, all of these GEI (except for the clc element)
+were similar to the phn island in encoding both the “upper”
+and “lower” pathways for catabolism of a polyaromatic com-
+pound. However, the ca. 235 kb phn island was distinct from all
+of the above in encoding additional functions such as a potential
+link of catabolism to PHA/fatty acid biosynthesis, production of
+AHL signaling molecules and >50 hypothetical proteins. Thus,
+phn island-encoded functions likely extended to cellular processes
+beyond biodegradation. The phn island was also distinguished
+from other biodegradation GEI as it was the only element of this
+group with apparent similarity in its mobilization biology to that
+of SXT/R391-type GEI.
+
+The present study provided the ﬁrst insight into a potential
+mechanism of HGT for the phnAFK2 genotype. “Curing” experi-
+ments with A. faecalis AFK2 indicated possible association of the
+phenanthrene degradation phenotype with a ca. 43 kb plasmid
+(Kiyohara et al., 1990). But, which, if any, of the phn, oph, or pmd
+genes were carried by that plasmid was not reported. The diver-
+gence in G+ C content of the phn cluster (ca. 50%) indicated a
+phylogenetic origin distinct from any host of the phn genes that
+is currently known. As noted above, the G+ C content for Delf-
+tia sp. Cs1-4 was 66.7%, while that of A. faecalis AFK2 was 68%
+(Kiyohara et al., 1982) and 62.5% for Burkholderia sp. Ch1-13.
+The G+ C content for Acidovorax sp. NA3 has not been reported,
+but in other Acidovorax genomes, it ranged from 64.9 to 66.8%
+(see text footnote 3). Thus, the phn cluster constituted a module
+mobilized independently of the phn island. Mechanisms for HGT
+of the phn cluster are unknown, but the bracketing by IS4- and
+IS66-type transposons may have implicated participation in HGT
+by those elements. Finally, although the phylogenetic origin of the
+phn cluster cannot be unequivocally determined, a betaproteobac-
+terial source would be consistent with that of other phn island
+components (e.g., T4SS cluster, PRTRC cluster, etc.). Also, while
+the 50% G+ C content of the phn cluster was divergent from the
+genomic G+ C content of its known hosts, which were all of the
+order Burkholderiales, it would be in line with the median genomic
+G+ C content for the betaproteobacteria as a whole (Lightﬁeld
+et al., 2011).
+
+Six other GEI were identiﬁed by BLAST searches that had
+a T4SS cluster with high homology to that of the phn island;
+three of these also contained a PRTRC region like that of the
+phn island. All of these GEI were located in betaproteobacteria of
+the Comamonadaceae (Acidovorax sp. JS42) or Rhodocyclaceae
+(Alicycliphilus denitriﬁcans K601, Dechloromonas aromatica RCB),
+although none could be classed with the phn island because of
+
+low integrase homology with IntCs14 (≤23%). But, the GEI from
+
+strains JS42 and K601 were of the same class based on high inte-
+grase homology (96%), a common site of insertion (tRNAAla), and
+overall synteny.
+
+Two signiﬁcant ﬁndings regarding the phn cluster in strain Cs1-
+4 were the relocation of phnI, and the identiﬁcation of four new
+genes, phnJKLM. The latter were not annotated in the GenBank
+record for strain AFK2, but were readily identiﬁed by ORF analysis
+of that sequence, and it is alignment with the phn region of strain
+
+3http://img.jgi.doe.gov/cgi-bin/w/main.cgi
+
+Frontiers in Microbiology | Microbiotechnology, Ecotoxicology and Bioremediation
+
+April 2012 | Volume 3 | Article 125 | 12
+
+Hickey et al.
+
+The phn island
+
+Cs1-4. The degeneration of phnJLM in strain AFK2 suggested
+these genes were part of an ancestral phn module common to
+strains AFK2 and Cs1-4, but not utilized in the former. In con-
+trast, while speciﬁc functions of phnJKLM in strain Cs1-4 were
+unknown, all exhibited apparent induction by growth on phenan-
+threne, suggesting some role in the utilization of that compound.
+Furthermore, since phnJKLM orthologs were associated with oxi-
+doreductases for metabolism of a variety of hydrocarbons, their
+functions may be broadly applicable in hydrocarbon degradation,
+rather than speciﬁc to degradation of phenanthrene, or even PAH
+in general.
+
+Segregation of phnI from the main body of the phn cluster
+could potentially have signiﬁcant regulatory and metabolic impli-
+cations. Singleton et al. (2009) demonstrated that in Acidovorax
+sp. AN3 phnAc, phnB, and phnC were co-transcribed and, since
+phnI was upstream of phnC, it too would be included in that
+transcript. But, in strain Cs1-4, such co-transcription of phnI is
+uncertain as ca. 8 kb and ﬁve genes separate it from the body of the
+phn cluster. In this case, phnI expression may be under separate
+transcriptional control, which could potentially affect the cata-
+bolic pathway. PhnI catalyzes the last step of the upper pathway
+(2-carboxybenzaldehyde conversion to o-phthalate), and a notable
+difference between strains Cs1-4 and Ch1-1 (in which phnI was
+included within the phn cluster) was that the former accumu-
+lated o-phthalate during growth on phenanthrene while the latter
+did not (Shetty, 2011). In strain Cs1-4, o-phthalate accumulation
+could reﬂect dis-synchronization of PhnI activity with that of the
+upstream enzymes in the phn catabolic pathway.
+
+Growth on phenanthrene is known to induce phn expression
+(Singleton et al., 2009), but regulatory mechanisms controlling
+transcription of the phn genes are unknown. Conservation of the
+marR-like element within the phn cluster may have indicated it
+served a regulatory function in phenanthrene degradation that is
+common to all of the phn genotype bacteria. The marR elements
+are generally responsive to aromatic compounds in general (Alek-
+shun and Levy, 1999), and in P. naphthalenivorans CJ2, regulates
+expression of naphthalene degradation genes (Jeon et al., 2006).
+Also, marR genes can be up-regulated by exposure to naphthenic
+acids (Zhang et al., 2011), chemicals that have some resemblance to
+metabolites produced during phenanthrene metabolism. Thus, a
+possible role for marR is regulation of the phn genes via interaction
+with one or more phenanthrene metabolites.
+
+The oph and pmd clusters each presented interesting types of
+apparent redundancy. The multiple pmd clusters were similar to
+that in other bacteria, such as the multiple phenol degradation
+clusters (mhp genes) in Dechloromonas aromatica (Salinero et al.,
+2009). The physiological signiﬁcance of such redundancy is as yet
+unknown. But, for Delftia sp. Cs1-4, proteomics data presented
+here proved both pmd paralogs were expressed, and apparently
+induced by growth on phenanthrene. A search of all currently
+available genomes possessing genes annotated as “phthalate 4,5-
+dioxygenase” yielded no other examples of an oph operon with
+two copies of ophA2. Two nearly adjacent copies of phthalate
+4,5-dioxygenase oxygenase were located in the actinobacterium
+Pseudonocardia dioxanivorans CB1190 (Psed_3921, Psed_3923;
+NC_015312.1), but these were not associated with any other oph
+genes. Thus, the structure of the oph cluster in strain Cs1-4 is likely
+
+the ﬁst example of its kind. Phthalate dioxygenase is composed of a
+reductase, OphA1, and a single alpha subunit, OphA2 (Batie et al.,
+1987; Kweon et al., 2008), and thus the roles of two non-identical
+copies of OphA2 is unknown. Proteomics data established expres-
+sion of both copies, but the within-cluster copy (DelCs14_1655)
+appeared more abundant from spectral scans. We speculate that
+the second copy of OphA2 may be optimized for a substrate other
+than o-phthalate.
+
+Heterologous expression and targeted mutagenesis established
+phnAa–d as encoding the RHD responsible for initiating metab-
+olism of phenanthrene. As yet, evidence for this activity has been
+indirect, such as monitoring transcript production (Singleton
+et al., 2009). Heterologous expression demonstrated that, like other
+PAH RHD, the phnAa–d enzyme transformed a number of PAH
+including a four-ring compound, pyrene. However, a notable dif-
+ference between the phn RHD and the nah-like RHD was that
+organisms possessing the latter typically grow on many of the PAH
+that are substrates for the nah RHD. But, phenanthrene is the only
+PAH that supports growth of all currently cultured bacteria with
+the phnAFK2 genotype (Acidovorax sp. NA3, Delftia sp. Cs1-4, and
+Burkholderia sp. Ch1-1).
+
+In conclusion, the present analyses of the phn island have added
+new dimensions to our knowledge of PAH biodegradation, mech-
+anisms of HGT that shape microbial communities and the nature
+of GEI in general. This study has provided starting points for inves-
+tigations into new biodegradative functions, such as the roles of
+PhnJKLM or the two copies of OphA2, as well as identiﬁcation
+of molecular mechanisms mediating phn island mobilization. The
+acquisition of complete genome sequences for additional bacte-
+ria of the phnAFK2 genotype and/or possessing close orthologs of
+IntCs14 would greatly facilitate future studies on the structure and
+function of phn island-type GEI.
+
+ACKNOWLEDGMENTS
+These studies were supported by funding (to William J. Hickey)
+from the Univ. of Wisconsin–Madison, College of Agricultural and
+Life Sciences (Hatch–McIntire-Stennis), National Science Foun-
+dation (MCB0920664), and the O.N. Allen Professorship in Soil
+Microbiology. Sequencing, assembly, and computational annota-
+tion of the Delftia sp. Cs1-4 and Burkholderia sp. Ch1-1 genomes
+was done by the U.S. Department of Energy, Joint Genome Insti-
+tute, through the Community Sequencing Project (CSP795673
+to William J. Hickey). The work conducted by the U.S. Depart-
+ment of Energy, Joint Genome Institute was supported by the
+U.S. Department of Energy, Ofﬁce of Science under contract No.
+DE-AC02-05CH11231.
+
+SUPPLEMENTARY MATERIAL
+The Supplementary Material for this article can be found online at
+http://www.frontiersin.org/Microbiotechnology,_Ecotoxicology_
+and_Bioremediation/10.3389/fmicb.2012.00125/abstract
+
+Table S1 | Bacterial strains and plasmids used in this study.
+
+Table S2 | PCR Primers used in this study.
+
+Table S3 | Proteomes of Delftia sp. Cs1-4 grown on the indicated carbon
+source.
+
+www.frontiersin.org
+
+April 2012 | Volume 3 | Article 125 | 13
+
+Hickey et al.
+
+The phn island
+
+REFERENCES
+Alekshun, M. N., and Levy, S. B. (1999).
+The Mar regulon: multiple resistance
+to antibiotics and other toxic chem-
+icals. Trends Microbiol. 7, 410–413.
+
+Baldwin, A., Sokol, P. A., Parkhill, J.,
+and Mahenthiralingam, E. (2004).
+The Burkholderia cepacia epidemic
+strain marker is part of a novel
+genomic island encoding both vir-
+ulence and metabolism-associated
+genes in Burkholderia cenocepacia.
+Infect. Immun. 80, 1537–1547.
+
+Basu, A., and Phale, P. S. (2008).
+Conjugative transfer of preferential
+utilization of aromatic compounds
+from Pseudomonas putida CSV86.
+Biodegradation 19, 83–92.
+
+Batie, C. J., Lahaie, E., and Ballou, D. P.
+(1987). Puriﬁcation and character-
+ization of phthalate oxygenase and
+phthalate oxygenase reductase from
+Pseudomonas cepacia. J. Biol. Chem.
+262, 1510–1518.
+
+Beaber,
+
+J. W., Hochhut, B.,
+
+and
+Waldor, M. K. (2002). Genomic
+and functional analyses of SXT,
+an integrating antibiotic resistance
+gene transfer element derived from
+Vibrio cholerae.
+J. Bacteriol. 184,
+4259–4269.
+
+Beaber, J. W., Hochhut, B., and Wal-
+dor, M. K. (2004). SOS Response
+promotes horizontal dissemination
+of antibiotic resistance genes. Nature
+427, 72–74.
+
+Bi, D. X., Xu, Z., Harrison, E. M., Tai,
+C., Wei, Y. Q., He, X. Y., Jia, S. R.,
+Deng, Z. X., Rajakumar, K., and Ou,
+H. Y. (2012). ICEberg: a web-based
+resource for integrative and con-
+jugative elements found in Bacteria.
+Nucleic Acids Res. 40, D621–D626.
+
+Burrus, V., and Waldor, M. K. (2003).
+Control of SXT integration and exci-
+sion. J. Bacteriol. 185, 5045–5054.
+
+of
+
+tools
+
+analysis
+
+Chen, S., and Hickey, W. J. (2011).
+for
+Development
+genetic
+phenan-
+threne degradation and nanopod
+production by Delftia sp. Cs1-
+4.
+2:187.
+doi:10.3389/fmicb.2011.00187
+
+Front. Microbiol.
+
+of
+
+Dalton, T. P., Shertzer, H. G., and Puga,
+A. (1999). Regulation of gene expres-
+sion by reactive oxygen. Annu. Rev.
+Pharmacol. Toxicol. 39, 67–101.
+
+Demaneche, S., Meyer, C., Micoud,
+J., Louwagie, M., Willison, J. C.,
+and Jouanneau, Y. (2004). Iden-
+tiﬁcation and functional analysis
+of two aromatic-ring-hydroxylating
+dioxygenases from a Sphingomonas
+strain that degrades various poly-
+cyclic aromatic hydrocarbons. Appl.
+Environ. Microbiol. 70, 6714–6725.
+
+Dennis, J. J., and Zylstra, G. J. (2004).
+sequence and genetic
+
+Complete
+
+organization of pDTG1, the 83 kilo-
+base naphthalene degradation plas-
+mid from Pseudomonas putida strain
+NCIB 9816-4.
+J. Mol. Biol. 341,
+753–768.
+
+to
+
+(2010). Soil
+
+phenanthrene
+
+Ding, G. C., Heuer, H., Zuhlke, S.,
+Spiteller, M., Pronk, G. J., Heister,
+K., Kogel-Knabner, I., and Smalla,
+type-dependent
+K.
+responses
+as
+revealed by determining the diver-
+sity and abundance of polycyclic
+aromatic
+ring-
+hydroxylating dioxygenase
+genes
+by using a novel PCR detection
+system. Appl. Environ. Microbiol. 76,
+4765–4771.
+
+hydrocarbon
+
+Dobrindt, U., Hochhut, B., Hentschel,
+U., and Hacker, J. (2004). Genomic
+islands in pathogenic and environ-
+mental microorganisms. Nat. Rev.
+Microbiol. 2, 414–424.
+
+Elstner, E. F. (1982). Oxygen activa-
+tion and oxygen-toxicity. Annu. Rev.
+Plant Physiol. 33, 73–96.
+
+Fiedler, S., Steinbüchel, A., and Rehm,
+B. H. A. (2002). The role of the
+fatty acid beta-oxidation multien-
+zyme complex from Pseudomonas
+oleovorans in polyhydroxyalkanoate
+biosynthesis: molecular characteri-
+zation of the fadBA operon from
+P. oleovorans and of the enoyl-CoA
+hydratase genes phaJ from P. oleovo-
+rans and Pseudomonas putida. Arch.
+Microbiol. 178, 149–160.
+
+Flannery, E. L., Antczak, S. M., and
+(2011). Self-
+Mobley, H. L. T.
+transmissibility of
+the integrative
+and conjugative element ICEPm1
+between clinical isolates requires a
+functional
+integrase, relaxase, and
+type IV secretion system. J. Bacteriol.
+194, 4104–4112.
+
+Frost, L. S., Ippen-Ihler, K., and Skur-
+ray, R. A. (1994). Analysis of the
+sequence and gene products of the
+transfer region of the F sex factor.
+Microbiol. Rev. 58, 162–210.
+
+Gaillard, M., Vallaeys, T., Vorholter, F.
+J., Minoia, M., Werlen, C., Sentchilo,
+V., Puhler, A., and Van Der Meer,
+J. R.
+element
+of Pseudomonas sp strain B13, a
+genomic island with various cata-
+bolic properties. J. Bacteriol. 188,
+1999–2013.
+
+(2006). The
+
+clc
+
+Heinaru, E., Vedler, E., Jutkina, J., Aava,
+M., and Heinaru, A. (2009). Conju-
+gal transfer and mobilization capac-
+ity of
+the completely sequenced
+naphthalene plasmid pNAH20 from
+multiplasmid strain Pseudomonas
+ﬂuorescens PC20. FEMS Microbiol.
+Ecol. 70, 563–574.
+
+Hickey, W.
+
+J., and Focht, D. D.
+(1990). Degradation of mono-, di-
+, and tri-halogenated benzoates
+
+by Pseudomonas aeruginosa strain
+JB2. Appl. Environ. Microbiol. 56,
+3842–3850.
+
+Jeon, C. O., Park, M., Ro, H.-S., Park,
+W., and Madsen, E. L. (2006). The
+naphthalene catabolic (nag ) genes of
+Polaromonas naphthalenivorans CJ2:
+evolutionary implications for two
+gene clusters and novel regulatory
+control. Appl. Environ. Microbiol. 72,
+1086–1095.
+
+Jin, H. M., Jeong, H., Moon, E. J., Math,
+R. K., Lee, K., Kim, H. J., Jeon, C.
+O., Oh, T. K., and Kim, J. F. (2011).
+Complete genome sequence of the
+polycyclic aromatic hydrocarbon-
+degrading bacterium Alteromonas
+sp. strain SN2. J. Bacteriol. 193,
+4292–4293.
+
+Kang, H., Hwang, S. Y., Kim, Y. M., Kim,
+E., Kim, Y. S., Kim, S. K., Kim, S. W.,
+Cerniglia, C. E., Shuttleworth, K. L.,
+and Zylstra, G. J. (2003). Degrada-
+tion of phenanthrene and naphtha-
+lene by a Burkholderia species strain.
+Can. J. Microbiol. 49, 139–144.
+
+Keller, A., Nesvizhskii, A. I., Kolker, E.,
+and Aebersold, R. (2002). Empir-
+ical statistical model
+to estimate
+the accuracy of peptide identi-
+ﬁcations made by MS/MS and
+database search. Anal. Chem. 74,
+5383–5392.
+
+Khan, F., Furuta, Y., Kawai, M.,
+Kaminska, K. H.,
+Ishikawa, K.,
+Bujnicki, J. M., and Kobayashi, I.
+(2010). A putative mobile genetic
+element
+type
+IIF restriction-modiﬁcation system
+(PluTI). Nucleic Acids Res. 38, 3019–
+3030.
+
+carrying a novel
+
+Kiyohara, H., Nagao, K., Kouno, K.,
+and Yano, K. (1982). Phenanthrene-
+degrading phenotype of Alcaligenes
+faecalis AFK2. Appl. Environ. Micro-
+biol. 43, 458–461.
+
+Kiyohara, H., Takizawa, N., Date, H.,
+Torigoe, S., and Yano, K. (1990).
+Characterization of a phenanthrene
+degradation plasmid from Alcali-
+genes faecalis AFK2. J. Ferment. Bio-
+eng. 69, 54–56.
+
+Komenda, J., Nickelsen, J., Tichy, M.,
+Prasil, O., Eichacker, L. A., and
+Nixon, P. J. (2008). The cyanobac-
+terial homologue of HCF136/YCF48
+is a component of an early pho-
+tosystem II assembly complex and
+is important for both the efﬁcient
+assembly and repair of photosystem
+II in Synechocystis sp PCC 6803. J.
+Biol. Chem. 283, 22390–22399.
+
+Kweon, O., Kim, S.-J., Baek, S., Chae,
+J.-C., Adjei, M. D., Baek, D. H.,
+Kim, Y. C., and Cerniglia, C. E.
+(2008). A new classiﬁcation sys-
+tem for bacterial Rieske non-heme
+iron aromatic ring-hydroxylating
+
+oxygenases. BMC Biochem. 9, 11.
+doi:10.1186/1471-2091-9-11
+
+Lawley, T. D., Klimke, W. A., Gubbins,
+M. J., and Frost, L. S. (2003). F factor
+conjugation is a true type IV secre-
+tion system. FEMS Microbiol. Lett.
+224, 1–15.
+
+Li, W., Shi, J. D., Wang, X. G., Han,
+Y. N., Tong, W., Ma, L., Liu, B.,
+and Cai, B. L. (2004). Complete
+nucleotide sequence and organiza-
+tion of the naphthalene catabolic
+plasmid pND6-1 from Pseudomonas
+sp strain ND6. Gene 336, 231–240.
+
+Lightﬁeld, J., Fram, N. R., and Ely,
+B. (2011). Across bacterial phyla,
+distantly-related genomes with simi-
+lar genomic GC content have similar
+patterns of amino acid usage. PLoS
+ONE 6, e17677. doi:10.1371/jour-
+nal.pone.0017677
+
+Lohkamp, B., Bäuerle, B., Rieger, P.-
+G., and Schneider, G. (2006). Three-
+dimensional structure of iminodis-
+uccinate epimerase deﬁnes the fold
+of the MmgE/PrpD Protein. J. Mol.
+Biol. 362, 555–566.
+
+Lozada, M., Mercadal, J. P. R., Guer-
+rero, L. D., Di Marzio, W. D.,
+Ferrero, M. A., and Dionisi, H.
+M. (2008). Novel aromatic ring-
+hydroxylating dioxygenase
+genes
+from coastal marine sediments of
+Patagonia. BMC Microbiol. 8, 50.
+doi:10.1186/1471-2180-8-50
+
+Madison, L. L., and Huisman, G.
+W. (1999). Metabolic engineering
+of poly(3-hydroxyalkanoates): from
+DNA to plastic. Microbiol. Mol. Biol.
+Rev. 63, 21–53.
+
+Mario, J., Van Der Meer, J. R., Gaillard,
+M., Harding, R. M., Hood, D. W.,
+and Crook, D. W. (2009). Genomic
+islands: tools of bacterial horizontal
+gene transfer and evolution. FEMS
+Microbiol. Rev. 33, 376–393.
+
+Martin, S., Shabanowitz, J., Hunt, D.,
+and Marto, J. (2000). Subfemtomole
+MS and MS/MS peptide sequence
+analysis using nano-HPLC micro-
+ESI fourier transform ion cyclotron
+resonance mass spectrometry. Anal.
+Chem. 72, 4266–4274.
+
+Moser, R., and Stahl, U. (2001). Insights
+into the genetic diversity of initial
+dioxygenases from PAH-degrading
+bacteria. Appl. Microbiol. Biotechnol.
+55, 609–618.
+
+Nesvizhskii, A. I., Keller, A., Kolker, E.,
+and Aebersold, R. (2003). A statis-
+tical model for identifying proteins
+by tandem mass spectrometry. Anal.
+Chem. 75, 4646–4658.
+
+(2000). A 90-kilobase
+
+Nishi, A., Tominaga, K., and Furukawa,
+con-
+K.
+element
+jugative
+coding for biphenyl and salicy-
+late
+catabolism in Pseudomonas
+
+chromosomal
+
+Frontiers in Microbiology | Microbiotechnology, Ecotoxicology and Bioremediation
+
+April 2012 | Volume 3 | Article 125 | 14
+
+Hickey et al.
+
+The phn island
+
+putida KF715.
+1949–1955.
+
+J. Bacteriol. 182,
+
+Park, S. J., and Lee, S. Y. (2003). Iden-
+tiﬁcation and characterization of a
+new enoyl coenzyme a hydratase
+involved in biosynthesis of medium-
+chain-length polyhydroxyalkanoates
+in recombinant Escherichia coli. J.
+Bacteriol. 185, 5391–5397.
+
+Ren, Q., Sierro, N., Witholt, B.,
+and Kessler, B. (2000). FabG, an
+NADPH-dependent
+3-ketoacyl
+reductase of Pseudomonas aerug-
+inosa,
+for
+poly-3-
+medium-chain-length
+hydroxyalkanoate biosynthesis
+in
+Escherichia coli. J. Bacteriol. 182,
+2978–2981.
+
+precursors
+
+provides
+
+Rengstl, B., Oster, U., Stengel, A.,
+and Nickelsen, J. (2011). An inter-
+mediate membrane subfraction in
+cyanobacteria is
+involved in an
+assembly network for photosystem
+II biogenesis. J. Biol. Chem. 286,
+21944–21951.
+
+Romine, M. F., Stillwell, L. C., Wong, K.
+K., Thurston, S. J., Sisk, E. C., Sensen,
+C., Gaasterland, T., Fredrickson, J. K.,
+and Saffer, J. D. (1999). Complete
+sequence of a 184-kilobase catabolic
+plasmid from Sphingomonas aro-
+maticivorans F199. J. Bacteriol. 181,
+1585–1602.
+
+Salinero, K. K., Keller, K., Feil, W.
+S., Feil, H., Trong, S., Di Bar-
+tolo, G., and Lapidus, A. (2009).
+Metabolic
+soil
+microbe Dechloromonas aromatica
+str. RCB: indications of a surpris-
+ingly complex life-style and cryp-
+tic anaerobic pathways for aromatic
+
+analysis of
+
+the
+
+Sambrook,
+
+J., Fritsch, E. F.,
+
+degradation. BMC Genomics 10,
+351. doi:10.1186/1471-2164-10-351
+and
+Maniatis, T.
+(1989). Molecular
+Cloning: A Laboratory Manual. Cold
+Spring Harbor, NY: Cold Spring
+Harbor Laboratory.
+
+Schweigert, N., Zehnder, A. J. B., and
+Eggen, R. I. L. (2001). Chemical
+properties of catechols and their
+molecular modes of toxic action in
+cells, from microorganisms to mam-
+mals. Environ. Microbiol. 3, 81–91.
+
+Shetty, A. R. (2011). Characterization
+of Nanopods Produced by Delftia sp.
+Cs1-4. Madison: University of Wis-
+consin.
+
+Singleton, D. R., Ramirez, L. G., and
+Aitken, M. D. (2009). Characteriza-
+tion of a polycyclic aromatic hydro-
+carbon degradation gene cluster in
+a phenanthrene-degrading Acidovo-
+rax strain. Appl. Environ. Microbiol.
+75, 2613–2620.
+
+Stolz, A. (2009). Molecular characteris-
+tics of xenobiotic-degrading sphin-
+gomonads. Appl. Microbiol. Biotech-
+nol. 81, 793–811.
+
+Suzuki, H., Yano, H., Brown, C. J., and
+Top, E. M. (2010). Predicting plas-
+mid promiscuity based on genomic
+signature. J. Bacteriol. 192, 6045–
+6055.
+
+Toleman, M. A., and Walsh, T. R. (2011).
+Combinatorial events of insertion
+sequences and ICE in Gram-negative
+bacteria. FEMS Microbiol. Rev. 35,
+912–935.
+
+Toussaint, A., Merlin, C., Monchy,
+S., Benotmane, M. A., Leplae,
+R., Mergeay, M., and Springael,
+
+and
+
+(2003). The biphenyl-
+
+D.
+4-chlorobiphenyl-catabolic
+transposon Tn4371,
+a member
+of a new family of genomic islands
+related to incP and Ti plasmids.
+Appl.
+69,
+4837–4845.
+
+Environ. Microbiol.
+
+Tsuge, T., Taguchi, K., Taguchi, S., and
+Doi, Y. (2003). Molecular charac-
+terization and properties of (R)-
+speciﬁc enoyl-CoA hydratases from
+Pseudomonas aeruginosa: metabolic
+tools
+synthesis of polyhy-
+droxyalkanoates via fatty acid β-
+oxidation. Int. J. Biol. Macromol. 31,
+195–205.
+
+for
+
+Vacca, D. J., Bleam, W. F., and Hickey,
+W. J. (2005). Isolation of soil bacte-
+ria adapted to degrade humic acid-
+sorbed phenanthrene. Appl. Environ.
+Microbiol. 71, 3797–3805.
+
+van der Meer, J. R., and Sentchilo, V.
+(2003). Genomic islands and the
+evolution of catabolic pathways in
+bacteria. Curr. Opin. Biotechnol. 14,
+248–254.
+
+Williamson, J. M., and Brown, G. M.
+(1979). Puriﬁcation and properties
+of L-Aspartate-alpha-decarboxylase,
+an enzyme that catalyzes the forma-
+tion of beta-alanine in Escherichia
+coli. J. Biol. Chem. 254, 8074–8082.
+
+Witholt, B., and Kessler, B. (1999). Per-
+spectives of medium chain length
+poly(hydroxyalkanoates), a versatile
+set of bacterial bioplastics. Curr.
+Opin. Biotechnol. 10, 279–285.
+
+Yagi, J. M., Sims, D., Brettin, T., Bruce,
+(2009).
+Polaromonas
+CJ2,
+strain
+
+D., and Madsen, E. L.
+The
+naphthalenivorans
+
+genome
+
+of
+
+isolated from coal tar-contaminated
+sediment, reveals physiological and
+metabolic versatility and evolution
+through extensive horizontal gene
+transfer. Environ. Microbiol. 11,
+2253–2270.
+
+Zhang, X., Wiseman, S., Yu, H., Liu,
+H., Giesy, J. P., and Hecker, M.
+(2011). Assessing the toxicity of
+naphthenic acids using a microbial
+genome wide live cell reporter array
+system. Environ. Sci. Technol. 45,
+1984–1991.
+
+Conﬂict of Interest Statement: The
+authors declare that the research was
+conducted in the absence of any com-
+mercial or ﬁnancial relationships that
+could be construed as a potential con-
+ﬂict of interest.
+
+Received: 08 February 2012; accepted: 16
+March 2012; published online: 04 April
+2012.
+Citation: Hickey WJ, Chen S and Zhao
+J (2012) The phn island: a new genomic
+island encoding catabolism of polynuclear
+aromatic hydrocarbons. Front. Microbio.
+3:125. doi: 10.3389/fmicb.2012.00125
+This article was submitted to Frontiers
+in Microbiotechnology, Ecotoxicology and
+Bioremediation, a specialty of Frontiers in
+Microbiology.
+Copyright  2012 Hickey, Chen and
+Zhao. This is an open-access article dis-
+tributed under the terms of the Cre-
+ative Commons Attribution Non Com-
+mercial License, which permits non-
+commercial use, distribution, and repro-
+duction in other forums, provided the
+original authors and source are credited.
+
+www.frontiersin.org
+
+April 2012 | Volume 3 | Article 125 | 15
+
+

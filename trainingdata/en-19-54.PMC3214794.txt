@@ -1,0 +1,857 @@
+Experimental  Neurobiology
+Vol.  19,  pages  54∼61,  June  2010
+
+Finger  Motion  Decoding  Using  EMG  Signals 
+
+Corresponding  Various  Arm  Postures
+
+Kyung‐Jin  You,  Ki‐Won  Rhee  and  Hyun‐Chool  Shin*
+
+Department  of  Electronic  Engineering,  College  of  IT,  Soongsil  University, 
+
+Seoul  156‐743,  Korea
+
+ABSTRACT
+
+We  provide  a  novel  method  to  infer  finger  flexing  motions  using  a  four‐channel 
+surface  electromyogram  (EMG).  Surface  EMG  signals  can  be  recorded  from  the 
+human  body  non‐invasively  and  easily.  Surface  EMG  signals  in  this  study  were 
+obtained  from  four  channel  electrodes  placed  around  the  forearm.  The  motions  consist 
+of  the  flexion  of  five  single  fingers  (thumb,  index  finger,  middle  finger,  ring  finger,  and 
+little  finger)  and  three  multi‐finger  motions.  The  maximum  likelihood  estimation  was 
+used  to  infer  the  finger  motions.  Experimental  results  have  shown  that  this  method  can 
+successfully  infer  the  finger  flexing  motions.  The  average  accuracy  was  as  high  as 
+97.75%.  In  addition,  we  examined  the  influence  of  inference  accuracies  with  the 
+various  arm  postures.
+
+Key  words:  surface  EMG,  finger  motions,  neural  signal  processing,  HCI
+
+INTRODUCTION
+
+    Compared  to  the  invasive  type  electromyogram 
+(EMG)  for  measuring  each  motor  unit  action  po-
+tential  (MUAP)  on  muscle  fiber  in  a  small  area, 
+surface  EMG  signals  can  be  recorded  from  the 
+
+human  body  non‐invasively  and  easily  over  wide 
+
+the  motion 
+
+skin  areas.  To  extract 
+information, 
+surface  EMG  signal  processing  has  been  studied, 
+especially  focusing  on  controlling  electronic  devices 
+such  as  a  human  supporting  prosthetic  arms  and 
+smart  interface  (Sornmo  and  Laguna,  2005).  Since 
+motor  commands  are  transmitted  through  internal 
+nerve  tissues  or  muscles,  inferring  such  commands 
+only  from  the  surface  EMG  signals  is  not  an  easy 
+
+*To  whom  correspondence  should  be  addressed.
+TEL:  82-2-828-7165,  FAX:  82-2-821-7653
+e-mail:  shinhc@ssu.ac.kr
+Received  June  15,  2010
+Accepted  for  publication  June  20,  2010
+
+task. 
+    Thus  many  attempts  to  extract  motor  information 
+from  surface  EMG  have  been  made.  A  study  of 
+Englehart  et  al.  (2001)  used  wavelet  analysis  and 
+PCA  analysis  to  classify  two  arm  motions  and  two 
+wrist  motions.  Also,  Englehart  and  Hudgins  (2003) 
+used  the  absolute  mean  value,  the  zero  crossing 
+rate,  and  the  wavelength  to  classify  four  arm  and 
+wrist  motions.  Momen  et  al.  (2007)  used  RMS  and 
+FCMs  to  classify  arm  and  wrist  motions.  Hudgins  et 
+al.  (1993)  obtained  an  ensemble  average  of  EMG 
+signals,  and  used  a  neural  networks  (NN) 
+to 
+classify  four  arm  motions. 
+
+    While  the  surface  EMG‐based  motion  inference 
+
+has  been  focused  on  upper  limb  or  hand  motions, 
+studies  on  inferring  dexterous  finger  motions  have 
+not  been  done  so  much.  Nishikawa  et  al.  (1999) 
+used  the  Gabor  transform  and  absolute  mean  value 
+four  wrist 
+to  extract 
+
+motions  and  six  finger  motions  in  real‐time  learning 
+
+features  and  classify 
+
+the 
+
+Finger  Motion  Decoding  Using  EMG  Signals  Corresponding  Various  Arm  Postures
+
+55
+
+Fig.  1.  Electrodes  orientation  for  recording  EMG  on  the  forearm.
+
+five 
+
+based  on  NN.  Nagata  et  al.  (2007)  used  absolute 
+sum  analysis,  canonical  component  analysis,  and 
+minimum  Euclidean  distance  to  classify  four  wrist 
+motions  and 
+finger  motions.  Uchida  et  al. 
+(1992)  used  FFT  analysis  and  NN  to  classify  four 
+finger  motions.  Chen  et  al.  (2007)  used  mean 
+absolute  values  (MAV),  the  ratio  of  the  MAVs, 
+autoregressive  (AR)  model,  and  linear  Bayesian 
+classifier  to  classify  5∼16  finger  motions.  However, 
+NN  classifiers  (Hudgins  et  al.,  1993;  Chen  et  al., 
+2007;  Nagata  et  al.,  2007)  have  strong  dependency 
+on  initial  parameter  conditions.  Also,  linear  classi-
+fiers  (Uchida  et  al.,  1992;  Englehart  et  al.,  2001; 
+Englehart  and  Hudgins,  2003;  Momen  et  al.,  2007; 
+Nagata  et  al.,  2007)  are  simple  but  show  low 
+accuracy  compared  with  nonlinear  classifiers. 
+    In  this  paper,  we  propose  a  novel  method  to  infer 
+the  finger  motions  using  surface  EMG  signals.  We 
+recorded  the  EMG  signals  during  finger  flexing 
+motions.  To  infer  the  finger  motions,  we  used  the 
+maximum  likelihood  method.  The  likelihood  was 
+obtained  by  building  probabilistic  models  of  EMG 
+activities.  The  information  entropy  of  the  EMG  mag-
+nitude  was  calculated  to  quantify  the  EMG  acti-
+vities.  Experimentally  we  demonstrated 
+the 
+proposed  method  could  infer  the  finger  flexing  mo-
+
+tions  including  multi‐fingers  as  high  as  97.75%.
+
+that 
+
+    In  addition,  we  examined 
+inference  accuracies  with  various  arm  postures. 
+
+influence  of 
+
+the 
+
+Multi‐channel  EMG  recording
+    A  signal  acquisition  device  (Poly‐G‐A,  Laxtha  Inc., 
+Korea),  bi‐polar  Ag‐AgCl  electrodes  (Dual  electrode 
+(SECS‐4,  Laxtha  Inc.,  Korea)  were  used.  The  EMG 
+
+#272,  Noraxon  U.S.A.  Inc.),  and  snap  electrodes 
+
+signal  was  observed  at  the  sampling  frequency  of 
+512  Hz  and  was  filtered  to  reduce  power  line  noise.
+    Two  able-bodied  subjects  without  any  upper  limb 
+deficiencies  participated  in  performing  motions  for 
+
+Fig.  2.  Relaxation  and  finger  flexing  motions  (F1∼F8).
+
+this  study  and  was  trained  before  signal  recording. 
+The  subjects  were  instructed  to  maintain  their  own 
+flexing  speed  and  strength. 
+    The  EMG  signal  was  acquired  with  four  channels 
+on  the  left  forearm  (around  the  wrist)  for  3.0  se-
+conds.  Fig.  1  shows  electrode  orientation  for  EMG 
+recording.  During  the  first  1.5  seconds,  the  subject 
+
+did  not  perform  any  motion  ‐  termed  ‘relaxation’  ‐ 
+
+and  waited  for  an  acoustic  alarm.  After  1.5  se-
+conds,  the  subject  heard  the  acoustic  alarm  and 
+then  flexed  a  finger  immediately.  After  3.0  seconds, 
+the  EMG  signal  recording  procedure  ended.  In  the 
+experiment,  the  subject  performed  eight  finger  flex-
+
+ing  motions  including  three  multi‐finger  motions.  Fig. 
+
+2  shows  the  detail  of  the  finger  motions.  The 
+subject  took  a  long  and  sufficient  rest  between 
+recording  procedures  to  avoid  muscle  fatigue  or 
+cramp. 
+
+PROPOSED  METHOD
+
+Preprocessing  of  EMG  signal
+
+    Here  we  consider  four  EMG  channels  and  eight 
+finger  flexing  motions.  Let    and    be  the  channel 
+and  motion  indexes,  respectively.  Then  during   
+motion,  the  recorded  raw  EMG  from  the     chan-
+     where  n  is  a  discrete 
+nel  can  be  denoted  by  
+time  index. 
+    Since  the  EMG  signal  has  both  positive  and 
+negative  levels,  we  take  an  absolute  of  
+
+   .
+
+56 Kyung‐Jin  You,  et  al.
+
+Fig.  3.  Examples  of  raw  EMG  signal  and  absolute  of  EMG  signal 
+corresponding  the  2nd  channel  during  the     motion.  The  re-
+corded  samples  that  treated  as  signals  are  limited  in  1.5∼2.2 
+sec  (unshaded  area).
+
+    
+
+  
+
+
+
+          (1)
+
+    For  example,  Fig.  3  shows  the  surface  EMG 
+signal  of  the  2nd  channel  during  the    motions, 
+
+
+  and  
+
+.
+
+Statistical  EMG  modeling 
+
+    The  amplitude  of  the  EMG  signal  is  a  funda-
+mental  quantity  which  increases  monotonically  with 
+the  force  developed  in  the  muscle  (Sornmo  and 
+Laguna,  2005).  Moreover,  the  EMG  signal  repre-
+sents  a  stochastic  signal  (Sornmo  and  Laguna, 
+2005).
+    The  entropy  (information  entropy,  H)  was  used  to 
+represent  the  characteristics  of  each  EMG  signal 
+activity  during  finger  flexing  motions.  The  entropy  is 
+a  measure  that  can  reveal  how  much  dynamical 
+nature  and  the  information  (Shannon  and  Weaver, 
+1963)  which  the  signal  contains.  Some  EEG  an-
+alysis  methods  based  on  entropy  have  been  de-
+veloped.  (Capurro  et  al.,  1999;  Martin  et  al.,  2000; 
+Tong  et  al.,  2002;  Shin  et  al.  2006;  Sabeti  et  al., 
+2009)  Although  the  amplitude  range  or  the  spectral 
+bandwidth  of  EMG  and  EEG  signal  are  remarkably 
+different,  but  they  have  a  non-  stationary  stochastic 
+property  in  common.
+    Conventionally 
+follows: 
+
+is  calculated  as 
+
+the  entropy 
+
+
+
+      
+
+  
+
+
+
+  
+
+          (2)
+
+    where    denotes  discrete  random  variable, 
+   means  the  probability  of  the  random  variable 
+    .  For 
+  when    equals     and    
+   channel  and    motion,  we  define  the  pro-
+bability  
+
+  as
+
+⌗     ∈  
+⌗     
+
+    
+
+  
+ ∙   
+
+  
+      
+
+≤ 
+
+ 
+ ∙     
+
+          (3)
+
+    where    determines  the  number  of  total  bins 
+and      indicates  the  largest  magnitude  of  the 
+signal  acquisition  device.  This  value 
+is  set  as 
+       in  the  study  but  can  be  adjusted 
+to  correspond  to  the  subject’s  EMG  characteristics. 
+Then,  the  information  entropy  of  the  EMG  signal  is 
+given  by 
+
+    
+
+≡ 
+
+
+
+  
+
+  
+
+
+
+
+
+
+
+
+
+          (4)
+
+    After  accumulating  the  entropy  in  eq.  (4),  we 
+build  the  probability  density  function  of  the  entropy 
+based  on  the  Gaussian  model: 
+
+    
+
+
+
+
+
+
+   
+
+
+
+
+
+ 
+
+
+
+
+
+  
+
+
+
+          (5)
+
+  
+
+
+  
+
+  is  the  probabilistic  model  based  on 
+    Here  
+the  entropy  of  EMG  signals.  The  example  of  this 
+modeling  is  given  in  Fig.  4.  Then  we  can  get  the 
+probability  density  functions  
+  on  each  channel  for 
+8  different  finger  motions.  Fig.  5  shows  the  resulting 
+models  of  8  finger  motions  and  4  channels.  As-
+suming  the  statistical  independence  in  each  chan-
+nel’s  EMG  signal,  the  likelihood  function    be-
+comes 
+
+Finger  Motion  Decoding  Using  EMG  Signals  Corresponding  Various  Arm  Postures
+
+57
+
+Fig.  4.  Building  the  probabilistic  model  of  the  entropy  of  the  EMG  signals.
+
+
+
+     
+
+  
+
+
+
+
+
+        (6)
+
+    Then,  we  find    which  maximizes    such  that
+
+     
+
+ 
+
+
+
+          (7)
+
+    where    means  the  estimated  motion.  Fig.  6 
+shows  the  likelihood  for  various  candidates  of  finger 
+motions. 
+
+Fig.  5.  Probabilistic  model  of  entropy 
+the  EMG  signals.
+
+EXPERIMENTAL  RESULTS
+
+    A  cross‐validation  is  used  to  estimate  the  in-
+
+ference  accuracies.  The  number  of  training  data  is 
+25  and  that  of  the  test  data  is  25.  All  test  data  are 
+excluded  from  the  training  data.  The  results  are 
+averaged  over  500  combinations. 
+    The  accuracy  for  six  motions  (       
+and  )  using  the  proposed  method  was  100.00% 
+without  any  confusions  as  shown  in  Table  1.  The 
+proposed  method  can 
+the  motions  more 
+accurately  than  the  studies  of  Uchida  et  al.  (1992) 
+
+infer 
+
+58 Kyung‐Jin  You,  et  al.
+
+Fig.  6.  Likelihood  for  various  can-
+didates  of  finger  motions  (each  value 
+is  normalized  so  that  the  maximum 
+was  equal  to  one.    and    denote 
+the  actual  and  the  inferred  motions, 
+(a)         (b) 
+respectively). 
+    
+(c)         (d) 
+       (e)        
+(f) 
+       (g)        
+     .
+
+(h) 
+
+Table  1.  Inference  accuracy  (%)  for  six  motions  (subject  A,  : 
+actual  motion,  :  inferred  motion)
+
+Table  2.  Inference  accuracy  (subject  A,  test  data:  25,  training 
+data:  25)
+
+              
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
+100%
+
+100%
+
+  
+  
+  
+  
+  
+  
+
+100%
+
+100%
+
+100%
+
+100%
+
+Mean  (%)
+
+S.D  (%)
+
+
+
+
+
+
+
+
+
+
+100.0
+
+  98.0
+
+  95.0
+
+100.0
+
+100.0
+
+  92.0
+
+  97.0
+
+100.0
+
+0.00
+
+1.41
+
+2.20
+
+0.00
+
+0.00
+
+2.74
+
+1.72
+
+0.00
+
+Table  3.  False  table  (subject  A,  :  actual  motion,  :  inferred 
+motion)
+
+
+
+0.0%
+
+
+−
+
+2.0±1.4%
+
+    5.0±2.2%
+
+  
+  
+
+
+
+  
+
+    8.0±2.7%     3.0±1.7%
+
+−
+
+    0.0%
+
+Fig.  7.  Confusion  matrix  (subject  A,  test  data:  25,  training  data: 
+25).
+
+and  Chen  et  al.  (2007) 
+    Fig.  6  shows  Likelihood  for  various  candidates  of 
+finger  motions  (each  value  is  normalized  so  that  the 
+maximum  was  equal  to  one.    and    denote  the 
+actual  and  the  inferred  motions,  respectively). 
+
+    (a)        (b)       
+    (c)        (d)       
+    (e)        (f)        
+    (g)        (h)      
+    The  average  inference  accuracy  for  four  motions 
+(flexion  of  thumb,  flexion  of  index  finger,  flexion  of 
+middle  finger,  flexion  of  all  fingers)  in  a  study 
+(Uchida  et  al.,  1992)    was  86%  and  the  accuracy 
+for  six  motions  (extension  of  thumb,  extension  of 
+index  finger,  extension  of  middle  finger,  extension 
+of  ring  finger,  extension  of  little  finger,  and  ‘hook’ 
+gesture)  was  96.83%  (Chen  et  al.,  2007).
+    The  inference  results  for  eight  motions  (∼) 
+are  summarized 
+the  high 
+
+in  Table  2  showing 
+
+Finger  Motion  Decoding  Using  EMG  Signals  Corresponding  Various  Arm  Postures
+
+59
+
+Fig.  8.  Defined  basic  various  nine  postures.
+
+Fig.  9.  Inference  accuracies  on  various  postures,  P1∼P9  (subject  B).
+
+inference  accuracy.  The  inference  accuracies  on 
+    and    are  100%  but 
+the  slight 
+decreases  on      and    arise  from  false 
+inference.  Fig.  7  shows  the  confusion  matrix  which 
+
+visualizes  the  false  inference  among  the  performed 
+motions  and  Table  3  shows  the  false  inference  rate 
+which  indicates  the  rate  when  performed  motion  is 
+inferred  incorrectly.  The  false  inference  rate  on   
+
+60 Kyung‐Jin  You,  et  al.
+
+Table  4.  Average  Inference  accuracy
+
+Test  dataset
+
+Training  dataset
+
+P1
+
+P2
+
+P3
+
+P4
+
+P5
+
+P6
+
+P7
+
+P8
+
+P9
+
+P1
+P2
+P3
+P4
+P5
+P6
+P7
+P8
+P9
+
+74.72%
+38.24%
+53.79%
+54.69%
+39.58%
+39.38%
+41.20%
+43.42%
+45.33%
+
+26.83%
+83.78%
+44.59%
+50.54%
+65.70%
+37.42%
+41.14%
+65.82%
+50.74%
+
+27.12%
+41.78%
+76.22%
+61.09%
+41.63%
+40.77%
+32.22%
+40.42%
+36.34%
+
+37.07%
+49.20%
+64.21%
+81.15%
+49.42%
+50.85%
+38.51%
+35.68%
+40.93%
+
+30.45%
+62.29%
+43.02%
+50.16%
+83.60%
+40.42%
+42.24%
+52.72%
+44.00%
+
+38.34%
+43.65%
+42.75%
+56.67%
+44.83%
+62.62%
+40.30%
+37.87%
+34.34%
+
+27.49%
+43.20%
+46.85%
+40.70%
+42.45%
+35.79%
+63.07%
+44.91%
+37.70%
+
+20.83%
+63.49%
+48.74%
+45.14%
+47.22%
+38.02%
+43.98%
+76.83%
+44.58%
+
+40.83%
+62.94%
+54.43%
+46.19%
+34.72%
+36.75%
+39.84%
+50.05%
+77.55%
+
+confused  with    is  2.00±1.41%.  The  false  in-
+ference  rate  on    confused  with    is  5.00±2.20% 
+while  that  on    confused  with    is  8.00±2.74%. 
+The  false  inference  rate  on  F7  confused  with    is 
+3.00±1.72%.
+
+Influence  of  human  arm  posture
+
+the 
+
+from 
+
+    We  set  nine  arm  postures  to  find  out  how  much 
+accuracies  hold  down  when  human  changes  arm 
+posture.  Fig.  8  shows  basic  postures.
+    Matrices  on  the  diagonal  site  in  Fig.  9  show 
+inference  accuracies  for  five  single-finger  flexion 
+motions  of  each  posture;  the  number  of  training 
+data  was  25  and  that  of  test  data  was  equal.  Each 
+experiment  was  done  50  times.  All  test  data  were 
+excluded 
+training  data.  The  average 
+inference  accuracies  are  74.72%,  83.78%,  76.22%, 
+81.15%,  83.60%,  62.62%,  63.07%,  76.83%,  and 
+77.55%,  respectively.
+    We  tested  again  with  the  data  of  another  pos-
+tures  as  a  training  dataset.  Other  matrices  in  Fig.  9 
+show  the  results.  The  average  inference  accuracies 
+are  shown  in  Table  4.  The  shaded  cells  indicate  the 
+maximum  average  accuracy  in  the  same  row  and 
+these  match  the  diagonal  cells.
+    Accordingly,  the  data  of  an  posture  is  not  ap-
+propriate  to  the  reference  of  other  postures.  This 
+fact  indicates  that  a  robust  finger  motion  decoding 
+method  cannot  be  implemented  without  a  scheme 
+detects  changes  of  arm's  posture.
+
+DISCUSSION
+
+    We  have  proposed  a  new  method  to  infer  finger 
+flexing  motions  based  on  the  entropy  and  the 
+
+maximum  likelihood  estimation.  The  average  recog-
+nition  accuracy  for  six  finger  motions  was  100.00% 
+and  the  accuracy  for  eight  finger  motions  was 
+97.75%.  Also  we  have  shown 
+the  quantitative 
+interpretation  of  the  need  of  avoidance  of  use  of 
+reference  dataset  cross  arm  posture  because  that 
+influences  the  correlations  between  the  EMG  sig-
+nals  and  the  performed  finger  flexing  motions.  This 
+
+study  may  trigger  a  new  type  of  human‐computer 
+
+interface  with  user’s  intuitive  hand  motions  which 
+could  control  electronic  devices. 
+
+ACKNOWLEDGEMENT
+
+    This  research  was  supported  by  the  MKE  (The 
+Ministry  of  Knowledge  Economy),  Korea,  under  the 
+ITRC  (Information  Technology  Research  Center) 
+support  program  supervised  by  the  NIPA  (Na-
+tional  IT  Industry  Promotion  Agency).  (NIPA-2010- 
+C1090-1021-0010).
+
+REFERENCES
+
+Capurro  A,  Diambra  L,  Lorenzo  D,  Macadar  O,  Martin  MT, 
+Mostaccio  C,  Plastino  A,  Perez  J,  Rofmane  E,  Torres  ME 
+and  Velluti  J  (1999)  Human  brain  dynamics:  the  analysis 
+of  EEG  signals  with  Tsallis  information  measure.  Physica 
+A  265:235-254.
+
+Chen  X,  Zhang  X,  Zhao  Z,  Yang  J  and  Wang  K  (2007) 
+Multiple  Hand  Gesture  Recognition  based  on  Surface 
+EMG  Signal.  The  1st  International  Conference  on  Bio-
+informatics  and  Biomedical  Engineering,  Wuhan,  China, 
+506-509. 
+Englehart  K  and  Hudgins  B  (2003)  A  robust,  real‐time  control 
+scheme  for  multifunction  myoelectric  control,  IEEE  Trans. 
+On  Biomed  Eng  50:848-854.
+Englehart  K,  Hudgins  B  and  Parker  PA  (2001)  A  Wavelet‐
+for  Multifucntion  Myo-
+
+Based  Continuous  Classification 
+
+Finger  Motion  Decoding  Using  EMG  Signals  Corresponding  Various  Arm  Postures
+
+61
+
+electric  Control,  IEEE  Trans.  On  Biomed  Eng  48:302-311.
+Hudgins  B,  Parker  P  and  Scott  R  (1993)  A  new  strategy  for 
+multifunction  myoelectric  control,  IEEE  Trans.  On  Biomed 
+Eng  40:82‐94. 
+
+Martin  MT  Plastinob  AR  and  Plastino  A  (2000)  Tsallis-like 
+information  measures  and  the  analysis  of  complex  signals. 
+Physica  A  275:262-271.
+Momen  K,  Krishnan  S  and  Chau  T  (2007)  Real‐Time  Classi-
+fication  of  Forearm  Electromyographic  signals  Correspond-
+ing  to  User‐Selected  Intentional  Movements  for  Multifunc-
+tion  Prosthesis  Control,  IEEE  Trans.  On  Neural  Systems 
+and  Rehabilitation  Engineering  15:535-542.
+
+Nagata  K,  Ando  K,  Magatani  K  and  Yamada  M  (2007) 
+Development  of 
+recognition  system 
+based  on  surface  EMG  using  suitable  measurement 
+channels  for  pattern  recognition.  Conf.  Proc.  of  the  IEEE 
+Trans.  On  Eng  Med  Biol  Soc  5214-5217.
+
+the  hand  motion 
+
+Nishikawa  D,  Yu  W,  Yokoi  H  and  Kakazu  Y  (1999)  EMG 
+Prosthetic  Hand  Controller  Discriminating  Ten  Motions 
+using  Real‐time  Learning  Method,  IEEE/RSJ  Intl.  Conf.  On 
+Intelligent  Robots  and  Systems,  Kyongju,  South  Korea 
+3:1592‐1597. 
+
+Sabeti  M,  Katebi  S  and  Boostani  R  (2009)  Entropy  and 
+complexity  measures  for  EEg  signal  classification  of  schi-
+zophrenic  and  control  participants.  Artif 
+Intell  Med  47: 
+263-274.
+
+Shannon  CE  and  Weaver  W  (1963)  The  mathematical  theory 
+of  communication.  University  of  Illinois  Press,  Urbana,  Illi-
+nois.
+
+Shin  HC,  Tong  S,  Yamashita  S,  Jia  X,  Geocadin  RG  and 
+Thakor  NV  (2006)  Quantitative  EEG  and  effect  of  hy-
+pothermia  on  brain  recovery  after  cardica  arrest,  IEEE 
+Trans.  On  Biomed  Eng  53:1016-1023.
+
+Sornmo  L  and  Laguna  P  (2005)  Bioelectrical  signal  pro-
+cessing  in  cardiac  and  neurological  applications.  Elsevier 
+Academic  Press,  London.
+
+Tong  S,  Bezerianos  A,  Paul  J,  Zhu  Y  and  Thakor  N  (2002) 
+following  brain 
+
+Nonextensive  entropy  measure  of  EEG 
+injury  from  cardiac  arrest.  Physica  A  305:619-628.
+
+Uchida  N,  Hiraiwa  A,  Sonehara  N  and    Shimohara  K  (1992) 
+EMG  Pattern  Recognition  by  Neural  Networks  for  Multi 
+Fingers  Control.  Proceedings  of  the  Annual  International 
+Conference  of  the  IEEE.  On  Engineering  in  Medicine  and 
+Biology  Society  3:1016‐1018.
+
+

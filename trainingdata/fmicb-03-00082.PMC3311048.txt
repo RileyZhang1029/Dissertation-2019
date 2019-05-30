@@ -1,0 +1,2773 @@
+ORIGINAL RESEARCH ARTICLE
+published: 23 March 2012
+doi: 10.3389/fmicb.2012.00082
+
+Carbon, metals, and grain size correlate with bacterial
+community structure in sediments of a high arsenic aquifer
+
+Teresa M. Legg 1*,Yan Zheng 2,3, Bailey Simone 4, Kathleen A. Radloff 3, Natalie Mladenov 5,
+Antonio González 6, Dan Knights 6, Ho Chit Siu 2,7, M. Moshiur Rahman2, K. Matin Ahmed 8,
+Diane M. McKnight 4 and Diana R. Nemergut 9
+
+1 Department of Ecology and Evolutionary Biology, The Institute of Arctic and Alpine Research, University of Colorado, Boulder, CO, USA
+2 Queens College, City University of New York, Flushing, NY, USA
+3 Lamont-Doherty Earth Observatory, Columbia University, Palisades, NY, USA
+4 Department of Civil, Environmental and Architectural Engineering, The Institute of Arctic and Alpine Research, University of Colorado, Boulder, CO, USA
+5 The Institute of Arctic and Alpine Research, University of Colorado, Boulder, CO, USA
+6 Department of Computer Science, University of Colorado, Boulder, CO, USA
+7 Bronx High School of Science, Bronx, NY, USA
+8 Department of Geology, Dhaka University, Dhaka, Bangladesh
+9 Program for Environmental Studies, The Institute of Arctic and Alpine Research, University of Colorado, Boulder, CO, USA
+
+Edited by:
+Rich Boden, University of Plymouth,
+UK
+Reviewed by:
+Hongchen Jiang, China University of
+Geosciences Beijing, China
+Richard S. Winder, Natural Resources
+Canada, Canada
+*Correspondence:
+Teresa M. Legg, The Institute of Arctic
+and Alpine Research, University of
+Colorado, Campus Box 450, Boulder,
+CO 80309-0450, USA.
+e-mail: teresa.legg@colorado.edu
+
+Bacterial communities can exert signiﬁcant inﬂuence on the biogeochemical cycling of
+arsenic (As). This has globally important implications since As in drinking water affects the
+health of over 100 million people worldwide, including in the Ganges–Brahmaputra Delta
+region of Bangladesh where geogenic arsenic in groundwater can reach concentrations of
+more than 10 times theWorld Health Organization’s limit.Thus, the goal of this research was
+to investigate patterns in bacterial community composition across gradients in sediment
+texture and chemistry in an aquifer with elevated groundwater As concentrations in Arai-
+hazar, Bangladesh.We characterized the bacterial community by pyrosequencing 16S rRNA
+genes from aquifer sediment samples collected at three locations along a groundwater ﬂow
+path at a range of depths between 1.5 and 15 m. We identiﬁed signiﬁcant differences in
+bacterial community composition between locations in the aquifer. In addition, we found
+that bacterial community structure was signiﬁcantly related to sediment grain size, and sed-
+iment carbon (C), manganese (Mn), and iron (Fe) concentrations. Deltaproteobacteria and
+Chloroﬂexi were found in higher proportions in silty sediments with higher concentrations
+of C, Fe, and Mn. By contrast, Alphaproteobacteria and Betaproteobacteria were in higher
+proportions in sandy sediments with lower concentrations of C and metals. Based on the
+phylogenetic afﬁliations of these taxa, these results may indicate a shift to more Fe-, Mn-,
+and humic substance-reducers in the high C and metal sediments. It is well-documented
+that C, Mn, and Fe may inﬂuence the mobility of groundwater arsenic, and it is intriguing
+that these constituents may also structure the bacterial community.
+
+Keywords: arsenic, aquifer, bacteria, pyrosequencing, Deltaproteobacteria, Chloroﬂexi
+
+INTRODUCTION
+Throughout the last decade considerable research effort has
+focused on characterizing the mechanisms leading to elevated
+groundwater arsenic (As) concentrations in aquifers throughout
+South Asia. These studies have demonstrated that groundwater As
+mobility is affected by a number of factors including redox con-
+ditions (Zheng et al., 2004), sediment properties (Winkel et al.,
+2008), hydrology (Polizzotto et al., 2005), organic matter qual-
+ity (Mladenov et al., 2010; Neumann et al., 2010), and microbial
+activity (Islam et al., 2004; Dhar et al., 2011). In the Ganges–
+Brahmaputra delta (GBD) region of Bangladesh, where ground-
+water As concentrations are on average about 10 times higher than
+the World Health Organization’s drinking water guideline value,
+groundwater As concentrations are heterogeneous (van Geen et al.,
+2003) and often decoupled from bulk sediment As concentrations
+(Dhar et al., 2008). In the GBD, areas with high groundwater
+
+As concentrations typically share similar sediment characteristics,
+hydrology, and organic matter chemistry. Sediment layers within
+aquifers containing higher proportions of ﬁne-grained material
+such as silts generally feature higher groundwater As concentra-
+tions than sands (van Geen et al., 2006a), which, by contrast, tend
+to have lower organic matter concentrations. Silty layers have a
+lower permeability, thereby favoring the accumulation of dissolved
+As in the groundwater (van Geen et al., 2006b). In addition, ﬁne-
+grained sediments often exhibit higher concentrations of sediment
+organic matter and metals including iron (Fe), manganese (Mn),
+and As (McArthur et al., 2004), which may fuel relevant microbial
+processes.
+
+Indeed, it is clear that microbial processes are also impor-
+tant in regulating As mobilization in the GBD (Islam et al.,
+2004; Radloff et al., 2008). Groundwater As mobilization may be
+enhanced in ﬁne sediments, as microorganisms pair the oxidation
+
+www.frontiersin.org
+
+March 2012 | Volume 3 | Article 82 | 1
+
+Legg et al.
+
+High arsenic aquifer bacterial communities
+
+of organic carbon (C) to the reductive dissolution of Fe-oxides
+(Lovley and Phillips, 1988), which liberates As from Fe-oxide
+mineral surfaces (Cummings et al., 1999; McArthur et al., 2001;
+Tufano and Fendorf, 2008). To a lesser extent, the desorption
+of As from the microbial reduction of Mn oxides may also
+promote elevated As concentrations (Inskeep et al., 2002; Luna
+et al., 2009), and the release of reduced Mn into groundwa-
+ter often occurs with the release of As (Zheng et al., 2004; van
+Geen et al., 2006b). In addition, microorganisms reduce humic
+substances (HS; Mladenov et al., 2010) which promotes an elec-
+tron cascade resulting in Fe-oxide reduction and As desorp-
+tion (Kappler et al., 2004; Jiang and Kappler, 2008), as well as
+the reduction of As(V) to the more mobile As(III; Jiang et al.,
+2009). Microorganisms can also enhance As mobility in anaer-
+obic aquifers by mediating redox reactions with As. Speciﬁcally,
+the detoxiﬁcation pathway encoded by the ars operon (Rosen
+et al., 1991; Macy et al., 2000; Sun et al., 2004) and dissimila-
+tory As(V) reduction (Saltikov and Newman, 2003) results in
+the reduction of As(V) to As(III). Also, microorganisms trans-
+form As species during methylation (Mukhopadhyay et al., 2002)
+although evidence of methylation has not been observed in the
+GBD environment (Islam et al., 2004). By contrast, microbial
+sulfate reduction can decrease the mobility of As in groundwa-
+ter (Kirk et al., 2004; Saalﬁeld and Bostick, 2009). Sulﬁde co-
+precipitates with As(III) and Fe to form As trisulﬁde (Newman
+et al., 1997) under anoxic, reducing conditions (Rittle et al., 1995).
+Given the diverse array of microbial metabolisms with potential
+affects on As cycling, a better understanding of the patterns in
+microbial community structure across sediment characteristics
+could help elucidate the roles of speciﬁc taxa involved in bio-
+geochemical processes that affect As mobility in these anaerobic
+aquifers.
+
+Recent research investigating the role of microbial communities
+in groundwater As cycling has used molecular phylogenetic tools
+to characterize the taxonomic composition of microbial commu-
+nities in the GBD groundwater environment. The analysis of SSU
+rRNA gene sequences from microcosm experiments with As-rich
+aquifer sediment show the addition of a labile C source pro-
+motes bacterial community shifts characterized by an increased
+proportion of Deltaproteobacteria, and corresponding increases
+in Fe-reduction and As mobilization (Islam et al., 2004; Lear et al.,
+2007; Rowland et al., 2007), as well as bacterial sulfate reduction
+(Héry et al., 2010). These microcosm results indicate that patterns
+in bacterial community composition are related to changes in As
+cycling in groundwater environments. However, questions remain
+about the types of microorganisms found in ambient conditions
+in the environment, and how their distribution varies with native
+geochemical conditions.
+
+Thus, the goal of this work was to advance our understanding
+of microbial communities in As-rich groundwater sediments by
+combining high-throughput gene sequencing methods with envi-
+ronmental chemistry and statistical analysis. We were especially
+interested in the investigation of relationships between environ-
+mental chemistry and microbial community structure at the level
+of the entire aquifer since previous research at our study site has
+shown that groundwater arsenic increases with aquifer depth and
+location along the ﬂowpath (Radloff et al., 2008; Mladenov et al.,
+
+2010), and that dissolved organic matter chemistry changes with
+depth (Mladenov et al., 2010). We used the natural environmental
+gradients created by the groundwater ﬂowpath and depth within
+the aquifer to demonstrate that patterns in bacterial community
+composition are correlated to sediment chemistry across a ground-
+water As concentration gradient in a GBD aquifer. The results from
+this work show that bacterial community structure is signiﬁcantly
+different between separate locations in the groundwater aquifer.
+In addition, we demonstrate that variations in sediment grain size,
+as well as sediment C, Mn, and Fe concentrations correspond to
+variations in bacterial community structure.
+
+(cid:2)
+
+(cid:2)
+
+(cid:2)(cid:2)
+
+(cid:2)(cid:2)
+
+48
+
+34
+
+N, 90˚ 37
+
+MATERIALS AND METHODS
+SITE DESCRIPTION
+This research was conducted at Site K (Radloff et al., 2008) in Arai-
+hazar, Bangladesh, approximately 30 km northeast of Dhaka (23˚
+47
+E). The regional climate is monsoonal, and
+receives more than 50% of the annual precipitation (average of
+2354 mm) between June and September (Immerzeel, 2008). Con-
+sequently, like similar sites in Araihazar (Stute et al., 2007), stream
+and groundwater levels at Site K vary seasonally and peak during
+July and August when most of the study site is ﬂooded. Site K is
+located in a rural area within the ﬂoodplain of the Old Brahmapu-
+tra River, an abandoned river channel that has been ﬁlled through
+sedimentation and reduced to a small stream (Figure 1). Previous
+research at Site K has extensively characterized the hydrology and
+groundwater geochemistry (Radloff et al., 2008; Radloff, 2010).
+Like elsewhere in the GBD, shallow groundwater As concentra-
+tions are spatially variable, and can exceed 400 μg/l (Radloff et al.,
+2008). We examined groundwater and sediment samples from
+three monitoring nests along a groundwater ﬂowpath at the study
+site. Well nest K240 is located 240 m from the river within a village,
+whereas well nests K150 and K60, located 150 m, and 60 m from
+the river respectively, are located within cultivated rice ﬁelds. Based
+on groundwater age estimates, the mean direction of groundwater
+ﬂow at the study site is from the village to the Old Brahmaputra
+River (Radloff, 2010). Thus, K240 is located near the beginning
+of the groundwater ﬂowpath, K150 is located in the middle, and
+K60 is located at the end of the ﬂowpath, directly upgradient
+of the river (Figure 1). During the wet season (approximately
+May–October), all three well nests at Site K are completely satu-
+rated due to groundwater table rise, with the exception of depths
+between 0 and 0.5 m within the village. In February, at the height
+of the dry season (Stute et al., 2007), depths between 0 and 3 m
+below the ground surface are unsaturated at all sampling locations
+at Site K.
+
+The groundwater chemistry at Site K changes with loca-
+tion along the ﬂowpath and depth within the aquifer (Radloff,
+2010). Like other sites in Araihazar (Dhar et al., 2008), there are
+not marked seasonal changes in groundwater As concentrations
+(Radloff, 2010). Dissolved groundwater Fe and As concentrations
+are lowest at shallow depths at K240, and generally increase with
+depth at each well location (Radloff, 2010). In addition, ground-
+water As concentrations increase along the groundwater ﬂowpath,
+and peak at K60 at 15 m (429 μg/l). Groundwater Mn, by contrast,
+does not show patterns with depth or position along the ﬂowpath
+(Radloff, 2010).
+
+Frontiers in Microbiology | Terrestrial Microbiology
+
+March 2012 | Volume 3 | Article 82 | 2
+
+Legg et al.
+
+High arsenic aquifer bacterial communities
+
+FIGURE 1 | The study area, Site K, in Araihazar, Bangladesh.
+
+SAMPLE COLLECTION AND PREPARATION
+We used the natural environmental gradients created by the
+groundwater ﬂowpath and depth within the aquifer to examine the
+relationship between sediment chemistry and bacterial commu-
+nity composition. We collected sediment cores from three different
+sites within the aquifer, K240, K150, and K60 (Figure 1), adjacent
+to the monitoring well nests in July 2008. At each location we
+collected cores from seven aquifer depths: 1.52, 3.05, 4.57, 6.10,
+7.62, 10.67, and 15.24 m. We rinsed the sediment core liners with
+100% ethanol prior to placing them in the coring device in order
+to minimize contamination. Also, we excised the top and bottom
+of each core with an ethanol-sterilized saw to remove sample that
+had contact with drilling ﬂuids. We preserved the sediment cores
+in airtight mylar bags with oxygen-absorbing packets and placed
+
+them on ice in the ﬁeld for approximately 4 h; thereafter the cores
+were stored at −80˚C. In the laboratory we opened each sediment
+core with a sterilized dremel tool, placed the sediment in a sterile
+bag, and then homogenized the sediment by hand from the 21
+different cores (seven depths at three sites). During sieving, we did
+not observe plant roots or invertebrates such as worms.
+
+SEDIMENT CHEMICAL AND GRAIN SIZE ANALYSES
+We measured pH with an Accumet® AB15 pH meter (Fisher Sci-
+entiﬁc, Inc., Waltham, MA, USA) in each of the homogenized
+sediment core samples after adding 1 g of the wet sediment to 1 ml
+of de-ionized water (Carter, 1993). In order to quantify the per-
+centage of C and nitrogen (N) in each sample we ﬁrst dried 5 g of
+homogenized sediment at 70˚C for 48 h; dried sediments were then
+
+www.frontiersin.org
+
+March 2012 | Volume 3 | Article 82 | 3
+
+Legg et al.
+
+High arsenic aquifer bacterial communities
+
+ground to a ﬁne powder (Cleveland et al., 2006). We used a Thermo
+Scientiﬁc FlashEA 1112 Elemental Analyzer (Thermo Fisher Scien-
+tiﬁc, Inc.,) with high temperature (950˚C) dry combustion to mea-
+sure the percentage C and N in each sample (Matejovic, 1997). We
+estimated soil moisture in sediment samples by dividing the differ-
+ence between the mass of the wet sediment and the mass of dried
+sediment by the mass of the wet sediment. The Laboratory for
+Environmental and Geological Studies (LEGS) at the University
+of Colorado (http://www.colorado.edu/geolsci/legs/indexa.html)
+conducted the analysis for determining the concentrations of Mn,
+As, and Fe in each oven-dried, homogenized sediment sample. Sed-
+iment concentrations of Mn, As, and Fe were determined using a
+protocol modiﬁed from Farrell et al. (1980). Brieﬂy, 5 ml of a 7:3
+mixture of hydrochloric acid and hydroﬂuoric acid and 2 ml of
+nitric acid were added to sediment samples in digestion tubes.
+Tubes were then heated to 95˚C in a digestion block for 2 h. Next,
+samples were cooled and the volume of each sample was increased
+to 50 ml with a 1.5% by weight boric acid solution. Samples were
+reheated to 95˚C for about 15 min, and then cooled to room tem-
+perature again. Metals concentrations were analyzed in the cooled
+solutions on a SCIEX inductively coupled plasma mass spectrom-
+eter, (Elan DRC-e, Perkin Elmer, Waltham, MA, USA) using an
+Indium internal standard.
+
+We used a second set of aquifer sediment samples collected at
+K240, K150, and K60 from depths between 1 and 16 m to inves-
+tigate grain size. We used a modiﬁcation of the USGS East Coast
+Sediment Analysis Procedures protocol for this analysis (Poppe
+et al., 2000). Sediments were freeze-dried for 48–72 h and then
+oven-dried at 60˚C for 48 h. In order to disaggregate the sedi-
+ment, we suspended samples in distilled water for 24 h. Then we
+passed each wet sub-sample serially through 150 and 63 μm sieves.
+Sediment fractions were dried and weighed and grain size distrib-
+utions were reported as percentage sand (i.e., greater than 150 μm
+in diameter), silty-sand (between 150 and 63 μm in diameter),
+and silt (63 μm in diameter and smaller; Wentworth, 1922). In the
+statistical analyses we included data from only one grain size class,
+percentage silt, since percentage sand, percentage silty-sand, and
+percentage silt were strongly autocorrelated.
+
+PHYLOGENETIC DATA ANALYSIS
+DNA was extracted from homogenized sediment samples using
+the Mo Bio PowerSoil™DNA Isolation Kit following the manu-
+facturer’s suggested protocol (Mo Bio Laboratories, Inc., Carls-
+bad, CA, USA). We PCR-ampliﬁed bacterial 16S rRNA genes
+from the genomic DNA of the 21 sediment samples for pyrose-
+quencing (Margulies et al., 2005) analysis. We used a univer-
+sal bacterial primer set described in Hamady et al. (2008) that
+(cid:2)
+included the highly conserved bacterial primers 27F (5
+-GCC
+(cid:2)
+TTGCCAGCCCGCTCAGTCAGAGTTTGATCCTGGCTCAG-3
+)
+and 338R, with a unique, error-correcting barcode that iden-
+tiﬁes the PCR product in each sample (5
+-GCCTCCCTCGC
+(cid:2)
+GCCATCAGNNNNNNNNCATGCTGCCTCCCGTAGGAGT-3
+;
+Fierer et al., 2008). Each reaction contained 3 μl of genomic
+DNA, 30 μM (ﬁnal concentrations) forward and reverse primers,
+and 22.5 μl of Platinum SuperMix (Invitrogen, Carlsbad, CA,
+USA). Reaction conditions were performed as described by Fierer
+et al. (2008). We performed PCRs for each of the 21 samples
+
+(cid:2)
+
+in triplicate, and then pooled the products from each sample
+for downstream processing. No template controls were included
+to ensure that sample DNA was not contaminated with foreign
+DNA. PCR products were cleaned with the Mo Bio UltraClean-
+htp PCR Clean-up Kit (Mo Bio Laboratories, Inc.,) according to
+the manufacturer’s recommended protocol, and then pooled in
+equal concentrations. The University of South Carolina Environ-
+mental Genomics Core Facility performed the sequencing of our
+16S rRNA gene amplicons on a Roche FLX 454 pyrosequencing
+machine.
+
+First, we used QIIME (Caporaso et al., 2010a) to apply a
+sequence quality ﬁlter to the original 16S rRNA gene sequence
+dataset based on the sequence quality log ﬁle. This quality ﬁl-
+ter eliminated sequences that were shorter than 200 nucleotides
+in length, in addition to those with one or more ambiguous
+bases, and/or had received a quality score of less than 25. After
+this sequence quality ﬁlter, pyrosequencing yielded 31,517 qual-
+ity short-read (average length of 231 nucleotides) 16S rRNA gene
+sequences total, and an average of 1500 sequences per sample (with
+a SD of 189). We used QIIME to conduct all of the following phy-
+logenetic analyses of the 16S rRNA sequences (Caporaso et al.,
+2010a). We deﬁned bacterial operational taxonomic units (OTUs)
+at 97% identity with the uclust (Edgar, 2010) and the cd-hit algo-
+rithm (Li and Godzik, 2006). As a source for comparison, we also
+deﬁned bacterial OTUs at 90, 95, and 99% identity with the cd-hit
+algorithm. We conducted all of the subsequently described analy-
+ses on each of these OTU tables in order to identify any discrepan-
+cies based on the OTU deﬁnition and patterns between bacterial
+community structure and chemistry (ﬁve tables total). Next, we ﬁl-
+tered our dataset to eliminate OTUs represented by only one 16S
+rRNA gene sequence (singletons), as well as OTUs present in only
+one sample (Zhou et al., 2011). The number of sequences present
+in each sample after applying ﬁltering is included as Table A1 in
+Appendix. Then, we aligned the 16S rRNA gene sequences using
+the PyNAST alignment algorithm (Caporaso et al., 2010b) with the
+Greengenes database (DeSantis et al., 2006). In QIIME, we used the
+RDP Classiﬁer (Wang et al., 2007) to assign the taxonomic classiﬁ-
+cation to each OTU using the Greengenes database (DeSantis et al.,
+2006). To create a phylogeny, we implemented the FastTree algo-
+rithm (Price et al., 2009). We performed rarefaction analysis, and
+calculated collector’s curves (Schloss and Handelsman, 2004) for
+many different alpha diversity metrics including the Chao1 rich-
+ness estimator (Chao, 1984) and Shannon diversity index (Weaver
+and Shannon, 1949). To investigate patterns in beta diversity, we
+calculated the pairwise distances between bacterial communities
+with the UniFrac distance metric (Lozupone and Knight, 2005).
+Sequences and sediment chemistry parameters were deposited in
+the MG-RAST database (Meyer et al., 2008) under accession num-
+ber qiime:130 according to MIMARKS standards (Yilmaz et al.,
+2011).
+
+STATISTICAL ANALYSIS
+We used univariate and multivariate statistical techniques in order
+to elucidate relationships between the natural gradients within the
+aquifer, such as depth and well location, and the environmental
+chemistry and the bacterial community. We applied log transfor-
+mations to percentage sediment C concentration, and square-root
+
+Frontiers in Microbiology | Terrestrial Microbiology
+
+March 2012 | Volume 3 | Article 82 | 4
+
+Legg et al.
+
+High arsenic aquifer bacterial communities
+
+0
+4
+2
+K
+
+ 
+l
+l
+e
+
+W
+
+0
+5
+1
+K
+
+ 
+l
+l
+e
+
+W
+
+)
+
+m
+
+(
+ 
+
+h
+t
+p
+e
+D
+
+)
+
+m
+
+(
+ 
+
+h
+t
+p
+e
+D
+
+0
+6
+K
+
+ 
+l
+l
+e
+
+W
+
+)
+
+m
+
+(
+ 
+
+h
+t
+p
+e
+D
+
+0
+  2
+  4
+  6
+  8
+  10
+  12
+  14
+  16
+
+0
+
+0
+  2
+  4
+  6
+  8
+  10
+  12
+  14
+  16
+
+0
+
+0
+  2
+  4
+  6
+  8
+  10
+  12
+  14
+  16
+
+0
+
+20
+
+40
+
+60
+
+80
+
+100
+
+20
+
+40
+
+60
+
+80
+
+100
+
+20
+
+40
+% Grain Size
+
+60
+
+80
+
+100
+
+% sand
+% sand-silt
+% silt
+
+0
+  2
+  4
+  6
+  8
+  10
+  12
+  14
+  16
+
+15
+
+0
+  2
+  4
+  6
+  8
+  10
+  12
+  14
+  16
+
+15
+
+0
+  2
+  4
+  6
+  8
+  10
+  12
+  14
+  16
+
+15
+
+20
+
+25
+
+30
+
+35
+
+20
+
+25
+
+30
+
+35
+
+20
+
+25
+
+30
+
+35
+
+% Soil Moisture
+
+FIGURE 2 | Grain size distribution and soil moisture of sediments collected at depths of 1.52, 3.05, 4.57, 6.10, 7.62, 10.67, and 15.24 m at the three
+sampling locations along the groundwater ﬂowpath at Site K.
+
+transformations to sediment As and Fe concentrations because the
+raw data for these variables had non-normal distributions (Gotelli
+and Ellison, 2004). Then we performed linear correlation analy-
+ses using MATLAB® 7.9.0 (2009b) and the Pearson’s correlation
+coefﬁcient (Zar, 1999). We performed permutational multivariate
+ANOVA tests using the adonis function in the vegan package in
+R (Oksanen, 2007) in order to evaluate the role of depth and well
+location in structuring the bacterial community, as characterized
+by both unweighted UniFrac distances and proportions of bacter-
+ial taxa within the aquifer. Then, to examine the effects of sediment
+chemical parameters on structuring bacterial communities we per-
+formed Mantel tests on the bacterial community structure (i.e., the
+UniFrac distance matrix) and sediment chemistry data.
+
+Next, we performed non-metric multidimensional scaling
+(NMDS), an unconstrained ordination technique, with the
+metaMDS function in the vegan package in R (Oksanen, 2007)
+on the unweighted UniFrac distance matrix in order to further
+examine patterns in bacterial community structure and environ-
+mental parameters. Then we used the envﬁt function in the vegan
+package in R (Oksanen, 2007) to ﬁt vectors of the environmental
+parameters that were signiﬁcantly related to bacterial commu-
+nity structure in the Mantel tests (square-root transformed Fe,
+
+log transformed %C, Mn, and % silt) to the NMDS ordination
+(Oksanen, 2007).
+
+RESULTS
+SEDIMENT GRAIN SIZE AND CHEMISTRY
+The percentage of the sediment classiﬁed as sand ranged from
+2.5 to 96 while the percentage silt ranged between 1.4 and 76.8
+(Figure 2). The range in percentage silty-sand was from 1.6 to
+77.4%. The grain size distribution of the sediment samples var-
+ied based on the sample depth. Silt-sized grains predominated
+in the sediments collected at shallow depths (<7 m) within the
+aquifer, whereas sediments collected at deeper depths (>7 m) were
+primarily composed of sands. Sediment C ranged from 0.04 to
+0.67% across all samples (Figure 3), while sediment N was at or
+below the detection limit of the analytical method (0.01%) for 15
+of the 21 samples. The samples were all circumneutral and pH
+ranged from 6.9 to 7.8. Sediment Mn concentrations ranged from
+∼140 to 1100 ppm, Fe from 10 to 50 ppt and As from 5 to 39 ppm
+(Figure 3). Sediment Mn concentration was the only chemical
+parameter that showed statistically signiﬁcant differences between
+well sites, and was nearly twice as high at K60 than at K150 or K240
+(ANOVA, p < 0.05). Depth was signiﬁcantly negatively correlated
+
+www.frontiersin.org
+
+March 2012 | Volume 3 | Article 82 | 5
+
+50
+
+40
+
+50
+
+40
+
+Legg et al.
+
+High arsenic aquifer bacterial communities
+
+200
+
+400
+
+Mn(ppm)
+600
+
+800
+
+1000
+
+1200
+
+10
+
+As(ppm)
+
+20
+
+30
+
+40
+
+7.2
+
+7.4
+pH
+
+7.6
+
+7.8
+
+8.0
+
+0.2
+
+0.4
+%C
+
+0.6
+
+0.8
+
+10
+
+20
+
+200
+
+400
+
+Mn(ppm)
+
+600
+
+800
+
+1000
+
+1200
+
+10
+
+30
+Fe(ppt)
+As(ppm)
+
+20
+
+40
+
+30
+
+%C
+Mn(ppm)
+
+Fe(ppt)
+As(ppm)
+
+0
+4
+2
+K
+
+ 
+l
+l
+e
+
+W
+
+)
+
+m
+(
+h
+t
+p
+e
+D
+
+0
+5
+1
+K
+
+ 
+l
+l
+e
+
+W
+
+)
+
+m
+(
+h
+t
+p
+e
+D
+
+pH
+
+7.0
+
+0
+
+2
+
+4
+
+6
+
+8
+
+10
+
+12
+
+14
+
+16
+
+6.8
+
+0
+
+2
+
+4
+
+6
+
+8
+
+10
+
+12
+
+14
+
+0.4
+%C
+
+Mn(ppm)
+
+600
+
+0.6
+
+0.8
+
+10
+
+20
+
+800
+
+1000
+
+1200
+
+10
+
+30
+Fe(ppt)
+As(ppm)
+
+20
+
+40
+
+30
+
+16
+
+6.8
+
+7.0
+
+7.2
+
+7.4
+pH
+
+7.6
+
+7.8
+
+8.0
+
+0.2
+
+200
+
+400
+
+0
+
+2
+
+4
+
+6
+
+8
+
+10
+
+12
+
+14
+
+)
+
+0
+6
+K
+
+ 
+l
+l
+e
+
+W
+
+m
+(
+h
+t
+p
+e
+D
+
+16
+
+6.8
+
+7.0
+
+7.2
+
+7.4
+pH
+
+7.6
+
+7.8
+
+8.0
+
+0.2
+
+0.4
+%C
+
+0.6
+
+0.8
+
+10
+
+20
+
+30
+Fe(ppt)
+
+40
+
+50
+
+FIGURE 3 | Sediment chemistry at each sampling location along the groundwater ﬂowpath.
+
+to percentage silt and sediment Mn and Fe concentrations, whereas
+percent silt, C, Mn, and Fe were positively correlated with one
+another. Sediment pH was not correlated with any other chemical
+parameter measured in this study (Table 1).
+
+BACTERIAL COMMUNITY CHARACTERISTICS
+Rarefaction analysis demonstrated that there was a large varia-
+tion in the total number of OTUs between the samples. Collector’s
+curves for the Chao1 richness estimator and Shannon diversity
+index showed that the overall diversity approached an asymptote
+in a majority of the samples (Figure A1 in Appendix), suggesting
+that the sequence coverage was sufﬁcient to capture the diversity of
+the bacterial communities. Interestingly, it appeared that the alpha
+diversity of samples was related to the well location: the number of
+OTUs per sample was highest at Well K240 and lowest at well K60.
+
+Although 35 phyla were present in the 21 samples, only four
+phyla comprised more than 5% of the community in every sam-
+ple (Figure 4). Proteobacteria comprised approximately 28%
+of the average community across all samples, whereas Chlo-
+roﬂexi and Acidobacteria each comprised approximately 11%
+of the community. The proportion of Firmicutes was approxi-
+mately 5%, while other phyla represented much smaller propor-
+tions of the bacterial communities. Acidobacteria and Firmicutes
+were highly variable, with ranges in proportions of two orders
+of magnitude across all of the bacterial communities sampled,
+whereas the proportions of Chloroﬂexi and Proteobacteria varied
+by roughly one order of magnitude across the 21 samples. The
+sub-phyla Alphaproteobacteria, Betaproteobacteria, Deltapro-
+teobacteria, and Gammaproteobacteria composed an average of
+7, 7, 8, and 5% of the overall bacterial community, respectively.
+
+Frontiers in Microbiology | Terrestrial Microbiology
+
+March 2012 | Volume 3 | Article 82 | 6
+
+Legg et al.
+
+High arsenic aquifer bacterial communities
+
+Table 1 | The correlation coefﬁcients (R values) for the Pearson’s correlations that are presented in this table correspond to the pairwise
+correlations between individual environmental parameters or between environmental parameters and bacterial community beta diversity.
+
+% Soil moisture
+
+pH
+
+Log (%C)
+
+Mn (ppm)
+
+Fe (ppm)
+
+% Silt
+
+UniFrac
+
+√
+As (ppm)
+
+√
+
+Correlation
+Coefﬁcients (R)
+
+% Soil moisture
+pH
+Log (%C)
+√
+Mn (ppm)
+√
+As (ppm)
+Fe (ppm)
+
+−0.05 (NS)
+
+−0.21 (NS)
+−0.05 (NS)
+
+−0.17 (NS)
+−0.18 (NS)
+0.82 (6E-6)
+
+−0.13 (NS)
+0.09 (NS)
+0.32 (NS)
+0.32 (NS)
+
+−0.16 (NS)
+−0.22 (NS)
+0.71 (3E-4)
+0.93 (6E-10)
+0.42 (NS)
+
+−0.01 (NS)
+0.04 (NS)
+0.62 (0.002)
+0.65 (0.001)
+0.22 (NS)
+0.51 (0.02)
+
+0.003 (NS)
+−0.14 (NS)
+0.39 (0.005)
+0.56 (0.001)
+−0.08 (NS)
+0.27 (0.003)
+0.44 (0.007)
+
+% Silt
+UniFrac
+Signiﬁcance values (p-values)≤ 0.05 for the correlations are shown in parentheses; “NS” indicates non-signiﬁcant correlations. We transformed data columns if the
+raw data did not follow a normal distribution. The transformation method we used is indicated in the row and column labels.
+
+Acidobacteria
+Chloroflexi
+Firmicutes
+Alphaproteobacteria
+Betaproteobacteria
+Deltaproteobacteria
+Gammaproteobacteria
+Other Taxa
+
+n
+o
+i
+t
+r
+o
+p
+o
+r
+P
+
+1
+
+0.8
+
+0.6
+
+0.4
+
+0.2
+
+0
+
+K240
+
+K150
+
+Well Location
+
+K60
+
+FIGURE 4 |The bacterial communities, as characterized by the UniFrac
+metric, are signiﬁcantly distinct at the three well locations at our
+study site (PERMANOVA, R 2 = 0.23; p ≤ 0.001). The bar graphs show the
+relative abundances of dominant (>5% total abundance) bacterial taxa at
+
+the three well locations (n = 7 depths for each well) and in all wells
+combined. Although there are gradients in sediment texture and chemistry
+within the aquifer, only Mn was signiﬁcantly different between wells
+(ANOVA, p < 0.05).
+
+Bacterial community composition was not signiﬁcantly related
+to depth (Table 1). Instead, bacterial communities clustered by well
+site; a permutational multivariate ANOVA using the adonis func-
+tion in the vegan package (Oksanen, 2007) revealed that well site
+accounted for a signiﬁcant amount of the variation in community
+composition (R2 = 0.23; p < 0.001). This relationship was signif-
+icant (p < 0.05) for unweighted UniFrac distance matrices calcu-
+lated from the pre-ﬁltered and ﬁltered datasets, and OTU tables
+calculated from different clustering methods (uclust and cd-hit)
+
+and different identity thresholds (90, 95, 97, and 99%). Next, we
+investigated how the proportions of bacterial taxa contributed to
+these observed differences. The proportions of the most common
+(at least 5% of the total community) bacterial phyla and sub-
+phyla along the groundwater ﬂowpath were signiﬁcantly different
+between well locations (p < 0.05). Speciﬁcally, Deltaproteobacte-
+ria and Chloroﬂexi were found in higher relative abundance while
+Betaproteobacteria, Alphaproteobacteria, Gammaproteobacteria,
+and Firmicutes were in lower proportions in K60 (near the river)
+
+www.frontiersin.org
+
+March 2012 | Volume 3 | Article 82 | 7
+
+Legg et al.
+
+High arsenic aquifer bacterial communities
+
+K150; 1219 OTU’s
+
+K240; 1231 OTU’s
+
+210
+(17%)
+
+419
+
+414
+(34%)
+
+227
+
+296
+
+294
+
+408
+(30%)
+
+K60; 1348 OTU’s
+
+.
+
+6
+0
+
+4
+0
+
+.
+
+2
+
+.
+
+0
+
+0
+
+.
+
+0
+
+.
+
+2
+0
+−
+
+2
+
+ 
+
+ 
+s
+i
+x
+a
+S
+D
+M
+N
+
+5
+
+3
+
+2
+
+1
+
+4
+
+6
+
+7
+
+−0.2
+
+1
+
+%silt
+
+1
+
+2
+
+3
+
+5
+
+4
+
+7
+
+7
+
+6
+
+6
+
+5
+
+Fe
+
+Mn
+
+%C
+
+Legend
+Location
+K240
+K150
+K60
+Depth
+1.5m
+1
+3.1m
+2
+4.6m
+3
+6.1m
+4
+7.6m
+5
+10.7m
+6
+15.2m
+7
+
+4
+
+3
+
+2
+
+0.0
+
+0.2
+
+0.4
+
+0.6
+
+NMDS axis 1
+
+FIGURE 5 | As shown in the Venn diagram, a greater percentage of the
+OTUs present within the bacterial communities at well locations K240
+(village) and K60 (river) were unique than at well K150 (mid ﬂow path).
+In addition, K150 and K60 shared a greater percentage of OTUs
+(approximately 30%).
+
+than K150 (middle of the ﬂowpath) or K240 (village site, Figure 4).
+The proportion of Acidobacteria was highest at K150, and lowest
+at K60.
+
+While roughly 30% of the OTUs in the bacterial communi-
+ties at well K240 and well K60 were unique to that location, 17%
+of the bacterial communities at K150 were comprised of unique
+OTUs (Figure 5). Bacteroidetes, Alphaproteobacteria, Acidobac-
+teria, and Betaproteobacteria were the most frequently observed
+OTUs unique to well K240. Acidobacteria dominated the unique
+OTUs at K150. The OTUs that were unique to K60, the site closest
+to the river, were primarily Chloroﬂexi (30%), and 50% of these
+Chloroﬂexi OTUs were classiﬁed in the Dehalococcoidetes class.
+All three of the well locations shared 294 OTUs; a majority of
+those OTUs (22%) were classiﬁed within the Acidobacteria. The
+bacterial communities at K150 and K60 had the highest number of
+shared OTUs, which largely belonged to the Chloroﬂexi, Acidobac-
+teria, and Deltaproteobacteria (comprising 16, 15, and 11% of the
+shared OTUs, respectively), the taxa that comprised the largest
+proportion of the 16S rRNA gene dataset at Site K. Only two
+taxonomic groups, Acidobacteria and Alphaproteobacteria, each
+comprised greater than 10% of the OTUs shared between K240
+and K150. By contrast, the OTUs common to K240 and K60 were
+more taxonomically distributed: OTUs in the Betaproteobacteria,
+Alphaproteobacteria, Acidobacteria, Firmicutes, and Bacteroidetes
+each comprised greater than 10% of the shared OTUs between
+K240 and K60.
+
+Mantel tests revealed that bacterial community composition,
+as characterized by the unweighted UniFrac metric (Lozupone
+and Knight, 2005), was signiﬁcantly related to percentage silt, and
+sediment C, Mn, and Fe concentrations, but not sediment As or
+pH (Table 1). We performed the Mantel tests using unweighted
+
+FIGURE 6 | This non-metric multidimensional scaling (NMDS)
+ordination shows that the bacterial communities cluster based on well
+location. Each point on the ordination is a different bacterial community
+(n= 21), and the location of the points is based on UniFrac distances. The
+points are colored based on well location. In addition, the vectors on the
+ordination represent the gradient in the chemical variables for all the
+samples in the dataset.
+
+UniFrac distance matrices calculated from the pre-ﬁltered and
+ﬁltered datasets, as well as OTU tables calculated from different
+clustering methods (uclust and cd-hit), different identity thresh-
+olds (90, 95, 97, and 99%), and different numbers of sequences
+per sample (Table A2 in Appendix). We found signiﬁcant rela-
+tionships between bacterial community structure and percentage
+silt, and sediment C, Mn, and Fe concentrations for each of these
+UniFrac distance matrices (Table A2 in Appendix) suggesting that
+the correlations observed are robust to issues related to sampling
+and OTU deﬁnition.
+
+The results from the NMDS analysis, depicted in an ordination
+plot (Figure 6), demonstrate the relationship between bacterial
+community structure and environmental parameters. Each point
+on the ordination represents a bacterial community from a spe-
+ciﬁc sample location and depth. The distances between samples
+(points) in the ordination indicate their level of similarity, as char-
+acterized by unweighted UniFrac distances. In order to investigate
+the validity of the NMDS ordination analysis we performed a stress
+plot, which showed that the UniFrac distances and the ordination
+distances were highly correlated (R2 = 0.98).
+
+The NMDS ordination (Figure 6) demonstrates that bacter-
+ial communities, in general, cluster based on well location, which
+supports results from a permutational multivariate ANOVA. Also,
+the ordination shows that bacterial communities at K60 are more
+different from one another than at the other well
+locations.
+Whereas bacterial communities from the deepest depths at K60
+cluster with communities from K150, bacterial communities at
+depths of 3.05 m, 4.57 m, and 6.1 m at K60 form a distinct cluster
+between 0.6 and 0.7 on NMDS axis 1 (Figure 6). Similarly, the
+
+Frontiers in Microbiology | Terrestrial Microbiology
+
+March 2012 | Volume 3 | Article 82 | 8
+
+Legg et al.
+
+High arsenic aquifer bacterial communities
+
+bacterial community from the shallowest depth at K60, 1.52 m,
+is positioned at roughly 0.55 on NMDS axis 2, far from the
+other communities on the ordination (Figure 6). This suggests
+that the bacterial community structure at 1.52 m at K60 is dis-
+tinct from bacterial communities at other locations at the study
+site. The direction and position of the environmental parame-
+ter vectors on the ordination, calculated with the envﬁt function
+in the vegan package (Oksanen, 2007), represent the gradient
+in each parameter (i.e., from lowest to highest concentration)
+as well as the strength of the correlation between the environ-
+mental parameter and the ordination (i.e., bacterial community
+structure, as characterized by UniFrac distances). The vectors pro-
+vide a graphical representation to identify relationships between
+environmental gradients and patterns in bacterial community
+structure.
+
+DISCUSSION
+Bacterial community structure at Site K is signiﬁcantly related
+to well location, grain size, and chemical differences in ground-
+water sediments, including percentage silt, and sediment C, Mn,
+and Fe concentrations (Table 1). Taxa such as Alphaproteobac-
+teria, Betaproteobacteria, and Acidobacteria were more abundant
+at the village site (K240), in aquifer sediments with higher con-
+centrations of sand and lower concentrations of C and metals. In
+addition, the OTUs that were present only at well location K240
+belonged to these taxa. By contrast, OTUs classiﬁed as Deltapro-
+teobacteria and Chloroﬂexi comprised a larger proportion of the
+communities in silty sediments with higher concentrations of C,
+Fe, and Mn (Figure 4). These results suggest that the considerable
+heterogeneity in sediment chemistry at Site K drives signiﬁcant
+differences in bacterial community structure across the three well
+locations.
+
+The dominant members (greater than 5% of the community)
+of the bacterial communities at Site K, Acidobacteria, Chloroﬂexi,
+Firmicutes, Alphaproteobacteria, Betaproteobacteria, Deltapro-
+teobacteria, and Gammaproteobacteria (Figure 4), are abundant
+in many soil and sediment environments. Recent 16S rRNA gene
+sequence-based analyses have found that Acidobacteria and Pro-
+teobacteria are the dominant members of soil bacterial commu-
+nities across ecosystem types (Fierer et al., 2009). A global survey
+of 21 16S rRNA gene sequence libraries found that while Pro-
+teobacteria and Acidobacteria comprised roughly 40 and 20%
+of the bacterial communities respectively, Chloroﬂexi and Fir-
+micutes were also relatively abundant (greater than 5% of the
+community), in a range of soil environments (Janssen, 2006).
+Recent research shows that although these groups are domi-
+nant across soil types, the relative proportion of the bacterial
+community that each of these dominant groups comprises is
+inﬂuenced by factors such as pH, depth within the soil proﬁle,
+the degree of soil saturation, and anaerobiosis (Hansel et al.,
+2008; Fierer et al., 2009; Jones et al., 2009). In our study, we
+found that shifts in bacterial community structure were related
+to changes in the sediment grain size distribution and changes
+in sediment C, Mn, and Fe rather than soil moisture or depth
+(Table 1).
+
+Our ﬁnding that bacterial community structure is signiﬁcantly
+related to sediment grain size is supported by other research
+
+that has shown that sediment grain size inﬂuences microbial
+biomass and bacterial community structure (Sessitsch et al., 2001),
+and enzyme kinetics (Grandy et al., 2008). Silts typically have
+higher concentrations of organic matter (Sparks, 2003), especially
+aromatic carbon compounds and humic acids (Guggenberger
+et al., 1995), and metals (Thorne and Nickless, 1981; Murray et al.,
+1999). Sandy sediments, characterized by grain sizes larger than
+150 μm, usually contain lower organic carbon and metal con-
+centrations (Sparks, 2003). In the sandy sediments with high Si
+concentrations at Site K, phyla such as Firmicutes and Alphapro-
+teobacteria are the dominant groups in the bacterial community.
+By contrast, Chloroﬂexi and Deltaproteobacteria were the domi-
+nant members of the bacterial community in silty sediments with
+high C and metal concentrations. Heavy metal concentrations have
+been shown to correlate with bacterial community structure and
+function in both soil and groundwater environments (Stefanowicz
+et al., 2008).
+
+Deltaproteobacteria are abundant across different soil and sed-
+iment environments (Spain et al., 2009). There is evidence that
+Deltaproteobacteria are more abundant in anaerobic soils (Hansel
+et al., 2008), perhaps because members of Deltaproteobacteria can
+use a variety of electron acceptors. For example, organisms within
+the Geobacteraceae family can use labile C to reduce Fe, Mn, and
+HS (Lovley and Phillips, 1988; Lovley et al., 1996). There is ample
+evidence that Fe-, Mn-, and HS-reducing Deltaproteobacteria are
+prevalent in anaerobic freshwater sediments (Coates et al., 2002;
+Lovley et al., 2004), and previous research has documented that
+the relative abundance and diversity of members of Geobacter-
+aceae corresponds to Fe and Mn concentrations in groundwater
+environments (Luna et al., 2009).
+
+Although the overall community composition was not found
+to be correlated with sediment As (Table 1), it is important to note
+that there is a poor relationship between sediment and groundwa-
+ter As concentrations in this environment (Radloff et al., 2008).
+However bacterial community structure is signiﬁcantly correlated
+to sediment characteristics, such as percent silt, sediment C, and
+sediment metal concentrations, which are related to groundwater
+As concentrations (van Geen et al., 2006b). Thus, the relation-
+ship between the proportion of Deltaproteobacteria in the bac-
+terial community and percent silt and concentrations of C and
+Fe in the aquifer sediment may have important implications for
+understanding how the native microbial community inﬂuences
+groundwater As mobility at Site K. Fe-reducing Deltaproteobac-
+teria could promote the mobilization of As by mediating the
+reductive dissolution of Fe-oxides, which results in the desorption
+of As from the Fe-oxide surface (McArthur et al., 2001; Jiang et al.,
+2009). In fact, results from GBD sediment microcosm experiments
+demonstrated that labile carbon additions promoted higher rates
+of Fe(III)-reduction and As mobilization, as well as increases in
+the relative abundance of Deltaproteobacteria (Islam et al., 2004).
+Additional evidence from sediment microcosm experiments sug-
+gests that microbial Fe-reduction is enhanced by the presence
+of redox-active HS in aquifer sediments, which can shuttle elec-
+trons to Fe(III), promoting Fe-oxide reduction and As desorp-
+tion (Mladenov et al., 2010). Thus, Fe-reducing and HS-reducing
+Deltaproteobacteria could play a signiﬁcant role in groundwater
+As mobilization.
+
+www.frontiersin.org
+
+March 2012 | Volume 3 | Article 82 | 9
+
+Legg et al.
+
+High arsenic aquifer bacterial communities
+
+Deltaproteobacteria could also inﬂuence groundwater As
+mobilization more directly. First, as mentioned above, although
+the overall community composition was not related to sedi-
+ment As, it was correlated to the percent silt in the sediment.
+Fine-grained silts are less permeable than sands and often have
+higher dissolved As concentrations. Thus Deltaproteobacteria in
+the silty sediments at Site K may be more adapted to high ground-
+water As concentrations. Members of Deltaproteobacteria genera
+Desulfovibrio (Li and Krumholz, 2007), Desulfomicrobium (Macy
+et al., 2000), and Geobacter (Methe et al., 2003) are known to
+reduce As(V) to As(III) through a detoxiﬁcation pathway encoded
+by the ars operon (Rosen et al., 1991). Groundwater As concen-
+trations at Site K are highest at well K60 between 7 and 15 m,
+and as a result these conditions may favor bacteria that can detox-
+ify As. Thus, the potential for Deltaproteobacteria to mediate the
+As detoxiﬁcation, Fe-reduction, Mn-reduction and HS-reduction
+pathways could explain their higher abundance at K60 (Figure 4).
+Chloroﬂexi at Site K are also signiﬁcantly more abundant in
+silty sediments with higher concentrations of sediment C, Fe,
+and Mn. Approximately 50% of the Chloroﬂexi OTUs at Site K
+belonged to the halorespiring Dehalococcoidetes class, and these
+OTUs were only present in the C- and metal-rich silty sediments
+at well K60. Halorespiring Chloroﬂexi have also been discovered
+in other pristine freshwater environments (Lofﬂer et al., 2000),
+and recent research suggests that halorespiring bacteria could
+also use other respiratory pathways including Se(VI)- reduction,
+As(V)-reduction, Fe(III)-reduction, Mn(IV)-reduction, as well as
+the oxidation and reduction of a model compound for quinone-
+containing HS (Luijten et al., 2004). Also, two members of the
+Dehalococcoides genus have the As resistance gene, arsC, within
+their genome (Kube et al., 2005; Seshadri et al., 2005). Conse-
+quently, Chloroﬂexi may have an advantage at well K60 over other
+bacteria that do not have such adaptations to the local groundwater
+geochemical conditions.
+
+Based on the phylogenetic afﬁliations of these taxa, it is pos-
+sible that these results indicate a shift to more Fe-, Mn-, and
+humic substance-reducers in the silts with high C and metal
+concentrations (Lovley and Phillips, 1988; Lovley et al., 1996;
+Luijten et al., 2004). However, research is needed to further
+
+elucidate the speciﬁc roles of taxa such as Deltaproteobacteria and
+Chloroﬂexi in the groundwater environment at Site K. For exam-
+ple, our study suggests that sediment C is important in structuring
+bacterial communities and thus, further work on the source and
+chemical characteristics of the sediment C may provide insight
+into the dominant processes underlying the relationship between
+C and bacterial community composition. For example, if the C is
+serving largely as a nutrient source, we may conclude that observed
+community shifts are an example of the copiotrophic–oligotrophic
+continuum described by Fierer et al. (2007). By contrast, more
+recalcitrant, redox-active C sources such as HS may be impor-
+tant for electron shuttling that promotes Fe-reduction and As
+mobilization (Mladenov et al., 2010).
+
+CONCLUSION
+Results from this research have led to a more complete under-
+standing of the bacterial community structure within GBD aquifer
+sediments. It is well-documented that sediment grain size, C, Mn,
+and Fe inﬂuence the mobility of groundwater arsenic, and it is
+intriguing that these constituents also structure the bacterial com-
+munity. This work has also demonstrated the importance of deeper
+16S rRNA gene sequencing in identifying environmentally relevant
+patterns in bacterial community structure across groundwater As
+gradients.
+
+ACKNOWLEDGMENTS
+This research was supported by grants from NSF (EAR 0738910
+and 073888) and NIEHS (SRP 2 P42 ES10349). The authors would
+like to thank Dr. Rob Knight, Dr. Noah Fierer, as well as Dou-
+glas Wendel, Dr. Elizabeth Costello, and other members of the
+Knight and Fierer labs at the University of Colorado for assis-
+tance with sample preparation for pyrosequencing, and analysis of
+the 16S rRNA gene sequence data. We also thank Chris Washen-
+berger, Sean O’Neill, and Peter Frey at INSTAAR at the University
+of Colorado for their help with soil analyses. Dr. Lee Stanish,
+Dr. William Wieder, Joseph Knelman, and Philip Taylor provided
+invaluable support with the statistical analyses presented in the
+manuscript, as well as insightful comments on previous versions
+of this manuscript.
+
+REFERENCES
+Caporaso,
+
+J.,
+
+J. G., Kuczynski,
+Bittinger,
+
+J.,
+Stombaugh,
+K.,
+Bushman, F. D., Costello, E. K.,
+Fierer, N., Peña, A. G., Goodrich,
+J. K., Gordon, J. I., Huttley, G. A.,
+Kelley, S. T., Knights, D., Koenig,
+J. E., Ley, R. E., Lozupone, C. A.,
+McDonald, D., Muegge, B. D.,
+Pirrung, M., Reeder, J., Sevinsky,
+J. R., Turnbaugh, P.
+J., Walters,
+W. A., Widmann, J., Yatsunenko,
+J., and Knight, R.
+T., Zaneveld,
+analysis
+(2010a). QIIME allows
+of
+community
+sequencing data. Nat. Methods 7,
+335–336.
+
+high-throughput
+
+(2010b). PyNAST: a ﬂexible tool for
+aligning sequences to a template
+alignment.
+26,
+266–267.
+
+Bioinformatics
+
+Carter, M. R. (1993). Soil Sampling and
+Methods of Analysis. Boca Raton, FL:
+Lewis Publishers.
+
+Chao, A. (1984). Nonparametric esti-
+mation of the number of classes in a
+population. Scand. Stat. Theory Appl.
+11, 265–270.
+
+Cleveland, C. C., Reed,
+and Townsend, A. R.
+Nutrient
+matter
+tropical
+492–503.
+
+S. C.,
+(2006).
+regulation of organic
+decomposition
+a
+rain forest. Ecology 87,
+
+in
+
+Caporaso, J. G., Bittinger, K., Bush-
+man, F. D., DeSantis, T. Z.,
+Andersen, G. L., and Knight, R.
+
+Coates, J. D., Cole, K. A., Chakraborty,
+R., O’Connor, S. M., and Achenbach,
+L. A. (2002). Diversity and ubiquity
+
+substances
+
+of bacteria capable of utilizing
+humic
+electron
+donors for anaerobic respiration.
+Appl.
+68,
+2445–2452.
+
+Environ. Microbiol.
+
+as
+
+Cummings, D.
+
+E., Caccavo,
+
+F.,
+Fendorf, S., and Rosenzweig, R.
+(1999). Arsenic mobilization
+F.
+dissimilatory
+by
+the
+Fe(III)-
+reducing
+bacterium Shewanella
+alga BrY. Environ. Sci. Technol. 33,
+723–729.
+
+DeSantis, T. Z., Hugenholtz, P., Larsen,
+N., Rojas, M., Brodie, E. L., Keller,
+K., Huber, T., Dalevi, D., Hu, P., and
+Andersen, G. L. (2006). Greengenes,
+a chimera-checked 16S rRNA gene
+database and workbench compatible
+with ARB. Appl. Environ. Microbiol.
+72, 5069–5072.
+
+Dhar, R. K., Zheng, Y., Saltikov, C.
+W., Radloff, K. A., Mailloux, B.
+J., Ahmed, K. M., and van Geen,
+A. (2011). Microbes enhance the
+mobility of arsenic in the Pleistocene
+aquifer sand from Bangladesh. Env-
+iron. Sci. Technol. 45, 2648–2654.
+
+Dhar, R. K., Zheng, Y., Stute, M.,
+van Geen, A., Cheng, Z., Shanewaz,
+M., Shamsudduha, M., Hoque, A.,
+Rahman, M. W., and Ahmed, K.
+M. (2008). Temporal variability of
+groundwater chemistry in shallow
+and deep aquifers of Araihazar,
+Bangladesh. J. Contam. Hydrol. 99,
+97–111.
+
+Edgar, R. C. (2010). Search and clus-
+tering orders of magnitude faster
+than BLAST. Bioinformatics 26,
+2460–2461.
+
+Frontiers in Microbiology | Terrestrial Microbiology
+
+March 2012 | Volume 3 | Article 82 | 10
+
+Legg et al.
+
+High arsenic aquifer bacterial communities
+
+Farrell, R. F., Matthes, S. A., and
+Mackie, A. J. (1980). Simple, Low-
+Cost Method for the Dissolution of
+Metal and Mineral Samples in Plas-
+tic Pressure Vessels. Washington, DC:
+Department of the Interior, Bureau
+of Mines.
+
+Fierer, N., Bradford, M. A., and Jackson,
+R. B. (2007). Toward an ecological
+classiﬁcation of soil bacteria. Ecology
+88, 1354–1364.
+
+Fierer, N., Hamady, M., Lauber, C. L.,
+and Knight, R. (2008). The inﬂuence
+of sex, handedness, and washing on
+the diversity of hand surface bacte-
+ria. Proc. Natl. Acad. Sci. U.S.A. 105,
+17994–17999.
+
+Fierer, N., Strickland, M. S., Liptzin, D.,
+Bradford, M. A., and Cleveland, C.
+C. (2009). Global patterns in below-
+ground communities. Ecol. Lett. 12,
+1238–1249.
+
+Gotelli, N. J., and Ellison, A. M. (2004).
+A Primer of Ecological Statistics. Sun-
+derland, MA: Sinauer Associates,
+Inc.
+
+Grandy, A. S., Sinsabaugh, R. L.,
+Neff, J. C., Stursova, M., and Zak,
+D. R.
+(2008). Nitrogen deposi-
+tion effects on soil organic mat-
+ter chemistry are linked to vari-
+ation in enzymes, ecosystems and
+size fractions. Biogeochemistry 91,
+37–49.
+
+Guggenberger, G., Zech, W., Haumaier,
+L., and Christensen, B. T. (1995).
+Land-use effects on the composi-
+tion of organic matter in particle-
+size separates of soils: II. CPMAS and
+solution 13C NMR analysis. Eur. J.
+Soil Sci. 46, 147–158.
+
+Hamady, M., Walker, J. J., Harris, J.
+K., Gold, N.
+J., and Knight, R.
+(2008). Error-correcting barcoded
+primers for pyrosequencing hun-
+dreds of samples in multiplex. Nat.
+Methods 5, 235–237.
+
+Hansel, C. M., Fendorf, S., Jardine, P. M.,
+and Francis, C. A. (2008). Changes
+in bacterial and archaeal commu-
+nity structure and functional diver-
+sity along a geochemically variable
+soil proﬁle. Appl. Environ. Microbiol.
+74, 1620–1633.
+
+Héry, M., Van Dongen, B. E., Gill, F.,
+Mondal, D., Vaughan, D. J., Pan-
+cost, R. D., Polya, D. A., and Lloyd,
+J. R. (2010). Arsenic release and
+attenuation in low organic carbon
+aquifer sediments from West Bengal.
+Geobiology 8, 155–168.
+
+Immerzeel, W. (2008). Historical trends
+and future predictions of
+cli-
+mate variability in the Brahma-
+putra basin. Int. J. Climatol. 28,
+243–254.
+
+Inskeep, W. P., McDermott, T. R.,
+and Fendorf, S. E. (2002). “Arsenic
+
+(V/III) cycling in soils and nat-
+ural waters: chemical and microbi-
+ological processes,” in Environmen-
+tal Chemistry of Arsenic, ed. W. T.
+Frankenberger Jr. (New York, NY:
+Springer-Verlag), 183–215.
+
+Islam, F. S., Gault, A. G., Boothman,
+C., Polya, D. A., Charnock, J. M.,
+Chatterjee, D., and Lloyd,
+J. R.
+(2004). Role of metal-reducing bac-
+teria in arsenic release from Ben-
+gal delta sediments. Nature 430,
+68–71.
+
+soil bacterial
+
+Janssen, P. H. (2006). Identifying the
+dominant
+taxa in
+libraries of 16S rRNA and 16S rRNA
+genes. Appl. Environ. Microbiol. 72,
+1719–1728.
+
+Jiang, J., Bauer, I., Paul, A., and Kappler,
+A. (2009). Arsenic redox changes by
+microbially and chemically formed
+semiquinone radicals and hydro-
+quinones
+in a humic substance
+model quinone. Environ. Sci. Tech-
+nol. 43, 3639–3645.
+
+Jiang,
+
+J., and Kappler, A.
+
+reduction of humic
+
+(2008).
+Kinetics of microbial and chem-
+ical
+sub-
+implications for electron
+stances:
+shuttling. Environ. Sci. Technol. 42,
+3563–3569.
+
+Jones, R. T., Robeson, M. S., Lauber,
+C. L., Hamady, M., Knight, R., and
+Fierer, N. (2009). A comprehen-
+sive survey of soil acidobacterial
+diversity using pyrosequencing and
+clone library analyses. ISME J. 3,
+442–453.
+
+Kappler, A., Benz, M., Schink, B., and
+Brune, A. (2004). Electron shuttling
+via humic acids in microbial iron
+(III) reduction in a freshwater sed-
+iment. FEMS Microbiol. Ecol. 47,
+85–92.
+
+Kirk, M. F., Holm, T. R., Park, J.,
+Jin, Q., Sanford, R. A., Fouke, B.
+W., and Bethke, C. M.
+(2004).
+Bacterial sulfate reduction limits
+contamination
+natural
+in
+32,
+953–956.
+
+groundwater. Geology
+
+arsenic
+
+Kube, M., Beck, A., Zinder, S. H., Kuhl,
+H., Reinhardt, R., and Adrian, L.
+(2005). Genome sequence of
+the
+chlorinated
+compound-respiring
+bacterium Dehalococcoides species
+strain CBDB1. Nat. Biotechnol. 23,
+1269–1273.
+
+Lear, G., Song, B., Gault, A. G., Polya,
+D. A., and Lloyd, J. R. (2007). Mol-
+ecular analysis of arsenate-reducing
+bacteria within Cambodian sedi-
+ments following amendment with
+acetate. Appl. Environ. Microbiol. 73,
+1041–1048.
+
+Li, W., and Godzik, A. (2006). Cd-hit:
+a fast program for clustering and
+comparing large sets of protein or
+
+nucleotide sequences. Bioinformatics
+22, 1658 –1659.
+
+Desulfovibrio
+
+Li, X., and Krumholz, L. R. (2007).
+Regulation of arsenate resistance
+in
+desulfuricans
+G20 by an arsRBCC operon and
+an arsC gene.
+J. Bacteriol. 189,
+3705–3711.
+
+Lofﬂer, F. E., Sun, Q., Li, J., and Tiedje,
+J. M. (2000). 16S rRNA gene-based
+tetrachloroethene-
+detection
+of
+dechlorinating
+Desulfuromonas
+and Dehalococcoides species. Appl.
+Environ. Microbiol. 66, 1369–1374.
+
+Lovley, D. R., Coates, J. D., Blunt-
+Harris, E. L., Phillips, E. J. P., and
+Woodward, J. C. (1996). Humic sub-
+stances as electron acceptors for
+microbial respiration. Nature 382,
+445–448.
+
+Lovley, D. R., and Phillips, E. J. P.
+(1988). Novel mode of microbial
+energy metabolism: organic car-
+bon oxidation coupled to dissim-
+ilatory reduction of iron or man-
+ganese. Appl. Environ. Microbiol. 54,
+1472–1480.
+
+Lovley, D. R., Holmes, D. E., and Nevin,
+K. P. (2004). Dissimilatory Fe(III)
+and Mn(IV) reduction. Adv. Microb.
+Physiol. 49, 219–286.
+
+a
+
+Lozupone, C., and Knight, R. (2005).
+UniFrac:
+new phylogenetic
+method for comparing microbial
+communities.
+Environ.
+Microbiol. 71, 8228.
+
+Appl.
+
+Luijten, M. L. G., Weelink, S. A., God-
+schalk, B., Langenhoff, A. A., Eek-
+ert, M. H., Schraa, G., and Stams,
+A. J. (2004). Anaerobic reduction
+and oxidation of quinone moieties
+and the reduction of oxidized met-
+als by halorespiring and related
+organisms. FEMS Microbiol. Ecol. 49,
+145–150.
+
+Luna, G. M., Dell’Anno, A., Corinaldesi,
+C., Armeni, M., and Danovaro, R.
+(2009). Diversity and spatial distri-
+bution of metal-reducing bacterial
+assemblages in groundwaters of dif-
+ferent redox conditions. Int. Micro-
+biol. 12, 153–159.
+
+Macy, J. M., Santini, J. M., Pauling,
+B. V., O’Neill, A. H., and Sly, L. I.
+(2000). Two new arsenate/sulfate-
+reducing bacteria: mechanisms of
+arsenate reduction. Arch. Microbiol.
+173, 49–57.
+
+Margulies, M., Egholm, M., Altman, W.
+E., Attiya, S., Bader, J. S., Bemben, L.
+A., Berka, J., Braverman, M. S., Chen,
+Y. J., Chen, Z., Dewell, S. B., Du, L.,
+Fierro, J. M., Gomes, X. V., Godwin,
+B. C., He, W., Helgesen, S., Ho, C. H.,
+Irzyk, G. P., Jando, S. C.,Alenquer, M.
+L., Jarvie, T. P., Jirage, K. B., Kim, J.
+B., Knight, J. R., Lanza, J. R., Leamon,
+J. H., Lefkowitz, S. M., Lei, M., Li, J.,
+
+Lohman, K. L., Lu, H., Makhijani, V.
+B., McDade, K. E., McKenna, M. P.,
+Myers, E. W., Nickerson, E., Nobile,
+J. R., Plant, R., Puc, B. P., Ronan, M.
+T., Roth, G. T., Sarkis, G. J., Simons,
+J. F., Simpson, J. W., Srinivasan, M.,
+Tartaro, K. R., Tomasz, A., Vogt, K.
+A., Volkmer, G. A., Wang, S. H.,
+Wang, Y., Weiner, M. P., Yu, P., Beg-
+ley, R. F., and Rothberg, J. M. (2005).
+Genome sequencing in microfabri-
+cated high-density picolitre reactors.
+Nature 437, 376–380.
+
+Matejovic, I. (1997). Determination of
+carbon and nitrogen in samples of
+various soils by the dry combustion.
+Commun. Soil Sci. Plant Anal. 28,
+1499–1511.
+
+McArthur,
+
+J. M., Banerjee, D. M.,
+Hudson-Edwards, K. A., Mishra, R.,
+Purohit, R., Ravenscroft, P., Cronin,
+A., Howarth, R. J., Chatterjee, A.,
+Talukder, T., Lowry, D., Houghton,
+S., and Chadha, D. K. (2004). Nat-
+ural organic matter in sedimentary
+basins and its relation to arsenic in
+anoxic ground water: the example
+of West Bengal and its worldwide
+implications. Appl. Geochem. 19,
+1255–1293.
+
+McArthur,
+
+(2001). Arsenic
+
+J. M., Ravenscroft, P.,
+and Thirlwall, M.
+Saﬁulla, S.,
+in ground-
+F.
+testing pollution mecha-
+water:
+nisms for sedimentary aquifers in
+Bangladesh. Water Resour. Res. 37,
+109–117.
+
+Methe, B. A., Nelson, K. E., Eisen, J. A.,
+Paulsen, I. T., Nelson, W., Heidel-
+berg, J. F., Wu, D., Wu, M., Ward,
+N., Beanan, M. J., Dodson, R. J.,
+Madupu, R., Brinkac, L. M., Daugh-
+erty, S. C., DeBoy, R. T., Durkin, A.
+S., Gwinn, M., Kolonay, J. F., Sulli-
+van, S. A., Haft, D. H., Selengut, J.,
+Davidsen, T. M., Zafar, N., White, O.,
+Tran, B., Romero, C., Forberger, H.
+A., Weidman, J., Khouri, H., Feld-
+blyum, T. V., Utterback, T. R., Van
+Aken, S. E., Lovley, D. R., and Fraser,
+C. M. (2003). Genome of Geobac-
+ter sulfurreducens: metal reduction
+in subsurface environments. Science
+302, 1967–1969.
+
+Meyer, F., Paarmann, D., D’Souza, M.,
+Olson, R., Glass, E. M., Kubal, M.,
+Paczian, T., Rodriguez, A., Stevens,
+R., Wilke, A., Wilkening, J., and
+Edwards, R. A. (2008). The metage-
+nomics RAST server – a public
+resource for the automatic phy-
+logenetic and functional analysis
+of metagenomes. BMC Bioinfor-
+matics 9, 386–393. doi:10.1186/
+1471-2105-9-386
+
+Mladenov, N., Zheng, Y., Miller, M. P.,
+Nemergut, D. R., Legg, T., Simone,
+B., Hageman, C., Rahman, M. M.,
+
+www.frontiersin.org
+
+March 2012 | Volume 3 | Article 82 | 11
+
+Legg et al.
+
+High arsenic aquifer bacterial communities
+
+Ahmed, K. M., and McKnight, D.
+M. (2010). Dissolved organic mat-
+ter sources and consequences for
+iron and arsenic mobilization in
+Bangladesh aquifers. Environ. Sci.
+Technol. 44, 123–128.
+
+Mukhopadhyay, R., Rosen, B. P., Phung,
+L. T., and Silver, S. (2002). Microbial
+arsenic: from geocycles to genes and
+enzymes. FEMS Microbiol. Rev. 26,
+311 –325.
+
+J. C.
+
+Murray, K. S., Cauvet, D., Lybeer,
+(1999).
+M., and Thomas,
+Particle size and chemical control
+of heavy metals in bed sediment
+from the Rouge River, Southeast
+Michigan. Environ. Sci. Technol. 33,
+987–992.
+
+Neumann, R. B., Ashfaque, K. N.,
+Badruzzaman, A. B. M., Ashraf Ali,
+M., Shoemaker, J. K., and Harvey, C.
+F. (2010). Anthropogenic inﬂuences
+on groundwater arsenic concentra-
+tions in Bangladesh. Nat. Geosci. 3,
+46–52.
+
+Newman, D., Beveridge, T., and Morel,
+F. (1997). Precipitation of arsenic
+by Desulfotomaculum
+trisulﬁde
+Appl.
+auripigmentum.
+Environ.
+Microbiol. 63, 2022–2028.
+
+Oksanen, J. (2007). Multivariate Analy-
+sis of Ecological Communities
+in
+R: Vegan Tutorial. Available at:
+http://cc.oulu.ﬁ/jarioksa/opetus/
+metodi/vegantutor.pdf
+
+Polizzotto, M. L., Harvey, C. F, Sutton, S.
+R., and Fendorf, S. (2005). Processes
+conducive to the release and trans-
+port of arsenic into aquifers of
+Bangladesh. Proc. Natl. Acad. Sci.
+U.S.A. 102, 18819–18823.
+
+Poppe, L. J., Eliason, A. H., Freder-
+icks, J. J., Rendigs, R. R., Black-
+wood, D., and Polloni, C. (2000).
+USGS East-Coast Sediment Analysis:
+Procedures, Database, and Georefer-
+enced Displays (U.S. Geological Sur-
+vey Open-File Report No. 00-358).
+Reston, VA: U.S. Department of the
+Interior, U.S. Geological Survey.
+
+Price, M. N., Dehal, P. S., and Arkin,
+A. P. (2009). FastTree: comput-
+ing large minimum evolution trees
+with proﬁles
+instead of a dis-
+tance matrix. Mol. Biol. Evol. 26,
+1641–1650.
+
+Radloff, K. (2010). Geochemical and
+Hydrologic Determinants of Arsenic
+Distribution in Sedimentary Aquifers
+in Bangladesh (Doctor
+of Phi-
+losophy). New York: Columbia
+University.
+
+Radloff, K. A., Manning, A. R., Mail-
+loux, B., Zheng, Y., Moshiur Rah-
+man, M., Rezaul Huq, M., Ahmed,
+K. M., and van Geen, A. (2008).
+Considerations for conducting incu-
+bations to study the mechanisms
+
+of As release in reducing ground-
+water aquifers. Appl. Geochem. 23,
+3224–3235.
+
+Rittle, K. A., Drever, J. I., and Colberg, P.
+J. S. (1995). Precipitation of arsenic
+during bacterial sulfate reduction.
+Geomicrobiol. J. 13, 1–11.
+
+Rosen, B. P., Weigel, U., Monticello,
+R. A., and Edwards, B. P. (1991).
+Molecular analysis of an anion
+pump: puriﬁcation of the ArsC pro-
+tein. Arch. Biochem. Biophys. 284,
+381–385.
+
+Rowland, H. A. L., Pederick, R. L.,
+Polya, D. A., Pancost, R. D., Don-
+gen, B. E. V., Gault, A. G., Vaughan,
+D.
+J., Bryant, C., Anderson, B.,
+and Lloyd, J. R. (2007). The con-
+trol of organic matter on micro-
+bially mediated iron reduction and
+arsenic release in shallow alluvial
+aquifers, Cambodia. Geobiology 5,
+281–292.
+
+Saalﬁeld, S. L., and Bostick, B. C. (2009).
+Changes in iron, sulfur, and arsenic
+speciation associated with bacterial
+sulfate reduction in ferrihydrite-rich
+systems. Environ. Sci. Technol. 43,
+8787–8793.
+
+Saltikov, C. W., and Newman, D. K.
+(2003). Genetic identiﬁcation of
+a respiratory arsenate reductase.
+Proc. Natl. Acad. Sci. U.S.A. 100,
+10983–10988.
+
+Schloss, P. D., and Handelsman,
+
+J.
+(2004). Status of the microbial cen-
+sus. Microbiol. Mol. Biol. Rev. 68,
+686–691.
+
+Seshadri, R., Adrian, L., Fouts, D. E.,
+Eisen, J. A., Phillippy, A. M., Methe,
+B. A., Ward, N. L., Deboy, R. T.,
+Khouri, H. M., Kolonay, J. F., Dod-
+son, R. J., Daugherty, S. C., Brinkac,
+L. M., Sullivan, S. A., Madupu,
+R., Nelson, K. E., Kang, K. H.,
+Impraim, M, Tran, K, Robinson,
+J. M., Forberger, H. A., Fraser, C.
+M., Zinder, S. H., and Heidelberg,
+J. F. (2005). Genome sequence of
+the PCE-dechlorinating bacterium
+Dehalococcoides ethenogenes. Science
+307, 105–108.
+
+Sessitsch, A., Weilharter, A., Gerz-
+abek, M. H., Kirchmann, H.,
+and Kandeler, E. (2001). Micro-
+bial
+in
+soil particle size fractions of a
+long-term fertilizer ﬁeld experi-
+ment. Appl. Environ. Microbiol. 67,
+4215–4224.
+
+population
+
+structures
+
+Spain, A. M., Krumholz, L. R., and
+Elshahed, M. S. (2009). Abundance,
+composition, diversity and novelty
+of soil Proteobacteria. ISME J. 3,
+992–1000.
+
+Sparks, D. L. (2003). Environmental Soil
+Chemistry. San Diego, CA: Academic
+Press.
+
+affect
+
+Stefanowicz, A. M., Niklinska, M.,
+and Laskowski, R. (2008). Met-
+als
+and
+fungal
+functional diversity dif-
+ferently. Environ. Toxicol. Chem. 27,
+591–598.
+
+bacterial
+
+soil
+
+Stute, M., Zheng, Y., Schlosser, P.,
+Horneman, A., Dhar, R., Datta,
+S., Hoque, M., Seddique, A. A.,
+Shamsudduha, M., Ahmed, K.
+(2007).
+M., and van Geen, A.
+Hydrological
+of
+As
+Bangladesh
+concentrations
+groundwater. Water Resour. Res. 43,
+W09417.
+
+control
+
+in
+
+Sun, Y., Polishchuk, E. A., Radoja, U.,
+and Cullen, W. R. (2004). Identiﬁca-
+tion and quantiﬁcation of arsC genes
+in environmental samples by using
+real-time PCR. J. Microbiol. Methods
+58, 335–349.
+
+Thorne, L. T., and Nickless, G. (1981).
+The relation between heavy met-
+als and particle size fractions within
+the severn estuary (U.K.) inter-tidal
+sediments. Sci. Total Environ. 19,
+207–213.
+
+Tufano, K. J., and Fendorf, S. (2008).
+iron
+Confounding
+reduction
+reten-
+tion. Environ. Sci. Technol. 42,
+4777–4783.
+
+impacts
+
+arsenic
+
+on
+
+of
+
+van Geen, A., Aziz, Z., Horneman, A.,
+Weinman, B., Dhar, R. K., Zheng,
+Y., Goodbred, S., Versteeg, R., Sed-
+dique, A. A., Hoque, M. A., and
+Ahmed, K. M. (2006a). Preliminary
+evidence of a link between sur-
+face soil properties and the arsenic
+content of shallow groundwater in
+Bangladesh. J. Geochem. Explor. 88,
+157–161.
+
+van Geen, A., Zheng, Y., Cheng, Z.,
+Aziz, Z., Horneman, A., Dhar, R.
+K., Mailloux, B., Stute, M., Wein-
+man, B., Goodbred, S., Seddique, A.
+A., Hoque, M. A., and Ahmed, K.
+M. (2006b). A transect of ground-
+water and sediment properties in
+Araihazar, Bangladesh: further evi-
+dence of decoupling between As and
+Fe mobilization. Chem. Geol. 228,
+85–96.
+
+van Geen, A., Zheng, Y., Versteeg, R.,
+Stute, M., Horneman, A., Dhar, R.
+K., Steckler, M., Gelman, A., Small,
+C., Ahsan, H., Graziano, J., Hussein,
+I., and Ahmed, K. M. (2003). Spa-
+tial variability of arsenic in 6000
+tube wells in a 25 km2 area of
+Bangladesh. Water Resour. Res. 39,
+1140–1156.
+
+Wang, Q., Garrity, G. M., Tiedje, J.
+M., and Cole, J. R. (2007). Naive
+bayesian classiﬁer for rapid assign-
+ment of rRNA sequences into the
+new bacterial taxonomy. Appl. Envi-
+ron. Microbiol. 73, 5261–5267.
+
+Weaver, W., and Shannon, C. E.
+(1949). Recent Contributions to the
+Mathematical Theory of Communi-
+cation. Urbana, IL: University of Illi-
+nois Press.
+
+Wentworth, C. K.
+
+and class
+
+sediments.
+
+(1922). A scale
+for
+30,
+
+terms
+J. Geol.
+
+grade
+
+of
+clastic
+377–392.
+
+Winkel, L., Berg, M., Amini, M., Hug,
+S. J., and Johnson, C. A. (2008).
+Predicting groundwater arsenic con-
+tamination in Southeast Asia from
+surface parameters. Nat. Geosci. 1,
+536–542.
+
+Yilmaz, P., Kottmann, R., Field, D.,
+Knight, R., Cole, J. R., Amaral-
+Zettler, L., Gilbert, J. A., Karsch-
+Mizrachi, I., Johnston, A., Cochrane,
+G., Vaughan, R., Hunter, C., Park,
+J., Morrison, N., Rocca-Serra, P.,
+Sterk, P., Arumugam, M., Bailey,
+M., Baumgartner, L., Birren, B. W.,
+Blaser, M. J., Bonazzi, V., Booth, T.,
+Bork, P., Bushman, F. D., Buttigieg, P.
+L., Chain, P. S., Charlson, E., Costello,
+E. K., Huot-Creasy, H., Dawyndt, P.,
+DeSantis, T., Fierer, N., Fuhrman, J.
+A., Gallery, R. E., Gevers, D., Gibbs,
+R. A., San Gil, I., Gonzalez, A., Gor-
+don, J. I., Guralnick, R., Hankeln,
+W., Highlander, S., Hugenholtz, P.,
+Jansson, J., Kau, A. L., Kelley, S. T.,
+Kennedy, J., Knights, D., Koren, O.,
+Kuczynski, J., Kyrpides, N., Larsen,
+R., Lauber, C. L., Legg, T., Ley, R.
+E., Lozupone, C. A., Ludwig, W.,
+Lyons, D., Maguire, E., Methé, B. A.,
+Meyer, F., Muegge, B., Nakielny, S.,
+Nelson, K. E., Nemergut, D., Neufeld,
+J. D., Newbold, L. K., Oliver, A. E.,
+Pace, N. R., Palanisamy, G., Peplies,
+J., Petrosino, J., Proctor, L., Pruesse,
+E., Quast, C., Raes, J., Ratnasing-
+ham, S., Ravel, J., Relman, D. A.,
+Assunta-Sansone, S., Schloss, P. D.,
+Schriml, L., Sinha, R., Smith, M. I.,
+Sodergren, E., Spo, A., Stombaugh,
+J., Tiedje, J. M., Ward, D. V., Wein-
+stock, G. M., Wendel, D., White,
+O., Whiteley, A., Wilke, A., Wort-
+man,
+J. R., Yatsunenko, T., and
+Glöckner, F. O. (2011). Minimum
+information about a marker gene
+sequence (MIMARKS) and mini-
+mum information about any (x)
+sequence (MIxS) speciﬁcations. Nat.
+Biotechnol. 29, 415–420.
+
+Zar, J. H. (1999). Biostatistical Analy-
+sis, 4th Edn. Upper Saddle River, NJ:
+Prentice Hall.
+
+Zheng, Y., Stute, M., van Geen, A.,
+Gavrieli, I., Dhar, R. K., Simpson,
+H. J., Schlosser, P., and Ahmed,
+K. M. (2004). Redox control of
+arsenic mobilization in Bangladesh
+groundwater. Appl. Geochem. 19,
+201–214.
+
+Frontiers in Microbiology | Terrestrial Microbiology
+
+March 2012 | Volume 3 | Article 82 | 12
+
+Legg et al.
+
+High arsenic aquifer bacterial communities
+
+Zhou, J., Wu, L., Deng, Y., Zhi, X., Jiang,
+Y.-H., Tu, Q., Xie, J., Van Nostrand,
+J. D., He, Z., and Yang, Y. (2011).
+Reproducibility and quantitation of
+amplicon sequencing-based detec-
+tion. ISME J. 5, 1303–1313.
+
+Conﬂict of Interest Statement: The
+authors declare that the research was
+conducted in the absence of any
+
+commercial or ﬁnancial relationships
+that could be construed as a potential
+conﬂict of interest.
+
+Received: 08 December 2011; paper
+pending published: 27 December 2011;
+accepted: 17 February 2012; published
+online: 23 March 2012.
+Citation: Legg TM, Zheng Y, Simone
+B, Radloff KA, Mladenov N, González
+
+A, Knights D, Siu HC, Rahman
+MM, Ahmed KM, McKnight DM and
+Nemergut DR (2012) Carbon, metals,
+and grain size correlate with bacterial
+community structure in sediments of a
+high arsenic aquifer. Front. Microbio.
+3:82. doi: 10.3389/fmicb.2012.00082
+This article was submitted to Frontiers
+in Terrestrial Microbiology, a specialty of
+Frontiers in Microbiology.
+
+Copyright  2012 Legg , Zheng , Simone,
+Radloff, Mladenov, González, Knights,
+Siu, Rahman, Ahmed, McKnight and
+Nemergut . This is an open-access arti-
+cle distributed under
+terms of
+the Creative Commons Attribution Non
+Commercial License, which permits non-
+commercial use, distribution, and repro-
+duction in other forums, provided the
+original authors and source are credited.
+
+the
+
+www.frontiersin.org
+
+March 2012 | Volume 3 | Article 82 | 13
+
+Legg et al.
+
+APPENDIX
+
+High arsenic aquifer bacterial communities
+
+Table A1 | The range and mean of the number of sequences in each sample after applying the following ﬁltering regime to the sequence
+dataset: removing OTUs represented by a single sequence, and removing OTUs present in only one sample.
+
+OTU-picking method/identity threshold
+
+Number of sequences after ﬁltering
+
+uclust/97
+cd-hit/97
+cd-hit/90
+cd-hit/95
+cd-hit/99
+
+590–1392; mean: 889.8
+575–1375; mean: 858.3
+994–1734; mean: 1301.1
+741–1542; mean: 1039.3
+334–1009; mean: 550.7
+
+Table A2 | Results from Mantel tests evaluating the relationship between bacterial community structure (UniFrac) and environmental variables.
+
+Mantel r statistic and corresponding p-value, unweighted UniFrac vs. environmental variables (r Statistic; p-value)
+
+√
+As (ppm)
+
+√
+
+Fe (ppm)
+
+%Silt
+
+OTU-picking method/OTU
+threshold/No. sequences
+sampled
+
+% Soil Moisture
+
+pH
+
+Log (%C)
+
+Mn (ppm)
+
+uclust/97%/100
+uclust/97%/280
+uclust/97%/580
+cd-hit/97%/100
+cd-hit/97%/290
+cd-hit/97%/575
+cd-hit/90%/100
+cd-hit/90%/360
+cd-hit/90%/630
+cd-hit/90%/990
+cd-hit/95%/100
+cd-hit/95%/420
+cd-hit/95%/740
+cd-hit/99%/100
+cd-hit/99%/210
+cd-hit/99%/320
+
+−0.05; 0.55
+−0.05; 0.55
+0.003; 0.36
+−0.05; 0.53
+−0.04; 0.48
+−0.04; 0.54
+−0.07; 0.67
+−0.05; 0.55
+−0.04; 0.52
+−0.03; 0.47
+−0.01; 0.40
+−0.01; 0.40
+−0.03; 0.49
+−0.11; 0.81
+−0.06; 0.59
+−0.04; 0.48
+
+−0.17; 0.96
+−0.17; 0.96
+−0.14; 0.91
+−0.15; 0.92
+−0.17; 0.96
+−0.12; 0.87
+−0.17; 0.97
+−0.16; 0.93
+−0.13; 0.88
+−0.11; 0.84
+−0.15; 0.92
+−0.18; 0.97
+−0.13; 0.87
+−0.19; 0.97
+−0.15; 0.91
+−0.13; 0.87
+
+0.38; 0.002
+0.43; 0.003
+0.39; 0.002
+0.42; 0.004
+0.40; 0.003
+0.35; 0.008
+0.43; 0.004
+0.38; 0.007
+0.38; 0.004
+0.35; 0.009
+0.41; 0.005
+0.41; 0.005
+0.39; 0.003
+0.39; 0.005
+0.36; 0.009
+0.35; 0.003
+
+0.59; 0.001
+0.59; 0.001
+0.56; 0.001
+0.59; 0.001
+0.56; 0.001
+0.53; 0.003
+0.58; 0.001
+0.57; 0.001
+0.55; 0.001
+0.53; 0.002
+0.58; 0.001
+0.56; 0.001
+0.56; 0.001
+0.58; 0.001
+0.54; 0.001
+0.55; 0.001
+
+−0.10; 0.71
+−0.09; 0.65
+−0.08; 0.61
+−0.10; 0.71
+−0.11; 0.73
+−0.08; 0.63
+−0.15; 0.92
+−0.06; 0.55
+−0.07; 0.60
+−0.07; 0.62
+−0.16; 0.92
+−0.03; 0.43
+−0.07; 0.57
+−0.06; 0.57
+−0.09; 0.67
+−0.09; 0.68
+
+0.28; 0.004
+0.27; 0.010
+0.27; 0.005
+0.28; 0.007
+0.24; 0.008
+0.25; 0.006
+0.27; 0.006
+0.27; 0.007
+0.25; 0.008
+0.26; 0.008
+0.25; 0.006
+0.27; 0.007
+0.28; 0.005
+0.29; 0.003
+0.24; 0.011
+0.26; 0.011
+
+0.48; 0.01
+0.49; 0.01
+0.49; 0.01
+0.44; 0.01
+0.41; 0.02
+0.39; 0.02
+0.42; 0.01
+0.43; 0.02
+0.45; 0.01
+0.42; 0.01
+0.38; 0.03
+0.42; 0.02
+0.42; 0.02
+0.50; 0.004
+0.49; 0.003
+0.46; 0.01
+
+The UniFrac distances were calculated two different OTU-clustering methods (uclust and cd-hit), and for four different OTU identity thresholds (90, 95, 97, and 99%)
+for the cd-hit method. In addition, UniFrac distances were calculated for rariﬁed datasets within each cluster method and identity threshold (i.e., 100 sequences from
+the each sample for cd-hit at 97%). In the table the r statistics are listed, followed by the p-value.
+p-values which are underlined are less than or equal to 0.05.
+
+Frontiers in Microbiology | Terrestrial Microbiology
+
+March 2012 | Volume 3 | Article 82 | 14
+
+Legg et al.
+
+High arsenic aquifer bacterial communities
+
+FIGURE A1 | Collector’s curves for the Chao1 richness estimator and
+Shannon diversity index for two different OTU-picking methods. These
+
+curves show that the alpha diversity of a majority of the samples approaches
+an asymptote, and there is a wide range in the alpha diversity of the samples.
+
+www.frontiersin.org
+
+March 2012 | Volume 3 | Article 82 | 15
+
+

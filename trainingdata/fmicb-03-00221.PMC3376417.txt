@@ -1,0 +1,1527 @@
+ORIGINAL RESEARCH ARTICLE
+published: 18 June 2012
+doi: 10.3389/fmicb.2012.00221
+
+Modeling the habitat range of phototrophs inYellowstone
+National Park: toward the development of a
+comprehensive ﬁtness landscape
+
+Eric S. Boyd 1*, Kristopher M. Fecteau 2, Jeff R. Havig 3, Everett L. Shock 2,3 and John W. Peters 1
+
+1 Department of Chemistry and Biochemistry, Astrobiology Biogeocatalysis Research Center, Montana State University, Bozeman, MT, USA
+2 Department of Chemistry and Biochemistry, Arizona State University, Tempe, AZ, USA
+3 School of Earth and Space Exploration, Arizona State University, Tempe, AZ, USA
+
+Edited by:
+Martha Gledhill, University of
+Southampton, UK
+Reviewed by:
+Alan Angelo DiSpirito, Iowa State
+University, USA
+James F. Holden, University of
+Massachusetts Amherst, USA
+*Correspondence:
+Eric S. Boyd, Department of
+Chemistry and Biochemistry,
+Astrobiology Biogeocatalysis
+Research Center, Montana State
+University, 103 Chemistry Research
+Building, Bozeman, MT 59717, USA.
+e-mail: eboyd@montana.edu
+
+The extent to which geochemical variation shapes the distribution of phototrophic metab-
+olisms was modeled based on 439 observations in geothermal springs in Yellowstone
+National Park (YNP), Wyoming. Generalized additive models (GAMs) were developed to
+predict the distribution of phototrophic metabolism as a function of spring temperature,
+pH, and total sulﬁde. GAMs comprised of temperature explained 38.8% of the variation
+in the distribution of phototrophic metabolism, whereas GAMs comprised of sulﬁde and
+pH explained 19.6 and 11.2% of the variation, respectively. These results suggest that of
+the measured variables, temperature is the primary constraint on the distribution of pho-
+totrophs in YNP. GAMs comprised of multiple variables explained a larger percentage of
+the variation in the distribution of phototrophic metabolism, indicating additive interactions
+among variables. A GAM that combined temperature and sulﬁde explained the greatest
+variation in the dataset (53.4%) while minimizing the introduction of degrees of freedom. In
+an effort to verify the extent to which phototroph distribution reﬂects constraints on activity,
+we examined the inﬂuence of sulﬁde and temperature on dissolved inorganic carbon (DIC)
+uptake rates under both light and dark conditions. Light-driven DIC uptake decreased sys-
+tematically with increasing concentrations of sulﬁde in acidic, algal-dominated systems,
+but was unaffected in alkaline, cyanobacterial-dominated systems. In both alkaline and
+acidic systems, light-driven DIC uptake was suppressed in cultures incubated at temper-
+atures 10˚C greater than their in situ temperature. Collectively, these quantitative results
+indicate that apart from light availability, the habitat range of phototrophs in YNP springs is
+deﬁned largely by constraints imposed ﬁrstly by temperature and secondly by sulﬁde on
+the activity of these populations that inhabit the edges of the habitat range.These ﬁndings
+are consistent with the predictions from GAMs and provide a quantitative framework from
+which to translate distributional patterns into ﬁtness landscapes for use in interpreting the
+environmental constraints that have shaped the evolution of this process through Earth
+history.
+
+Keywords: photosynthesis, sulﬁde, temperature, ﬁtness landscape, CO2 uptake and ﬁxation, habitat range,
+landscape ecology, distribution
+
+INTRODUCTION
+The distribution of organisms and the functions that they cat-
+alyze on Earth today is rooted, at least in part, to the numerous
+adaptations that enable life to radiate into new ecological niches
+that have played out over evolutionary time. Such responses are
+recorded in extant organismal distribution patterns (e.g., habi-
+tat range), as well as in the genetic record of organisms. This
+is a consequence of the predisposition for microorganisms to
+acquire their ecological traits through vertical inheritance, a phe-
+nomenon that manifests in a positive relationship between the
+ecological relatedness of organisms and their evolutionary related-
+ness (niche conservatism; Wiens, 2004; Wiens and Graham, 2005).
+Thus, extant patterns in the distribution of species or metabolic
+function offer “a window into the past” and can be used to infer
+
+historical constraints on the evolution of a particular metabolic
+function as imposed by the environment (Wiens and Graham,
+2005; Westoby, 2006; Boyd et al., 2010; Hamilton et al., 2011a,b).
+Such observations can in turn be used to predict the response
+of populations or metabolic guilds to changing environmental
+conditions (Keddy, 1992; Lavorel and Garnier, 2002; Guisan and
+Thuiller, 2005).
+
+The extreme variation in the geochemical composition of
+present day environments is likely to encompass those that were
+present on early Earth (Shock and Holland, 2007), when key meta-
+bolic processes such as photosynthesis are thought to have evolved.
+Yellowstone National Park (YNP), Wyoming harbors >12,000
+geothermal features that vary widely in temperature and geochem-
+ical composition, both spatially and temporally (Nordstrom et al.,
+
+www.frontiersin.org
+
+June 2012 | Volume 3 | Article 221 | 1
+
+Boyd et al.
+
+Modeling the habitat range of photosynthesis
+
+2005; Shock et al., 2010). Such environments provide a ﬁeld labora-
+tory for examining the tendency for guilds of organisms to inhabit
+particular ecological niches and to deﬁne the range of geochemical
+conditions tolerated by that functional guild (i.e., habitat range or
+zone of habitability; Hoehler, 2007; Shock and Holland, 2007). We
+assume that since it is unlikely that a metabolic process emerged
+under environmental conditions that no longer support that func-
+tion, such information can help quantify the habitat range for a
+metabolic process, and can provide insight into the characteristics
+of an environment that enabled the adaptation of that process into
+new habitats.
+
+Phototrophy is the utilization of solar energy by plants, algae,
+and certain bacteria to generate energy for the synthesis of complex
+organic molecules (Blankenship, 1992; Chew and Bryant, 2007). A
+number of recent studies have documented non-random pattern
+in the distribution of phototrophic assemblages along geochem-
+ical gradients in YNP, Wyoming (Boyd et al., 2010; Cox et al.,
+2011; Hamilton et al., 2011b). These studies qualitatively iden-
+tiﬁed three ecological axes (temperature, pH, and total sulﬁde)
+that appear to constrain the habitat range of phototrophs in
+the geothermal features of YNP. However, the extent to which
+each environmental parameter, or combinations therein, shape
+the distribution of phototrophic metabolism in YNP is unclear.
+Moreover, it is unclear if the qualitative trends in the distribu-
+tion of phototrophic metabolism in YNP noted previously are
+the result of the negative effects that temperature, pH, and sul-
+ﬁde have on the activity of phototrophic populations, which
+in turn would be expected to decrease ﬁtness and limit their
+distribution.
+
+Here, in an effort to better deﬁne the basis for the observed
+habitat range of phototrophs in YNP, we compiled environmental
+metadata and presence/absence distributional data from several-
+independent examinations of phototrophic metabolisms across
+the YNP geothermal complex (Boyd et al., 2010; Cox et al.,
+2011; Hamilton et al., 2011b). This binary dataset comprising
+439-independent observations was used to construct generalized
+additive models (GAMs) for use in quantifying and ranking the
+role of temperature, pH, and total sulﬁde in shaping the habi-
+tat range of phototrophs. Using this approach, it was determined
+that temperature was the primary predictor of the distribution of
+phototrophs in YNP springs, followed by dissolved sulﬁde con-
+centration and pH. We evaluated these predictions using short
+incubation (<1 h) microcosm studies in several select geothermal
+springs. Collectively, the GAMs and microcosm studies support a
+model whereby a temperature of 73˚C sets the upper temperature
+limit for phototrophic metabolism in circum neutral to alkaline
+springs due to constraints imposed by these parameters on the ﬁt-
+ness of the constituent populations. The upper temperature limit
+for the distribution of phototrophic metabolism decreases with
+decreasing pH due to the sulﬁde-dependent suppression of pho-
+totrophic activity in algae, the predominant phototrophs in springs
+with pH <5.0. These results establish the ecological constraints on
+the activity and presumably the ﬁtness of phototrophs at the edge
+of their habitat range in YNP and provide insight into the envi-
+ronmental parameters that have shaped the evolution of this key
+metabolic process over evolutionary time.
+
+MATERIALS AND METHODS
+PREDICTIVE MODELING
+The binary distribution (presence/absence) of genes involved in
+chlorophyll biosynthesis and/or phototrophic pigments in a num-
+ber of geothermal springs sampled from across YNP (Figure 1)
+and the associated total sulﬁde, pH, and temperature of the spring
+water was extracted from three previous studies (Boyd et al., 2010;
+Cox et al., 2011; Hamilton et al., 2011b). The dataset extracted
+from Cox et al. (2011) was based on the visual distribution of
+pigments in geothermal springs, whereas the datasets extracted
+from Boyd et al. (2010) and Hamilton et al. (2011b) was based on
+the presence/absence of the protochlorophyllide reductase sub-
+unit L gene (chlL/bchL) required to synthesize chlorophyll in both
+anoxygenic and oxygenic phototrophs (Chew and Bryant, 2007)
+in biomass sampled from geothermal springs in YNP. While the
+data extracted from each of the aforementioned studies were from
+observations made in different springs from different regions dur-
+ing different years, plots of the overall phototroph distribution
+trends with respect to pH, temperature, and sulﬁde as presented in
+all three manuscripts (Boyd et al., 2010; Cox et al., 2011; Hamilton
+et al., 2011b) and in Figures 2A,B revealed the same trends, with
+an upper temperature limit for photosynthesis of ∼73˚C and a
+pH-dependent suppression of the upper temperature limit below
+pH ∼6. Moreover, the distribution of phototrophic metabolism
+was constrained to environments with sulﬁde at a concentration
+of <5 µM (Cox et al., 2011; Hamilton et al., 2011b). Together, these
+observations indicate that both methods, as described above, were
+suitable for mapping the habitat range of phototrophic metabo-
+lism along ecological gradients in YNP. By combining the datasets,
+we were able to sample a much greater portion of the YNP geot-
+hermal complex that comprised more than 439 observations, than
+any one dataset provided alone.
+
+Binomial GAMs describing the distribution of phototrophic
+pigments and genes involved in their synthesis as proxies for pho-
+totrophs were generated using the mgcv package (Wood, 2011)
+within the base package R (ver. 2.10.1), using default settings.
+GAMs are ﬂexible models for ﬁtting smooth curves to data, while
+maintaining parsimony. In essence, GAMs function to blend the
+properties of generalized linear models with the features of addi-
+tive models. These approaches are commonly utilized in describing
+the distribution of plant species as a function of ecological parame-
+ters (Yee and Mitchell, 1991; Guisan et al., 2002). Here, a dependent
+variable (e.g., distribution of phototrophs) is plotted as a function
+of an independent variable(s) (e.g., temperature, pH, and sulﬁde)
+followed by the calculation of a smooth curve that goes through
+the data. The GAM approach is considered to be superior to linear-
+based regression methods (e.g., Pearson correlation analysis) since
+it does not require the problematic steps of a priori estimation of
+response curve shape or a speciﬁc parametric response function
+(Hastie and Tibshirini, 1986; Wood, 2004, 2011), but rather allows
+the data to determine the shape of the response curve in order to
+maximize the expected log likelihood, or ﬁt of the model to the
+data. In the present study, GAMs were generated to describe the
+dependence of the distribution of phototrophic metabolism on
+environment, speciﬁcally spring temperature, pH, and dissolved
+sulﬁde concentration. We evaluated the ﬁt of each GAM to the
+
+Frontiers in Microbiology | Microbiological Chemistry
+
+June 2012 | Volume 3 | Article 221 | 2
+
+Boyd et al.
+
+Modeling the habitat range of photosynthesis
+
+data using a number of approaches including the Akaike Infor-
+mation Criterion (AIC), a maximum likelihood-based approach.
+
+FIGURE 1 | Map of Yellowstone National Park showing hydrothermal
+areas sampled and locations of physiological sites. Hydrothermal areas
+are numbered alphabetically: 1, Calcite Springs; 2, Crater Hills; 3, Obsidian
+Pool Area; 4, Heart Lake; 5, Imperial Geyser Basin; 6, Lone Star; 7, Rabbit
+Creek; 8, Sentinel Meadows; 9, South of Sylvan Springs; 10, Sylvan
+Springs; 11, Washburn; 12, White Creek. Physiological samples,
+represented with open circles, in order from Northwest to Southeast are
+Bijah Spring, Nymph Creek, Dragon Spring, and Perpetual Spouter.
+
+We considered the model with the lowest AIC value to be the
+best and evaluated the relative plausibility of each other model by
+examining differences between the AIC value for the best model
+and values for every other model (∆AIC; Johnson and Omland,
+2004). The degrees of freedom (Df) for each model was used as a
+proxy to estimate the complexity of the model, with more com-
+plex models comprised of more Df. Models that achieve minimal
+AIC and residual deviance on the fewest Df (introduction of few
+smooth parameters during data ﬁtting) are more likely to repli-
+cate in subsequent validation studies, when compared to those
+with greater Df (introduction of the additional smooth parame-
+ters during data ﬁtting). Thus models with low AIC and low Df
+are lower complexity and are more parsimonious with the data.
+
+GEOCHEMICAL ANALYSES
+pH and temperature were measured with a WTW 330i meter and
+probe (WTW Inc., College Station, TX, USA) or a model 59002-00
+Cole-Parmer temperature-compensated pH meter (Vernon Hills,
+IL, USA). Conductivity was measured with a model YSI30 or YSI
+EcoSense EC300 conductivity meter (YSI, Yellow Springs, OH,
+USA). Total dissolved sulﬁde was determined using the methyl-
+ene blue method and a Hach DR/2000 spectrophotometer (Hach
+Company, Loveland, CO, USA). Aliquots used for analysis of dis-
+solved inorganic carbon (DIC) were collected in 40 mL amber
+borosilicate vials with black butyl septa. All sample vials were
+ﬁlled to minimize head space and sealed to minimize degassing
+and atmospheric contamination. DIC concentrations were mea-
+sured with an OI Analytical Model 1010 Wet Oxidation TOC
+Analyzer. DIC determinations for Perpetual Spouter and Dragon
+Spring, both of which were performed in August of 2011, were
+determined using an ON-LINE TOC-VCSHTOC/TIC and TN
+analyzer (Shimadzu Scientiﬁc Instruments, Columbia, MD, USA).
+Bioﬁlms/sediments were dried in an oven for 3 days at ∼90˚C, and
+ground with an agate mortar and pestle until uniformly powdered.
+
+inspection for pigments;•, for samples assessed via genetic
+FIGURE 2 | Presence ((cid:7), for samples assessed via visual
+technique; see Materials and Methods for further description)
+and absence ((cid:3)) of phototrophic pigments and/or genes
+
+involved in their synthesis in 439 geothermal springs in YNP
+plotted as a function of spring temperature and pH (A) or spring
+temperature and total sulﬁde concentration (B). Total sulﬁde
+concentration is plotted on a log plot.
+
+www.frontiersin.org
+
+June 2012 | Volume 3 | Article 221 | 3
+
+Boyd et al.
+
+Modeling the habitat range of photosynthesis
+
+Samples were weighed and placed into tin cups, sealed, and ana-
+lyzed via Costech Model ECS 4010 Elemental Analyzer (Costech
+Analytical Technologies Inc., Valencia, CA, USA) attached to a
+Thermo Deltaplus Advantage Isotope Ratio Mass Spectrometer
+(EA-IR-MS; Thermo Fisher Scientiﬁc Inc., Waltham, MA, USA).
+Data were standardized using the organic standards described
+above, and linearity was checked using NIST SRM 2710 (Montana
+Soil).
+
+INORGANIC CARBON UPTAKE IN CHEMOTROPHIC AND
+PHOTOTROPHIC COMMUNITIES
+Total DIC uptake was assessed using slight modiﬁcations to
+methods described previously (Boyd et al., 2009b). Brieﬂy,
+chemotrophic and phototrophic mats were collected from points
+that were approximately 1 cm up gradient (chemotrophic mat)
+and 1 cm down gradient (chlorophototrophic mat) from the
+photosynthetic fringe at Bijah Spring (Norris-Mammoth Corri-
+dor; Easting: 521287, Northing: 4956460), Nymph Creek (Norris
+Geyser Basin; Easting: 521690, Northing: 4955601), and Dragon
+Spring (Norris Geyser Basin; Easting: 522889, Northing: 4953218;
+Figure 1) during March of 2010 (Table 1). The sampling loca-
+tions in each spring were perpendicular to the photosynthetic
+fringe. Samples were collected aseptically using a syringe and were
+placed in a 15 mL sterile polypropylene tube, with the exception
+of the chemotrophic community at Bijah Spring (see below). The
+tube and the contents were shaken vigorously to uniformly resus-
+pend the contents and create a slurry. From this slurry, 500 µL
+aliquots of re-suspended solids were injected into pre-sterilized
+and anaerobic (N2 headspace) 20 mL serum bottles sealed with
+a butyl stopper. Alternatively, in the case of chemotrophic com-
+munities from Bijah Spring, ∼500 mg of sediment was placed in
+20 mL serum bottles using a sterile scoop. Bottles containing Bijah
+Spring chemotrophic sediments were then capped, sealed, and
+purged with N2 gas. In all experiments, 10 mL of spring water
+sampled directly at the photosynthetic fringe was injected into
+each vial such that the spring water and gas composition was the
+same. Killed controls were prepared by addition of glutaraldehyde
+to a ﬁnal concentration of 2.0%, v/v. To assess the potential for
+dark DIC uptake, vials were wrapped completely in aluminum
+
+foil. All assays (biological and killed controls, light and dark incu-
+bations) were performed in triplicate. The reaction was initiated
+by addition of NaH14CO3 (MP Biomedicals, 422 MBq/mmol) to a
+ﬁnal concentration of 2.13× 106 Bq/L. Serum bottles were placed
+in a clear polypropylene bag (secondary containment) and were
+incubated in the spring at the photosynthetic fringe for approx-
+imately 60 min. Following incubation, vials were placed directly
+on dry ice to stop the reaction. The vials remained frozen until
+further processed at the lab. Vials were thawed and acidiﬁed
+to pH <2.0 using concentrated HCl. Serum bottles and their
+contents were degassed with N2(∼5 min.) and the biomass was
+ﬁltered onto 0.2 µm pore size, 25 mm diameter white Nucleo-
+pore polycarbonate membranes (Whatman Inc., Florham Park,
+NJ, USA). Filtered biomass was washed with ∼10 mL of ster-
+ile denionized water, placed in scintillation vials, and dried at
+80˚C overnight. In the case of samples from Bijah Spring, the
+vials containing sediment were then weighed and subtracted
+from empty vials such that all measurements could be normal-
+ized to grams of organic nitrogen present in the inoculum. The
+total solid content in each slurry used to inoculate the reac-
+tions (with the exception of Bijah chemotrophic communities)
+was determined by drying triplicate 1 mL aliquots at 80˚C for
+48 h.
+
+Dried biomass and ﬁlters were overlain with 10 mL Cytoscint
+and were subjected to liquid scintillation counting as previously
+described (Boyd et al., 2009b). Total uptake was determined using
+previously described methods (Lizotte et al., 1996) using DIC
+numbers determined for each spring. For the purpose of com-
+paring total DIC uptake between chemotrophic and phototrophic
+communities, rates of uptake were ﬁrst normalized to dry weight
+of biomass per reaction and then to grams of organic nitrogen. All
+reported values reﬂect the difference in uptake between biological
+controls and glutaraldehyde-killed controls.
+
+INFLUENCE OF SULFIDE AND TEMPERATURE ON DIC UPTAKE IN
+PHOTOTROPHIC COMMUNITIES
+The inﬂuence of sulﬁde on DIC uptake in phototrophic com-
+munities was determined using the same approach as described
+above. Experiments were performed at Nymph Creek (May 2010),
+
+Table 1 | Physical and chemical measurements made at sampling sites.
+
+Source
+
+Sampling date
+
+Bioﬁlm typea
+
+Temperature (˚C)
+
+pH
+
+DIC (ppm C)
+
+DOC (ppm C)
+
+wt% Cb
+
+wt% Nb
+
+Dragon Spring
+
+Nymph Creek
+
+Bijah Spring
+
+Perpetual Spouter
+Dragon Spring
+
+3/13/2010
+3/13/2010
+3/14/2010
+3/14/2010
+3/14/2010
+3/14/2010
+8/18/2011
+8/18/2011
+
+Chemo
+Photo
+Chemo
+Photo
+Chemo
+Photo
+Photo
+Photo
+
+58.0
+46.5
+56.8
+53.0
+72.5
+68.8
+68.6
+46.2
+
+3.13
+2.95
+2.99
+3.00
+7.52
+7.65
+7.12
+2.60
+
+5.9
+0.6
+10.5
+26.4
+57.8
+60.2
+4.4
+14.4
+
+0.91
+0.90
+0.60
+0.53
+0.78
+0.68
+NA
+NA
+
+1.08
+0.95
+11.71
+11.45
+0.19
+0.70
+2.91
+7.67
+
+0.13
+0.44
+2.85
+2.01
+0.02
+0.09
+0.46
+1.36
+
+DIC, dissolved inorganic carbon; ppm C, parts per million carbon; DOC, dissolved organic carbon; wt% C, weight percent organic carbon; wt% N, weight percent
+organic N; NA, not available.
+aThe type of bioﬁlm as classiﬁed as either chemotrophic (Chemo) or phototrophic (Photo).
+bWeight percent organic carbon and organic nitrogen of bulk bioﬁlms.
+
+Frontiers in Microbiology | Microbiological Chemistry
+
+June 2012 | Volume 3 | Article 221 | 4
+
+Boyd et al.
+
+Modeling the habitat range of photosynthesis
+
+Dragon Spring (August 2011), and Perpetual Spouter (August
+2011; Table 1). Perpetual Spouter (Norris Geyser Basin; East-
+ing: 523034, Northing: 4952620) was chosen to replace Bijah
+Spring, due to difﬁculties in accessing the latter during peri-
+ods of heavy visitor trafﬁc. Prior to the initiation of the reac-
+tion with NaH14CO3, microcosms were amended with varying
+concentrations of an anaerobic and sterile sodium sulﬁde solu-
+tion. Na2S was added to microcosms from Nymph Creek at a
+concentration of 5 and 20 µM, whereas Na2S amendments of
+only 5 µM were made in microcosms from Perpetual Spouter
+and Dragon Spring. The concentration of sulﬁde to amend each
+microcosm with was determined empirically, such that the ﬁnal
+concentration was ∼5 µM greater than that present naturally
+at the photosynthetic fringe. Light-independent and killed con-
+trols were prepared as described above. All assays (biological
+and killed controls, light and dark incubations) were performed
+in triplicate. Reactions were initiated by addition of NaH14CO3
+(MP Biomedicals, 422 MBq/mmol) to a ﬁnal concentration of
+1.66× 107 Bq/L. Serum bottles were incubated and processed
+as described above. The inﬂuence of elevated temperature on
+DIC uptake was examined in phototrophic communities sam-
+pled from Perpetual Spouter and Dragon Spring in August of
+2011. Microcosms were set up as described above using bio-
+mass and spring water sampled from phototrophic mats near
+the fringe of each respective spring. Light-independent and killed
+controls were prepared as described above. All assays (biological
+and killed controls, light and dark incubations) were performed
+in triplicate. Reactions were initiated by addition of NaH14CO3
+(MP Biomedicals, 422 MBq/mmol) to a ﬁnal concentration of
+1.66× 107 Bq/L. Serum bottles were incubated and processed as
+described above.
+
+RESULTS
+The presence or absence of phototrophic pigments and/or genes
+involved in their synthesis were used as proxies for examining
+the distribution of this metabolism along gradients in temper-
+ature, pH, and total sulﬁde in 439 samples (Figure 2) from a
+variety of geothermal springs throughout YNP (Figure 1) using
+GAM approaches. GAMs identiﬁed spring temperature as the
+top individual variable for predicting the distribution of pho-
+totrophic metabolisms (∆AIC= 92.4, Df = 6.2), followed by total
+sulﬁde concentration (∆AIC= 192.1, Df = 3.9) and spring pH
+(∆AIC= 244.2, Df = 8.6; Table 2). GAMs that comprised tem-
+perature explained 38.8% of the variance in the distribution of
+phototrophic metabolisms, whereas GAMs that comprised total
+sulﬁde or pH explained 19.6 and 11.2% of the variance in the
+dataset, respectively. GAMs that incorporated more than one envi-
+ronmental variable generally ﬁt the data better and explained a
+greater amount of the variance than GAMs comprised of indi-
+vidual environmental variables, indicating additive interactions
+among variables. Importantly, the variation in temperature, pH,
+and sulﬁde in YNP springs were not correlated (Pearson R2 < 0.06
+for all pairwise regressions), indicating that these variables behave
+independently in the YNP springs analyzed in this study. A GAM
+that comprised spring temperature, pH, and total sulﬁde was the
+top ranking model (∆AIC= 0.0) and explained 66.6% of the
+variance in the dataset, the most of any GAM, although this
+
+Table 2 | Statistics for GAMs whereby a binary dataset of the
+distribution of phototrophy in 439 springs in YNP served as the
+response variable.
+
+GAM
+Temp+ pH+ sulﬁde
+Temp+ sulﬁde
+Temp+ pH
+Temp
+pH+ sulﬁde
+Sulﬁde
+pH
+
+∆AIC
+
+0.0
+39.3
+51.3
+92.4
+151.6
+192.1
+244.2
+
+Df
+
+14.7
+8.2
+11.1
+6.2
+9.7
+3.9
+8.6
+
+adj R 2
+
+0.666
+0.534
+0.529
+0.388
+0.289
+0.196
+0.112
+
+GAM, generalized additive model; Df, degrees of freedom; adj R2, sample size
+adjusted R2 or the fraction percent of variance explained.
+
+model required the introduction of 14.7 Df. GAMs that com-
+prised temperature and sulﬁde (∆AIC= 39.3) and temperature
+and pH (∆AIC= 51.3) explained lower fractions of the variance
+in the dataset (53.4 and 52.9%, respectively), but required the
+introduction of fewer Df (8.2 and 11.1, respectively). Collectively,
+the GAM that comprised temperature and sulﬁde explained the
+greatest amount of the variation in the dataset while minimizing
+the introduction of Df.
+
+Prior to examining the inﬂuence of physical and chemical con-
+straints on the activity of phototrophs in YNP, it was necessary to
+determine if the photosynthetic fringe (Figure 3) was the result
+of competition between phototrophs and chemotrophs for this
+niche, as this was previously suggested (Boyd et al., 2009b). Com-
+petition experiments were performed at the photosynthetic fringe
+in Nymph Creek (pH 2.99, 52.7˚C), Dragon Spring (pH 2.95,
+46.5˚C), and Bijah Spring (pH 7.40, 70.0˚C) in March of 2010.
+The phototrophic assemblages near the photosynthetic fringe at
+both Nymph Creek and Dragon Spring are both comprised of
+algae related to Cyanidioschyzon sp. (Ferris et al., 2005; Lehr et al.,
+2007; Boyd et al., 2009a), whereas the phototrophic assemblages
+near the photosynthetic fringe at Bijah Spring are dominated by
+Synechococcus sp. and Roseiﬂexus sp. (King et al., 2006). Popula-
+tions comprising the chemosynthetic assemblages near the fringe
+in both Nymph Creek and Dragon Spring are thought to be com-
+prised primarily of organisms afﬁliated with Hydrogenobacter sp.,
+Desulfurella sp., and Acidimicrobium sp. (Jackson et al., 2001; Ferris
+et al., 2003), whereas populations associated with chemotrophic
+assemblages in Bijah Spring are most closely related to Thermotoga
+sp. (King et al., 2006).
+
+When incubated in the light, DIC uptake rates in chemotrophic
+assemblages sampled ∼1 cm from the photosynthetic fringe at
+Nymph Creek, Dragon Spring, and Bijah Spring (Figure 3) were
+not signiﬁcantly different (P = 0.32, 0.62, 0.47, respectively), from
+rates when incubated in the dark (Figure 4), which indicates that
+the mats were unlikely to be using light to drive DIC uptake. In con-
+trast, rates of DIC uptake in photosynthetic assemblages sampled
+∼1 cm from the photosynthetic fringe at Nymph Creek, Dragon
+Spring, and Bijah Spring were signiﬁcantly different (P = 0.01,
+0.04, 0.01, respectively), when incubated in the light versus when
+incubated in the dark, indicating that these assemblages were using
+
+www.frontiersin.org
+
+June 2012 | Volume 3 | Article 221 | 5
+
+Boyd et al.
+
+Modeling the habitat range of photosynthesis
+
+FIGURE 3 | The photosynthetic fringe, or the transition from
+chemosynthetic to photosynthetic metabolism, as denoted by arrows,
+for Bijah Spring in March 2010 (A), Dragon Spring in March 2010 (B),
+Nymph Creek in March 2010 (C), and Perpetual Spouter in August of
+2011 (D).
+
+FIGURE 4 | Rate of DIC uptake for chemotrophic and phototrophic
+assemblages sampled from adjacent sides of the photosynthetic
+fringe in Nymph Creek (fringe pH= 2.99,Temp.= 52.7˚C), Bijah Spring
+(fringe pH= 7.40,Temp.= 70.0˚C), and Dragon Spring (fringe pH= 2.95,
+Temp.= 46.5˚C). Microcosms were incubated both in the light and the dark
+and rates reﬂect the difference between triplicate killed controls and
+triplicate biological controls, for each treatment. For comparative purposes,
+DIC uptake rates were normalized to grams organic nitrogen present in the
+chemotrophic or phototrophic biomass used as inoculum (Table 1). All
+spring water used in the microcosms was sampled from the photosynthetic
+fringe and all microcosms were incubated in situ at the photosynthetic
+fringe temperature. Rates of DIC uptake for the phototrophic assemblages
+sampled from Dragon Spring are indicated as insets on the histogram.
+
+light to drive a portion of DIC uptake. Rates of DIC uptake in
+phototrophic assemblages sampled ∼1 cm from the photosyn-
+thetic fringe at Nymph Creek, Dragon Spring, and Bijah Spring,
+when incubated in the light, were signiﬁcantly greater (P < 0.05
+for all comparisons) than rates of DIC uptake in chemosynthetic
+mats from those springs, regardless of whether the chemosyn-
+thetic mats were incubated in the light or the dark. Importantly,
+rates of DIC uptake in chemotrophic and phototrophic assem-
+blages sampled ∼1 cm on either side of the photosynthetic fringe
+at Nymph Creek, Dragon Spring, and Bijah Spring, when incu-
+bated in the dark, were not signiﬁcantly different (P = 0.15, 0.93,
+0.08, respectively), suggesting that normalizing overall rates of
+uptake to organic N is unlikely to be responsible for the differ-
+ences in the rates observed in chemotrophic and phototrophic
+assemblages. Collectively, these results suggest that competition
+for DIC between phototrophs and chemotrophs is unlikely to
+be the basis of the photosynthetic fringe observed in acidic (e.g.,
+Nymph Creek and Dragon Spring) and alkaline (e.g., Bijah Spring)
+ecosystems.
+
+The inﬂuence of sulﬁde on DIC uptake by phototrophic
+assemblages sampled near the photosynthetic fringe at Nymph
+Creek (fringe pH= 2.89, Temp.= 52.1˚C, total sulﬁde≤ 150 nM),
+Dragon Spring (fringe pH= 2.60, Temp.= 46.2˚C, total sul-
+ﬁde= ∼1 µM), and Perpetual Spouter
+(fringe pH= 7.12,
+Temp.= 68.6˚C, total sulﬁde≤ 150 nM) was examined in both
+light and dark incubations in March of 2010 (Nymph Creek) and
+August of 2011 (Dragon Spring and Perpetual Spouter; Figure 3).
+An amount of sodium sulﬁde was added to microcosms in order
+
+to generate a ﬁnal concentration that was ∼5 µM greater than that
+present in spring water ﬂowing over the photosynthetic fringe in
+each spring. When compared to unamended controls, the addi-
+tion of sulﬁde to a ﬁnal concentration of 5 µM in microcosms
+containing photosynthetic mat sampled from near the photosyn-
+thetic fringe at Nymph Creek resulted in a signiﬁcant (P = 0.04)
+decrease (∼56% of unamended control rate) in the rate of DIC
+uptake (Figure 5A). The addition of sulﬁde to a ﬁnal concentration
+of 20 µM in microcosms containing photosynthetic mat sampled
+from near the photosynthetic fringe at Nymph Creek resulted
+in a signiﬁcant (P < 0.01) decrease (31% of unamended control
+rate) when compared to the unamended control DIC uptake rate
+(Figure 5A). The DIC uptake rates in unamended controls were
+not signiﬁcantly different from the sulﬁde amended controls (5
+and 20 µM) in microcosms containing photosynthetic mat from
+Nymph Creek when incubated in the dark, suggesting that sulﬁde
+did not signiﬁcantly inﬂuence chemosynthetic DIC uptake in the
+microcosm incubations.
+The rate of light-driven DIC uptake was also signiﬁcantly
+(P = 0.04) suppressed (∼55% of unamended control rate) by the
+addition of sulﬁde to a ﬁnal concentration of 5 µM in micro-
+cosms containing microbial mat sampled near the photosynthetic
+fringe at Dragon Spring, whereas the rate of dark DIC were
+not signiﬁcantly affected (P = 0.33) by the addition of sulﬁde
+(Figure 5B). Interestingly, the rate of light-driven DIC uptake
+was not signiﬁcantly (P = 0.08) affected by the addition of sul-
+ﬁde when added to a ﬁnal concentration of 5 µM in microcosms
+
+Frontiers in Microbiology | Microbiological Chemistry
+
+June 2012 | Volume 3 | Article 221 | 6
+
+Boyd et al.
+
+Modeling the habitat range of photosynthesis
+
+FIGURE 5 | Rate of DIC uptake in phototrophic assemblages sampled
+from near (<1 cm) the photosynthetic fringe at Nymph Creek (fringe
+pH= 2.89,Temp.= 52.1˚C, total sulﬁde≤ 150 nM) as a function of
+increasing amendment of sodium sulﬁde to ﬁnal concentrations of 5
+and 20 µM when incubated under light and dark conditions (A). Rate
+of DIC uptake in photosynthetic assemblages sampled from near
+(<1 cm) the photosynthetic fringe at Dragon Spring (fringe pH= 2.60,
+
+Temp.= 46.2˚C, total sulﬁde= ∼1 µM) and Perpetual Spouter (fringe
+pH= 7.12,Temp.= 68.6˚C, total sulﬁde≤ 150 nM) as a function of
+amendment of sodium sulﬁde to ﬁnal concentrations of 5 µM when
+incubated under light and dark conditions (B). All spring water used in
+inoculums was sampled from the photosynthetic fringe and rates of DIC
+uptake were normalized to grams of organic nitrogen present in the
+biomass used as inoculum (Table 1).
+
+containing photosynthetic mat sampled near the photosynthetic
+fringe at Perpetual Spouter. Likewise, the rate of dark DIC uptake
+was not signiﬁcantly (P = 0.93) affected by the addition of sul-
+ﬁde when added to a ﬁnal concentration of 5 µM in microcosms
+containing photosynthetic mat sampled near the photosynthetic
+fringe at Perpetual Spouter (Figure 5B). Thus, the addition of sul-
+ﬁde suppresses light-driven DIC uptake in the algal-dominated
+photosynthetic mats present in Nymph Creek and Dragon Spring,
+but has no signiﬁcant inﬂuence on rates of DIC uptake in Per-
+petual Spouter, which is dominated by bacterial phototrophs most
+closely afﬁliated with Synechococcus sp. and Roseiﬂexus sp. (Hamil-
+ton et al., 2011b). The rate of DIC uptake when incubated in the
+dark was unaffected by the addition of sulﬁde, regardless of the
+sampling location.
+
+The inﬂuence of temperature on DIC uptake was exam-
+ined in phototrophic mats sampled from near the photosyn-
+thetic fringe at Dragon Spring (fringe pH= 2.60, Temp.= 46.2˚C,
+total sulﬁde= ∼1 µM) and Perpetual Spouter (fringe pH= 7.12,
+Temp.= 68.6˚C, total sulﬁde≤ 150 nM) in August of 2011. All
+components of the reaction (inoculum, spring water) were identi-
+cal in the reactions, with the exception of where in the thermal
+transect the microcosms were incubated. Incubation of pho-
+totrophic mats at a thermal transect 10˚C greater than that
+at the photosynthetic fringe resulted in a statistically signiﬁ-
+cant (P < 0.01 for both Dragon Spring and Perpetual Spouter)
+decrease in light-driven DIC uptake rates when compared with
+rates of light-driven DIC uptake in microcosms incubated at the
+fringe temperature in both Dragon Spring and Perpetual Spouter
+(Figure 6). The rates of light-driven DIC uptake in microcosms
+incubated at the higher temperature locations (56 and 78˚C for
+Dragon Spring and Perpetual Spring, respectively), were 3.9 and
+2.2% of the rate of light-driven DIC uptake in microcosms at
+the fringe temperature of 46˚C in Dragon Spring and 68˚C in
+Perpetual Spouter, respectively (Figure 6). Interestingly, the rate
+
+FIGURE 6 | Rate of DIC uptake in phototrophic assemblages sampled
+from near the photosynthetic fringe at Dragon Spring (fringe pH= 2.60,
+Temp.= 46.2˚C, total sulﬁde= ∼1 µM) and Perpetual Spouter (fringe
+pH= 7.12,Temp.= 68.6˚C, total sulﬁde≤ 150 nM) when incubated at the
+fringe temperature as well as at a temperature ∼10˚C greater than at
+the fringe temperature (58.0 and 78.4˚C, respectively), under both light
+and dark conditions. All spring water used in microcosms was sampled
+from near the photosynthetic fringe and rates of DIC uptake were
+normalized to grams organic nitrogen in biomass that served as inoculum
+(Table 1).
+
+of DIC uptake in microcosms incubated in the dark at the fringe in
+Dragon Spring was not signiﬁcantly different (P = 0.17) from that
+measured in microcosms incubated in the dark at the higher tem-
+perature locations. In contrast, the rate of DIC uptake in micro-
+cosms incubated in the dark at the fringe in Perpetual Spouter
+was signiﬁcantly lower (P = 0.04) from that measured in micro-
+cosms incubated in the dark at the higher temperature locations.
+
+www.frontiersin.org
+
+June 2012 | Volume 3 | Article 221 | 7
+
+Boyd et al.
+
+Modeling the habitat range of photosynthesis
+
+The rates of DIC uptake in microcosms incubated in the dark at
+the higher temperature locations in Dragon Spring and Perpet-
+ual Spouter were 139 and 32% of those measured in microcosms
+incubated at the fringe, respectively. Thus, DIC uptake in algal
+populations that comprise the phototrophic assemblage at Dragon
+Spring and the cyanobacterial populations that comprise the pho-
+totrophic assemblage at Perpetual Spouter are apparently more
+sensitive to temperature stress than the chemotrophic populations
+in these assemblages.
+
+DISCUSSION
+The innovation of photosynthesis, speciﬁcally the photosynthetic
+apparatus capable of splitting water into O2, protons, and elec-
+trons, was a pivotal point in the evolution of Earth’s biogeo-
+chemical cycles (Blankenship, 1992; Anbar, 2008; Falkowski and
+Isozaki, 2008) and the emergence of complex life (Raymond and
+Segrè, 2006; Boyd et al., 2011; Wang et al., 2011a). While stud-
+ies continue to reﬁne our understanding of when these events
+are likely to have occurred (Anbar et al., 2007; Buick, 2008; Ses-
+sions et al., 2009), far fewer studies have focused on understanding
+the ecological interactions that are likely to have inﬂuenced the
+evolution of photosynthesis. The extreme variation in geochem-
+ical composition present in YNP’s >12,000 geothermal features
+(Nordstrom et al., 2005; Shock et al., 2010) offer a multitude of
+spatial gradients that directly select for organisms with enhanced
+performance or ﬁtness under a given set of conditions (Brock,
+1967; Allewalt et al., 2006; Miller et al., 2009). In the present
+study, the distribution of photosynthesis along spatial gradients
+of temperature, sulﬁde, and pH from 439 geothermal springs
+was quantitatively mapped using GAMs in order to identify the
+constraints on the habitat range of phototrophic metabolisms
+in the YNP geothermal complex. Microcosm studies served to
+determine whether the edges of the habitat range were due to
+constraints on the activity of the constituent populations, in
+an attempt to begin to translate the habitat range to a ﬁtness
+landscape.
+
+Aside from light availability, GAMs indicated that the pri-
+mary variable inﬂuencing the distribution of photosynthesis was
+temperature, with sulﬁde as the second most signiﬁcant pre-
+dictor of the distribution of photosynthetic metabolism. These
+quantitative rankings are consistent with previous qualitative dis-
+tribution patterns noted across YNP (Cox et al., 2011; Hamil-
+ton et al., 2011b) as well as with physiological data obtained
+from cultivated algae and cyanobacteria. Photosystem II (PSII),
+the water splitting complex present in cyanobacteria, algae, and
+plants (Blankenship, 1992, 2010) is sensitive to sulﬁde in some,
+but not all, oxygenic phototrophs (Castenholz, 1977; Oren et al.,
+1979; Miller and Bebout, 2004). To examine whether the sulﬁde-
+dependent pattern in the distribution of phototrophs is due to
+suppression of photosynthetic activity (presumably through the
+toxicity to PSII) DIC uptake rates in the presence and absence
+of sulﬁde were compared. DIC uptake in alkaline phototrophic
+assemblages likely to be dominated by cyanobacteria was unaf-
+fected by the addition of 5 µM sulﬁde, whereas DIC uptake in
+acidic phototrophic assemblages likely to be dominated by algae
+was suppressed by sulﬁde at a concentration of 5 µM. The pre-
+dominant form of sulﬁde at acidic pH (pH <6–7) is H2S(aq)
+
+(Amend and Shock, 2001), which is also the form thought to
+be responsible for PSII toxicity since it easily diffuses across the
+cell membrane (Howsley and Pearson, 1979). Thus, the physi-
+ological sensitivity to sulﬁde at concentrations as low as 5 µM
+observed in photosynthetic assemblages inhabiting acidic springs
+is consistent with the presence of algal phototrophs in acidic envi-
+ronments (pH <5.0) only when the total sulﬁde concentration
+was less than ∼5 µM (Figure 2). Thus, the physiological con-
+straints imposed by sulﬁde impairs activity, which in turn likely
+renders algal populations unﬁt to successfully replicate in these
+environments. This decrease in ﬁtness would in turn likely limit the
+distribution of algae to YNP habitats with sulﬁde concentrations
+of <5 µM.
+
+Existing data indicate that the photosynthetic populations
+inhabiting the edge of the phototrophic habitat range in acidic
+environments (pH <5.0) are comprised primarily of algae related
+to Cyanidioschyzon sp. (Ferris et al., 2005; Lehr et al., 2007;
+Boyd et al., 2009a). The habitat range for Cyanidioschyzon sp.
+appears to vary depending on the spring being examined. For
+example, Cyanidioschyzon sp. mats are commonly observed in
+acidic springs in Norris Geyser Basin and other locales in YNP
+at temperatures approaching ∼57˚C (Lehr et al., 2007), yet in
+other acidic springs in YNP and global-distributed hydrothermal
+ﬁelds such as those in Japan, their distribution is constrained to
+lower temperatures (∼40–50˚C; Cox et al., 2011; Hamilton et al.,
+2011b). This suggests that minor variations in the composition
+of the ﬂuid in individual acidic springs might be limiting the
+activity of algal populations and impacting their reproductive
+ﬁtness and distributional pattern. This hypothesis is consistent
+with the “patchy” distribution of phototrophic metabolism in
+environments with pH <5 and temperatures lower than 56˚C
+(Figure 2A). Previous studies have noted rapid decreases in sul-
+ﬁde as a function of increasing distances from the source in
+acidic springs either through degassing or oxidation via biolog-
+ical or abiological mechanisms (Langner et al., 2001; D’Imperio
+et al., 2008; Cox et al., 2011). This observation, together with the
+variability in total sulﬁde concentrations in the source waters of
+acidic features (Shock et al., 2010), is likely to result in differ-
+ences among points in the thermal transects where total sulﬁde
+concentrations drop below 5 µM, the apparent upper limit tol-
+erated by Cyanidioschyzon-like populations in YNP (Figure 2B).
+In turn, such variation would likely impact the temperature at
+the point in the thermal transect where algal photosynthesis is
+possible.
+
+The inﬂuence of temperature on DIC uptake rates was also
+examined in alkaline and acidic springs, since a previous study
+indicated that a strain of Synechococcus isolated from YNP was
+photosynthetically active at a temperature of 75˚C (Allewalt et al.,
+2006), 2˚C warmer than has been observed in YNP (Figure 2A).
+Although light-driven DIC uptake was observed in algal- and
+cyanobacterial-dominated phototrophic assemblages incubated
+at temperature locations that were 10˚C higher (56 and 78˚C,
+respectively), than the in situ temperature where the mats were
+sampled (46 and 68˚C, respectively), it only represented 3 and
+2%, respectively, of the activities observed at the in situ tem-
+perature. This ﬁnding is consistent with previous results indi-
+cating that photosynthesis in natural communities and isolates
+
+Frontiers in Microbiology | Microbiological Chemistry
+
+June 2012 | Volume 3 | Article 221 | 8
+
+Boyd et al.
+
+Modeling the habitat range of photosynthesis
+
+is most efﬁcient at temperatures that correspond to those of
+the environment where the phototrophic assemblages were sam-
+pled, apparently due to evolutionary optimization to inhabit
+that particular ecological niche (Brock, 1967; Miller and Cas-
+tenholz, 2000; Allewalt et al., 2006). To the extent that DIC
+uptake reﬂects the overall physiological state of the photosyn-
+thetic assemblages, these results indicate that temperature con-
+strains the distribution of photosynthesis due to its effects on the
+physiology of the organisms comprising the community, thereby
+decreasing their overall ﬁtness. As summarized by Cox et al.
+(2011) numerous hypotheses have been put forth regarding the
+mechanisms through which temperature may limit phototro-
+phy, including arguments regarding protein stability (Kempner,
+1963) and the functionality of the CO2-assimilating mechanism
+under thermal stress (Meeks and Castenholz, 1978). Biochemi-
+cal experimentation that is beyond the scope of this study will
+be required to elucidate the molecules that are most sensitive
+to temperature stress and which are likely to restrict the diver-
+siﬁcation of phototrophs to environments with temperatures
+>73˚C.
+
+Although evidence is presented here to indicate that photosyn-
+thesis is possible at temperatures as high as 78˚C, it is unlikely
+that this activity is sufﬁcient for reproductive success considering
+that photosynthesis has never been observed in nature above a
+temperature of ∼73˚C(Brock, 1967). In acidic environments (pH
+<4–5), the upper temperature limit for the distribution of pho-
+tosynthetic metabolism is limited to locations with temperatures
+of less than ∼57˚C (Lehr et al., 2007; Boyd et al., 2009b, 2010;
+Cox et al., 2011; Hamilton et al., 2011b). This is likely due to the
+transition from cyanobacterial-dominated phototrophic ecosys-
+tems to algal-dominated photosynthetic ecosystems over this pH
+interval (Brock, 1973; Hamilton et al., 2011b) coupled with the
+suppression of phototrophic activity in algae by hydrogen sulﬁde.
+As a result of degassing and oxidation (Langner et al., 2001; Cox
+et al., 2011), the elevated sulﬁde concentrations that are common
+in source ﬂuids dissipate, ultimately reaching the concentrations of
+less than ∼5 µM that enable algal phototrophs to grow and repro-
+duce. Considering that numerous microorganisms have evolved
+to thrive at temperatures of >73˚C (Brock, 1985) and a number
+of cyanobacteria have evolved to tolerate up to mM concentra-
+tions of sulﬁde (Oren et al., 1979; Miller and Bebout, 2004),
+it is unclear why phototrophs have not radiated and expanded
+their habitat boundaries in YNP. Perhaps the edges of the habi-
+tat range reﬂect intrinsic limits of the photosynthetic apparatus
+itself. Such a scenario corresponds to a deep valley on a ﬁtness
+landscape, whereby the sole mechanism to adapt to a higher tem-
+perature (high physiological stress) is through signiﬁcant and
+rapid adaptation (Keymer et al., 2006). However, if trade-offs
+or costs associated with adaptation to higher temperatures result
+in a loss of ﬁtness at the expense of the adaptive advantage for
+a thermotolerant photosynthetic apparatus, the organism will
+not persist and diversiﬁcation will collapse back to the ancestral
+state. Additional physiological studies, employing an evolution-
+ary framework such as that used by Miller and colleagues (Miller
+and Castenholz, 2000; Miller, 2003), will be required to elucidate
+the physiological parameter(s) underlying the upper temperature
+limit for photosynthesis.
+
+Generalized additive models that comprise multiple explana-
+tory variables were signiﬁcant predictors of the distribution of
+phototrophic metabolisms in YNP, indicating additive interactions
+among variables that constrain their habitat range. However, it is
+not known if the additive interactions that lead to distributional
+patterns reﬂect additive constraints on the ﬁtness of populations
+that comprise the habitat edge communities. Additional studies
+using ecologically representative isolates will facilitate the exami-
+nation of the effect of co-variation among target parameters under
+controlled conditions on the activities and ﬁtness of phototrophic
+populations. Importantly, a GAM that comprised variation in tem-
+perature, sulﬁde, and pH was only capable of explaining 67% of
+the variation in the distribution of photosynthetic metabolisms,
+indicating that 33% of the variation is due to other unaccounted
+for variables. Elevated concentrations of metals are common in
+YNP geothermal environments including copper, mercury, and
+zinc (McCleskey et al., 2005; King et al., 2006; Boyd et al., 2009a;
+Wang et al., 2011b). Such metals have been shown to inhibit the
+activity of photosynthetic organisms, primarily through their dis-
+ruption of the light harvesting apparatus (Clijsters and van Assche,
+1985; Küpper et al., 2002). The speciation and bioavailability of
+many metals, including mercury (Barkay et al., 2010; Wang et al.,
+2011b), vary with the composition and pH of the environment.
+Thus, the inﬂuence of pH on deﬁning the habitat range of pho-
+tosynthetic metabolism as identiﬁed by GAMs may relate to the
+bioavailability and speciation of the numerous metals that co-vary
+with pH and result in a decrease in the ﬁtness of phototrophic
+organisms in YNP. It has also been suggested that the availabil-
+ity of DIC, which tends to be lower at high temperature(Weyl,
+1959) and which tends to speciate toward carbonic acid at low
+pH (Amend and Shock, 2001), may place additional constraints
+on the activity and ﬁtness of phototrophs(Hamilton et al., 2011b).
+Without sufﬁcient inorganic carbon to serve as the oxidizing agent,
+photoautotrophs can become severely photoinhibited, leading to
+oxidative stress (Murata et al., 2007) which would decrease ﬁtness
+and would presumably place an additional constraint on their dis-
+tribution. Indeed, the availability of DIC was inversely correlated
+with pH in the sites examined in the present study. A future goal
+of this work is to integrate measurements of phototroph in situ
+activity, phototroph abundance data, phylogenetic data, and more
+detailed geochemical data (e.g., DIC, trace metals, etc.) such that a
+comprehensive ﬁtness landscape can be developed for photosyn-
+thesis in YNP in order to effectively predict the constraints on the
+evolution of this key metabolic process in this early Earth analog
+environment.
+
+ACKNOWLEDGMENTS
+This work was supported by National Science Foundation grants
+1123689 to Eric S. Boyd, 1123649 to Everett L. Shock, and PIRE-
+0968421 to Eric S. Boyd and John W. Peters. Eric S. Boyd also
+acknowledges support from the NASA Astrobiology Institute
+(NAI) postdoctoral fellowship program for a portion of this work.
+The Astrobiology Biogeocatalysis Research Center at Montana
+State University was supported by a grant from the NAI (NNA08C-
+N85A) to Eric S. Boyd and John W. Peters. Eric S. Boyd would like
+to thank Tom “Elmo” Werner for logistical support during the
+completion of this project.
+
+www.frontiersin.org
+
+June 2012 | Volume 3 | Article 221 | 9
+
+Boyd et al.
+
+Modeling the habitat range of photosynthesis
+
+REFERENCES
+Allewalt, J. P., Bateson, M. M., Revs-
+bech, N. P., Slack, K., and Ward,
+D. M. (2006). Effect of temperature
+and light on growth of and photo-
+synthesis by Synechococcus isolates
+typical of those predominating in
+the Octopus Spring microbial mat
+community of Yellowstone National
+Park. Appl. Environ. Microbiol. 72,
+544–550.
+
+Amend, J. P., and Shock, E. L. (2001).
+Energetics of overall metabolic reac-
+tions of thermophilic and hyper-
+thermophilic archaea and bacteria.
+FEMS Microbiol. Rev. 25, 175–243.
+
+Anbar, A. D. (2008). Elements and evo-
+
+lution. Science 322, 1481–1483.
+
+Anbar, A. D., Duan, Y., Lyons, T. W.,
+Arnold, G. L., Kendall, B., Creaser,
+R. A., Kaufman, A. J., Gordon, G. W.,
+Scott, C., Garvin, J., and Buick, R.
+(2007). A whiff of oxygen before the
+great oxidation event? Science 317,
+1903–1906.
+
+Barkay, T., Kritee, K., Boyd, E., and
+Geesey, G. (2010). A thermophilic
+bacterial origin and subsequent con-
+straints by redox, light and salinity
+on the evolution of the microbial
+mercuric reductase. Environ. Micro-
+biol. 12, 2904–2917.
+
+Blankenship, R. E. (1992). Origin and
+early evolution of photosynthesis.
+Photosyn. Res. 33, 91–111.
+
+Blankenship, R. E. (2010). Early evolu-
+tion of photosynthesis. Plant Physiol.
+154, 434–438.
+
+Boyd, E. S., Anbar, A. D., Miller,
+S., Hamilton, T. L., Lavin, M.,
+and Peters, J. W. (2011). A late
+methanogen origin for molybde-
+num-dependent nitrogenase. Geobi-
+ology 9, 221–232.
+
+Boyd, E. S., Hamilton, T. L., Spear,
+J. R., Lavin, M., and Peters, J. W.
+(2010). [FeFe]-hydrogenase in Yel-
+lowstone National Park: evidence
+for dispersal limitation and phyloge-
+netic niche conservatism. ISME J. 4,
+1485–1495.
+
+Boyd, E. S., King, S., Tomberlin, J.
+K., Nordstrom, D. K., Krabbenhoft,
+D. P., Barkay, T., and Geesey, G.
+G. (2009a). Methylmercury enters
+an aquatic food web through aci-
+dophilic microbial mats in Yellow-
+stone National Park, Wyoming. Env-
+iron. Microbiol. 11, 950–959.
+
+Boyd, E. S., Leavitt, W. D., and Geesey, G.
+G. (2009b). CO2 uptake and ﬁxation
+by a thermoacidophilic microbial
+community attached to precipitated
+sulfur in a geothermal spring. Appl.
+Environ. Microbiol. 75, 4289–4296.
+
+Brock, T. D. (1967). Micro-organisms
+adapted to high temperatures.
+Nature 214, 882–885.
+
+Brock, T. D. (1973). Lower pH limit
+for the existence of blue-green algae:
+evolutionary and ecological implica-
+tions. Science 179, 480–483.
+
+Brock, T. D. (1985). Life at high temper-
+
+atures. Science 230, 132–138.
+
+Buick, R. (2008). When did oxygenic
+photosynthesis evolve? Philos. Trans.
+R. Soc. Lond. B Biol. Sci. 363,
+2731–2743.
+
+Castenholz, R. W. (1977). The effect of
+sulﬁde on the blue-green algae of
+hot springs II. Yellowstone National
+Park. Microb. Ecol. 3, 79–105.
+
+Chew, A. G. M., and Bryant, D. A.
+(2007). Chlorophyll biosynthesis in
+bacteria: the origins of structural
+and functional diversity. Annu. Rev.
+Microbiol. 61, 113–129.
+
+Clijsters, H., and van Assche, F. (1985).
+Inhibition of photosynthesis by
+heavy metals. Photosyn. Res. 7,
+31–40.
+
+Cox, A., Shock, E. L., and Havig, J. R.
+(2011). The transition to microbial
+photosynthesis in hot spring ecosys-
+tems. Chem. Geol. 280, 344–351.
+
+D’Imperio, S., Lehr, C. R., Oduro, H.,
+Druschel, G., Kühl, M., and McDer-
+mott, T. R. (2008). Relative impor-
+tance of H2 and H2S as energy
+sources for primary production in
+geothermal springs. Appl. Environ.
+Microbiol. 74, 5802–5808.
+
+Falkowski, P. G., and Isozaki, Y. (2008).
+The story of O2. Science 322,
+540–542.
+
+Ferris, M. J., Magnuson, T. S., Fagg,
+J. A., Thar, R., Kühl, M., Sheehan,
+K. B., and Henson, J. M. (2003).
+Microbially mediated sulphide pro-
+duction in a thermal, acidic algal mat
+community in Yellowstone National
+Park. Environ. Microbiol. 5, 954–960.
+Ferris, M. J., Sheehan, K. B., Kühl, M.,
+Cooksey, K.,Wigglesworth-Cooksey,
+B., Harvey, R., and Henson,
+J.
+M. (2005). Algal species and light
+microenvironment
+in a low-pH,
+geothermal microbial mat commu-
+nity. Appl. Environ. Microbiol. 71,
+7164–7171.
+
+Guisan, A., Edwards, T. C. Jr., and
+Hastie, T. (2002). Generalized lin-
+ear and generalized additive models
+in studies of species distributions:
+setting the scene. Ecol. Model. 157,
+89–100.
+
+Guisan, A., and Thuiller, W. (2005). Pre-
+dicting species distribution: offering
+more than simple habitat models.
+Ecol. Lett. 8, 993–1009.
+
+Hamilton, T. L., Boyd, E. S., and Peters,
+J. W. (2011a). Environmental con-
+straints underpin the distribution
+and phylogenetic diversity of nifH
+in the Yellowstone geothermal com-
+plex. Microb. Ecol. 61, 860–870.
+
+Hamilton, T. L., Vogl, K., Bryant, D.
+A., Boyd, E. S., and Peters, J. W.
+(2011b). Environmental constraints
+deﬁning the distribution, composi-
+tion, and evolution of chloropho-
+totrophs in thermal features of Yel-
+lowstone National Park. Geobiology
+10, 236–249.
+
+Hastie, R., and Tibshirini, R. (1986).
+Generalized additive models. Stat.
+Sci. 1, 297–318.
+
+Hoehler, T. M. (2007). An energy bal-
+ance concept for habitability. Astro-
+biology 7, 824–838.
+
+Howsley, R., and Pearson, H. W.
+(1979). pH dependent sulﬁde tox-
+icity to oxygenic photosynthesis in
+cyanobacteria. FEMS Microbiol. Rev.
+6, 287–292.
+
+Jackson, C. R., Langner, H. W.,
+Donahoe-Christiansen, J., Inskeep,
+W. P., and McDermott, T. R. (2001).
+Molecular analysis of microbial
+community structure in an arsenite-
+oxidizing acidic thermal spring. Env-
+iron. Microbiol. 3, 532–542.
+
+Johnson, J. B., and Omland, K. S.
+(2004). Model selection in ecology
+and evolution. Trends Ecol. Evol. 19,
+101–108.
+
+Keddy, P. A. (1992). Assembly and
+response rules: two goals for predic-
+tive community ecology. J. Veg. Sci.
+3, 157–164.
+
+Kempner, E. S. (1963). Upper tem-
+perature limit of life. Science 142,
+1318–1319.
+
+Keymer, J. E., Galajda, P., Muldoon,
+C., Park, S., and Austin, R. H.
+(2006). Bacterial metapopulations
+in nanofabricated landscapes. Proc.
+Natl. Acad. Sci. 103, 17290–17295.
+
+King, S. A., Behnke, S., Slack, K.,
+Krabbenhoft, D. P., Nordstrom, D.
+K., Burr, M. D., and Striegl, R.
+G. (2006). Mercury in water and
+biomass of microbial communi-
+ties in hot springs of Yellowstone
+National Park, USA. Appl. Geochem.
+21, 1868–1879.
+
+Küpper, H., Šetlík, I., Spiller, M., Küp-
+per, F. C., and Prášil, O. J. (2002).
+Heavy metal-induced inhibition of
+photosynthesis: targets of
+in vivo
+heavy metal chlorophyll formation.
+J. Phycol. 38, 429–441.
+
+Langner, H. W., Jackson, C. R., McDer-
+mott, T. R., and Inskeep,W. P. (2001).
+Rapid oxidation of arsenite in a
+hot spring ecosystem, Yellowstone
+National Park. Environ. Sci. Technol.
+35, 3302–3309.
+
+Lavorel, S., and Garnier, E. (2002).
+Predicting changes in community
+composition and ecosystem func-
+tioning from plant traits: revisit-
+ing the Holy Grail. Funct. Ecol. 16,
+545–556.
+
+Lehr, C. R., Frank, S. D., Norris, T.
+B., D’Imperio, S., Kalinin, A. V.,
+Toplin, J. A., Castenholz, R. W., and
+McDermott, T. R. (2007). Cyani-
+dia (Cyanidiales) population diver-
+sity and dynamics
+in an acid-
+sulfate-chloride spring in Yellow-
+stone National Park. J. Phycol. 43,
+3–14.
+
+Lizotte, M. P., Sharp, T. R., and Priscu,
+J. C. (1996). Phytoplankton dynam-
+ics in the stratiﬁed water column
+of Lake Bonney, Antarctica: I. Bio-
+mass and productivity during the
+winter-spring transition. Polar Biol.
+16, 155–162.
+
+McCleskey, R. B., Ball, J. W., Nordstrom,
+D. K., Holloway, J. M., and Taylor,
+H. E. (2005). Water-Chemistry Data
+for Selected Hot Springs, Geysers, and
+Streams in Yellowstone National Park,
+Wyoming, 2001–2002. Boulder, CO:
+U.S. Geological Survey.
+
+Meeks, J. C., and Castenholz, R. W.
+(1978). Photosynthetic properties
+of the extreme thermophile Syne-
+chococcus
+II. Stoichiome-
+try between oxygen evolution and
+CO2 assimilation. J. Therm. Biol. 3,
+19–24.
+
+lividus.
+
+Miller, S. R. (2003). Evidence for the
+adaptive evolution of the carbon ﬁx-
+ation gene rbcL during diversiﬁca-
+tion in temperature tolerance of a
+clade of hot spring cyanobacteria.
+Mol. Ecol. 12, 1237–1246.
+
+Miller, S. R., and Bebout, B. M. (2004).
+Variation in sulﬁde tolerance of
+photosystem II in phylogenetically
+diverse cyanobacteria from sulﬁdic
+habitats. Appl. Environ. Microbiol.
+70, 736–744.
+
+Miller, S. R., and Castenholz, R. W.
+(2000). Evolution of thermotoler-
+ance in hot spring cyanobacteria
+of the genus Synechococcus. Appl.
+Environ. Microbiol. 66, 4222–4229.
+
+Miller, S. R., Williams, C., Strong, A.
+L., and Carvey, D. (2009). Eco-
+logical specialization in a spatially
+structured population of the ther-
+mophilic cyanobacterium Mastigo-
+cladus
+laminosus. Appl. Environ.
+Microbiol. 75, 729–734.
+
+Murata, N., Takahashi, S., Nishiyama, Y.,
+and Allakhverdiev, S. I. (2007). Pho-
+toinhibition of photosystem II under
+environmental stress. Biochim. Bio-
+phys. Acta 1767, 414–421.
+
+Nordstrom, D. K., Ball, J. W., and
+McClesky, R. B. (2005). “Ground
+water to surface water: chemistry
+of thermal outﬂows in Yellowstone
+National Park,” in Geothermal Biol-
+ogy and Geochemistry in Yellowstone
+National Park, eds W. P. Inskeep
+and T. R. McDermott (Bozeman:
+Montana State University), 143–162.
+
+Frontiers in Microbiology | Microbiological Chemistry
+
+June 2012 | Volume 3 | Article 221 | 10
+
+Boyd et al.
+
+Modeling the habitat range of photosynthesis
+
+Oren, A., Padan, D., and Malkin, S.
+(1979). Sulﬁde inhibition of pho-
+tosystem II in cyanobacteria (blue-
+green algae) and tobacco chloro-
+plasts. Biochim. Biophys. Acta 546,
+270–279.
+
+Raymond, J., and Segrè, D. (2006). The
+effect of oxygen on biochemical net-
+works and the evolution of complex
+life. Science 311, 1764–1767.
+
+Sessions, A. L., Doughty, D. M.,
+Welander, P. V., Summons, R. E., and
+Newman, D. K. (2009). The contin-
+uing puzzle of the Great Oxidation
+Event. Curr. Biol. 19, R567–R574.
+
+Shock, E. L., Holland, M., Meyer-
+Dombard, D., Amend, J. P., Osburn,
+G. R., and Fischer, T. P. (2010).
+Quantifying inorganic sources of
+geochemical energy in hydrothermal
+ecosystems, Yellowstone National
+Park, USA. Geochim. Cosmochim.
+Acta 74, 4005–4043.
+
+Shock, E. L., and Holland, M. E. (2007).
+Quantitative habitability. Astrobiol-
+ogy 7, 839–851.
+
+Wang, M., Jiang, Y.-Y., Kim, K. M.,
+Qu, G., Ji, H.-F., Mittenthal, J. E.,
+Zhang, H.-Y., and Caetano-Anollés,
+G. (2011a). A universal molecu-
+lar clock of protein folds and its
+power in tracing the early history
+of aerobic metabolism and planet
+oxygenation. Mol. Biol. Evol. 28,
+567–582.
+
+Wang, Y., Boyd, E., Crane, S., Lu-
+Irving, P., Krabbenhoft, D., King, S.,
+Dighton, J., Geesey, G., and Barkay,
+T. (2011b). Environmental condi-
+tions constrain the distribution and
+diversity of archaeal merA in Yel-
+lowstone National Park, Wyoming,
+U.S.A. Microb. Ecol. 62, 739–752.
+
+Westoby, M. (2006). Phylogenetic ecol-
+ogy at world scale, a new fusion
+between ecology and evolution.
+Ecology 87, S163–S165.
+
+Weyl, P. K. (1959). The change in sol-
+ubility of calcium carbonate with
+temperature and carbon dioxide
+content. Geochim. Cosmochim. Acta
+17, 214–225.
+
+Wiens, J.
+
+J. (2004). Speciation and
+ecology revisited: phylogenetic niche
+conservatism and the origin of
+species. Evolution 58, 193–197.
+
+conducted in the absence of any
+commercial or ﬁnancial relationships
+that could be construed as a potential
+conﬂict of interest.
+
+Wiens,
+
+J.
+
+J., and Graham, C. H.
+(2005). Niche conservatism:
+inte-
+grating evolution, ecology, and con-
+servation biology. Annu. Rev. Ecol.
+Evol. Syst. 36, 519–539.
+
+Wood, S. N. (2004). Stable and efﬁ-
+cient multiple smoothing parame-
+ter estimation for generalized addi-
+tive models. J. Am. Stat. Assoc. 99,
+673–686.
+
+Wood, S. N. (2011). Fast stable restricted
+maximum likelihood and marginal
+likelihood estimation of semipara-
+metric generalized linear models. J.
+R. Stat. Soc. B 73, 3–36.
+
+Yee, T. W., and Mitchell, N. D.
+(1991). Generalized additive mod-
+els in plant ecology. J. Veg. Sci. 2,
+587–602.
+
+Conﬂict of Interest Statement: The
+authors declare that the research was
+
+Received: 05 December 2011; accepted:
+30 May 2012; published online: 18 June
+2012.
+Citation: Boyd ES, Fecteau KM, Havig
+JR, Shock EL and Peters JW (2012) Mod-
+eling the habitat range of phototrophs in
+Yellowstone National Park: toward the
+development of a comprehensive ﬁtness
+landscape. Front. Microbio. 3:221. doi:
+10.3389/fmicb.2012.00221
+This article was submitted to Frontiers in
+Microbiological Chemistry, a specialty of
+Frontiers in Microbiology.
+Copyright  2012 Boyd, Fecteau, Havig ,
+Shock and Peters. This is an open-access
+article distributed under the terms of
+the Creative Commons Attribution Non
+Commercial License, which permits non-
+commercial use, distribution, and repro-
+duction in other forums, provided the
+original authors and source are credited.
+
+www.frontiersin.org
+
+June 2012 | Volume 3 | Article 221 | 11
+
+

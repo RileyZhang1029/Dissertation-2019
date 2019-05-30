@@ -1,0 +1,402 @@
+BioArchitecture 1:5, 205–208; September/October 2011; G 2011 Landes Bioscience
+
+PERSPECTIVE
+
+Minimum requirements for the actin-like treadmilling motor system
+
+Akihiro Narita
+Structural Biology Research Center and Division of Biological Science; Graduate School of Science; Nagoya University; Furo, Nagoya, Japan
+
+Actin is one of the most abundant
+
+proteins in eukaryote cells, which
+forms a double stranded filament. The
+actin filament is not only a main com-
+ponent of the cytoskeleton, but also acts
+as a motor protein which moves toward
+one specific end, the barbed end, driven
+by polymerization at the barbed end and
+depolymerization at the other end, the
+pointed end, without any associated
+proteins. This motor activity is referred
+to as “treadmilling” and it represents the
+simplest motor system known, consisting
+of only one 42 kDa protein, actin. Here
+we report the minimum requirements of
+the actin-like motor system elucidated
+by computer simulations: (1) Nucleotide
+binding and ATPase activity in the
+(2) Polarity in the rates of
+filament;
+polymerization
+depolymerization
+between the two ends; and (3) The
+dependence of the subunit-subunit inter-
+actions on the bound nucleotide. These
+requirements are simple and this know-
+ledge should facilitate the development
+of artificial molecular motor systems in
+the future.
+
+and
+
+Actin is one of the most abundant proteins
+in eukaryote cells, which forms a double
+stranded filament.1 The actin filament is
+involved in various kinds of cellular func-
+tions, including cell adhesion, cell moti-
+lity, cell division, cytoskeletal arrangement
+and muscle contraction. In most cases, the
+actin filament is dynamic through depoly-
+merization and polymerization at both
+ends.2,3 The actin dynamics in lamellipo-
+dia and filopodia is typical. Actin filaments
+move toward one specific end, the barbed
+end, by polymerization at this end and
+depolymerization at the other end, the
+
+Keywords: actin, treadmilling, computer
+simulation, electron microscopy, motor
+Submitted: 09/04/11
+Accepted: 09/08/11
+http://dx.doi.org/10.4161/bioa.1.5.18115
+Correspondence to: Akihiro Narita;
+Email: narita.akihiro@f.mbox.nagoya-u.ac.jp
+
+pointed end. This process leads to the
+outward expansion of the cell membrane.
+It is widely known that the actin fila-
+ment with ATP, in vitro, moves toward
+the barbed end without any other pro-
+teins by polymerization at the barbed end
+and depolymerization at the pointed end.
+The polymerization and depolymerization
+processes occur at the same rate when the
+steady-state is reached and the movement
+is referred to as “treadmilling.” Therefore,
+actin acts as a motor system. It is the
+simplest motor system known, because
+the actin motor system consists of only
+the 42 kDa protein actin. The mechan-
+isms of molecular motors are not fully
+understood, although many motors have
+been identified, including myosins, kine-
+sins, dyneins and F1-ATPase. Therefore,
+knowing the minimum requirements of
+the actin-like motor system may help us
+to understand not only actin-like motors
+but also many other motors. We have
+already reported that a combination of
+simple parameters reproduce the unidirec-
+tional movement of treadmilling.4 How-
+ever, this simple set of parameters does
+not represent the minimum requirements
+of treadmilling, because the system is still
+too complex.
+
+The actin-like treadmilling motor sys-
+tem requires three elements. First, ATP
+hydrolysis occurs within the filament and
+the exchange of the bound nucleotide in
+the filament is negligible. Second, polarity
+in the rates of polymerization and depoly-
+merization exist between the two ends,
+that is, both rates of polymerization and
+depolymerization at the fast end (corres-
+ponding to the barbed end in the actin
+filament) are substantially higher
+than
+those at the slow end (corresponding to
+the pointed end in the actin filament). In
+
+www.landesbioscience.com
+
+BioArchitecture
+
+205
+
+ 2012 Landes Bioscience.Do not distribute.the steady-state condition with ATP, ATP
+hydrolysis and phosphate release tend
+to occur at the less dynamic slow end
+before the next monomer is incorporated,
+whereas ATP-monomer molecules poly-
+merize rapidly at the fast end. Therefore,
+the fast end is predominantly in the ATP-
+state, whereas
+the slow end contains
+primarily the ADP-state. Here the critical
+concentration, which is equivalent to the
+ratio of the depolymerization rate to the
+polymerization rate, is the same at both
+ends when the bound nucleotide is the
+same.5,6 Third, the critical concentration
+of the monomer with ATP is lower than
+that with ADP. This results in a lower
+the fast end,
+critical concentration at
+which consists of
+than
+at
+the ADP-F-
+actin (the slow end). Consequently, the
+motor monomer polymerizes as an ATP-
+monomer at
+the fast end and depoly-
+merizes as an ADP-monomer at the slow
+end (Fig. 1).
+
+the end consisting of
+
+the ATP-state,
+
+three
+
+simple
+
+A computer
+
+(Fig. 2). This
+
+simulation showed that
+requirements were
+these
+to reproduce a unidirectional
+sufficient
+movement
+simulation
+requires six parameters to represent the
+three elements described above: kATPase,
+CT, CD, kFT, kFD and r. kATPase is the
+ATPase rate in the filament and corre-
+sponds to the first element. CT and CD
+are the critical concentrations of the mole-
+cules with ATP and ADP, respectively,
+where CT , CD, and these two parameters
+represent the third element. kFT and kFD
+are the polymerization rates at the fast
+end. The depolymerization rates at the
+fast
+end with ATP and ADP were
+calculated as kFTCT and kFDCD, respect-
+ively. Conversely, kST = rkFT and kSD =
+rkFD, where kST and kSD are the rate
+constants for polymerization with ATP
+and ADP at the slow end, respectively. r
+is the ratio of the rate constants for the
+slow and fast ends, where r , 1, which
+second element. The
+represents
+
+the
+
+depolymerization rates at the slow end
+with ATP and ADP were calculated as
+rkFTCT and rkFDCD, respectively.
+
+The results of the simulation based on
+realistic parameters determined by direct
+measurements7 are presented in Figure 2A
+and C. The filament moves toward the
+fast end at a constant velocity, indicating
+that the three elements were sufficient to
+reproduce the unidirectional movement.
+The speed of the movement can clearly
+be changed by altering the parameters.
+For example, when the critical concentra-
+tion of
+the monomers with ADP was
+increased by nine-fold, the rate also increa-
+sed by ~7-fold (Fig. 2B, D and G), indi-
+cating the depolymerization with ADP at
+the slow end was rate-limiting when the
+realistic parameters were used (Fig. 2A
+and C).
+
+To elucidate the importance of
+
+the
+three elements, further simulations were
+performed. When there was no ATPase
+activity, kATPase = 0, the filament did not
+
+Figure 1. A simplified model for a treadmilling motor system. The thickness of the arrows at each end of the filament is proportional to the
+polymerization and depolymerization rates which are used in the simulation with the realistic parameters (Fig. 2A). In our model, we start with the
+filament consisting of ATP subunits (the first panel). As time passes, the slow end tends to have ADP subunits because of the ATPase in the filament and
+the polarity in the dynamics. At the steady-state (the latter two panels), the filament of the actin-like treadmilling motor moves toward the fast end
+without changing its length by polymerization at the fast end and depolymerization at the slow end.
+
+206
+
+BioArchitecture
+
+Volume 1 Issue 5
+
+ 2012 Landes Bioscience.Do not distribute.Figure 2. Simulation of the treadmilling motor system with limited parameters. (A–F) The results of the simulations. Each horizontal line represents a
+single filament of the actin-like treadmilling motor, with the slow end to the left. On the horizontal line, each dot represents a subunit with ATP or ADP in
+green or orange, respectively. The blue box in each panel indicates the initial position of the filament in the simulation. All panels are presented with the
+same scale. (A) The result of the simulation with realistic parameters based on a recent communication,7 kATPase = 0.3 sec21, CT = 0.1 mM, CD = 2 mM,
+kFT = 10 mM21s21, kFD = 3 mM21s21 and r = 0.1. The time course of a single filament is represented with a time interval of 1 sec. The actin concentration
+was chosen so that the average length of the actin filament remained constant. The time interval of the simulation was 0.005 sec. The filament moves
+toward the fast end at a constant velocity. (B) The time course of the simulation with the same parameters as (A) except for CD = 18 mM. The filament
+moved seven times faster than (A). (C) The status of the filaments after 500 sec with the realistic parameters (A). Each horizontal line represents the result
+of a single simulation and 180 results were collected. (D) The status of the filaments after 500 sec with the same parameters as (B). (E,F) Results of the
+simulation with the same parameters as (A) except for kATPase = 0 sec21, without the ATPase in the filament. (E) The time course of the simulation. (F) The
+status of the filaments after 500 sec. The filaments did not show any unidirectional movement. (G) The averaged displacement with the standard
+deviation after 500 sec for each condition was plotted. Simulations were repeated 180 times for each condition. “Realistic,” “Large CD” and “No ATPase”
+represent the results with the same parameters as (A), (B) and (E), respectively. “No polarity” represents the result with the same parameters as (A) except
+for r = 1, there was no polarity in the dynamics. “CT = CD” represents the result with the same parameters as (A) except for CD = 0.1 mM, the same as CT.
+“No ATPase,” “No polarity” and “CT = CD” showed no significant movement.
+
+move (Fig. 2E–G),
+indicating that
+the
+first element was
+indispensable. When
+the polymerization and the depolymeriza-
+tion rates were identical at both ends,
+r = 1, the filament did not move either
+(Fig. 2G), indicating the second element
+was essential to the unidirectional move-
+ment. The third element was also essential
+because when the critical concentration
+was independent of the nucleotide species,
+CT = CD, the filaments did not move.
+Therefore, the three elements represent
+
+the minimum requirements to reproduce
+the treadmilling movement.
+The structural basis of
+
+the second
+element has been characterized. We deter-
+mined the three-dimensional structure of
+the actin pointed end by cryo-electron
+microscopy and single-particle analysis8
+and the resultant structure showed that a
+specific loop to loop interaction at the
+pointed end is the basis of the slower
+dynamics at the pointed end than at the
+barbed end.4 The requirements for the
+
+polarity in the dynamics is reviewed by
+Narita, 2011.6 There are two simple
+requirements. The double
+(or more)
+stranded form of the filament and one
+specific interaction at the slow end were
+essential.
+
+Unfortunately, the structural basis of
+the first and the third elements remain
+unresolved. Three models of
+the actin
+filament determined by X-ray fiber dif-
+fraction1 and electron microscopy9,10 have
+been published, the first was with Ca2+ and
+
+www.landesbioscience.com
+
+BioArchitecture
+
+207
+
+ 2012 Landes Bioscience.Do not distribute.ADP,1 the second with Mg2+ and ADP9
+and the third with Mg2+ and ADPPi.10
+However, the mechanisms of the ATPase
+in the filament and the affinity change
+between the subunits according to the
+bound nucleotide species are not well
+understood. This is because of a lack of
+resolution in each structure, and due to
+the absence of a structure when ATP is
+
+bound. To understand the ATPase mech-
+anism and the small affinity change (~20
+fold) within the structure requires a clear
+understanding of the side-chain conforma-
+tions, which could not be seen in any of
+the three models. For a full understand-
+ing of the actin motor system, the actin
+filament structures at higher resolution
+with ADP, ADPPi and ATP are required.
+
+Nonetheless, the computer simulation
+has shown that the three elements repres-
+ent the minimum requirements to repro-
+duce the treadmilling one-way movement
+(Fig. 2). The requirements are simple and
+relatively easy to achieve using an artificial
+motor system. This knowledge may facili-
+tate the development of artificial molecular
+motor systems in the future.
+
+References
+
+2.
+
+the globular-
+
+1. Oda T, Iwasa M, Aihara T, Maeda Y, Narita A. The
+nature of
+to fibrous-actin transition.
+Nature 2009; 457:441-5; PMID:19158791; http://dx.
+doi.org/10.1038/nature07685
+Pollard TD, Borisy GG. Cellular motility driven by
+assembly and disassembly of actin filaments. Cell 2003;
+112:453-65; PMID:12600310; http://dx.doi.org/10.
+1016/S0092-8674(03)00120-X
+Pantaloni D, Le Clainche C, Carlier MF. Mechanism
+of actin-based motility. Science 2001; 292:1502-6;
+PMID:11379633; http://dx.doi.org/10.1126/science.
+1059975
+
+3.
+
+4. Narita A, Oda T, Maeda Y. Structural basis for the slow
+dynamics of the actin filament pointed end. EMBO J
+2011; 30:1230-7; PMID:21378753; http://dx.doi.org/
+10.1038/emboj.2011.48
+
+5. Ward JH. Hierarchical grouping to optimize an
+objective function. J Am Stat Assoc 1963; 58:236-44;
+http://dx.doi.org/10.2307/2282967
+
+6. Narita A. Merits of the double-stranded form of the
+actin filament revealed by structures of the filament
+ends. Commun Integr Biol 2011; 4:692-5; http://dx.
+doi.org/10.4161/cib.4.6.17137
+Fujiwara I, Vavylonis D, Pollard TD. Polymerization
+kinetics of ADP- and ADP-Pi-actin determined by
+fluorescence microscopy. Proc Natl Acad Sci USA
+2007; 104:8827-32; PMID:17517656; http://dx.doi.
+org/10.1073/pnas.0702510104
+
+7.
+
+8. Narita A, Maeda Y. Molecular determination by
+electron microscopy of the actin filament end structure.
+J Mol Biol 2007; 365:480-501; PMID:17059832;
+http://dx.doi.org/10.1016/j.jmb.2006.06.056
+
+9.
+
+Fujii T, Iwane AH, Yanagida T, Namba K. Direct
+visualization of secondary structures of F-actin by elec-
+tron cryomicroscopy. Nature 2010; 467:724-8; PMID:
+20844487; http://dx.doi.org/10.1038/nature09372
+
+10. Murakami K, Yasunaga T, Noguchi TQ, Gomibuchi
+Y, Ngo KX, Uyeda TQ, et al. Structural basis for
+actin assembly, activation of ATP hydrolysis, and
+delayed phosphate release. Cell 2010; 143:275-87;
+PMID:20946985;
+http://dx.doi.org/10.1016/j.cell.
+2010.09.034
+
+208
+
+BioArchitecture
+
+Volume 1 Issue 5
+
+ 2012 Landes Bioscience.Do not distribute.

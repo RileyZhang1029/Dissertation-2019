@@ -1,0 +1,12949 @@
+ORIGINAL RESEARCH ARTICLE
+published: 17 April 2012
+doi: 10.3389/fmicb.2012.00132
+
+Evidence for horizontal gene transfer of anaerobic carbon
+monoxide dehydrogenases
+
+Stephen M. Techtmann1,2, Alexander V. Lebedinsky 3, Albert S. Colman4,Tatyana G. Sokolova3,Tanja Woyke 5,
+Lynne Goodwin5 and Frank T. Robb 1,2*
+
+1 Institute of Marine and Environmental Technology, University of Maryland, Baltimore, MD, USA
+2 Department of Microbiology and Immunology, University of Maryland, Baltimore, MD, USA
+3 Winogradsky Institute of Microbiology, Russian Academy of Sciences, Moscow, Russia
+4 Department of the Geophysical Sciences, University of Chicago, Chicago, IL, USA
+5 DOE Joint Genome Institute, Walnut Creek, CA, USA
+
+Edited by:
+Martin G. Klotz, University of North
+Carolina at Charlotte, USA
+Reviewed by:
+Annette Summers Engel, University
+of Tennessee, USA
+Viktoria Shcherbakova, Institute of
+Biochemistry and Physiology of
+Microorganisms, Russian Academy of
+Sciences, Russia
+*Correspondence:
+Frank T. Robb, Institute of Marine and
+Environmental Technology, 701 East
+Pratt Street, Baltimore, MD 21202,
+USA.
+e-mail: frobb@som.umaryland.edu
+
+Carbon monoxide (CO) is commonly known as a toxic gas, yet both cultivation studies and
+emerging genome sequences of bacteria and archaea establish that CO is a widely utilized
+microbial growth substrate. In this study, we determined the prevalence of anaerobic car-
+bon monoxide dehydrogenases ([Ni,Fe]-CODHs) in currently available genomic sequence
+databases. Currently, 185 out of 2887, or 6% of sequenced bacterial and archaeal genomes
+possess at least one gene encoding [Ni,Fe]-CODH, the key enzyme for anaerobic CO utiliza-
+tion. Many genomes encode multiple copies of [Ni,Fe]-CODH genes whose functions and
+regulation are correlated with their associated gene clusters. The phylogenetic analysis of
+this extended protein family revealed six distinct clades; many clades consisted of [Ni,Fe]-
+CODHs that were encoded by microbes from disparate phylogenetic lineages, based on
+16S rRNA sequences, and widely ranging physiology.To more clearly deﬁne if the branching
+patterns observed in the [Ni,Fe]-CODH trees are due to functional conservation vs. evolu-
+tionary lineage, the genomic context of the [Ni,Fe]-CODH gene clusters was examined, and
+superimposed on the phylogenetic trees. On the whole, there was a correlation between
+genomic contexts and the tree topology, but several functionally similar [Ni,Fe]-CODHs
+were found in different clades. In addition, some distantly related organisms have sim-
+ilar [Ni,Fe]-CODH genes. Thermosinus carboxydivorans was used to observe horizontal
+gene transfer (HGT) of [Ni,Fe]-CODH gene clusters by applying Kullback–Leibler diver-
+gence analysis methods. Divergent tetranucleotide frequency and codon usage showed
+that the gene cluster of T. carboxydivorans that encodes a [Ni,Fe]-CODH and an energy-
+converting hydrogenase is dissimilar to its whole genome but is similar to the genome
+of the phylogenetically distant Firmicute, Carboxydothermus hydrogenoformans. These
+results imply that T carboxydivorans acquired this gene cluster via HGT from a relative of
+C. hydrogenoformans.
+
+Keywords: carbon monoxide, thermophiles, hydrogenogens, carboxydotrophs, Thermosinus carboxydivorans,
+Carboxydothermus hydrogenoformans, carbon monoxide dehydrogenase
+
+INTRODUCTION
+Carbon monoxide (CO) is most commonly known as a potent
+human toxin. Alternatively, CO can provide an energy and car-
+bon source in both anaerobic and aerobic microbes (Uffen, 1976;
+King and Weber, 2007; Sokolova et al., 2009; Techtmann et al.,
+2009). This ability to utilize CO relies upon enzymes known as
+carbon monoxide dehydrogenases (CODHs, EC 1.2.99.2; Ferry,
+1995; Seravalli et al., 1995, 1997; Ragsdale, 2008). CO oxidation is
+performed by aerobic and anaerobic species using CODHs in dif-
+ferent classes (Ragsdale, 2004; King and Weber, 2007). While the
+overall reaction catalyzed by both aerobic and anaerobic species
+), major differences
+result from the different terminal electron acceptors of the path-
+way. For aerobic species this reaction is catalyzed by the aero-
+bic CODH (CoxSML) complex (Hugendieck and Meyer, 1992;
+
+is the same (CO+ H2O→ CO2 + 2H
+
++ + 2e
+−
+
+Schubel et al., 1995). The Cox-type CODH contains a highly con-
+served Mo based active site (Meyer and Schlegel, 1983; Meyer
+and Rajagopalan, 1984; Meyer et al., 1993; Dobbek et al., 1999;
+Gnida et al., 2003). In the case of the aerobic Cox-type CODH,
+the electrons generated from oxidation of CO are transferred to
+oxygen or, in some cases, nitrate as the ﬁnal electron acceptor
+(King, 2003, 2006; King and Weber, 2007). Anaerobic CODHs are
+distinct from Cox CODHs and have a Ni–Fe active site (Dobbek
+et al., 2001, 2004; Svetlitchnyi et al., 2001, 2004). The anaerobic
+CODH generates electrons from the oxidation of CO and trans-
+fers them to a variety of acceptors, allowing CO to be the source of
+reducing equivalents for various pathways including sulfate reduc-
+tion, acetogenesis, methanogenesis, hydrogenogenesis, and metal
+reduction, and it can also reduce CO2 to CO used further for
+acetate synthesis by the Wood–Ljungdahl pathway (Gonzalez and
+
+www.frontiersin.org
+
+April 2012 | Volume 3 | Article 132 | 1
+
+Techtmann et al.
+
+Anaerobic carbon monoxide dehydrogenase HGT
+
+Robb, 2000; Svetlitchnyi et al., 2001, 2004; Ragsdale, 2004, 2008;
+Wu et al., 2005; Sokolova et al., 2009).
+
+The extreme thermophile Carboxydothermus hydrogenofor-
+mans is a prototype anaerobic carboxydotroph with ﬁve distinct
+anaerobic CODHs. C. hydrogenoformans can grow efﬁciently on
+CO as sole carbon and energy source, conﬁrming that CO can
+fuel divergent pathways (Wu et al., 2005). The presence of multi-
+ple anaerobic CODHs encoded by a single organism requires that
+these homologs arose either by duplication of an ancestral CODH
+gene in the same lineage or else have been acquired by horizontal
+gene transfer (HGT) between separate lineages.
+
+In this study we identiﬁed [Ni,Fe]-CODH genes in the rapidly
+expanding database of microbial genomes in order to under-
+stand the mechanisms of evolution and dispersion of [Ni,Fe]-
+CODHs. A comprehensive phylogenetic analysis was designed to
+observe if CODHs are found in distinct clades. Examination of
+the genomic context of each of the [Ni,Fe]-CODHs provided
+insights into the functions of [Ni,Fe]-CODH gene clusters. We
+then used these functional assignments to determine whether
+differences in inferred function of [Ni,Fe]-CODHs explain the
+pattern of phylogenetic divergence. In addition, in-depth statis-
+tical analysis was performed on two gene clusters that catalyze
+similar functions. By examining operons with the same function
+we control for differences that have arisen based on functional
+diversiﬁcation. The two gene clusters examined were from the pro-
+totype thermophilic hydrogenogen – C. hydrogenoformans – and
+a thermophilic metal reducing hydrogenogen – Thermosinus car-
+boxydivorans. These organisms were chosen based on the following
+criteria. (1) They are both thermophilic, thus controlling for selec-
+tion due to adaptations to differing growth temperatures. (2) C.
+hydrogenoformans and T. carboxydivorans exhibit different types of
+cell wall structure and are members of widely divergent classes of
+the Phylum Firmicutes: the Clostridia and Negativicutes, respec-
+tively. (3) Despite their divergent lineages, their [Ni,Fe]-CODHs
+and the linked energy-converting hydrogenases (ECH) are very
+similar. The genomes of these bacteria were analyzed to deter-
+mine whether the [Ni,Fe]-CODH–ECH gene cluster may have
+been subject to recent HGT.
+
+MATERIALS AND METHODS
+DATABASE SEARCHING FOR [Ni,Fe]-CODH SEQUENCES
+The US Department of Energy’s Integrated Microbial Genome
+(IMG) database was searched using BLASTp to query the pro-
+tein database (Altschul et al., 1990) for sequences correspond-
+ing to [Ni,Fe]-CODHs. [Ni,Fe]-CODHs are subdivided into two
+types: the type called CooS, which is more frequent in bacte-
+ria, and the type called Cdh, occurring almost exclusively in
+archaea. The ligands of the Ni,Fe-containing active site (Dobbek’s
+C cluster; Dobbek et al., 2001) are conserved, with few excep-
+tions, in CooS- and Cdh-type CODHs (Lindahl, 2002). However,
+Cdh-type CODHs harbor two additional [Fe4S4] clusters (Gen-
+cic et al., 2010), and, on the whole, there is rather low homology
+between CooS- and Cdh-type CODHs. Therefore, the IMG data-
+base was searched using a CooS-type sequence (CooS-I from C.
+hydrogenoformans) and a Cdh-type sequence (Cdh-1 from the
+archaeon Archeoglobus fulgidus). Overlapping results and low scor-
+ing hits (Quality scores less than 200) were removed from the
+
+ﬁnal [Ni,Fe]-CODH database (Table S3 in Supplemental Mater-
+ial). Many of the low scoring hits were often genes annotated as
+hydroxylamine reductases. This reﬁned database was then used for
+further analysis.
+
+PHYLOGENETIC TREE CONSTRUCTION
+The [Ni,Fe]-CODH sequences were aligned using the MUSCLE
+alignment program (Edgar, 2004a,b). This multiple sequence
+alignment was used to construct phylogenetic trees using Max-
+imum Likelihood (ML) and Bayesian inference (BI). ML trees
+were constructed using the RAxML-HPC2 program (version
+7.2.8; Stamatakis, 2006; Stamatakis et al., 2008) on the CIPRES
+servers (Miller et al., 2010). ML trees were constructed using the
+WAG+ Γ+ I model which was selected as the best-ﬁt model for
+our database by the model selection tool implemented in Topali2
+(Milne et al., 2009). Node support was assessed by 1,000 bootstrap
+replicates with the same model. BI trees were constructed using
+the BEAST program (Drummond and Rambaut, 2007) with the
+WAG+ Γ+ I model as was selected as the best-ﬁt model by the
+Topali2 package. Searches were run with four chains of 7,500,000
+generations, for which the ﬁrst 750,000 were discarded as “burn-
+in.” Trees were sampled every 1,000 generations. Stabilization of
+chain parameters was determined using the program TRACER
+(Rambaut and Aj, 2007). A maximum credibility clade tree was
+annotated using the TreeAnnotator program (part of the BEAST
+package). Trees were drawn using the FigTree program1. Subtrees
+were drawn of each of the clades and are shown in (Figure A2 in
+Appendix).
+
+CONSTRUCTION OF FUNCTIONAL TREES
+The analysis of the genomic contexts was done using the infor-
+mation available at Gene Detail pages of the IMG database and,
+where necessary, applying tblastn with appropriate queries at the
+IMG website2. This information was used to identify whether the
+[Ni,Fe]-CODH gene was located (1) within an ACS gene cluster,
+(2) adjacent to an ECH gene cluster, (3) located at a distance less
+than 3 kb away from a gene encoding CooF, a ferredoxin-like FeS
+protein (Kerby et al., 1992) which carries out electron transfer
+from CooS to a variety of electron acceptors, or (4) not clustered
+with a cooF gene.
+
+GENOMIC SEQUENCING OF THERMOSINUS CARBOXYDIVORANS
+Thermosinus carboxydivorans was grown as previously described
+(Sokolova et al., 2004). DNA was extracted using previously
+described protocols (Wu et al., 2005). The genome of T. carboxy-
+divorans Nor1 was sequenced at the Joint Genome Institute (JGI)
+using a combination of 3, 8, and 40 kb (fosmid) DNA libraries.
+In addition to Sanger sequencing, 454 pyrosequencing was done
+to a depth of 20× coverage. All general aspects of library con-
+struction and sequencing performed at the JGI can be found at
+http://www.jgi.doe.gov/.
+Draft assemblies were based on 28,812 total reads. All
+three libraries provided 9.3× coverage of the genome. The
+
+1http://tree.bio.edu.ac.uk/software/ﬁgrtee/
+2http://img.jgi.doe.gov/
+
+Frontiers in Microbiology | Evolutionary and Genomic Microbiology
+
+April 2012 | Volume 3 | Article 132 | 2
+
+Techtmann et al.
+
+Anaerobic carbon monoxide dehydrogenase HGT
+
+Phred/Phrap/Consed software package3 was used for sequence
+assembly and quality assessment (Ewing and Green, 1998; Ewing
+et al., 1998; Gordon et al., 1998). After the shotgun stage, reads were
+assembled with parallel Phrap (High Performance Software, LLC).
+Possible mis-assemblies were corrected with Dupﬁnisher (Han and
+Chain, 2006) or transposon bombing of bridging clones (Epicen-
+tre Biotechnologies, Madison, WI, USA). Gaps between contigs
+were closed by editing in Consed, custom primer walk or PCR
+ampliﬁcation (Roche Applied Science, Indianapolis, IN, USA).
+
+A total of 5919 additional reactions were necessary to close
+gaps and to elevate the quality of the ﬁnished sequence. The com-
+pleted genome sequences of T. carboxydivorans Nor1 contains
+36,788 reads, achieving an average of 10-fold sequence cover-
+age per base with an error rate less than 1 in 100,000. The
+draft genome sequence was deposited into GenBank (Accession
+Numbers AAWL01000001–AAWL01000049).
+
+HORIZONTAL GENE TRANSFER ANALYSES OF THE [Ni,Fe]-CODH–ECH
+GENE CLUSTER
+The nucleotide sequences for the [Ni,Fe]-CODH–ECH gene
+cluster were extracted (including genes of all hydrogenase sub-
+units) from the C. hydrogenoformans and the T. carboxydivo-
+rans genomes. These sequences and the whole genome sequences
+for both organisms were used for further analysis. Additionally,
+the Escherichia coli K12 genome (GenBank Accession Number
+U00096.2) was used as a control.
+G+ C content was determined using GC-Proﬁle program (Gao
+and Zhang, 2006). Tetranucleotide frequency was determined
+using the TETRA program (Teeling et al., 2004). Codon usage
+was determined from tables in the codon usage database4. Over-
+all codon usage for the 10 genes of the [Ni,Fe]-CODH-ECH gene
+cluster was determined by averaging the codon frequency of each
+gene in the gene cluster.
+
+The Kullback–Leibler (K–L) divergence metric (Kullback and
+Leibler, 1951) was used to determine whether the differences in
+G+ C content, tetranucleotide frequency, and codon usage were
+signiﬁcant or not. These three metrics and the K–L divergence were
+chosen based on a recent paper that suggests that codon usage and
+tetranucleotide frequency combined with K–L divergence are the
+most accurate metrics for determining HGT (Becq et al., 2010).
+K–L divergence was determined using the following formula:
+
+(cid:2)
+
+g||G
+
+(cid:3) = (cid:4)
+
+DKL
+
+i
+
+g (i) ln
+
+g (i)
+G (i)
+
+where g is the a parameter (e.g., frequency of a particular tetranu-
+cleotide or frequency of usage of a particular codon) for the gene or
+operon and G is that same parameter for the whole genome. This
+calculation is repeated for all of the tetranucleotide frequencies
+and the resulting values are added together to determine the K–L
+divergence for tetranucleotide frequency. The same basic calcula-
+tion is done for the frequency of usage for each codon to determine
+the K–L divergence for codon usage between a gene or operon and
+a genome.
+
+3www.phrap.com
+4www.kazusa.or.jp/codon/
+
+www.frontiersin.org
+
+RESULTS
+MANY ORGANISMS ENCODE MORE THAN ONE [Ni,Fe]-CODH GENE
+BLAST searches of the IMG database revealed that a surpris-
+ing number of organisms encode [Ni,Fe]-CODH genes. Of the
+2887 extant bacterial and archaeal genomes, 185 genomes (>6%)
+encoded at least one [Ni,Fe]-CODH gene. Of these 185 genomes,
+43% encoded more than one [Ni,Fe]-CODH (Listed in Table S2 in
+Supplemental Material). The highest number of [Ni,Fe]-CODHs
+detected in a single genome is ﬁve, found in the genome sequences
+of C. hydrogenoformans, the Mono Lake isolate delta Proteobac-
+terium MLMS-1, and the methanogenic archaeon Methanosarcina
+acetivorans. Many of the species that encode multiple [Ni,Fe]-
+CODHs have been described as having the ability to utilize CO for
+both energy conservation and carbon acquisition, or energy con-
+servation alone. Several of the gene clusters have genomic contexts
+that indicate probable primary functions such as metal reduction,
+oxidative stress responses, and cofactor reduction. In addition, the
+important human pathogens Clostridium difﬁcile and Clostridium
+botulinum both possess two copies of [Ni,Fe]-CODHs, suggest-
+ing a role for [Ni,Fe]-CODHs in their physiology. The majority
+of [Ni,Fe]-CODHs found in our analysis occur in strains whose
+modes of CO utilization are not yet established, and therefore
+more CO-related physiological traits are likely to be discovered in
+the future.
+
+PHYLOGENETIC ANALYSIS OF [Ni,Fe]-CODH SEQUENCES REVEALS
+SEVERAL DISTINCT CLADES
+A dataset of all of the [Ni,Fe]-CODHs from the IMG database
+was used to reconstruct the phylogeny of [Ni,Fe]-CODHs. Both
+ML and BI phylogenetic analyses were used. The phylogenetic
+trees (Figures 1A,B) constructed from both methods were con-
+gruent, therefore only the ML trees are shown in subsequent
+ﬁgures. These trees both detail six distinct, strongly supported
+clades (greater than 50% boostraps for ML trees, with most nodes
+supported at >86%, and Bayesian posterior support of greater
+than or equal to 0.99). While the branching pattern within clades
+differs slightly between ML and BI, the composition of all six
+clades in both ML and BI trees are identical (Table S3 in Sup-
+plemental Material). The distribution of sequences within these
+clades greatly expands our knowledge of the organisms that encode
+[Ni,Fe]-CODHs as well as the potential mechanisms for their
+evolution.
+
+FUNCTIONAL ANALYSIS OF [Ni,Fe]-CODH CLADES
+Analysis of the genomic context was performed so that the [Ni,Fe]-
+CODH sequences were binned according to four categories: (1)
+within an acetyl-CoA synthase gene cluster, (2) adjacent to an
+ECH gene cluster, (3) adjacent to a cooF electron transfer protein,
+and (4) not adjacent to a cooF gene. These categories were plotted
+on the ML phylogenetic tree displayed in a circular format which
+was color coded according to the genomic context of the CODHs
+(Figure 2).
+
+SUMMARY OF [Ni,Fe]-CODH CLADES
+Clade A is composed of sequences corresponding to the Cdh-type
+CODHs, which occur almost exclusively in the Archaea and for the
+most part cluster in the genomes as part of the ﬁve-subunit acetyl-
+CoA decarbonylase/synthase (ACDS) complex (Terlesky et al.,
+
+April 2012 | Volume 3 | Article 132 | 3
+
+Techtmann et al.
+
+Anaerobic carbon monoxide dehydrogenase HGT
+
+FIGURE 1 | Unrooted phylogenetic trees of the [Ni,Fe]-CODH amino
+acid sequences encoded by IMG genomes were constructed from (A)
+Maximum Likelihood and (B) Bayesian Inference algorithms. Bootstrap
+values as a percentage of 1000 replicates or Bayesian posterior
+
+probabilities are shown for the deep branches deﬁning the six
+[Ni,Fe]-CODH clades. The compositions of all six clades in both ML and BI
+trees are identical (see Figure A1 in Appendix and Table S3 in
+Supplemental Material).
+
+1986; Grahame, 1991; Kocsis et al., 1999; Gencic et al., 2010). Only
+one bacterium, the deep subsurface pioneer species Candidatus
+Desulforudis audaxviator, has a typical archaeal Cdh-type ACDS
+complex (Chivian et al., 2008).
+
+Clade B contains [Ni,Fe]-CODHs from an eclectic group of
+Bacteria, the majority comprising either gut microbiota or putative
+cellulose degraders. This clade includes species found in diverse
+enteric environments ranging from cow rumen isolates such as
+Ruminococcus spp. to constituents of the human gut microbiome
+such as Campylobacter spp. However, this clade also includes
+metal reducing Geobacter species, as well as two phototrophs,
+
+Chlorobium phaeobacteroides and Chlorobaculum parvum. These
+phototrophs and the second of two CooS sequences from the
+homoacetogen Moorella thermoacetica form the most deeply
+branching members of this clade. None of the sequences in Clade
+B is linked to any other known CO-related genes.
+
+Clade C is composed primarily of clostridial species. Most of
+the strains within this clade are found as members of the human
+microbiome. A large proportion of the [Ni,Fe]-CODH sequences
+within this clade are one of two CooS homologs found in many
+strains of the human pathogens C. botulinum and C. difﬁcile. A
+large number of these sequences are found adjacent to cooF genes,
+
+Frontiers in Microbiology | Evolutionary and Genomic Microbiology
+
+April 2012 | Volume 3 | Article 132 | 4
+
+Techtmann et al.
+
+Anaerobic carbon monoxide dehydrogenase HGT
+
+FIGURE 2 | Maximum likelihood phylogeny from Figure 1A
+drawn as an unrooted circular tree. IMG Gene ID numbers are
+shown in parentheses after sequence names. The genomic context
+for each of the [Ni,Fe]-CODH sequences is shown by coloring of the
+tip labels. Blue indicates CODH occurrence within an ACS gene
+
+cluster. Purple indicates CODH adjacent to an energy-converting
+hydrogenase gene cluster. Green indicates that the CODH is
+adjacent to a cooF gene. Black indicates that the CODH is not
+linked to a cooF gene. Bootstrap values are shown as a percentage
+derived from 1000 replicates.
+
+suggesting that these [Ni,Fe]-CODHs are able to use CooF to
+transfer electrons to other functional proteins. Thus it is possi-
+ble that these [Ni,Fe]-CODHs are coupled to a broad range of
+functional processes including disease-related physiology. Further
+biochemical investigation is required to determine the function of
+the [Ni,Fe]-CODHs within this clade. The most deeply branch-
+ing members of this clade are unlinked [Ni,Fe]-CODHs from
+hyperthermophilic methanogens including several Methanocaldo-
+coccus species and Methanopyrus kandleri. The organisms within
+this clade thus span an extraordinary phylogenetic range, from
+Bacteria through Euryarchaeota and likely participate in diverse
+pathways for CO utilization.
+
+All of the [Ni,Fe]-CODH sequences within Clade D were found
+to be “lone” cooS genes, that is, not found in genomic context with
+known CO-metabolism related genes. The most deeply branch-
+ing group of Clade D is a subclade composed of a few alkaliphilic
+bacteria. Another deeply branching group in Clade D is from Eur-
+yarchaeal species, either methanogens or Archaeoglobaceae. One
+
+of the subgroups of Clade D contains sequences from the sec-
+ond class of C. botulinum [Ni,Fe]-CODH sequences among other
+Clostridium spp. A third group of sequences within Clade D is
+composed of sequences similar to CooS-V from C. hydrogeno-
+formans. The C. hydrogenoformans CooS-V was described in the
+genome analysis of C hydrogenoformans as being unique, since it
+is the only one of the ﬁve [Ni,Fe]-CODH genes in this genome
+without a putative function, and is not directly linked to other
+genes that could provide a contextual clue as to its function
+(Wu et al., 2005). The majority of Clade D [Ni,Fe]-CODH genes
+are encoded in genomes that also encode other [Ni,Fe]-CODH
+genes.
+
+Clade E is the largest and most eclectic clade, composed
+of several subclades. Representatives of each of the four func-
+tional categories used in this study are found in Clade E. One
+of the Clade E subclades is dominated by clostridial and delta
+proteobacterial [Ni,Fe]-CODHs found within ACS gene clusters.
+This group of sequences includes the majority of the known
+
+www.frontiersin.org
+
+April 2012 | Volume 3 | Article 132 | 5
+
+Techtmann et al.
+
+Anaerobic carbon monoxide dehydrogenase HGT
+
+bacterial CODH/ACS gene clusters. Another large subclade in
+Clade E contains sequences from sulfate reducing bacteria as well
+as methanogenic archaea. A noteable feature of one more subclade
+within Clade E is a group of [Ni,Fe]-CODHs from Thermococcus
+spp. that are linked to ECH in these Euryarchaeota. These thermo-
+cocci have the ability to couple the anaerobic oxidation of CO to
+hydrogen production, via a conserved [Ni,Fe]-CODH-ECH gene
+cluster (Lim et al., 2010).
+
+Clade F is numerically small, however members in all of the four
+functional categories are represented in this group of CODHs.
+The four C. hydrogenoformans [Ni,Fe]-CODH gene clusters in
+Clade F have been assigned different metabolic functions based
+on biochemical characterization as well as their genetic linkages
+to other functional genes (Wu et al., 2005). For example, the
+well-characterized [Ni,Fe]-CODH–ECH gene clusters originally
+described in R. rubrum and C. hydrogenoformans are assigned
+to this clade. In addition to these well-characterized [Ni,Fe]-
+CODH–ECH operons there are several other ECH-clustered
+CODHs within Clade F. Another subgroup within Clade F contains
+bacterial CODH/ACS gene clusters.
+
+Clade F also contains many characterized [Ni,Fe]-CODHs with
+representatives from each of the four functional classes used in
+this study. Many of these have been characterized structurally and
+biochemically (Svetlitchnyi et al., 2001, 2004; Soboh et al., 2002;
+Volbeda and Fontecilla-Camps, 2005). These biochemical studies
+establish Clade F as encompassing the greatest known functional
+diversity of [Ni,Fe]-CODH gene clusters.
+
+THE GENOME OF T. CARBOXYDIVORANS ENCODES A MINIMAL CooS
+HOMOLOG
+The genome of T. carboxydivorans encodes three [Ni,Fe]-CODH
+homologs. One of
+these homologs is highly similar to the
+hydrogenase-linked [Ni,Fe]-CODH from C. hydrogenoformans. A
+second [Ni,Fe]-CODH is highly similar to the CODH-V from C.
+hydrogenoformans. The third [Ni,Fe]-CODH homolog however
+is distinct from all known [Ni,Fe]-CODH sequences (Figure 3).
+Other known [Ni,Fe]-CODH sequences are 600–800 amino acid
+residues long. This divergent mini-CooS has only 482 amino acid
+residues and its short length does not result from frameshift trun-
+cation. Upon alignment with other [Ni,Fe]-CODH sequences, it is
+
+FIGURE 3 | Phylogenetic position of the mini-CooS from Thermosinus
+carboxydivorans. A maximum likelihood tree was built from a MUSCLE
+alignment of representative sequences selected from all of the [Ni,Fe]-CODH
+
+clades deﬁned by Figure 1 as well as the mini-CooS from T. carboxydivorans.
+The tree was bootstrapped with 1000 replicates,which are shown as
+percentage values at the nodes in the tree.
+
+Frontiers in Microbiology | Evolutionary and Genomic Microbiology
+
+April 2012 | Volume 3 | Article 132 | 6
+
+Techtmann et al.
+
+Anaerobic carbon monoxide dehydrogenase HGT
+
+apparent that its small size can be accounted for by many deletions
+of varying size relative to standard size CooS genes (Figure 4), how-
+ever the mini-CooS seems to retain all of the important domains
+of typical CODHs, suggesting that it may be functional (Figure 4).
+Dobbek et al. (2004) solved the prototype crystal structure for the
+CooS-II from C. hydrogenoformans which revealed three metal
+binding clusters (Clusters B, C, and D), each with separate metal
+coordinating domains with conserved Cys and His residues essen-
+tial for CODH activity. Interestingly, the 11 Cys residues and the
+His residue coordinating these clusters are all conserved in the
+minimal CooS from T. carboxydivorans. Hydroxylamine reduc-
+tases share some sequence similarity with CooS, but they all lack
+some of the conserved Cys residues that locate the metal clusters
+in CooS. The proximity in the genome of the minimal cooS gene
+to a cooF gene provides further evidence for its involvement in
+CO-metabolism.
+
+EVIDENCE FOR HGT OF THE [NI,FE]-CODH-ECH GENE CLUSTER OF
+THERMOSINUS CARBOXYDIVORANS
+The genome sequence of T. carboxydivorans provides insights into
+the ability of microbes to utilize CO as a versatile electron donor
+as well as potential mechanisms for acquisition of [Ni,Fe]-CODH
+operons and the evolution of multi-[Ni,Fe]-CODH genotypes.
+As mentioned previously, the draft T. carboxydivorans genome
+sequence revealed three CODH gene clusters. The [Ni,Fe]-CODH-
+ECH gene cluster is highly similar in sequence and gene content
+to the homologs found in C. hydrogenoformans and R. rubrum
+as shown in Figure 5. In R. rubrum, this gene cluster has been
+
+shown to comprise two operons: a CODH operon, which con-
+tains a cooS gene and the gene for a nickel–iron, electron transfer
+protein (cooF), and the adjacent membrane-bound hydrogenase
+operon. The [Ni,Fe]-CODH-ECH gene clusters are composed of
+similar sets of genes in R. rubrum, C. hydrogenoformans, and T. car-
+boxydivorans. In C. hydrogenoformans, the [Ni,Fe]-CODH–ECH
+gene cluster probably comprises two operons (there is an inter-
+genic space approximately 100 nt long between the hypA gene and
+the cooF gene). In T. carboxydivorans, there is no intergenic space
+or putative promoter sequences between the ECH and CODH
+sections of the gene cluster, suggesting that it forms a single operon.
+Nevertheless, the CODH and the clustered genes encoding the
+seven subunits of the membrane-bound hydrogenase from T. car-
+boxydivorans are highly similar to the corresponding genes from C.
+hydrogenoformans, in both gene order and in nucleotide sequence.
+The 11.3 kb operon that comprises the [Ni,Fe]-CODH–ECH gene
+cluster in T. carboxydivorans is 84% identical on the nucleotide
+level to the homologous gene cluster in C. hydrogenoformans, an
+observation that prompted us to examine these gene clusters for
+quantiﬁable evidence of HGT.
+Several in silico methods have been proposed as indicators
+of HGT. G+ C content has been a well-established and simple
+method for predicting HGT (Lawrence and Ochman, 1998). The
+G+ C content of the T. carboxydivorans genome is 51.6% whereas
+the G+ C content of its 11.3-kb [Ni,Fe]-CODH–ECH operon
+is 43.4%, which is similar to the overall G+ C content of C.
+hydrogenoformans genome (42.0%). The G+ C% of the [Ni,Fe]-
+CODH-ECH gene cluster from C. hydrogenoformans (44%) is very
+
+FIGURE 4 | The mini-CooS from Thermosinus carboxydivorans
+contains conserved residues essential for CODH activity. An alignment
+of Carboxydothermus hydrogenoformans CooS-II, the Cdh-type CODH of
+Methanothermobacter thermautotrophicus (MTH1708), Thermosinus
+carboxydivorans mini-CooS, and Thermincola potens hydroxylamine
+reductase TherJR_2940 was constructed. Dobbek et al. (2001) deﬁned
+
+three sites as being essential for CooS activity. Cluster C (purple), B (red),
+and D (green). All of these residues are present in the C.
+hydrogenoformans CooS-II, M. thermoautotrophicus Cdh, and T.
+carboxydivorans minimal CooS. Many of these residues are absent in the
+hydroxylamine reductase. The sequences were aligned with MAFFT
+v6.861b (http://mafft.cbrc.jp/alignment/server/index.html).
+
+www.frontiersin.org
+
+April 2012 | Volume 3 | Article 132 | 7
+
+Techtmann et al.
+
+Anaerobic carbon monoxide dehydrogenase HGT
+
+FIGURE 5 | Gene topology for the hydrogenase – CODH gene clusters
+from C. hydrogenoformans,T. carboxydivorans, and R. rubrum.
+Homologous genes are colored similarly between operons. The C.
+hydrogenoformans and T. carboxydivorans gene clusters are identical except
+for displacement of the associated cooC gene and presence of intergenic
+
+space between hypA and the cooF in C. hydrogenoformans. Additionally the T.
+carboxydivorans cooA gene is located 254 kb away from the rest of the gene
+cluster. While the R. rubrum gene cluster has many of the same genes, there
+are notable differences in the genes encoding the hydrogenase accessory
+proteins (i.e., presence of cooT and cooJ in R. rubrum instead of hypA).
+
+similar to the overall G+ C% of the C. hydrogenoformans genome
+(Wu et al., 2005).
+Because G+ C content alone is considered to be an inadequate
+criterion to detect HGT (Garcia-Vallve et al., 2000) we sought
+other criteria to distinguish the [Ni,Fe]-CODH–ECH gene clus-
+ter in T. carboxydivorans from the genome at large. In a recent
+paper, additional methods for determining HGT were evaluated
+(Becq et al., 2010). Tetranucleotide frequency and codon usage
+similarity quantiﬁed with K–L divergence were proposed as the
+most accurate metrics for predicting HGT. We compared the
+[Ni,Fe]-CODH–ECH gene clusters of T. carboxydivorans and C.
+hydrogenoformans with the full genome sequences of T. carboxydi-
+vorans, C. hydrogenoformans, with K–L analysis using the genome
+of E. coli K12 as a control to determine if these two CODH-I gene
+clusters are divergent from the genomes at large (Table 1).
+
+The T. carboxydivorans [Ni,Fe]-CODH–ECH gene cluster was
+compared to the T. carboxydivorans genome using tetranucleotide
+frequency, resulting in a K–L divergence of 0.217. When codon
+usage was used as the metric, the K–L divergence was 0.133. The
+threshold values of 0.05 and 0.1 for K–L divergence of codon usage
+and tetranucleotide frequency respectively were used to determine
+similarity. By both metrics the T. carboxydivorans [Ni,Fe]-CODH–
+ECH gene cluster is signiﬁcantly different from the T. carboxy-
+divorans genome. As a control, the tetranucleotide frequency
+and codon usage of the genes encoding the T. carboxydivorans
+[Ni,Fe]-CODH–ECH gene cluster were compared to those of the
+E. coli K12 genome. K–L divergences for this comparison are
+0.116 and 0.212 for tetranucleotide frequency and codon usage
+
+respectively. These results conﬁrmed that the threshold values are
+appropriate for specifying similarity. The K–L divergence of the T.
+carboxydivorans [Ni,Fe]-CODH–ECH gene cluster vs. the T. car-
+boxydivorans genome is thus greater than the K–L distance of the
+T. carboxydivorans [Ni,Fe]-CODH–ECH gene cluster vs. the E. coli
+K12 genome. Based on these metrics it appears that the [Ni,Fe]-
+CODH–ECH gene cluster from T. carboxydivorans is signiﬁcantly
+divergent from the T. carboxydivorans genome at large.
+
+The same analysis was performed to examine whether the C.
+hydrogenoformans [Ni,Fe]-CODH–ECH gene cluster is similar to
+rest of the C. hydrogenoformans genome. The K–L divergences
+comparing tetranucleotide frequency and codon usage for the C.
+hydrogenoformans [Ni,Fe]-CODH–ECH gene cluster against the
+C. hydrogenoformans genome are 0.023 and 0.075 respectively.
+Again E. coli K12 was used as a control and the K–L divergences
+for tetranucleotide frequency and codon usage are 0.155 and 0.236
+respectively. The K–L divergences comparing the C. hydrogeno-
+formans [Ni,Fe]-CODH–ECH gene cluster with the rest of the
+genome are well below the cutoff values and therefore suggest that
+the C. hydrogenoformans CODH-I gene cluster is equilibrated with
+the C. hydrogenoformans genome.
+
+The K–L divergences for the comparison of tetranucleotide fre-
+quency and codon usage of the T. carboxydivorans [Ni,Fe]-CODH–
+ECH gene cluster against the C. hydrogenoformans genome are
+0.048 and 0.088. These K–L divergences are below the cutoff
+values, indicating that the T. carboxydivorans [Ni,Fe]-CODH–
+ECH gene cluster is remarkably similar in composition to the C.
+hydrogenoformans genome.
+
+Frontiers in Microbiology | Evolutionary and Genomic Microbiology
+
+April 2012 | Volume 3 | Article 132 | 8
+
+Techtmann et al.
+
+Anaerobic carbon monoxide dehydrogenase HGT
+
+Table 1 | Kullback–Leibler divergence comparing codon usage (bold) and tetranucleotide frequency (Italics) for various combinations of the
+C. hydrogenoformans,T. carboxydivorans, and E. coli K12 genomes and the C. hydrogenoformans and T. carboxydivorans CODH-ECH gene
+clusters.
+
+C. hydrogenoformans
+genome
+
+T. carboxydivorans
+genome
+
+C. hydrogenoformans
+CODH–ECH cluster
+
+T. carboxydivorans
+CODH–ECH cluster
+
+E. coli K12
+genome
+
+C. hydrogenoformans genome
+T. carboxydivorans genome
+C. hydrogenoformans CODH–ECH cluster
+T. carboxydivorans CODH–ECH cluster
+E. coli K12 genome
+
+0
+0.143
+0.075
+0.088
+0.170
+
+0.302
+0
+0.154
+0.133
+0.153
+
+0.023
+0.202
+0
+0.036
+0.236
+
+0.048
+0.217
+0.016
+0
+0.212
+
+0.155
+0.098
+0.115
+0.116
+0
+
+DISCUSSION
+The burgeoning release of microbial genomes has revealed that
+the ability to utilize CO is a surprisingly common trait shared by
+a diverse collection of bacteria and archaea. Phylogenetic analysis
+of [Ni,Fe]-CODHs revealed extensive diversity of [Ni,Fe]-CODH
+sequences in 6% of the released microbial genomes. Most of these
+species have primary physiologies not related to CO metabolism
+and have not been scored for CO utilization. Among [Ni,Fe]-
+CODH encoding species, more than 40% encode more than one
+CODHs. This previously unexplored diversity of sequences has the
+potential to provide insights into both the function and evolution
+of this important protein family. For the most part the multiple
+[Ni,Fe]-CODHs encoded by the same organism are not close rel-
+atives. This suggests that these multiple [Ni,Fe]-CODHs in one
+genome are not the result of recent gene duplications.
+
+Our phylogenetic analysis conﬁrms prior work which has
+shown that there is a clear distinction between the bacterial-type
+CODH/ACS and the archaeal-type CODH/ACDS. The clade com-
+posed of the archaeal-type CODH/ACDS is populated by archaea
+with one noteable exception. There is a sequence for an archaeal-
+like CODH/ACDS found in the genome of the deep subsurface
+bacterium Candidatus D. audaxviator, which was the sole detected
+inhabitant of subterranean efﬂuent waters in a South African gold
+mine 2.8 km below the surface (Chivian et al., 2008). So far the
+CODH/ACDS from D. audaxviator is the only sequence of a
+CODH/ACDS found in a bacterial genome, supporting the notion
+that D. audaxviator acquired this CODH/ACDS via a HGT event
+from an archaeon.
+
+Aside from D. audaxviator’s CODH/ACDS it is difﬁcult to dis-
+tinguish putative HGT events of [Ni,Fe]-CODHs from vertical
+descent solely from phylogenetic analysis. There are many exam-
+ples of [Ni,Fe]-CODH clades that are composed of organisms that
+are not related to one another phylogenetically. For example, in
+clades C, D, and E, archaeal [Ni,Fe]-CODHs form deep branches
+of a clade composed primarily of [Ni,Fe]-CODHs from bacterial
+species, tempting us to infer that these sequences may be the result
+of ancient inter-domain HGTs. However, the disparity between the
+16S rRNA phylogeny and the [Ni,Fe]-CODH phylogeny recon-
+structed here could result from functional distinctions between
+CODH lineages. We assume that the function of [Ni,Fe]-CODHs
+is determined by their associated proteins encoded within gene
+clusters, since this has been observed in many cases. Therefore,
+the CODH proteins from one clade may have evolved to associate
+with accessory proteins more often clustered with another clade
+
+member, resulting in [Ni,Fe]-CODHs with similar functions to
+have convergent sequence motifs, even if originating from different
+evolutionary starting points.
+
+It is difﬁcult at this stage to assess with accuracy whether the
+[Ni,Fe]-CODH phylogeny is due to divergence along functional
+lines as described above, due to the fact that only [Ni,Fe]-CODHs
+from clades A and F have been deﬁnitively characterized bio-
+chemically. In an effort to clearly elucidate the branching pattern
+seen in the global [Ni,Fe]-CODH tree shown in Figure 1, we
+have attempted to analyze the genomic context of each of the
+[Ni,Fe]-CODHs in the tree. The function of a [Ni,Fe]-CODH is
+often determined by the accessory proteins with which it asso-
+ciates. In many genomes, these accessory proteins are encoded in
+the same operon or adjacent to the [Ni,Fe]-CODH. The analy-
+sis of the genomic context and in turn the implied function of
+the [Ni,Fe]-CODH may help to distinguish vertical descent along
+function-determined lineages from HGT.
+
+The functional tree (Figure 2) shows that on the whole there
+is co-occurrence of clades and genomic context. However there
+are exceptions where the genomic context is not congruent with
+clades. The best example of genomic context being congruent with
+phylogenetic lineage is in the case of the archaeal CODH/ACDS
+(Figure 2, Clade A). Aside from a few isolated cases, namely A.
+fulgidus and M. acetivorans, the remaining members are found
+within the context of the CODH/ACDS operon. It is most pos-
+sible that in the cases of the exceptions, genomic context does
+not reﬂect functional cooperation. For the most part, however,
+Clade A is predominated by species from the domain Archaea and
+with [Ni,Fe]-CODHs with a conserved genomic context (ACDS
+clusters).
+
+The bacterial side of the tree is not as straightforward. There are
+many cases in which genomic context does appear to be correlated
+with appearance in a common clade. Also, there are a few exam-
+ples where similar functions are found in two different clades. The
+well-characterized physiology of hydrogenogenic carboxydotro-
+phy is encoded by a [Ni,Fe]-CODH linked to an ECH. In this
+phylogenetic tree there are two places in which this gene clus-
+ter is found (Clade E and Clade F). While it may be difﬁcult to
+explain this phenomenon in terms of vertical descent, it is clear
+that unlike the CODHs in Clade A the [Ni,Fe]-CODH–ECH gene
+cluster is not the result of simple vertical descent from an ancestral
+[Ni,Fe]-CODH–ECH.
+
+Another example of correlation of the genomic context with
+the tree topology is provided by the absence of CooS/ACS gene
+
+www.frontiersin.org
+
+April 2012 | Volume 3 | Article 132 | 9
+
+Techtmann et al.
+
+Anaerobic carbon monoxide dehydrogenase HGT
+
+clusters beyond clades E and F. This could indicate that CooS/ACS
+sequences have evolved by vertical inheritance and the presence
+of phylogenetically diverse hosts within these clades is not due to
+HGT but is a result of conservation of function. However, like the
+CODH–ECH gene cluster, the CODH/ACS gene cluster is present
+in three clades. Again this points to a more complex evolutionary
+history, which may indicate that this gene cluster has arisen more
+than once during the course of evolution or potentially a more
+complex mechanism involving HGT and genome rearrangements.
+By overlaying known functional categories onto the phyloge-
+netic tree we were able to clarify some of the phylogenetic history of
+[Ni,Fe]-CODHs. However much work needs to be done to further
+clarify the function of the many of the remaining [Ni,Fe]-CODHs.
+Since it appears that in some cases the clades fall along func-
+tional boundaries, the question of the role of HGT as a means of
+acquisition of [Ni,Fe]-CODHs could be more clearly addressed by
+examining unrelated species that possesses [Ni,Fe]-CODHs that
+are highly similar in sequence and function. One such example
+is found in the [Ni,Fe]-CODH–ECH of Clade F. C. hydrogeno-
+formans and T. carboxydivorans are two thermophiles from the
+Phylum Firmicutes but are from two divergent classes, Clostridia
+and Negativicutes, respectively. While these organisms share a
+common physiology they represent widely separated phylogenetic
+lineages. They both possess [Ni,Fe]-CODH–ECH homologous
+gene clusters with high similarity to each other (84% nucleotide
+identity). For this reason we set out to investigate whether the
+[Ni,Fe]-CODH–ECH gene cluster could have been acquired by
+T. carboxydivorans via an HGT event. Analysis of G+ C content,
+tetranucleotide frequency, and codon usage support the hypoth-
+esis that the CODH – ECH gene cluster was assimilated by T.
+carboxydivorans via HGT.
+
+Based on the high similarity between the hydrogenase – CODH
+gene clusters of T. carboxydivorans and C. hydrogenoformans and
+on the ﬁtness of the T. carboxydivorans [Ni,Fe]-CODH–ECH to
+the C. hydrogenoformans genome in terms of tetranucleotide fre-
+quency and codon usage patterns, it is tempting to propose that T.
+carboxydivorans obtained this operon by HGT from C. hydrogeno-
+formans or a closely related species. However, closer examination
+of the data indicate that there may have been a recent transfer from
+a relative of C. hydrogenoformans or else a more ancient transfer
+from an ancestor of C. hydrogenoformans into the T. carboxydi-
+vorans lineage. First, the nucleotide identity of the gene clusters,
+although high (84%), is lower than the ANI value of 95–96%
+shown to delimit microbial species (Goris et al., 2007; Richter
+and Rossello-Mora, 2009; Tindall et al., 2010). Second, whereas
+in C. hydrogenoformans the cluster seems to comprise two oper-
+ons, T. carboxydivorans appears likely to encode a single operon
+(Figure 5). Third, the order of genes in the gene clusters from T.
+carboxydivorans and C. hydrogenoformans has been switched by the
+relocation of cooC (Figure 5). The rearrangements suggest further
+evolution in T. carboxydivorans or C. hydrogenoformans following
+a horizontal transfer. The location of the regulator gene cooA apart
+from the [Ni,Fe]-CODH–ECH gene cluster in T. carboxydivorans
+also suggests that there is ongoing genome reordering of the
+CO-related genes in this isolate, or may be interpreted as the acqui-
+sition of cooA that occurred independently from the acquisition
+of the [Ni,Fe]-CODH–ECH gene cluster. One of the two cooA
+
+genes (cooA-1) in C. hydrogenoformans is directly upstream of its
+[Ni,Fe]-CODH–ECH gene cluster. The lone cooA homolog in the
+genome of T. carboxydivorans is a homolog of C hydrogenoformans
+cooA-1 and is separated by 252 kb from the hydrogenase – CODH
+gene cluster. Interestingly, the T. carboxydivorans cooA is ﬂanked
+by transposes and phage-related genes, which are known to be
+mediators of genomic rearrangement and HGT (Ochman et al.,
+2000).
+
+The T. carboxydivorans genome also contains the smallest gene
+predicted to contain all of the conserved CooS features. This
+putative CODH is 428 amino acid residues long compared with
+typical [Ni,Fe]-CODHs that range from approximately 600 to 800
+residues long. This “mini-CooS” has been placed in a separate
+multiple alignment that gave rise to the ML analysis shown in
+Figure 3. Taking into account (i) the acquisition of the hydroge-
+nase – [Ni,Fe]-CODH gene cluster via HGT, which we substan-
+tiate in this paper, (ii) the separate location of the cooA gene,
+and (iii) the fact that the G+ C content of the gene encod-
+ing the unusual small cooS is about 10 mol% higher than that
+of the genome. Therefore, we speculate that the assemblage of
+the carboxydotrophic hydrogenogenic phenotype in T. carboxy-
+divorans is an evolutionarily recent event, suggesting that rapid
+genome evolution is under way to accommodate selection for CO
+utilization.
+
+Due to the large number of species that have been shown to
+encode multiple CODHs, it seems probable that multiple [Ni,Fe]-
+CODH operons increase the ﬁtness of an organism in CO-rich
+milieus by providing divergent metabolic pathways through which
+CO can be metabolized. The consumption of CO by indepen-
+dent pathways providing energy conservation, carbon ﬁxation,
+and nicotinamide coenzyme reduction are now well-established.
+On a broader scale, in microbial consortia, CO utilization has
+the additional communal beneﬁt of dissipating a potentially toxic
+compound (Parshina et al., 2005; Techtmann et al., 2009). Our
+recent work revealed that adaptive regulation of expression of
+multiple [Ni,Fe]-CODH operons by dual cooA genes may par-
+tition CO between multiple competing pathways in response to
+varying needs for energy conservation and carbon acquisition
+across a wide range of CO concentrations (Techtmann et al.,
+2011).
+
+In conclusion, we have developed a comprehensive phylogeny
+for [Ni,Fe]-CODHs which revealed the presence of six distinct
+clades. Comparison of the genomic contexts with CooS phylogeny
+suggests that several clades diverged based on function. These
+clades appear to be evolving via vertical descent. However there are
+a few CO-related metabolic functions that are spread throughout
+various clades on the tree either indicating different evolutionary
+events or HGT. It seems likely that both HGT and vertical trans-
+mission have driven the remarkable divergence of [Ni,Fe]-CODHs
+currently seen in both archaea and bacteria
+
+ACKNOWLEDGMENTS
+This work was funded by the US National Science Foundation
+through award numbers EAR 0747394 (Frank T. Robb), EAR
+0747412 (Albert S. Colman), and MCB 0605301 (Frank T. Robb
+and Albert S. Colman). The work of Alexander V. Lebedinsky
+and Tatyana G. Sokolova has been supported by the Russian
+
+Frontiers in Microbiology | Evolutionary and Genomic Microbiology
+
+April 2012 | Volume 3 | Article 132 | 10
+
+Techtmann et al.
+
+Anaerobic carbon monoxide dehydrogenase HGT
+
+Foundation for Basic Research (project number 11-04-01723-a),
+federal targeted program for 2009–2013 “Scientiﬁc and Pedagog-
+ical Personnel of Innovative Russia” (GK number P646), and the
+program of the Presidium of the Russian Academy of Sciences
+“Molecular and Cell Biology.” The sequencing work conducted
+by the U.S. Department of Energy Joint Genome Institute is sup-
+ported by the Ofﬁce of Science of the U.S. Department of Energy
+under Contract No. DE-AC02-05CH11231. We are indebted to
+our reviewers for helpful comments on phylogenetic methods.
+This is Contribution 11-230 from the Institute of Marine and
+Environmental Technology.
+
+SUPPLEMENTAL MATERIAL
+The Supplementary Material for this article can be found online at
+http://www.frontiersin.org/Evolutionary_and_Genomic_Micro
+biology/10.3389/fmicb.2012.00132/abstract
+
+Table S1 | [Ni,Fe]-CODH sequences found in the IMG database as of
+October 1, 2011.
+
+Table S2 | Genomes encoding multiple [Ni,Fe]-CODH homologs.
+
+Table S3 | Composition of the six [Ni,Fe]-CODH clades of both the ML and
+BI phylogenetic trees.
+
+REFERENCES
+Altschul, S. F., Gish, W., Miller, W.,
+Myers, E. W., and Lipman, D. J.
+(1990). Basic local alignment search
+tool. J. Mol. Biol. 215, 403–410.
+
+Becq, J., Churlaud, C., and Descha-
+vanne, P.
+(2010). A benchmark
+of parametric methods for hor-
+izontal
+transfers detection. PLoS
+ONE 5, e9989. doi:10.1371/jour-
+nal.pone.0009989
+
+Chivian, D., Brodie, E. L., Alm, E. J.,
+Culley, D. E., Dehal, P. S., Desan-
+tis, T. Z., Gihring, T. M., Lapidus,
+A., Lin, L. H., Lowry, S. R., Moser,
+D. P., Richardson, P. M., Southam,
+G., Wanger, G., Pratt, L. M., Ander-
+sen, G. L., Hazen, T. C., Brockman,
+F. J., Arkin, A. P., and Onstott, T.
+C. (2008). Environmental genomics
+reveals a single-species ecosystem
+deep within Earth. Science 322,
+275–278.
+
+Dobbek, H., Gremer, L., Meyer, O.,
+and Huber, R.
+(1999). Crystal
+structure and mechanism of CO
+dehydrogenase, a molybdo iron-
+sulfur ﬂavoprotein containing S-
+selanylcysteine. Proc. Natl. Acad. Sci.
+U.S.A. 96, 8884–8889.
+
+Dobbek, H., Svetlitchnyi, V., Gre-
+mer, L., Huber, R., and Meyer, O.
+(2001). Crystal structure of a carbon
+monoxide dehydrogenase reveals a
+[Ni-4Fe-5S] cluster. Science 293,
+1281–1285.
+
+Dobbek, H., Svetlitchnyi, V., Liss, J., and
+Meyer, O. (2004). Carbon monoxide
+induced decomposition of the active
+site [Ni-4Fe-5S] cluster of CO dehy-
+drogenase. J. Am. Chem. Soc. 126,
+5382–5387.
+
+Drummond, A.
+
+J.,
+
+and Rambaut,
+A. (2007). BEAST: Bayesian evo-
+lutionary
+sampling
+trees. BMC Evol. Biol. 7, 214.
+doi:10.1186/1471-2148-7-214
+
+analysis by
+
+Edgar, R. C. (2004a). MUSCLE: a mul-
+tiple sequence alignment method
+with reduced time and space com-
+plexity. BMC Bioinformatics 5, 113.
+doi:10.1186/1471-2105-5-113
+
+Edgar, R. C. (2004b). MUSCLE: mul-
+tiple sequence alignment with high
+
+accuracy
+Nucleic Acids Res. 32, 1792–1797.
+
+and high throughput.
+
+Ewing, B., and Green, P.
+
+(1998).
+Base-calling of automated sequencer
+traces using phred. II. Error proba-
+bilities. Genome Res. 8, 186–194.
+
+Ewing, B., Hillier, L., Wendl, M.
+C., and Green, P. (1998). Base-
+calling of
+automated sequencer
+traces using phred.
+I. Accuracy
+assessment. Genome Res. 8, 175–185.
+Ferry, J. G. (1995). CO dehydrogenase.
+
+Annu. Rev. Microbiol. 49, 305–333.
+
+Gao, F., and Zhang, C. T. (2006). GC-
+Proﬁle: a web-based tool for visual-
+izing and analyzing the variation of
+GC content in genomic sequences.
+Nucleic Acids Res. 34, W686–W691.
+Garcia-Vallve, S., Romeu, A., and Palau,
+J. (2000). Horizontal gene trans-
+fer in bacterial and archaeal com-
+plete genomes. Genome Res. 10,
+1719–1725.
+
+Gencic, S., Duin, E. C., and Grahame, D.
+A. (2010). Tight coupling of partial
+reactions in the acetyl-CoA decar-
+bonylase/synthase (ACDS) multien-
+zyme complex from Methanosarcina
+thermophila: acetyl C-C bond frag-
+mentation at the a cluster promoted
+by protein conformational changes.
+J. Biol. Chem. 285, 15450–15463.
+
+Gnida, M., Ferner, R., Gremer, L., Meyer,
+O., and Meyer-Klaucke, W. (2003).
+A novel binuclear [CuSMo] cluster
+at the active site of carbon monox-
+ide dehydrogenase: characterization
+by X-ray absorption spectroscopy.
+Biochemistry 42, 222–230.
+
+Gonzalez,
+
+J. M., and Robb, F. T.
+(2000). Genetic analysis of Carboxy-
+dothermus hydrogenoformans car-
+bon monoxide dehydrogenase genes
+cooF and cooS. FEMS Microbiol.
+Lett. 191, 243–247.
+
+Gordon, D., Abajian, C., and Green, P.
+(1998). Consed: a graphical tool for
+sequence ﬁnishing. Genome Res. 8,
+195–202.
+
+Goris, J., Konstantinidis, K. T., Klappen-
+bach, J. A., Coenye, T.,Vandamme, P.,
+and Tiedje, J. M. (2007). DNA-DNA
+hybridization values and their rela-
+tionship to whole-genome sequence
+
+similarities. Int. J. Syst. Evol. Micro-
+biol. 57, 81–91.
+
+Grahame, D. A. (1991). Catalysis of
+acetyl-CoA cleavage and tetrahy-
+drosarcinapterin methylation by a
+carbon monoxide dehydrogenase-
+corrinoid enzyme complex. J. Biol.
+Chem. 266, 22227–22233.
+
+Han, C. S., and Chain, P. (2006). “Fin-
+ishing repeat regions automatically
+with Dupﬁnisher,” in Proceedings of
+the 2006 International Conference on
+Bioinformatics and Computational
+Biology, eds. H. R. Arabnia and H.
+Valafar (Las Vegas: CSREA Press),
+141–146.
+
+Hugendieck, I., and Meyer, O. (1992).
+The structural genes encoding CO
+dehydrogenase subunits (cox L, M
+and S) in Pseudomonas carboxy-
+dovorans OM5 reside on plas-
+mid pHCG3 and are, with the
+exception of Streptomyces thermoau-
+totrophicus, conserved in carboxy-
+dotrophic bacteria. Arch. Microbiol.
+157, 301–304.
+
+Kerby, R. L., Hong, S. S., Ensign,
+S. A., Coppoc, L. J., Ludden, P.
+W., and Roberts, G. P.
+(1992).
+Genetic and physiological charac-
+terization of
+the Rhodospirillum
+rubrum carbon monoxide dehydro-
+genase system.
+J. Bacteriol. 174,
+5284–5294.
+
+King, G. M. (2003). Uptake of carbon
+monoxide and hydrogen at environ-
+mentally relevant concentrations by
+mycobacteria. Appl. Environ. Micro-
+biol. 69, 7266–7272.
+
+King, G. M. (2006). Nitrate-dependent
+anaerobic carbon monoxide oxida-
+tion by aerobic CO-oxidizing bacte-
+ria. FEMS Microbiol. Ecol. 56, 1–7.
+
+King, G. M.,
+
+and Weber, C. F.
+(2007). Distribution, diversity and
+ecology of aerobic CO-oxidizing
+bacteria. Nat. Rev. Microbiol. 5,
+107–118.
+
+Kocsis, E., Kessel, M., Demoll, E., and
+Grahame, D. A. (1999). Structure
+of
+the Ni/Fe-S protein subcom-
+the acetyl-CoA decar-
+ponent of
+bonylase/synthase
+complex from
+Methanosarcina thermophila at 26-A
+
+resolution.
+165–174.
+
+J. Struct. Biol. 128,
+
+Kullback, S., and Leibler, R. A. (1951).
+On information and sufﬁciency.
+Ann. Math. Stat. 22, 79–86.
+
+Lawrence,
+
+J. G., and Ochman, H.
+archaeology
+(1998). Molecular
+of
+the Escherichia coli genome.
+Proc. Natl. Acad. Sci. U.S.A. 95,
+9413–9417.
+
+Lim,
+
+J. K., Kang, S. G., Lebedin-
+sky, A. V., Lee, J. H., and Lee,
+H. S. (2010). Identiﬁcation of a
+novel class of membrane-bound
+[NiFe]-hydrogenases in Thermococ-
+cus onnurineus NA1 by in silico
+analysis. Appl. Environ. Microbiol.
+76, 6286–6289.
+
+Lindahl, P. A. (2002). The Ni-containing
+carbon monoxide dehydrogenase
+family: light at the end of the tunnel?
+Biochemistry 41, 2097–2105.
+
+Meyer, O., Frunzke, K., and Mörsdorf,
+G. (eds). (1993). Biochemistry of the
+Aerobic Utilization of Carbon Monox-
+ide. Andover, MA: Intercept, Ltd.
+
+Meyer, O., and Rajagopalan, K. V.
+(1984). Molybdopterin in carbon
+monoxide oxidase from carboxy-
+dotrophic bacteria. J. Bacteriol. 157,
+643–648.
+Meyer, O.,
+
+and Schlegel, H. G.
+(1983). Biology of aerobic carbon
+monoxide-oxidizing bacteria. Annu.
+Rev. Microbiol. 37, 277–310.
+
+Miller, M. A., Holder, M. T.,Vos, R., Mid-
+ford, P. E., Liebowitz, T., Chan, L.,
+Hoover, P., and Warnow, T. (2010).
+The CIPRES Portals. CIPRES.
+Available at: http://www.phylo.org/
+sub_sections/portal
+
+Milne, I., Lindner, D., Bayer, M., Hus-
+meier, D., Mcguire, G., Marshall, D.
+F., and Wright, F. (2009). TOPALi
+v2: a rich graphical
+interface for
+evolutionary analyses of multiple
+alignments on HPC clusters and
+multi-core desktops. Bioinformatics
+25, 126–127.
+
+Ochman, H., Lawrence,
+
+J. G., and
+Groisman, E. A. (2000). Lateral
+gene transfer and the nature of
+bacterial
+innovation. Nature 405,
+299–304.
+
+www.frontiersin.org
+
+April 2012 | Volume 3 | Article 132 | 11
+
+Techtmann et al.
+
+Anaerobic carbon monoxide dehydrogenase HGT
+
+Parshina, S. N., Kijlstra, S., Hen-
+stra, A. M., Sipma, J., Plugge, C.
+M., and Stams, A. J. (2005). Car-
+bon monoxide conversion by ther-
+mophilic sulfate-reducing bacteria
+in pure culture and in co-culture
+with Carboxydothermus hydrogeno-
+formans. Appl. Microbiol. Biotechnol.
+68, 390–396.
+
+Ragsdale, S. W. (2004). Life with carbon
+monoxide. Crit. Rev. Biochem. Mol.
+Biol. 39, 165–195.
+
+Ragsdale, S. W. (2008). Enzymology of
+the wood-Ljungdahl pathway of ace-
+togenesis. Ann. N. Y. Acad. Sci. 1125,
+129–136.
+
+Rambaut, A., and Aj, D.
+
+Tracer
+http://beast.bio.ed.ac.uk/Tracer
+
+Available
+
+v1.4.
+
+(2007).
+at:
+
+Richter, M., and Rossello-Mora, R.
+(2009). Shifting the genomic gold
+standard for the prokaryotic species
+deﬁnition. Proc. Natl. Acad. Sci.
+U.S.A. 106, 19126–19131.
+
+characterization
+
+Schubel, U., Kraut, M., Morsdorf,
+G., and Meyer, O. (1995). Mol-
+ecular
+the
+gene cluster coxMSL encoding the
+molybdenum-containing
+carbon
+monoxide dehydrogenase of Olig-
+otropha carboxidovorans. J. Bacteriol.
+177, 2197–2203.
+
+of
+
+Seravalli,
+
+Seravalli, J., Kumar, M., Lu, W. P., and
+Ragsdale, S. W. (1995). Mechanism
+of CO oxidation by carbon monox-
+ide dehydrogenase from Clostridium
+thermoaceticum and its inhibition by
+anions. Biochemistry 34, 7879–7888.
+J., Kumar, M., Lu, W.
+P., and Ragsdale, S. W. (1997).
+Mechanism of carbon monoxide
+oxidation by the carbon monoxide
+dehydrogenase/acetyl-CoA synthase
+from Clostridium thermoaceticum:
+kinetic
+the
+intermediates.
+36,
+11241–11251.
+
+characterization of
+Biochemistry
+
+Soboh, B., Linder, D., and Hedderich,
+R. (2002). Puriﬁcation and catalytic
+properties of a CO-oxidizing:H2-
+complex from
+evolving enzyme
+Carboxydothermus
+hydrogeno-
+formans. Eur.
+J. Biochem. 269,
+5712–5721.
+
+Sokolova, T. G., Gonzalez, J. M., Kostrik-
+ina, N. A., Chernyh, N. A., Slepova,
+T. V., Bonch-Osmolovskaya, E. A.,
+and Robb, F. T. (2004). Thermosinus
+carboxydivorans gen. nov., sp. nov.,
+a new anaerobic,
+thermophilic,
+carbon-monoxide-oxidizing,
+hydrogenogenic bacterium from a
+hot pool of Yellowstone National
+Park. Int. J. Syst. Evol. Microbiol. 54,
+2353–2359.
+
+Sokolova, T. G., Henstra, A. M., Sipma,
+J., Parshina, S. N., Stams, A. J.,
+and Lebedinsky, A. V. (2009). Diver-
+sity and ecophysiological
+features
+of
+thermophilic carboxydotrophic
+anaerobes. FEMS Microbiol. Ecol. 68,
+131–141.
+
+Stamatakis, A.
+
+(2006). RAxML-VI-
+HPC: maximum likelihood-based
+phylogenetic analyses with thou-
+sands of taxa and mixed models.
+Bioinformatics 22, 2688–2690.
+
+Stamatakis, A., Hoover, P., and Rouge-
+mont,
+J. (2008). A rapid boot-
+strap algorithm for the RAxML Web
+servers. Syst. Biol. 57, 758–771.
+
+Svetlitchnyi, V., Dobbek, H., Meyer-
+Klaucke, W., Meins, T., Thiele, B.,
+Romer, P., Huber, R., and Meyer,
+O.
+(2004). A functional Ni-Ni-
+[4Fe-4S] cluster in the monomeric
+acetyl-CoA synthase
+from Car-
+boxydothermus
+hydrogenoformans.
+Proc. Natl. Acad. Sci. U.S.A. 101,
+446–451.
+
+Svetlitchnyi, V., Peschel, C., Acker,
+G., and Meyer, O. (2001). Two
+membrane-associated
+NiFeS-
+carbon monoxide dehydrogenases
+
+from the
+monoxide-utilizing
+Carboxydothermus
+formans.
+5134–5144.
+
+J.
+
+anaerobic
+
+carbon-
+Eubacterium
+hydrogeno-
+183,
+
+Bacteriol.
+
+Techtmann, S. M., Colman, A. S.,
+Murphy, M. B., Schackwitz, W.
+S., Goodwin, L. A., and Robb, F.
+T. (2011). Regulation of multiple
+consumption
+carbon monoxide
+bac-
+pathways
+teria.
+2:147.
+doi:10.3389/fmicb.2011.00147
+
+anaerobic
+Front. Microbiol.
+
+in
+
+Techtmann, S. M., Colman, A. S., and
+Robb, F. T. (2009). ‘That which does
+not kill us only makes us stronger’:
+the role of carbon monoxide in ther-
+mophilic microbial consortia. Envi-
+ron. Microbiol. 11, 1027–1037.
+
+Teeling, H., Waldmann, J., Lombar-
+dot, T., Bauer, M., and Glockner,
+F. O. (2004). TETRA: a web-service
+and a stand-alone program for the
+analysis and comparison of tetranu-
+cleotide usage patterns
+in DNA
+sequences. BMC Bioinformatics 5,
+163. doi:10.1186/1471-2105-5-163
+
+Terlesky, K. C., Nelson, M. J., and Ferry,
+J. G. (1986). Isolation of an enzyme
+complex with carbon monoxide
+dehydrogenase activity containing
+corrinoid and nickel from acetate-
+grown Methanosarcina thermophila.
+J. Bacteriol. 168, 1053–1058.
+
+Tindall, B.
+
+J., Rossello-Mora, R.,
+J., Ludwig, W., and
+Busse, H.
+Kampfer, P.
+(2010). Notes on
+the characterization of prokary-
+ote strains for taxonomic purposes.
+Int.
+J. Syst. Evol. Microbiol. 60,
+249–266.
+
+Uffen, R. L. (1976). Anaerobic growth
+of a Rhodopseudomonas species in
+the dark with carbon monoxide as
+sole carbon and energy substrate.
+Proc. Natl. Acad. Sci. U.S.A. 73,
+3298–3302.
+
+Volbeda, A., and Fontecilla-Camps, J. C.
+(2005). Structural bases for the cat-
+alytic mechanism of Ni-containing
+carbon monoxide dehydrogenases.
+Dalton Trans. 21, 3443–3450.
+
+Wu, M., Ren, Q., Durkin, A. S., Daugh-
+erty, S. C., Brinkac, L. M., Dodson,
+R. J., Madupu, R., Sullivan, S. A.,
+Kolonay, J. F., Haft, D. H., Nelson,
+W. C., Tallon, L. J., Jones, K. M.,
+Ulrich, L. E., Gonzalez, J. M., Zhulin,
+I. B., Robb, F. T., and Eisen, J. A.
+(2005). Life in hot carbon monox-
+ide: the complete genome sequence
+of Carboxydothermus hydrogenofor-
+mans Z-2901. PLoS Genet. 1, e65.
+doi:10.1371/journal.pgen.0010065
+
+Conﬂict of Interest Statement: The
+authors declare that the research was
+conducted in the absence of any com-
+mercial or ﬁnancial relationships that
+could be construed as a potential con-
+ﬂict of interest.
+
+Received: 07 December 2011; accepted: 20
+March 2012; published online: 17 April
+2012.
+Citation: Techtmann SM, Lebedinsky
+AV, Colman AS, Sokolova TG, Woyke
+T, Goodwin L and Robb FT (2012)
+Evidence for horizontal gene transfer
+of anaerobic carbon monoxide dehy-
+drogenases. Front. Microbio. 3:132. doi:
+10.3389/fmicb.2012.00132
+This article was submitted to Frontiers in
+Evolutionary and Genomic Microbiology,
+a specialty of Frontiers in Microbiology.
+Copyright  2012 Techtmann, Lebedin-
+sky, Colman, Sokolova, Woyke, Good-
+win and Robb. This is an open-access
+article distributed under the terms of
+the Creative Commons Attribution Non
+Commercial License, which permits non-
+commercial use, distribution, and repro-
+duction in other forums, provided the
+original authors and source are credited.
+
+Frontiers in Microbiology | Evolutionary and Genomic Microbiology
+
+April 2012 | Volume 3 | Article 132 | 12
+
+Techtmann et al.
+
+APPENDIX
+
+Clade D 
+
+Clade F 
+
+Anaerobic carbon monoxide dehydrogenase HGT
+
+Clade C 
+
+D
+D
+
+e
+e
+
+s
+s
+
+u
+u
+
+lf
+lf
+
+u
+u
+
+r
+r
+
+o
+o
+
+b
+b
+
+a
+a
+
+c
+c
+
+t
+t
+
+e
+e
+
+ri
+ri
+
+u
+
+M
+M
+
+e
+ee
+e
+
+t
+t
+
+h
+h
+
+B
+B
+
+B
+B
+
+l
+l
+
+l
+l
+
+a
+a
+
+a
+a
+
+u
+u
+
+L
+L
+
+a
+a
+
+u
+u
+
+t
+t
+i
+i
+i
+
+C
+C
+
+c
+c
+c
+
+a
+a
+a
+
+l
+l
+
+h
+h
+h
+
+t
+t
+i
+i
+
+a
+a
+
+.
+.
+.
+.
+
+o
+o
+
+.
+.
+
+h
+h
+
+h
+h
+h
+h
+
+s
+s
+
+n
+n
+n
+
+t
+t
+
+o
+o
+o
+
+y
+y
+y
+y
+
+a
+a
+
+a
+a
+
+T
+T
+
+h
+h
+
+e
+e
+r
+r
+
+m
+m
+
+o
+o
+
+s
+s
+
+e
+e
+
+di
+di
+
+m
+m
+
+o
+o
+v
+v
+o
+o
+
+r
+r
+
+a
+a
+n
+n
+s
+s
+
+d
+d
+d
+d
+
+r
+r
+
+i
+i
+
+s
+s
+s
+s
+
+d
+d
+
+p
+p
+p
+p
+
+R
+R
+
+t
+t
+t
+t
+
+r
+r
+r
+r
+
+s
+s
+
+r
+r
+r
+r
+
+i
+i
+i
+i
+
+o
+o
+o
+o
+
+u
+u
+
+i
+i
+
+i
+i
+i
+i
+
+u
+u
+
+r
+r
+r
+r
+
+d
+d
+d
+d
+
+e
+e
+
+g
+g
+g
+g
+
+n
+n
+
+e
+e
+e
+e
+
+i
+i
+i
+i
+.
+.
+
+a
+a
+a
+a
+
+m
+m
+
+c
+c
+c
+c
+
+i
+i
+
+m
+m
+
+i
+i
+i
+
+u
+u
+u
+m
+m
+m
+
+.
+.
+
+e
+e
+e
+e
+
+n
+n
+
+n
+n
+n
+n
+
+h
+h
+
+C
+C
+C
+
+V
+V
+
+o
+o
+o
+o
+
+i
+i
+
+a
+a
+a
+a
+
+t
+t
+t
+t
+
+P
+P
+
+r
+r
+r
+r
+
+a
+a
+
+e
+e
+e
+e
+
+r
+r
+
+o
+o
+
+.
+.
+.
+
+l
+l
+l
+
+c
+c
+
+a
+a
+a
+
+o
+o
+o
+
+.
+.
+.
+.
+
+o
+o
+
+s
+s
+s
+
+s
+s
+s
+
+F
+F
+
+m
+m
+
+n
+n
+
+n
+n
+
+A
+A
+
+e
+e
+r
+r
+r
+r
+o
+o
+
+r
+r
+c
+c
+
+.
+t
+t
+
+h
+h
+
+o
+oo
+o
+
+M
+M
+
+c
+c
+cc
+
+g
+g
+
+h
+h
+
+h
+h
+
+r
+r
+
+M
+M
+
+T
+T
+
+e
+e
+
+a
+a
+
+E
+E
+
+ee
+e
+e
+
+t
+t
+
+l
+l
+
+d
+d
+
+E
+E
+
+u
+u
+
+C
+C
+
+M
+M
+
+u
+u
+
+l
+l
+
+b
+b
+
+o
+o
+
+m
+m
+m
+
+e
+e
+
+h
+h
+
+o
+o
+oo
+
+l
+l
+
+o
+o
+
+a
+a
+
+e
+e
+
+r
+r
+
+b
+b
+
+e
+e
+
+u
+u
+
+o
+o
+
+m
+m
+
+h
+h
+
+o
+o
+o
+
+t
+t
+
+lit
+lit
+lit
+
+gs
+g
+s
+s
+l
+l
+.
+.
+
+o
+o
+
+o
+o
+
+v
+v
+
+i
+i
+
+p
+p
+
+l
+l
+
+a
+a
+
+b
+b
+
+b
+b
+
+D
+D
+
+inib
+inib
+lo
+lo
+
+C
+C
+
+a
+a
+
+e
+e
+
+s
+s
+
+c
+c
+t
+t
+e
+e
+
+u
+u
+lf
+lf
+ff
+o
+oo
+o
+t
+tt
+t
+o
+o
+
+r.
+r.
+
+stridiu
+stridiu
+
+o
+o
+
+c
+c
+
+e
+e
+
+S
+S
+
+y
+y
+
+n
+n
+
+tr
+tr
+
+o
+o
+
+m
+m
+m
+m
+
+a
+a
+
+a
+aa
+a
+
+a
+a
+
+b
+b
+
+c
+c
+cc
+
+e
+e
+
+a
+a
+
+s
+ss
+s
+
+n
+n
+
+a
+a
+
+o
+o
+
+c
+c
+
+t
+t
+
+t
+t
+r
+r
+i
+i
+
+a
+a
+
+o
+o
+
+c
+c
+
+h
+h
+
+c
+c
+
+t
+t
+
+C
+C
+
+.
+.
+
+I
+I
+
+o
+o
+o
+o
+
+h
+h
+h
+h
+
+n
+n
+
+c
+c
+
+c
+c
+
+a
+a
+
+t
+t
+
+e
+e
+
+d
+d
+
+n
+n
+
+b
+b
+b
+b
+
+c
+c
+
+p
+p
+p
+
+r
+r
+r
+
+t
+t
+t
+
+i
+i
+i
+
+u
+u
+
+c
+c
+i
+.f
+fd
+
+s
+s
+
+d
+d
+
+u
+
+a
+a
+
+u
+u
+
+n
+n
+
+o
+o
+o
+o
+
+o
+o
+
+t
+t
+t
+r
+r
+r
+
+c
+c
+
+l
+l
+
+d
+d
+
+o
+o
+o
+
+a
+a
+
+ri
+ri
+
+o
+o
+
+.
+
+p
+p
+p
+
+a
+
+h
+
+l
+l
+
+o
+o
+
+d
+d
+
+cc
+c
+c
+
+.j
+.
+.j
+
+a
+a
+
+o
+
+n
+
+p
+p
+p
+p
+
+r
+r
+i
+i
+
+u
+u
+
+e
+e
+
+r
+r
+i
+i
+
+i
+i
+
+u
+u
+
+o
+o
+
+l
+l
+
+C
+C
+
+p
+p
+p
+p
+
+o
+o
+
+a
+a
+a
+a
+
+c
+c
+
+i
+i
+i
+
+a
+a
+a
+
+d
+d
+d
+
+.
+.
+
+7
+7
+
+n
+n
+
+c
+c
+c
+c
+
+h
+h
+h
+h
+
+u
+u
+
+r
+r
+r
+
+i
+i
+i
+
+m
+m
+
+m
+m
+
+t
+t
+
+-
+-
+
+c
+c
+c
+c
+
+r
+r
+
+2
+2
+
+.
+
+i
+i
+
+s
+s
+
+e
+e
+e
+e
+
+.
+.
+
+a
+a
+
+.
+
+r
+r
+
+i
+i
+i
+i
+
+i
+i
+
+t
+t
+t
+t
+
+s
+s
+
+a
+a
+a
+a
+
+a
+a
+a
+
+tt
+t
+t
+
+gg
+g
+g
+
+l
+l
+
+o
+o
+
+i
+
+e
+e
+
+f
+
+b
+b
+
+d
+d
+
+4
+4
+
+.
+
+T
+T
+
+i
+
+s
+s
+s
+
+o
+o
+o
+o
+
+u
+u
+
+s
+s
+
+y
+y
+y
+
+m
+m
+
+.
+
+r
+
+.
+
+h
+
+m
+
+u
+
+c
+
+n
+
+h
+
+u
+
+c
+
+o
+
+a
+
+a
+
+s
+
+i
+
+.
+
+u
+
+r
+
+o
+
+u
+
+D
+
+l
+t
+
+O
+
+q
+
+m
+
+u
+
+S
+
+o
+
+s
+
+.
+
+r
+
+s
+
+D
+
+s
+.
+
+u
+
+l
+
+g
+
+i
+
+m
+m
+
+o
+
+a
+
+l
+l
+i
+i
+.
+
+C
+C
+
+l
+l
+
+o
+o
+s
+s
+
+t
+t
+
+r
+r
+
+i
+i
+
+d
+d
+
+i
+i
+
+u
+u
+m
+m
+
+.
+.
+
+c
+c
+e
+e
+
+l
+l
+
+l
+l
+
+u
+u
+
+C
+C
+
+l
+l
+
+l
+l
+
+o
+o
+
+s
+s
+s
+s
+
+l
+l
+
+C
+C
+o
+o
+s
+s
+
+i
+i
+
+t
+t
+r
+r
+i
+i
+d
+d
+u
+u
+m
+m
+b
+b
+o
+o
+
+.
+.
+
+l
+l
+
+i
+i
+
+.
+
+t
+t
+tt
+
+.
+.
+
+l
+l
+
+.
+.
+
+l
+i
+
+C
+C
+o
+o
+s
+s
+t
+t
+tt
+r
+r
+i
+i
+d
+d
+u
+u
+m
+m
+1
+1
+1
+1
+-
+-
+-
+-
+b
+bSS
+S
+S
+S
+S
+o
+o
+o
+o
+o
+oo
+o
+o
+o
+u
+u
+o
+o
+C
+iCClCC
+C
+C
+C
+n
+n
+.
+.
+u
+u
+F
+F
+6
+6
+m
+m
+1
+1
+-
+-
+o
+oo
+o
+9
+9
+Btt.
+t
+tt
+t
+B
+2
+2
+o
+oo
+o
+.
+.
+o
+o
+Cyy
+y
+yy
+y
+CC
+C
+K
+NKK
+K
+N
+T
+TT
+T
+.
+.
+T
+T22/22
+2
+22
+/2
+2
+2
+C
+C
+A
+AAA
+AA
+AAAA
+A
+A
+N
+N
+3
+3
+33
+m
+m
+m
+m
+L
+L
+u
+u
+u
+u
+o
+o
+oo
+n
+n
+n
+n
+c
+ci
+cc
+h
+u
+u
+t
+M
+t
+o
+o
+b
+a
+b
+.
+r
+.
+m
+m
+e
+e
+u
+u
+C
+d
+d
+i
+i
+o
+r
+r
+t
+t
+o
+s
+s
+S
+o
+o
+-
+C
+C
+1
+
+1
+1
+-
+-
+S
+S
+o
+o
+o
+o
+C
+C
+.
+.
+d
+d
+n
+n
+a
+a
+e
+e
+g
+gg
+g
+n
+n
+a
+aa
+a
+L
+L
+.
+.
+F
+F
+.
+.
+m
+m
+u
+u
+n
+n
+u
+t
+o
+b
+.
+m
+u
+d
+i
+r
+t
+s
+o
+C
+
+i
+i
+l
+
+i
+l
+
+i
+i
+l
+
+.
+.
+
+l
+
+.
+.
+
+i
+
+l
+
+.
+.
+
+.
+
+.
+
+/
+
+i
+
+l
+
+i
+
+l
+
+l
+l
+
+C
+C
+o
+o
+s
+ss
+s
+
+C
+C
+
+l
+l
+
+o
+o
+s
+s
+
+t
+t
+r
+r
+
+i
+i
+
+d
+d
+
+i
+i
+
+t
+t
+
+r
+r
+
+i
+i
+
+d
+d
+
+i
+i
+
+l
+l
+
+C
+C
+o
+o
+s
+s
+
+u
+u
+m
+m
+
+.
+.
+
+u
+u
+m
+m
+s
+s
+p
+p
+o
+o
+
+.
+.
+
+b
+b
+b
+b
+e
+e
+e
+e
+
+.
+.
+
+i
+i
+i
+i
+
+i
+i
+i
+i
+
+r
+r
+
+j
+j
+j
+j
+
+e
+e
+e
+e
+
+r
+r
+r
+r
+
+o
+o
+g
+g
+e
+e
+n
+n
+e
+e
+s
+s
+
+n
+n
+n
+c
+c
+c
+k
+k
+k
+
+i
+i
+i
+
+.
+.
+.
+
+.
+.
+
+7
+7
+4
+4
+3
+3
+B
+B
+
+A
+A
+T
+T
+C
+C
+C
+
+N
+N
+C
+C
+
+I
+I
+
+M
+B
+
+i
+i
+
+i
+i
+
+l
+l
+
+i
+i
+
+i
+i
+
+l
+l
+
+t
+t
+
+.
+.
+
+l
+l
+
+t
+t
+
+.
+.
+
+.
+.
+
+/
+/
+
+i
+i
+
+l
+l
+
+t
+t
+
+.
+.
+
+.
+.
+
+t
+tt
+t
+
+l
+l
+i
+i
+
+l
+l
+i
+i
+
+u
+u
+
+d
+d
+
+t
+t
+r
+r
+
+u
+u
+
+C
+C
+o
+o
+s
+s
+t
+t
+tt
+r
+r
+i
+i
+d
+d
+u
+u
+m
+m
+b
+b
+o
+o
+u
+u
+
+C
+C
+o
+o
+s
+s
+
+n
+n
+u
+u
+m
+mm
+m
+
+u
+u
+m
+m
+b
+b
+o
+oo
+o
+
+t
+t
+r
+r
+i
+i
+d
+d
+u
+u
+m
+m
+b
+b
+o
+o
+
+n
+n
+u
+u
+m
+m
+B
+B
+o
+o
+N
+N
+T
+T
+A
+A
+1
+1
+A
+A
+T
+T
+n
+n
+C
+uC
+C
+u
+m
+C
+1
+B
+9
+o
+3
+N
+9
+T
+7
+C
+A
+o
+1
+o
+H
+S
+a
+
+C
+o
+o
+S
+
+C
+C
+o
+o
+s
+s
+t
+t
+r
+r
+i
+i
+d
+d
+u
+u
+m
+b
+o
+u
+
+A
+A
+A
+T
+TTyy
+T
+yy
+y
+y
+y
+y
+p
+pp
+p
+C
+C
+e
+C
+1
+5
+5
+7
+9
+C
+o
+o
+S
+
+H
+a
+
+n
+u
+m
+B
+
+n
+n
+u
+u
+m
+m
+B
+B
+a
+4
+6
+5
+7
+C
+o
+o
+S
+-
+1
+
+A
+
+u
+u
+
+-
+1
+
+l
+i
+
+l
+l
+i
+i
+
+l
+l
+
+2
+
+.
+.
+
+.
+
+.
+
+f
+
+.
+
+t
+
+.
+
+-
+
+-
+
+.
+
+/
+
+.
+
+-
+
+.
+
+.
+
+i
+i
+
+-
+
+t
+t
+t
+t
+
+.
+.
+
+.
+
+.
+
+.
+
+1
+
+l
+
+l
+
+m
+
+A
+
+m
+
+ni.
+ni.
+
+.
+
+.
+
+O
+
+1
+
+o
+
+o
+
+9
+
+1
+
+e
+
+d
+
+n
+
+a
+
+F
+
+D
+
+H
+
+S
+
+S
+
+A
+
+S
+
+B
+
+m
+
+M
+
+m
+
+S
+
+C
+
+D
+
+C
+
+-
+
+.
+
+.
+
+.
+
+.
+
+o
+
+o
+
+1
+
+6
+
+6
+
+2
+
+h
+
+1
+
+3
+
+3
+
+1
+
+o
+
+o
+
+5
+
+3
+
+S
+
+B
+
+C
+
+D
+
+-
+
+.
+
+.
+
+.
+
+.
+
+.
+
+k
+
+S
+
+S
+
+M
+
+W
+W
+
+W
+W
+
+M
+
+C
+
+D
+
+D
+
+D
+
+1
+
+o
+
+o
+
+2
+
+2
+
+6
+
+0
+
+4
+
+p
+
+u
+
+2
+
+o
+
+o
+
+3
+
+5
+
+3
+
+3
+
+x
+
+m
+e
+
+S
+
+S
+
+V
+
+-
+
+.
+
+.
+
+C
+
+c
+
+s
+
+S
+
+S
+
+1
+
+o
+
+o
+
+7
+
+u
+
+n
+
+a
+
+u
+
+u
+
+C
+
+R
+
+M
+
+3
+
+1
+
+6
+
+e
+
+a
+
+e
+
+M
+
+.
+
+.
+
+.
+
+.
+
+-
+
+S
+
+S
+
+E
+
+s
+
+s
+
+c
+
+C
+
+2
+
+o
+
+o
+
+9
+
+9
+
+6
+
+1
+
+1
+
+A
+
+S
+
+V
+
+7
+
+8
+
+7
+
+1
+
+e
+
+e
+
+n
+
+C
+
+D
+
+.
+
+M
+
+m
+
+.
+
+.
+
+-
+
+M
+
+s
+
+c
+
+v
+
+s
+
+c
+
+c
+
+S
+
+C
+
+D
+
+8
+
+9
+
+6
+
+5
+
+1
+
+1
+
+n
+
+a
+
+n
+
+o
+
+S
+
+S
+
+T
+
+1
+
+o
+
+o
+
+3
+
+8
+
+5
+
+0
+
+2
+
+.
+
+.
+
+.
+
+-
+
+C
+
+D
+
+M
+
+M
+
+S
+
+S
+
+1
+
+o
+
+o
+
+4
+
+0
+
+3
+
+4
+
+6
+
+1
+
+u
+
+d
+
+s
+
+G
+
+.
+
+.
+
+C
+
+-
+
+3
+
+o
+
+o
+
+7
+
+0
+
+5
+
+0
+
+1
+
+S
+
+S
+
+T
+
+C
+
+D
+
+C
+
+s
+
+c
+
+M
+
+.
+
+.
+
+m
+m
+
+S
+
+S
+
+P
+
+s
+
+o
+
+o
+
+2
+
+4
+
+6
+
+0
+
+1
+
+2
+
+1
+
+-
+
+5
+
+7
+
+2
+
+3
+
+1
+
+1
+
+3
+
+9
+
+C
+
+D
+
+A
+
+A
+
+B
+
+A
+
+D
+
+R
+
+.
+
+.
+
+-
+
+o
+
+o
+
+n
+
+e
+
+o
+
+p
+
+a
+
+o
+
+n
+
+h
+
+S
+
+S
+
+P
+P
+P
+
+E
+E
+E
+
+7
+
+5
+
+_
+
+1
+
+_
+
+8
+
+p
+
+m
+m
+
+C
+
+D
+
+S
+
+.
+
+.
+
+-
+
+-
+
+D
+
+D
+
+C
+
+o
+
+o
+
+7
+
+n
+
+a
+
+g
+
+u
+u
+
+u
+u
+
+S
+
+6
+
+5
+
+7
+
+7
+
+2
+
+e
+
+M
+
+.
+
+.
+
+m
+m
+
+m
+m
+
+S
+
+S
+
+C
+
+C
+
+c
+
+T
+
+-
+
+C
+
+C
+
+D
+
+D
+D
+
+o
+
+o
+
+4
+
+6
+
+6
+
+8
+
+2
+
+2
+
+1
+
+8
+
+9
+
+5
+
+1
+
+l
+
+S
+
+A
+A
+A
+A
+A
+
+.
+
+.
+
+F
+
+-
+
+c
+c
+
+S
+
+D
+
+m
+m
+
+M
+M
+
+h
+
+o
+
+o
+
+2
+
+5
+
+3
+
+n
+n
+n
+
+d
+d
+d
+
+a
+a
+a
+
+C
+
+.
+
+.
+
+.
+
+D
+D
+
+7
+
+4
+
+_
+
+7
+
+_
+
+1
+
+p
+
+-
+
+T
+
+J
+J
+
+S
+
+C
+
+.
+
+.
+
+.
+
+.
+
+M
+
+1
+
+7
+
+2
+
+u
+
+p
+p
+
+h
+h
+
+o
+o
+
+M
+M
+M
+M
+
+m
+m
+
+-
+
+-
+
+1
+
+C
+C
+
+C
+C
+C
+C
+
+S
+
+i
+
+l
+
+.
+
+.
+
+.
+
+A
+
+A
+
+0
+
+7
+
+8
+
+u
+
+C
+
+i
+l
+
+M
+
+.
+
+.
+
+.
+
+A
+
+S
+
+A
+
+o
+
+a
+a
+
+e
+e
+
+b
+b
+
+n
+n
+
+1
+
+D
+
+c
+c
+c
+c
+c
+
+.
+
+.
+
+.
+
+S
+
+o
+
+o
+
+b
+b
+
+e
+e
+
+n
+n
+
+.
+
+t
+
+.
+
+s
+s
+
+M
+
+o
+
+o
+
+2
+
+b
+b
+
+s
+s
+
+l
+
+i
+
+C
+
+C
+
+.
+
+o
+
+o
+
+5
+
+0
+
+i
+
+l
+l
+
+M
+
+.
+
+o
+o
+o
+
+n
+n
+n
+n
+
+4
+4
+
+.
+
+C
+C
+
+M
+
+m
+
+6
+6
+66
+6
+6
+
+4
+4
+4
+4
+
+.
+.
+
+M
+
+2
+2
+2
+2
+
+II
+
+ii.
+
+s
+.
+
+r
+i
+.
+
+-
+2
+
+e
+r
+
+-
+2
+
+s
+.
+
+.
+n
+
+.
+5
+
+4
+.
+
+-
+1
+
+.
+1
+
+6
+.
+
+-
+3
+
+-
+1
+
+8
+.
+
+b
+ggb
+b
+g
+g
+g
+g
+g
+
+ifi
+
+-
+3
+
+Fl
+
+-2
+
+l
+l
+i
+i
+.
+
+s
+.
+J
+
+Clo
+Clo
+
+o
+0
+
+o
+1
+
+rific
+
+inu
+
+.
+1
+ly
+
+F
+A
+A
+
+S
+-
+2
+-2
+
+8
+0
+5
+2
+
+D
+S
+M
+
+C
+o
+o
+S
+
+C
+o
+o
+S
+
+e.Y
+C.8
+
+.
+.1
+8
+o
+
+3
+5
+2
+9
+6
+
+B.8
+B.8
+.1
+.1
+.1
+.1
+5
+5
+5
+5
+2
+2
+2
+
+Clo
+Cloo
+Clo
+Clo
+Clo
+
+stridiu
+stridiu
+
+s.
+s.
+s
+s
+e.
+s
+
+2.
+B
+-
+2.
+5
+1.
+4.C
+
+6
+4
+8
+8
+5
+1
+5
+0
+0
+
+.lju
+.lju
+.lju
+.lju
+ulfito
+ulfito
+/I
+/I
+etivib
+etivib
+etivib
+etivib
+etivib
+o
+oo
+o
+t
+t
+str
+str
+str
+stridiu
+ulu
+ulu
+idiu
+ulfito
+ulfito
+hlii.
+hlii.
+rio.c
+rio.c
+rio.c
+rio.c
+i.
+stridiu
+stridiu
+s
+s.
+tt
+Clostridiu
+Clostridiu
+.
+cte
+cte
+gly
+gly
+.c
+.c
+.a
+.a
+c
+riu
+riu
+a
+a
+a
+ellulolytic
+ellulolytic
+ell
+elluloly
+ellul
+ellulolytic
+aa
+arb
+arb
+arb
+c
+c
+cc
+c
+cteriu
+c
+cc
+c
+t
+tt
+ol
+olic
+e
+tee
+eto
+.b
+.b
+eriu
+tt
+.h
+.h
+o
+xidiv
+xidiv
+xidiv
+m.cellulovora
+m.cellulovora
+eijerin
+eijerin
+yt
+Clost
+Clostridiu
+afnie
+afnie
+u
+utylic
+ossridiu
+tylic
+ty
+.h
+.h
+ora
+ora
+ora
+ora
+h
+aa
+af
+afnie
+c
+c
+u
+u
+kii.N
+kii.N
+Clostridiu
+Clostridiu
+nie
+Clostridiu
+Clostssridiu
+s.P
+s.P
+s.P
+s.P
+m.sp
+m.sp
+.A
+.A
+sp
+ns.7
+ns.7
+p
+7.D
+7.D
+7.D
+7.D
+CI
+CI
+T
+TT
+T
+oro
+oro
+oro
+Clostridiu
+Clostridiu
+4
+4
+S
+S
+S
+S
+g
+g
+g
+g
+m.bot
+m.botulinu
+3
+3
+Clostridium.botulinum.BoNT/A1.ATCC.19397.CooS-
+Clostridium.botulinum.BoNT/A1.ATCC.19397.CooS-2
+m.b
+e
+e
+e
+.b
+B.A
+B.A
+boo
+n
+nnb
+n
+Clostridium.botulinum.BoNT/B1.Okra.CooS-2
+Clostridium.botulinum.BoNT/B1.Okra.CooS-
+es.A
+eses
+es.A
+diu
+diu
+Clostridiu
+Clostridiu
+o
+oo
+otulin
+t
+ulinu
+T
+T
+ulin
+AA
+m.botulinu
+m.botulinu
+m.botulinu
+m.botulinu
+2.C
+Clostridiu
+Clostridiu
+Clostridiu
+T
+TT
+T
+Clostssridium.botooulinum.BoNT/A3
+Clostridium.botulinum.BoNT/A3.Loch.Maree.CooS-2
+ostridiu
+C.3
+C.3
+u
+u
+3.C
+C
+C
+C
+m.F.Langeland.C
+m.F.Langeland
+m
+m.B
+6
+6
+CC
+C
+C.1
+.B
+5
+5
+5
+.1
+5
+5
+Clostridium.botulinum.NCTC.2916.CooS-2
+Clostridium.botulinum.NCTC.2916.CooS-
+4
+4
+m.bo
+m.botulinu
+1
+6
+L
+La
+8
+8
+5
+5
+5
+5
+5
+5
+a
+a
+a
+9
+9
+9
+9
+1
+angelan
+-2
+8
+8
+5
+5
+5
+5
+5
+5
+4
+4
+4.6
+m.botulinu
+m.botulinu
+m.botulinu
+6.C
+6
+6
+6.C
+m.botulinu
+ngela
+.6
+m.A2.Kyoto-F.CooS-
+m.A2.Kyoto-F.CooS-22
+m.A2.Kyoto-F.CooS-2
+S-4
+m.A2.Kyoto-F.CooS-2
+t
+5
+7
+7
+7
+7
+7
+7
+6
+6
+Clostridium.saccharolyticum.W
+Clostridium.saccharolyticum.W
+ulinu
+9
+9.C
+9.C
+9
+9
+9
+C
+C
+4
+Carboxydothermus.hydrogenoformans.Z-2901.CooS-V
+Carboxydothermus.hydrogenoformans.Z-2901.CooS-
+.C
+5
+5
+5
+5
+4
+o
+o
+8
+7
+7
+7
+7.C
+C
+CC
+2
+.C
+o
+2
+ndnd.
+mKyoto
+Kyoto
+o
+o
+o
+Thermosinus.carboxydivorans.Nor1.CooS-2
+Thermosooinus.caccrborr
+C
+C
+9
+S-3
+m.F.230613
+o
+o
+o
+.C
+.F.FF
+o
+o
+o
+S-2
+C
+C
+Methanohalobium.evestigatum.Z-7303.DSM.3721.CooS-1
+Methanohalobium.evestigatum.Z-7303.DSM.3721.CooS-1
+o
+o
+o
+o
+/B1.Okra.CooS-
+m.type.A.-.Ha
+m.type.A.-.Hal
+m.type.A.-.Ha
+m.type.A.-.Hall
+oo
+oo
+oo
+oo
+SS
+S
+S
+S-2
+23061
+B1.Okra.CooS
+T/T/
+S
+SS
+S-2
+CooS
+CooS
+CTC.2916.CooS
+.Loch.Maree.CooS-2
+TC.2916.CooS
+3
+bo
+xyoo
+m.evestigatum.Z-7303.DSM.3721.CooS-
+hMaree
+22
+22
+xyx
+diyy
+Methanosarcina.mazei.Go1.DSM.3647.CooS-
+Methanosarcina.mazei.Go1.DSM.3647.CooS-2
+alalll
+MareeCooS
+Maree
+Maree..CooS-
+di
+l
+vovvranrr
+gatum.Z-7303.DSM.3721.CooS
+22S-
+2
+M1.DSM.2544
+M1.DSM.254
+anns.sNoNor11.Coo
+ansNoNor11Coo
+Methanococcus.voltae.A
+Methanococcus.voltaeA
+Methanococcus.voltae.A3
+s.Nor1.CooS-2S-
+2
+CooS2
+CooS-2
+S-
+Methanosarcina.barkeri.Fusaro.DSM.804.CooS-2
+Methanosarcina.barkeri.Fusaro.DSM.804.CooS-2-
+Methanosarcina.acetivorans.C2A.CooS-
+Methanosarcina.acetivorans.C2A.CooS-2
+2
+22
+22
+22
+22
+442
+CooS-S2
+CooS-S
+ccus.voltaeA
+4
+SM.3721.CooS
+SM.3721.CooS3
+SS
+SS22S-
+22
+2
+Methanosaeta.thermophila.PT.Cdh-1
+Methanosaeta.thermophila.PT.Cdh-
+VA33A
+rans.C2A.CooS
+AA
+A
+ans.C2A.CooS2
+saeta.thermophila.PT.Cdh-
+saeta.thermophila.PT.Cdh-
+DSM.804.CooS-
+DSM.804.CooS
+DSM.804.CooS2
+11
+11
+Persephonella.marina.EX-H
+Persephonella.marina.EX-H1
+M.804.CooS
+--
+Natranaerobius.thermophilus.JW/NM-WN-LF
+Natranaerobius.thermophilus.JW/NM-WN-LF
+Desulfotomaculum.reducens.MI-1
+Desulfotomaculum.reducens.MI-
+2
+ulfotomaculum.reducens.MI
+-
+2
+22
+22
+erobius.thermophilus.JW/NM-WN-L
+erobius.thermophilus.JW/NM-WN-L
+maculum.reducensMI1
+22
+22
+22
+Clostridium.tetani.Massachusetts.E88
+Clostridium.tetani.Massachusetts.E8
+1
+11
+Dethiobacter.alkaliphilus.AHT1.CooS-
+Dethiobacter.alkaliphilus.AHT1.CooS-2
+s.JW/NM-WNL
+JW/NM-WNL1
+Alkaliphilus.metalliredigens.QYMF.CooS-3
+Alkaliphilus.metalliredigens.QYMF.CooS-3
+11
+aliphilus.metalliredigens.QYMF.CooS
+phip
+FF
+FF
+met
+us.AHT1CooS
+us.AHT1CooS 8
+iredigeedig
+Clos
+Clostridium.cellulolyticum.H10.CooS-2
+tssridium
+gens.QYMFCooS 2
+ns.Qns.Q
+.celluloly
+Clostridium.papyrosolvens.DSM2782CooS
+Clostridium.papyrosolvens.DSM.2782.CooS-2
+YMFYMF
+ellulolyuloly umum.H10H10.CooS-CooS2
+22
+.CooS-
+.CooS
+tyyicum
+.H10
+33
+33
+.CooS-
+Azotobacter.vinelandii.DJ.ATCC.BAA-1303
+A
+Azotooott
+o
+ob t vinelandiiDJ
+obactccertt vinelandi
+2
+22
+Thermincola.potens.JR.CooS-4
+Carboxydothermus
+Carboxydothermus.hydrogenoformans.Z-2901.CooS-IV
+Desulfitobacterium.hafniense.Y51.CooS-3
+Desul
+Desulfitobacterium.hafniense.DCB-2.CooS-4
+Desulfito
+Desulfurispirillum.indicum.S5
+Desulfotomaculum.nigrificans.DSM.574.CooS-2
+Desulfoff too ott m
+Carboxydothermus.hydrogenoformans.Z-2901.CooS-II
+Geobacillus.sp..Y4.1MC1
+Carboxydothermu
+Geobacillus.thermoglucosidasius.C56-YS93
+Thermoanaerobacter.tengcongensis.MB4T
+Rhodospirillum.rubrum.S1.ATCC.11170
+Geoba
+Rhodopseudomonas.palustris.BisB18
+Therm
+T h e r m i n c o l a . p o t e n s . J R . C o o S - 3
+T h e r m o s i n u s . c a r b o x y d i v o r a n s . N o r 1 . C o o S - 1
+Rh
+C a r b o x y d o t h e r m u s . h y d r o g e n o f o r m a n s . Z - 2 9 0 1 . C o o S -
+i u m . h a f n i e n s e . D C B - 2 . C o o S - 3
+D e s u l f i t o b a c t e r i u m . h a f n i e n s e . Y 5 1 . C o o S - 4
+. b e m i d ji e n s i s . B e m . D S M . 1 6 6 2 2 . C o o S - 1
+T h e r
+A l k a li p h il u s . m e t a lli r e d i g e n s . Q Y M F . C o o S - 1
+D e s u lfit o b a c t e ri u m . h a f n i e n s e . Y 5 1 . C o o S - 1
+C a r b o x y d o t h e r
+o S - 1
+i
+f
+2
+D e s u l
+D e s u
+u
+e . D C B - 2 . C o
+o S -
+S - 3
+3 . C o
+D e
+o
+S - 4
+1 . C o
+7
+0
+9
+s
+o
+S - 1
+n
+G e o b a c t e r
+a . A T C C . 3
+1 . C o
+7
+a f n i e
+G e o b a c t
+5 . D S M . 7
+o
+S - 1
+o
+c t e ri u m . h
+7
+R . C
+5 . D S M . 7
+S - 2
+o
+A
+o
+e ti c
+s . J
+1 . C
+S - 2
+7
+o
+5
+c
+o
+n
+a
+a
+s . 5
+1 . C
+T
+o t e
+b
+S - 2
+r m o
+o
+u lfit o
+7
+H
+n
+o
+5
+a
+o l a . p
+s . A
+n sis
+e
+sis. C
+0
+s . 5
+x i d
+o
+e ll a .t h
+s
+D e
+o
+M . 5
+n
+h il u
+e t o
+D
+S -3
+3 - 1. C
+c
+a
+a rtie
+e r m i n
+x i d
+r
+c
+o
+S -2
+a li p
+u l u m . a
+S
+a rtie
+M o
+o o
+e t o
+M
+8 . D
+m .N a p h S 2.C o o S -2
+nia.stuttg
+c t e r. a lk
+M .3 3 8 2. C
+c
+o o
+T
+nia .st u tt g
+u l u m . a
+S
+8
+D e sulfo co ccu s.ole o vora n s.H xd 3.C o o S-2
+c
+2
+u lf o t o m a
+s. A
+K -0 1. C
+u lf o t o m
+m . Z - 7
+M .2 0 7 5
+a
+n
+b
+D esulfococcus.oleovorans.H xd3.C oo S-1
+u lf o t o m a
+uta
+e t h i o
+e
+u
+e
+D esulfatibacillu m.alkenivorans.A K-01.C oo S-1
+u lf o t o
+S
+a tic
+m
+n
+m .alk e niv ora n s.A
+e
+2. D
+e
+D esulfobacteriu m.autotrophicu m.H R M 2.D S M.3382.C ooS-2
+D
+dis
+u
+u
+b
+atu s. K
+s
+s
+s. K
+Syntrophobacter.fu m aroxidans.M P O B.C ooS-2
+m . a r a
+pir a.thio
+D esulfarculus.b a arsii.2st1 4.D
+M
+Desulfurivibrio.alkaliphilus.A H T2.CooS-2
+a t u
+R
+delta.proteobacteriu m.sp..M L M S-1.CooS-5
+m . H
+did
+did
+d elta.prote o b a cteriu
+delta.proteobacterium.sp..MLM S-1.CooS-3
+s
+n
+n
+m .a utotro p hic u
+o
+delta.proteobacterium.sp..MLM S-1.CooS-4
+a
+h
+n
+Candidatus.Desulforudis.audaxviator.MP104C.CooS-1
+C
+atr o
+Am monifex.degensii.KC4
+e s ulfatib a cillu
+Thermosediminibacter.oceani.JW/IW-1228P.DSM.16646.CooS-2
+Eubacterium.limosum.KIST612
+Clostridium.ljungdahlii.PETC.DSM.13528.CooS-2
+648011544
+e s ulfaf
+Syntrophobacter.fu m aroxida
+D esulfafftaaibacillu m.alkenkk
+Candidatus.Desulforudis.audaxviator.MP104C
+Eubacterium.limosum.KIST
+imosum.KIST
+Clostridium.carboxidivorans.P7.DSM.15243.CooS-3
+.sp..MLM
+M LM L
+.sp..M Luu
+Am monifex.degen
+64801154
+d elt
+D esulfobacteriu m.autotrophicu m.H R M
+autotrophicu m.H R M
+D e sulfo
+.sp..MLM S
+MLM S
+MLM S
+D esulfarc
+Desulfurivibrio.alkaliphilu
+D esulfococcu
+Thermosediminibacter.oceani.JW/IW-1228P.DSM.16646.C
+228P.DSM.16646C
+SM.16646C
+Clostridium.ljungdahlii.PETC.DSM.13528.Coo
+528.Coo
+528.Coo
+243.CooS-011
+648012950
+Clostridium.carboxidivorans.P7.DSM.15243.CooS-
+243.CooS-
+imosum.KIS
+mosum.KIS
+mosum.KIS
+Desulfurivibrio.alkaliphil
+MLMLM
+243.CooS
+243.CooS
+211
+Clostridium.carboxidivorans.P7.DSM.15243.CooS-1
+Clostridium.carboxidivorans.P7.DSM.15243.CooS-1
+ifex.deg
+64801295
+.alkalp
+Clostridium.bartlettii.DSM.16795.CooS-2
+M.15243.CooS-
+243.CooS
+243.CooS
+M.15243.CooS
+2222
+22
+Clostridium.difficile.630.-.epidemic.type.X.CooS-2
+Clostridium.bartlettii.DSM.16795.CooS-
+ex.d
+otrophicu m
+222
+Clostridium.difficile.BI9.CooS-2
+Clostridium.difficile.630.-.epidemic.type.X.CooS-
+o eriu m
+2222
+Clostridium.difficile.QCD-37x79.NAP1a/001.CooS-2
+X.CooS
+X.CooS
+.CooS-
+CooS-
+sps
+D-63q42.CooS-2
+22
+D-63q42.CooS-2
+CooS
+Clostridium.difficile.QCD-37x79.NAP1a/001.CooS-
+taccerium
+D-63q42.CooS 222
+D-76w55.NAP1.CooS-2
+CooS
+CooS
+D-63q42.CooS-
+rivibrio
+too
+P1b/006.CooS-2
+P1b/006.CooS 222
+P1b/006.CooS-2
+63q42.CooS
+D-63q42.CooS
+D-76w55.NAP1.CooS-
+taccerium
+D-66c26.CooS12222
+D-66c26.CooS-2
+P1b/006.CooS-
+D196.CooS-1
+tt
+P1b/006.CooS
+P1b/006.CooS
+D-66c26.CooS-
+D-66c26.CooS-
+S-2
+222
+2
+S-2
+acc
+deltatt.protrooeobac
+D196.CooS-
+S-2
+222 22
+2
+S-2
+tt
+S-
+deltatt.protrooeobac
+2002
+S-2
+S-
+S-S
+S
+S
+S
+0
+3200
+0
+S-
+BBII99
+9
+S-2
+S-
+rooeobac
+0101
+o
+o
+o
+o
+o
+o
+o
+3
+3
+3
+3
+3
+S
+S
+ctype
+type
+I00
+S-
+o
+o
+o
+B000
+S-
+S-
+S-
+S-
+tt
+o
+o
+o
+o
+o
+o
+o
+1
+1
+9
+9
+9
+9
+9
+9
+S
+S
+S-
+S-
+o
+o
+o
+o
+o
+o
+o
+7
+7
+7
+7
+7
+7
+.//
+S
+S
+o
+o
+C
+C
+2.C
+2.C
+2.C
+2.C
+1/
+1/
+1/
+1/
+0
+0
+0
+0
+0
+0
+M.5
+M.5
+tt
+o
+o
+diffficileile
+Clostridium.difficile
+o
+o
+o
+o
+o
+o
+o
+o
+o
+o
+1
+1
+1
+1
+1
+1
+1.C
+2.C
+1.C
+C
+P1a/
+8.C
+8.C
+P1a
+4
+4
+4
+4
+4
+4
+o
+o
+o
+o
+o
+o
+8.C
+8.C
+8.C
+8.C
+R
+R
+R
+R
+9
+9
+9
+9
+9
+9
+.prot
+tt
+o
+o
+o
+o
+o
+o
+2
+propr
+o
+o
+o
+o
+8
+8
+8
+8
+8
+8
+7.C
+7.C
+1
+1
+C.2
+C.2
+C.2
+C.2
+2
+2
+F.C
+F.C
+F.C
+F.C
+F.C
+F.C
+3
+3
+3
+3
+3
+3
+S
+S
+p.S
+p.S
+3.C
+3.C
+C
+C
+2
+2
+2
+2
+2
+2
+S
+S
+9
+9
+9
+9
+m.A
+m.A
+5
+5
+9
+9
+9
+9
+9
+9
+C
+C
+deltatt
+4
+4
+4
+4
+4
+4
+0
+0
+0
+0
+2
+2
+2
+2
+p
+p
+dii.D
+dii.D
+g
+g
+7
+7
+7
+7
+7
+7
+3
+3
+C
+C
+C
+C
+C
+0
+0
+C
+C
+C
+C
+C
+C
+P
+P
+P
+P
+6
+6
+6
+6
+6
+6
+0
+0
+0
+0
+Clostridium.difficile.C
+Clostridium.difficile.C
+s
+s
+s.s
+s.s
+M
+M
+M
+M
+M
+M
+Clostridium
+2
+2
+0
+0
+0
+0
+0
+8
+8
+8
+8
+P
+P
+A
+A
+A
+A
+A
+A
+ostridium.difficile.Q
+Q
+Clostridium.difficile.Q
+Clostridium.difficile.Q
+Clostridium.difficile.Q
+2
+2
+2
+T
+T
+T
+T
+T
+T
+A
+A
+A
+A
+u
+u
+D-3
+D-3
+1
+1
+m.difficile.CIP.1
+m.difficile.CIP.1
+5
+5
+5
+5
+C
+C
+C
+C
+Y
+Y
+Y
+Y
+Y
+Y
+A
+A
+R
+m.difficile.R
+m.difficile.R
+4.N
+4.N
+D-97b34.N
+N
+D-97b34.N
+m.A
+m.A
+A
+A
+m.A
+m.A
+u
+u
+e
+e
+m.difficile.N
+m.difficile.N
+m.difficile.N
+m.difficile.N
+0
+0
+0
+0
+n
+n
+e
+P
+P
+Q
+Clostridium.difficile.Q
+e.Q
+Clostridium.difficile.Q
+Q
+Q
+s.Q
+s.Q
+s.Q
+s.Q
+c
+c
+c
+c
+m.difficile.N
+m.difficile.N
+b
+b
+M.2
+M.2
+M.2
+M.2
+m
+m
+kla
+kla
+c
+c
+c
+c
+C
+C
+s.o
+s.o
+o
+o
+s
+u
+u
+u
+u
+C
+C
+m.difficile.Q
+m.difficile.Q
+n
+n
+n
+n
+c
+c
+m.stic
+m.stic
+e
+e
+e
+u
+u
+S
+S
+o
+o
+Clostridium.difficile.Q
+Clostridium.difficile.Q
+e
+e
+e
+e
+b
+b
+c
+c
+min
+min
+dig
+dig
+dig
+dig
+4.D
+4.D
+s.o
+s.o
+c
+c
+o
+o
+etallire
+etallire
+etallire
+etallire
+u
+u
+c
+c
+u
+u
+7-2
+7-2
+stridiu
+stridiu
+Clostridiu
+Clostridiu
+o
+o
+c
+c
+stridiu
+stridiu
+stridiu
+R
+R
+Clostridium.difficile.Q
+Clostridium.difficile.Q
+c
+c
+min
+min
+stridiu
+stridiu
+o
+o
+PI.C
+PI.C
+Clostridiu
+Clostridiu
+c
+c
+min
+min
+Clostridiu
+Clostridiu
+o
+o
+u
+u
+m
+m
+s.m
+s.m
+Clo
+Clo
+min
+min
+Clo
+Clo
+Clo
+R
+R
+nii.V
+nii.V
+Clo
+Clo
+u
+u
+hilu
+hilu
+R
+R
+u
+u
+R
+R
+alip
+alip
+Alk
+Alk
+
+e s ulfo b a cteriu
+e s ulfo b a cteriu
+
+t o b a c t e r
+
+biu
+C
+ulfo
+
+s
+s
+D e
+D e
+D e
+D e
+
+e
+e
+s
+s
+n
+n
+a
+a
+
+6
+6
+1
+1
+-
+-
+2
+2
+
+di
+
+e t o
+e t
+
+alo
+
+C
+C
+
+2
+
+33
+
+tt
+
+g
+
+e
+
+n
+O
+
+S
+
+a
+n
+
+s
+
+n
+
+e
+
+c
+c
+
+A
+A
+
+D
+
+5
+
+D
+D
+
+h
+
+I
+
+D
+D
+
+c
+
+utia.h
+utia.h
+Bla
+Bla
+
+Clade E 
+
+0.9951 
+
+S-2
+S-2
+3.C
+3.C
+
+o
+o
+o
+o
+
+1
+1
+-
+-
+S
+S
+o
+o
+o
+o
+8.C
+8.C
+
+n
+
+M
+
+c
+
+z
+
+M
+
+S
+S
+S
+
+M
+
+2
+2
+
+M
+
+1
+
+2
+
+i
+
+n
+a
+
+o
+n
+
+.
+
+i
+i
+l
+
+o
+n
+a
+
+1
+
+1
+
+1
+
+3
+
+w
+
+C
+
+1
+
+C
+
+A
+A
+
+C
+
+C
+
+t
+s
+
+t
+s
+
+v
+o
+
+e
+e
+v
+y
+
+2
+2
+5
+5
+3
+3
+
+3
+3
+7
+7
+8
+8
+
+903
+
+d h-1
+d h-1
+
+h - 2
+h - 2
+h -
+d
+d
+h - 1
+h - 1
+
+CooS-1
+
+3
+6
+4
+5
+1
+0
+8
+4
+6
+
+h - 1
+h - 1
+d
+d
+h - 2
+h - 2
+h -
+4 . C
+4 . C
+0
+0
+7 . C d
+7 . C d
+
+CooS-2S-
+S-2
+
+1
+1
+-
+-
+S
+S
+Clostridium.difficile.630.-.epidemic.type.X.CooS-1
+o
+o
+-.epidemic.type.X.CooS-
+S-1
+S-1
+P1b/006.CooS-1
+2
+2
+o
+o
+4
+4
+P1b/006.CooS-
+-
+-
+C
+C
+S
+S
+2
+2
+o
+o
+5
+5
+.
+.
+o
+o
+a
+a
+o
+o
+S-1
+S-1
+d
+d
+M.1
+M.1
+o
+o
+r
+r
+4.C
+4.C
+n
+n
+k
+k
+Clostridium.difficile.QCD-37x79.NAP1a/001.CooS-1
+NAP1a/001.CooS-1
+C
+C
+S-1
+S-1
+M.1
+M.1
+klu
+klu
+O
+O
+w55.NAP1.CooS-1
+Clostridium.difficile.QCD-76w55.NAP1.CooS-1
+o
+o
+.
+.
+6
+6
+S
+S
+3
+3
+2
+2
+o
+o
+.
+.
+Thermosediminibacter.oceani.JW/IW-1228P.DSM.16646.CooS-1
+DSM.16646.CooS-1
+1
+1
+1
+1
+o
+o
+1
+1
+7.D
+7.D
+e.C.-.E
+e.C.-.E
+63q42.CooS-1
+D-63q42.CooS-1
+.8
+C.8
+S
+S
+5.C
+5.C
+0
+0
+B
+B
+o
+o
+6
+6
+1B.DSM.12137
+Caldicellulosiruptor.kristjanssonii.177R1B.DSM.12137
+63q42.CooS-
+S-1
+S-1
+C
+C.D
+D5
+C.D
+2
+2
+2
+2
+5
+63q42.CooS
+3q42.CooS
+2.CooS
+D-32g58.CooS-1
+2.C
+2.C
+0
+0
+/
+/
+T
+T
+1
+1
+1
+1
+5
+5
+2g58.CooS-
+s.P
+s.P
+C
+C
+3
+3
+9
+9
+C
+.
+.
+.
+.
+M.5
+M.5
+N
+N
+Clostridium.difficile.QCD-66c26.CooS-1
+26.CooS-1
+w55.NAP1
+C
+C
+C
+C
+o
+o
+TT
+T
+T
+S-1
+S-1
+2
+2
+7
+7
+DSM.9545
+Caldicellulosiruptor.lactoaceticus.6A.DSM.9545
+T
+T
+T
+3
+3
+o
+o
+o
+o
+6
+6
+m.A
+m.A
+.
+.
+n
+n
+R
+R
+R
+R
+D-97b34.N
+97b34.N
+9
+9
+F
+F
+p
+p
+E
+E
+E
+m.D.1
+m.D.1
+Clostridium.difficile.QCD-23m63.CooS-1
+1.C
+1.C
+B
+B
+M.1
+M.1
+ora
+ora
+7
+7
+Desulfotomaculum.acetoxidans.5575.DSM.771.CooS-2
+S
+S
+m.ty
+m.ty
+B
+B
+B
+B
+.
+.
+o
+o
+hlii.P
+P
+hlii.P
+m
+m
+.
+.
+0
+0
+m
+m
+Clostridium.difficile.CD196.CooS-2
+oS-2
+o
+o
+ri.D
+ri.D
+N
+N
+N
+N
+u
+u
+m
+m
+P.1
+m.difficile.CIP.1
+hlii
+9
+9
+idiv
+xidiv
+9.C
+m.difficile.BI9.C
+u
+u
+Caldicellulosiruptor.saccharolyticus.DSM.8903
+S
+S
+yDlic
+utylic
+ri.
+ri.
+ri.
+u
+u
+2
+2
+n
+n
+Tu
+T
+u
+u
+u
+artlettii.D
+D
+ulin
+n
+a
+a
+a
+Clostridium.difficile.NAP07.CooS-1
+e
+e
+e
+0
+0
+u
+u
+yi.N
+otulin
+d
+Clostridium.difficile.NAP08.CooS-1
+u
+Caldicellulosiruptor.hydrothermalis.108
+v
+2
+otulin
+o
+g
+y
+m.difficile.R
+t
+b
+t
+o
+arb
+klu
+m.klu
+o
+n
+eto
+Clostridium.difficile.Q
+Clostridium.therm ocellum.LQ8.DS M.1313.CooS-2
+b
+b
+m.lju
+Clostridium.difficile.Q
+.
+Clostridium.difficile.Q
+m.b
+Pelobacter.carbinolicus.DSM.2380.CooS-1
+.
+m
+m.c
+m
+m.n
+m.b
+m
+c
+m.b
+m.a
+u
+ridiu
+ridiu
+stridiu
+stridiu
+stridiu
+stridiu
+d
+stridiu
+stridiu
+i
+stridiu
+stridiu
+r
+Clostridiu
+Methanopyrus.kandleri.AV19.Cdh-1
+t
+Clostridiu
+s
+Clostridiu
+o
+S M.10642.C dh
+O.D S M.10642.C dh
+Clo
+C andidatus.M ethanoregula.boonei.6 A 8.C dh-1
+A 8AA .C dh-1
+Clo
+Clo
+Clo
+M ethanospirillu m.hungatei.JF-1.C dh-1
+Clo
+M ethanopyrus.kandleri.AV19.Cdh-2
+Clo
+C
+Clo
+Clo
+Clo
+M .4 3 0 4.C d h-2
+Clo
+M .4 3 0 4.C d h-
+S M.106
+M .3 7 2 1. C
+M .3 7 2 1. C
+M .4 3 0 4.C d h-1
+S M
+M .4 3 0 4.C d h-
+S
+S
+F erroglobus.placidus.A E DII12 D
+C-1 6.D
+m .Z-7 3 0 3. D
+Z-7 3 0 3. D
+m .Z-7 3 0 3. D
+M ethanocella.sp..R C-I
+0
+S
+S
+M eth a n osa eta.th er m o p hila.P T
+7 3
+7 3
+.D
+C -1 6.D
+Arch a e o glo b us.fulgid us.V
+2
+M .6 2 4 2
+9
+9
+44
+M .6 2 4
+m .Z
+m .Z
+1
+1
+m
+M .5
+M .5
+M .5
+m .e v e stig atu
+M .
+Arc h a e o glo b u s.fulgid u s.V
+-1
+h -1
+S
+S
+h
+S
+S
+S
+D
+eth a n o c o c c oid e s.b urto nii. D
+d
+d
+D
+D
+P . D
+P . D
+P . D
+h - 2
+h - 2-
+C
+A . C
+4 . C
+4 . C
+P .
+A .
+d
+d
+L
+L
+0
+0
+2
+22
+2
+A . C
+C
+S
+hii. S
+M . 8
+M . 8
+n s. C
+n s. C
+A .22
+d
+d
+7 . C
+7 . C
+2
+2
+S
+S
+a
+eth a n o h alo biu
+s. C
+s. C
+a
+a.a c etiv o ra
+a r o . D
+a r o . D
+hilu s. m
+4
+4
+6
+6
+n
+n
+S M . 3
+S M . 3
+h - 3
+h - 3
+o r a
+r a
+rr
+s
+s
+d
+d
+u
+u
+etiv
+A . C
+C
+e ri. F
+ri. F
+1 . D
+1 . D
+p
+S M . 8
+S M . 8
+A .
+alo
+c
+2
+22
+2
+o s a rcin
+o
+o
+a.a
+s . C
+s . C
+a r k
+ei. G
+ei. G
+h
+a r o . D
+a r o . D
+o
+4
+4
+a rcin
+n
+n
+a . b
+6
+6
+n
+o r a
+r a
+1 . D S M . 3
+1 . D S M . 3
+a
+rr
+a . m a
+ivi o
+s
+s
+a r cin
+eth
+n
+vv
+e tiv
+u
+u
+s
+e ri. F
+e ri. F
+a
+o
+eth
+c
+n
+a r cin
+a . a
+s
+a
+e i. G o
+e i. G o
+a r k
+r k
+d i s . C 6
+d i s . C 6
+o
+eth
+d i s . C
+d i s . C
+n
+a r ci n
+s
+a . b
+a
+o
+M
+e t h
+z
+z
+5CC
+d i s . C 5
+n
+a l u
+a l u
+a l u
+a l u
+a . m a
+a
+a r c i n
+d i s . C
+s
+a
+M
+o
+M e t h
+ri p
+ri p
+i p
+ri p
+m a
+m a
+s . m a
+d i s . C 7
+d i s . C 7
+a l u
+a l u
+a r c i n
+a
+s
+d i s . C
+d i s . C
+d i s . C
+. m a r b u r g e n s i s . M a r b u r g . D S M . 2 1 3 3 . C d h - 2
+. D S M . 2 1 3 3 . C d h - 2
+c u s . D e lt a . H
+r o p h i c u s . D e lt a . H
+M e t h
+ri p
+ri p
+n
+a
+u
+m a
+s . m a
+s
+a l u
+a l u
+a l u
+a l u
+a l u
+2SS
+c u s . m a ri p a l u d i s . S 2
+M e t h
+c
+. m a ri p a l u d i s . S
+c
+m a ri p
+m a ri p
+m a ri p
+m a ri p
+i p
+s . m a ri p
+o
+a
+c
+u
+M e t h
+o p h i
+c
+o
+a
+rr
+r
+t
+t h e r m o a u t o t
+B
+s . v a n n i e lii. S B
+M e t h a n o c o c c u s . v a n n i e lii. S B
+c
+M e t h
+t h e r m o a u t ott
+oo
+u
+s i s . M a r b u
+v a n n i e lii. S
+c
+rr
+c
+o
+MM
+c
+M e t h
+a n n
+o
+M e t h a n o c o c
+r g e n
+f e r v i d u s . V 2 4 S . D S M . 2 0 8 8
+f e r v i d u s . V 2 4 S . D S M . 2 0 8 8
+.
+.
+M e t h
+e r
+M e t h a n o t h e r m o b a c t e r
+rr
+. m a r b u
+m o b a c t
+aa
+4 S D S
+4 S
+M e t h a n o t h e r m o b a c t e r
+r
+M e t h a n o c a l d o c o c c u s . v u l c a n i u s . M 7 . C d h - 1
+1
+ett
+o c o c c u s . v u l c a n i u s . M 7 . C d h -
+c t
+aa
+m o b a
+m u s .
+M e t h a n o t h e r m u s .
+s
+m u s
+f e r v e n s . A G 8 688
+f e r v e n s . A G 8 6
+o c o c c u s .
+M e t h a n o c a l d o c o c c u s .
+ococcus. jannasch i
+Methanoca ldococcus. jannasch i
+o c o c
+o co c
+Methanocaldococcus.sp..FS406-22.Cdh-1
+dococcus.sp..FS406-22.Cdh-
+dococcus sp FS406-22 Cdh
+Methanothermococcus.okinawensis.IH1
+rmococcus.okinawensis.IH1
+cus s
+rmococcus.okinawensis.IH
+coccus
+2-
+Methanococcus.aeolicus.Nankai-3.Cdh-2
+ccus.aeolicus.Nankai-3.Cdh-
+rmoc
+Candidatus.Desulforudis.audaxviator.MP104C.Cdh-1
+Desulforudis.audaxviator.MP104C.Cdh-
+ccus.a
+cc
+Methanocaldococcus.infernus.ME
+s.ME
+docoo occ ccoo us.infeff rnurr
+dd
+ccus.aeolicus.Nankai-3.Cdh-1
+Methanococcus.aeolicus.Nankai-3.Cdh-1
+c
+rgrr .DSM.2133.Cdh-1
+Methanothermobacter.marburgensis.Marburg.DSM.2133.Cdh-1
+sis.Marburr
+rgen
+rr
+rmobactaa ett r.marburr
+e
+Moorella.thermoacetica.ATCC.39073.CooS-1
+3903
+ermoacetica ATCC 39073 CooS-1
+ermoacetica.ATCC.39073.CooS 1
+e
+Geobacter.metallireducens.GS-15
+.m
+m
+etee alli
+tt
+alli
+cenc s.GS 15
+cencc s.GS-15
+Geobacter.bemidjiensis.Bem.DSM.16622.CooS-2
+bemidjiensis.Bem.DSM.16622.CooS-2-
+bemidjiensis.Bem
+bb
+b
+bb
+midjiensis.Bem
+i
+Geobacter.sp..FRC-32.CooS-2
+sp..FRC-32.CooS-
+sp..FRC32.Coo
+p FRC32.Coo
+Campylobacter.concisus.13826
+2--
+acter.concisus.1382
+ac
+cte
+c
+Campylobacter.curvus.525.92
+33
+6
+a
+aa
+ct
+ertt .curvrr us.525
+Clostridium.papyrosolvens.DSM.2782.CooS-1
+.92
+papyrosolvens.DSM.2782.CooS-1
+papyroso
+p pyros
+Clostridium.cellulolyticum.H10.CooS-1
+ven
+Clostridium.thermocellum.LQ8.DSM.1313.CooS-1
+celluloly
+SMSM
+782.782
+tyyicum
+Clostridium.thermocellum.DSM.2360
+thermocoo ellucc m.LQLL 8.DSM.1313.CooS-1
+theh rm e
+.H10
+heh
+.CooS-
+Clostridium.thermocellum.ATCC.27405
+the
+1
+hh rmocellum.DSM.2360
+Clostridium.cellulovorans.743B.ATCC.35296.CooS-4
+herme
+hermocellum.ATCC.27405
+648852350
+ellulovorans.743B.ATCC.35296.CooS-
+Veillonella.parvula.ATCC.17745
+Veillonella.sp..6_1_27
+Veillonella.dispar.ATCC.17748
+vula.ATCCTT .17745
+Veillonella.sp..oral.taxon.158.F0412
+.6_1_27
+.6_1_2_1_2
+Veillonella.parvula.DSM.2008
+ar.ATCC.1774
+ar.ATCC.774
+Veillonella.sp..3_1_44
+ATCC. 74
+Veillonella.atypica.ACS-134-V-Col7a
+oral.taxon.158.F041
+Veillonella.atypica.ACS-049-V-Sch6
+la.DSM.2008
+laDSM2008
+Selenomonas.sputigena.ATCC.35185
+Selenomonas.artemidis.F0399
+_1_4ACS
+Selenomonas.sp..oral.taxon.137.F0430
+ACS-134-V-Col7
+Mitsuokella.multacida.DSM.20544
+Bryantella.formatexigens.I-52.DS
+ACS-049-V-Sch6
+ACS-049-V-Sch
+ACS-049-V-Sch6
+Eubacterium.cellulosolvens.6
+gena.ATCC.3518
+gena.ATCC
+gena.ATCC
+49-V-Sch
+Ruminococcus.flavefaciens.FD-1
+idis.F039
+Ru
+R
+minococcus.albus.7
+u
+al.taxaa
+Pseudora
+minococcus.albus.8
+xx
+Orib
+on
+DSM.2054444
+.137.F0430
+acteriu
+s.I-52.DS
+hloro
+acteriu
+mibacter.alactolyticus.A
+hloro
+ns.6
+b
+m.sin
+a
+ulfo
+biu
+s
+c
+m.sa
+M.14469.CooS-2
+M.14469.CooS-2
+ulu
+ulfo
+FD-1
+elta.prote
+us.F
+ulfo
+m.p
+micro
+elta.p
+b
+m.p
+vibrio.
+urre
+h
+0
+arv
+a
+2
+alo
+biu
+u
+ulfo
+e
+6
+r
+o
+u
+ote
+m.D
+ulfo
+biu
+b
+m.b
+m.b
+m.N
+m.N
+ulf
+a
+a
+n
+n
+lf
+a
+a
+a
+a
+cteroid
+cteroid
+cteroid
+b
+ulf
+ulf
+ulf
+atr
+atr
+vib
+vib
+vib
+vib
+lf
+ib
+ib
+a
+a
+a
+cb
+b
+b
+b
+b
+.retb
+.retb
+CIB.8
+CIB.8
+cc
+c
+cteriu
+lf
+l
+lff
+l
+vib
+vib
+at
+tt
+a
+a
+a
+a
+a
+flffo
+ff
+f
+etic
+etic
+etic
+etic
+rio.d
+rio.d
+rio
+rio.d
+rio.d
+rio.d
+ulatu
+ulatu
+ulatu
+C.23
+C.23263
+C.23263
+lf
+lf
+lf
+lf
+eriu
+cc
+ctc
+ct
+cte
+o
+o
+o
+f
+f
+n
+n
+tt
+rio
+rio
+vi
+vi
+vi
+vi
+o
+o
+e
+e
+u
+u
+u
+u
+e
+e
+e
+riu
+riu
+ri
+ri
+ri
+ri
+a
+a
+rio
+rio
+rio
+rio
+s
+s
+s.D
+s.D
+s.D
+s.R
+s.R
+s.R
+s.R
+.
+.
+pir
+pir
+v
+v
+v
+v
+m.X.D
+m.X.D
+m.X.D
+.s
+.s
+i
+i
+i
+i
+v
+v
+.
+.
+.
+.
+s
+s
+o
+o
+o
+o
+ulg
+ulg
+v
+v
+v
+v
+a.thio
+a.thio
+.s
+.s
+ulfu
+ulf
+ulfu
+ulfu
+.
+.
+S-1
+S-1
+p..
+p..
+e.H
+e.H
+s
+s
+v
+v
+v
+p
+p..
+p..
+ric
+ric
+ric
+ris
+ris
+ris
+ris
+ris
+ris
+dis
+dis
+.
+.
+ri
+ris
+ri
+v
+v
+.
+.
+.
+.
+s.d
+s.d
+s.d
+s
+v
+v
+v
+v
+.
+.
+ris
+ris
+ris
+ris
+ris
+.
+.
+.
+.
+.
+ki
+ki
+ki.
+.
+
+1
+i.DSM.2661.Cdh-1
+i.DSM.2661.Cdh-
+
+0.9941 
+
+0.9917 
+
+GG
+G
+G
+G
+G
+G
+GG
+G
+e
+e
+ee
+e
+e
+e
+e
+e
+e
+e
+o
+o
+o
+o
+o
+o
+o
+o
+o
+b
+b
+b
+b
+b
+b
+b
+b
+b
+b
+a
+a
+a
+aaa
+a
+a
+a
+a
+a
+a
+a
+c
+c
+c
+c
+c
+c
+c
+c
+c
+c
+c
+
+uta
+uta
+ulfu
+ulfu
+ulfu
+ild
+ild
+
+M.2
+M.2
+6
+6
+6
+M.4
+M.4
+4
+0
+0
+
+vib
+vib
+vib
+vib
+ri
+ri
+ri
+ri
+ri
+ri
+ri
+i
+
+G
+G
+e
+e
+o
+o
+b
+b
+a
+a
+c
+c
+
+-1.
+-1.
+S
+S
+-
+-
+1.
+1.
+
+M.3
+M.3
+9
+9
+3
+3
+
+s.
+s.
+ric
+ric
+ric
+
+.A
+A
+A
+T
+T
+T
+
+C
+C
+C
+C
+o
+o
+o
+o
+s
+s
+s
+s
+
+ulg
+ulg
+ulg
+ulg
+l
+l
+l
+l
+
+.
+9
+
+redur
+redurr
+
+A
+A
+A
+A
+A
+A
+c
+c
+c
+c
+c
+c
+e
+e
+e
+e
+e
+e
+
+.5
+.5
+6
+6
+6
+
+s
+s
+s
+i
+i
+i
+s
+s
+s
+.
+.
+
+AC
+
+0.D
+0.D
+
+i
+i
+i
+i
+r
+r
+r
+r
+ill
+ill
+ill
+ill
+
+588
+
+m
+m
+o
+o
+
+l
+l
+lt
+tttt
+t
+t
+t
+t
+t
+tt
+ttt
+r
+r
+r
+r
+
+ulg
+ulg
+
+o
+oo
+o
+o
+.
+.
+a
+a
+a
+a
+
+ulg
+ulg
+ulg
+ulg
+
+D
+D
+D
+D
+e
+e
+e
+e
+
+P
+P
+P
+P
+e
+e
+e
+e
+
+-2
+-2
+
+r
+r
+r
+r
+r
+.
+.
+.
+.
+f
+f
+f
+f
+
+iy
+iy
+iy
+
+s
+s
+s
+s
+.
+.
+.
+
+l
+l
+l
+l
+k
+k
+k
+k
+
+2
+
+8
+
+4
+
+a
+
+v
+v
+v
+v
+v
+v
+i
+i
+i
+i
+i
+i
+
+4
+
+s
+s
+.
+.
+
+s
+s
+s
+s
+s
+s
+.
+.
+.
+.
+.
+.
+
+.
+.
+.
+.
+.
+.
+s
+s
+s
+s
+s
+s
+
+ri
+ri
+ri
+ri
+ri
+ri
+
+li
+li
+li
+
+il
+il
+il
+
+lff
+lf
+l
+l
+lff
+lf
+ff
+f
+ff
+
+ri
+ri
+
+lf
+lf
+
+ri
+ri
+ri
+ri
+ri
+ri
+
+m
+m
+m
+m
+m
+
+r
+r
+r
+r
+
+lf
+lf
+lf
+lf
+lf
+lf
+
+r grr
+
+tto
+t
+t
+t
+t
+
+8
+
+M
+M
+M
+M
+
+8
+8
+
+6
+6
+6
+
+u
+
+b
+
+C
+C
+C
+
+M
+M
+M
+M
+
+2
+2
+
+7
+7
+
+r
+r
+i
+i
+
+S
+S
+
+E
+
+6
+6
+6
+
+c
+c
+c
+
+s
+
+M
+M
+
+D
+
+2
+2
+2
+
+8
+8
+8
+
+s
+
+e
+
+M
+M
+M
+M
+
+C
+
+s
+
+S
+S
+S
+
+n
+n
+n
+n
+
+u
+u
+u
+u
+
+g
+g
+g
+g
+
+e
+
+1
+
+1
+1
+
+9
+99
+9
+9
+9
+
+0
+0
+
+n
+n
+
+e
+e
+
+2
+2
+2
+
+u
+
+e
+
+h
+
+C
+
+S
+S
+S
+
+l
+l
+l
+l
+l
+
+o
+o
+
+o
+o
+
+L
+L
+
+a
+a
+a
+a
+a
+
+b
+b
+
+d
+
+o
+
+i
+i
+
+i
+i
+
+S
+S
+
+D
+
+s
+
+.
+.
+.
+
+e
+e
+
+i
+i
+i
+i
+i
+i
+
+i
+i
+i
+i
+i
+i
+
+l
+l
+l
+l
+l
+l
+
+o
+o
+o
+
+o
+o
+
+o
+o
+
+L
+L
+
+d
+
+e
+e
+
+l
+l
+l
+l
+l
+f
+f
+f
+f
+f
+
+1
+
+S
+S
+
+D
+
+.
+.
+
+m
+m
+m
+m
+m
+m
+
+s
+s
+s
+s
+s
+
+s
+s
+s
+
+s
+
+i
+i
+
+l
+l
+
+l
+l
+
+e
+e
+e
+e
+
+o
+o
+
+n
+n
+
+e
+
+S
+S
+
+S
+S
+
+T
+T
+
+R
+R
+
+s
+
+D
+
+M
+
+e
+e
+e
+e
+ee
+e
+
+M
+M
+
+n
+n
+n
+
+a
+a
+a
+
+e
+e
+e
+
+e
+e
+e
+e
+e
+
+o
+o
+
+e
+
+l
+l
+l
+l
+l
+l
+f
+f
+f
+f
+f
+f
+
+.
+.
+
+.
+.
+
+o
+n
+
+T
+TT
+TT
+TT
+TT
+TTTT
+T
+
+s
+s
+
+C
+C
+
+b
+b
+b
+b
+
+o
+o
+o
+o
+
+u
+u
+u
+u
+
+a
+a
+a
+a
+
+u
+u
+u
+u
+
+t
+t
+t
+t
+t
+
+a
+a
+
+o
+o
+
+a
+a
+
+e
+
+m
+
+M
+M
+M
+M
+M
+
+D
+D
+D
+D
+D
+D
+
+s
+s
+s
+
+z
+z
+z
+
+y
+
+A
+A
+
+S
+S
+
+.
+.
+
+tt
+t
+t
+t
+t
+
+.
+.
+.
+
+e
+e
+
+o
+o
+
+h
+h
+
+l
+l
+
+C
+C
+
+o
+o
+o
+o
+
+a
+a
+a
+a
+
+a
+a
+a
+
+e
+
+M
+M
+
+m
+m
+
+C
+C
+
+M
+M
+
+r
+r
+r
+
+s
+s
+s
+s
+
+.
+.
+.
+.
+
+t
+t
+t
+t
+
+i
+i
+i
+i
+i
+
+e
+e
+e
+e
+e
+
+o
+o
+oo
+o
+o
+o
+o
+
+h
+h
+h
+h
+h
+h
+
+o
+oo
+o
+o
+o
+
+a
+a
+a
+a
+
+b
+b
+b
+b
+
+u
+u
+u
+u
+
+a
+a
+a
+
+e
+e
+
+g
+g
+g
+g
+
+a
+a
+a
+
+u
+u
+u
+
+s
+s
+s
+s
+
+D
+
+r
+rr
+r
+r
+r
+
+s
+s
+s
+s
+s
+s
+
+k
+k
+k
+k
+
+t
+t
+
+s
+s
+s
+s
+s
+
+.
+.
+
+l
+l
+
+D
+D
+D
+D
+D
+D
+
+M
+M
+
+M
+M
+
+m
+m
+
+m
+m
+m
+m
+
+M
+M
+M
+M
+
+e
+e
+e
+ee
+e
+
+a
+a
+a
+a
+
+o
+o
+o
+o
+
+n
+n
+n
+n
+
+h
+h
+h
+h
+
+e
+e
+e
+e
+ee
+
+a
+a
+a
+a
+
+u
+u
+u
+
+a
+a
+a
+
+h
+h
+h
+
+b
+b
+b
+b
+
+p
+p
+p
+
+e
+e
+
+u
+u
+u
+u
+
+c
+c
+
+c
+c
+
+c
+c
+
+D
+
+.
+.
+.
+
+t
+t
+t
+
+l
+l
+l
+l
+l
+l
+
+t
+t
+t
+t
+
+s
+s
+
+s
+s
+
+v
+v
+
+s
+s
+
+O
+O
+
+a
+a
+a
+a
+
+a
+a
+a
+a
+
+h
+h
+h
+h
+
+o
+o
+o
+o
+
+n
+n
+n
+n
+
+e
+e
+e
+e
+
+m
+m
+
+M
+M
+
+M
+M
+
+b
+b
+b
+b
+b
+b
+
+o
+o
+o
+o
+o
+
+o
+o
+o
+o
+o
+o
+
+0
+0
+0
+
+2
+2
+2
+
+P
+P
+P
+
+n
+n
+n
+n
+
+e
+e
+e
+e
+
+u
+u
+u
+u
+u
+u
+
+e
+e
+e
+e
+e
+e
+
+a
+a
+a
+a
+a
+
+a
+a
+a
+a
+a
+
+m
+m
+
+c
+c
+c
+
+c
+cc
+c
+c
+c
+
+c
+cc
+c
+c
+c
+
+r
+r
+
+a
+eaa
+a
+a
+a
+a
+e
+e
+e
+e
+e
+e
+
+i
+i
+
+i
+i
+
+t
+t
+
+.
+.
+
+s
+s
+s
+s
+s
+s
+
+v
+v
+v
+v
+v
+v
+
+x
+x
+x
+x
+x
+x
+
+H
+H
+
+D
+
+C
+C
+C
+C
+C
+C
+
+e
+e
+
+o
+o
+
+n
+n
+
+a
+a
+
+a
+a
+
+n
+n
+
+h
+h
+
+ii
+i
+i
+i
+i
+
+t
+t
+t
+t
+t
+
+s
+s
+s
+s
+
+e
+e
+
+n
+n
+
+o
+o
+
+e
+e
+
+u
+u
+
+e
+e
+
+p
+p
+
+o
+o
+
+a
+a
+
+o
+o
+
+b
+b
+
+e
+e
+
+m
+m
+
+m
+m
+m
+m
+m
+
+s
+s
+
+s
+s
+
+c
+c
+
+D
+D
+D
+
+D
+
+r
+r
+
+i
+i
+i
+i
+
+a
+a
+a
+
+e
+e
+e
+e
+
+n
+n
+n
+n
+
+n
+n
+n
+
+a
+a
+a
+a
+
+o
+o
+o
+o
+
+h
+h
+h
+h
+
+a
+a
+a
+a
+
+t
+t
+t
+t
+t
+t
+
+s
+s
+s
+s
+
+c
+c
+c
+c
+
+n
+n
+n
+n
+n
+n
+
+g
+g
+g
+g
+g
+g
+
+e
+e
+e
+e
+e
+e
+
+o
+o
+o
+o
+o
+o
+
+b
+b
+b
+b
+b
+b
+
+e
+e
+e
+e
+e
+e
+
+u
+u
+u
+u
+u
+u
+
+o
+o
+o
+o
+o
+o
+
+e
+e
+e
+e
+e
+e
+
+a
+a
+a
+a
+a
+a
+
+A
+A
+A
+
+c
+c
+c
+c
+c
+c
+
+y
+y
+y
+y
+y
+y
+y
+
+r
+r
+r
+
+i
+i
+
+t
+t
+t
+t
+t
+t
+
+D
+
+b
+b
+b
+b
+b
+b
+b
+b
+b
+
+a
+a
+a
+a
+a
+a
+
+e
+e
+e
+e
+e
+e
+
+o
+o
+o
+o
+o
+o
+o
+o
+
+u
+u
+u
+u
+
+e
+e
+e
+e
+e
+e
+
+u
+u
+u
+u
+u
+u
+
+s
+s
+
+c
+c
+
+l
+l
+l
+l
+
+e
+e
+
+o
+o
+
+p
+p
+
+g
+g
+
+d
+d
+
+o
+o
+
+a
+a
+
+u
+u
+
+b
+b
+
+u
+u
+
+o
+
+c
+c
+c
+c
+
+r
+r
+r
+r
+
+i
+i
+i
+i
+
+t
+t
+t
+t
+
+r
+r
+
+r
+r
+
+t
+t
+
+.
+.
+
+H
+H
+H
+
+l
+l
+ll
+l
+ll
+l
+l
+
+D
+
+aa
+a
+a
+
+h
+h
+
+d
+d
+
+b
+b
+
+u
+u
+
+a
+a
+
+b
+b
+
+o
+o
+
+s
+s
+s
+s
+
+c
+c
+c
+c
+
+o
+o
+o
+o
+o
+
+u
+u
+u
+u
+u
+u
+
+nn
+n
+n
+n
+nn
+n
+n
+n
+n
+
+o
+o
+o
+o
+o
+o
+
+a
+a
+a
+a
+
+b
+b
+b
+b
+b
+b
+
+a
+a
+a
+a
+a
+a
+
+o
+o
+o
+o
+o
+o
+o
+o
+
+h
+h
+h
+h
+h
+h
+h
+
+pp
+p
+p
+pp
+p
+p
+p
+p
+p
+p
+
+s
+s
+s
+s
+
+r
+r
+r
+r
+
+t
+t
+
+r
+r
+r
+r
+
+t
+tt
+tt
+tt
+t
+
+.
+.
+.
+
+l
+l
+l
+l
+
+F
+F
+
+c
+c
+c
+c
+c
+c
+
+a
+a
+a
+a
+a
+
+u
+u
+u
+u
+
+s
+s
+s
+s
+s
+s
+
+o
+o
+o
+o
+o
+o
+
+u
+u
+u
+uu
+u
+
+u
+u
+u
+u
+u
+u
+
+o
+o
+o
+o
+o
+
+e
+e
+e
+e
+e
+e
+
+D
+D
+D
+D
+D
+
+o
+o
+o
+o
+
+e
+e
+e
+
+b
+b
+b
+b
+
+a
+aa
+a
+
+u
+u
+
+e
+e
+e
+
+d
+d
+d
+d
+
+e
+e
+e
+e
+
+o
+oo
+o
+o
+o
+
+p
+pp
+p
+
+r
+r
+
+s
+s
+
+t
+t
+t
+t
+
+t
+t
+t
+t
+t
+t
+
+.
+.
+.
+.
+
+r
+r
+r
+r
+
+y
+yy
+y
+
+xx
+x
+x
+
+c
+c
+
+n
+n
+
+a
+a
+
+u
+u
+
+e
+ee
+e
+
+p
+p
+
+p
+p
+
+ee
+e
+e
+
+o
+o
+
+a
+a
+
+h
+h
+
+n
+n
+
+u
+u
+u
+u
+
+n
+n
+n
+n
+
+e
+e
+e
+e
+
+p
+p
+p
+p
+
+a
+a
+a
+a
+
+u
+u
+u
+u
+
+h
+h
+h
+h
+
+h
+h
+h
+h
+
+o
+o
+o
+o
+
+n
+n
+n
+n
+
+r
+r
+r
+
+D
+D
+
+t
+tt
+t
+
+t
+tt
+t
+
+M
+M
+M
+
+s
+ss
+s
+s
+s
+
+f
+f
+f
+f
+
+r
+r
+
+rr
+
+D
+D
+
+E
+E
+
+A
+A
+
+G
+G
+G
+
+c
+c
+c
+c
+c
+
+s
+s
+s
+s
+s
+s
+s
+s
+
+l
+l
+l
+l
+
+n
+n
+n
+n
+nn
+n
+n
+n
+n
+
+d
+d
+d
+d
+d
+
+a
+a
+a
+a
+a
+a
+
+d
+d
+d
+d
+d
+d
+
+a
+a
+aa
+a
+a
+aa
+a
+a
+
+e
+e
+e
+e
+ee
+e
+e
+
+n
+n
+n
+n
+n
+
+h
+h
+h
+h
+
+a
+a
+a
+
+u
+u
+uu
+uu
+
+o
+o
+
+p
+p
+
+e
+e
+
+h
+h
+
+a
+a
+
+n
+n
+
+h
+h
+
+a
+a
+
+e
+e
+
+a
+a
+
+u
+u
+
+p
+p
+
+r
+r
+r
+r
+
+s
+s
+
+D
+D
+D
+D
+D
+D
+
+D
+D
+D
+D
+D
+D
+
+S
+S
+S
+S
+S
+S
+
+Clade A 
+
+Clade B 
+
+i
+i
+
+s
+s
+s
+u
+u
+u
+c
+c
+c
+c
+c
+c
+o
+o
+o
+c
+c
+c
+o
+o
+
+-
+-
+S
+S
+o
+o
+o
+o
+C
+C
+.
+.
+7
+7
+0
+0
+5
+5
+0
+0
+1
+1
+.
+.
+M
+M
+SSS
+S
+S
+S
+D
+D
+D
+D
+.
+.
+.
+.
+a
+a
+a
+aa
+a
+c
+c
+c
+c
+i
+i
+h
+h
+h
+h
+ppp
+p
+p
+p
+o
+o
+o
+oo
+o
+r
+r
+r
+r
+t
+t
+t
+tt
+t
+o
+o
+o
+o
+n
+n
+n
+n
+e
+e
+e
+e
+g
+g
+g
+g
+o
+o
+o
+oo
+o
+r
+r
+r
+r
+d
+d
+d
+dd
+d
+y
+yy
+y
+y
+h
+h
+h
+h
+.
+.
+.
+.
+a
+a
+a
+a
+i
+i
+i
+i
+t
+t
+t
+t
+u
+u
+u
+u
+a
+a
+a
+a
+B
+B
+B
+B
+
+M
+M
+M
+S
+S
+D
+D
+.
+.
+2
+2
+5
+5
+-
+-
+I
+I
+.
+.
+s
+s
+s
+n
+n
+n
+e
+e
+e
+g
+g
+g
+i
+i
+x
+x
+e
+e
+t
+t
+aa
+a
+a
+m
+m
+r
+r
+o
+o
+ff
+f
+f
+.
+.
+a
+a
+e
+e
+t
+t
+n
+n
+a
+a
+y
+y
+r
+r
+B
+B
+
+l
+l
+l
+l
+
+l
+l
+
+l
+l
+
+u
+u
+c
+cc
+c
+c
+cc
+c
+o
+oo
+o
+c
+cc
+c
+o
+o
+m
+mm
+m
+r
+r
+e
+e
+h
+hh
+h
+T
+T
+
+l
+l
+i
+i
+
+u
+u
+h
+h
+p
+p
+o
+oo
+o
+r
+r
+a
+aa
+a
+b
+b
+.
+.
+s
+s
+u
+u
+c
+cc
+c
+c
+cc
+c
+o
+oo
+o
+c
+cc
+c
+o
+o
+m
+mm
+m
+r
+r
+e
+e
+h
+hh
+h
+T
+T
+
+i
+ii
+i
+
+t
+tt
+tt
+t
+
+C6
+6
+CC
+C
+4
+4
+a
+a
+8
+8
+n
+n
+8
+8
+d
+dd
+d
+5
+5
+d
+dd
+d
+2
+2
+a
+a
+8
+8
+u
+u
+2
+2
+s
+s
+1
+1
+K
+K
+o
+oo
+o
+r
+r
+a
+aa
+a
+r
+r
+c
+cc
+c
+A
+A
+h
+h
+a
+a
+M
+MM
+M
+e
+ee
+e
+4
+4
+u
+u
+C
+C
+m
+m
+o
+o
+oo
+.
+.
+c
+c
+o
+oo
+o
+r
+r
+S
+SS
+S
+y
+yy
+yy
+y
+p
+p-
+p
+pp
+p
+p
+-
+1
+1
+o
+oo
+o
+
+.
+.
+
+t
+tt
+t
+
+f
+ff
+f
+i
+i
+l
+l
+
+.
+.
+
+u
+u
+m
+m
+O
+O
+P
+P
+F
+F
+8
+88
+8
+
+i
+i
+i
+i
+
+tt
+t
+t
+
+t
+t
+t
+t
+r
+r
+r
+r
+i
+i
+i
+i
+d
+d
+d
+d
+u
+u
+u
+u
+m
+m
+m
+m
+m
+c
+c
+e
+e
+
+o
+o
+o
+o
+b
+b
+b
+b
+o
+o
+o
+o
+o
+o
+a
+a
+a
+a
+h
+h
+h
+h
+h
+h
+c
+cc
+c
+a
+a
+at
+a
+a
+a
+e
+e
+o
+o
+o
+o
+b
+.bb
+bb
+b
+b
+b
+b
+b
+c
+c
+u
+u
+u
+u
+a
+a
+m
+m
+m
+m
+a
+a
+a
+a
+a
+
+r
+r
+.
+
+l
+l
+l
+l
+
+.
+.
+.
+
+.
+.
+.
+
+i
+i
+i
+i
+i
+i
+
+r
+r
+r
+
+bb
+b
+b
+
+i
+i
+
+s
+s
+s
+s
+s
+s
+p
+p
+p
+p
+p
+p
+
+s
+s
+s
+u
+u
+u
+
+.
+.
+.
+.
+.
+.
+
+u
+u
+
+r
+r
+
+l
+l
+l
+l
+
+..ll
+.
+.
+.
+.
+
+a
+a
+n
+n
+
+f
+f
+f
+
+u
+u
+u
+
+r
+r
+r
+
+i
+i
+
+r
+r
+r
+
+i
+i
+
+F
+F
+F
+F
+F
+F
+R
+R
+R
+R
+R
+R
+C
+C
+C
+C
+C
+C
+
+r
+r
+
+e
+e
+e
+d
+d
+u
+u
+c
+cc
+c
+e
+e
+n
+n
+s
+s
+
+e
+e
+d
+d
+u
+u
+c
+c
+e
+e
+n
+n
+s
+s
+
+.
+.
+
+.
+.
+
+R
+R
+
+ff
+f
+f
+
+4
+4
+
+P
+P
+C
+CC
+C
+A
+A
+
+n
+n
+o
+o
+
+l
+l
+
+i
+i
+
+r
+r
+
+a
+a
+b
+b
+a
+a
+
+l
+l
+
+u
+u
+o
+o
+v
+v
+o
+o
+r
+r
+a
+a
+n
+n
+s
+s
+
+.
+.
+
+.
+.
+
+.
+.
+
+.
+.
+
+.
+.
+
+.
+.
+
+.
+.
+
+-
+-
+
+t
+t
+i
+i
+
+c
+c
+u
+u
+m
+m
+Z
+Z
+
+c
+c
+u
+u
+s
+s
+D
+D
+S
+S
+M
+M
+2
+2
+3
+3
+8
+8
+0
+0
+C
+C
+o
+o
+o
+o
+S
+S
+
+7
+7
+4
+4
+3
+3
+B
+B
+A
+A
+T
+T
+C
+C
+C
+C
+3
+3
+5
+5
+2
+2
+9
+9
+6
+6
+C
+C
+o
+o
+o
+o
+S
+S
+
+7
+7
+2
+2
+8
+8
+8
+8
+D
+D
+S
+S
+M
+M
+5
+5
+5
+5
+0
+0
+1
+1
+C
+C
+o
+o
+o
+o
+S
+S
+
+.
+.
+
+.
+.
+
+.
+.
+
+.
+.
+
+-
+-
+2
+2
+
+-
+-
+
+-
+-
+-
+
+2
+2
+
+1
+1
+
+0.3
+
+u
+u
+u
+
+u
+u
+
+a
+a
+
+n
+n
+n
+n
+
+a
+a
+
+s
+s
+s
+
+.
+.
+
+a
+a
+a
+a
+
+.
+.
+
+c
+c
+c
+c
+
+t
+t
+t
+t
+
+s
+s
+
+.
+.
+.
+
+t
+t
+
+e
+e
+e
+e
+
+.
+.
+
+.
+.
+.
+
+s
+s
+
+g
+g
+g
+g
+g
+
+h
+h
+
+b
+b
+b
+
+m
+m
+
+mm
+m
+m
+m
+m
+
+.
+.
+.
+
+m
+m
+m
+
+a
+a
+a
+
+.
+.
+.
+.
+
+m
+m
+
+.
+.
+
+t
+t
+r
+r
+
+c
+c
+
+a
+a
+a
+a
+
+.
+.
+
+a
+a
+
+o
+o
+
+r
+r
+r
+r
+r
+
+l
+l
+
+l
+l
+
+e
+e
+e
+e
+e
+
+u
+u
+
+o
+o
+o
+o
+o
+
+a
+a
+
+g
+g
+g
+g
+
+S
+S
+S
+S
+S
+S
+
+N
+N
+N
+
+x
+x
+x
+x
+x
+
+i
+i
+i
+i
+i
+
+II
+II
+
+a
+a
+a
+a
+
+a
+a
+a
+a
+
+d
+d
+d
+d
+
+1
+1
+
+A
+A
+
+T
+T
+T
+
+F
+F
+F
+
+s
+s
+
+M
+M
+M
+M
+M
+M
+
+p
+p
+
+2
+2
+.
+.
+
+C
+C
+
+r
+r
+r
+r
+
+i
+i
+i
+i
+
+p
+p
+
+a
+a
+a
+a
+
+e
+e
+
+a
+a
+
+a
+a
+
+e
+e
+
+u
+u
+u
+u
+m
+m
+m
+m
+
+.
+.
+
+.
+.
+
+m
+m
+m
+m
+m
+m
+m
+m
+
+A
+A
+M
+M
+4
+4
+
+-
+-
+-
+-
+
+3
+3
+3
+3
+3
+2
+2
+2
+2
+
+.
+.
+.
+.
+
+t
+t
+t
+t
+
+h
+h
+h
+h
+
+r
+r
+
+r
+r
+
+z
+z
+
+t
+t
+i
+i
+
+m
+m
+
+k
+k
+
+e
+e
+
+e
+e
+
+i
+i
+.
+.
+
+o
+o
+
+a
+aa
+a
+a
+a
+
+p
+p
+
+r
+r
+
+i
+i
+
+.
+.
+
+G
+G
+
+u
+u
+u
+u
+u
+u
+
+p
+p
+
+c
+c
+
+e
+e
+
+g
+g
+g
+g
+
+s
+s
+
+e
+e
+e
+e
+
+t
+t
+t
+t
+t
+
+aa
+a
+a
+
+e
+e
+
+a
+a
+
+o
+o
+o
+o
+o
+
+t
+t
+
+v
+v
+
+c
+c
+
+t
+t
+t
+t
+t
+
+o
+o
+
+u
+u
+u
+u
+u
+
+r
+r
+i
+i
+
+l
+l
+l
+l
+
+t
+t
+t
+t
+
+p
+p
+p
+p
+
+a
+a
+a
+a
+a
+
+2
+2
+
+t
+t
+r
+r
+i
+i
+
+i
+i
+i
+i
+.
+.
+.
+.
+
+J
+J
+J
+J
+
+h
+h
+h
+
+n
+n
+n
+n
+n
+
+.
+.
+.
+.
+.
+
+o
+o
+
+-
+-
+
+D
+D
+
+2
+2
+2
+2
+2
+
+S
+S
+
+s
+ss
+s
+s
+s
+
+2
+2
+
+.
+.
+.
+
+O
+O
+
+6
+6
+6
+6
+
+.
+.
+
+o
+o
+
+r
+r
+r
+r
+
+u
+u
+
+a
+a
+a
+a
+
+F
+F
+F
+F
+
+2
+2
+
+M
+M
+M
+M
+M
+
+r
+r
+
+o
+o
+o
+o
+
+c
+c
+
+s
+s
+
+x
+x
+
+i
+i
+
+.
+.
+
+E
+E
+
+-
+-
+-
+-
+
+.
+.
+
+.
+.
+
+3
+3
+3
+3
+3
+
+D
+D
+
+D
+D
+
+8
+8
+8
+
+S
+S
+
+s
+s
+
+.
+.
+
+i
+i
+f
+f
+i
+i
+
+a
+a
+
+p
+p
+p
+p
+
+d
+d
+
+.
+.
+
+b
+b
+b
+
+u
+u
+
+1
+1
+1
+1
+
+C
+C
+
+P
+P
+P
+P
+
+S
+S
+
+t
+t
+tt
+t
+t
+
+h
+h
+
+F
+F
+
+o
+o
+
+n
+n
+
+h
+h
+h
+h
+
+o
+o
+o
+
+.
+.
+
+.
+.
+.
+
+e
+e
+e
+e
+
+C
+C
+o
+o
+
+r
+r
+r
+r
+
+C
+C
+C
+o
+o
+o
+o
+oo
+o
+o
+o
+SS
+S
+S
+S
+
+m
+m
+m
+o
+o
+o
+
+l
+l
+l
+
+i
+i
+i
+
+o
+o
+S
+S
+
+l
+l
+l
+
+l
+l
+
+u
+u
+
+1
+1
+
+i
+i
+
+s
+s
+
+e
+e
+e
+
+a
+a
+
+s
+s
+
+r
+r
+r
+
+.
+.
+
+a
+a
+
+P
+PP
+P
+
+a
+a
+
+.
+.
+
+.
+.
+
+D
+D
+
+C
+C
+
+r
+r
+
+S
+S
+
+n
+n
+
+T
+T
+
+o
+o
+
+-
+-
+-
+
+t
+t
+t
+
+--
+-
+-
+
+s
+s
+
+.
+.
+
+.
+.
+
+i
+i
+i
+i
+
+m
+m
+
+c
+c
+c
+c
+
+.
+.
+
+a
+a
+
+S
+S
+
+o
+o
+o
+
+1
+1
+
+.
+.
+.
+.
+
+-
+-
+
+o
+o
+
+O
+O
+O
+O
+O
+
+n
+n
+
+E
+E
+
+o
+o
+o
+
+C
+C
+C
+C
+
+9
+9
+
+o
+o
+
+M
+M
+
+u
+u
+u
+u
+
+J
+J
+
+B
+B
+
+s
+s
+
+.
+.
+
+.
+.
+
+2
+2
+
+m
+m
+m
+m
+
+M
+M
+
+5
+5
+
+R
+R
+
+D
+D
+
+i
+i
+i
+.
+.
+
+-
+-
+
+1
+1
+
+n
+n
+n
+
+c
+c
+
+o
+o
+o
+o
+
+S
+S
+
+e
+e
+e
+
+o
+o
+o
+o
+
+C
+C
+C
+
+B
+B
+B
+B
+
+.
+.
+.
+
+.
+.
+
+1
+1
+
+S
+S
+S
+S
+
+o
+o
+o
+
+6
+6
+
+S
+S
+
+-
+-
+
+o
+o
+o
+
+4
+4
+
+3
+3
+
+1
+1
+
+0
+0
+
+6
+6
+
+o
+o
+
+o
+o
+
+1
+1
+1
+
+h
+h
+h
+
+2
+2
+
+A
+A
+
+.
+.
+
+M
+M
+
+.
+.
+
+H
+H
+H
+H
+
+.
+.
+
+5
+5
+
+.
+.
+
+6
+66
+6
+6
+
+D
+D
+
+7
+7
+
+4
+4
+
+.
+.
+
+E
+EE
+E
+
+J
+J
+
+C
+C
+
+D
+D
+
+.
+.
+
+C
+C
+
+o
+o
+
+S
+S
+
+o
+o
+
+3
+3
+
+R
+R
+R
+R
+
+6
+6
+
+M
+M
+M
+M
+
+o
+o
+
+3
+3
+
+o
+o
+
+M
+M
+
+4
+4
+
+A
+AA
+A
+A
+
+1
+1
+
+S
+S
+
+5
+5
+
+8
+8
+
+8
+8
+
+M
+M
+
+.
+.
+
+4
+4
+
+M
+M
+
+D
+D
+
+7
+7
+
+.
+.
+
+1
+1
+
+.
+.
+
+S
+S
+
+.
+.
+
+9
+9
+
+D
+D
+
+9
+9
+
+S
+S
+
+.
+.
+
+7
+7
+
+S
+S
+
+2
+2
+2
+
+1
+1
+
+-
+-
+
+8
+8
+
+.
+.
+
+-
+-
+
+1
+1
+
+0
+0
+
+C
+C
+
+.
+.
+
+2
+2
+
+M
+M
+
+S
+S
+
+1
+1
+
+D
+D
+
+6
+6
+
+.
+.
+
+5
+5
+
+8
+8
+
+o
+o
+
+t
+t
+
+r
+r
+
+o
+o
+
+p
+p
+
+h
+h
+
+S
+S
+S
+
+2
+2
+
+-
+-
+
+.
+.
+
+1
+1
+
+C
+C
+
+o
+o
+
+o
+o
+
+S
+S
+
+-
+-
+
+1
+1
+
+e
+e
+
+a
+a
+a
+
+4
+4
+4
+
+n
+n
+
+n
+n
+n
+
+S
+S
+-
+-
+1
+1
+
+s
+s.
+s.
+
+3
+3
+-
+-
+1.
+1.
+
+A
+A
+
+b
+b
+
+o
+o
+r
+r
+o
+o
+
+T
+T
+
+C
+C
+
+o
+o
+
+u
+u
+
+C
+C
+
+o
+o
+
+S
+S
+
+-
+-
+1
+1
+
+g
+g
+
+h
+h
+
+C
+C
+
+.2
+.2
+
+S
+S
+-
+-
+1
+1
+
+M
+M
+
+.
+.
+
+1
+1
+
+0
+0
+
+7
+7
+
+7
+7
+7
+
+7
+77
+7
+
+4
+4
+
+4
+4
+
+o
+o
+
+.
+.
+
+o
+o
+
+C
+C
+
+S
+S
+
+S
+S
+
+55
+5
+5
+
+7
+7
+
+M
+M
+
+3
+3
+
+M
+M
+
+1
+1
+
+1
+1
+
+7
+7
+
+.
+.
+
+.
+.
+
+.
+.
+
+1
+1
+
+o
+o
+
+-
+-
+
+3
+3
+
+C
+C
+
+5
+5
+
+o
+o
+
+1
+1
+
+3
+3
+
+S
+S
+
+-
+-
+
+1
+1
+
+8
+8
+
+2
+2
+
+.
+.
+
+C
+C
+
+o
+o
+
+7
+7
+
+o
+o
+
+1
+1
+
+S
+S
+
+-
+-
+
+1
+1
+
+o
+o
+
+o
+o
+
+S
+S
+
+-
+-
+
+1
+1
+
+u
+u
+m
+m
+
+.
+.
+
+B
+B
+S
+S
+A
+A
+
+.
+.
+
+D
+D
+S
+S
+M
+M
+
+.
+.
+
+1
+1
+
+1
+1
+
+6
+6
+
+9
+9
+
+9
+9
+
+.
+.
+
+C
+C
+o
+o
+
+o
+o
+S
+S
+
+-
+-
+
+1
+1
+
+FIGURE A1 | Circular Bayesian Inference tree with sequence names shown (Same tree as Figure 1B). Posterior probabilities for deeply branching nodes
+are displayed.
+
+www.frontiersin.org
+
+April 2012 | Volume 3 | Article 132 | 13
+
+Techtmann et al.
+
+Anaerobic carbon monoxide dehydrogenase HGT
+
+FIGURE A2 | Continued
+
+Frontiers in Microbiology | Evolutionary and Genomic Microbiology
+
+April 2012 | Volume 3 | Article 132 | 14
+
+Techtmann et al.
+
+Anaerobic carbon monoxide dehydrogenase HGT
+
+FIGURE A2 | Continued
+
+www.frontiersin.org
+
+April 2012 | Volume 3 | Article 132 | 15
+
+Techtmann et al.
+
+Anaerobic carbon monoxide dehydrogenase HGT
+
+FIGURE A2 | Subtrees of maximum likelihood tree of [Ni,Fe]-CODHs (Figure 2) divided based on clades.
+
+Frontiers in Microbiology | Evolutionary and Genomic Microbiology
+
+April 2012 | Volume 3 | Article 132 | 16
+
+

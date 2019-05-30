@@ -1,0 +1,1227 @@
+METHODS ARTICLE
+published: 08 February 2012
+doi: 10.3389/fmicb.2012.00040
+
+A microﬂuidic device for simple and rapid evaluation of
+multidrug efﬂux pump inhibitors
+
+Ryota Iino1,2, Kunihiko Nishino3, Hiroyuki Noji 1,2, Akihito Yamaguchi 4,5 and Yoshimi Matsumoto4*
+
+1 Department of Applied Chemistry, Graduate School of Engineering, University of Tokyo, Bunkyo-ku, Tokyo, Japan
+2 Core Research for Evolutional Science and Technology, Japan Science and Technology Agency, Chiyodaku, Tokyo, Japan
+3 Laboratory of Microbiology and Infectious Diseases, Institute of Scientiﬁc and Industrial Research, Osaka University, Ibaraki, Osaka, Japan
+4 Department of Cell Membrane Biology, Institute of Scientiﬁc and Industrial Research, Osaka University, Ibaraki, Osaka, Japan
+5 Graduate School of Pharmaceutical Sciences, Osaka University, Suita, Osaka, Japan
+
+Edited by:
+Tzi Bun Ng, The Chinese University of
+Hong Kong, China
+Reviewed by:
+Veljo Kisand, University of Tartu,
+Estonia
+M. Pilar Francino, Center for Public
+Health Research, Spain
+Jer-Horng Wu, National Cheng Kung
+University, Taiwan
+*Correspondence:
+Yoshimi Matsumoto, Institute of
+Scientiﬁc and Industrial Research,
+Osaka University, Department of Cell
+Membrane Biology, 8-1 Mihogaoka,
+Ibaraki, Osaka 567-0047, Japan.
+e-mail: yoshimi@sanken.osaka-u.ac.jp
+
+Recently, multidrug-resistant pathogens have disseminated widely owing essentially to
+their increased multidrug efﬂux pump activity. Presently, there is a scarcity of new antibac-
+terial agents, and hence, inhibitors of multidrug efﬂux pumps belonging to the resistance–
+nodulation–cell division (RND) family appear useful
+in the treatment of infections by
+multidrug-resistant pathogens. Moreover, recent progress in microfabrication technolo-
+gies has expanded the application of nano/micro-devices to the ﬁeld of human healthcare,
+such as the detection of infections and diagnosis of diseases. We developed a microﬂu-
+idic channel device for a simple and rapid evaluation of bacterial drug efﬂux activity.
+By combining the microﬂuidic device with a ﬂuorogenic compound, ﬂuorescein-di-β-D-
+galactopyranoside, which is hydrolyzed to a ﬂuorescent dye in the cytoplasm of Escherichia
+coli, we successfully evaluated the effects of inhibitors on the RND-type multidrug efﬂux
+pumps MexAB–OprM and MexXY–OprM from Pseudomonas aeruginosa in E. coli. Our new
+method successfully detected the MexB-speciﬁc inhibitory effect of D13-9001 and revealed
+an unexpected membrane-permeabilizing effect of Phe-Arg-β-naphthylamide, which has
+long been used as an efﬂux pump inhibitor.
+
+Keywords: ﬂuorescein-di-β-D-galactopyranoside, microﬂuidic channel, ﬂuorescence microscopy, pyridopyrimidine,
+Phe-Arg-β-naphthylamide, polymyxin B nonapeptide, Escherichia coli, Pseudomonas aeruginosa
+
+INTRODUCTION
+Currently, increase in multidrug resistance among clinical iso-
+lates is a major problem in infection control. In particular, the
+so-called “multidrug-resistant Pseudomonas aeruginosa (MDRP)”
+which is resistant to major antipseudomonal agents such as car-
+bapenems, quinolones, and aminoglycosides (Sekiguchi et al.,
+2007b; Kirikae et al., 2008), has been isolated and identiﬁed as
+a cause of nosocomial outbreaks in Japan (Sekiguchi et al., 2007a;
+Satoh et al., 2008). P. aeruginosa has natural intrinsic resistance
+tendencies, and MDRP isolates have variable complex resistance
+mechanisms (Livermore, 2002; Lister et al., 2009). In particular,
+multidrug efﬂux pumps, particularly resistance–nodulation–cell
+division (RND) family pumps, can decrease the sensitivity of P.
+aeruginosa to various compounds (Masuda et al., 2000; Ryan et al.,
+2001). The RND-type multidrug efﬂux systems have extremely
+broad substrate speciﬁcities and protect the cells from the actions
+of antibiotics. They usually function as three-component assem-
+blies spanning the outer and cytoplasmic membranes and the
+periplasmic space of Gram-negative bacteria. That is, the RND
+efﬂux system consists of three different proteins: a cytoplasmic
+membrane protein (such as MexB), a membrane fusion protein
+(MexA), and an outer membrane channel (OprM).
+
+Twelve intrinsic efﬂux systems belonging to the RND family
+have been identiﬁed from the genomic sequence of P. aeruginosa
+(Schweizer, 2003). Among them, MexAB–OprM, MexCD–OprJ,
+MexEF–OprN, and MexXY efﬂux systems are known to have
+
+important roles in multidrug resistance (Morita et al., 2001; Llanes
+et al., 2004; Mesaros et al., 2007; Lister et al., 2009). These sys-
+tems can increase their resistance levels by acquiring additional
+resistance factors (Henrichfreise et al., 2007; Giske et al., 2008).
+During the current era of scarcity of new antibacterial agents,
+RND pump inhibitors in combination with available antibiotics
+could be useful for treating MDRP infections. Although no clin-
+ically useful inhibitor is known presently, the enhancing effects
+of experimentally available efﬂux pump inhibitors, namely pyri-
+dopyrimidine (D13-9001; Yoshida et al., 2007) and Phe-Arg-β-
+naphthylamide (PAβN, MC-207,110; Lomovskaya et al., 2001), on
+the antibacterial activities of combined antibiotics have been pub-
+lished (Lomovskaya et al., 2001; Mesaros et al., 2007; Tohidpour
+et al., 2009). Recently, the 3D structures of AcrB (Murakami et al.,
+2002) and MexB (Sennhauser et al., 2009) and co-crystal struc-
+tures of AcrB with various substrates were resolved (Murakami
+et al., 2006; Nakashima et al., 2011), and much information
+regarding their mechanisms of efﬂux is now available. At present,
+rational approaches are being used to develop potent efﬂux
+pump inhibitors. However, there is no satisfactory method to
+directly determine the efﬂux-inhibiting activities of candidate
+compounds.
+
+In this review article, we focused on a new technique for
+a simple and rapid measurement of the activities of bacter-
+ial drug efﬂux pumps and inhibitors by using a microﬂuidic
+device recently reported by Matsumoto et al. (2011). We utilized
+
+www.frontiersin.org
+
+February 2012 | Volume 3 | Article 40 | 1
+
+Iino et al.
+
+Visualization of efﬂux pump activity
+
+an appropriate substrate, ﬂuorescein-di-β-d-galactopyranoside
+(FDG), for a visual assay. FDG is non-ﬂuorescent until it is hydrol-
+ysed by β-galactosidase in the cytoplasm of Escherichia coli to
+produce a highly ﬂuorescent dye, ﬂuorescein (Russo-Marie et al.,
+1993; Fieldler and Hinz, 1994; Yang and Hu, 2004). We conﬁrmed
+that both FDG and ﬂuorescein are substrates of RND pumps in E.
+coli. In combination with microfabrication technologies including
+soft lithography (Whitesides et al., 2001), we constructed a simple
+microﬂuidic channel device in order to observe several bacterial
+cultures simultaneously. By combining FDG and the microﬂu-
+idic device, we developed a novel and highly sensitive method to
+evaluate the efﬂux inhibitory activities of compounds against P.
+aeruginosa MexB and MexY in E. coli and clariﬁed the different
+action mechanisms of two inhibitors, D13-9001 and PAβN.
+
+MATERIALS AND METHODS
+BACTERIAL STRAINS
+Escherichia coli MG1655 (wild-type), and its efﬂux pump
+gene deletion mutants – ΔacrB, ΔtolC, and ΔacrBΔtolC
+(Nishino et al., 2008) – were used. The vector plasmid
+pMMB67HE recombined with efﬂux pump genes mexAB–
+oprM and mexXY–oprM from P. aeruginosa (Mokhonov et al.,
+2004) was transformed with E. coli MG1655 ΔacrBΔtolC to
+construct ΔacrBΔtolC/pMMB67HE (ΔBC/pV), ΔacrBΔtolC/
+pMMB67HE::mexAB–oprM (ΔBC/pABM), and ΔacrBΔtolC/
+pMMB67HE::mexXY–oprM (ΔBC/pXYM). For these strains har-
+boring a plasmid, ampicillin (Sigma-Aldrich, Tokyo, Japan) was
+added to the cultures to ensure retention of the plasmid. Lactose
+(Sigma-Aldrich) and isopropyl-β-d-galactopyranoside (IPTG;
+Sigma-Aldrich) were added to the medium for β-galactosidase and
+plasmid-mediated pump inductions, respectively. P. aeruginosa
+IMCJ2.S1 (Sekiguchi et al., 2005) served as the multidrug-resistant
+strain, and P. aeruginosa PAO1 served as the standard strain.
+
+ANTIBACTERIAL AGENTS AND CHEMICALS
+The antibacterial agents used were aztreonam (Sigma-Aldrich),
+ciproﬂoxacin (Tokyo Chemical Industry Co., Ltd., Tokyo, Japan),
+and erythromycin (Nacalai Tesque, Inc., Kyoto, Japan). D13-9001
+(Daiichi Sankyo Co., Tokyo, Japan) and PAβN (Sigma-Aldrich)
+were used as efﬂux pump inhibitors. Polymyxin B (MERCK
+KGaA, Darmstadt, Germany) was used as an outer and inner
+membrane permeabilizer, and Polymyxin B nonapeptide (PMBN;
+Sigma-Aldrich) was used as an outer membrane permeabilizer.
+
+PREPARATION OF MICROFLUIDIC CHANNELS
+Microﬂuidic channels (100 μm width, 17 μm height, 25–33 mm
+length; Figure 1B) fabricated in polydimethylsiloxane (Silpot 184,
+Dow Corning Toray Co., Ltd., Tokyo, Japan) on a cover glass
+(Matsunami Glass Ind., Ltd., Osaka, Japan) were prepared by a
+conventional method described in previous studies (Whitesides
+et al., 2001; Matsumoto et al., 2011).
+
+EFFLUX PUMP INHIBITION ASSAY
+FDG (Marker Gene Technologies, Inc., Eugene, USA), a ﬂuoro-
+genic compound, is hydrolyzed by β-galactosidase in the cytoplasm
+of E. coli to produce a ﬂuorescent dye, ﬂuorescein. Both FDG
+and ﬂuorescein are substrates of an efﬂux pump, AcrB, in E. coli.
+
+AcrB effectively prevents FDG inﬂux in wild-type cells, resulting
+in no ﬂuorescence. The ΔacrB and ΔtolC strains easily imported
+and hydrolyzed FDG to ﬂuorescein, which is exported by residual
+pumps in the ΔacrB strain. Consequently, ﬂuorescent medium in
+ΔacrB and ﬂuorescent ΔtolC and ΔacrBΔtolC cells were observed
+in the microﬂuidic channels (Figures 1A,B). The induced activities
+of β-galactosidase in strains used in this study were compara-
+ble after acrB and/or tolC deletion and the plasmid-mediated
+introduction of pumps from P. aeruginosa.
+
+The effects of inhibitors on FDG and ﬂuorescein efﬂux were
+observed in the microﬂuidic channel with a BZ-8000 ﬂuorescence
+microscope (Keyence, Osaka, Japan). Overnight Luria–Bertani
+(LB) broth (Becton Dickinson and Company, Sparks, USA) cul-
+tures were inoculated in fresh LB broth and incubated on a shaker
+until the culture reached an OD600 of 0.6–0.8. Lactose (50 mM)
+was added to induce β-galactosidase activity in strains harbor-
+ing no plasmid. LB medium containing 100 μg/ml ampicillin and
+1 mM IPTG was used to grow strains harboring the plasmid in
+order to retain plasmid and induce plasmid-mediated pumps and
+chromosomal β-galactosidase. The cultures were premixed with
+an inhibitor, injected in the microﬂuidic channels (Figure 1B)
+with 100 μg/ml FDG, and observed under the microscope after
+incubation for 15 min at 37˚C. Different samples containing mul-
+tiple channels were observed simultaneously in a single image ﬁeld
+(Figures 1B–D).
+
+DETERMINATION OF MINIMUM INHIBITORY CONCENTRATION AND
+CHECKERBOARD MIC
+The minimum inhibitory concentrations (MICs) of the antibac-
+terial agents and checkerboard MICs of these agents in com-
+bination with the inhibitors or the membrane permeabilizer
+were determined using the standard micro dilution method
+deﬁned by the Clinical and Laboratory Standards Institute
+(Wayne, PA, USA). Strains harboring the plasmid were cul-
+tured in LB medium containing 100 μg/ml ampicillin and
+1 mM IPTG. The fractional
+inhibitory concentration (FIC)
+indices were calculated as follows: FIC= [MICA in combination/
+MICA alone + MICB in combination/MICB alone]. Synergy was deﬁned
+
+as an FIC index of less than 0.5.
+
+RESULTS
+EVALUATION OF INHIBITORS BY THE CLASSIC CHECKERBOARD
+METHOD
+Checkerboard MIC determination is a simple method to evalu-
+ate the effects of inhibitors on antibacterial activity. Although the
+method can only evaluate the combinatorial effect of an inhibitor
+on antimicrobials (synergy, addition, indifference, or antagonism),
+it is possible to estimate the action mechanism of an inhibitor
+by using different types of antimicrobials and target gene-deleted
+or gene-introduced mutants. From the viewpoint of efﬂux, we
+used three different types of antimicrobial agents in this study.
+Aztreonam is a substrate of MexB, although ciproﬂoxacin and
+erythromycin are substrates of several pumps. Furthermore, from
+the viewpoint of inﬂux, ciproﬂoxacin easily penetrates the outer
+membranes of Gram-negative bacteria, erythromycin hardly pen-
+etrates them (Vaara, 1993), while the penetrability of aztreonam
+appears to be intermediate of the two. Table 1 shows the MICs
+
+Frontiers in Microbiology | Antimicrobials, Resistance and Chemotherapy
+
+February 2012 | Volume 3 | Article 40 | 2
+
+Iino et al.
+
+Visualization of efﬂux pump activity
+
+FIGURE 1 | The micro ﬂuidic device and principle of the efﬂux pump
+inhibition assay used in this study. (A) Mechanism of the inhibition assay
+of efﬂux pumps using FDG as a substrate. (B) Images of the microﬂuidic
+device, and an example of the assay: bright-ﬁeld (top) and ﬂuorescence
+images (bottom) of the E. coli wild-type, ΔacrB (ΔB), ΔtolC (ΔC), and
+
+ΔacrBΔtolC (ΔBC) cells. (C) Fuorescence images of the
+ΔacrBΔtolC/pABM (ΔBC/pABM), ΔacrBΔtolC/pXYM (ΔBC/pXYM) cells
+treated with different concentrations of D13-9001. (D) Fluorescence images
+of the E. coli ΔtolC cells treated with different concentrations of D13-9001,
+PAβN, PMBN, and polymyxin B. Modiﬁed from Matsumoto et al. (2011).
+
+www.frontiersin.org
+
+February 2012 | Volume 3 | Article 40 | 3
+
+Iino et al.
+
+Visualization of efﬂux pump activity
+
+Table 1 | Minimum inhibitory concentrations of agents against tested strains.
+
+Agents
+
+MIC (μg/ml)
+
+Wild
+
+ΔacrB
+
+ΔtolC
+
+ΔacrBΔtolC/pV
+
+ΔacrB ΔtolC/pABM
+
+ΔacrB ΔtolC/pXYM
+
+PAO1
+
+IMCJ2.S1 (MDR)
+
+E. coli MG1655
+
+P. aeruginosa
+
+ATM
+CIP
+ERY
+D13-9001
+PAβN
+PMB
+PMBN
+
+0.125
+0.016
+32
+>64
+256
+2
+>64
+
+0.063
+0.004
+2
+>64
+64
+2
+64
+
+0.125
+0.002
+1
+>64
+64
+2
+64
+
+0.125
+0.002
+1
+>64
+32
+2
+>8
+
+1
+0.016
+16
+>64
+256
+2
+>8
+
+0.125
+0.031
+32
+>64
+128
+2
+>8
+
+2
+0.063
+256
+>64
+512
+2
+>8
+
+64
+32
+256
+>64
+512
+2
+>8
+
+ATM, aztreonam; CIP, ciproﬂoxacin; ERY, erythromycin; D13-9001, pyridopyrimidine; PAβN, Phe-Arg-β-naphthylamide; PMB, polymyxin B; PMBN, polymyxin B
+nonapeptide. Table based on the results from Matsumoto et al. (2011).
+
+of agents against strains of E. coli and P. aeruginosa used in this
+study. The MIC of aztreonam against E. coli was not inﬂuenced by
+acrB and tolC deletion or plasmid-mediated mexXY–oprM intro-
+duction. However, plasmid-mediated mexAB–oprM introduction
+decreased the sensitivity of ΔacrBΔtolC to aztreonam by eight-
+fold. By contrast, the MICs of ciproﬂoxacin and erythromycin
+against E. coli were decreased by acrB and/or tolC deletion and
+increased by plasmid-mediated pseudomonal efﬂux pump gene
+(mexAB–oprM or mexXY–oprM ) introduction.
+
+There are two famous efﬂux pump inhibitors: D13-9001 and
+PAβN. The former is speciﬁc for MexB, whereas the latter is non-
+speciﬁc. PAβN had weak antibacterial activity against these E. coli
+and P. aeruginosa strains, and its MIC was changed by the deletion
+or introduction of pump genes, which revealed that pump deletion
+mutants had higher sensitivity to PAβN than the wild-type strain.
+The results indicate that PAβN is a substrate of RND pumps. D13-
+9001 had no antibacterial activity against these strains at concen-
+trations less than 64 μg/ml. Inhibitor’s concentration-dependent
+changes in the MICs of antimicrobial agents were compared
+(Figure 2). Data obtained from ΔtolC, ΔacrBΔtolC, and ΔBC/pV
+were similar for all antimicrobial agents used in this study, and
+thus, we presented the data forΔBC/pV as a representative full
+RND pump deletion mutant in Figure 2.
+
+In E. coli MG1655, D13-9001 acted synergistically with
+ciproﬂoxacin and erythromycin against the wild-type strain and
+had no effect with either agents against ΔacrB, ΔtolC, or ΔBC/pV
+(Figures 2A,D,G). In P. aeruginosa, D13-9001 acted synergis-
+tically with aztreonam and ciproﬂoxacin but not with ery-
+thromycin, which had a higher afﬁnity for MexY than for MexB
+(Table 1), against both sensitive and multidrug-resistant strains,
+and the synergy between D13-9001 and aztreonam was remark-
+able in these strains. D13-9001 increased the susceptibilities of
+E. coliΔBC/pABM to all three agents and had no effect on the
+susceptibilities of ΔBC/pV and ΔBC/pXYM (Figures 2A,D,G).
+
+In contrast, PAβN signiﬁcantly increased erythromycin activ-
+ity against all strains including ΔacrB and ΔBC/pV (Figure 2H),
+although the effect of PAβN on ciproﬂoxacin activity remained
+additive against all E. coli strains (Figure 2B). However, PAβN
+exhibited remarkable synergy against MDRP IMCJ2.S1 with all of
+
+the three agents (Figures 2B,E,H),and the FIC indices of PAβN
+were 0.016, 0.031, and 0.063 with ciproﬂoxacin, aztreonam, and
+erythromycin, respectively. The effect of PAβN was less strong
+on PAO1 than on MDRP with ciproﬂoxacin or aztreonam. Fur-
+thermore, PAβN acted synergistically with aztreonam in ΔBC/pV,
+although this combination was additive in ΔBC/pABM and the
+wild-type. Synergy between PAβN and these antimicrobial agents
+could not be explained by efﬂux pump inhibition by PAβN.
+
+Other than efﬂux pump inhibitors, outer membrane permeabi-
+lizers have also been used for enhancing the activity of antimicro-
+bial agents (Vaara, 1992; Vaara and Porro, 1996; Vaara et al., 2010;
+Vingsbo Lundberg et al., 2010). Among them, PMBN is known to
+permeabilize only the outer membrane of Gram-negative bac-
+teria, whereas polymyxin B permeabilizes both the outer and
+inner membranes (Vaara and Vaara, 1983a,b; Viljanen and Vaara,
+1984). PMBN had also weak antimicrobial activities against pump-
+deleted strains, and it appeared to be a substrate of pumps. The
+effect of PMBN on ciproﬂoxacin activity was additive against the
+E. coli strains and PAO1 and was synergistic against IMCJ2.S1. By
+contrast, PMBN increased erythromycin activity against all strains
+including pump deletion mutants ΔacrB, ΔtolC, and ΔBC/pV.
+These results obtained for PMBN were comparable to and stronger
+than the results for PAβN. PMBN also increased aztreonam activity
+against all strains.
+
+EFFLUX PUMP INHIBITION OBSERVED BY THE NEW DEVICE
+AcrAB–TolC and the analogous RND pumps effectively prevented
+FDG inﬂux in E. coli wild-type cells, resulting in no ﬂuorescence
+(Figures 1A,B). By contrast, ΔacrB and ΔtolC easily accumulated
+and hydrolyzed FDG to ﬂuorescein, which accumulated in ΔtolC
+cells but not in ΔacrB cells. Consequently, we observed ﬂuores-
+cent medium in ΔacrB experiments and ﬂuorescent cells in ΔtolC
+experiments. Images of these strains in the microﬂuidic channels
+are shown in Figure 1B. Fluorescence was highly accumulated
+only in tolC-deleted strains. We also evaluated the inhibitors in
+relation to the MexAB–OprM and MexXY–OprM pumps from
+P. aeruginosa in E. coli. Fluorescent medium was observed in
+ΔBC/pABM and ΔBC/pXYM (Figure 1C), whereas ﬂuorescent
+cells were observed in ΔBC/pV like in ΔtolC (Figure 1D). Thus,
+
+Frontiers in Microbiology | Antimicrobials, Resistance and Chemotherapy
+
+February 2012 | Volume 3 | Article 40 | 4
+
+Iino et al.
+
+Visualization of efﬂux pump activity
+
+FIGURE 2 | Effect of D13-9001, PAβN, and PMBN on ciproﬂoxacin,
+aztreonam, and erythromycin activity. E. coli MG1655 wild, ΔacrB,
+ΔacrBΔtolC/pMMB67HE (ΔBC/pV), ΔacrBΔtolC/pABM (ΔBC/pABM),
+ΔacrBΔtolC/pXYM (ΔBC/pXYM), P. aeruginosa PAO1, and MDRP
+
+IMCJ2.S1 were used. Changes in the MICs of ciproﬂoxacin [CIP: (A-C)],
+aztreonam [ATM: (D-F)], and erythromycin [ERY: (G-I)] induced by
+D13-9001 (A,D,G), PAβN (B,E,H), or PMBN (C,F,I) were determined by
+checkerboard method. Modiﬁed from Matsumoto et al. (2011).
+
+www.frontiersin.org
+
+February 2012 | Volume 3 | Article 40 | 5
+
+Iino et al.
+
+Visualization of efﬂux pump activity
+
+these RND pumps from P. aeruginosa appeared to be functional
+in E. coli ΔacrBΔtolC.
+
+The effect of D13-9001 was not signiﬁcant in wild-type E.
+coli in the new method (Matsumoto et al., 2011). Fluorescence
+in the device was decreased to a minor level by D13-9001 in a
+concentration-dependent manner in ΔacrB and ΔtolC, and the
+possibility of FDG inﬂux-blocking activity of D13-9001 was sug-
+gested. However, D13-9001 clearly increased the accumulation of
+ﬂuorescein in ΔBC/pABM cells, and the number of ﬂuorescent
+cells was increased by D13-9001 in a concentration-dependent
+manner in ΔBC/pABM, although it had almost no effect in
+ΔBC/pXYM (Figure 1C). Conversely, PAβN increased the ﬂu-
+orescence in the medium of all strains, particularly for ΔtolC
+(Matsumoto et al., 2011), and the accumulation of ﬂuorescein
+in the cells of ΔtolC disappeared (Figure 1D). PAβN appeared to
+have membrane-permeabilizing activities.
+
+MEMBRANE-PERMEABILIZING ACTIVITY ESTIMATED BY THE NEW
+DEVICE
+We further evaluated the effect of PAβN in comparison with
+those of polymyxin B and PMBN in ΔtolC by the device.
+The membrane-permeabilizing activities of PAβN, PMBN, and
+polymyxin Bwere visualized by this new method using the pump-
+deﬁcient strain ΔtolC. The MexB inhibitor D13-9001 had almost
+no effect on ﬂuorescein distribution in ΔtolC (Figure 1D).
+By contrast, ﬂuorescein accumulation in ΔtolC cells was dis-
+appeared by 4 μg/ml PAβN or by 4 μg/ml PMBN. Polymyxin
+B increased the ﬂuorescence in the medium at concentrations
+exceeding 1 μg/ml, but ﬂuorescein accumulation was observed
+in the presence of 1 μg/ml polymyxin B also. The disappeared
+accumulation of ﬂuorescein in ΔtolC cells and increased ﬂuores-
+cence in the medium of ΔtolC appears to correspond with the
+outer and inner membrane permeabilization of E. coli, respec-
+tively. The effect of PAβN was similar to that of PMBN at lower
+concentrations and was similar to that of polymyxin B at higher
+concentrations (Figure 1D). The effect of outer membrane perme-
+abilizers is signiﬁcant with antibacterial agents that are effectively
+excluded by the intact outer membrane. The synergistic action of
+PAβN in combination with erythromycin appeared to arise from
+the outer membrane-permeabilizing activity of PAβN. In E. coli,
+the outer membrane-permeabilizing activity of PAβN was con-
+ﬁrmed by the increased hydrolysis of nitroceﬁn, and the inner
+membrane-permeabilizing activity of PAβN was conﬁrmed by
+the increased accumulation of SYTOX Green (Matsumoto et al.,
+2011).
+
+DISCUSSION
+FEATURES OF THE NEW METHOD TO DETERMINE EFFLUX PUMP
+INHIBITORY ACTIVITIES AND MEMBRANE-PERMEABILIZING
+ACTIVITIES
+FDG was deﬁned as a substrate of RND pumps because it was
+more easily hydrolyzed in pump deletion mutants than in wild-
+type cells. Fluorescein was also deﬁned as a substrate of pumps
+based on its accumulation in ΔtolC cells. Furthermore, from the
+results of the complete blockage of FDG hydrolysis by the addition
+of a protonophore, carbonyl cyanide m-chlorophenylhydrazone
+(CCCP), in all of the strains including ΔtolC (data not shown),
+
+FDG was conﬁrmed to be actively imported into the cytoplasm. If
+CCCP only blocks efﬂux pumps, increased ﬂuorescence would be
+observed in wild-type cells. The lactose permease LacY is not an
+FDG permease because lacY deletion in ΔlacI mutants (consti-
+tutive β-galactosidase producer) had no effect on FDG hydrolysis
+in the mutants (data not shown), and we have yet to identify an
+FDG permease. In wild-type cells, FDG is hardly imported into the
+cytoplasm because FDG is exported by AcrB from the periplasm
+before it is trapped by permease. The rate of FDG inﬂux will
+increase in relation to the concentration of FDG in the periplasm
+until it reaches its maximum rate. Moderate inhibition of the
+pumps causes FDG inﬂux and an efﬂux of ﬂuorescein from the
+cells by the remaining activity of the pumps, and full inhibition
+of the pumps results in ﬂuorescein accumulation in cells, sim-
+ilar to what is observed in ΔtolC cells. A real pump inhibitor
+without any effect on the bacterial membrane will increase ﬂuo-
+rescence in wild-type cells in a concentration-dependent manner
+and will increase the accumulation of ﬂuorescence in the cells.
+The microﬂuidic channel allowed these discriminations to be
+monitored using ﬂuorescence microscopy. In fact, we detected
+moderately increasing ﬂuorescence and increased accumulation
+of ﬂuorescence in ΔBC/pABM in relation to the increasing con-
+centration of D13-9001 (Figure 1C) which is known as a speciﬁc
+inhibiter of the MexAB–OprM pump. D13-9001 had no effect
+on the MexXY–OprM pump producing E. coli. The combinato-
+rial effects of D13-9001 with the antimicrobials assessed by the
+checkerboard method are easily understandable by the inhibitory
+effect of D13-9001 on the AcrB or MexB pump in all of the tested
+strains of E. coli and P. aeruginosa.
+
+While evaluating the activity of PAβN, we found that our
+method is also valuable for evaluation of the outer and inner
+membrane-permeabilizing activities of compounds. Outer mem-
+brane permeabilization causes the leakage of ﬂuorescein from
+ΔtolC cells, and inner membrane permeabilization efﬁciently
+increases FDG inﬂux and ﬂuorescein production, resulting in ﬂuo-
+rescein release from cells with or without pumps. By the FDG assay,
+it is easy to detect outer membrane permeabilization by the dis-
+appearance of ﬂuorescein accumulation in ΔtolC cells and inner
+membrane permeabilization based on increases in ﬂuorescence,
+particularly in the medium of pump deletion mutants.
+
+COMPARISON OF OUR NEW METHOD WITH OTHER AVAILABLE
+METHODS FOR DETERMINING EFFLUX PUMP-INHIBITORY ACTIVITIES
+Several ﬂuorometric methods
+for evaluating efﬂux pump
+inhibitors have been published using substrates of these pumps
+such as alanine β-naphthylamide (Lomovskaya et al., 2001), N -
+phenylnaphthylamine (Lomovskaya et al., 2001), ethidium bro-
+mide (Lomovskaya et al., 2001), and pyronin Y (Kaatz et al.,
+2003). However, the inhibitory activities of PAβN itself could not
+be determined by the methods utilizing alanine β-naphthylamide
+or N -phenylnaphthylamine due to the high background ﬂuores-
+cence (Lomovskaya et al., 2001). Furthermore, PAβN has been
+reported to have no inhibitory effect on the efﬂux of ethid-
+ium bromide (Lomovskaya et al., 2001; Schumacher et al., 2006;
+Viveiros et al., 2008), which is also a known substrate of ABC-
+type transporters (Martins et al., 2009). The ﬂuorescence of these
+compounds was less strong than that of ﬂuorescein, and thus, they
+
+Frontiers in Microbiology | Antimicrobials, Resistance and Chemotherapy
+
+February 2012 | Volume 3 | Article 40 | 6
+
+Iino et al.
+
+Visualization of efﬂux pump activity
+
+are not considered suitable for visualization in the microﬂuidic
+channel.
+
+The determination of efﬂux pump inhibition activity via the
+typical methods of measuring the inﬂux or efﬂux of some sub-
+strates by their ﬂuorescence with a plate reader makes it difﬁcult
+to exclude the effect of outer membrane-permeabilizing activity.
+In addition, accurate estimation of FDG hydrolysis by monitoring
+ﬂuorescence with a plate reader is impractical, because the total
+ﬂuorescence of ﬂuorescein determined by a plate reader is higher
+when it diffused in the medium than when it is accumulated into
+cells; ﬂuorescence determined by a plate reader in this study was
+generally higher in ΔacrB than in ΔtolC (data not shown). There-
+fore, ﬂuorescence determined by a plate reader does not accurately
+correlate with the amount of ﬂuorescein produced, and it is dif-
+ﬁcult to estimate the inhibitory effect on pumps with FDG by
+using a plate reader. The microﬂuidic channel method enables the
+discrimination of pure efﬂux pump inhibition from membrane
+permeabilization. However, when more than two different pumps
+are present in a cell, it may be difﬁcult to detect the effect of a
+speciﬁc inhibitor on either pump. To overcome this problem, we
+need a mutant lacking all RND pumps and producing TolC that
+accumulates ﬂuorescein. Deletions of acrB, acrD, acrEF, mdtABC,
+and mdtEF were not sufﬁcient to ensure the accumulation of ﬂu-
+orescein in a manner similar to that in ΔtolC (data not shown).
+The effect of D13-9001 on E. coli AcrAB–TolC can be detected
+by this method for a strain that produces only AcrAB–TolC. We
+would be able to apply this method for evaluation of the efﬂux
+pump inhibitors against RND pumps in P. aeruginosa when we
+construct a strain of P. aeruginosa producing both β-galactosidase
+and FDG permease. In addition, the microﬂuidic channels are use-
+ful for comparative observation of multiple samples at the same
+time and easy to tailor-make. We are expanding application of
+these micro-devices for other microbiological assays.
+
+SUSPICION OF THE EFFLUX PUMP INHIBITORY ACTIVITY OF PAβN
+Throughout this study, we could not deﬁnitively determine
+whether PAβN actually inhibits efﬂux pumps. Using our new
+method, we observed that PAβN increased FDG hydrolysis and
+ﬂuorescein leakage in all strains (Matsumoto et al., 2011), par-
+ticularly in pump deletion mutants (Figure 1D). Because PAβN
+was reported ﬁrst, it has been universally recognized as an efﬂux
+pump inhibitor (Lomovskaya et al., 2001; Mesaros et al., 2007).
+The effect of PAβN on MDRP IMCJ2.S1 was remarkably synergis-
+tic with all the agents examined in the present study (Figure 2).
+However, PAβN increased the susceptibilities of pump deletion
+mutants of E. coli especially to erythromycin, although it had
+almost no effect on ciproﬂoxacin in E. coli expressing MexAB–
+OprM or MexXY–OprM (Figure 2); this suggests that PAβN could
+not inhibit the efﬂux of ciproﬂoxacin by MexB or MexY. These
+actions of PAβN do not correlate with efﬂux pumps and are sim-
+ilar to those of the outer membrane permeabilizer PMBN. The
+effect of PAβN on the outer membrane was already known when
+it was discovered (Lomovskaya et al., 2001). Previous authors used
+a nitroceﬁn hydrolysis assay with intact cells to evaluate the outer
+membrane-permeabilizing activity of PAβN in P. aeruginosa, and
+permeabilizing activity was visible at PAβN concentrations lower
+than 16 μg/ml on the outer membranes of pump-deﬁcient or
+
+CCCP-applied strains. Nitroceﬁn is a substrate of efﬂux pumps
+(Nagano and Nikaido, 2009), and thus, the permeabilizing activity
+of agents should be evaluated in the pump-deﬁcient condition.
+The permeabilizing activity of PAβN on the outer membrane of
+E. coli by nitroceﬁn hydrolysis assay was comparable to the activ-
+ity obtained in the FDG assay (Matsumoto et al., 2011) and was
+higher than that reported previously for the outer membrane of
+P. aeruginosa (Lomovskaya et al., 2001). The outer membrane-
+permeabilizing activity of PAβN has also been published by other
+researchers using resazurin as a substrate (Vidal-Aroca et al., 2009).
+In the FDG assay, the effect of PAβN on the outer membrane of
+E. coli was visible at 4 μg/ml (Figure 1D). LB was used for the
+FDG assay and the results were easy to compare with the results
+of synergy in MICs with antimicrobial agents in which the effect
+of PAβN was also detected in concentrations higher than 4 μg/ml.
+Outer membrane-permeabilizing activity is known to increase the
+sensitivity of bacteria to antimicrobial agents such as erythromycin
+that are excluded by an intact outer membrane (Vaara, 2009; Vaara
+et al., 2010) as well as efﬂux pump inhibitors, and we could obtain
+similar results using PMBN. The effect of PAβN on antimicrobial
+agents (Figure 2) appears to be due to its activity on the E. coli
+cell membranes. We could not obtain any clear evidence of the
+inhibitory activity of PAβN on the efﬂux pump itself. The pos-
+sibility that PAβN competes with a substrate for binding to the
+efﬂux pump cannot be excluded completely, although competitive
+inhibition of efﬂux pumps by another substrate was not proven
+in E. coli by Elkins and Mullis (2007). The precise mechanism of
+synergy between PAβN and antimicrobial agents needs to be eluci-
+dated in future. Based on our ﬁndings using this new method, we
+concluded that PAβN appears to be a substrate of the pumps and
+permeabilizes the membranes of E. coli in contrast to D13-9001,
+which speciﬁcally inhibits MexB.
+
+AVAILABILITY OF EFFLUX PUMP INHIBITORS AND MEMBRANE
+PERMEABILIZERS
+The effect of D13-9001 is simple and speciﬁc to strains expressing
+AcrB or MexB pumps. D13-9001 exhibits maximum synergistic
+effect with aztreonam, a substrate preferred only by MexB. How-
+ever, D13-9001 was not completely synergistic with ciproﬂoxacin,
+which is a substrate of MexB, MexY, and other pumps. Because var-
+ious pump structures exist, it may be difﬁcult to develop a super
+inhibitor that can inhibit all major pumps in P. aeruginosa. Match-
+ing an inhibitor with combined antimicrobial agents is essential.
+Susceptibility augmenting agents such as PAβN may be useful
+when used in combination with a substrate of multiple efﬂux
+pumps such as erythromycin and ciproﬂoxacin. Considerably,
+membrane permeabilizers can enhance activities of antimicrobial
+agents against efﬂux pump deﬁcient strains, enabling expansion
+of the spectrum from targeting anti-Gram positives to anti-Gram
+negatives. These features can transform old antimicrobial agents
+to newer and improved ones, and these activities can be evaluated
+by our new method all together. Discovery of a clinically useful
+agent augmenting antipseudomonal activities is anticipated.
+
+ACKNOWLEDGMENTS
+This study was supported by the Grant for Promotion of Fun-
+damental Studies in Health Sciences of the National Institute
+
+www.frontiersin.org
+
+February 2012 | Volume 3 | Article 40 | 7
+
+Iino et al.
+
+Visualization of efﬂux pump activity
+
+of Biomedical Innovation (Project ID 07-03), Grants from the
+Japan Society for the Promotion of Science, and the Min-
+istry of Education, Culture, Sports, Science, and Technology
+
+Japan. We are grateful
+
+of
+to Dr. Taiji Nakae for provid-
+ing plasmids and to Dr. Kirikae for providing P. aeruginosa
+IMCJ2.S1.
+
+REFERENCES
+Elkins, C. A., and Mullis, L. B. (2007).
+Substrate competition studies using
+whole-cell
+assays
+with the major tripartite multidrug
+efﬂux pumps of Escherichia coli.
+Antimicrob. Agents Chemother. 51,
+923–929.
+
+accumulation
+
+Fieldler, F., and Hinz, H. (1994). No
+intermediate channelling in stepwise
+hydrolysis of ﬂuorescein di-beta-
+D-galactoside by beta-galactosidase.
+Eur. J. Biochem. 222, 75–81.
+
+Giske, C. G., Buaro, L., Sunds-
+fjord, A., and Wretlind, B. (2008).
+Alterations of porin, pumps, and
+penicillin-binding proteins in car-
+bapenem resistant clinical
+isolates
+of Pseudomonas aeruginosa. Microb.
+Drug Resist. 14, 23–30.
+
+Henrichfreise, B., Wiegand, I., Pﬁster,
+W., and Wiedemann, B. (2007).
+Resistance mechanisms of mul-
+tiresistant Pseudomonas aeruginosa
+from Germany and cor-
+strains
+relation
+hypermutation.
+Antimicrob. Agents Chemother. 51,
+4062–4070.
+
+with
+
+Kaatz, G. W., Moudgal, V. V., Seo, S.
+M., and Kristiansen, J. E. (2003).
+Phenothiazines and thioxanthenes
+inhibit multidrug efﬂux pump activ-
+ity in Staphylococcus aureus. Antimi-
+crob. Agents Chemother. 47, 719–726.
+Kirikae, T., Mizuguchi, Y., and Arakawa,
+Y. (2008). Investigation of
+isola-
+tion rates of Pseudomonas aerug-
+inosa with and without mul-
+tidrug resistance in medical facil-
+ities and clinical
+in
+Japan. J. Antimicrob. Chemother. 61,
+612–615.
+
+laboratories
+
+Lister, P. D., Wolter, D. J., and Han-
+son, N. D. (2009). Antibacterial-
+resistant Pseudomonas aeruginosa:
+clinical impact and complex regu-
+lation of chromosomally encoded
+resistance mechanisms. Clin. Micro-
+biol. Rev. 22, 582–610.
+
+Livermore, D. M.
+
+(2002). Multiple
+mechanisms of antimicrobial resis-
+tance in Pseudomonas aeruginosa:
+our worst nightmare? Clin. Infect.
+Dis. 34, 634–640.
+
+Llanes, C., Hocquet, D., Vogne, C.,
+Benali-Baitich, D., Neuwirth, C.,
+and Plesiat, P.
+(2004). Clinical
+strains of Pseudomonas aeruginosa
+overproducing MexAB-OprM and
+MexXY efﬂux pumps simultane-
+ously. Antimicrob. Agents Chemother.
+48, 1797–1802.
+
+Lomovskaya, O., Warren, M. S., Lee,
+A., Galazzo, J., Fronko, R., Lee, M.,
+Blais, J., Cho, D., Chamberland, S.,
+Renau, T., Leger, R., Hecker, S.,
+Watkins, W., Hoshino, K., Ishida, H.,
+and Lee, V. J. (2001). Identiﬁcation
+and characterization of inhibitors of
+multidrug resistance efﬂux pumps
+in Pseudomonas aeruginosa: novel
+agents
+for combination therapy.
+Antimicrob. Agents Chemother. 45,
+105–116.
+
+Martins, A., Spengler, G., Rodrigues,
+L., Viveiros, M., Ramos, J., Martins,
+M., Couto, I., Fanning, S., Pages,
+J. M., Bolla, J. M., Molnar, J., and
+Amaral, L. (2009). pH Modulation
+of efﬂux pump activity of multi-
+drug resistant Escherichia coli: pro-
+tection during its passage and even-
+tual colonization of the colon. PLoS
+ONE 4, e6656. doi:10.1371/jour-
+nal.pone.0006656
+
+Masuda, N., Sakagawa, E., Ohya, S.,
+Gotoh, N., Tsujimoto, H., and
+Nishino, T. (2000). Substrate speci-
+ﬁcities of MexAB-OprM, MexCD-
+OprJ,
+and MexXY-oprM efﬂux
+pumps in Pseudomonas aeruginosa.
+Antimicrob. Agents Chemother. 44,
+3322–3327.
+
+Matsumoto, Y., Hayama, K., Sakaki-
+hara, S., Nishino, K., Noji, H., Iino,
+R., and Yamaguchi, A. (2011). Eval-
+uation of multidrug efﬂux pump
+inhibitors by a new method using
+microﬂuidic channels. PLoS ONE 6,
+e18547. doi:10.1371/journal.pone.
+0018547
+
+Mesaros, N., Glupczynski, Y., Avrain, L.,
+Caceres, N. E., Tulkens, P. M., and
+Van Bambeke, F. (2007). A com-
+bined phenotypic and genotypic
+method for the detection of Mex
+efﬂux pumps in Pseudomonas aerug-
+inosa. J. Antimicrob. Chemother. 59,
+378–386.
+
+Mokhonov, V. V., Mokhonova, E. I.,
+Akama, H., and Nakae, T. (2004).
+Role of the membrane fusion pro-
+tein in the assembly of resistance-
+nodulation-cell division multidrug
+efﬂux pump in Pseudomonas aerug-
+inosa. Biochem. Biophys. Res. Com-
+mun. 322, 483–489.
+
+Morita, Y., Kimura, N., Mima, T.,
+Mizushima, T., and Tsuchiya, T.
+(2001). Roles of MexXY-
+and
+MexAB-multidrug efﬂux pumps in
+intrinsic multidrug resistance of
+Pseudomonas aeruginosa PAO1. J.
+Gen. Appl. Microbiol. 47, 27–32.
+
+Murakami,
+
+S.,
+
+Nakashima,
+
+R.,
+Yamashita, E., Matsumoto, T.,
+and Yamaguchi, A. (2006). Crystal
+structures of a multidrug trans-
+porter reveal a functionally rotating
+mechanism. Nature 443, 173–179.
+
+Murakami,
+
+S.,
+
+Nakashima,
+R.,
+Yamashita, E.,
+and Yamaguchi,
+A. (2002). Crystal structure of bac-
+terial multidrug efﬂux transporter
+AcrB. Nature 419, 587–593.
+
+Nagano, K., and Nikaido, H. (2009).
+Kinetic behavior of
+the major
+multidrug efﬂux pump AcrB of
+Escherichia coli. Proc. Natl. Acad. Sci.
+U.S.A. 106, 5854–5858.
+
+Nakashima, R., Sakurai, K., Yamasaki,
+S., Nishino, K., and Yamaguchi,
+A. (2011). Structures of the mul-
+tidrug exporter AcrB reveal a prox-
+imal multisite drug-binding pocket.
+Nature 480, 565–569.
+
+Nishino, K., Senda, Y., and Yamaguchi,
+A. (2008). The AraC-family regula-
+tor GadX enhances multidrug resis-
+tance in Escherichia coli by activat-
+ing expression of mdtEF multidrug
+efﬂux genes. J. Infect. Chemother. 14,
+23–29.
+
+Russo-Marie, F., Roederer, M., Sager,
+B., Herzenberg, L. A., and Kaiser,
+D. (1993). Beta-galactosidase activ-
+ity in single differentiating bacterial
+cells. Proc. Natl. Acad. Sci. U.S.A. 90,
+8194–8198.
+
+Ryan, B. M., Dougherty, T. J., Beaulieu,
+D., Chuang, J., Dougherty, B. A., and
+Barrett, J. F. (2001). Efﬂux in bacte-
+ria: what do we really know about
+it? Expert Opin. Investig. Drugs 10,
+1409–1422.
+
+Satoh, R., Tsukada, H., Tanabe, Y.,
+Tamura, Y., Yamamoto, T., Takano,
+M., Ozaki, K., Tamura, T., and Gejyo,
+F. (2008). An outbreak and isola-
+tion of drug-resistant Pseudomonas
+aeruginosa at Niigata University
+Hospital, Japan. J. Infect. Chemother.
+14, 325–329.
+
+Schumacher, A., Steinke, P., Bohn-
+ert, J. A., Akova, M., Jonas, D.,
+and Kern, W. V. (2006). Effect of
+1-(1-naphthylmethyl)-piperazine, a
+novel putative efﬂux pump inhibitor,
+on antimicrobial drug susceptibil-
+ity in clinical
+isolates of Enter-
+obacteriaceae other than Escherichia
+coli. J. Antimicrob. Chemother. 57,
+344–348.
+
+Schweizer, H. P. (2003). Efﬂux as a
+mechanism of resistance to antimi-
+crobials in Pseudomonas aeruginosa
+
+Sekiguchi,
+
+and related bacteria: unanswered
+questions. Genet. Mol. Res. 2, 48–62.
+J., Asagi, T., Miyoshi-
+Akiyama, T., Fujino, T., Kobayashi,
+I., Morita, K., Kikuchi, Y., Kurat-
+suji, T., and Kirikae, T. (2005).
+Multidrug-resistant
+Pseudomonas
+aeruginosa strain that caused an
+outbreak in a neurosurgery ward
+)-Iae gene cassette
+and its aac(6
+encoding a novel aminoglycoside
+acetyltransferase. Antimicrob. Agents
+Chemother. 49, 3734–3742.
+
+(cid:2)
+
+Sekiguchi,
+
+J., Asagi, T., Miyoshi-
+Akiyama, T., Kasai, A., Mizuguchi,
+Y., Araake, M., Fujino, T., Kikuchi,
+H., Sasaki, S., Watari, H., Kojima,
+T., Miki, H., Kanemitsu, K., Kun-
+ishima, H., Kikuchi, Y., Kaku,
+M., Yoshikura, H., Kuratsuji, T.,
+and Kirikae, T. (2007a). Outbreaks
+of multidrug-resistant Pseudomonas
+aeruginosa in community hospi-
+tals in Japan. J. Clin. Microbiol. 45,
+979–989.
+
+Sekiguchi,
+
+J., Teruya, K., Horii,
+K., Kuroda, E., Konosaki, H.,
+Mizuguchi, Y., Araake, M., Kawana,
+A., Yoshikura, H., Kuratsuji, T.,
+Miyazaki, H.,
+and Kirikae, T.
+(2007b). Molecular epidemiology
+and containment
+of outbreaks
+of
+Pseudomonas
+in a Tokyo hospi-
+aeruginosa
+tal.
+13,
+418–422.
+
+Infect. Chemother.
+
+drug-resistant
+
+J.
+
+Sennhauser, G., Bukowska, M. A.,
+Briand, C., and Grutter, M. G.
+(2009). Crystal
+the
+multidrug exporter MexB from
+Pseudomonas aeruginosa.
+J. Mol.
+Biol. 389, 134–145.
+
+structure of
+
+Tohidpour, A., Peerayeh,
+
+S. N.,
+Mehrabadi, J. F., and Yazdi, H. R.
+(2009). Determination of the efﬂux
+pump-mediated resistance preva-
+lence in Pseudomonas aeruginosa,
+using an efﬂux pump inhibitor.
+Curr. Microbiol. 59, 352–355.
+
+Vaara, M. (1992). Agents that increase
+the outer
+56,
+
+the permeability of
+membrane. Microbiol. Rev.
+395–411.
+
+Vaara, M. (1993). Outer membrane per-
+meability barrier to azithromycin,
+clarithromycin, and roxithromycin
+in gram-negative enteric bacteria.
+Antimicrob. Agents Chemother. 37,
+354–356.
+
+Vaara, M. (2009). New approaches
+in peptide antibiotics. Curr. Opin.
+Pharmacol. 9, 571–576.
+
+Frontiers in Microbiology | Antimicrobials, Resistance and Chemotherapy
+
+February 2012 | Volume 3 | Article 40 | 8
+
+Iino et al.
+
+Visualization of efﬂux pump activity
+
+Vaara, M., and Porro, M.
+
+(1996).
+Group of peptides that act synergis-
+tically with hydrophobic antibiotics
+against gram-negative enteric bac-
+teria. Antimicrob. Agents Chemother.
+40, 1801–1805.
+
+Vaara, M., Siikanen, O., Apajalahti, J.,
+J., Frimodt-Moller, N., He,
+Fox,
+H., Poudyal, A., Li, J., Nation, R.
+L., and Vaara, T. (2010). A novel
+polymyxin derivative that lacks the
+fatty acid tail and carries only
+three positive charges has strong
+synergism with agents excluded
+by the intact outer membrane.
+Antimicrob. Agents Chemother. 54,
+3341–3346.
+
+Vaara, M., and Vaara, T.
+
+(1983a).
+Polycations as outer membrane-
+disorganizing agents. Antimicrob.
+Agents Chemother. 24, 114–122.
+
+Vaara, M., and Vaara, T.
+
+(1983b).
+Polycations sensitize enteric bacte-
+ria to antibiotics. Antimicrob. Agents
+Chemother. 24, 107–113.
+
+Vidal-Aroca, F., Meng, A., Minz, T.,
+Page, M. G. P., and Dreier, J. (2009).
+
+Use of resazurin to detect meﬂo-
+quine as an efﬂux-pump inhibitor
+in Pseudomonas aeruginosa and
+Escherichia coli. J. Microbiol. Methods
+79, 232–237.
+
+Viljanen, P., and Vaara, M. (1984). Sus-
+ceptibility of gram-negative bacte-
+ria to polymyxin B nonapeptide.
+Antimicrob. Agents Chemother. 25,
+701–705.
+
+Vingsbo Lundberg, C., Vaara, T.,
+Frimodt-Moller, N., and Vaara, M.
+(2010). Novel polymyxin derivatives
+are effective in treating experimental
+Escherichia coli peritoneal infection
+in mice. J. Antimicrob. Chemother.
+65, 981–985.
+
+Viveiros, M., Martins, A., Paixao, L.,
+Rodrigues, L., Martins, M., Couto,
+I., Fahnrich, E., Kern, W. V., and
+Amaral, L. (2008). Demonstration of
+intrinsic efﬂux activity of Escherichia
+coli K-12 AG100 by an automated
+ethidium bromide method. Int. J.
+Antimicrob. Agents 31, 458–462.
+
+Whitesides, G. M., Ostuni, E., Takayama,
+S., Jiang, X. Y., and Ingber, D. E.
+
+(2001). Soft lithography in biology
+and biochemistry. Annu. Rev. Bio-
+med. Eng. 3, 335–373.
+
+Yang, N. C., and Hu, M. L. (2004). A
+ﬂuorimetric method using ﬂuores-
+di-beta-D-galactopyranoside
+cein
+senescence-
+for quantifying the
+associated
+beta-galactosidase
+activity in human foreskin ﬁbroblast
+Hs68 cells. Anal. Biochem. 325,
+337–343.
+
+Yoshida, K., Nakayama, K., Ohtsuka, M.,
+Kuru, N., Yokomizo, Y., Sakamoto,
+A., Takemura, M., Hoshino, K.,
+Kanda, H., Nitanai, H., Namba,
+K., Imamura, Y., Zhang, J. Z., Lee,
+V. J., and Watkins, W. J. (2007).
+MexAB-OprM speciﬁc efﬂux pump
+inhibitors in Pseudomonas aerugi-
+nosa. Part 7: highly soluble and
+in vivo active quaternary ammo-
+nium analogue D13-9001, a poten-
+tial preclinical candidate. Bioorg.
+Med. Chem. 15, 7087–7097.
+
+Conﬂict of Interest Statement: The
+authors declare that the research was
+
+conducted in the absence of any com-
+mercial or ﬁnancial relationships that
+could be construed as a potential con-
+ﬂict of interest.
+
+Received: 31 October 2011; accepted: 26
+January 2012; published online: 08 Feb-
+ruary 2012.
+Citation: Iino R, Nishino K, Noji H, Yam-
+aguchi A and Matsumoto Y (2012) A
+microﬂuidic device for simple and rapid
+evaluation of multidrug efﬂux pump
+inhibitors. Front. Microbio. 3:40. doi:
+10.3389/fmicb.2012.00040
+This article was
+submitted to Fron-
+tiers in Antimicrobials, Resistance and
+Chemotherapy, a specialty of Frontiers in
+Microbiology.
+Copyright  2012 Iino, Nishino, Noji,
+Yamaguchi and Matsumoto. This is an
+open-access article distributed under the
+terms of the Creative Commons Attribu-
+tion Non Commercial License, which per-
+mits non-commercial use, distribution,
+and reproduction in other forums, pro-
+vided the original authors and source are
+credited.
+
+www.frontiersin.org
+
+February 2012 | Volume 3 | Article 40 | 9
+
+

@@ -1,0 +1,1791 @@
+ORIGINAL RESEARCH ARTICLE
+published: 14 February 2012
+doi: 10.3389/fmicb.2012.00046
+
+Infection strategies of bacterial and viral pathogens
+through pathogen–human protein–protein interactions
+
+Saliha Durmu¸s Tekir 1*,Tunahan Çakır 2 and Kutlu Ö. Ülgen1
+1 Biosystems Engineering Research Group, Department of Chemical Engineering, Bo ˘gaziçi University, ˙Istanbul, Turkey
+2 Computational Systems Biology Group, Department of Bioengineering, Gebze Institute of Technology, Kocaeli, Turkey
+
+Edited by:
+Reinhard Guthke, Leibniz-Institute for
+Natural Product Research and
+Infection
+Biology – Hans-Knoell-Institute,
+Germany
+Reviewed by:
+Mirko Trilling,
+Heinrich-Heine-University Düsseldorf,
+Germany
+Sylvia Schleker, Forschungszentrum
+Jülich, Germany
+*Correspondence:
+Saliha Durmu¸s Tekir , Biosystems
+Engineering Research Group,
+Department of Chemical Engineering,
+Bo ˘gaziçi University, 34342 Bebek,
+˙Istanbul, Turkey.
+e-mail: saliha.durmus@boun.edu.tr
+
+Since ancient times, even in today’s modern world, infectious diseases cause lots of
+people to die. Infectious organisms, pathogens, cause diseases by physical interactions
+with human proteins. A thorough analysis of these interspecies interactions is required
+to provide insights about infection strategies of pathogens. Here we analyzed the most
+comprehensive available pathogen–human protein interaction data including 23,435 inter-
+actions, targeting 5,210 human proteins.The data were obtained from the newly developed
+pathogen–host interaction search tool, PHISTO. This is the ﬁrst comprehensive attempt to
+get a comparison between bacterial and viral infections. We investigated human proteins
+that are targeted by bacteria and viruses to provide an overview of common and spe-
+cial infection strategies used by these pathogen types. We observed that in the human
+protein interaction network the proteins targeted by pathogens have higher connectivity
+and betweenness centrality values than those proteins not interacting with pathogens.
+The preference of interacting with hub and bottleneck proteins is found to be a common
+infection strategy of all types of pathogens to manipulate essential mechanisms in human.
+Compared to bacteria, viruses tend to interact with human proteins of much higher connec-
+tivity and centrality values in the human network. Gene Ontology enrichment analysis of
+the human proteins targeted by pathogens indicates crucial clues about the infection mech-
+anisms of bacteria and viruses. As the main infection strategy, bacteria interact with human
+proteins that function in immune response to disrupt human defense mechanisms. Indis-
+pensable viral strategy, on the other hand, is the manipulation of human cellular processes
+in order to use that transcriptional machinery for their own genetic material transcription.
+A novel observation about pathogen–human systems is that the human proteins targeted
+by both pathogens are enriched in the regulation of metabolic processes.
+
+Keywords: pathogen–human protein–protein interactions, PHISTO,
+ontology
+
+infection strategy, hub, bottleneck, gene
+
+INTRODUCTION
+According to a report of World Health Organization (WHO), more
+than 20% of total deaths in the world are due to infectious diseases
+(World Health Organization, 2008). Different types of microor-
+ganisms (bacteria, fungi, protozoa, and viruses) act as pathogens
+for such diseases. The mechanism of infection is based on the
+interactions between the proteins of pathogen and host. Thanks to
+the developments in high-throughput protein interaction detec-
+tion methods, it is possible to identify pathogen–host protein–
+protein interactions (PHIs) at large-scale. Infection strategies have
+been studied through intraspecies protein interactions of various
+pathogens (Flajolet et al., 2000; McCraith et al., 2000; Rain et al.,
+2001; LaCount et al., 2005; Uetz et al., 2006; Calderwood et al.,
+2007; Wang et al., 2010) as well as through interspecies protein
+interactions between pathogens and human (Filippova et al., 2004;
+Mogensen et al., 2006; Uetz et al., 2006; Calderwood et al., 2007;
+König et al., 2008). Notwithstanding these, a general overview of
+infection mechanisms of different types of pathogens is missing
+since there has been a lack of interspecies interactome data until
+very recent years.
+
+A major step toward a complete picture of the pathogenesis
+of infectious diseases and consequently identifying drug targets
+is the cataloging of large-scale PHIs. There are few PHI-speciﬁc
+databases, which enable the access to PHI data for each type
+of pathogen from a single source (Driscoll et al., 2009; Kumar
+and Nanduri, 2010). Nevertheless these databases have not been
+updated since their ﬁrst release, and miss lots of recently reported
+PHIs. Therefore, we have recently developed a pathogen–host
+interaction search tool (PHISTO), which serves as a centralized
+and up-to-date source for the entire available PHI data between
+various pathogen strains and human via a user-friendly and
+functional interface1.
+
+The systemic analysis of PHI data has so far focused mainly on
+virus-based infections due to the scarcity of data for other types of
+pathogenic organisms (Uetz et al., 2006; Calderwood et al., 2007;
+Dyer et al., 2008). We have enough bacterial PHIs to get statis-
+tically meaningful results, providing a good opportunity to get a
+
+1http://www.phisto.boun.edu.tr
+
+www.frontiersin.org
+
+February 2012 | Volume 3 | Article 46 | 1
+
+Durmu¸s Tekir et al.
+
+Infection strategies of bacterial and viral pathogens
+
+systemic picture of the pathogenesis of bacterial infections. In this
+work, we studied up-to-date PHI data reported in PHISTO with a
+speciﬁc focus on comparison between bacterial and viral infections
+of human. We constructed various sets of human proteins targeted
+by bacteria, fungi, protozoa, and viruses to pick out speciﬁc infec-
+tion strategies of different pathogen types. On the other hand, the
+set of human proteins targeted by both bacteria and viruses were
+used to obtain common infection strategies of these pathogens.
+We computed degree (connectivity) and betweenness centrality
+distributions of the human protein sets targeted by bacteria and
+viruses to observe the network properties of targeted human pro-
+teins. Additionally, we computed gene ontology (GO; Ashburner
+et al., 2000) terms enriched in each above-mentioned protein set to
+ﬁnd out attacked mechanisms in human. GO enrichment analysis
+was also performed for sets of human proteins targeted by each
+pathogen group included in our PHI data to decipher the pathogen
+group(s) manipulating speciﬁc processes in human.
+
+MATERIALS AND METHODS
+PATHOGEN–HOST INTERACTION SEARCH TOOL
+We have developed PHISTO that presents experimentally veriﬁed
+pathogen–human protein interaction data in the most compre-
+hensive and updated manner. The database provides the entirety
+of relevant information about the physical PHIs in a single non-
+redundant resource to researchers. It offers access via a user-
+friendly and functional web interface (see text footnote 1) with
+various searching, ﬁltering, browsing, and extraction options.
+Results are displayed in a very clear and consistent presentation
+format. PHISTO enables the users to reach additional information
+easily by providing links in the search results to external databases.
+Proteins, pathogens, and publications listed in the search results
+are linked to UniProt, NCBI Taxonomy, and PubMed, respectively,
+offering users quick navigation in these informative databases.
+
+We downloaded the pathogen–human PHIs from PHISTO in
+October 2011. The data cover 23,435 physical interactions occur-
+ring between 5,210 human proteins and 3,419 proteins of 257
+pathogen strains of 72 pathogen groups (24 bacterial groups, 3
+fungal groups, 2 protozoan groups, and 43 viral groups; Table 1).
+In PHISTO, pathogen strains are grouped to provide an option to
+present PHI results together for related strains. Bacterial groups
+are sets of strains of the same genus as the names of the groups
+are the names of the genuses. For viral groups, there are two
+deﬁnitions. Some viral groups are sets of strains of the same fam-
+ily as the names of the groups are the names coming from the
+families of the strains (e.g., papillomaviruses, herpesviruses, poly-
+omaviruses). Some viral strains are grouped based on the related
+infections caused by them, as the names are generally coming
+from the diseases (e.g., HIV, hepatitis viruses, anemia viruses).
+Detailed PHI data for 72 groups are given in Data Sheets 1–4 in
+Supplementary Material.
+
+HUMAN PPI DATA
+To obtain degree and betweenness centrality values of pathogen-
+targeted proteins, the human protein–protein interaction (PPI)
+network was constructed by downloading 194,006 interactions
+between 13,015 human proteins from BioGRID (Stark et al., 2011),
+DIP (Salwinski et al., 2004), IntAct (Kerrien et al., 2012), Mint
+
+(Ceol et al., 2010), and Reactome (Matthews et al., 2009; Croft
+et al., 2011) in April 2011.
+
+HUMAN PROTEIN SETS
+A total of 10 sets of human proteins interacting with pathogens
+were constructed from PHI data to analyze the properties of
+targeted human proteins as follows: The sets targeted by bacte-
+rial pathogens (bacteria-targeted set), fungal pathogens (fungi-
+targeted set), protozoan pathogens (protozoa-targeted set), and
+viral pathogens (virus-targeted set) were analyzed for speciﬁc
+infection strategies of these different pathogen types. For a deeper
+comparison between bacterial and viral infections, human pro-
+teins interacting with at least two bacterial groups (two-bacteria-
+targeted set) and two viral groups (two-viruses-targeted set)
+and also human proteins interacting with at least three bacte-
+rial groups (three-bacteria-targeted set) and three viral groups
+(three-viruses-targeted set) were used. To obtain common infec-
+tion strategies of pathogens, sets of human proteins targeted by
+all types of pathogens (pathogen-targeted set) and by both bac-
+teria and viruses (bacteria–virus-targeted set) were also analyzed.
+Finally, 72 sets of human proteins each targeted by a pathogen
+group reported in Table 1 were additionally used in GO enrich-
+ment analysis to investigate the human mechanisms attacked by
+each pathogen group in the PHI data. Totally, 82 human protein
+sets were constructed and analyzed.
+
+DEGREE AND BETWEENNESS CENTRALITY CALCULATIONS
+Degree of a protein within a network is deﬁned as its number
+of connections. Betweenness centrality of a protein is equal to
+the number of shortest paths between any pairs passing through
+that protein. The degree and centrality values of proteins in inter-
+action networks provide valuable information about the role of
+corresponding proteins in the network’s functional organization
+using the topology of the interconnections. For instance, hubs
+(highly connected proteins) and bottlenecks (central proteins to
+many paths in the network) are critical players in the intraspecies
+protein networks for information ﬂow (Barabasi and Oltvai, 2004;
+Yu et al., 2007).
+
+The undirected human PPI network was represented as an
+adjacency matrix, and the degree and centrality values of each
+protein in the network were calculated in MATLAB environment.
+Betweenness centrality calculations were performed by freely avail-
+able MATLAB BGL package developed by David Gleich2. The
+results were normalized by (n − 1)(n − 2), where n is the num-
+ber of all proteins in the PPI network. Self-interactions were not
+taken into account in these calculations.
+
+GO ENRICHMENT ANALYSIS
+Gene Ontology (Ashburner et al., 2000) enrichments of all 82
+human protein sets were performed using BiNGO plugin (ver.
+2.44) of Cytoscape (ver. 2.8.1; Maere et al., 2005). Signiﬁcance
+level was set to 0.05 meaning that only terms enriched with a
+p-value of at most 0.05 were considered. All three GO terms (bio-
+logical process, molecular function, and cellular component) were
+
+2https://launchpad.net/matlab-bgl
+
+Frontiers in Microbiology | Microbial Immunology
+
+February 2012 | Volume 3 | Article 46 | 2
+
+Durmu¸s Tekir et al.
+
+Infection strategies of bacterial and viral pathogens
+
+Table 1 | Contents of pathogen–human PHI data.
+
+Pathogen
+
+Number of strains
+
+Number of PHIs
+
+Number of targeting pathogen proteins
+
+Number of targeted human proteins
+
+BACTERIA
+Aeromonas
+Bacillus
+Campylobacter
+Chlamydia
+Citrobacter
+Clostridium
+Corynebacterium
+Escherichia
+Finegoldia
+Francisella
+Helicobacter
+Klebsiella
+Legionella
+Listeria
+Moraxella
+Mycoplasma
+Neisseria
+Pseudomonas
+Salmonella
+Shigella
+Staphylococcus
+Streptococcus
+Vibrio
+Yersinia
+FUNGI
+Candida
+Pneumocystis
+Radiomyces
+PROTOZOA
+Plasmodium
+Toxoplasma
+VIRUS
+Adenovirus
+Anemia virus
+ASFV
+Bacteriophage
+Coxsackie virus
+Dengue virus
+Ebola virus
+Echo virus
+Ectromelia virus
+Encephalitis virus
+Foamy virus
+Hantaan virus
+Hendra virus
+Hepatitis virus
+Herpesvirus
+HIV
+Inﬂuenza virus
+Leukemia virus
+Measles virus
+
+41
+1
+2
+1
+2
+1
+3
+1
+4
+1
+1
+2
+1
+1
+1
+1
+1
+1
+1
+1
+1
+3
+5
+1
+4
+3
+1
+1
+1
+4
+3
+1
+209
+13
+6
+1
+6
+1
+3
+1
+2
+1
+1
+1
+1
+1
+21
+28
+49
+9
+3
+3
+
+8,549
+2
+3,021
+3
+21
+1
+47
+1
+30
+1
+1,338
+3
+1
+1
+4
+1
+2
+17
+12
+5
+11
+12
+15
+1
+3,999
+4
+1
+1
+2
+9
+8
+1
+14,873
+121
+8
+1
+6
+1
+3
+1
+3
+2
+2
+1
+6
+1
+1,573
+666
+11,435
+523
+10
+10
+
+2,591
+1
+940
+1
+3
+1
+9
+1
+14
+1
+346
+3
+1
+1
+4
+1
+1
+1
+4
+5
+9
+10
+12
+1
+1,221
+3
+1
+1
+1
+5
+4
+1
+820
+36
+6
+1
+6
+1
+3
+1
+3
+2
+1
+1
+1
+1
+179
+141
+279
+27
+3
+4
+
+3,589
+2
+1,736
+3
+21
+1
+10
+1
+27
+1
+986
+2
+1
+1
+3
+1
+2
+17
+10
+5
+8
+10
+9
+1
+2,120
+4
+1
+1
+2
+9
+8
+1
+2,398
+80
+4
+1
+5
+1
+2
+1
+1
+2
+2
+1
+6
+1
+399
+388
+1,601
+182
+10
+4
+
+www.frontiersin.org
+
+February 2012 | Volume 3 | Article 46 | 3
+
+(Continued)
+
+Durmu¸s Tekir et al.
+
+Table 1 | Continued
+
+Infection strategies of bacterial and viral pathogens
+
+Pathogen
+
+Number of strains Number of PHIs Number of targeting pathogen proteins Number of targeted human proteins
+
+Molluscum virus
+MPMV
+Nipah virus
+Nucleopolyhedrovirus
+Orf virus
+Papillomavirus
+Parainﬂuenza virus
+Parvo virus
+Polio virus
+Polyomavirus
+Puumala virus
+Rabies virus
+Rhino virus
+Rota virus
+Sarcoma virus
+SARS
+Sendai virus
+Seoul virus
+SIV
+Stomatitis virus
+T-lymphotropic virus
+Tula virus
+Vaccinia virus
+West Nile virus
+TOTAL
+
+1
+1
+1
+1
+2
+14
+1
+1
+2
+4
+1
+1
+1
+4
+5
+1
+1
+1
+2
+3
+3
+1
+5
+1
+257
+
+1
+1
+1
+1
+2
+290
+2
+1
+3
+64
+3
+1
+1
+8
+15
+4
+1
+4
+3
+7
+38
+2
+46
+1
+23,435
+
+1
+1
+1
+1
+2
+51
+1
+1
+2
+10
+1
+1
+1
+5
+6
+3
+1
+1
+2
+3
+7
+1
+20
+1
+3,419
+
+See Data Sheets 1–4 in Supplementary Material for detailed information.
+
+scanned to identify the terms having signiﬁcant association with
+each human protein set studied.
+
+RESULTS
+PATHOGEN-TARGETED HUMAN PROTEINS
+The distribution of 5,210 human proteins on their targeting
+pathogens are shown in the Venn diagram (Figure 1). Detailed
+properties of all pathogen-targeted human proteins including
+number and types of targeting pathogens together with degree
+and betweenness centrality values in the human PPI network
+are given in Data Sheet 5 in Supplementary Material. The most
+targeted human proteins are listed in Table 2. The top of this
+list, P53 (Tumor suppressor), DRA (HLA class II histocompati-
+bility antigen, DR alpha chain), SUMO1 (Small ubiquitin-related
+modiﬁer 1), JUN (Transcription factor AP-1), NPM (Nucleophos-
+min), ROA1 (Heterogeneous nuclear ribonucleoprotein A1), and
+UBC9 (SUMO-conjugating enzyme) and the following proteins
+have potential to give important insights about infections.
+
+DEGREE AND CENTRALITY DISTRIBUTIONS
+Figure 2 displays the comparison between the degree distributions
+of non-targeted proteins in the human PPI network and bacteria
+and virus-targeted sets. For both cases of bacteria and virus-
+targeted sets, it is observed that pathogen-targeted human proteins
+have generally higher degree values than non-targeted ones. How-
+ever a difference is observed in trends of degree distributions of
+
+1
+1
+1
+1
+1
+128
+2
+1
+2
+45
+3
+1
+1
+6
+11
+4
+1
+4
+3
+6
+35
+2
+33
+1
+5,210
+
+FIGURE 1 | The number of pathogen-targeted human proteins that are
+grouped based on their interactions with viruses, bacteria, and
+fungi – protozoa (targeted by fungi and/or protozoa).
+
+multibacteria and multiviruses targeted sets. For bacteria-targeted
+cases, the increase in degree values of human proteins with increas-
+ing number of targeting pathogen groups is not as clear as those
+of virus-targeted cases (Figure 2). Very similar trends are obtained
+for centrality distributions of human proteins (Figure 3). In order
+
+Frontiers in Microbiology | Microbial Immunology
+
+February 2012 | Volume 3 | Article 46 | 4
+
+Durmu¸s Tekir et al.
+
+Infection strategies of bacterial and viral pathogens
+
+Table 2 | Highly targeted human proteins.
+
+Protein
+
+Degree Betweenness
+
+Targeting bacterial groups
+
+Targeting viral groups
+
+P53
+DRA
+
+347
+52
+
+centrality
+
+0.01547
+0.00003
+
+SUMO1
+
+103
+
+0.00366
+
+Bacillus, Escherichia, Francisella, Yersinia
+Bacillus, Francisella, Mycoplasma, Staphylo-
+coccus, Yersinia
+Bacillus
+
+JUN
+NPM
+ROA1
+UBC9
+
+122
+137
+246
+134
+
+0.00335
+0.00166
+0.00262
+0.00410
+
+Bacillus, Francisella, Yersinia
+Bacillus, Francisella, Yersinia
+Bacillus, Francisella, Yersinia
+Yersinia
+
+IGHG1
+
+57
+
+0.00219
+
+RAC1
+
+239
+
+0.00279
+
+CDC42
+DRB5
+LCK
+XRCC6
+KPYM
+ROA2
+P85A
+STAT3
+STAT1
+GBLP
+PARP4
+RB
+SP1
+TAF1
+CDK2
+TF2B
+EP300
+CBP
+TBP
+
+232
+–
+147
+131
+76
+189
+402
+77
+71
+93
+1
+149
+103
+58
+151
+69
+123
+147
+147
+
+0.00405
+–
+0.00202
+0.00445
+0.00041
+0.00069
+0.00914
+0.00133
+0.00104
+0.00265
+0.00000
+0.00282
+0.00268
+0.00025
+0.00220
+0.00020
+0.00245
+0.00304
+0.00241
+
+Bacillus, Francisella, Staphylococcus, Strep-
+tococcus, Yersinia
+Bacillus, Clostridium, Pseudomonas, Salmo-
+nella, Yersinia
+Bacillus, Francisella, Salmonella, Yersinia
+Bacillus, Francisella, Streptococcus, Yersinia
+Bacillus, Francisella, Yersinia
+Bacillus, Francisella, Yersinia
+Bacillus, Francisella, Yersinia
+Bacillus, Francisella, Yersinia
+Bacillus, Francisella, Yersinia
+Bacillus, Francisella, Yersinia
+Bacillus, Francisella, Yersinia
+Bacillus, Francisella, Yersinia
+Bacillus, Francisella, Yersinia
+Yersinia
+Yersinia
+Bacillus
+Shigella
+Bacillus
+Bacillus
+Yersinia
+–
+
+Adenovirus, Hepatitis virus, HIV, Papillomavirus, Polyomavirus, SIV
+Herpesvirus, HIV, Inﬂuenza virus
+
+Herpesvirus, HIV, Papillomavirus, Puumala virus, SARS, Tula virus,
+Vaccinia virus
+Hepatitis virus, HIV, Papillomavirus, Vaccinia virus
+Adenovirus, Hepatitis virus, Herpesvirus, HIV
+Herpesvirus, HIV, Inﬂuenza virus, SARS
+Hantaan virus, Herpesvirus, HIV, Inﬂuenza virus, Papillomavirus,
+Seoul virus
+Herpesvirus
+
+HIV
+
+HIV, T-lymphotropic virus
+Herpesvirus, HIV
+Hepatitis virus, Herpesvirus, HIV
+Herpesvirus, HIV, Polyomavirus
+Hepatitis virus, Herpesvirus, Papillomavirus
+Herpesvirus, Inﬂuenza virus, Vaccinia virus
+Anemia virus, HIV, Inﬂuenza virus
+Hepatitis virus, Herpesvirus, HIV
+Adenovirus, Herpesvirus, HIV
+Adenovirus, Herpesvirus, HIV
+Hepatitis virus, Herpesvirus, HIV
+Adenovirus, Herpesvirus, HIV, Papillomavirus, Polyomavirus
+Adenovirus, Herpesvirus, HIV, Polyomavirus, T-lymphotropic virus
+Adenovirus, Hepatitis virus, HIV, Papillomavirus, Polyomavirus
+Herpesvirus, HIV, Papillomavirus, Polyomavirus,T-lymphotropic virus
+Hepatitis virus, Herpesvirus, HIV, Papillomavirus, Polyomavirus
+Adenovirus, Hepatitis virus, HIV, Papillomavirus, Polyomavirus
+Adenovirus, Hepatitis virus, HIV, Papillomavirus, Polyomavirus
+Adenovirus, Hepatitis virus, Herpesvirus, HIV, Papillomavirus, Poly-
+omavirus
+
+The targeting pathogenic proteins for each human protein can be obtained from Data Sheets 1–4 in Supplementary Material.
+
+to justify these global trends, the same analyses was then repeated
+with human protein sets excluding the overrepresented pathogens,
+i.e., Bacillus, Yersinia, and HIV which target the largest number of
+human proteins (Table 1). Similar results are still obtained when
+major pathogen groups are eliminated (Figure 4).
+
+GO ENRICHMENT ANALYSIS
+All enriched GO terms for each human protein set are avail-
+able in Data Sheets 6–10 in Supplementary Material for fur-
+ther detailed analyses. Special attention should be paid to the
+results of sets of human proteins interacting with three and
+more bacterial groups and three and more viral groups for a
+comparison between their infection strategies. The human pro-
+teins targeted by more pathogen groups reﬂect more speciﬁcity
+to infection mechanism of the corresponding pathogen (bac-
+teria or virus). The enriched GO terms in human proteins
+
+interacting with both bacterial and viral pathogens are also impor-
+tant to highlight common infection mechanisms. The ﬁrst 20
+enriched GO process terms for three-bacteria-targeted-set, three-
+viruses-targeted-set, and bacteria–virus-targeted set are listed in
+Tables 3–5 to point out the human processes that are attacked by
+pathogens.
+
+DISCUSSION
+In this study, we aim to provide a general overview of infection
+strategies used by different pathogens based on the comprehensive
+PHI data in PHISTO. Although large-scale pathogen–human pro-
+tein interaction data have been identiﬁed in the last few years, the
+data for fungal and protozoan systems are still scarce (Table 1) to
+extract signiﬁcant conclusions about their infection mechanisms.
+On the other hand, interspecies protein interaction networks for
+bacterial and viral pathogens with human have been identiﬁed,
+
+www.frontiersin.org
+
+February 2012 | Volume 3 | Article 46 | 5
+
+Durmu¸s Tekir et al.
+
+Infection strategies of bacterial and viral pathogens
+
+FIGURE 2 | The cumulative degree distributions of human protein sets.
+The distribution of all proteins in the PPI network is given in comparison with
+(A) the bacteria-targeted sets, and (B) the virus-targeted sets. The number of
+
+proteins in each set is given in the parentheses. The fraction of proteins at a
+particular value of degree is the number of proteins having that value and
+greater divided by the number of proteins in the set.
+
+FIGURE 3 | The cumulative betweenness centrality
+distributions of human protein sets. The distribution of all
+proteins in the PPI network is given in comparison with (A) the
+bacteria-targeted sets, and (B) the virus-targeted sets. The number
+
+of proteins in each set is given in the parentheses. The fraction of
+proteins at a particular value of betweenness centrality is the
+number of proteins having that value and greater divided by the
+number of proteins in the set.
+
+enough to provide some insights about their strategies to subvert
+human cellular processes during infection.
+
+With increasing PHI data of bacterial and viral pathogens, stud-
+ies have been performed to enlighten speciﬁc bacteria–human
+(Mogensen et al., 2006; Dyer et al., 2010) and virus–human
+(Filippova et al., 2004; Uetz et al., 2006; Calderwood et al.,
+2007; König et al., 2008) interaction systems. Although some
+studies provided global views of infection strategies of viruses
+(Dyer et al., 2008) and bacteria (Dyer et al., 2010) separately,
+they do not provide a direct comparison between bacterial and
+
+viral infections. In fact, only <2% of the PHI data of Dyer
+et al. (2008) are for bacteria–human interactions whereas it
+is more than 36% in our database of PHISTO. Hence, our
+study constitutes the ﬁrst extensive comparison between bacteria–
+human and virus–human interspecies protein interaction net-
+works to retrieve information about infection strategies speciﬁc
+to each system and then common to both systems. Our ﬁndings
+should be interpreted with caution since the protein interac-
+tion networks between pathogens and human are not complete
+yet.
+
+Frontiers in Microbiology | Microbial Immunology
+
+February 2012 | Volume 3 | Article 46 | 6
+
+Durmu¸s Tekir et al.
+
+Infection strategies of bacterial and viral pathogens
+
+FIGURE 4 | The cumulative distributions of degree and betweenness
+centrality of human proteins excluding Yersinia and HIV data. The number
+of proteins in each set is given in the parentheses. (A) The degree
+
+distributions (B) the betweenness centrality distributions. The fraction of
+proteins at a particular value of degree is the number of proteins having that
+value and greater divided by the number of proteins in the set.
+
+SPECIAL INFECTION STRATEGIES
+In recent studies it has been suggested that viral proteins (Calder-
+wood et al., 2007; Dyer et al., 2008; Itzhaki, 2011) and bacterial
+proteins (Dyer et al., 2010) have evolved to preferentially inter-
+act with hubs and bottlenecks in the human PPI network. The
+degree and betweenness centrality distributions of the bacteria-
+targeted and virus-targeted human protein sets are displayed in
+comparison with non-targeted proteins in the human PPI net-
+work in Figures 2 and 3. We observe that the degree and centrality
+values of human proteins increase with increasing number of tar-
+geting bacterial and viral groups, conﬁrming the previous results
+with the most comprehensive PHI data. A novel ﬁnding by our
+comparative analysis is that the increase in degree and centrality
+values with increasing number of pathogen groups is much more
+pronounced in virus-targeted cases than bacteria-targeted cases
+(Figures 2 and 3). Therefore we can conclude that attacking to
+hub and bottleneck proteins in the human interaction network is
+more speciﬁc to viral infections.
+
+In our PHI data, some pathogen groups are overrepresented
+with their larger number of reported interactions with human
+(Table 1). As most of these large-scale data have been produced
+with high-throughput detection methods, which are prone to
+experimental biases and errors, it was necessary to check whether
+the distributions of degree and centrality values of the pathogen-
+targeted human proteins would be same without the groups with
+large number of interacting partners of human proteins (i.e., Bacil-
+lus,Yersinia, and HIV). Hence, we performed the above-mentioned
+analyses with human protein sets excluding these major pathogen
+groups. 1,199 human proteins targeted by only Yersinia strains
+were excluded from the bacteria-targeted set, and 1,283 human
+proteins targeted by only HIV strains were excluded from the
+virus-targeted set to obtain the degree and betweenness central-
+ity values of the remaining human proteins. We also analyzed
+the human proteins targeted by bacteria other than Bacillus and
+
+Yersinia to exclude the effect of large-scale data of the two. 1,199
+only Yersinia-targeted and 847 only Bacillus-targeted human pro-
+teins were excluded from the bacteria-targeted set. The behavior of
+the remaining human proteins can be observed in Figure 4 result-
+ing in similar trends with the global case. Additionally, a direct
+comparison of the degree and centrality between bacteria and
+virus-targeted interaction partners with respect to non-targeted
+human proteins is also given in Figure 4. The difference in the
+behavior of the bacteria- and virus-targeted sets are clear espe-
+cially in degree distributions (Figure 4A). The degree values of
+bacteria-targeted human proteins with or without Bacillus and
+Yersinia are nearly same. On the other hand, attack of viruses to
+more connected human proteins is more clear when HIV data are
+excluded.
+
+From the enriched GO process terms in human proteins tar-
+geted by at least three bacterial groups (Table 3), we can conclude
+that bacteria may have adapted to attack proteins involved gener-
+ally in human immunity pathways. Therefore, the most speciﬁc
+bacterial infection strategy is through evading or suppressing
+human immune responses as also concluded previously (Lai et al.,
+2001; Park et al., 2002; Zhang et al., 2005; Dyer et al., 2010).
+The human immune system is manipulated by bacterial pro-
+teins attacking human proteins functioning in innate and adaptive
+immunity (i.e., TLR4 and TLR7), inﬂammation (i.e., NF-κB and
+BCL6), and activation of T cells (i.e., CXCR4 and LCK; Zhang and
+Ghosh, 2000; Alonso et al., 2004; Oda and Kitano, 2006; Dyer et al.,
+2010). In our PHI data it is observed that Yersinia bacteria attack all
+these human defense mechanisms targeting all mentioned human
+proteins. Proteins of Bacillus and Francisella interact with NF-κB
+and LCK (Dyer et al., 2010) aiming to disrupt the mechanisms of
+inﬂammation and T cell responses. On the other hand, proteins of
+Chlamydia, Escherichia, and Neisseria interact with crucial players
+of innate and adaptive immunity, toll-like receptors (TLR4 and
+TLR7; Croft et al., 2011) to collapse the human immune system.
+
+www.frontiersin.org
+
+February 2012 | Volume 3 | Article 46 | 7
+
+Durmu¸s Tekir et al.
+
+Infection strategies of bacterial and viral pathogens
+
+Table 3 | First 20 enriched GO process terms in human proteins
+targeted by at least three bacterial groups (three-bacteria-targeted
+set).
+
+GO process term
+
+I-kappaB kinase/NF-kappaB cascade
+Regulation of biological process
+Biological regulation
+Negative regulation of biological process
+Positive regulation by organism of immune response of other
+organism involved in symbiotic interaction
+Modulation by organism of immune response of other organ-
+ism involved in symbiotic interaction
+Modulation by symbiont of host immune response
+Positive regulation by symbiont of host immune response
+Response to immune response of other organism involved
+in symbiotic interaction
+Response to host immune response
+Positive regulation by organism of defense response of other
+organism involved in symbiotic interaction
+Positive regulation by symbiont of host defense response
+Positive regulation by organism of innate immunity in other
+organism involved in symbiotic interaction
+Modulation by organism of innate immunity in other organ-
+ism involved in symbiotic interaction
+Pathogen-associated molecular pattern dependent modu-
+lation by organism of innate immunity in other organism
+involved in symbiotic interaction
+Modulation by organism of defense response of other organ-
+ism involved in symbiotic interaction
+Pathogen-associated molecular pattern dependent induction
+by organism of innate immunity of other organism involved
+in symbiotic interaction
+Modulation by symbiont of host defense response
+Pathogen-associated molecular pattern dependent induction
+by symbiont of host innate immunity
+Modulation by symbiont of host innate immunity
+
+p-Value
+9.64E−13
+9.69E−10
+2.59E−09
+4.89E−09
+6.64E−09
+6.64E−09
+6.64E−09
+6.64E−09
+6.64E−09
+6.64E−09
+6.64E−09
+6.64E−09
+6.64E−09
+6.64E−09
+6.64E−09
+
+6.64E−09
+6.64E−09
+
+6.64E−09
+6.64E−09
+6.64E−09
+
+See Data Sheet 10 in Supplementary Material for the whole list and the human
+proteins corresponding to each GO term.
+
+There are several other bacteria-targeted human proteins involved
+in the immune system. Their interactions with bacterial proteins
+should be investigated carefully for a complete understanding of
+bacterial strategies targeting human defense mechanism during
+infection.
+
+Viruses attack human cellular processes (Table 4) enabling
+themselves to proliferate in human during infection. All viruses use
+this mechanism since they need host’s transcriptional machinery
+for viral genetic material transcription. Even the human proteins
+targeted by only one viral group are enriched in GO process
+terms relevant to regulation of cellular mechanisms (Data Sheet 10
+in Supplementary Material). Viruses manipulate human cellular
+mechanisms by interacting with various proteins functioning in
+cell cycle (i.e., DLG1, PTMA, and EP300), with human transcrip-
+tion factors to promote their own genetic material transcription
+(i.e., E2F1 and TAF1), with key proteins controlling apoptosis
+
+Table 4 | First 20 enriched GO process terms in human proteins
+targeted by at least three viral groups (three-viruses-targeted set).
+
+Go process term
+
+Interspecies interaction between organisms
+Multi-organism process
+Positive regulation of cellular process
+Positive regulation of biological process
+Cellular macromolecule metabolic process
+Nucleic acid metabolic process
+Positive regulation of macromolecule metabolic process
+Cell cycle process
+Positive regulation of gene expression
+Cell cycle
+Positive regulation of metabolic process
+Positive regulation of transcription
+Macromolecule metabolic process
+Positive regulation of cellular metabolic process
+Cellular response to stimulus
+Positive regulation of nucleobase, nucleoside, nucleotide,
+and nucleic acid metabolic process
+Positive regulation of macromolecule biosynthetic process
+Positive regulation of nitrogen compound metabolic process
+Positive regulation of transcription, DNA-dependent
+Regulation of cell cycle
+
+p-Value
+1.89E−40
+1.19E−27
+1.12E−17
+1.06E−16
+1.12E−15
+4.49E−14
+4.60E−14
+6.72E−14
+1.49E−13
+2.06E−13
+3.79E−13
+4.37E−13
+8.51E−13
+3.89E−12
+6.61E−12
+7.26E−12
+1.32E−11
+1.41E−11
+1.44E−11
+1.47E−11
+
+See Data Sheet 10 in Supplementary Material for the whole list and the human
+proteins corresponding to each GO term.
+
+(i.e., P53), and with nuclear membrane proteins for transporting
+their genetic material across the nuclear membrane (i.e., RAN, and
+SUMO1; Lechner and Laimins, 1994; Thompson et al., 1997; Car-
+rillo et al., 2004; Thomas et al., 2005; Dyer et al., 2008). In our PHI
+data, Adenoviruses, HIV, Papillomaviruses, and Polyomaviruses
+are observed to target one or more proteins in each of four groups;
+cell cycle proteins, transcription factors, apoptosis regulator, and
+nuclear membrane proteins. Proteins of Hepatitis viruses interact
+with PTMA, EP300, TAF1, and p53 while proteins of Herpesviruses
+interact with PTMA and SUMO1. On the other hand, viral groups
+of Inﬂuenza, Puumala, Tula, SARS, and Vaccinia are observed
+to target nuclear membrane proteins. The other virus-targeted
+human proteins involved in cellular mechanisms should be inves-
+tigated comprehensively for a complete understanding of viral
+strategies targeting human cellular mechanism.
+
+We can conclude that the main infection strategies of bacteria
+and viruses are through attacking human immune system and cel-
+lular processes, respectively. However, there are some exceptions
+such that some bacterial groups target human proteins functioning
+in cellular mechanisms whereas some viral groups target human
+proteins functioning in defense mechanisms. In the case of bacte-
+ria, the difference might arise from the life-style, e.g., intracellular
+bacteria like Chlamydia, Listeria, and Mycoplasma are able to grow
+and reproduce only within the host cells just like viruses (Kauf-
+mann, 1993). Therefore, human protein sets targeted by these
+intracellular bacterial groups are enriched in GO process terms
+related to the cellular mechanisms (e.g., regulation of cellular
+
+Frontiers in Microbiology | Microbial Immunology
+
+February 2012 | Volume 3 | Article 46 | 8
+
+Durmu¸s Tekir et al.
+
+Infection strategies of bacterial and viral pathogens
+
+Table 5 | First 20 enriched GO process terms in human proteins
+targeted by both bacterial and viral groups (bacteria–virus-targeted
+set).
+
+GO process term
+
+Interspecies interaction between organisms
+Multi-organism process
+Positive regulation of biological process
+Regulation of biological process
+Biological regulation
+Positive regulation of cellular process
+Negative regulation of biological process
+Regulation of cellular process
+Negative regulation of cellular process
+Regulation of protein metabolic process
+Regulation of macromolecule metabolic process
+Regulation of cellular protein metabolic process
+Regulation of cell death
+Positive regulation of macromolecule metabolic process
+Positive regulation of cellular metabolic process
+Regulation of programmed cell death
+Cellular macromolecule metabolic process
+Positive regulation of metabolic process
+Negative regulation of macromolecule metabolic process
+Regulation of apoptosis
+
+p-Value
+1.64E−52
+1.01E−47
+5.62E−47
+1.32E−42
+2.66E−40
+4.59E−40
+6.32E−37
+2.00E−36
+4.84E−32
+7.68E−30
+3.21E−29
+1.39E−28
+1.74E−28
+1.91E−28
+7.04E−28
+1.13E−27
+1.94E−27
+2.92E−27
+5.31E−27
+6.54E−27
+
+See Data Sheet 10 in Supplementary Material for the whole list and the human
+proteins corresponding to each GO term.
+
+processes, regulation of transcription) in addition to the immune
+sytem (Data Sheet 6 in Supplementary Material). On the other
+hand, viruses like herpes and pox (ectromelia, molluscum, orf,
+vaccinia) viruses as well as HIV have the ability to evade human
+immune system (Alcami and Koszinowski, 2000) as observed in
+our results (Data Sheet 9 in Supplementary Material).
+
+For more speciﬁc infection strategies of pathogen groups, the
+results of GO enrichment analysis for the human protein sets tar-
+geted by each of the 72 groups in the PHI data can be used (Data
+Sheets 6–9 in Supplementary Material). Additionally, intranet-
+works of pathogenic proteins in each pathogen group should be
+analyzed for drug target identiﬁcation after a thorough under-
+standing of pathogenesis via interspecies protein interactions.
+
+COMMON INFECTION STRATEGIES
+In spite of the difference in the trends of distributions of degree
+and centrality values of human proteins in bacteria-targeted and
+virus-targeted sets, the tendency to attack human proteins that
+are highly connected (hubs) and central to shortest paths (bot-
+tlenecks) is common to all types of pathogens. We observed in
+our PHI data that the degree and centrality values of pathogen-
+targeted human proteins are generally greater than non-targeted
+ones. This infection strategy of pathogens, attacking more con-
+nected and central nodes in the human PPI network, is probably
+due to enabling themselves to control and disrupt essential com-
+plexes and pathways more easily. With scale-free nature, the human
+PPI network is robust to attacks on random nodes. However, the
+selective attacks to even a small number of nodes of high degree can
+
+dramatically change the topology and functionality of the network
+(Albert et al., 2000; Li et al., 2006).
+
+Although bacteria and viruses have a tendency to interact with
+different human proteins (Figure 1), they together target those
+(779 human proteins) enriched in the regulation of metabolic
+processes in addition to cellular processes (Table 5). For instance,
+a pyruvate kinase isozyme, KPYM, functions in glycolysis catalyz-
+ing the transfer of a phosphoryl group from phosphoenolpyruvate
+(PEP) to ADP, generating ATP. This metabolic human protein
+is targeted by three bacterial (Bacillus, Francisella, and Yersinia)
+and three viral groups (Hepatitis, Herpesviruses, and Papillo-
+maviruses) in the PHI data. Alpha-enolase is another bacteria–
+virus-targeted enzyme which functions in glycolysis, just before
+KPYM enzyme, converting 2-phospho-glycerate to PEP. A meta-
+bolic step operating again around lower glycolysis is the produc-
+tion of lactate from pyruvate. Both isoenzymes (LDHA, LDHB)
+are found to be a target for bacterial and viral groups. In addition
+to lower glycolysis, some enzymes functioning in lipid metabo-
+lism (ACSA, ACOT9, CPT1A) were identiﬁed as common targets
+of bacteria and viruses. Interestingly, two enzymes functioning
+for protection against oxidative-stress are in our common-target
+list: catalase (CATA) and glutathione peroxidase 3 (GPX3). These
+enzymes remove H2O2, which is a reactive oxygen species (ROS)
+harmful for the cell.
+
+To our knowledge, the human proteins targeted by both bacte-
+ria and viruses have not been investigated in any previous study.
+Through our analyses using large-scale PHI data we can conclude
+that both bacteria and viruses attack to the proteins functioning
+in human metabolic processes as a common infection strategy. All
+bacteria–viruses-targeted human proteins involved in metabolic
+processes should be investigated carefully for a complete picture
+of commonalities in bacterial and viral infections.
+
+ACKNOWLEDGMENTS
+We thank Ali Semih Sayılırba¸s for his invaluable contribution
+to the development of PHISTO database. The ﬁnancial support
+for this research was provided by the Research Funds of Bo˘gaziçi
+University and TÜB˙ITAK through projects 5554D and 110M428,
+respectively. The scholarship for Saliha Durmu¸s Tekir is provided
+by TÜB˙ITAK, is gratefully acknowledged.
+
+SUPPLEMENTARY MATERIAL
+The Supplementary Material for this article can be found online at
+http://www.frontiersin.org/Microbial_Immunology/10.3389/fmicb.
+2012.00046/abstract
+
+Data Sheets 1–4 | Pathogen–human PHIs.
+
+Data Sheet 1 | Bacteria–human PHIs.
+
+Data Sheet 2 | Fungi–human PHIs.
+
+Data Sheet 3 | Protozoa–human PHIs.
+
+Data Sheet 4 | Virus–human PHIs.
+
+Data Sheet 5 | Properties of pathogen-targeted set.
+
+Data Sheets 6–10 | Gene ontology enrichment results.
+
+www.frontiersin.org
+
+February 2012 | Volume 3 | Article 46 | 9
+
+Durmu¸s Tekir et al.
+
+Infection strategies of bacterial and viral pathogens
+
+Data Sheet 6 | Gene ontology enrichment results of sets of human proteins
+targeted by each bacterial group.
+
+Data Sheet 9 | Gene ontology enrichment results of sets of human proteins
+targeted by each viral group.
+
+Data Sheet 7 | Gene ontology enrichment results of sets of human proteins
+targeted by each fungal group.
+
+Data Sheet 8 | Gene ontology enrichment results of sets of human proteins
+targeted by each protozoan group.
+
+Data Sheet 10 | Gene ontology enrichment results of other sets
+of human proteins (pathogen-targeted, virus-targeted,
+two-virus-targeted, three-virus-targeted, bacteria-targeted,
+two-bacteria-targeted, three-bacteria-targeted, fungi-targeted,
+protozoa-targeted, and bacteria–virus-
+targeted).
+
+REFERENCES
+Albert, R., Jeong, H., and Barabasi, A.
+L. (2000). Error and attack tolerance
+of complex networks. Nature 406,
+378–382.
+Alcami, A.,
+
+and Koszinowski, U.
+H. (2000). Viral mechanisms of
+immune evasion. Immunol. Today
+21, 447–455.
+
+Alonso, A., Bottini, N., Bruckner, S.,
+Rahmouni, S., Williams, S., Schoen-
+berger, S. P., and Mustelin, T. (2004).
+Lck dephosphorylation at Tyr-394
+and inhibition of T cell antigen
+receptor signaling by Yersinia phos-
+phatase YopH. J. Biol. Chem. 279,
+4922–4928.
+
+Ashburner, M., Ball, C. A., Blake, J. A.,
+Botstein, D., Butler, H., Cherry, M.,
+Davis, A. P., Dolinski, K., Dwight, S.
+S., Eppig, J. T., Harris, M. A., Hill,
+D. P., Issel-Tarver, L., Kasarskis, A.,
+Lewis, S., Matese, J. C., Richardson,
+J. E., Ringwald, M., Rubin, G. M., and
+Sherlock, G. (2000). Gene ontology:
+tool for the uniﬁcation of biology.
+The Gene Ontology Consortium.
+Nat. Genet. 25, 25–29.
+
+Barabasi, A. L., and Oltvai, Z. N. (2004).
+Network biology: understanding the
+cell’s functional organization. Nat.
+Rev. Genet. 5, 101–113.
+
+Calderwood, M. A., Venkatesan, K.,
+Xing, L., Chase, M. R., Vazquez, A.,
+Holthaus,A. M., Ewence,A. E., Li, N.,
+Hirozane-Kishikawa, T., Hill, D. E.,
+Vidal, M., Kieff, E., and Johannsen, E.
+(2007). Epstein–Barr virus and virus
+human protein interaction maps.
+Proc. Natl. Acad. Sci. U.S.A. 104,
+7606–7611.
+
+Carrillo, E., Garrido, E., and Gariglio,
+P. (2004). Speciﬁc in vitro inter-
+action between papillomavirus E2
+proteins and TBP-associated factors.
+Intervirology 47, 342–349.
+
+Ceol, A., Catr Aryamontri, A., Licata,
+L., Peluso, D., Briganti, L., Per-
+fetto, L., Castagnoli, L., and Cesareni,
+G. (2010). MINT, the molecular
+interaction database: 2009 update.
+Nucleic Acids Res. 38, D532–D539.
+
+Croft, D., O’Kelly, G., Wu, G., Haw, R.,
+Gillespie, M., Matthews, L., Caudy,
+M., Garapati, P., Gopinath, G., Jassal,
+B., Jupe, S., Kalatskaya, I., Mahajan,
+S., May, B., Ndegwa, N., Schmidt, E.,
+Shamovsky, V., Yung, C., Birney, E.,
+
+Hermjakob, H., D’Eustachio, P., and
+Stein, L. (2011). Reactome: a data-
+base of reactions, pathways and bio-
+logical processes. Nucleic Acids Res.
+39, D691–D697.
+
+Driscoll, T., Dyer, M. D., Murali, T. M.,
+and Sobral, B. W. (2009). PIG –
+the pathogen interaction gateway.
+Nucleic Acids Res. 37, D647–D650.
+
+Dyer, M. D., Murali, T. M., and Sobral, B.
+W. (2008). The landscape of human
+proteins interacting with viruses and
+other pathogens. PLoS Pathog. 4, e32.
+doi:10.1371/journal.ppat.0040032
+
+Dyer, M. D., Neff, C., Dufford,
+M., Rivera, C. G., Shattuck, D.,
+Bassaganya-Riera, J., Murali, T. M.,
+and Sobral, B. W.
+(2010). The
+human-bacterial pathogen protein
+interaction networks of Bacillus
+anthracis, Francisella tularensis, and
+Yersinia pestis. PLoS ONE 5, e12089.
+doi:10.1371/journal.pone.0012089
+
+Filippova, M., Parkhurst, L.,
+
+and
+Duerksen-Hughes, P. J. (2004). The
+human papillomavirus 16 E6 pro-
+tein binds to Fas-associated death
+domain and protects cells from Fas-
+triggered apoptosis. J. Biol. Chem.
+279, 25729–25744.
+
+Flajolet, M., Rotondo, G., Daviet, L.,
+Bergametti, F., Inchauspe, G., Tiol-
+lais, P., Transy, C., and Legrain, P.
+(2000). A genomic approach of the
+hepatitis C virus generates a protein
+interaction map. Gene 242, 369–379.
+Itzhaki, Z. (2011). Domain-domain
+interactions underlying herpes virus
+human protein-protein interaction
+networks. PLoS ONE 6, e21724.
+doi:10.1371/journal.pone.0021724
+
+Kaufmann, S. H. E. (1993). Immunity
+to intracellular bacteria. Annu. Rev.
+Immunol. 11, 129–163.
+
+Kerrien, S., Aranda, B., Breuza, L.,
+Bridge, A., Broackes-Carter, F., Chen,
+C., Duesbury, M., Dumousseau, M.,
+Feuermann, M., Hinz, U., Jandra-
+sits, C., Jimenez, R. C., Khadake,
+J., Mahadevan, U., Masson, P.,
+Pedruzzi, I., Pfeiffenberger, E., Por-
+ras, P., Raghunath, A., Roechert,
+B., Orchard, S., and Hermjakob, H.
+(2012). The IntAct molecular inter-
+action database in 2012. Nucleic
+Acids Res. 40, D841–D846.
+
+König, R., Zhou, Y., Elleder, D., Dia-
+mond, T. L., Bonamy, G. M., Irelan,
+
+J. T., Chiang, C. Y., Tu, B. P., De Jesus,
+P. D., Lilley, C. E., Seidel, S., Opaluch,
+A. M., Caldwell, J. S., Weitzman, M.
+D., Kuhen, K. L., Bandyopadhyay,
+S., Ideker, T., Orth, A. P., Miraglia,
+L. J., Bushman, F. D., Young, J. A.,
+and Chanda, S. K. (2008). Global
+analysis of host-pathogen interac-
+tions that regulate early stage HIV-1
+replication. Cell 135, 49–60.
+
+a uniﬁed
+
+Kumar, R., and Nanduri, B. (2010).
+resource
+interactions.
+S16.
+
+HPIDB –
+for
+BMC Bioinformatics
+doi:10.1186/1471-2105-11-S6-S16
+
+host-pathogen
+
+11,
+
+LaCount, D. J., Vignali, M., Chettier,
+R., Phansalkar, A., Bell, R., Hessel-
+berth, J. R., Schoenfeld, L. W., Ota,
+I., Sahasrabudhe, S., Kurschner, C.,
+Fields, S., and Hughes, R. E. (2005).
+A protein interaction network of the
+malaria parasite Plasmodium falci-
+parum. Nature 438, 103–107.
+
+Lai, X. H., Golovliov, I., and Sjostedt, A.
+(2001). Francisella tularensis induces
+cytopathogenicity and apoptosis in
+murine macrophages via a mecha-
+nism that requires intracellular bac-
+terial multiplication. Infect. Immun.
+69, 4691–4694.
+
+Lechner, M. S., and Laimins, L. A.
+(1994). Inhibition of p53 DNA bind-
+ing by human papillomavirus E6
+proteins. J. Virol. 68, 4262–4273.
+
+Li, D., Li, J., Ouyang, S., Wang, J.,
+Wu, S., Wan, P., Zhu, Y., Xu, X.,
+and He, F. (2006). Protein interac-
+tion networks of Saccharomyces cere-
+visiae, Caenorhabditis elegans, and
+Drosophila melanogaster: large-scale
+organization and robustness. Pro-
+teomics 6, 456–461.
+
+Maere, S., Heymans, K., and Kuiper, M.
+(2005). BiNGO: a Cytoscape plu-
+gin to assess overrepresentation of
+gene ontology categories in bio-
+logical networks. Bioinformatics 21,
+3448–3449.
+
+Matthews, L., Gopinath, G., Gillespie,
+M., Caudy, M., Croft, D., de Bono, B.,
+Garapati, P., Hemish, J., Hermjakob,
+H., Jassal, B., Kanapin, A., Lewis,
+S., Mahajan, S., May, B., Schmidt,
+E., Vastrik, I., Wu, G., Birney, E.,
+Stein, L., and D’Eustachio, P. (2009).
+Reactome knowledgebase of human
+biological pathways and processes.
+Nucleic Acids Res. 37, D619–D622.
+
+McCraith, S., Holtzman, T., Moss, B.,
+and Fields, S. (2000). Genome-wide
+analysis of vaccinia virus protein–
+protein interactions. Proc. Natl.
+Acad. Sci. U.S.A. 97, 4879–4884.
+
+Mogensen, T. H., Paludan, S. R.,
+Kilian, M., and Østergaard, L.
+(2006). Live Streptococcus pneumo-
+niae, Haemophilus inﬂuenzae, and
+Neisseria meningitidis activate the
+inﬂammatory response through toll-
+like receptors 2, 4, and 9 in species-
+speciﬁc patterns. J. Leukoc. Biol. 80,
+267–277.
+
+Oda, K., and Kitano, H. (2006). A
+comprehensive map of
+the toll-
+like receptor signaling network. Mol.
+Syst. Biol. 2, 2006.0015.
+
+Park, J. M., Greten, F. R., Li, Z.-W.,
+and Karin, M. (2002). Macrophage
+apoptosis by anthrax lethal factor
+through p38 MAP kinase inhibition.
+Science 297, 2048–2051.
+
+Rain, J. C., Selig, L., De Reuse, H.,
+Battaglia, V., Reverdy, C., Simon,
+S., Lenzen, G., Petel, F., Wojcik, J.,
+Schächter, V., Chemama, Y., Labigne,
+A., and Legrain, P. (2001). The
+protein–protein interaction map of
+Helicobacter pylori. Nature 409,
+211–215.
+
+Salwinski, L., Miller, C. S., Smith, A.
+J., Pettit, F. K., Bowie, J. U., and
+Eisenberg, D. (2004). The database
+of interacting proteins: 2004 update.
+Nucleic Acids Res. 32, D449–D451.
+
+Stark, C., Breitkreutz, B.
+
+Boucher,
+
+J., Chatr-
+Aryamontri, A.,
+L.,
+Oughtred, R., Livstone, M. S.,
+Nixon, J., Van Auken, K., Wang,
+X., Shi, X., Reguly, T., Rust, J. M.,
+Winter, A., Dolinski, K., and Tyers,
+M. (2011). The BioGRID Interac-
+tion Database: 2011 update. Nucleic
+Acids Res. 39, D698–D704.
+
+Thomas, M., Massimi, P., Navarro, C.,
+Borg, J. P., and Banks, L. (2005).
+The hScrib/Dlg apico-basal control
+complex is differentially targeted by
+HPV-16 and HPV-18 E6 proteins.
+Oncogene 24, 6222–6230.
+
+Thompson, D. A., Belinsky, G., Chang,
+T. H.-T.,
+Jones, D. L., Schlegel,
+R., and Münger, K. (1997). The
+human papillomavirus-16 E6 onco-
+protein decreases the vigilance of
+mitotic checkpoints. Oncogene 15,
+3025–3035.
+
+Frontiers in Microbiology | Microbial Immunology
+
+February 2012 | Volume 3 | Article 46 | 10
+
+Durmu¸s Tekir et al.
+
+Infection strategies of bacterial and viral pathogens
+
+Uetz, P., Dong,Y., Zeretzke, C.,Atzler, C.,
+Baiker, A., Berger, B., Rajagopala, S.,
+Roupelieva, M., Rose, D., Fossum, E.,
+and Haas, J. (2006). Herpesviral pro-
+tein networks and their interaction
+with the human proteome. Science
+311, 239–242.
+
+Wang, Y., Cui, T., Zhang, C., Yang, M.,
+Huang, Y., Li, W., Zhang, L., Gao,
+C., He, Y., Li, Y., Huang, F., Zeng, J.,
+Huang, C., Yang, Q., Tian, Y., Zhao,
+C., Chen, H., Zhang, H., and He,
+Z. G. (2010). Global protein-protein
+interaction network in the human
+pathogen Mycobacterium tubercu-
+losis H37Rv. J. Proteome. Res. 9,
+6665–6677.
+
+World Health Organization. (2008).
+The Global Burden of Disease:
+2004 Update. Geneva: WHO
+Press.
+
+Yu, H., Kim, P. M., Sprecher, E., Trifonov,
+V., and Gerstein, M. (2007). The
+importance of bottlenecks in pro-
+tein networks: correlation with gene
+essentiality and expression dynam-
+ics. PLoS Comput. Biol. 3, e59.
+doi:10.1371/journal.pcbi.0030059
+
+Zhang, G., and Ghosh, S.
+
+(2000).
+Molecular mechanisms of NF-
+κB activation induced by bacter-
+ial lipopolysaccharide through toll-
+like receptors. J. Endotoxin Res. 6,
+453–457.
+
+Zhang, Y., Ting, A. T., Marcu, K. B.,
+and Bliska, J. B. (2005). Inhibition
+of MAPK and NF-kappa B pathways
+is necessary for rapid apoptosis in
+macrophages infected with Yersinia.
+J. Immunol. 174, 7939–7949.
+
+Conﬂict of Interest Statement: The
+authors declare that the research was
+conducted in the absence of any com-
+mercial or ﬁnancial relationships that
+could be construed as a potential con-
+ﬂict of interest.
+
+Received: 05 December 2011; accepted:
+30 January 2012; published online: 14
+February 2012.
+
+Citation: Durmu¸s Tekir S, Çakır T and
+Ülgen KÖ (2012) Infection strategies of
+bacterial and viral pathogens through
+pathogen–human protein–protein inter-
+actions. Front. Microbio. 3:46. doi:
+10.3389/fmicb.2012.00046
+This article was submitted to Frontiers
+in Microbial Immunology, a specialty of
+Frontiers in Microbiology.
+Copyright  2012 Durmu¸s Tekir, Çakır
+and Ülgen. This is an open-access article
+distributed under the terms of the Cre-
+ative Commons Attribution Non Com-
+mercial License, which permits non-
+commercial use, distribution, and repro-
+duction in other forums, provided the
+original authors and source are credited.
+
+www.frontiersin.org
+
+February 2012 | Volume 3 | Article 46 | 11
+
+

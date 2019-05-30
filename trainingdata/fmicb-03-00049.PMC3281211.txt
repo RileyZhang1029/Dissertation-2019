@@ -1,0 +1,4376 @@
+ORIGINAL RESEARCH ARTICLE
+published: 17 February 2012
+doi: 10.3389/fmicb.2012.00049
+
+Characterization of microbial population shifts during
+sample storage
+
+Heath J. Mills 1*, Brandi Kiel Reese 1,2 and Cruz St. Peter 1
+
+1 Department of Oceanography, Texas A&M University, College Station, TX, USA
+2 Department of Biological Science, University of Southern California, Los Angeles, CA, USA
+
+Edited by:
+Andreas Teske, University of
+North Carolina at Chapel Hill, USA
+Reviewed by:
+Rebecca Gast, Woods Hole
+Oceanographic Institution, USA
+Kesen Ma, University of Waterloo,
+Canada
+*Correspondence:
+Heath J. Mills, Department of
+Oceanography, Texas A&M University,
+716A Eller O&M Building, College
+Station, TX 77843-3146, USA.
+e-mail: hmills@ocean.tamu.edu
+
+The objective of this study was to determine shifts in the microbial community structure
+and potential function based on standard Integrated Ocean Drilling Program (IODP) storage
+procedures for sediment cores. Standard long-term storage protocols maintain sediment
+temperature at 4˚C for mineralogy, geochemical, and/or geotechnical analysis whereas
+standard microbiological sampling immediately preserves sediments at −80˚C. Storage at
+4˚C does not take into account populations may remain active over geologic time scales
+at temperatures similar to storage conditions. Identiﬁcation of active populations within
+the stored core would suggest geochemical and geophysical conditions within the core
+change over time. To test this potential, the metabolically active fraction of the total micro-
+bial community was characterized from IODP Expedition 325 Great Barrier Reef sediment
+cores prior to and following a 3-month storage period. Total RNA was extracted from com-
+plementary 2, 20, and 40 m below sea ﬂoor sediment samples, reverse transcribed to
+complementary DNA and then sequenced using 454 FLX sequencing technology, yield-
+ing over 14,800 sequences from the six samples. Interestingly, 97.3% of the sequences
+detected were associated with lineages that changed in detection frequency during the
+storage period including key biogeochemically relevant lineages associated with nitrogen,
+iron, and sulfur cycling. These lineages have the potential to permanently alter the physical
+and chemical characteristics of the sediment promoting misleading conclusions about the
+in situ biogeochemical environment. In addition, the detection of new lineages after stor-
+age increases the potential for a wider range of viable lineages within the subsurface that
+may be underestimated during standard community characterizations.
+
+Keywords: sediment microbial ecology, pyrosequencing, geobiology, sediment core storage
+
+INTRODUCTION
+The Integrated Ocean Drilling Program (IODP) and its prede-
+cessor programs Deep Sea Drilling Program and Ocean Drilling
+Program have led scientiﬁc drilling of the marine subsurface for
+over 40 years. Three main repositories [Gulf Coast Repository,
+Bremen Core Repository (BCR), and Kochi Core Repository] col-
+lect and store drill material from around the world, providing a
+resource to land based scientists in an effort to expand the research
+potential of the Program. The main focus of subsurface research
+has been chemical and physical characterizations. However, recent
+initiatives have emphasized the importance of understanding the
+subseaﬂoor biosphere (Bickle et al., 2011). With this new direction
+has come new technology and awareness to determine the biolog-
+ical effects on subsurface. Previous studies have described some
+aspects of the physical, chemical, and biological effects of long-
+term storage on core integrity (König et al., 2000; Lin et al., 2010),
+however a detailed analysis of changes in the active microbial
+community during core material storage has not been presented.
+Advancements in drilling technology and expeditions dedicated
+to microbiology have provided an increase in the number of sam-
+ples suitable for enhanced microbial community characterization.
+Resulting studies have produced a better understanding of in situ
+
+community structure and further described natural diagenetic
+processes deep beneath the seaﬂoor. Multiple biological processes
+catalyzed by subsurface microbial populations have been shown to
+alter the physical and chemical structure of subsurface sediment
+and rock (reviewed in Fry et al., 2008). With minimal geochemical
+alteration in subsurface environmental conditions over short time
+scales (Jørgensen, 2011) the community structure would remain
+stable in composition and expressed metabolic processes. There-
+fore, disruptions to in situ ﬂuid ﬂow, temperature, or pressure, such
+as those created during the drilling process and subsequent core
+storage would be hypothesized to create shifts in both community
+structure and overall function. This newly structured population
+would utilize different chemical compounds at different rates com-
+pared to the undisturbed population and thus would change the
+physical and chemical composition of the stored material. Key to
+this assumption is the availability of a dormant fraction of the
+population, or a minor fraction that becomes more metabolically
+active following a disruption event. Dormancy is a valuable and
+common trait to microbial populations (Jones and Lennon, 2010)
+but has been more frequently associated with environments that
+experience periodic perturbations or shifts in environmental con-
+ditions (Fuhrman et al., 2006; Jones and McMahon, 2009). Lin
+
+www.frontiersin.org
+
+February 2012 | Volume 3 | Article 49 | 1
+
+Mills et al.
+
+Microbial shifts during sample storage
+
+et al. (2010) suggested the presence of potential dormant popu-
+lations in subsurface sediments by describing a shift in microbial
+community structure within stored IODP sediment samples. The
+next step is to determine a shift in metabolically active populations
+during storage to better describe both the microbial community
+and associated functional processes threatening core integrity.
+
+This study provides a detailed examination and comparison of
+the metabolically active fraction of the microbial population at
+the time of sample recovery, representing near in situ conditions,
+and active microbial populations detected after 3 months of stan-
+dard core storage. Total community 16S ribosomal RNA (rRNA)
+transcripts were sequenced from multiple sediment depths col-
+lected during IODP Expedition 325 on the Great Barrier Reef.
+High throughput sequencing using 454 FLX provided the sequenc-
+ing capacity to statistically determine shifts in the population
+over time. This work supports and advances a previous study by
+Lin et al. (2010) by providing unique insight into the metaboli-
+cally active microbial populations that would be contributing to
+alterations in physical and chemical properties of sediment cores
+during storage. These alterations should be considered during
+post-expedition sediment analysis. This study also demonstrates
+that minor and/or dormant lineages can be revived when envi-
+ronmental conditions change, providing evidence for a viable
+fraction of the community. A viable fraction would represent
+a sink for genetic material and metabolic processes potentially
+underestimated in current biosphere characterizations.
+
+(cid:2)
+
+MATERIALS AND METHODS
+SAMPLING ACQUISITION AND STORAGE
+Sediment samples were collected during the IODP Expedi-
+tion 325 aboard the mission speciﬁc platform Greatship Maya.
+Drilling occurred April 5th, 2010, at Noggin Pass (17˚6.3461
+S,
+(cid:2)
+146˚33.7526
+E) drill hole M0058A using the advance piston cor-
+ing (APC) drilling system. Immediately following recovery, whole
+round core sections were cut from the drill core liner at three
+depths below surface at 2, 20, and 40 m below sea ﬂoor (mbsf).
+For the purposes of this manuscript, the samples collected onboard
+the Greatship Maya are identiﬁed as “offshore samples” within this
+manuscript. These samples were transferred to −80˚C freezer and
+shipped on dry ice to the Mills Laboratory after the completion of
+the expedition. The remaining core material was then maintained
+at 4˚C during transit, shipping, and storage at the BCR in Bre-
+men, Germany. During expedition onshore activities at the BCR,
+sediment was collected July 13, 2010 from the same core sections
+sampled offshore, at locations directly adjacent to the whole round
+core sections. A 2-cm wide sediment section was collected from
+the center of the core, homogenized, and frozen at −80˚C prior
+to being shipped on dry ice to the Mills Laboratory. The samples
+stored at 4˚C prior to sub-sampling at the BCR are identiﬁed as
+“onshore samples” within this manuscript.
+
+GEOCHEMICAL ANALYSES
+Sediment interstitial water was collected shipboard using Rhi-
+zon syringes for geochemical analysis. Samples designated for
+onshore analysis at BCR were preserved immediately upon col-
+lection by refrigerated acidiﬁed (cations) or by frozen unacidiﬁed
+) was analyzed
+(anions) and transported on ice. Ammonium (NH
+
++
+4
+
+−
+
+and Cl
+
+shipboard using a gas stripping technique described in Hall and
+Aller (1992). Porewater anions (e.g., SO2−
+,) were mea-
+sured onshore using ion chromatography at BCR and cations (e.g.,
+Fe, Mn, Ca, S) were measured onshore using inductively coupled
+plasma–optical emission spectrometry (ICP–OES) at BCR. Total
+carbon (TC) and total organic carbon (TOC) was analyzed on
+50 mg dried sediment taken every 50 cm using a LECO CC-125
+carbon–sulfur analyzer onshore at BCR.
+
+4
+
+NUCLEIC ACID EXTRACTION AND RNA PURIFICATION
+Nucleic acids were extracted from both offshore and onshore sam-
+pled sediments using a method modiﬁed from Mills et al. (2008).
+The description below provides details not previously published
+and represents the most updated version of this versatile extrac-
+tion method. Key to the method was reducing time spent during
+the extraction process with extraction yields being inversely pro-
+portional to duration of extraction procedure. All chemicals were
+molecular biology grade (MBG) where available. All water for
+solutions was autoclaved and treated with diethylpyrocarbonate
+(DEPC) to remove nucleases. A 0.5-g sample was quickly chipped
+from frozen sediment under sterile conditions and placed into
+a 2-ml screw top tube with rubber gasket in lid. All samples
+remained frozen prior to extraction. Between 100 and 250 μl of
+extraction buffer [250 μl of 1 M Tris–HCl (MP Biomedicals; Solon,
+OH, USA; pH 8.0), 200 μl of 500 mM ethylenediamine tetraacetic
+acid (EDTA; EMD Chemicals; Gibbstown, NJ, USA; pH 8.0), and
+230 μl of 40% glucose (Calbiochem; La Jolla, CA, USA) raised
+to a total 10 ml volume with sterile deionized water] was added
+to each sample tube. The ﬁnal concentration of the extraction
+buffer is as follows: 25 mM Tris–HCl, 10 mM EDTA, and 0.92%
+glucose. Volume added of the extraction buffer was determined
+by the amount of porewater in sample and should be adjusted
+accordingly. Sufﬁcient volume of buffer added is achieved when
+the sample can be adequately vortexed; forming a soft, well-mixed
+mud. Samples were cycled ﬁve times through a 45-s vortex, frozen
+in liquid nitrogen, and thawed for 1 min at 55˚C. Samples were
+rapidly and completely thawed during 55˚C incubation, but tem-
+peratures remained low to avoid increasing activity of DNases
+and RNases. After ﬁve cycles were completed, the following solu-
+tions were added: 0–150 μl extraction buffer (total volume of
+extraction buffer added equaled 250 μl between this and the pre-
+vious addition steps), 100 μl lysozyme solution [extraction buffer
+−1 lysozyme (Rockland, Inc.; Gilbertsville, PA, USA)
+with 4 mg ml
+added], and 50 μl of 500 mM EDTA (pH 8.0). Samples were incu-
+bated for 10 min at 30˚C while shaking at 150 rpm. A solution
+of phenol (EMD Chemicals; Gibbstown, NJ, USA):chloroform
+(BDH; West Chester, PA, USA):isoamyl alcohol (MP Biomedicals;
+Solon, OH, USA, 25:24:1) was added at 800 μl along with 50 μl of
+10% sodium dodecyl sulfate (SDS; EMD Chemicals; Gibbstown,
+NJ, USA). Phenol was not buffered with Tris hydrochloric acid so
+that the pH remained acidic. Acidic phenol is optimal for RNA
+extraction. Samples were vortexed for 1 min to create an emulsion
+prior to centrifugation at 15,000 rpm (21,100× g ) for 3 min at
+room temperature. The top aqueous layer was transferred to a new
+2 ml screw top tube containing 800 μl phenol:chloroform:isoamyl
+alcohol. Samples were again vortexed for 1 min and centrifuged
+for 3 min at 15,000 rpm (21,100× g ) at room temperature. The
+
+Frontiers in Microbiology | Extreme Microbiology
+
+February 2012 | Volume 3 | Article 49 | 2
+
+Mills et al.
+
+Microbial shifts during sample storage
+
+aqueous layer was transferred to a new 1.5 ml microcentrifuge
+tube avoiding any traces of the phenol solution. A total of 50 μl
+of 3 M sodium acetate (J. T. Baker; Phillipsburg, NJ, USA; pH 6.4)
+and 1 ml 200 proof MPG ethanol was added to each sample prior
+to a 15-min centrifuge step at 15,000 rpm (21,100× g ) at 4˚C. The
+supernatant was slowly removed and the pellet dried for 10 min.
+Pellets were resuspended in 50 μl of sodium citrate (pH 6.4) to
+optimize for RNA preservation. If DNA is desired, resuspend in
+autoclaved, deionized water (pH 8.0), and buffer the phenol to
+raise the pH to 8. For RNA sample preparation, extractions were
+treated with Turbo DNA Free (Ambion, Inc.; Austin, TX, USA)
+according to manufacturer’s instructions to remove residual DNA
+co-extracted with the RNA.
+
+RNA REVERSE TRANSCRIPTION
+Small subunit (SSU) rRNA was reverse transcribed according to
+Reese et al. (2012). In brief, complementary DNA (cDNA) was
+produced using moloney murine leukemia virus (MMLV) reverse
+(cid:2)
+transcriptase (Promega, Madison, WI, USA) and 518R (5
+-CGT
+(cid:2)
+ATT ACC GCG GCT GCT GG-3
+; Nogales et al., 1999). Aliquots
+of RNA extract were screened for the presence of residual DNA
+using the Bacteria domain-speciﬁc SSU rRNA gene primers 27F
+(cid:2)
+(5
+; Giovannoni et al.,
+1991) and 518R. Thermocycling conditions are described in Reese
+et al. (2012). All RNA extracts were determined free of residual
+DNA (data not shown).
+
+(cid:2)
+-AGR GTT TGA TCM TGG CTC AG-3
+
+(cid:2)
+
+-GTN TTA CNG CGG CKG CTG-3
+
+(cid:2)
+-GAG TTT GAT CNT GGC TCA G-3
+
+PYROSEQUENCING
+(cid:2)
+) and 519R
+Primers 28F (5
+(cid:2)
+(5
+) produced amplicons from
+cDNA that spanned three hyper-variable regions (V1 through V3;
+Handl et al., 2011). cDNA amplicons from each of the sediment
+samples were sequenced at the Research and Testing Laboratory
+(Lubbock, TX, USA). Amplicons from each sample were ﬁrst
+labeled with a 10 base unique multiplex identiﬁer (MID) sequence
+to allow all samples to be sequenced on a single run of a Roche
+454 FLX (454 Life Sciences; Branford, CT, USA). Downstream
+sequence analysis parsed the individual sequences into sample spe-
+ciﬁc libraries. Resulting libraries were screened for reads less than
+200 bases, reads lacking a Roche-designed four base key sequence,
+and non-bacterial reads lacking speciﬁc 28F primer recognition
+site. Sequences were checked for chimeras using the black box
+chimera check software (B2C2; Gontcharova et al., 2010). All
+sequences passing quality control were denoized prior to phy-
+logenetic and statistical analysis. Sequences were then deposited
+to the National Center for Biotechnology Information database
+using Sequence Read Archive (SRA) under accession number
+SRA049351.
+
+PHYLOGENETIC AND STATISTICAL ANALYSIS
+All sequences passing quality control were taxonomically classi-
+ﬁed (percent of total sequence length that aligned with a given
+database sequence) using the NCBI Basic Local Alignment Search
+Tool (BLASTn) .NET algorithm (accessed January 2011; Dowd
+et al., 2005). Sequences with identity scores greater than 97% iden-
+tity (<3% divergence) to known or well characterized 16S rRNA
+sequences were resolved at the species level, between 95 and 97% at
+
+the genus level, between 90 and 95% at the family, and between 85
+and 90% at the order level, 80 and 85% at the class and 77–80% at
+phyla (Stackebrandt and Goebel, 1994). Only sequences meeting
+the genus taxonomic classiﬁcation were incorporated into statisti-
+cal analyses. Predictions of functional diversity were derived from
+genus level taxonomic characterization using previous studies for
+reference. Lineages with multiple metabolic functions identiﬁed
+were assigned to multiple groups to reduce effects of limited geo-
+chemical data. The percentage of sequences identiﬁed to individual
+lineages was determined for each sample providing relative abun-
+dance information within and among the samples based upon
+reads per sample. Sequences were further clustered into oper-
+ational taxonomic units (OTU) using the Ribosome Database
+Project (RDP; University of Michigan; Lansing, MI, USA) using
+a 95% sequence similarity cutoff (corresponding to a genus level
+classiﬁcation). The sequences were not trimmed prior to cluster-
+ing to avoid potential biases for or against indel regions common
+to 16S rRNA. The authors recognize potential problems with this
+decision; however, using a lower sequence similarity cutoff (95%
+compared to a typical 97%) produced a reproducible calculation
+of OTUs with multiple clustering runs. Chao1, Shannon Wiener,
+and Evenness were calculated from the OTU clustering using RDP.
+
+RESULTS
+GEOCHEMICAL CHARACTERIZATION
+Cations, anions, and TOC were measured onshore at BCR whereas
+ammonia and alkalinity were measured shipboard. Alkalinity, pH,
+and chloride concentrations were unchanged with depth into the
+sediment. Concentrations of ammonia increased from 0.1 mM
+near the sediment surface to 2.2 mM at 40 m depth (Figure 1).
+Conversely, sulfate concentrations decreased from 29 mM at the
+surface to 18 mM at depth. Iron concentrations were low in the
+top 5 m (1 μM) and increased sharply at 9 m (14 μM) followed by
+a decrease in concentration until 25 m (0.7 μM). Another sharp
+increase in iron concentration was observed at 29 m (11.7 μM) and
+at 36 m (10.9 μM). Manganese followed the same general trend as
+iron with spikes in concentration at the same depths. Manganese
+was highest in the surface (0.6 μM) and lowest at 34 m (0.1 μM).
+Total carbon was 8.7 wt% on average in hole M0058A. Within
+the TC, TOC comprised 3% and total inorganic carbon (TIC;
+carbonates) was 97%. The TOC in M0058A averaged 0.3 wt%
+throughout the sediment column.
+
+PHYLOGENETIC DISTRIBUTION OF BACTERIAL LINEAGES
+All samples collect onboard the Greatship Maya and immediately
+stored at −80˚C are referred to as “offshore” samples. This sam-
+pling strategy is commonly considered indicative of an in situ
+population characterization. Samples collected at the BCR follow-
+ing 3 months of storage at 4˚C prior to being cryogenically frozen
+are referred to as “onshore” samples.
+
+A total of 14,897 16S rRNA cDNA sequences passed quality
+control from the two sets of 2, 20, and 40 mbsf sediment samples.
+Twelve phyla representing 71 families were identiﬁed. Sequences
+derived from offshore samples contained a total of 38 families,
+while the onshore samples had 54 families. This increased diver-
+sity following 3 months storage was also observed in Chao1 and
+Shannon Wiener calculations (Table 1). With the exception of
+
+www.frontiersin.org
+
+February 2012 | Volume 3 | Article 49 | 3
+
+Mills et al.
+
+Microbial shifts during sample storage
+
+the 20-mbsf sample collected during post-cruise operations, the
+evenness increased during storage. Changes in trends in sequence
+abundance per lineage were observed between the offshore and
+onshore samples (Figure 2). A majority of the samples had more
+than 99% of the total sequences represented by lineages that shifted
+in frequency of detection between sampling time points. Twenty
+families represented less than 1.0% of the total sequences and were
+omitted from this analysis. These 20 families accounted for 4.0%
+of the total sequences from the 2-m sample collected after storage,
+whereas they incorporated less than 0.8% of the total sequences
+for four of the other ﬁve samples.
+
+MICROBIAL COMMUNITY STRUCTURE – OFFSHORE SAMPLES
+A total of 40 families were detected from samples immediately
+frozen shipboard at −80˚C. A subset of 19 families (83.4% of the
+offshore sequences) was more frequently detected at all depths
+
+FIGURE 1 | Depth proﬁle of key geochemical species signiﬁcant to
+microbial respiration including ammonium and sulfate (A) and total
+iron and total manganese (B).
+
+compared to the samples collected during the onshore portion
+of Expedition 325 (Table 2). These families represented 94.5%
+at 2 mbsf, 87.5% at 20 mbsf, and 68.2% at 40 mbsf of the in situ
+sequences detected. In contrast, these families represented only
+4.3, 14.8, and 23.8%, respectively, of the total sequences obtained
+from the corresponding depths in the onshore sediment samples.
+Of the 19 families detected in the 2-mbsf offshore sediment
+samples, Lachnospiraceae (24.5%), Ruminococcaceae (17.0%),
+Clostridiaceae (10.1%), Lactobacillaceae (9.3%), Enterococcaceae
+(8.1%), and Xanthomonadaceae (7.8%) were detected the most
+frequently (Table 2). These lineages collectively only represented
+2.8% of the sequences obtained from the 2-mbsf sediments col-
+lected during on shore sampling. Functional classiﬁcation suggest
+over 66% of these sequences were associated with lineages capable
+fermentative processes (Figure 3). Aerobic lineages com-
+of
+prised 5.2% of the sequences while groups capable of carbonate
+dissolution represented 17.0%.
+
+A total of 19 families were detected at 20 mbsf depth. Although
+the number of families detected was similar to the 19 families
+at 2 mbsf sample, a population shift was observed at 20 mbsf
+with no Lachnospiraceae, Clostridiaceae, Enterococcaceae, and
+Xanthomonadaceae detected (Table 2). Lactobacillaceae and
+Ruminococcaceae increased in abundance to represent 35.2 and
+27.2% of the sequences obtained from this depth, respectively.
+Ruminococcaceae was not detected in the sediments after the
+storage period at 4˚C. Similarly, Pseudomonadaceae represented
+10.9% of the total sequences at this depth, but only 0.7% after
+the 3-month storage. Lactobacillaceae was detected at 13.6% of
+the total sequences obtained from the 20-mbsf sediment stored
+at 4˚C. Rhizobiaceae (6.1%) and Enterobacteriaceae (5.5%) were
+also detected at greater than 5% abundance of total sequences
+(Table 2). Similar to the 2-mbsf sample, fermentative lineages
+were the most frequently detected (68.5% of total sequences;
+Figure 3). Aerobic lineages were again 5.0% of the sequences how-
+ever groups capable of carbonate dissolution represented 27.2%
+of the total sequences. Nitrate reducing lineages increased in
+frequency detected (16.1% of the total sequences).
+
+At 40 mbsf, 19 families were identiﬁed. Both Lactobacil-
+laceae and Ruminococcaceae decreased in abundance (20.1 and
+13.6%, respectively) compared to the 20-mbsf sample (Table 2).
+Other lineages detected at 40 mbsf included Microbacteriaceae
+(10.6%), Comamonadaceae (9.3%), Enterobacteriaceae (8.9%),
+Sphingomonadaceae (7.1%), and Corynebacteriaceae (7.0%). A
+
+Table 1 | Sequence and classiﬁcation abundances and statistical indices of each sample.
+
+Sampling location
+
+Depth (mbsf)
+
+Number of Sequences
+
+OTUa
+
+Phyla
+
+Family
+
+Genus
+
+Chao1b
+
+Shannon
+
+Evenness
+
+Offshore
+
+Onshore
+
+2
+20
+40
+2
+20
+40
+
+3161
+873
+2316
+2165
+3408
+3498
+
+79
+46
+58
+104
+72
+92
+
+7
+4
+7
+7
+4
+5
+
+17
+18
+19
+33
+18
+25
+
+17
+19
+25
+41
+25
+30
+
+133 (100–220)
+52 (48–71)
+73 (62–109)
+148 (121–214)
+116 (89–182)
+123 (103–176)
+
+3.01
+2.70
+2.97
+3.46
+2.80
+3.44
+
+0.689
+0.704
+0.732
+0.745
+0.655
+0.762
+
+aOperational taxonomic units deﬁned by 95% sequence similarity.
+bNumbers in parenthesis indicate 95% conﬁdence interval.
+
+Frontiers in Microbiology | Extreme Microbiology
+
+February 2012 | Volume 3 | Article 49 | 4
+
+Mills et al.
+
+Microbial shifts during sample storage
+
+frequently detected with 45.7% of the sequences attributed to this
+group (Figure 3). While fermentative lineages were also detected
+after the 3-months, the frequency decreased over 50% compared to
+the offshore samples. Nitrate, iron, and sulfate-reducing lineages
+represented 4.1, 10.2, and 6.4%, respectively. In contrast to the off-
+shore 2 mbsf sample, carbonate reducing lineages accounted for
+only 1.1% of the sequences.
+
+A total of 20 families were detected in the 20 mbsf sediment
+samples collected during the onshore portion of the Expedition
+(Table 2). Within this set, 23.3% of the total sequences were rep-
+resented by 10 families that were more abundant in the stored
+sediments at all depths compared to the offshore samples. An
+additional 62.5% of the sequences from this sample were related to
+Comamonadaceae (44.3%), Microbacteriaceae (8.6%), and Enter-
+obacteriaceae (8.6%; Table 2). Sequences related to Comamon-
+adaceae increased in abundance by an order of magnitude between
+the offshore sampling (4.5%) and the post-cruise sampling period
+at 20 mbsf (44.3%). However, this lineage was not included in the
+initial percent calculations due to the abundance decreasing at
+40 mbsf from 9.3 to 0.3% after 3 months at 4˚C. A similar trend
+was determined for Microbacteriaceae with an increase at 20 mbsf
+from 0.2 to 8.6% during the 3-month period at 4˚C, whereas in
+samples at 40 mbsf the abundance decreased from 10.6 to 0.0%.
+The 20 mbsf sample was the only depth where Enterobacteriaceae
+was more frequently detected in onshore sampled sediment (8.6%)
+compared to the offshore sampled sediment (4.3%). Collectively,
+the 10 families plus Comamonadaceae, Microbacteriaceae, and
+Enterobacteriaceae equal 84.9% of the sequences from the 20-m
+sample collected onshore, compared to 11.6% of the sequences
+from the corresponding offshore sample. Additional families
+detected frequently at 20 mbsf included Clostridia (7.3%), Oscil-
+latoriales (3.7%), and Propionibacteriaceae (3.6%). In contrast to
+the 2-mbsf sediments, Halomonadaceae, Clostridia, Flavobacte-
+riaceae, Geobacteraceae, Carnobactericeae, Oceanospirillales, and
+Desulfobulbaceae were not detected as this depth. Nitrate reduc-
+ing lineages incorporated 45.0% of the total sequences while
+fermenters remained constant with depth (Figure 3).
+
+At 40 mbsf, sequence annotation identiﬁed 29 total families
+within the sediments. A subset of 14 families represented 71.6%
+of the total sequences at this depth (Table 2). These families
+included Halomonadaceae (27.9%), Altermonadaceae (11.2%),
+Piscirickettsiaceae (7.7%), Flavobacteriaceae (6.2%), Streptococ-
+caceae (4.6%), and Solirubrobacteraceae (4.3%). Only Streptococ-
+caceae was also detected (1.8%) in the offshore samples. Although
+Lactobacillaceae (10.3%) and Enterobacteriaceae (4.6%) were
+detected frequently in the onshore samples, they were two times
+less that the number of sequences detected in sediments preserved
+on the ship. Aerobic lineages represented 44.6% of the sequences
+detected while fermenters accounted for 21.4% (Figure 3). Lin-
+eages associated with methylotrophs incorporated 7.8% of the
+total sequences while carbonate dissolution groups represented
+3.4% of the sequences, the most at any depth in the onshore
+samples.
+
+DISCUSSION
+This study describes a shift in population structure within sed-
+iment core material obtained from borehole M00058A during
+
+FIGURE 2 | Phyla andclass level distribution of bacterial lineages.
+Sequences were annotated using RDP Classiﬁer. Identiﬁcation was
+determined with a conﬁdence interval of 70%. Sequence data supports a
+high taxonomic level alteration of the community composition during 4˚C
+storage.
+
+general trend of increasing abundance with depth was noted with
+all of these lineages. In addition, these lineages were detected over
+three times more frequently in the offshore samples compared to
+the onshore samples. A similar distribution of functional process
+was observed compared to the 20-m sample with the exception of
+no aerobic lineages detected (Figure 3).
+
+MICROBIAL COMMUNITY STRUCTURE – ONSHORE SAMPLES
+A total of 57 families were detected in the three samples collected
+during the onshore portion of Expedition 325 following 3 months
+of storage at 4˚C (Table 2). There were 24 families with a higher
+sequence abundance (62.1% of the total sequences) at all three
+depths following the 3-month storage at 4˚C (?? in Appendix)
+compared to the samples collected and preserved at −80˚C on
+the ship. These families accounted for 91.4% at 2 mbsf, 23.3% at
+20 mbsf, and 71.6% mbsf of the total classiﬁed sequences from sed-
+iments collected during the onshore portion of Expedition 325. In
+contrast, the same 24 families represented only 0.2, 1.4, and 2.3%
+of the sequences obtained from 2, 20, and 40 mbsf, respectively,
+from sediments stored immediately at −80˚C.
+
+At 2 mbsf, a total of 33 families were detected with 20 fam-
+ilies representing 90.3% of the sequences (Table 2). The most
+frequently detected lineages included Halomonadaceae (24.2%),
+Clostridia (19.7%), Flavobacteriaceae (12.2%), Geobacteraceae
+(8.9%), Carnobactericeae (3.4%), Oceanospirillales (3.3%), and
+Desulfobulbaceae (3.3%). No other family represented more than
+3.0% of the total sequences. Aerobic lineages were the most
+
+www.frontiersin.org
+
+February 2012 | Volume 3 | Article 49 | 5
+
+Mills et al.
+
+Microbial shifts during sample storage
+
+Table 2 | Phylogenetic classiﬁcation of bacterial sequences obtained from Expedition 325.
+
+Phylum
+
+Class
+
+Family
+
+2 m
+
+20 m
+
+40 m
+
+Acidobacteria
+
+Actinobacteria
+
+Bacteroidetes
+
+Chloroﬂexi
+
+Cyanobacteria
+
+Deinococcus–Thermus
+
+Firmicutes
+
+Nitrospirae
+
+Proteobacteria
+
+Alphaproteobacteria
+
+Acidobacteriaceae
+
+Corynebacteriaceae
+Geodermatophilaceae
+Intrasporangiaceae
+Microbacteriaceae
+Micrococcaceae
+Nocardiaceae
+Nocardioidaceae
+Propionibacteriaceae
+Solirubrobacteraceae
+
+Marinilabiaceae
+Cytophagaceae
+Flavobacteriaceae
+Sphingobacteriales (family)
+
+Anaerolineaceae
+Caldilineaceae
+Chloroﬂexaceae
+
+Microchaetaceae
+Nostocaceae
+Oscillatoriales (family)
+Pleurocapsales (family)
+
+Deinococcaceae
+
+Bacillaceae
+Bacillales (family)
+Planococcaceae
+Carnobacteriaceae
+Lactobacillaceae
+Clostridia (family)
+Clostridiaceae
+Clostridiales (family)
+Eubacteriaceae
+Lachnospiraceae
+Ruminococcaceae
+Bacillales (family)
+Enterococcaceae
+Lactobacillaceae
+Streptococcaceae
+
+Nitrospiraceae
+
+Kopriimonadaceae
+Bradyrhizobiaceae
+
+4˚C
+
+0.1
+0.1
+0.4
+0.0
+0.0
+0.0
+0.0
+0.0
+0.0
+0.0
+0.3
+0.0
+15.3
+0.0
+2.7
+12.2
+0.4
+2.9
+2.1
+0.0
+0.9
+0.6
+0.0
+0.0
+0.1
+0.5
+0.0
+0.0
+30.0
+1.1
+0.0
+2.1
+3.4
+0.0
+19.7
+1.7
+0.0
+0.2
+0.0
+1.1
+0.0
+0.0
+0.0
+0.8
+0.0
+0.0
+50.6
+2.5
+0.0
+0.0
+
+−80˚C
+
+0.0
+0.0
+5.4
+0.0
+0.0
+0.1
+0.0
+0.0
+2.8
+2.4
+0.1
+0.0
+0.0
+0.0
+0.0
+0.0
+0.0
+1.8
+1.8
+0.0
+0.0
+0.0
+0.0
+0.0
+0.0
+0.0
+0.0
+0.0
+69.1
+0.0
+0.0
+0.0
+0.0
+9.3
+0.0
+10.1
+0.0
+0.0
+24.5
+17.0
+0.0
+8.1
+9.3
+0.0
+0.9
+0.9
+11.3
+0.0
+0.0
+0.0
+
+4˚C
+
+0.0
+0.0
+15.3
+0.0
+0.0
+1.7
+8.6
+0.8
+0.1
+0.4
+3.6
+0.0
+0.0
+0.0
+0.0
+0.0
+0.0
+0.0
+0.0
+0.0
+0.0
+4.0
+0.1
+0.0
+3.7
+0.1
+0.0
+0.0
+21.2
+0.0
+0.1
+0.0
+0.0
+13.6
+0.0
+0.0
+7.3
+0.0
+0.0
+0.0
+0.1
+0.0
+13.6
+0.0
+0.0
+0.0
+59.6
+0.0
+0.0
+0.0
+
+−80˚C
+
+0.0
+0.0
+4.5
+0.3
+0.0
+0.0
+0.2
+0.0
+0.0
+3.5
+0.5
+0.0
+0.0
+0.0
+0.0
+0.0
+0.0
+0.2
+0.0
+0.2
+0.0
+0.0
+0.0
+0.0
+0.0
+0.0
+0.0
+0.0
+63.3
+0.0
+0.6
+0.0
+0.0
+35.2
+0.0
+0.0
+0.3
+0.0
+0.0
+27.2
+0.6
+0.0
+35.2
+0.0
+0.0
+0.0
+31.9
+9.4
+0.0
+0.3
+
+4˚C
+
+0.0
+0.0
+10.3
+2.4
+0.5
+0.1
+0.0
+0.2
+0.0
+0.0
+2.7
+4.3
+6.2
+0.0
+0.1
+6.2
+0.0
+0.0
+0.0
+0.0
+0.0
+0.9
+0.0
+0.9
+0.0
+0.0
+0.0
+0.0
+23.5
+0.0
+1.7
+0.0
+0.0
+10.3
+0.0
+0.0
+0.0
+0.0
+3.5
+3.4
+1.7
+0.0
+10.3
+4.6
+0.0
+0.0
+59.2
+5.4
+0.1
+0.0
+
+−80˚C
+
+0.0
+0.0
+25.9
+7.0
+8.1
+0.0
+10.6
+0.0
+0.0
+0.0
+0.2
+0.0
+1.1
+1.1
+0.0
+0.0
+0.0
+0.0
+0.0
+0.0
+0.0
+0.3
+0.0
+0.0
+0.0
+0.3
+3.9
+3.9
+38.3
+0.0
+0.0
+0.0
+0.0
+20.9
+0.0
+1.5
+0.0
+0.5
+0.0
+13.6
+0.0
+0.0
+20.9
+1.8
+0.0
+0.0
+30.2
+9.6
+0.0
+0.0
+
+(Continued)
+
+Frontiers in Microbiology | Extreme Microbiology
+
+February 2012 | Volume 3 | Article 49 | 6
+
+Mills et al.
+
+Table 2 | Continued
+
+Phylum
+
+Class
+
+Family
+
+Betaproteobacteria
+
+Deltaproteobacteria
+
+Epsilonproteobacteria
+
+Gammaproteobacteria
+
+Hyphomicrobiaceae
+Methylobacteriaceae
+Rhizobiaceae
+Rhodobacteraceae
+Acetobacteraceae
+Rhodospirillaceae
+Sphingomonadaceae
+
+Alcaligenaceae
+Comamonadaceae
+Oxalobacteraceae
+Neisseriaceae
+
+Desulfobulbaceae
+Desulfuromonadaceae
+Geobacteraceae
+Cystobacteraceae
+
+Campylobacteraceae
+
+Alteromonadaceae
+Colwelliaceae
+Moritellaceae
+Enterobacteriaceae
+Halomonadaceae
+Oceanospirillales (family)
+Moraxellaceae
+Pseudomonadaceae
+Piscirickettsiaceae
+Vibrionaceae
+Xanthomonadaceae
+
+Opitutaceae
+Spartobacteria (family)
+Verrucomicrobiaceae
+
+WS3 (family)
+
+Verrucomicrobia
+
+WS3
+
+Microbial shifts during sample storage
+
+20 m
+
+40 m
+
+−80˚C
+
+0.0
+0.3
+6.2
+0.0
+0.2
+0.0
+2.3
+6.1
+0.0
+4.5
+1.5
+0.0
+0.0
+0.0
+0.0
+0.0
+0.0
+0.0
+0.0
+16.4
+0.0
+0.0
+0.0
+5.5
+0.0
+0.0
+0.0
+10.9
+0.0
+0.0
+0.0
+0.0
+0.0
+0.0
+0.0
+0.0
+0.0
+
+4˚C
+
+0.1
+0.0
+0.0
+0.0
+0.0
+2.9
+2.3
+0.3
+0.0
+0.3
+0.0
+0.0
+0.0
+0.0
+0.0
+0.0
+0.0
+0.0
+0.0
+53.5
+11.2
+0.0
+0.0
+4.3
+27.9
+0.0
+1.1
+0.1
+7.8
+1.2
+0.1
+0.0
+0.0
+0.0
+0.0
+0.0
+0.0
+
+−80˚C
+
+0.0
+2.5
+0.0
+0.0
+0.0
+0.0
+7.1
+9.3
+0.0
+9.3
+0.0
+0.0
+0.0
+0.0
+0.0
+0.0
+0.0
+0.0
+0.0
+11.3
+0.0
+0.0
+0.0
+8.9
+0.0
+0.0
+0.0
+0.0
+0.0
+2.4
+0.0
+0.3
+0.3
+0.0
+0.0
+0.0
+0.0
+
+4˚C
+
+0.0
+0.0
+0.0
+0.0
+0.0
+0.0
+0.0
+47.1
+0.0
+44.3
+0.0
+2.8
+1.6
+0.0
+0.0
+0.0
+1.6
+0.0
+0.0
+10.9
+0.0
+0.0
+0.0
+8.6
+1.5
+0.0
+0.0
+0.7
+0.0
+0.0
+0.0
+0.0
+0.0
+0.0
+0.0
+0.0
+0.0
+
+2 m
+
+−80˚C
+
+0.0
+0.0
+0.0
+0.0
+0.0
+0.0
+0.0
+0.1
+0.1
+0.0
+0.0
+0.0
+0.0
+0.0
+0.0
+0.0
+0.0
+0.0
+0.0
+11.2
+0.0
+0.0
+0.0
+3.2
+0.0
+0.0
+0.0
+0.2
+0.0
+0.0
+7.8
+9.6
+0.0
+0.2
+9.4
+1.9
+1.9
+
+4˚C
+
+0.0
+0.0
+0.1
+1.1
+0.0
+1.4
+0.0
+0.3
+0.0
+0.3
+0.0
+0.0
+12.6
+3.3
+0.4
+8.9
+0.0
+1.3
+1.3
+33.9
+0.6
+0.3
+0.4
+0.0
+24.2
+3.3
+2.2
+1.4
+1.4
+0.0
+0.0
+0.0
+0.0
+0.0
+0.0
+0.0
+0.0
+
+IODP Expedition 325 to the Great Barrier Reef following 3 months
+storage at 4˚C. These data indicate subsurface microbial popula-
+tions remain metabolically active under these conditions and are
+thus capable of altering sediment geochemistry during storage.
+Unique to this analysis is the use of RNA-based targets to deter-
+mine the metabolically active fraction of the total population. The
+concentration of ribosomes, and thus copies of SSU rRNA within
+a cell, is linearly correlated to cellular metabolic activity (Delong
+et al., 1989; Kerkhof and Ward, 1993; Lee and Kemp, 1994),
+with dormant and dead cells having few to no ribosomes present
+(Fegatella et al., 1998). The active population both responds to and
+changes the geochemistry in the environment. Therefore, charac-
+terizing this population provided a proxy for identifying potential
+
+shifts in the geochemistry and assessment of the integrity of the
+core. In addition, a change in this population determined a frac-
+tion of the population that was below detection limits or dormant
+during in situ geochemical conditions, but active during storage
+conditions. This viable fraction of the community represented a
+source for different metabolic processes available to the commu-
+nity when the environment changed and highlighted a potentially
+underestimated portion of the community. Further enrichment-
+based culturing has the potential to deﬁne a larger amount of
+diversity and function within this and other communities.
+
+A shift at the family taxonomic level following 3 months of
+storage between the offshore and onshore sampling time points
+incorporated as much as 90% of the sequence data set from the
+
+www.frontiersin.org
+
+February 2012 | Volume 3 | Article 49 | 7
+
+Mills et al.
+
+Microbial shifts during sample storage
+
+from an IODP expedition, results describing microbial activity at
+4˚C should be considered when storing any non-sterilized samples
+for subsequent analysis.
+
+SHIFTS IN COMMUNITY STRUCTURE
+Metabolically active microbial populations alter their surround-
+ing environments through the consumption and production of
+chemical compounds. As populations shift, the consumption and
+production rates change and are no longer representative of
+in situ conditions. During initial characterization of the in situ
+metabolically active community structure,
+lineages associated
+with fermentation, including Lactobacillaceae, Clostridiaceae, and
+Ruminococcaceae, were detected at highest frequency compared to
+other lineages (Figure 3). In total, lineages associated with fermen-
+tation processes accounted for nearly 70% of the 2 and 20 mbsf
+samples and over 40% for the 40-mbsf sample. The prevalence of
+fermentative lineages in the shallow subsurface has been previously
+noted (Tofﬁn et al., 2005), providing support for the annotation
+presented. These lineages may play a signiﬁcant role in the con-
+version of organic matter present in the shallow sediments (Tofﬁn
+et al., 2005).
+
+Following storage for 3 months, the number of groups associ-
+ated with fermentative sequences decreased over two times. This
+discrepancy may be attributed to a reduction of substrate due
+to disrupted in situ ﬂuid ﬂow. As the geochemical conditions
+changed, the niche advantage decreased allowing other lineages to
+become more abundant. In the 2- and 40-mbsf samples, fermenta-
+tion capable lineages were in part replaced by an increase in aerobic
+lineages (Figure 3). While this group was detected in the offshore
+samples at 2 mbsf, no aerobic lineages were detected at the 40-
+mbsf sample. After the 3-months at 4˚C, 44.6% of the sequences
+obtained related to aerobic organisms compared to 0.0% in the
+offshore sample at the same depth. This suggests oxygen intru-
+sion into the core. Oxygen can affect both the biology as well
+as the chemistry of the sediments and should be avoided where
+possible. Lin et al. (2010) observed sulﬁde oxidation to sulfate
+when sediment cores experienced oxygen penetration. Addition-
+ally, the increase in sulfate was predicted to promote a community
+shift favoring sulfate-dependent methane oxidizers. While the Lin
+et al. (2010) study was DNA based, this current RNA-based study
+supports their conclusion as methylotrophs were detected in the
+metabolically active fraction of the total populations. The deple-
+tion of sulfate by these lineages may inhibit geochemical detection
+of the sulﬁde oxidation process, stressing the importance of mol-
+ecular analyses coupled to geochemical measurements to better
+environmental characterizations. In contrast to the 40-mbsf sam-
+ple, it is hypothesized that oxygen remained limiting in the sample
+collected at 20 mbsf as a rise in nitrate reducers were observed. An
+increase in nitrogen cycling populations, including Comamon-
+adaceae, Rhodospirillaceae, and Rhodobacteraceae, would affect
+ammonia, nitrate, and nitrite analysis to levels not reﬂective of
+the in situ conditions. Differences between the 20- and 40-mbsf
+biogeochemical proﬁles suggest variable storage affects between
+core sections, adding to the unpredictability of geochemical and
+microbiological results from stored sediments.
+
+A large percentage of offshore sequence data sets were associ-
+ated with lineages capable of carbonate dissolution (Figure 3).
+
+FIGURE 3 | Functional group distribution. Sequence annotation at the
+genus level was used to identify functional groups associated with different
+metabolic processes. Lineages associated with multiple processes were
+placed in multiple categories to avoid assumptions of activity. Percentages
+presented for onshore samples (A) and offshore samples (B) are based on
+the total number of sequences obtained and are independent of
+percentages reported for other categories.
+
+active fraction of the population. Active microbial processes alter
+both the chemical and physical composition of subsurface sed-
+iments. These diagenetic processes are common and have been
+well studied in situ, however the potential for alteration has been
+less understood when the sediments were removed from the envi-
+ronment and placed in cold storage conditions. The integrity of
+core material is critical for post-expedition research and sedi-
+ment curation efforts for programs like IODP. This manuscript
+serves to better understand the microbial populations that are
+metabolically active during sediment core storage and provide
+descriptions of potential processes acting on those sediments. In
+addition, increased diversity in the stored sediments compared
+to in situ analysis suggests that species diversity in the subsur-
+face may be underestimated. Although sediments selected here are
+
+Frontiers in Microbiology | Extreme Microbiology
+
+February 2012 | Volume 3 | Article 49 | 8
+
+Mills et al.
+
+Microbial shifts during sample storage
+
+This was expected given the location of the sediments being
+in close proximity to the Great Barrier Reef. However, follow-
+ing incubation, the frequency of detection for these groups
+dropped an order of magnitude on average with the 20-mbsf
+sample populations shifting from 27.2% of the total sequences
+to undetectable. This shift suggests a major alteration of the
+geochemical environment, requiring speciﬁc analysis to deter-
+mine the cause and implications. Due to shipboard limitations,
+this analysis could not be preformed and thus was beyond the
+capacity of this study. These data represent the ﬁrst step to
+being able to identify metabolic processes within stored sedi-
+ments and provide a more clear prediction of sediment alteration
+capacity.
+
+A signiﬁcant rise in the number of sequences related to iron
+and sulfate-reducing lineages was observed in the sediments
+obtained onshore compared to the offshore samples. Both iron
+and sulfate-reducing functional groups were only detected after
+sediment storage and accounted for over 10 and 6% of the
+total sequences. These populations becoming metabolically active
+would affect any post-expedition analysis of sulfur and iron chem-
+istry. They have the potential to reduce sulfate and Fe(III) con-
+centrations in marine systems to below detection limits while
+forming multiple iron sulfur mineral compounds. Secondary
+effects would change the pH of the sediment and alter organic
+matter content and concentration. In addition, the paleomag-
+netic record within the sediments, or other material would be
+altered by both iron reducing and oxidizing populations (Kostka
+and Nealson, 1995; Zachara et al., 1998 reviewed in Kopp and
+Kirschvink, 2008). An active microbial population would alter
+multiple characterization efforts within the sediment proﬁle.
+Understanding these processes and how to better reducing them
+is required.
+
+VIABLE FRACTION OF THE POPULATION – METABOLIC SINK
+A community shift within a closed system implies that a portion
+of the population was either metabolically active but below detec-
+tion limits, or dormant in situ. The implications of these shifts
+are critical for the core preservation strategies and down stream
+analysis reliability, as well as, for understanding the overall viable
+fraction of the subsurface biosphere. To verify a closed system, sed-
+iments collected were examined for contamination resulting from
+the drilling process. Results suggest that the contamination poten-
+tial was very low, but the authors recognize that this possibility
+cannot be fully ruled out. A general contamination during drilling
+or storage would have resulted in a homogenization of the detected
+community structure. Variations in the detection frequency of
+multiple lineages suggest a general contamination did not occur.
+
+Aerobic populations were detected in the 40-mbsf onshore sam-
+ple. These two lineages, Alteromonadaceae and Flavobacteriaceae
+were detected in the 2-mbsf sample as well, but not in the 20-mbsf
+sample. The increase in abundance of related sequences suggests
+oxygen intrusion into the sediment may have occurred, however
+these populations can be facultatively anaerobic as well. These two
+populations were not detected at 20 mbsf, reducing the potential
+for this to be a drilling contamination or air borne contamina-
+tion during storage. Additional testing beyond the scope of this
+paper would be required to determine the true origin of this
+population.
+
+These results support a fraction of the population remaining
+viable but dormant within the subsurface. The lower amount
+of diversity reported in the metabolically active in situ popula-
+tion (offshore sample) compared to the higher level of diversity
+observed on shore supports niche diversiﬁcation during storage
+and the revival of dormant populations. The coring process dis-
+rupted multiple environmental factors, including resource avail-
+ability, pressure, and temperature. These stressors have con-
+tributed to shifts in community composition in other environ-
+ments (Hunter et al., 2006; Lewis, 2007). Within these samples,
+the environmental changes revived microbial populations in sed-
+iments dated to over 50 kyr cal before present (Yusuke et al.,
+2011). The subsurface is considered geochemically stable with
+slow change over time; a characteristic that has the potential to
+limit diversity (Orcutt et al., 2011) and the effectiveness of dor-
+mancy as a strategy to maintain a viable population (Jones and
+Lennon, 2010). However, the population characterized in these
+samples potentially provided a source of functional diversity for
+community activity over geologic timescales. This expands the
+potential range of such survival strategies beyond environments
+with periodic shifts in geochemical and geotechnical conditions
+(Cohen, 1970; Fuhrman et al., 2006; Jones and Lennon, 2010), and
+should be considered in estimates of community functional capac-
+ity. Future studies will quantify the depth of the functional sink
+available to respond to changing environments. In addition, the
+length of time these dormant populations remain viable will be
+determined to better understand the effect of temporal isolation.
+
+ACKNOWLEDGMENTS
+The authors would like to thank the science party of IODP Expe-
+dition 325 and the crew aboard the Greatship Maya. Additionally,
+we thank Scot Dowd, Alicia Shepard, and Laura Zinke with data
+processing. The Consortium of Ocean Leadership provided fund-
+ing for this project. This paper is contribution number 126 to the
+Center for Dark Energy Biosphere Investigations (CDEBI).
+
+REFERENCES
+Bickle, M., Arculus, R., Barrett, P.,
+Decanto, R., Camoin, G., Edwards,
+K., Fisher, A., Inagaki, F., Ravelo, C.,
+Saffer, D., and Teagle, D. (2011). Illu-
+minating Earth’s Past, Present, and
+Future: International Ocean Discov-
+ery Program Science Plan 2013–2023.
+Washington DC: Integrated Ocean
+Drilling
+Program Management
+International.
+
+Cohen, D. (1970). A theoretical model
+for the optimal timing of diapause.
+Am. Nat. 104, 389–400.
+
+Delong, E. F., Wickham, G.
+
+S.,
+and Pace, N. R. (1989). Phylo-
+genetic stains – ribosomal RNA-
+based probes
+for the identiﬁca-
+tion of single cells. Science 243,
+1360–1363.
+
+Dowd, S. E., Zaragoza, J., Rodriguez,
+J. R., Oliver, M. J., and Payton, P.
+
+R. (2005). Windows.NET network
+distributed Basic Local Alignment
+Search Toolkit
+(W.ND-BLAST).
+BMC
+93.
+6,
+doi:10.1186/1471-2105-6-93
+
+Bioinformatics
+
+Fegatella, F., Lim, J., Kjelleberg, S.,
+and Cavicchioli, R. (1998). Implica-
+tions of rRNA operon copy num-
+ber and ribosome content in the
+marine oligotrophic ultramicrobac-
+terium Sphingomonas
+strain
+
+sp.
+
+RB2256. Appl. Environ. Microbiol.
+64, 4433–4438.
+
+Fry, J. C., Parkes, R.
+
+J., Cragg, B.
+A., Weightman, A. J., and Webster,
+G. (2008). Prokaryotic biodiversity
+and activity in the deep subseaﬂoor
+biosphere. FEMS Microbiol. Ecol. 66,
+181–196.
+
+Fuhrman, J. A., Hewson, I., Schwal-
+bach, M. S., Steele, J. A., Brown, M.
+V., and Naeem, S. (2006). Annually
+
+www.frontiersin.org
+
+February 2012 | Volume 3 | Article 49 | 9
+
+Mills et al.
+
+Microbial shifts during sample storage
+
+reoccurring bacterial communities
+are predictable from ocean condi-
+tions. Proc. Natl. Acad. Sci. U.S.A.
+103, 13104–13109.
+
+Giovannoni, J. J., Wing, R. A., Ganal, M.
+W., and Tanksley, S. D. (1991). Isola-
+tion of molecular markers from spe-
+ciﬁc chromosomal
+intervals using
+DNA pools from existing mapping
+populations. Nucleic Acids Res. 19,
+6553–6558.
+
+Gontcharova, V., Youn, E., Wolcott, R.
+D., Hollister, E. B., Gentry, T. J.,
+and Dowd, S. E. (2010). Black box
+chimera check (B2C2): a windows-
+based software for batch depletion of
+chimeras from bacterial 16S rRNA
+gene datasets. Open Microbiol. J. 4,
+47–52.
+
+Hall, P. O., and Aller, R. C. (1992).
+Rapid, small-volume, ﬂow-injection
++
+analysis for sigma CO2 and NH4
+in marine and fresh waters. Limnol.
+Oceanogr. 37, 1113–1119.
+
+Handl, S., Dowd, S. E., Garcia-
+Mazcorro, J. F., Steiner, J. M., and
+Suchodolski, J. S. (2011). Massive
+parallel 16S rRNA gene pyrose-
+quencing reveals highly diverse fecal
+bacterial and fungal communities in
+healthy dogs and cats. FEMS Micro-
+biol. Ecol. 76, 1–10.
+
+Hunter, E. M., Mills, H. J., and Kostka,
+J. E. (2006). Microbial commu-
+nity diversity associated with carbon
+and nitrogen cycling in permeable
+marine sediments. Appl. Environ.
+Microbiol. 72, 5689–5701.
+
+Jones, S. E.,
+
+and Lennon,
+
+J. T.
+(2010). Dormancy contributes to the
+maintenance of microbial diversity.
+Proc. Natl. Acad. Sci. U.S.A. 107,
+5881–5886.
+
+Jones, S. E., and McMahon, K. D.
+(2009). Species-sorting may explain
+effect of
+an apparent minimal
+
+immigration on freshwater bacterial
+community
+Environ.
+Microbiol. 11, 905–913.
+
+dynamics.
+
+Jørgensen, B. B. (2011). Deep sub-
+seaﬂoor microbial cells on physio-
+logical standby. Proc. Natl. Acad. Sci.
+U.S.A. 108, 18193–18194.
+
+Kerkhof, L.
+
+J., and Ward, B. B.
+(1993). Comparison of nucleic acid
+hybridization and ﬂuorometry for
+measurement of RNA/DNA rela-
+tionship with growth rate in a
+marine bacterium. Appl. Environ.
+Microbiol. 59, 1303–1307.
+
+König,
+
+I., Lougear, A., Bruns, P.,
+Gru¨tzner, J., Trautwein, A. X., and
+Dullo, W.-C. (2000). “Iron oxidation
+in sediment cores (site 1062) during
+six months of storage in the Ocean
+Drilling Program archive,” in Pro-
+ceedings of the Ocean Drilling Pro-
+gram, Scientiﬁc Results, eds L. D.
+Keigwin, D. Rio, G. D. Acton, and
+E. Arnold (College Station: Ocean
+Drilling Program).
+
+Kopp, R. E., and Kirschvink, J. L. (2008).
+The identiﬁcation and biogeochem-
+ical interpretation of fossil magne-
+totactic bacteria. Earth Sci. Rev.86,
+42–61.
+
+Kostka, J. E., and Nealson, K. H. (1995).
+Dissolution and reduction of mag-
+netite by bacteria. Environ. Sci. Tech-
+nol. 29, 2535–2540.
+
+Lee, S. H., and Kemp, P. F. (1994).
+Single cell RNA content of natural
+marine planktonic bacteria mea-
+sured by hybridization with multiple
+16S ribosomal RNA targeted ﬂuores-
+cent probes. Limnol. Oceanogr. 39,
+869–879.
+
+Lewis, K. (2007). Persister cells, dor-
+mancy and infectious disease. Nat.
+Rev. Microbiol. 5, 48–56.
+
+Lin, Y. S., Biddle, J. F., Lipp, J. S.,
+Orcutt, B. N., Holler, T., Teske, A.,
+
+and Hinrichs, K. U. (2010). Effect of
+storage conditions on archaeal and
+bacterial communities in subsurface
+marine sediments. Geomicrobiol. J.
+27, 261–272.
+
+Mills, H. J., Hunter, E., Humphrys,
+M., Kerkhof, L., Mcguinness, L. M.,
+Huettel, M., and Kostka, J. E. (2008).
+Characterization of nitrifying, den-
+itrifying, and overall bacterial com-
+munities in permeable marine sed-
+iments of the northeastern Gulf of
+Mexico. Appl. Environ. Microbiol. 74,
+4440–4453.
+
+Nogales, B., Moore, E. R. B., Abra-
+ham, W. R., and Timmis, K. N.
+(1999). Identiﬁcation of the meta-
+bolically active members of a bac-
+terial community in a polychlori-
+nated biphenyl-polluted moorland
+soil. Environ. Microbiol. 1, 199–212.
+J. B., Knab,
+N. J., and Edwards, K. J. (2011).
+Microbial
+the dark
+ocean above, at, and below the
+seaﬂoor. Microbiol. Mol. Biol. Rev. 75,
+361–422.
+
+Orcutt, B. N., Sylvan,
+
+ecology of
+
+Reese, B. K., Mills, H. J., Dowd, S., and
+Morse, J. W. (2012). Benthic biogeo-
+chemistry of microbial iron and sul-
+fate reduction in the Gulf of Mexico
+hypoxic zone. Geomicrobiology (in
+press).
+
+Stackebrandt, E., and Goebel, B. M.
+(1994). A place for DNA-DNA
+reassociation and 16S ribosomal
+RNA sequence
+in the
+present species deﬁnition in bac-
+teriology. Int. J. Syst. Bacteriol. 44,
+846–849.
+
+analysis
+
+Tofﬁn, L., Zink, K., Kato, C., Pignet, P.,
+Bidault, A., Bienvenu, N., Birrien, J.
+L., and Prieur, D. (2005). Marini-
+lactibacillus piezotolerans sp nov., a
+novel marine lactic acid bacterium
+isolated from deep sub-seaﬂoor
+
+the Nankai Trough.
+J. Syst. Evol. Microbiol. 55,
+
+sediment of
+Int.
+345–351.
+
+Yusuke, Y., Webster, J. M., Cotterill,
+C., Braga, J. C., Jovane, J., Mills,
+H. J., Morgan, S., Suzuki, A., and
+Scientists, T. I. E. (2011). IODP
+Expedition 325: Great Barrier Reefs
+reveals past sea-level, climate and
+environmental changes since the last
+ice age. Sci. Drilling 12, 32–45.
+
+Zachara, J. M., Fredrickson, J. K., Li, S.
+M., Kennedy, D. W., Smith, S. C.,
+and Gassman, P. L. (1998). Bacterial
+reduction of crystalline Fe3+ oxides
+in single phase suspensions and sub-
+surface materials. Am. Mineral. 83,
+1426–1443.
+
+Conﬂict of Interest Statement: The
+authors declare that the research was
+conducted in the absence of any com-
+mercial or ﬁnancial relationships that
+could be construed as a potential con-
+ﬂict of interest.
+
+Received: 23 November 2011; paper
+pending published: 16 December 2011;
+accepted: 30 January 2012; published
+online: 17 February 2012.
+Citation: Mills HJ, Reese BK and
+Peter CS (2012) Characterization of
+microbial population shifts during sam-
+ple storage. Front. Microbio. 3:49. doi:
+10.3389/fmicb.2012.00049
+This article was submitted to Frontiers
+in Extreme Microbiology, a specialty of
+Frontiers in Microbiology.
+Copyright  2012 Mills, Reese and Peter.
+This is an open-access article distributed
+under the terms of the Creative Commons
+Attribution Non Commercial License,
+which permits non-commercial use, dis-
+tribution, and reproduction in other
+forums, provided the original authors and
+source are credited.
+
+Frontiers in Microbiology | Extreme Microbiology
+
+February 2012 | Volume 3 | Article 49 | 10
+
+Mills et al.
+
+APPENDIX
+
+Microbial shifts during sample storage
+
+Table A1 | Taxonomic identiﬁcation of the Great Barrier Reef subsurface sequence data set.
+
+Phylum Class
+
+Order
+
+Family
+
+Genus
+
+2 m
+
+20 m
+
+40 m
+
+Acido
+bacteria
+
+Actino
+bacteria
+
+Acidobacteria
+(class)
+
+Actinobacteria
+(class)
+
+Acidobacteriales
+
+Acidobacteriaceae
+
+Acidobacterium
+
+Acidimicrobiales
+
+Acidimicrobiaceae
+
+Actinomycetales
+
+Actinomycetaceae
+
+Corynebacteriaceae
+
+Geodermatophilaceae
+
+Intrasporangiaceae
+
+Microbacteriaceae
+
+Micrococcaceae
+
+Nocardiaceae
+
+Nocardioidaceae
+
+Acidimicrobiaceae
+(genus)
+
+Actinomyces
+
+Corynebacterium
+
+Geodermatophilaceae
+(genus)
+Geodermatophilus
+
+Intrasporangium
+Ornithinimicrobium
+Phycicoccus
+Terrabacter
+
+Frondihabitans
+Labedella
+Leifsonia
+Microbacteriaceae
+(genus)
+Microbacterium
+Schumannella
+
+Arthrobacter
+Kocuria
+
+Rhodococcus
+
+Nocardioides
+
+Propionibacteriaceae
+
+Propionibacterium
+
+Solirubrobacterales
+
+4◦C
+
+−80◦C
+
+4◦C
+
+−80◦C
+
+4◦C
+
+−80◦C
+
+0.1
+
+0.0
+
+0.0
+
+0.0
+
+0.0
+
+0.0
+
+0.1
+
+0.0
+
+0.0
+
+0.0
+
+0.0
+
+0.0
+
+0.1
+0.1
+0.1
+0.4
+
+0.0
+0.0
+0.0
+5.4
+
+0.0
+0.0
+0.0
+15.3
+
+0.0
+0.0
+0.0
+4.5
+
+0.0
+0.0
+0.0
+10.3
+
+0.0
+0.0
+0.0
+25.9
+
+0.4
+
+5.4
+
+15.3
+
+4.5
+
+10.3
+
+25.9
+
+0.0
+0.0
+0.0
+
+0.4
+0.1
+0.1
+0.0
+0.0
+0.0
+0.0
+
+0.0
+0.0
+0.0
+0.0
+0.0
+0.0
+0.0
+0.0
+0.0
+0.0
+0.0
+
+0.0
+0.0
+0.0
+0.0
+0.0
+0.0
+0.0
+0.0
+0.0
+0.3
+0.3
+0.0
+
+0.0
+0.0
+0.0
+
+5.4
+0.0
+0.0
+0.0
+0.0
+0.0
+0.0
+
+0.0
+0.1
+0.0
+0.1
+0.0
+0.0
+0.0
+0.0
+0.0
+0.0
+0.0
+
+0.0
+0.0
+0.0
+0.0
+0.0
+2.8
+2.8
+2.4
+2.4
+0.1
+0.1
+0.0
+
+0.1
+0.1
+0.1
+
+15.2
+0.0
+0.0
+0.0
+0.0
+0.0
+0.0
+
+0.0
+1.7
+0.0
+0.0
+0.2
+1.5
+8.6
+0.0
+8.6
+0.0
+0.0
+
+0.0
+0.0
+0.8
+0.8
+0.0
+0.1
+0.1
+0.4
+0.4
+3.6
+3.6
+0.0
+
+0.0
+0.0
+0.0
+
+4.5
+0.0
+0.0
+0.3
+0.3
+0.0
+0.0
+
+0.0
+0.0
+0.0
+0.0
+0.0
+0.0
+0.2
+0.0
+0.0
+0.0
+0.0
+
+0.2
+0.0
+0.0
+0.0
+0.0
+0.0
+0.0
+3.5
+3.5
+0.5
+0.5
+0.0
+
+0.0
+0.0
+0.0
+
+5.9
+0.0
+0.0
+2.4
+2.4
+0.5
+0.0
+
+0.5
+0.1
+0.1
+0.0
+0.0
+0.0
+0.0
+0.0
+0.0
+0.0
+0.0
+
+0.0
+0.0
+0.2
+0.0
+0.2
+0.0
+0.0
+0.0
+0.0
+2.7
+2.7
+4.3
+
+0.0
+0.0
+0.0
+
+25.9
+0.0
+0.0
+7.0
+7.0
+8.1
+8.1
+
+0.0
+0.0
+0.0
+0.0
+0.0
+0.0
+10.6
+2.7
+0.0
+0.1
+0.1
+
+2.4
+5.3
+0.0
+0.0
+0.0
+0.0
+0.0
+0.0
+0.0
+0.2
+0.2
+0.0
+
+(Continued)
+
+www.frontiersin.org
+
+February 2012 | Volume 3 | Article 49 | 11
+
+Mills et al.
+
+Table A1 | Continued
+
+Microbial shifts during sample storage
+
+Phylum Class
+
+Order
+
+Family
+
+Genus
+
+2 m
+
+20 m
+
+40 m
+
+Solirubrobacteraceae
+
+Solirubrobacter
+
+Bactero
+idetes
+
+Bacteroidia
+
+Cytophagia
+
+Bacteroidales
+
+Cytophagales
+
+Flavobacteria
+
+Flavobacteriales
+
+Marinilabiaceae
+
+Cytophagaceae
+
+Flavobacteriaceae
+
+Alkaliﬂexus
+
+Cytophaga
+Meniscus
+
+Flavobacterium
+Oceanistipes
+Psychroserpens
+Tenacibaculum
+Xanthobacillum
+
+Sphingobacteria
+
+Sphingobacteriales
+
+Sphingobacteriales
+(family)
+
+Anaerolineae
+
+Anaerolineales
+
+Anaerolineaceae
+
+Caldilineae
+
+Chloroﬂexi
+(class)
+
+Caldilineales
+
+Caldilineaceae
+
+Chloroﬂexales
+
+Chloroﬂexaceae
+
+Cyanobacteria
+(class)
+
+Nostocales
+
+Anaerolinea
+Levilinea
+
+Caldilinea
+
+Chloroﬂexus
+
+Microchaetaceae
+
+Nostocaceae
+
+Tolypothrix
+
+Nostoc
+
+4◦C
+
+0.0
+0.0
+15.3
+
+0.0
+0.0
+0.0
+0.0
+2.7
+2.7
+2.7
+2.7
+0.0
+12.2
+12.2
+12.2
+0.0
+0.1
+0.2
+0.0
+11.8
+0.4
+0.4
+0.4
+
+−80◦C
+
+4◦C
+
+−80◦C
+
+4◦C
+
+−80◦C
+
+0.0
+0.0
+0.0
+
+0.0
+0.0
+0.0
+0.0
+0.0
+0.0
+0.0
+0.0
+0.0
+0.0
+0.0
+0.0
+0.0
+0.0
+0.0
+0.0
+0.0
+0.0
+0.0
+0.0
+
+0.0
+0.0
+0.0
+
+0.0
+0.0
+0.0
+0.0
+0.0
+0.0
+0.0
+0.0
+0.0
+0.0
+0.0
+0.0
+0.0
+0.0
+0.0
+0.0
+0.0
+0.0
+0.0
+0.0
+
+0.0
+0.0
+0.0
+
+0.0
+0.0
+0.0
+0.0
+0.0
+0.0
+0.0
+0.0
+0.0
+0.0
+0.0
+0.0
+0.0
+0.0
+0.0
+0.0
+0.0
+0.0
+0.0
+0.0
+
+4.3
+4.3
+6.2
+
+0.0
+0.0
+0.0
+0.0
+0.1
+0.1
+0.1
+0.0
+0.1
+6.2
+6.2
+6.2
+0.1
+0.0
+0.0
+6.1
+0.0
+0.0
+0.0
+0.0
+
+0.0
+0.0
+1.1
+
+1.1
+1.1
+1.1
+1.1
+0.0
+0.0
+0.0
+0.0
+0.0
+0.0
+0.0
+0.0
+0.0
+0.0
+0.0
+0.0
+0.0
+0.0
+0.0
+0.0
+
+2.9
+2.1
+2.1
+2.1
+0.0
+2.1
+0.0
+0.0
+0.0
+0.0
+0.9
+
+0.9
+0.9
+0.9
+0.6
+0.6
+
+0.0
+0.0
+0.0
+0.0
+0.0
+
+1.8
+1.8
+1.8
+1.8
+1.8
+0.0
+0.0
+0.0
+0.0
+0.0
+0.0
+
+0.0
+0.0
+0.0
+0.0
+0.0
+
+0.0
+0.0
+0.0
+0.0
+0.0
+
+0.0
+0.0
+0.0
+0.0
+0.0
+0.0
+0.0
+0.0
+0.0
+0.0
+0.0
+
+0.0
+0.0
+0.0
+4.0
+4.0
+
+0.1
+0.1
+0.1
+0.0
+0.0
+
+0.2
+0.0
+0.0
+0.0
+0.0
+0.0
+0.2
+0.2
+0.2
+0.2
+0.0
+
+0.0
+0.0
+0.0
+0.0
+0.0
+
+0.0
+0.0
+0.0
+0.0
+0.0
+
+0.0
+0.0
+0.0
+0.0
+0.0
+0.0
+0.0
+0.0
+0.0
+0.0
+0.0
+
+0.0
+0.0
+0.0
+0.9
+0.9
+
+0.9
+0.0
+0.0
+0.9
+0.9
+
+0.0
+0.0
+0.0
+0.0
+0.0
+0.0
+0.0
+0.0
+0.0
+0.0
+0.0
+
+0.0
+0.0
+0.0
+0.3
+0.3
+
+0.0
+0.0
+0.0
+0.0
+0.0
+
+(Continued)
+
+Sphingobacteriales
+(genus)
+
+0.4
+
+0.0
+
+0.0
+
+0.0
+
+0.0
+
+0.0
+
+Frontiers in Microbiology | Extreme Microbiology
+
+February 2012 | Volume 3 | Article 49 | 12
+
+Mills et al.
+
+Table A1 | Continued
+
+Microbial shifts during sample storage
+
+Phylum Class
+
+Order
+
+Family
+
+Genus
+
+2 m
+
+20 m
+
+40 m
+
+Oscillatoriales
+
+Pleurocapsales
+
+Stigonematales
+
+Deinococci
+
+Deinococcales
+
+Bacilli
+
+Bacillales
+
+Oscillatoriales (family)
+
+Leptolyngbya
+
+Pleurocapsales (family)
+
+Chroococcidiopsis
+
+Stigonematales
+(family)
+
+Stigonematales
+(genus)
+
+Deinococcaceae
+
+Deinococcus
+
+Bacillaceae
+
+Bacillales (family)
+
+Planococcaceae
+
+Carnobacteriaceae
+
+Lactobacillaceae
+
+Lactobacillales
+
+Clostridia
+
+Clostridia (order)
+
+Clostridiales
+
+Clostridia (family)
+
+Clostridiaceae
+
+Clostridiales (family)
+
+Eubacteriaceae
+
+Lachnospiraceae
+
+Peptostreptococcaceae
+
+Bacillaceae (genus)
+
+Exiguobacterium
+
+Planococcus
+
+Marinilactibacillus
+
+Lactobacillus
+
+Clostridia (genus)
+
+Clostridiisalibacter
+Clostridium
+Sarcina
+
+Anaerococcus
+Clostridiales (genus)
+
+Eubacterium
+
+Roseburia
+
+Peptostreptococcus
+
+4◦C
+
+−80◦C
+
+4◦C
+
+−80◦C
+
+4◦C
+
+−80◦C
+
+0.1
+0.1
+0.1
+0.5
+0.5
+0.5
+0.0
+0.0
+
+0.0
+0.0
+0.0
+0.0
+0.0
+0.0
+0.0
+0.0
+
+3.7
+3.7
+3.7
+0.1
+0.1
+0.1
+0.1
+0.1
+
+0.0
+0.0
+0.0
+0.0
+0.0
+0.0
+0.0
+0.0
+
+0.0
+0.0
+0.0
+0.0
+0.0
+0.0
+0.0
+0.0
+
+0.0
+0.0
+0.0
+0.3
+0.3
+0.3
+0.0
+0.0
+
+0.0
+
+0.0
+
+0.1
+
+0.0
+
+0.0
+
+0.0
+
+0.0
+0.0
+0.0
+0.0
+0.0
+30.0
+6.5
+3.1
+1.1
+1.1
+0.0
+0.0
+2.1
+2.1
+4.2
+3.4
+3.4
+0.0
+0.0
+22.6
+19.7
+19.7
+19.7
+3.0
+1.7
+1.6
+0.1
+0.0
+0.0
+0.0
+0.0
+0.2
+0.2
+0.0
+0.0
+0.0
+0.0
+
+0.0
+0.0
+0.0
+0.0
+0.0
+69.1
+9.2
+0.0
+0.0
+0.0
+0.0
+0.0
+0.0
+0.0
+17.4
+0.0
+0.0
+9.3
+9.3
+51.7
+0.0
+0.0
+0.0
+51.7
+10.1
+0.0
+0.0
+10.1
+0.0
+0.0
+0.0
+0.0
+0.0
+24.5
+24.5
+0.0
+0.0
+
+0.0
+0.0
+0.0
+0.0
+0.0
+21.2
+1.4
+0.1
+0.0
+0.0
+0.1
+0.1
+0.0
+0.0
+13.6
+0.0
+0.0
+13.6
+13.6
+7.5
+0.0
+0.0
+0.0
+7.5
+0.0
+0.0
+0.0
+0.0
+7.3
+7.3
+0.0
+0.0
+0.0
+0.0
+0.0
+0.2
+0.2
+
+0.0
+0.0
+0.0
+0.0
+0.0
+63.3
+1.3
+0.6
+0.0
+0.0
+0.6
+0.0
+0.0
+0.0
+35.2
+0.0
+0.0
+35.2
+35.2
+27.6
+0.0
+0.0
+0.0
+27.6
+0.0
+0.0
+0.0
+0.0
+0.3
+0.0
+0.3
+0.0
+0.0
+0.0
+0.0
+0.0
+0.0
+
+0.0
+0.0
+0.0
+0.0
+0.0
+23.5
+0.1
+1.7
+0.0
+0.0
+1.7
+0.0
+0.0
+0.0
+14.9
+0.0
+0.0
+10.3
+10.3
+6.9
+0.0
+0.0
+0.0
+6.9
+0.0
+0.0
+0.0
+0.0
+0.0
+0.0
+0.0
+0.0
+0.0
+3.5
+3.5
+0.0
+0.0
+
+3.9
+3.9
+3.9
+3.9
+3.9
+38.3
+18.8
+0.0
+0.0
+0.0
+0.0
+0.0
+0.0
+0.0
+22.7
+0.0
+0.0
+20.9
+20.9
+15.7
+0.0
+0.0
+0.0
+15.7
+1.5
+0.0
+1.5
+0.0
+0.0
+0.0
+0.0
+0.5
+0.5
+0.0
+0.0
+0.0
+0.0
+
+(Continued)
+
+www.frontiersin.org
+
+February 2012 | Volume 3 | Article 49 | 13
+
+Mills et al.
+
+Table A1 | Continued
+
+Microbial shifts during sample storage
+
+Phylum Class
+
+Order
+
+Family
+
+Genus
+
+2 m
+
+20 m
+
+40 m
+
+4◦C
+
+−80◦C
+
+4◦C
+
+−80◦C
+
+4◦C
+
+−80◦C
+
+Firmicutes
+(class)
+
+Bacillales
+
+Lactobacillales
+
+Ruminococcaceae
+
+Bacillales (family)
+
+Enterococcaceae
+
+Lactobacillaceae
+
+Streptococcaceae
+
+Ethanoligenens
+Faecalibacterium
+Ruminococcus
+
+Staphylococcus
+
+Enterococcus
+
+Lactobacillus
+
+Streptococcus
+
+Nitrospirae
+(class)
+
+Nitrospirales
+
+Nitrospiraceae
+
+Nitrospira
+
+Alphaproteobacteria
+
+Kopriimonadales
+
+Kopriimonadaceae
+
+Kopriimonas
+
+Rhizobiales
+
+Bradyrhizobiaceae
+
+Hyphomicrobiaceae
+
+Methylobacteriaceae
+
+Rhizobiaceae
+
+Rhodobacterales
+
+Rhodobacteraceae
+
+Rhodospirillales
+
+Acetobacteraceae
+
+Rhodospirillaceae
+
+Sphingomonadales
+
+Sphingomonadaceae
+
+Bradyrhizobium
+
+Zhangella
+
+Methylobacterium
+
+Rhizobium
+
+Citreicella
+Rhodobacter
+Roseobacter
+
+Acetobacteraceae
+(genus)
+
+Roseospira
+
+Sphingomonadaceae
+(genus)
+
+1.1
+0.0
+0.0
+1.1
+0.8
+
+3.1
+0.0
+0.0
+4.2
+0.0
+0.0
+0.0
+0.0
+0.8
+0.8
+0.0
+0.0
+
+0.0
+0.0
+0.0
+50.6
+2.5
+0.0
+0.0
+0.0
+0.1
+0.0
+0.0
+0.0
+0.0
+0.0
+0.0
+0.1
+0.1
+1.1
+1.1
+0.9
+0.1
+0.1
+1.4
+0.0
+0.0
+
+1.4
+1.4
+0.0
+0.0
+0.0
+
+17.0
+0.0
+17.0
+0.0
+8.2
+
+0.0
+0.0
+0.0
+17.4
+8.1
+8.1
+9.3
+9.3
+0.0
+0.0
+0.9
+0.9
+
+0.9
+0.9
+0.9
+11.3
+0.0
+0.0
+0.0
+0.0
+0.0
+0.0
+0.0
+0.0
+0.0
+0.0
+0.0
+0.0
+0.0
+0.0
+0.0
+0.0
+0.0
+0.0
+0.0
+0.0
+0.0
+
+0.0
+0.0
+0.0
+0.0
+0.0
+
+0.0
+0.0
+0.0
+0.0
+12.3
+
+0.1
+0.1
+0.1
+13.6
+0.0
+0.0
+13.6
+13.6
+0.0
+0.0
+0.0
+0.0
+
+0.0
+0.0
+0.0
+59.6
+0.0
+0.0
+0.0
+0.0
+0.0
+0.0
+0.0
+0.0
+0.0
+0.0
+0.0
+0.0
+0.0
+0.0
+0.0
+0.0
+0.0
+0.0
+0.0
+0.0
+0.0
+
+0.0
+0.0
+0.0
+0.0
+0.0
+
+27.2
+0.0
+0.0
+27.2
+34.5
+
+0.6
+0.6
+0.6
+35.2
+0.0
+0.0
+35.2
+35.2
+0.0
+0.0
+0.0
+0.0
+
+0.0
+0.0
+0.0
+31.9
+9.4
+0.0
+0.0
+0.0
+6.9
+0.3
+0.3
+0.0
+0.0
+0.3
+0.3
+6.2
+6.2
+0.0
+0.0
+0.0
+0.0
+0.0
+0.2
+0.2
+0.2
+
+0.0
+0.0
+2.3
+2.3
+2.3
+
+3.4
+0.0
+0.0
+3.4
+16.5
+
+1.7
+1.7
+1.7
+14.9
+0.0
+0.0
+10.3
+10.3
+4.6
+4.6
+0.0
+0.0
+
+0.0
+0.0
+0.0
+59.2
+5.4
+0.1
+0.1
+0.1
+0.1
+0.0
+0.0
+0.1
+0.1
+0.0
+0.0
+0.0
+0.0
+0.0
+0.0
+0.0
+0.0
+0.0
+2.9
+0.0
+0.0
+
+2.9
+2.9
+2.3
+2.3
+0.0
+
+13.6
+0.2
+0.0
+13.4
+3.8
+
+0.0
+0.0
+0.0
+22.7
+0.0
+0.0
+20.9
+20.9
+1.8
+1.8
+0.0
+0.0
+
+0.0
+0.0
+0.0
+30.2
+9.6
+0.0
+0.0
+0.0
+2.5
+0.0
+0.0
+0.0
+0.0
+2.5
+2.5
+0.0
+0.0
+0.0
+0.0
+0.0
+0.0
+0.0
+0.0
+0.0
+0.0
+
+0.0
+0.0
+7.1
+7.1
+0.0
+
+(Continued)
+
+Frontiers in Microbiology | Extreme Microbiology
+
+February 2012 | Volume 3 | Article 49 | 14
+
+Mills et al.
+
+Table A1 | Continued
+
+Phylum Class
+
+Order
+
+Family
+
+Genus
+
+Betaproteobacteria
+
+Burkholderiales
+
+Neisseriales
+
+Deltaproteobacteria
+
+Desulfobacterales
+
+Alcaligenaceae
+
+Comamonadaceae
+
+Oxalobacteraceae
+
+Neisseriaceae
+
+Desulfobulbaceae
+
+Desulfuromonadales
+
+Desulfuromonadaceae
+
+Geobacteraceae
+
+Myxococcales
+
+Cystobacteraceae
+
+Sphingomonas
+
+Achromobacter
+
+Delftia
+Macromonas
+
+Duganella
+
+Neisseria
+
+Desulforhopalus
+Desulfotalea
+
+Desulfuromonas
+
+Geopsychrobacter
+
+Melittangium
+
+Epsilonproteobacteria
+
+Campylobacterales
+
+Gammaproteobacteria
+
+Alteromonadales
+
+Campylobacteraceae
+
+Arcobacter
+
+Alteromonadaceae
+
+Colwelliaceae
+
+Moritellaceae
+
+Enterobacteriales
+
+Enterobacteriaceae
+
+Oceanospirillales
+
+Halomonadaceae
+
+Oceanospirillales
+(family)
+
+Marinobacter
+Marinobacterium
+Saccharophagus
+
+Colwellia
+
+Moritella
+
+Escherichia
+Proteus
+Shigella
+
+Halomonas
+
+Microbial shifts during sample storage
+
+2 m
+−80◦C
+
+0.0
+0.1
+0.1
+0.1
+0.1
+0.0
+0.0
+0.0
+0.0
+0.0
+0.0
+0.0
+0.0
+0.0
+0.0
+0.0
+0.0
+0.0
+0.0
+0.0
+0.0
+0.0
+0.0
+0.0
+0.0
+0.0
+0.0
+0.0
+0.0
+0.0
+11.2
+0.0
+0.0
+0.0
+0.0
+0.0
+0.0
+0.0
+0.0
+0.0
+3.2
+3.2
+3.2
+0.0
+0.0
+0.0
+0.0
+0.0
+0.0
+
+4◦C
+
+0.0
+0.3
+0.3
+0.0
+0.0
+0.3
+0.3
+0.0
+0.0
+0.0
+0.0
+0.0
+0.0
+12.6
+3.3
+3.3
+0.2
+3.0
+9.3
+0.4
+0.4
+8.9
+8.9
+0.0
+0.0
+0.0
+1.3
+1.3
+1.3
+1.3
+33.9
+1.3
+0.6
+0.3
+0.0
+0.3
+0.3
+0.3
+0.4
+0.4
+0.0
+0.0
+0.0
+0.0
+0.0
+27.5
+24.2
+24.2
+3.3
+
+4◦C
+
+0.0
+47.1
+44.3
+0.0
+0.0
+44.3
+44.3
+0.0
+0.0
+0.0
+2.8
+2.8
+2.8
+1.6
+0.0
+0.0
+0.0
+0.0
+0.0
+0.0
+0.0
+0.0
+0.0
+1.6
+1.6
+1.6
+0.0
+0.0
+0.0
+0.0
+10.9
+0.0
+0.0
+0.0
+0.0
+0.0
+0.0
+0.0
+0.0
+0.0
+8.6
+8.6
+8.4
+0.0
+0.2
+1.5
+1.5
+1.5
+0.0
+
+20 m
+
+40 m
+
+−80◦C
+
+4◦C
+
+−80◦C
+
+0.0
+6.1
+6.1
+0.0
+0.0
+4.5
+4.5
+0.0
+1.5
+1.5
+0.0
+0.0
+0.0
+0.0
+0.0
+0.0
+0.0
+0.0
+0.0
+0.0
+0.0
+0.0
+0.0
+0.0
+0.0
+0.0
+0.0
+0.0
+0.0
+0.0
+16.4
+0.0
+0.0
+0.0
+0.0
+0.0
+0.0
+0.0
+0.0
+0.0
+5.5
+5.5
+0.7
+0.0
+4.8
+0.0
+0.0
+0.0
+0.0
+
+2.3
+0.3
+0.3
+0.0
+0.0
+0.3
+0.0
+0.3
+0.0
+0.0
+0.0
+0.0
+0.0
+0.0
+0.0
+0.0
+0.0
+0.0
+0.0
+0.0
+0.0
+0.0
+0.0
+0.0
+0.0
+0.0
+0.0
+0.0
+0.0
+0.0
+53.5
+11.2
+11.2
+5.3
+5.9
+0.0
+0.0
+0.0
+0.0
+0.0
+4.3
+4.3
+0.0
+4.3
+0.0
+27.9
+27.9
+27.9
+0.0
+
+7.1
+9.3
+9.3
+0.0
+0.0
+9.3
+9.3
+0.0
+0.0
+0.0
+0.0
+0.0
+0.0
+0.0
+0.0
+0.0
+0.0
+0.0
+0.0
+0.0
+0.0
+0.0
+0.0
+0.0
+0.0
+0.0
+0.0
+0.0
+0.0
+0.0
+11.3
+0.0
+0.0
+0.0
+0.0
+0.0
+0.0
+0.0
+0.0
+0.0
+8.9
+8.9
+7.9
+0.0
+0.9
+0.0
+0.0
+0.0
+0.0
+
+(Continued)
+
+www.frontiersin.org
+
+February 2012 | Volume 3 | Article 49 | 15
+
+Mills et al.
+
+Table A1 | Continued
+
+Microbial shifts during sample storage
+
+Phylum Class
+
+Order
+
+Family
+
+Genus
+
+2 m
+−80◦C
+
+4◦C
+
+20 m
+
+40 m
+
+4◦C
+
+−80◦C
+
+4◦C
+
+−80◦C
+
+Pseudomonadales
+
+Thiotrichales
+
+Vibrionales
+
+Moraxellaceae
+
+Pseudomonadaceae
+
+Piscirickettsiaceae
+
+Vibrionaceae
+
+Xanthomonadales
+
+Xanthomonadaceae
+
+Neptuniibacter
+Oceanospirillales
+(genus)
+
+Psychrobacter
+
+Pseudomonas
+
+Methylophaga
+Thiomicrospira
+
+Vibrio
+
+Lysobacter
+Stenotrophomonas
+
+Verruco
+microbia
+
+Opitutae
+
+Opitutales
+
+Spartobacteria
+
+Spartobacteria (order)
+
+Verrucomicrobia
+
+Verrucomicrobiales
+
+Opitutaceae
+
+Opitutus
+
+Spartobacteria (family)
+
+Chthoniobacter
+
+Verrucomicrobiaceae
+
+Verrucomicrobium
+
+WS3
+
+WS3 (class)
+
+WS3 (order)
+
+WS3 (family)
+
+WS3 (genus)
+
+1.2
+2.2
+
+3.6
+2.2
+2.2
+1.4
+1.4
+1.4
+1.4
+0.0
+1.4
+0.0
+0.0
+0.0
+0.0
+0.0
+0.0
+0.0
+0.0
+
+0.0
+0.0
+0.0
+0.0
+0.0
+0.0
+0.0
+0.0
+0.0
+0.0
+0.0
+0.0
+0.0
+0.0
+0.0
+0.0
+0.0
+
+0.0
+0.0
+
+0.2
+0.0
+0.0
+0.2
+0.2
+0.0
+0.0
+0.0
+0.0
+0.0
+0.0
+0.0
+7.8
+7.8
+0.0
+7.8
+9.6
+
+0.0
+0.0
+0.0
+0.0
+0.2
+0.2
+0.2
+0.2
+9.4
+9.4
+9.4
+9.4
+1.9
+1.9
+1.9
+1.9
+1.9
+
+0.0
+0.0
+
+0.7
+0.0
+0.0
+0.7
+0.7
+0.0
+0.0
+0.0
+0.0
+0.0
+0.0
+0.0
+0.0
+0.0
+0.0
+0.0
+0.0
+
+0.0
+0.0
+0.0
+0.0
+0.0
+0.0
+0.0
+0.0
+0.0
+0.0
+0.0
+0.0
+0.0
+0.0
+0.0
+0.0
+0.0
+
+0.0
+0.0
+
+10.9
+0.0
+0.0
+10.9
+10.9
+0.0
+0.0
+0.0
+0.0
+0.0
+0.0
+0.0
+0.0
+0.0
+0.0
+0.0
+0.0
+
+0.0
+0.0
+0.0
+0.0
+0.0
+0.0
+0.0
+0.0
+0.0
+0.0
+0.0
+0.0
+0.0
+0.0
+0.0
+0.0
+0.0
+
+0.0
+0.0
+
+1.1
+1.1
+1.1
+0.1
+0.1
+7.8
+7.8
+7.8
+0.0
+1.2
+1.2
+1.2
+0.1
+0.1
+0.1
+0.0
+0.0
+
+0.0
+0.0
+0.0
+0.0
+0.0
+0.0
+0.0
+0.0
+0.0
+0.0
+0.0
+0.0
+0.0
+0.0
+0.0
+0.0
+0.0
+
+0.0
+0.0
+
+0.0
+0.0
+0.0
+0.0
+0.0
+0.0
+0.0
+0.0
+0.0
+2.4
+2.4
+2.4
+0.0
+0.0
+0.0
+0.0
+0.3
+
+0.3
+0.3
+0.3
+0.3
+0.0
+0.0
+0.0
+0.0
+0.0
+0.0
+0.0
+0.0
+0.0
+0.0
+0.0
+0.0
+0.0
+
+Frontiers in Microbiology | Extreme Microbiology
+
+February 2012 | Volume 3 | Article 49 | 16
+
+

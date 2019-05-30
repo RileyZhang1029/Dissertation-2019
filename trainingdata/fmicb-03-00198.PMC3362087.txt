@@ -1,0 +1,973 @@
+MINI REVIEW ARTICLE
+published: 29 May 2012
+doi: 10.3389/fmicb.2012.00198
+
+Visualizing evolution in real-time method for strain
+engineering
+Luis H. Reyes, James Winkler and Katy C. Kao*
+
+Department of Chemical Engineering, Texas A&M University, College Station, TX, USA
+
+The adaptive landscape for an industrially relevant phenotype is determined by the effects of
+the genetic determinants on the ﬁtness of the microbial system. Identifying the underlying
+adaptive landscape for a particular phenotype of interest will greatly enhance our abilities to
+engineer more robust microbial strains. Visualizing evolution in real-time (VERT) is a recently
+developed method based on in vitro adaptive evolution that facilitates the identiﬁcation of
+ﬁtter mutants throughout the course of evolution. Combined with high-throughput genomic
+tools, VERT can greatly enhance the mapping of adaptive landscapes of industrially relevant
+phenotypes in microbial systems, thereby expanding our knowledge on the parameters that
+can be used for strain engineering.
+
+Keywords: adaptive evolution, strain development, population dynamics, evolutionary engineering
+
+Edited by:
+David Nielsen, Arizona State
+University, USA
+Reviewed by:
+Giuseppe Spano, University of
+Foggia, Italy
+Wensheng Lan, Shenzhen Entry-Exit
+Inspection and Quarantine Bureau,
+China
+Keith Tyo, Northwestern University,
+USA
+*Correspondence:
+Katy C. Kao, Department of Chemical
+Engineering, Texas A&M University,
+3122 TAMU, College Station,
+TX 77843-3122, USA.
+e-mail: kao.katy@gmail.com
+
+INTRODUCTION
+The majority of industrially relevant phenotypes in microbial sys-
+tems involve multiple loci and mechanisms. The identities of these
+genetic determinants are generally not known, making the rational
+engineering of strains for these complex phenotypes challenging.
+Classical strain engineering for these traits generally involve several
+rounds of random mutagenesis followed by selection. However,
+with successive rounds of induced mutagenesis, mutations that
+are deleterious or have negative epistatic effects tend to accu-
+mulate by hitchhiking with beneﬁcial alleles. If the desired trait
+can be coupled with growth, in vitro adaptive evolution can be
+used to improve the desired phenotype. This process is accom-
+plished by applying a selective pressure so that beneﬁcial mutants
+(mutants with increased ﬁtness) can be obtained through the pro-
+cess of natural selection. The identities of the mutations residing
+in adaptive mutants obtained through natural selection or muta-
+genesis and their subsequent effects on cellular processes must
+be leveraged for further rational engineering. With advances in
+genomic tools, the genes and mechanisms involved can now be
+identiﬁed using combinations of whole-genome re-sequencing
+(Comas et al., 2012; Toprak et al., 2012), transcriptomics (Fitzger-
+ald and Musser, 2001; Paulsen et al., 2001), proteomics (Callister
+et al., 2008; Boulais et al., 2010), and metabolomics (Ding et al.,
+2010; Goodarzi et al., 2010) studies.
+
+In vitro adaptive evolution has been used extensively for
+the engineering of microbial system for both tolerances to
+inhibitors (Minty et al., 2011) and for enhanced product for-
+mation (Hu and Wood, 2010). The adaptive landscape, also
+known as ﬁtness landscape, is used to describe the collection
+of relative ﬁtness effects of each genotype under a speciﬁc con-
+dition. Detailed molecular characterization of adaptive mutants
+isolated from in vitro adaptive evolution experiments provides
+insights into the adaptive landscape for the phenotype of interest.
+
+the adaptive landscape will signiﬁcantly
+Characterization of
+enhance our knowledge on the important parameters under-
+lying complex phenotypes needed for the rational engineering
+of strains.
+
+In adaptive evolution, clones are typically isolated from the
+evolving population after an arbitrarily elapsed time or at the end
+of the experiment. However, since the evolving population is het-
+erogeneous, interclonal competition (clonal interference; Shaver
+et al., 2002; Kao and Sherlock, 2008) may lead to the extinction
+of beneﬁcial mutants. Depending on the population structure
+during the course of evolution, the random isolation of adap-
+tive mutants may fail to identify some adaptive mutations that
+arise during the course of the evolution. This review will (1) dis-
+cuss factors that inﬂuence population structure and the impact
+of complex population dynamics on evolutionary engineering
+and (2) describe a novel evolutionary engineering method called
+visualizing evolution in real-time (VERT), that was recently devel-
+oped to help address some of these limitations in traditional
+evolutionary engineering approach.
+
+ADAPTIVE LANDSCAPE
+The idea of an adaptive landscape was ﬁrst introduced as “sur-
+faces of selective value” by Wright in 1931 (Wright, 1931, 1982,
+1988). The adaptive landscape is a multi-dimensional surface rep-
+resentation of the biological ﬁtness of an organism in a particular
+environment. In an adaptive landscape map for a speciﬁc condi-
+tion, each genotype is correlated with a ﬁtness value (see Figure 1
+for an illustration). The resulting landscape can be ﬂat with a sin-
+gle optimum where the evolving population is required to acquire
+a speciﬁc set of mutations, or can be rugged where the accessible
+optima will depend on the starting point within the landscape. It
+has been demonstrated that bacteria encounter both types of land-
+scapes in evolution experiments (Orr, 2005; Weinreich et al., 2006;
+
+www.frontiersin.org
+
+May 2012 | Volume 3 | Article 198 | 1
+
+“fmicb-03-00198” — 2012/5/26 — 19:52 — page 1 — #1
+
+Reyes et al.
+
+Visualizing evolution in real-time
+
+l
+
+ 
+s
+a
+u
+d
+v
+d
+n
+
+i
+
+i
+
+I
+
+l
+
+ 
+s
+a
+u
+d
+v
+d
+n
+
+i
+
+i
+
+I
+
+A
+
+B
+
+C
+
+A 
+
+AB 
+
+C 
+
+CD 
+
+B 
+
+A 
+
+ABC 
+
+!"#$
+
+CE 
+
+!"#$
+
+AD 
+
+ADE 
+
+A 
+
+B 
+
+l
+
+ 
+s
+a
+u
+d
+v
+d
+n
+
+i
+
+i
+
+I
+
+C 
+
+ADF 
+
+ADG 
+
+ADGH  ADGHI 
+
+Time
+
+FIGURE 2 | Theories governing population structure during asexual
+evolution. The graphs represent the population structure as a function of
+time during asexual evolution. The capital letters represent different
+beneﬁcial mutations in the population. The gridded boxes represent a
+snapshot of the frequency of different genotypes in the population at that
+one point in time. (A) Clonal replacement model, where successive
+sweeps and ﬁxation of different beneﬁcial mutations take place in a small
+population; snapshots of the genotypes at different elapsed times show
+that the population is homogeneous except when the beneﬁcial mutant is
+sweeping through the population. (B) Clonal interference model, where
+different adaptive mutants compete until one with the largest ﬁtness
+advantage sweeps through and becomes the founding genotype for
+subsequent evolution (e.g., mutations A, B, and C compete until C
+completely takes over the population). (C) Multiple mutations model,
+where multiple mutations occur in the same lineage before ﬁxation. In the
+latter two population structures, some adaptive mutations are lost from the
+population, and depending on when adaptive mutants are isolated, some
+mutants (and thus the underlying molecular mechanisms for adaptation)
+may not be identiﬁed.
+
+FIGURE 1 | Simpliﬁed adaptive landscape for two alleles (for one
+background genotype in one condition). The ﬁgure depicts ﬁtness values
+for beneﬁcial (positive relative ﬁtness values) and deleterious (negative
+relative ﬁtness values) combinations of alleles.
+
+Gresham et al., 2008). Natural selection usually drives a population
+to the closest local optimum, but not necessarily the global opti-
+mum. Evolving populations tend to be trapped in suboptimal
+solutions (Lenski et al., 1998) in asexual systems. Thus to reach
+the global optimum, processes that allow for large “jumps” in
+the adaptive landscape, such as recombination and horizontal
+DNA transfer, are necessary to reach new regions of the adap-
+tive landscape in a semi-rational manner. Recombination allows
+the combination of beneﬁcial mutations with positive synergy and
+the removal of deleterious mutations acquired in the evolutionary
+process while horizontal gene transfer allows the acquisition of
+new functions.
+
+THEORIES GOVERNING POPULATION STRUCTURE DURING
+ASEXUAL EVOLUTION
+Numerous theories have been proposed for the population struc-
+ture in in vitro adaptive evolution experiments. Several factors,
+including the selective pressure, size of the population, rate of
+mutations, frequency of beneﬁcial mutations, and relative ﬁtness
+of beneﬁcial mutants, are involved in determining the population
+structure during evolution. In the simplest case, a well-adapted
+mutant rises in the population, and due to its increased ﬁtness
+compared to background, the genotype will expand and eventu-
+ally replace the parental population. This population structure
+is applicable to situations where the evolution is mutation-
+limited, the population size is small, and the time between the
+establishments of successive mutations is much larger than the
+time it takes for a beneﬁcial mutant to ﬁx in the population
+(strong positive selection). This theory, called clonal replacement
+(also called succession-ﬁxation regime or strong-selection weak-
+mutation regime), implies that only one mutation can become
+ﬁxed at a time, leading to successive complete selective sweeps
+(depicted in Figure 2A). The resulting population can be assumed
+to be homogeneous except during the periods when the bene-
+ﬁcial mutant is sweeping through (Desai et al., 2007). However,
+
+Frontiers in Microbiology | Microbiotechnology, Ecotoxicology and Bioremediation
+
+May 2012 | Volume 3 | Article 198 | 2
+
+“fmicb-03-00198” — 2012/5/26 — 19:52 — page 2 — #2
+
+Reyes et al.
+
+Visualizing evolution in real-time
+
+when the mutations are established at a faster rate than the rate
+of ﬁxation, multiple mutant lineages can coexist and compete for
+resources until one with the largest ﬁtness advantage outcompetes
+all the other genotypes and become the next founding genotype
+for subsequent evolution. This theory, known as clonal interfer-
+ence (or one-by-one clonal interference), assumes that a single
+mutation can be ﬁxed at a time, producing heterogeneous popu-
+lations except immediately after the sweeping of the ﬁttest mutant
+(depicted in Figure 2B); this theory focuses on the competition
+between different mutations with positive relative ﬁtness (Gerrish
+and Lenski, 1998; Orr, 2000; Gerrish, 2001; Kim and Stephan,
+2003; Campos and de Oliveira, 2004; Wilke, 2004). The two
+theories described above assume that only one beneﬁcial muta-
+tion can be ﬁxed at a time. However, if the population size is
+large enough or the rate of mutation is high enough, multiple
+mutations can occur in the same lineage before ﬁxation, lead-
+ing to the multiple-mutation model (Desai et al., 2007; depicted
+in Figure 2C). The importance of this third theory on popula-
+tion structure has been demonstrated in several theoretical and
+experimental studies (Yedid and Bell, 2001; Shaver et al., 2002;
+Bachtrog and Gordo, 2004). In general, the population size in lab-
+oratory conditions is large enough that either one-by-one clonal
+interference or multiple mutations models shape the population
+structure.
+
+FACTORS INFLUENCING POPULATION DYNAMICS
+As mentioned above, factors such as mutation rate, relative ﬁt-
+ness advantage, population size, and rate of beneﬁcial mutations
+are important in shaping the population dynamics during evo-
+lution. We will brieﬂy discuss each of these factors and how they
+impact adaptive evolution in different experimental systems. Since
+the evolution dynamics is dependent on the mutation rate, one
+would assume higher mutation rate to be advantageous for speed-
+ing up evolution by generating mutational diversity. However, an
+increase in mutation rates does not necessarily accelerate the pace
+of adaptation (Arjan et al., 1999). While a low mutation rate would
+result in a slow discovery of beneﬁcial mutations, prolonged expo-
+sure to high mutation rate (such as the use of a mutator strain)
+increases the occurrence and accumulation of deleterious muta-
+tions as well as the hitchhiking of apparent “silent” mutations
+during the course of evolution, increasing the genetic load (Elena
+and Lenski, 2003; Gresham et al., 2008; Barrick et al., 2009). This
+is evidenced by the rarity of mutator strains in Lenski’s long-term
+adaptive evolution experiment with Escherichia coli; where muta-
+tors were found only after thousands of generations of evolution
+(Elena and Lenski, 1997; Sniegowski et al., 1997; Arjan et al., 1999;
+Vulic et al., 1999; Lenski et al., 2003) and the ﬁtness advantage con-
+ferred by the mutator strains is most likely a result of overcoming
+a mutation-limited bottleneck during the evolution. Mutagens are
+often used to increase genetic diversity in evolution experiments.
+However, since it is not convenient to periodically mutagenize the
+evolving population, a controllable mutator system can be used,
+where the expression of mutator alleles can be induced only when
+needed (Selifonova et al., 2001).
+
+The time it takes a beneﬁcial mutation to become the majority
+in the population is called the ﬁxation time and is an important
+factor in determining the population dynamics during evolution.
+
+This ﬁxation time depends mainly on two factors, genetic drift
+and the ﬁtness advantage of the beneﬁcial mutation in compar-
+ison with the background, and is inversely proportional to the
+relative ﬁtness advantage of the beneﬁcial mutant (Lenski et al.,
+1991). A beneﬁcial mutation with a 10% relative ﬁtness advantage
+will become the majority of the population after approximately
+250 generation in serial batch transfer experiments (Elena and
+Lenski, 2003) and 100 generations in continuous culture exper-
+iments (Gresham et al., 2008). Genetic drift is deﬁned as the
+probability that a beneﬁcial mutation survives extinction (Joanna,
+2011). In in vitro adaptive evolution experiments, the main source
+of drift is genetic bottleneck due to random sampling. This phe-
+nomenon takes place when a signiﬁcant amount of the population
+suddenly vanishes, as occurs when a fresh batch culture is inoc-
+ulated from an overnight culture. The survival probability of an
+allele carrying a beneﬁcial mutation that arose in the culture will
+depend on its proportion in the culture at the time of transfer
+and the amount of inoculum transferred; therefore there is a
+chance that it could be completely lost due to the stochasticity
+of sampling. In evolution experiments using serial batch trans-
+fers, genetic bottlenecks between transfers affect heterogeneity
+by transferring a small fraction of the population. A reduction
+of the effect of genetic bottleneck could be achieved by using
+continuous culture systems such as chemostats or turbidostats
+(Conrad et al., 2011), where a much smaller genetic bottleneck
+is present.
+
+VISUALIZING EVOLUTION IN REAL-TIME
+As stated above, the population sizes in most in vitro evolution
+experiments are large enough to result in heterogeneous pop-
+ulations due to the effects of clonal interference and multiple
+mutations. Thus, adaptive evolution experiments can signiﬁcantly
+beneﬁt from a more systematic isolation of adaptive mutants
+and ramping-up schedules for selective pressures. The VERT
+system was developed (Kao and Sherlock, 2008; Huang et al.,
+2011) to address these limitations in traditional adaptive evolu-
+tion experiments. The basis for VERT is the use of isogenic, but
+differentially labeled (typically with ﬂuorescent proteins) strains
+to seed the initial evolving population. As a beneﬁcial mutant
+arises and expands in the population, the colored subpopulation
+that it belongs is expected to increase in proportion. Using ﬂu-
+orescent activated cell sorting (FACS), the relative proportions
+of each of the colored subpopulations at each point in time
+can be measured. Each sustained expansion in the proportion
+of a colored subpopulation is called an “adaptive event.” Thus,
+the tracking of the different colored subpopulations can serve
+as a tool for determining when a ﬁtter mutant arises in the
+population.
+
+The relative subpopulation frequency data collected through-
+out the course of adaptive evolution represent the history of the
+population. The observed increase in the relative proportion of a
+colored subpopulation from consecutive data points is assumed
+to be the result of the expansion of an adaptive mutant. There-
+fore, adaptive mutants can be isolated from samples based on
+the observed expansions and contractions, by sorting out the
+colored subpopulation that is expected to contain the adaptive
+mutant of interest. Since experimental data can suffer from noise,
+
+www.frontiersin.org
+
+May 2012 | Volume 3 | Article 198 | 3
+
+“fmicb-03-00198” — 2012/5/26 — 19:52 — page 3 — #3
+
+Reyes et al.
+
+Visualizing evolution in real-time
+
+the identiﬁcation of adaptive events may be challenging. Visual
+inspection of the data to identify adaptive events is a crude, but
+relatively effective method (Kao and Sherlock, 2008; Huang et al.,
+2011). However, since small changes in relative frequencies may
+be difﬁcult to distinguish from noise, computational methods
+will provide less biased annotation of adaptive events; our group
+recently developed a supervised learning method for analysis of
+VERT data (Winkler and Kao, 2012).
+
+The basic feature of the VERT system, the number of labeled
+subpopulations, is the aspect that can most readily be manipulated
+directly by the experimentalist, but is somewhat restricted by the
+available equipment and properties of the labels themselves. The
+number of ﬂuorescent markers used represents distinct subpop-
+ulations that can be visualized during the course of an evolution
+experiment. VERT labels must have distinguishable emission spec-
+tra and preferably have no signiﬁcant ﬁtness effect in the condition
+of interest. Widely used ﬂuorescent proteins such as GFP, YFP, and
+RFP can be detected on most FACS machines and usually have
+little effect on the physiology of their host strains. At a minimum,
+two labeled subpopulations are trivially required to observe popu-
+lation dynamics. Three subpopulations, employing RFP, GFP, and
+YFP labeled strains, have been used successfully (Kao and Sherlock,
+2008; Huang et al., 2011) in fungal systems. Additional subpopula-
+tions can be included if suitable equipment is available. Simulated
+evolution may prove a useful tool for unraveling the connec-
+tion between adaptive event discovery and initial population
+diversity.
+
+Visualizing evolution in real-time-based in vitro adaptive evo-
+lution experiments can be used in either serial batch transfer or
+continuous culture systems. Provided that the different ﬂuores-
+cently marked strains show no signiﬁcant ﬁtness bias, then equal
+proportions of each strain maybe used to seed the population
+for evolution. Samples are then withdrawn and quantiﬁed using
+FACS every few generations to track the population dynamics. It
+is typically assumed that the adaptive mutant will expand until
+a ﬁtter mutant arises in another subpopulation and expands suf-
+ﬁciently to impede its’ expansion. It is further assumed that the
+generation at which the expanding subpopulation has reached a
+maximum proportion will contain the largest fraction of the adap-
+tive mutant responsible for the expansion, simplifying the isolation
+of the mutant considerably.
+
+In traditional adaptive evolution experiments, selective pres-
+sure is generally ramped-up at arbitrarily chosen time intervals. An
+alternative to this approach, based on using a feedback controller
+to maintain selective pressure so that the overall population growth
+rate approaches a user-deﬁned set point, was recently introduced
+by Toprak et al. (2012). Since the use of VERT allows the users to
+readily identify when adaptive events occur, it can be used to design
+a more systematic ramp-up schedule. For example, an increase in
+selective pressure could be applied when a minimum of 2 adaptive
+events are observed. The optimal frequency of ramp-up as a func-
+tion of observed number of adaptive events may differ depending
+on the adaptive landscape for the phenotype of interest and needs
+to be investigated.
+
+The isolated adaptive mutants can be further character-
+ized to elucidate the molecular mechanisms of resistance in
+the selective pressure of interest. Whole-genome re-sequencing,
+
+transcriptomics, proteomics, and metabolomics analyses can be
+used to elucidate the evolutionary trajectories during the process
+of adaptive evolution. The availability and cost of whole-genome
+re-sequencing has improved signiﬁcantly, but in most cases is
+still more expensive than transcriptome analysis using DNA
+microarrays. VERT tracks the individual subpopulations, mak-
+ing it easier to distinguish whether genome-wide perturbations
+observed in the transcriptional regulation found in different iso-
+lates arose independently or transitively without whole-genome
+re-sequencing data (if the isolates come from different col-
+ored subpopulations). Since not all the observed perturbations
+are involved in the complex phenotype of interest, common
+perturbations observed in independent lineages provide a level
+of conﬁdence for their involvement. The potential adaptive
+mechanisms identiﬁed can serve as targets for further strain
+engineering.
+
+The original development of VERT used the yeast Saccha-
+romyces cerevisiae evolving under glucose-limited conditions; a
+three-colored VERT system was used to seed eight parallel popu-
+lations (Kao and Sherlock, 2008). The VERT data from one of the
+populations is shown in Figure 3; generations and subpopulations
+from which adaptive mutants were isolated from are indicated.
+Detailed genotypic and transcriptomics analyses of the isolated
+adaptive mutants showed convergence in the perturbation of the
+protein kinase A regulatory network in independent lineages (Kao
+and Sherlock, 2008). Subsequent development and application
+of a two-colored VERT system in E. coli for n-butanol tolerance
+revealed previously undiscovered resistance mechanisms (Reyes
+et al., 2012).
+
+s
+n
+o
+
+i
+t
+r
+o
+p
+o
+r
+P
+e
+v
+i
+t
+
+ 
+
+l
+
+a
+e
+R
+d
+e
+z
+
+ 
+
+i
+l
+
+a
+m
+r
+o
+N
+
+100
+
+80
+
+60
+
+40
+
+20
+
+0
+
+0
+
+4
+
+3
+
+5
+
+2
+
+1
+
+100
+
+200
+Generations
+
+300
+
+400
+
+FIGURE 3 | Example population dynamics from a three-colored VERT
+system (adapted from Kao and Sherlock, 2008). The colored bars
+represent the relative proportions of each colored subpopulation. An
+increase in the relative proportion of a colored subpopulation is indicative of
+the occurrence and expansion of an adaptive mutation in that
+subpopulation, and is deﬁned as an adaptive event. Under the assumption
+that the adaptive mutant responsible for the speciﬁc adaptive event is at its’
+highest proportion at the end of the sustained expansion, the adaptive
+mutants are isolated from the expanding subpopulation from the generation
+at the end of each expansion. The generation and colored subpopulation
+from which adaptive mutants were isolated are numbered 1–5.
+
+Frontiers in Microbiology | Microbiotechnology, Ecotoxicology and Bioremediation
+
+May 2012 | Volume 3 | Article 198 | 4
+
+“fmicb-03-00198” — 2012/5/26 — 19:52 — page 4 — #4
+
+Reyes et al.
+
+Visualizing evolution in real-time
+
+CONCLUSION
+Understanding the adaptive landscape for the phenotypes of inter-
+est is important for the rational engineering of strains. The
+use of evolutionary engineering has been used extensively to
+improve strains for complex phenotypes where there is lim-
+ited knowledge on the associated genetic determinants. Advances
+in molecular biology tools in recent years have signiﬁcantly
+improved our ability to obtain insights into the molecular mech-
+anisms involved in the desire phenotypes in isolated adaptive
+mutants from in vitro evolution experiments. VERT was a recently
+developed tool for evolutionary engineering that can helps to
+
+provide a rough population structure for the evolving popula-
+tion, allowing the systematic isolation of adaptive mutants and
+ramp-up of selective pressure. Combined with advanced genomic
+tools, use of VERT in evolutionary engineering can help to gain
+additional insight regarding the adaptive landscape for complex
+phenotypes.
+
+ACKNOWLEDGMENTS
+The authors would like to thank NSF MCB-1054276 (Katy C. Kao),
+and the Graduate Research Fellowship program (James Winkler)
+for partial ﬁnancial support.
+
+REFERENCES
+Arjan, J. A., Visser, M., Zeyl, C. W.,
+Gerrish, P. J., Blanchard, J. L., and
+Lenski, R. E. (1999). Diminishing
+returns from mutation supply rate
+in asexual populations. Science 283,
+404–406.
+
+Bachtrog, D., and Gordo, I. (2004).
+Adaptive evolution of asexual popu-
+lations under Muller’s ratchet. Evolu-
+tion 58, 1403–1413.
+
+Barrick,
+
+J. E., Yu, D. S., Yoon, S.
+H., Jeong, H., Oh, T. K., Schnei-
+der, D., Lenski, R. E., and Kim,
+J. F. (2009). Genome evolution and
+adaptation in a long-term experi-
+ment with Escherichia coli. Nature
+461, 1243–1274.
+
+Boulais, J., Trost, M., Landry, C. R.,
+Dieckmann, R., Levy, E. D., Soldati,
+T., Michnick, S. W., Thibault, P.,
+and Desjardins, M. (2010). Molec-
+ular characterization of the evolu-
+tion of phagosomes. Mol. Syst. Biol.
+6, 423.
+
+Callister, S. J., McCue, L. A., Turse, J. E.,
+Monroe, M. E., Auberry, K. J., Smith,
+R. D., Adkins, J. N., and Lipton, M.
+S. (2008). Comparative bacterial pro-
+teomics: analysis of the core genome
+concept. PLoS ONE 3, e1542. doi:
+10.1371/journal.pone.0001542
+
+Campos, P. R., and de Oliveira, V.
+M. (2004). Mutational effects on
+the clonal interference phenomenon.
+Evolution 58, 932–937.
+
+Comas, I., Borrell, S., Roetzer, A., Rose,
+G., Malla, B., Kato-Maeda, M., Gala-
+gan, J., Niemann, S., and Gagneux,
+S. (2012). Whole-genome sequenc-
+ing of rifampicin-resistant Mycobac-
+terium tuberculosis strains identiﬁes
+compensatory mutations
+in RNA
+polymerase genes. Nat. Genet. 44,
+106–110.
+
+Conrad, T. M., Lewis, N. E., and Palsson,
+B. O. (2011). Microbial laboratory
+evolution in the era of genome-scale
+science. Mol. Syst. Biol. 7, 509.
+
+Desai, M. M., Fisher, D. S., and Murray,
+A. W. (2007). The speed of evolu-
+tion and maintenance of variation in
+asexual populations. Curr. Biol. 17,
+385–394.
+
+Ding, M. Z., Zhou, X., and Yuan, Y. J.
+(2010). Metabolome proﬁling reveals
+adaptive evolution of Saccharomyces
+cerevisiae during repeated vacuum
+fermentations. Metabolomics
+6,
+42–55.
+
+Elena, S. F., and Lenski, R. E. (1997).
+Long-term experimental evolution
+in Escherichia coli. VII. Mecha-
+nisms maintaining genetic variabil-
+ity within populations. Evolution 51,
+1058–1067.
+
+Elena, S. F., and Lenski, R. E. (2003).
+Evolution experiments with microor-
+ganisms: the dynamics and genetic
+bases of adaptation. Nat. Rev. Genet.
+4, 457–469.
+
+Fitzgerald,
+
+J. R., and Musser,
+
+J. M.
+(2001). Evolutionary genomics of
+pathogenic bacteria. Trends Micro-
+biol. 9, 547–553.
+
+Gerrish, P. (2001). The rhythm of
+microbial adaptation. Nature 413,
+299–302.
+
+Gerrish, P. J., and Lenski, R. E. (1998).
+The fate of competing beneﬁcial
+mutations in an asexual population.
+Genetica 102–103, 127–144.
+
+Goodarzi, H., Bennett, B. D., Amini,
+S., Reaves, M. L., Hottes, A. K.,
+Rabinowitz, J. D., and Tavazoie, S.
+(2010). Regulatory and metabolic
+rewiring during laboratory evolution
+of ethanol tolerance in E. coli. Mol.
+Syst. Biol. 6, 378.
+
+Gresham, D., Desai, M. M., Tucker, C.
+M., Jenq, H. T., Pai, D. A., Ward,
+A., DeSevo, C. G., Botstein, D., and
+Dunham, M. J. (2008). The repertoire
+and dynamics of evolutionary adap-
+tations to controlled nutrient-limited
+environments in yeast. PLoS Genet.
+4, e1000303. doi: 10.1371/journal.
+pgen.1000303
+
+Hu, H., and Wood, T. K. (2010). An
+evolved Escherichia coli strain for pro-
+ducing hydrogen and ethanol from
+glycerol. Biochem. Biophys. Res. Com-
+mun. 391, 1033–1038.
+
+Huang, M., McClellan, M., Berman, J.,
+and Kao, K. C. (2011). Evolutionary
+dynamics of Candida albicans during
+in vitro evolution. Eukaryot. Cell 10,
+1413–1421.
+
+Joanna, M. (2011). Genetic drift. Curr.
+
+Biol. 21, R837–R838.
+
+Kao, K. C., and Sherlock, G. (2008).
+Molecular characterization of clonal
+interference during adaptive evolu-
+tion in asexual populations of Sac-
+charomyces cerevisiae. Nat. Genet. 40,
+1499–1504.
+
+Kim, Y., and Stephan, W. (2003). Selec-
+tive sweeps in the presence of inter-
+ference among partially linked loci.
+Genetics 164, 389–398.
+
+Kvitek, D. J., and Sherlock, G. (2011).
+Reciprocal
+sign epistasis between
+frequently experimentally evolved
+adaptive mutations causes a rugged
+ﬁtness landscape. PLoS Genet. 7,
+e1002056. doi: 10.1371/journal.pgen.
+1002056
+
+Lenski, R. E., Mongold,
+
+J. A.,
+Sniegowski, P. D., Travisano, M.,
+Vasi, F., Gerrish, P. J., and Schmidt,
+T. M. (1998). Evolution of compet-
+itive ﬁtness in experimental popu-
+lations of E. coli: what makes one
+genotype a better competitor than
+another? Antonie van Leeuwenhoek
+73, 35–47.
+
+Lenski, R. E., Rose, M. R., Simp-
+son, S. C., and Tadler, S. C. (1991).
+Long-term experimental evolution in
+Escherichia coli. 1. Adaptation and
+divergence during 2,000 generations.
+Am. Nat. 138, 1315–1341.
+
+Lenski, R. E., Winkworth, C. L., and
+Riley, M. A. (2003). Rates of DNA
+sequence evolution in experimental
+populations of Escherichia coli dur-
+ing 20,000 generations. J. Mol. Evol.
+56, 498–508.
+
+Minty, J., Lesnefsky, A., Lin, F., Chen,
+Y., Zaroff, T., Veloso, A., Xie, B.,
+McConnell, C., Ward, R., Schwartz,
+D., Rouillard, J.-M., Gao, Y., Gulari,
+E., and Lin, X. (2011). Evolution
+combined with genomic study elu-
+cidates genetic bases of isobutanol
+tolerance in Escherichia coli. Microb.
+Cell Fact. 10, 18.
+
+Orr, H. A. (2000). The rate of adaptation
+
+in asexuals. Genetics 155, 961–968.
+
+Orr, H. A. (2005). The genetic theory of
+adaptation: a brief history. Nat. Rev.
+Genet. 6, 119–127.
+
+Paulsen, I. T., Chen, J., Nelson, K. E.,
+and Saier, M. H. (2001). Comparative
+genomics of microbial drug efﬂux
+systems. J. Mol. Microbiol. Biotechnol.
+3, 145–150.
+
+Reyes, L. H., Almario, M. P., Win-
+kler, J., Orozco, M. M., and Kao, K.
+C. (2012). Visualizing evolution in
+real time to determine the molecular
+mechanisms of n-butanol tolerance
+in Escherichia coli. Metab. Eng. (in
+press).
+
+Selifonova, O., Valle, F., and Schellen-
+berger, V. (2001). Rapid evolution of
+novel traits in microorganisms. Appl.
+Environ. Microbiol. 67, 3645–3649.
+
+Shaver, A. C., Dombrowski, P. G.,
+Sweeney, J. Y., Treis, T., Zappala, R.
+M., and Sniegowski, P. D. (2002).
+Fitness
+rise
+of mutator alleles in experimental
+Escherichia coli populations. Genetics
+162, 557–566.
+
+evolution and the
+
+Sniegowski, P. D., Gerrish, P. J., and
+Lenski, R. E. (1997). Evolution of
+high mutation rates in experimental
+populations of E. coli. Nature 387,
+703–705.
+
+Toprak, E., Veres, A., Michel, J.-B.,
+Chait, R., Hartl, D. L., and Kishony,
+R. (2012). Evolutionary paths to
+antibiotic resistance under dynami-
+cally sustained drug selection. Nat.
+Genet. 44, 101–105.
+
+Vulic, M., Lenski, R. E., and Radman,
+M. (1999). Mutation, recombination,
+and incipient speciation of bacteria in
+the laboratory. Proc. Natl. Acad. Sci.
+U.S.A. 96, 7348–7351.
+
+Weinreich, D. M., Delaney, N. F.,
+DePristo, M. A., and Hartl, D. L.
+(2006). Darwinian evolution can fol-
+low only very few mutational paths to
+ﬁtter proteins. Science 312, 111–114.
+Wilke, C. O. (2004). The speed of adap-
+tation in large asexual populations.
+Genetics 167, 2045–2053.
+
+Winkler, J., and Kao, K. C. (2012). Com-
+putational identiﬁcation of adaptive
+mutants using the VERT system. J.
+Biol. Eng. 6, 3.
+
+Wright,
+
+S.
+
+(1931).
+
+Evolution in
+Mendelian populations. Genetics 16,
+0097–0159.
+
+www.frontiersin.org
+
+May 2012 | Volume 3 | Article 198 | 5
+
+“fmicb-03-00198” — 2012/5/26 — 19:52 — page 5 — #5
+
+Reyes et al.
+
+Visualizing evolution in real-time
+
+Wright, S. (1982). Character change,
+speciation, and the higher taxa. Evo-
+lution 36, 427–443.
+
+Wright, S. (1988). Surfaces of selec-
+tive value revisited. Am. Nat. 131,
+115–123.
+Yedid, G.,
+
+(2001).
+Microevolution in an electronic
+microcosm. Am. Nat. 157, 465–487.
+
+and Bell, G.
+
+Conflict of Interest Statement: The
+authors declare that the research was
+conducted in the absence of any com-
+mercial or ﬁnancial relationships that
+could be construed as a potential con-
+ﬂict of interest.
+
+Received: 31 March 2012; accepted: 14
+May 2012; published online: 29 May 2012.
+
+Citation: Reyes LH, Winkler
+J and
+Kao KC (2012) Visualizing evolution
+in real-time method for strain engi-
+neering. Front. Microbio. 3:198. doi:
+10.3389/fmicb.2012.00198
+This article was
+submitted to Fron-
+tiers in Microbiotechnology, Ecotoxicol-
+ogy and Bioremediation, a specialty of
+Frontiers in Microbiology.
+
+the
+
+terms of
+
+Copyright  2012 Reyes, Winkler and
+is an open-access article
+Kao. This
+distributed under
+the
+Creative Commons Attribution Non
+Commercial License, which permits
+non-commercial use, distribution, and
+reproduction in other forums, provided
+the original authors and source are
+credited.
+
+Frontiers in Microbiology | Microbiotechnology, Ecotoxicology and Bioremediation
+
+May 2012 | Volume 3 | Article 198 | 6
+
+“fmicb-03-00198” — 2012/5/26 — 19:52 — page 6 — #6
+
+

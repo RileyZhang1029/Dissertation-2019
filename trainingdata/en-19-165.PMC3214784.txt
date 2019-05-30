@@ -1,0 +1,849 @@
+Experimental  Neurobiology
+Vol.  19,  pages  165∼172,  December  2010
+
+ZigBee-based  Wireless  Neuro-Stimulator  for 
+
+Improving  Stroke  Recovery
+
+Gookhwa  Kim1,  Hyojeong  Yun2,  Munho  Ryu3,  Yongil  Shin4, 
+
+Hyoungihl  Kim5  and  Yoonseok  Yang3*
+
+1Electronics  and  Telecommunication  Research  Institute  (ETRI),  Daejeon  305-700, 
+
+2Korea  Institute  of  Industrial  Technology  (KITECH),  Cheonan  330-825, 
+
+3Department  of  Biomedical  Engineering,  Chonbuk  National  University,  Jeonju 
+561-756,  4Department  of  Rehabilitation  Medicine,  Pusan  National  University 
+School  of  Medicine  and  Pusan  National  University  Hospital  Medical  Research 
+Institute,  Yangsan  626-770,  5Institute  of  Medical  System  Engineering,  Gwangju 
+
+Institute  of  Science  and  Technology  (GIST),  Gwangju  500-712,  Korea
+
+ABSTRACT
+
+Stroke  is  a  leading  cause  of  adult  disability  and  the  second-leading  cause  of  death 
+in  Korea.  It  is  also  the  third-leading  cause  of  death  in  the  United  States,  leading  to  a 
+serious  demand  for  new  interventions  to  improve  the  quality  of  life  in  stroke  survivors. 
+To  this  end,  direct  cortical  stimulation  using  an  epidural  electrode  has  been  reported 
+with  promising  results  in  animal  and  human  studies,  showing  the  potential  for  en-
+hancing  the  recovery  in  chronic  stroke  patients.  For  optimal  results,  doctors  must  be 
+able  to  modify  the  stimulation  pattern  as  frequently  as  needed  over  a  period  of  time 
+for  a  given  patient.  However,  severe  aftereffects  caused  by  stroke  limit  patients’  ac-
+tivities,  making  regular  doctor  visits  for  treatment  difficult.  This  study  aims  to  develop 
+a  prototype  of  a  telemedicine  system  to  enhance  stroke  recovery  by  using  a  ZigBee- 
+based  wireless  neuro-stimulator.  The  ZigBee  is  a  stable  platform  for  many  low-power 
+wireless  applications.  To  allow  stroke  patients  to  remotely  obtain  neuro-stimulation  treat-
+ments  from  their  doctors,  we  connected  the  ZigBee  to  the  internet.  The  system  also 
+allows  doctors  to  personalize  treatment  based  on  the  history  of  the  stimulation  para-
+meters.  The  system  developed  here  can  also  be  beneficial  as  a  common  platform  for 
+a  wide  range  of  brain  diseases  and  clinical  care  for  which  electric  stimulation  is  used.
+
+Key  words:  electrical  brain  stimulation,  stroke  recovery,  rehabilitation,  ZigBee,  neural 
+
+stimulation
+
+*To  whom  correspondence  should  be  addressed.
+TEL:  82-63-270-4068,  FAX:  82-63-270-2247
+e-mail:  ysyangg@gmail.com
+Received  September  16,  2010
+Accepted  for  publication  December  17,  2010
+
+INTRODUCTION
+
+    Stroke  is  a  leading  cause  of  adult  disability  and 
+the  second-leading  cause  of  death  in  Korea.  It  is 
+also  the  third-leading  cause  of  death  in  the  United 
+States.  Approximately  two-thirds  of  individuals  su-
+ffering  a  stroke  survive  and  require  rehabilitation 
+
+166 Gookhwa  Kim,  et  al.
+
+(Hendricks  et  al.,  2002;  Kim  et  al.,  2006a).  The 
+natural  plasticity  of 
+the  human  brain  generally 
+allows  some  nervous  system  recovery  between  3 
+and  6  months  after  the  stroke,  and  stroke  patients 
+usually  expect  progressive  recovery  during 
+that 
+time.  Medication  and  physical  therapy  are  common 
+treatments  for  strokes  to  facilitate  nerve  recovery 
+(Beck  et  al.,  2000;  Neville  et  al.,  2000;  Kim  et  al., 
+2006b).  While  early  rehabilitation  treatment  does 
+help  patients  regain  pre-stroke  functions,  recovery 
+slowly  subsides  after  the  first  month  following  the 
+stroke  and  tends  to  level  off  and  stagnate  in  the 
+long  term  (Bonita  and  Beaglehole,  1988;  Duncan, 
+1992;  Brown  et  al.,  2003;  Calautti  and  Baron,  2003; 
+Brown,  2006;  Canavero,  2006).  After  about  six 
+months,  stroke  survivors  benefit  little  from  reha-
+bilitative  training  and  are  left  impaired  (Duncan, 
+2000).  Long-term  interventional  strategies  to  im-
+prove  the  quality  of  life  in  stroke  survivors  are 
+therefore  in  great  demand.
+    Recent  studies  have  shown  that  electrical  cur-
+rents  delivered  to  the  cortex  through  transcranial 
+magnetic  stimulation  (TMS)  or  transcranial  direct 
+current  stimulation  (tDCS)  cause  cortical  stimulation 
+that  can  modulate  the  cortical  excitability  of  the 
+human  brain  noninvasively  (Calautti  and  Baron, 
+2003;  Canavero,  2006).  These  techniques  can  also 
+be  used  as  therapeutic  interventions  to  enhance 
+recovery  in  patients  suffering  from  the  long-term 
+aftereffects  of  stroke  (Uy,  2003;  Khedr  et  al.,  2005; 
+Kim  et  al.,  2006c).  It  has  been  suggested  that 
+direct  cortical  stimulation  through  an  epidural  elect-
+rode  may  produce  similar  effects,  possibly  with 
+more  advantages  (Kim  et  al.,  2006c).  To  test  this 
+hypothesis,  extradural  cortical  stimulation  (ECS)  to 
+enhance  recovery  has  been  studied  and  has  shown 
+promising  results  in  animal  and  human  studies  for 
+enhancing 
+in  chronic  stroke  patients 
+(Brown  et  al.,  2003;  Brown  et  al.,  2006;  Canavero 
+et  al.,  2006;  Moon  et  al.,  2007;  Huang  et  al.,  2008; 
+Kim  et  al.,  2008;  Levy  et  al.,  2008).  The  underlying 
+process  of  the  recovery  improvements  has  not  been 
+fully  understood.  Possible  explanations  include  im-
+proved  neural  plasticity  due  to  the  increase  in 
+neural  activity  with  electrical  stimulation  as  well  as 
+the  reduction  in  the  death  rate  of  normal  tissues 
+around  the  lesion  during  the  inflammatory  period. 
+    The  application  of  direct  electric  stimulation  for 
+
+recovery 
+
+to  closely  approach 
+
+stroke  recovery  is  in  an  early  stage,  in  contrast  to 
+the  abundant  research  and  clinical  studies  on  com-
+mercial  deep  brain  stimulators  (DBS)  for  Parkin-
+son’s  disease  and  epilepsy  (Agnew  et  al.,  1990; 
+Luders,  2004;  Theodore  and  Fisher,  2004;  Weaver 
+et  al.,  2006).  To  directly  stimulate 
+the  cortical 
+region,  stimulating  electrodes  are  implanted  in  the 
+brain  and  an  electric  stimulator  which  is  wired  to 
+the  electrodes  is  shielded  under  the  skin,  requiring 
+a  wireless  link  for  convenient  operation  of  the 
+implanted  pulse  generator  (IPG).  The  commercial 
+DBS  systems  provide  magnetic  and  proximity  RF 
+links  for  the  doctors  to  configure  the  IPG  and 
+control  its  operation.  The  spatial  range  of  control, 
+however,  is  limited  to  the  extent  that  a  dedicated 
+controller  device  has 
+the 
+patient’s  skin  to  access  the  IPG  in  clinical  ap-
+plication. 
+    Moreover,  electrical  stimulation  therapy  for  stroke 
+implies  not  just  temporary  diminishment  of  symp-
+toms  but  also  gradual  recovery  of  the  impaired 
+functions.  Ongoing  modification  of  the  stimulation 
+pattern  is  essential  during  treatment.  The  stroke 
+patients  need  intensive  administration  by  doctors  for 
+optimal  recovery.  However,  severe  stroke  after-
+effects  often  limit  patients’  activities,  making  regular 
+doctor  visits  for  treatment  difficult.   
+    The  stimulator  proposed  in  this  study  adopts  a 
+widely  known  low-power  wireless  communication 
+standard  ZigBee  in  order  to  extend  the  control 
+range  of  IPG  in  space,  reaching  as  far  as  remote 
+hospitals  or  clinics  through  the  internet.  The  pro-
+posed  stimulator  also  provides 
+for  bidirectional 
+communication,  enabling  continuous  monitoring  of 
+nerve  tissue  and  its  surroundings,  and  consequently 
+allows  traditional  rehabilitation  methods  to  be  aug-
+mented  by  neuro-modulation  therapy.  In  this  study, 
+we  aim  to  develop  a  prototype  miniaturized  electric 
+stimulator  for  stroke  recovery  and  a  wireless  com-
+munication  pathway  for  extended  and  flexible  use  of 
+the  IPG.
+
+MATERIALS  AND  METHODS
+
+Preliminary  animal  experiment
+
+    The  effect  of  electric  stimulation  was  studied  on 
+focal  brain 
+the  rat.  Photo-
+thrombotic  lesion  were  made  in  20  rats  on  their 
+
+ischemic  model 
+
+in 
+
+A 
+
+B
+
+C
+
+D
+
+Wireless  Neuro-Stimulator 167
+
+the  skull  for  2  min,  and  a  photosensitive  dye  Rose 
+Bengal  (20  mg/kg)  was  injected  through  a  femoral 
+vein,  followed  by  additional  illumination  for  18  min. 
+Then,  a  stimulating  electrode  was  implanted  im-
+mediately  after  induction  of  cortical  lesions  in  all 
+rats.  A  small  (∼3  mm  circular)  craniotomy  was 
+made  at  the  anterior  border  of  the  illumination  area 
+to  expose  the  peri-infarct  cortex.  A  3  mm  diameter 
+circular  stimulating  electrode  (Oscor,  Tampa,  Flo-
+rida,  USA)  was  placed  on  the  exposed  dura  and  a 
+reference  screw  on  posterior  parietal  bone.  The  rats 
+were  divided  in  3  different  subject  groups,  which 
+are,  sham  group  (w/electrodes  and  w/o  electric 
+stimulation,  n=10),  anodal  electric  stimulation  group 
+(n=5)  and  cathodal  electric  stimulation  group  (n=5). 
+Stimulation  amplitude  was  set  to  half  the  movement 
+threshold  for  individual  animals,  while  50  Hz  fre-
+quency  and  194  ms  pulse  duration  were  uniformly 
+used.  To  measure 
+function 
+recovery,  the  kinetic  ability  of  the  rats  are  evaluated 
+quantitatively  using  single  pellet 
+task 
+(SPRT)  as  shown  in  Fig.  1B  before  and  after 
+stroke.  Success  rate  in  SPRT  is  measured  by  the 
+percentage  rate  of  perfectly  eating  pieces  as  in 
+Eq.  (1). 
+
+the  rate  of  motor 
+
+reaching 
+
+Success
+
+rate
+
+of
+
+SPRT
+
+=
+
+perfectly
+all
+
+eating
+ate
+units
+
+units
+
+100×
+
+  (1)
+
+ 
+
+Fig.  1.  Preliminary  animal  experiment  to  verify  the  effect  of 
+cortical  electric  stimulation.  (A)  The  brain  map  of  a  rat.  (B)  Single 
+pellet  reaching  task  (SPRT)  method  to  evaluate  motor  ability.  (C) 
+Stroke  model  by  photo-thrombotic  infarction.  (D)  Recovery  rate  of 
+3  groups  of  stroke  induced  rat  SHAM,  ANODAL  stimulation, 
+CATHODAL  stimulation  group.
+
+primary  motor  cortex  (M1)  which  is  responsible  for 
+handling  hand  (forearm)  movement  as  shown  in 
+Fig.  1A,  C.  Photothrombotic  infarction  was  induced 
+in  the  cortex  opposite  the  preferred  paw.  Rats  were 
+anesthetized  with  a  mixture  of  ketamine  hydro-
+chloride  (100  mg/kg)  and  xylazine  (10  mg/kg), 
+heads  fixed  in  a  small  animal  stereotaxic  frame  and 
+a  skin  incision  was  made  in  the  frontoparietal  area. 
+A  fiber  optic  cold  illumination  light  source  with  3 
+mm  aperture  (Fiberoptic  Korea  Co.,  Cheonan,  Korea) 
+was  stereotaxically  positioned  1  mm  anterior  to 
+bregma  and  3  mm  lateral  to  midline  on  the  skull, 
+covering  the  area  representing  forelimb  motor  and 
+part  of  sensory  cortex.  Cold  light  was  irradiated  on 
+
+    Fig.  1D  shows  the  measured  daily  success  rates 
+of  the  3  groups  during  3  weeks  after  the  focal 
+lesion  was  induced.  The  results  show  that  the 
+cathodal  stimulation  group  recovered  their  motor 
+ability  up  to  80%  of  their  normal  values  after 
+treatment.  ANOVA  showed  that  there  is  significant 
+difference  between 
+the 
+stimulation  groups  (p＜0.05).  Therefore,  the  ele-
+ctrical  stimulation  is  thought  to  help  the  brain  to 
+recover  motor 
+function  after  stroke.  Further  re-
+searches  to  find  better  stimulation  methods  are 
+ongoing. 
+
+the  sham  group  and 
+
+IPG  model  and  ZigBee  communication  system
+    Two  types  of  pulses  were  used  (anodal  and 
+cathodal)  in  the  stimulation  of  brain  tissue  in  the 
+preliminary  animal  experiments  (Kim  et  al.,  2008). 
+Chronic  electrical  stimulation  of  nerve  tissue  with 
+only  a  monopolar  pulse  might  damage  some  ti-
+ssues  and  corrode  the  interfacing  electrode.  Such 
+
+168 Gookhwa  Kim,  et  al.
+
+to 
+
+the  neural 
+
+corrosion  significantly  distorts  the  stimulation  wave-
+form  (Theodore  and  Fisher,  2004)  which  makes  it 
+difficult  to  deliver  the  intended  electric  voltages  or 
+currents 
+tissues  concerned.  The 
+developed  IPG  model  is  capable  of  bi-phasic  pulse 
+generation.  A  bipolar  or  biphasic  pulse  can  reduce 
+cell  damage  and  electrode  corrosion.  The  bipolar 
+pulse  consists  of  pairs  of  main  phase  and  com-
+pensating  phase  with  opposite  polarities  for  charge 
+balance.  It  can  furthermore  selectively  stimulate  a 
+cell  body  or  axon  under  certain  conditions  if  ne-
+cessary  (Theodore  and  Fisher,  2004).  The  H-bridge 
+circuit  can  generate  3  different  polarities  with  a 
+single  power  supply.  The  amplitude  of  stimulation  is 
+adjustable  with  a  D/A  converter,  DAC7617  (TI, 
+USA).  The  IPG  model  includes  the  H-bridge,  D/A 
+converter,  and  microcontroller  unit  Atmega128L 
+(Atmel,  USA) 
+for  accurate  generation  and  ad-
+justment  of  stimulation  waveforms.  The  Atme-
+ga128L 
+is  an  8-bit  microcontroller  with  RISCH 
+architecture  and  low  power  consumption  charac-
+teristics.  Fig.  2A  shows  the  developed  stimulation 
+circuit.  The  IPG  model  has  dimensions  of  50×37×8 
+mm3  and  a  weight  of  7.4  g.
+    It  should  be  noted  that  the  animal  experiments 
+found  no  remarkable  increase  in  recovery  ratio  after 
+about  1  month  of  direct  cortical  electric  stimulation 
+treatment.  For  humans,  it  is  expected  that  the 
+implanted  system  should  operate 
+for  about  6 
+months  to  cover  the  period  in  which  functional 
+recovery  is  most  active.
+    The  ZigBee  link  enables  bi-directional  communi-
+cation  between  the  neural  stimulator  and  controlling 
+equipment  on  outside.  ZigBee  is  a  standard  small, 
+low  power  radio-frequency  communication  protocol 
+based  on  the  IEEE  802.15.4  standard,  designed  for 
+use  in  wireless  personal  area  networking  (WPAN) 
+applications  (Jung  and  Jeon,  2004).  The  low  power 
+characteristic  is  essential  to  the  electrical  system 
+implanted  in  the  body  because  battery  replacement 
+requires  an  additional  surgical  operation.  Moreover, 
+most  of  the  electric  power  should  be  used  for 
+neural  stimulation,  while  power  consumption  in  the 
+other  parts  of  the  system,  including  communication, 
+should  be  minimized.  A  small  ZigBee  transceiver 
+module  was  developed  based  on  the  design  re-
+ference  given  with  a  commercial  CC2420  ZigBee 
+Development  Kit  (Chipcon,  Norway).  The  CC2420  is 
+
+A
+
+B
+
+Fig.  2.  (A)  The  miniaturized  electrical  neuro-stimulator  circuit 
+board  composed  of  a  microcontroller  unit,  H-bridge  and  D/A 
+converter.  Size  of  50×37  mm2  and  weighing  7.4  g.  (B)  The 
+ZigBee  communication  module.  Size  of  45×40×12  mm3  and 
+weighing  12.7  g.
+
+integrated  with 
+
+to  enabling  wireless  control, 
+
+an  RF  communication  chip  which  supports 
+the 
+2.4GHz  IEEE  802.15.4  standard  protocol.  The  RF 
+chip  was 
+the  Atmega128L  mi-
+crocontroller  unit  on  a  discrete  IC  level.  A  software 
+protocol  stack  was  embedded  in  the  microcontroller 
+unit  to  support  ZigBee.  Fig.  2B  shows  the  trans-
+ceiver  module.  The  developed  circuit  board  has 
+physical  dimension  of  45×40×12  mm3,  which  is  the 
+size  of  a  small  matchbox,  and  its  weight  is  12.7  g. 
+    In  addition 
+the 
+ZigBee  can  connect  the  neuro-modulation  system  to 
+a  widespread  communication  network  such  as  the 
+internet  or  a  mobile  network.  This  network-based 
+neuro-modulation  system  can  provide  a  remote  or 
+tele-rehabilitation  program  exampled  by  Fig.  3A. 
+    The  ZigBee  is  also  capable  of  handling  a  large 
+number  of  wireless  connections  within  small  range 
+of  area  at  the  same  time.  Therefore,  a  ZigBee- 
+based  wireless  rehabilitation  program  could  manage 
+many  patients  simultaneously  in  a  local  area.  A 
+relatively  small  number  of  doctors  or  certified 
+personnel 
+local  rehabilitation  center  could 
+therefore  manage  many  stroke  patients  at  a  time, 
+even  during  their  training  activities.
+    The  IPG  model  was  combined  with  the  trans-
+
+in  a 
+
+A
+
+C
+
+Wireless  Neuro-Stimulator 169
+
+B
+
+Fig.  3.  A  remote  rehabilitation  ser-
+vice 
+for  stroke  recovery  using  a 
+ZigBee-based  neuro-modulation  sys-
+tem.  (A)  The  patient’s  IPG  is  con-
+nected  to  doctors  at  a  remote  site 
+through  the  internet  and  PC.  (B)  GUI 
+for  configuring  the  electrical  stimula-
+tor.  (C)  Various  configurations  of  sti-
+mulation.
+
+ceiver  module  to  examine  the  possibility  of  future 
+implantation,  especially  considering  its  size  with  all 
+the  functionalities  of  the  wireless  neuro-stimulation 
+device  enclosed  in  one  small  device.
+
+Remote  and  wireless  configuration  of  neuro- 
+stimulator
+
+    The  brain  stimulation  parameters  can  be  con-
+figured  by  doctors  from  a  remote  site.  The  de-
+veloped  telemedicine  system  consists  of  the  wire-
+less  IPG  model  linked  to  the  TCP/IP  via  the  ZigBee 
+link  mounted  at  a  PC.  The  neuro-stimulator  can  be 
+configured  by  selecting  its  ID  and  several  para-
+meters  in  a  graphical  user  interface  (GUI)  software 
+shown  in  Fig.  3B. 
+    The  neuro-stimulator  configuration  window  pro-
+vides  the  selection  of  such  stimulation  parameters 
+as  period,  pulse  width,  amplitude  and  overall  run-
+ning 
+time.  The  stimulation  waveform  can  have 
+different  polarities  and  modes.  Monopolar,  bipolar 
+and  DC  modes  are  as  shown  in  Fig.  3C.  Bipolar 
+stimulation  can  be  either  even  or  eccentric.  Both 
+consist  of  charge  balanced  pulse  pairs  as  men-
+tioned  above.  The  period  and  the  pulse  width  are  in 
+
+for  neuro-stimulators 
+
+the  range  of  several  or  tens  of  microseconds.  The 
+amplitude  has  values  of  several  millivoltages.  The 
+overall  running  time  is  usually  about  an  hour  per 
+one  day  in  regular  operation.  Since  there  are  no 
+commercial  standards 
+for 
+stroke,  the  ranges  of  parameters  appropriate  for 
+neural  tissue  stimulation  were  selected  based  on 
+those  used  in  the  preliminary  animal  experiments  or 
+based  on  a  clinically  available  DBS  Soletra  Model 
+7426  (Medtronic)  used  for  treating  other  movement 
+disorder 
+like  Parkinson’s  disease  and  essential 
+tremor. 
+    The  configuration  parameters  are  loaded  in  a 
+data  packet 
+for  efficient  and  accurate  wireless 
+transmission  over  the  air  between  the  PC  and  the 
+neuro-stimulator.  The 
+then  correctly 
+repeats  the  configured  stimulation  waveforms.
+
+IPG  model 
+
+Chronic  data  management  for  optimal  stimula-
+tion  therapy
+
+    The  periodic  electrical  stimulation  treatment  given 
+by  the  proposed  system  would  be  also  monitored 
+continuously  by  the  remote  doctors.  A  record  of  the 
+stimulation  and  the  gradual  recovery  process  is  a 
+
+170 Gookhwa  Kim,  et  al.
+
+valuable  resource  in  this  type  of  neuro-stimulation 
+therapy.  The  collection  of  data  includes  background 
+information  specific  to  the  patient  and  the  disease 
+such  as  the  times  of  attack,  operation,  and  im-
+plantation  of  the  neuro-electrodes  and  stimulator. 
+The  main  objective  of  the  system  is  to  produce  an 
+easily  visualized  history  of  each  patient’s  treatment 
+containing  quantitative  data  stored  in  a  database  as 
+illustrated  in  Fig.  4.  Clinical  neurosurgeons  can 
+make  use  of  this  tool  to  gain  insight  into  effective 
+treatment  programs.  Doctors  can  correlate 
+the 
+history  of  the  changes  in  stimulation  parameters 
+with  the  gradual  recovery  process  of  the  patient. 
+    Stimulation  parameters  are  organized  in  the  GUI 
+according  to  their  significance  and  effects.  Since  it 
+is  generally  accepted  that  the  amplitude  of  the 
+
+Fig.  4.  Graphical  visualization  of  the 
+stimulation  parameters.  Each  color 
+indicates  the  polarity  of  stimulation  in 
+the  amplitude-based  display  of  ch-
+ronic  data.
+
+Fig.  5.  Wireless  configuration  of  the 
+stimulator  and  its  output  waveforms 
+measured  by  oscilloscope.
+
+impact  on 
+
+the  strongest 
+
+pulse  has 
+the  brain, 
+amplitude  is  marked  on  the  vertical  axis.  Each 
+circle  indicates  one  dose  given  by  the  doctor.  The 
+radius  of  the  circle  corresponds  to  the  duration  of 
+each  dose.  The  color  shows  the  polarity  and  mode 
+of  stimulation;  red  is  for  anodal  stimulation,  green 
+for  cathodal,  black  for  DC,  blue  for  even  anodal, 
+light  blue  for  even  cathodal,  yellow  for  eccentric 
+anodal,  and  purple  for  eccentric  cathodal.  Additional 
+details  are  shown  when  the  mouse  cursor  moves 
+over  the  circle. 
+
+RESULTS  AND  DISCUSSION
+
+    The  prototype  neuro-stimulator  developed  in  this 
+work  is  configured  remotely  through  ZigBee  and  the 
+
+the  waveform.  Another  drawback 
+
+internet  to  generate  the  selected  waveforms  exactly, 
+including  DC,  monopolar  and  bipolar  pulses,  as 
+shown  in  Fig.  5.  The  wireless  configuration  worked 
+reliably  within  a  radius  of  about  10  m. 
+    The  connection  to  each  patient  was  made  using 
+a  direct  database  link  and  the  ongoing  information 
+about  stimulation  was  stored  in  the  corresponding 
+database.
+    For  an  extended  use  of  a  neuro-stimulator 
+implanted  in  the  body,  most  of  the  battery  power 
+should  be  concentrated  on  electrical  stimulation  of 
+neural  tissues  rather  than  on  communication.  We 
+therefore  decided  to  transmit  only  the  shape  pa-
+rameters  of  the  waveforms  instead  of  all  the  data 
+points  of 
+to 
+transmitting  all  the  data  points  is  that  this  requires  a 
+long  communication  time  via  RF  transmission.  A 
+complete  set  of  points  would  allow  us  to  generate 
+arbitrary  waveforms;  however, 
+is  some 
+potential  risk  in  using  high  frequency  RF  trans-
+mission  through  the  skin.  The  parametric  trans-
+mission  needs  only  about  10  bytes  while  the  entire 
+data  point  transmission  requires  about  400  bytes. 
+The  proposed  method  achieved  both 
+reduced 
+power  consumption  and  minimal  RF  exposure  time. 
+Table  1(a)  shows  the  current  consumption  of  the 
+device  under  various  stimulation  configurations.  The 
+definition  of  the  duty  ratio  is  shown  in  Fig.  5.  Table 
+1(b)  shows  the  performance  of  our  neuro-stimulator 
+prototype  compared  with  the  technical  specification 
+of 
+two 
+systems  have  different  working  principles  for  dif-
+ferent  diseases  and  thus  cannot  be  directly  com-
+pared,  Table  1(b)  shows  that  our  proposed  system 
+has  better  device  performance,  which  might  be 
+useful  for  more  precise  experiments.  The  minimum 
+pulse  width  (time  resolution)  is  1μs,  the  maximum 
+repetition  rate  was  500  kHz,  and  stimulation  voltage 
+
+ranges  from  −3.3  to  ＋3.3  V.  The  output  voltage 
+
+the  Soletra  Model  7426.  Although 
+
+there 
+
+the 
+
+necessary  for  cortical  stimulation  for  stroke  recovery 
+is  much  lower  than  3.3  V  (Moon  et  al,  2007). 
+Cortical  stimulation  in  animals,  which  will  likely  be 
+the  first  application  of  the  developed  system,  re-
+quires  low  voltages.  Our  device  meets  the  require-
+ments  for  a  prototype  and  animal  experiments. 
+    The  chronic  data  management  capability  of  the 
+remote  stimulation  system  will  help  doctors  un-
+derstand  what  conditions  improve  recovery  for  a 
+
+Wireless  Neuro-Stimulator 171
+
+Table  1.  Key  features  of  the  developed  prototype  device.  (a) 
+Current  consumption  under  different  pulse  conditions, 
+(b) 
+treating  movement 
+Comparison  with  commercial  DBS 
+disorder
+
+for 
+
+(a)
+
+(b)
+
+Duty  ratio
+
+1/10
+1/40
+
+Symbol
+
+Soletra  Model
+  7426  (Medtronic)
+Our  system
+
+Polarity
+
+Monopolar  (anodal) Even  bipolar  (anodal)
+
+47  mA
+45  mA
+
+50  mA
+46  mA
+
+Max.
+rate
+
+Min.
+
+pulse  width
+
+Amplitude  of
+stimulation
+
+185  Hz
+
+60μs
+
+0∼10.5  V
+
+500  kHz
+
+1μs
+
+0∼3.3  V
+
+to 
+
+the  electrical  stimulation, 
+
+given  patient.  Although  a  more  quantitative  eva-
+luation  of  recovery  requires  a  systematic 
+tool, 
+doctors  can  get  basic  information  about  the  pa-
+tient’s  language  and  motor  abilities  through  voice 
+communication  over  the  phone  and  through  ques-
+tion-based  scoring  methods.  Actually,  we  are  de-
+veloping  interactive  digital  devices  in  tangible  forms 
+like  PEG  board  for  on-line  evaluation  of  stroke 
+symptoms  and  recovery  progress  based  on  clinically 
+verified  scoring  and  scaling  methods  (Masur,  2004). 
+    In  addition  to  clinical  use  in  humans,  this  data 
+mining  tool  is  useful  in  fundamental  research  using 
+animal  models  to  investigate  the  principles  of  stroke 
+recovery  accelerated  by  cortical  stimulation.  More-
+over,  since  every  individual  will  have  different  re-
+sponses 
+this  data 
+collection  approach  allows  for  personalized  therapy.
+    As  a  conclusion,  we  have  developed  a  novel 
+electrical  neuro-stimulator  for  stroke  recovery  on  the 
+basis  of  preliminary  experimental 
+results.  The 
+ZigBee-based  RF  communication,  stimulation  func-
+tion  and  internet  hookup  were  successfully  inte-
+grated  in  the  proposed  neuro-modulation  system. 
+The  precise  wireless  configuration  showed  promise 
+for  applications  such  as  remote  rehabilitation. 
+    With  the  help  of  wireless  communication,  the 
+developed  system  will  facilitate  the  study  of  how 
+electrical  stimulations  affect  neural  tissues.  Cur-
+rently,  the  most  effective  pulse  shape  parameters 
+for  improving  stroke  recovery  are  being  investigated 
+through  animal  experiments  in  collaboration  with 
+experts 
+in  neurosurgery  and  neuro-rehabilitation. 
+The  site  of  stimulation  is  also  an  important  issue  for 
+
+172 Gookhwa  Kim,  et  al.
+
+better  efficacy  of  electric  cortical  stimulation.  Com-
+patibility  with  magnetic  resonance  (MR)  techniques 
+is  another  important  requirement  for  the  implantable 
+neuro-stimulator  because  we  need  to  use  neuro- 
+imaging  systems  such  as  functional  MR  imaging 
+(fMRI)  to  study  the  effect  more  precisely.
+    We  are  also  examining  additional  components 
+including  audiovisual  support  for  better  treatment  or 
+a  user-friendly  interface  especially  for  patients  with 
+severely  impaired  motor  function.  The  on-line  tools 
+for  more  quantitative  evaluation  of  patient  recovery 
+is  being  integrated  into  the  proposed  system  for 
+future  use,  which  will  be  a  bi-directional  interactive 
+platform 
+tele-rehabilitation 
+techniques. 
+    The  system  developed  here  can  also  be  used  as 
+a  common  platform  for  a  wide  range  of  brain 
+diseases  and  clinical  care  for  which  electric  sti-
+mulation  is  used. 
+
+for  a  wide  range  of 
+
+ACKNOWLEDGEMENTS
+
+    This  work  was  supported  by  the  Grant  of  the 
+Korean  Ministry  of  Education,  Science  and  Tech-
+nology  (The  Regional  Core  Research  Program/ 
+Center  for  Healthcare  Technology  Development).
+
+REFERENCES
+
+Agnew  WF,  McCreery  DB,  Yuen  TG  and  Bullara  LA  (1990) 
+Effects  of  prolonged  electrical  stimulation  of  the  central  ner-
+vous  system.  In:  Neural  prostheses  fundamental  studies 
+(Agnew  WF  and  McCreey  DB,  eds),  pp  226.  Prentice 
+Hall,  Englewood  Cliffs  NJ.
+
+Beck  H,  Goussakov  IV,  Ailing  L,  Helmstaedter  C  and  Elger 
+the  Human  Dentate 
+
+CE  (2000)  Synaptic  Plasticity 
+Gyrus.  J  Neurosci  20:7080-7086.
+
+Bonita  R  and  Beaglehole  R  (1988)  Recovery  of  motor  function 
+
+in 
+
+after  stroke.  Stroke  19:1497-1500.
+
+Brown  JA,  Lutsep  H,  Cramer  SC  and  Weinand  M  (2003) 
+Motor  cortex  stimulation  for  enhancement  of  recovery  after 
+stroke:  case  report.  Neurol  Res  25:815-818.
+
+Brown  JA,  Lutsep  HL,  Weinand  M  and  Cramer  SC  (2006) 
+Motor  cortex  stimulation  for  the  enhancement  of  recovery 
+from  stroke:  a  prospective,  multicenter  safety  study.  Neu-
+rosurgery  58:464-473.
+
+Calautti  C  and  Baron  JC  (2003)  Functional  Neuroimaging 
+Studies  of  Motor  Recovery  After  Stroke  in  Adults.  Stroke 
+34:1553-1566.
+
+Canavero  S,  Bonicalzi  V,  Intonti  S,  Crasto  S  and  Castellano 
+G  (2006)  Effects  of  bilateral  extradural  cortical  stimulation 
+for  plegic  stroke  rehabilitation.  Neuromodulation  9:28-33.
+
+Duncan  P,  Goldstein  L,  Matchar  D,  Divine  G  and  Feussner  J 
+
+(1992)  Measurement  of  motor  recovery  after  stroke.  Out-
+come  assessment  and  sample  size  requirement.  Stroke 
+23:1084-1089.
+
+Duncan  P,  Lai  S  and  Keighley  J  (2000)  Defining  post-stroke 
+recovery:  implications  for  design  and  interpretation  of  drug 
+trials.  Neuropharmacology  39:835-841.
+
+Hendricks  HT,  Limbeck  VJ,  Geurts  AC  and  Zwarts  MJ  (2002) 
+Motor  recovery  after  stroke:  a  systematic  review  of  the 
+literature.  Arch  Phys  Med  Rehabil  83:1629-1637.
+
+Huang  M,  Harvey  RL,  Stoykov  ME,  Ruland  S,  Weinand  M, 
+Lowry  D  and  Levy  R  (2008)  Cortical  Stimulation  for  Upper 
+Limb  Recovery  Following  Ischemic  Stroke:  A  Small  Phase 
+II  Pilot  Study  of  a  Fully  Implanted  Stimulator.  Top  Stroke 
+Rehabil  15:160-172.
+
+Jung  SH  and  Jeon  HI  (2004)  IEEE  802.15.4  and  ZigBee 
+Protocol:  Active  RFID  technology  for  Ubiquitous  sensor 
+networking.  Journal  of  the  Korean  Institute  of  Communica-
+tion  Sciences  21:67-88.
+
+Khedr  EM,  Ahmed  MA,  Fathy  N  and  Rothwell  C  (2005) 
+Therapeutic  trial  of  repetitive  transcranial  magnetic  stimu-
+lation  after  acute  ischemic  stroke.  Neurology  65:466-468.
+Kim  CS,  James  HC  and  Jeffery  JS  (2006a)  Bilateral  movem-
+ent  training  and  stroke  rehabilitation:  a  systematic  review 
+and  meta-analysis.  J  Neurol  Sci  244:89-95.
+
+Kim  HI,  Shin  YI,  Moon  SK,  Chung  GH,  Lee  MC  and  Kim  HG 
+(2008)  Unipolar  and  continuous  cortical  stimulation  to  en-
+hance  motor  and  language  deficit  in  patients  with  chronic 
+stroke:  report  of  2  cases.  Surg  Neurol  69:77-80.
+
+Kim  KU,  Kim  HM,  Woo  SY  and  Chung  BK  (2006b)  The  effect 
+of  the  Aqua-rehabilitaion  program  on  the  Stroke  patient’s 
+muscle  strength  and  ADL  performance.  J  APA  14:99-115.
+Kim  YH,  You  SH,  Ko  MH,  Park  JW,  Lee  KH,  Jang  SH,  Yoo 
+WK  and  Hallett  M  (2006c)  Repetitive  transcranial  magnetic 
+stimulation-induced  corticomotor  excitability  and  associated 
+motor  skill  acquisition  in  chronic  stroke.  Stroke  37:1471- 
+1476.
+
+(2008)  Cortical  stimulation 
+
+Levy  R,  Ruland  S,  Weinand  M,  Lowry  D,  Dafer  R  and  Bakay 
+R 
+rehabilitation  of 
+patients  with  hemiparetic  stroke:  a  multicenter  feasibility 
+study  of  safety  and  efficacy.  J  Neurosurg  108:707-714.
+
+Luders  HO  (2004)  Deep  brain  stimulation  and  epilepsy.  The 
+
+the 
+
+for 
+
+Cleveland  Clinic  Foundation,  Cleveland,  OH
+
+Masur  H  (2004)  Scales  and  scores 
+
+in  neurology.  Georg 
+
+Thieme  Verlag,  German
+
+Moon  SK,  Yang  CY,  No  SE,  Kim  EY,  Lee  S,  Park  SA,  Oh 
+GJ,  Kim  HI,  Song  JH,  Lee  MC  and  Shin  YI  (2007) 
+Promotion  of  motor  recovery  by  anodal  continuous  and 
+low  amplitude  cortical  stimulation  in  rat  stroke  model.  Lab 
+Anim  Res  23:25-30.
+
+Neville  HJ  and  Bavelier  D  (2000)  Specificity  and  plasticity  in 
+neurocognitive  development  in  humans.  In:  The  new  cog-
+nitive  neurosciences.  2nd  ed.  pp  83-99.  The  MIT  Press, 
+Cambridge  MA.
+
+Theodore  WH  and  Fisher  RS  (2004)  Brain  stimulation  for 
+
+epilepsy.  The  Lancet  Neurology  3:111-118.
+
+Uy  J,  Ridding  MC,  Hillier  S,  Thompson  PD  and  Miles  TS 
+(2003)  Does  induction  of  plastic  change  in  motor  cortex 
+improve  leg  function  after  stroke?  Neurology  61:982-984.
+Weaver  FM,  Stern  MB  and  Follett  K  (2006)  Deep  brain 
+stimulation  in  Pakinson's  disease.  The  Lancet  Neurology 
+5:900-901.
+
+

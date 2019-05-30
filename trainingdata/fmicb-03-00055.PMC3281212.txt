@@ -1,0 +1,2792 @@
+REVIEW ARTICLE
+published: 17 February 2012
+doi: 10.3389/fmicb.2012.00055
+
+Role of the HIV-1 matrix protein in Gag intracellular
+trafﬁcking and targeting to the plasma membrane for
+virus assembly
+
+Ruba H. Ghanam, Alexandra B. Samal ,Timothy F. Fernandez and Jamil S. Saad *
+
+Department of Microbiology, University of Alabama at Birmingham, Birmingham, AL, USA
+
+Edited by:
+Akio Adachi, The University of
+Tokushima Graduate School, Japan
+Reviewed by:
+Eric O. Freed, National Cancer
+Institute at Frederick, USA
+Yasuyuki Miyazaki, The University of
+Tokushima Graduate School, Japan
+Hironori Sato, National Institute of
+Infectious Diseases, Japan
+*Correspondence:
+Jamil S. Saad, Department of
+Microbiology, University of Alabama
+at Birmingham, 845 19th Street
+South, Birmingham, AL 35294, USA.
+e-mail: saad@uab.edu
+
+Human immunodeﬁciency virus type-1 (HIV-1) encodes a polypeptide called Gag that is able
+to form virus-like particles in vitro in the absence of any cellular or viral constituents. Dur-
+ing the late phase of the HIV-1 infection, Gag polyproteins are transported to the plasma
+membrane (PM) for assembly. In the past two decades, in vivo, in vitro, and structural
+studies have shown that Gag trafﬁcking and targeting to the PM are orchestrated events
+that are dependent on multiple factors including cellular proteins and speciﬁc membrane
+lipids. The matrix (MA) domain of Gag has been the focus of these studies as it appears
+to be engaged in multiple intracellular interactions that are suggested to be critical for
+virus assembly and replication. The interaction between Gag and the PM is perhaps the
+most understood. It is now established that the ultimate localization of Gag on punctate
+sites on the PM is mediated by speciﬁc interactions between the MA domain of Gag and
+phosphatidylinositol-4,5-bisphosphate [PI(4,5)P2], a minor lipid localized on the inner leaﬂet
+of the PM. Structure-based studies revealed that binding of PI(4,5)P2 to MA induces minor
+conformational changes, leading to exposure of the myristyl (myr) group. Exposure of the
+myr group is also triggered by binding of calmodulin, enhanced by factors that promote
+protein self-association like the capsid domain of Gag, and is modulated by pH. Despite
+the steady progress in deﬁning both the viral and cellular determinants of retroviral assem-
+bly and release, Gag’s intracellular interactions and trafﬁcking to its assembly sites in the
+infected cell are poorly understood. In this review, we summarize the current understanding
+of the structural and functional role of MA in HIV replication.
+
+Keywords: assembly, Gag, matrix, myristyl, NMR, trafﬁcking, plasma membrane
+
+Human immunodeﬁciency virus type-1 (HIV-1), the causative
+agent of AIDS, is blamed for over 34 million deaths and is poised to
+claim over two million lives a year in the absence of efﬁcient ther-
+apeutic intervention (UNAIDS report 2011). HIV-1 replication is
+strongly dependent on the cellular machinery to produce progeny
+virus. Since its discovery, efforts have focused on the development
+of effective vaccines and drugs that target different stages of the
+HIV lifecycle. Combinations of drugs that target protease, reverse
+transcriptase, integrase, or virus fusion form the basis of current
+antiretroviral therapy (ART; Greene et al., 2008). However, the
+genetic diversity and the ability of the virus to mutate to evade
+drug treatment remains a threat to the future success of ART. The
+discovery of cellular factors that participate in HIV-1 replication
+pathways has provided new insights into the molecular basis of
+virus–host cell interactions. Recent studies have identiﬁed hun-
+dreds of cellular factors that are involved in HIV replication (Brass
+et al., 2008; König et al., 2008; Zhou et al., 2008; Jäger et al., 2011;
+Lever and Jeang, 2011). Drugs that target the essential interactions
+of viral factors with host-proteins have the potential to not only
+complement current therapy, but may also overcome the prob-
+lem of viral escape. As host-factors are stable and not diverse, the
+mutational capacity of the virus that usually allows for drug escape
+is thus restricted by the requirement to remain compatible to an
+
+invariant host-factor. Elucidation of the molecular interactions
+between the host cell and HIV are important for understanding
+the virus replication and the subsequent cytopathogenesis in the
+infected cell, which will aid in the development of more efﬁcient
+antiviral drugs.
+
+Retroviral genomes encode a polyprotein called Gag (Figure 1)
+that contains all the viral elements required for virus assembly and
+is capable of forming virus-like particles (VLPs) in vitro in the
+absence of viral and cellular constituents (Gheysen et al., 1989;
+Campbell and Rein, 1999; Campbell et al., 2001a). Subsequent
+to their synthesis, Gag proteins are targeted to the plasma mem-
+brane (PM) for assembly and budding (Adamson and Freed, 2007;
+Chu et al., 2010). During or shortly after budding, the virally
+encoded protease cleaves off Gag proteins at ﬁve positions into
+matrix (MA), capsid (CA), nucleocapsid (NC), spacer peptide 1
+(SP1), spacer peptide 2 (SP2), and P6, which rearrange to form
+mature and infectious virions (Figure 1; Turner and Summers,
+1999; Adamson and Freed, 2007; Ganser-Pornillos et al., 2008;
+Briggs and Kräusslich, 2011).
+
+It is widely accepted that HIV-1 Gag budding and assembly
+occur predominantly on the PM (Figure 1; Hermida-Matsumoto
+and Resh, 2000; Jouvenet et al., 2006, 2008; Finzi et al., 2007;
+Li et al., 2007; Welsch et al., 2007; Gousset et al., 2008; Joshi
+
+www.frontiersin.org
+
+February 2012 | Volume 3 | Article 55 | 1
+
+Ghanam et al.
+
+Role of HIV-1 matrix in virus assembly
+
+1999; Bouamr et al., 2003). However, pioneering NMR structural
+studies by the Summers lab conﬁrmed that the myr group can
+adopt sequestered [myr(s)] and exposed [myr(e)] conformations
+even in the isolated MA protein (Tang et al., 2004). Equilibrium
+data revealed that while myr(+)MA resides in monomer–trimer
+equilibrium, the myr(−)MA protein maintains the monomeric
+character in solution under all conditions (Tang et al., 2004).
+In addition, exposure of the myr group is coupled with protein
+trimerization (Tang et al., 2004). The myr switch was found to be
+sensitive to protein concentration, which led to the proposition of
+the “entropic switch mechanism” (Tang et al., 2004). Additionally,
+inclusion of the CA domain increases exposure of the myr group,
+which indicates that exposure of the myr group is dependent on
+Gag multimerization (Tang et al., 2004). Most recently, we have
+shown that myr exposure is also modulated by pH (Fledderman
+et al., 2010). Since these factors (protein concentration, multimer-
+ization, and pH) are intrinsically conﬁned to the MA protein, we
+call them the “internal modulators.”
+
+Gag MULTIMERIZATION, A TRIGGER FOR myr EXPOSURE AND
+A REQUIREMENT FOR EFFICIENT MEMBRANE ASSOCIATION
+As mentioned above, previous studies revealed that exposure of the
+myr group is coupled with protein trimerization and is enhanced
+by factors that promote protein self-association, such as increasing
+protein concentration or inclusion of the CA domain (Tang et al.,
+2004). HIV-1 Gag multimerization is directly linked to efﬁcient
+membrane binding and is required for particle formation and viral
+infectivity (Burniston et al., 1999; Ono et al., 2000a; Lindwasser
+and Resh, 2001; Li et al., 2007). The oligomerization properties
+of HIV-1 Gag, MA, and MACA constructs have been extensively
+studied (Morikawa et al., 1998, 2000; Tang et al., 2004; Alfadhli
+et al., 2007, 2009a,b; Dalton et al., 2007; Datta et al., 2007b; Li et al.,
+2007; Saad et al., 2007a,b; Dou et al., 2009; Hogue et al., 2009). The
+CA domain contains a dimerization site in the C terminus and is
+known to play a central role in mediating Gag–Gag interactions
+(Li et al., 2000; Joshi et al., 2006; Ganser-Pornillos et al., 2007,
+2008; Wright et al., 2007; Briggs et al., 2009; Hogue et al., 2009;
+Chukkapalli and Ono, 2011). Other domains such as SP1 and NC
+also play important roles in Gag multimerization and assembly
+(Dawson and Yu, 1998; Burniston et al., 1999; Campbell and Rein,
+1999; Cimarelli et al., 2000; Morikawa et al., 2000; Muriaux et al.,
+2001; Wright et al., 2007; Briggs et al., 2009). Altogether, despite
+the lack of a detailed structural mechanism these ﬁndings indicate
+that myr exposure is enhanced through synergistic intermolecular
+interactions between Gag subdomains that cooperatively promote
+assembly.
+
+FIGURE 1 | Schematic representation showing the late phase of HIV
+replication involving Gag targeting and assembly on the plasma
+membrane.
+
+et al., 2009a; Ono, 2009, 2010). Membrane binding is mediated by
+Gag’s N-terminal myristoylated MA domain [myr(+)MA; Adam-
+son and Freed, 2007; Ganser-Pornillos et al., 2008; Ono, 2009;
+Chukkapalli and Ono, 2011; Hamard-Peron and Muriaux, 2011].
+The myristyl (myr) group functions in concert with a group
+of conserved basic residues to facilitate membrane anchoring
+and assembly of Gag. Mutations that either block myristoyla-
+tion or disrupt the basic patch lead to inefﬁcient Gag targeting
+to the PM, resulting in dramatically reduced virus production
+(Bryant and Ratner, 1990; Freed et al., 1994; Spearman et al., 1997;
+Hermida-Matsumoto and Resh, 2000; Ono et al., 2000b).
+
+Role of the MA protein in HIV replication has been exten-
+sively examined. In this review, we focus on the functional role of
+MA in the late phase of infection. In the last few years, efforts
+have been focused on the identiﬁcation of structural require-
+ments that enable efﬁcient Gag-membrane association. Success
+in producing the ﬁrst retroviral matrix myristoylated protein for
+structural studies (Tang et al., 2004) afforded invaluable insight
+into understanding speciﬁc factors that regulate the myr switch
+and the potential implication in virus assembly.
+
+INTRINSIC FACTORS THAT MODULATE THE myr SWITCH IN
+HIV-1 MA
+In vitro studies have established that Gag binds membranes more
+efﬁciently than the isolated MA protein (Zhou and Resh, 1996;
+Spearman et al., 1997; Hermida-Matsumoto and Resh, 1999; Ono
+and Freed, 1999; Paillart and Gottlinger, 1999; Bouamr et al.,
+2003). This led to the hypothesis that the myr group is exposed
+in HIV-1 Gag and sequestered in the MA protein, which has
+come to be known the “myristyl switch mechanism” (Spearman
+et al., 1997; Hermida-Matsumoto and Resh, 1999; Ono and Freed,
+
+MYRISTYL EXPOSURE IS MODULATED BY pH
+One of the key characteristics of the HIV-1 myr(+)MA is the pres-
+ence of the myr group in two energetically stable states: exposed
+and sequestered (Tang et al., 2004). In solution, these two states are
+at equilibrium. However, it seems that subtle changes in sample
+conditions such as protein concentration can perturb the equilib-
+rium state (Tang et al., 2004). Analysis of the HIV-1 myr(+)MA
+structure revealed that the imidazole ring of His-89, which is
+highly conserved among all strains of HIV-1, HIV-2, and simian
+immunodeﬁciency virus (SIV; Los Alamos National Laboratory,
+
+Frontiers in Microbiology | Virology
+
+February 2012 | Volume 3 | Article 55 | 2
+
+Ghanam et al.
+
+Role of HIV-1 matrix in virus assembly
+
+http://www.hiv.lanl.gov), forms a salt bridge with Glu-12(COO−)
+in HIV-1 myr(−)MA but not in the myr(+)MA protein. Histi-
+dine residues play important roles in biological activity as they
+are frequently included in the active sites of enzymes and con-
+tribute to protein stability and function. The intrinsic pK a of
+the histidine imidazole group, which varies depending on the
+degree of burial or exposure within proteins (Edgcomb and Mur-
+phy, 2002), typically lies between 6.0 and 7.0 (Liu et al., 1997;
+Edgcomb and Murphy, 2002). Previous studies have shown that
+mutation of His-89 led to targeting of Gag to intracellular com-
+partments and severely reduced virus production (Freed et al.,
+1994). We have recently shown that deprotonation of the His-89
+imidazole ring in myr(+)MA destabilizes the salt bridge formed
+between His-89(Hδ2) and Glu-12(COO−; Figure 2), leading to
+tight sequestration of the myr group and a shift in the equilibrium
+from trimer to monomer (Fledderman et al., 2010). By using NMR
+methods, we calculated the pK a of the histidine imidazole group
+in both myr(−)MA and myr(+)MA to be 6.5 (Fledderman et al.,
+2010). Furthermore, we have shown that oligomerization of a Gag-
+like construct containing MACA is also pH-dependent. Increasing
+the pH to 8 inhibited the formation of trimers for MA and MACA
+(Figure 3; Fledderman et al., 2010). These ﬁndings indicate that
+trimerization of Gag in vitro, although enhanced by CA, is solely
+driven by the MA domain and tightly regulated by pH. Based on
+these ﬁndings, we suggested that changes in pH might have an
+effect on the afﬁnity of MA and Gag binding to membranes.
+
+Earlier studies have also shown that mutation of His-89 and
+other residues in the vicinity led to targeting of Gag to intracellular
+compartments and severely reduced virus production (Freed et al.,
+1994). We recently found that the internal Gag puncta observed
+with H89G mutation colocalized extensively with CD63, indicat-
+ing multivesicular bodies (MVB) localization (Fledderman et al.,
+2010). These results indicate that His-89 is essential for proper tar-
+geting of Gag to the PM and efﬁcient particle formation in HeLa
+cells. Structural studies have shown that substitution of His-89
+destabilized the tertiary structure, triggering myr exposure, and
+promoting high-order protein self-association (Fledderman et al.,
+2010).
+
+Altogether, structural studies revealed that MA acts as a “pH
+sensor” and that, at least in vitro, myr exposure is regulated by
+pH. A potential role of pH variations in subcellular localization
+and targeting of Gag has not yet been established. Intracellular pH
+often ﬂuctuates (6.3–7.8) in response to cell growth, development,
+and apoptosis (Schuldiner and Rozengurt, 1982; Moolenaar et al.,
+1983; Gottlieb et al., 1995). Alterations in the PM function can
+also be induced by cytopathic viruses including HIV-1 (Maku-
+tonina et al., 1996). A signiﬁcant decrease in pH from 7.2 to as
+low as 6.0 was observed in cells infected by HIV-1 (Makutonina
+et al., 1996). Despite the in vitro evidence for pH effect on the
+myr switch, it has yet to be established whether manipulation of
+intracellular pH can alter kinetic pathways and sites or efﬁciency
+of Gag assembly.
+
+MA RESIDUES THAT REGULATE THE myr SWITCH
+MECHANISM AND/OR Gag ASSEMBLY SITES
+Mutagenesis studies in the past two decades have identiﬁed sev-
+eral residues in the MA domain that can alter Gag targeting and
+
+FIGURE 2 | The imidazole ring of His-89 forms a salt bridge with
+Glu-12(COO−) in HIV-1 myr(−)MA but not in myr(+)MA.
+
+assembly (Bryant and Ratner, 1990; Freed et al., 1994; Zhou et al.,
+1994; Ono et al., 1997, 2000b; Ono and Freed, 1999, 2004; Pail-
+lart and Gottlinger, 1999; Joshi et al., 2009a; Chukkapalli et al.,
+2010). Several of these residues are located in the N-terminus of
+MA and are considered critical for proper membrane selection
+(Freed et al., 1994; Ono et al., 1997; Ono and Freed, 1999; Pail-
+lart and Gottlinger, 1999). More speciﬁcally, V7R, L8A, and L8I
+mutations give rise to a phenotype similar to that observed for the
+unmyristoylated protein without blocking myristoylation. These
+mutants, which display a hazy, non-punctate staining pattern typi-
+cal of HIV-1 Gag mutants that are defective in membrane binding,
+cause a signiﬁcant increase in cytosolic localization of Gag and
+severely inhibit virus assembly and release (Freed et al., 1994; Ono
+et al., 1997; Ono and Freed, 1999; Paillart and Gottlinger, 1999). In
+order to identify the structural basis for weak membrane associa-
+tion and diminished assembly of Gag V7R, L8A and L8I mutants,
+NMR, and analytical centrifugation studies have been performed
+on MAV7R, L8A, and L8I mutants (Saad et al., 2007b). NMR struc-
+tures revealed that the backbone atoms of these mutants are very
+similar to the coordinates of the wild-type MA protein, indicating
+that single mutations in the N-terminal loop had no effect on the
+globular fold of the protein (Saad et al., 2007b). These studies,
+however, have shown that these mutations shut off the myr switch
+and lead to complete sequestration of the myr group (Saad et al.,
+
+www.frontiersin.org
+
+February 2012 | Volume 3 | Article 55 | 3
+
+Ghanam et al.
+
+Role of HIV-1 matrix in virus assembly
+
+FIGURE 3 | Schematic representation showing multimerization events of Gag and MA proteins as a function of pH. Reprinted with permission from
+(Fledderman et al., 2010). Copyright {2010} American Chemical Society.
+
+2007b). The main differences between the structures are localized
+within the disordered loop formed by residues Gly-2–Ser-9. For
+example, in the V7R MA structure the side chain of Arg-7 makes
+a salt bridge with the side chain of Glu-52, and the methylene
+groups of Arg-7 contribute to the hydrophobic interactions with
+the methylene groups of the myristate (Saad et al., 2007b). For
+L8A, the less bulky methyl group of Ala-8 creates a better cavity
+for the myristate group, which packs closer to Trp-16. Thus, struc-
+tural changes involve only residues located near the mutation site,
+which may have only average intrinsic conformational mobility.
+The sensitivity of the myristyl switch equilibrium to subtle mole-
+cular changes is evident in the conservative substitution of Leu-8
+by Ile, which is sufﬁcient to block myristate exposure under con-
+ditions in which exposure is normally highly favored (Saad et al.,
+2007b). Altogether, in vivo, biochemical, and structural studies
+conﬁrm that even conserved structural changes in the N-terminus
+of MA can lead to major effects on the myr switch, which in turn
+abrogate Gag binding to the PM and inhibit virus assembly.
+
+Interestingly, the phenotype observed for mutants in the N-
+terminus is very different from that observed for mutants in the
+basic domain (e.g., K30E and K32E) or between residues 85 and
+89, which have been shown to associate speciﬁcally with intra-
+cellular compartments like MVBs (Freed et al., 1994; Ono et al.,
+1997, 2000b; Ono and Freed, 2004; Joshi et al., 2009a). While the
+structural effect of K30E and K32E mutations on the myr switch is
+not yet known, we predict that substitutions between residues 85
+and 89 may directly perturb the myr switch equilibrium. As men-
+tioned above, H89G substitution in myr(+)MA led to formation
+of protein aggregates as a result of exposure of the myr group (Fled-
+derman et al., 2010). Thus, it appears that sequestration or lack of
+myr group favors cytosolic localization rather than MVB asso-
+ciation. Although targeting of Gag K30E/K32E mutant to MVB
+compartments led to severely defective virus particle production
+in HeLa cells (Ono et al., 2000b; Ono and Freed, 2004), recent
+evidence revealed that it can still support highly efﬁcient assem-
+bly and release in T cells (Joshi et al., 2009a). It was suggested that
+under some circumstances, late endosomal compartments serve as
+productive sites for HIV assembly in some cell types (Joshi et al.,
+2009a).
+
+ROLE OF PHOSPHATIDYLINOSITOL-4,5-BISPHOSPHATE
+[PI(4,5)P2] IN HIV-1 Gag TARGETING, MEMBRANE BINDING,
+AND VIRUS ASSEMBLY
+It is well established that assembly of retroviral Gag proteins
+occur predominantly on the PM (Hermida-Matsumoto and Resh,
+2000; Jouvenet et al., 2006, 2008; Finzi et al., 2007; Li et al., 2007;
+Welsch et al., 2007; Gousset et al., 2008; Joshi et al., 2009a; Ono,
+2009, 2010). Membrane selection appears to be critical for pro-
+ductive virus production. Rein and co-workers have shown that
+Gag constructs assemble in vitro into VLPs with diameters sig-
+niﬁcantly smaller (25–30 nm) than those of authentic particles,
+whereas particles assembled in the presence of reticulocyte lysates
+exhibit normal diameters (∼100 nm; Campbell et al., 2001a). Fur-
+ther studies identiﬁed inositol pentaphosphate (IP5) as the active
+agent that promotes normal particle morphology and is capable of
+conferring resistance to disassembly in RNase, NaCl, and trypsin
+assays. Other inositol phosphates and IP derivatives, including
+inositol hexakisphosphate (IP6) and PI(4,5)P2 (Figure 4A) had
+similar inﬂuence on in vitro Gag assembly, and mutagenesis studies
+suggested that they promote HIV-1 particle assembly by interact-
+ing with the MA domain of Gag (Campbell et al., 2001a; Crist
+et al., 2009). A Gag protein lacking residues 16–99 in its MA
+domain lost the requirement for inositol phosphates in assem-
+bly in vitro. Further exploration of the binding properties of IP6
+to a Gag construct lacking the myr group and the p6 domain
+[myr(−)GagΔp6] revealed that both MA and NC domains of
+Gag contribute to IP6 binding (Datta et al., 2007b). Equilibrium
+studies have shown that myr(−)GagΔp6 undergoes an equilib-
+rium switch from monomer–dimer in the absence of IP6 to
+monomer–trimer upon binding to IP6. However, myr(−)GagΔp6
+with a mutation in the dimer interface of CA is monomeric
+in the presence of IP6, suggesting that the “dimer interface” is
+essential for the trimeric interaction (Datta et al., 2007b). These
+ﬁndings supported by hydrodynamic and small-angle neutron
+scattering (SANS) data led to the suggestion that the participa-
+tion of both MA and NC domains of Gag in IP6 interaction is
+evidence for a folded conformation of Gag in solution, with its
+ends close to each other in the three-dimensional space (Datta
+et al., 2007a).
+
+Frontiers in Microbiology | Virology
+
+February 2012 | Volume 3 | Article 55 | 4
+
+Ghanam et al.
+
+Role of HIV-1 matrix in virus assembly
+
+(cid:2)
+
+HIV-1 MA and a cellular constituent, the two most intriguing
+observations were the PI(4,5)P2 binding mode and the effect of
+binding on the myr switch. The three-dimensional structure of the
+MA-PI(4,5)P2 complex revealed that the acyl chain attached to the
+(cid:2)
+-position of the glycerol packs within the β-II–V cleft against the
+2
+side chains of Leu-21, Lys-27, Tyr-29, His-33, Trp-36, and Ser-
+77, while the phosphoinositide head group packs against Leu-21
+(cid:2)
+-fatty acid chain (Figure 4A). The 1
+and Lys-27, burying the 2
+-
+acyl chain, however, is exposed to solvent with PI(4,5)P2 molecule
+adopting an “extended lipid” conformation. Binding of PI(4,5)P2
+to MA induces a minor conformational change entailing a repo-
+sitioning of helix I and destabilization of the hydrophobic cavity,
+leading to myr exposure. These results indicate that PI(4,5)P2 acts
+as both a trigger of the myr switch and as a membrane anchor and
+suggest a potential mechanism for targeting Gag to membrane
+rafts (Figure 4B; Saad et al., 2006). Interestingly, the proposed
+membrane binding mode is very similar to the “extended lipid”
+conformation predicted in the phospholipid–cytochrome c model
+(Kinnunen et al., 1994; Rytömaa and Kinnunen, 1995; Tuominen
+et al., 2002).
+
+FIGURE 4 | (A) Representation of the PI(4,5)P2 molecule (phosphate
+groups are shown as yellow balls), and (B) membrane binding model
+predicted from the structural studies; the exposed 1(cid:2)-fatty acid chains
+(yellow) and myristyl groups (green) project from a highly basic surface
+(basic side chains shown in blue) in a manner expected to synergistically
+promote membrane binding. [(B) is reprinted from Saad et al., 2006;
+Copyright, Michael F. Summers, used with permission)].
+
+Studies by Freed, Ono, and co-workers thereafter have pro-
+vided compelling evidence that the ultimate localization of HIV-1
+Gag on the PM is critically dependent on PI(4,5)P2 (Ono et al.,
+2004; Chukkapalli et al., 2008, 2010; Chukkapalli and Ono, 2011).
+PI(4,5)P2 is a membrane marker for proteins that are speciﬁcally
+targeted to the PM (Behnia and Munro, 2005; McLaughlin and
+Murray, 2005). Depletion of PI(4,5)P2 by overexpression of 5-
+phosphatase IV (5ptase IV) led to accumulation of Gag at the
+membranes of late endosomes and MVBs, inhibited HIV assem-
+bly, and severely reduced virus production (Ono et al., 2004).
+Likewise, overexpression of a constitutively active form of Arf6
+(Arf6/Q67L), which induces the formation of PI(4,5)P2-enriched
+endosomal structures led to retargeting of Gag to these vesicles
+and severely reduced virus production. Sensitivity of Gag local-
+ization and assembly to PI(4,5)P2 manipulation was lost upon
+substitution of the MA domain with the N-terminus of Fyn kinase
+[Fyn(10)ΔMA/delNC], which is not affected by 5ptaseIV overex-
+pression. Altogether, these ﬁndings supported the hypothesis that
+interactions between MA and PI(4,5)P2 are essential for proper
+Gag targeting and membrane binding.
+
+NMR studies have been utilized to identify how MA interacts
+with PI(4,5)P2 (Saad et al., 2006). NMR chemical shift pertur-
+bation data obtained for the MA protein revealed that residues
+Arg-22, Lys-26, Lys-27, His-33, Glu-73, Leu-75, and Ser-77 were the
+most affected upon binding of soluble analogs of PI(4,5)P2 (Saad
+et al., 2006). These residues reside on a cleft formed by helices
+II and V, and a β hairpin (β-II-V cleft). Although these studies
+marked the ﬁrst structural evidence for direct interactions between
+
+(cid:2)
+
+(cid:2)
+- and 2
+
+Of particular note, our studies represent the ﬁrst evidence that
+PI(4,5)P2 can adopt an extended conformation. The hydropho-
+bic cleft that interacts with the 2
+-acyl chain of PI(4,5)P2 analogs
+with short chains (four- and eight-carbon atoms) is also capa-
+ble of accommodating longer fatty acids without inducing any
+major changes in the protein structure. A model of the trimeric
+
+PI(4,5)P2:myr(+)MA–membrane complex constructed by using
+
+(cid:2)
+-acyl chains is shown in Figure 4B.
+18- and 20-carbon 1
+Native PI(4,5)P2 forms micelles in aqueous solution, making it vir-
+tually impossible to study its interaction with MA by NMR meth-
+ods (Janmey et al., 1987). Difﬁculties in characterizing the binding
+of native PI(4,5)P2 with the MA protein have only been overcome
+upon encapsulating the protein in reverse micelles (Valentine et al.,
+2010). Titration of MA with native PI(4,5)P2 in reverse micelles
+has led to signiﬁcant chemical shift changes in a subset of amide
+signals. Mapping of the chemical shift changes on the MA surface
+indicates a binding mode similar to that of the soluble analogs
+with short chains.
+
+Binding of native PI(4,5)P2 to myr(−)GagΔp6 has been char-
+
+acterized by mass spectrometric protein footprinting (Shkriabai
+et al., 2006). NHS-biotin modiﬁcation approach was used to iden-
+tify lysine residues in Gag that are exposed to solvent or those
+that are protected from biotinylation due to direct Gag-PI(4,5)P2
+contacts. Data revealed that among 21 surface Lys residues readily
+modiﬁed in free Gag, only MA K30 and K32 are protected in the
+Gag-PI(4,5)P2 complex. Although NMR and mass spectrometry
+methods provide evidence for direct binding of native PI(4,5)P2
+to MA, the exact binding interface, and a high-resolution struc-
+tural model have yet to be determined. Based on the NMR data
+obtained for MA in reverse micelles, our best guess is that the
+20-carbon 2
+-acyl chain of PI(4,5)P2 is sequestered by the protein.
+Confocal microscopy data revealed that Gag molecules assem-
+ble at punctate sites on the PM (Hermida-Matsumoto and Resh,
+2000). What are these punctate sites and why does Gag select
+these sites? To address these questions, we recall a few previous
+observations that could support the structural studies and the
+MA–PI(4,5)P2 binding mode as well as the overall association
+
+(cid:2)
+
+www.frontiersin.org
+
+February 2012 | Volume 3 | Article 55 | 5
+
+Ghanam et al.
+
+Role of HIV-1 matrix in virus assembly
+
+with the PM. First, there is evidence that punctate sites com-
+prise lipid raft microdomains (Aloia et al., 1993; Nguyen and
+Hildreth, 2000; Campbell et al., 2001b; Ono and Freed, 2001, 2005;
+Ding et al., 2003; Holm et al., 2003; Waheed and Freed, 2009).
+Lipid rafts are typically liquid-ordered membrane structures that
+contain elevated levels of cholesterol and sphingolipids with sat-
+urated fatty acids (Brown and London, 1997, 1998; Melkonian
+et al., 1999; Zacharias et al., 2002; Ono and Freed, 2005; Waheed
+and Freed, 2009). Proteins that associate with lipid rafts gener-
+ally contain two saturated acyl chains or are anchored by adap-
+tor molecules that contain two saturated chains (for example,
+glycosylphosphatidylinositol-anchored proteins; Brown and Lon-
+don, 2000; Ono and Freed, 2005). Because PI(4,5)P2 contains
+(cid:2)
+stearate (18-carbon saturated acyl chain) at the 1
+-position and
+arachidonate (20-carbon acyl chain with four non-conjugated
+(cid:2)
+double bonds) at the 2
+-chain
+is likely to reduce the afﬁnity of PI(4,5)P2 for ﬂuid regions of
+the membrane and promote its association with rafts. Since pre-
+vious studies also suggest that PI(4,5)P2 molecules are homoge-
+neously dispersed within the PM of quiescent cells but they can
+colocalize with lipid rafts upon stimulation (Golub and Caroni,
+2005), sequestration of the 2
+-acyl chain by MA may suggest a
+potential mechanism for the lateral targeting of PI(4,5)P2:Gag
+complexes to lipid raft microdomains (Saad et al., 2006). Sec-
+ond, the proposed mechanism for Gag binding to membrane is
+supported by the ﬁnding that substitution of the saturated myr
+group of HIV-1 Gag by unsaturated lipids reduces the afﬁnity of
+Gag for rafts and inhibits particle assembly (Lindwasser and Resh,
+2002).
+
+-position, sequestration of the 2
+
+(cid:2)
+
+(cid:2)
+
+Gag-PI(4,5)P2 INTERACTIONS IN OTHER RETROVIRUSES
+In the past few years, efforts have been focused on whether Gag tar-
+geting and virus assembly in other retroviruses are also dependent
+on PI(4,5)P2. Subsequent to our studies on HIV-1, we discovered
+that HIV-2 MA binds speciﬁcally to PI(4,5)P2 in a manner iden-
+tical to that of HIV-1 (Saad et al., 2008). However, in HIV-2 MA
+the myr switch is less sensitive to PI(4,5)P2 binding as the myr
+group is found to be sequestered in the complex. The subcellular
+site of HIV-2 Gag assembly is also regulated by PI(4,5)P2. Like
+HIV-1, overexpression of 5ptaseIV or Arf6/Q67L also signiﬁcantly
+reduced levels of released HIV-2 virions, indicating that the pro-
+duction of HIV-2 particles is inhibited by PI(4,5)P2 perturbation
+(Saad et al., 2008).
+
+In most retroviruses, membrane anchoring is strongly depen-
+dent on the myr group. However, Gag proteins of some retro-
+viruses, notably alpha retroviruses [the prototype of which is Rous
+sarcoma virus (RSV)] and the lentivirus equine infectious anemia
+virus (EIAV), lack myr modiﬁcation, and Gag targeting and bind-
+ing to the PM is mainly mediated by electrostatic interactions
+(Erdie and Wills, 1990; Provitera et al., 2000; Dalton et al., 2005).
+For example, the association of RSV MA protein with liposomes
+of deﬁned composition is electrostatic in nature and is depen-
+dent on the presence of a biologically relevant concentration of
+negatively charged lipids like phosphatidylserine (Dalton et al.,
+2005). In addition, MA-PI(4,5)P2 interactions have been detected
+in Moloney murine leukemia virus (MMLV) and Mason-Pﬁzer
+monkey virus (MPMV; Stansell et al., 2007; Chan et al., 2008;
+Chen et al., 2008; Hamard-Peron et al., 2010). As has been observed
+
+for HIV-1 and HIV-2 MA, NMR-based studies have shown that
+a soluble analog of PI(4,5)P2 interacts directly with EIAV MA,
+suggesting a potential role of this lipid in EIAV Gag assembly (Chen
+et al., 2008). However, a most recent study investigating the role of
+PI(4,5)P2 in assembly of EIAV show that Gag was detected on the
+PM and in compartments enriched in phosphatidylinositol 3,5-
+biphosphate [PI(3,5)P2; Fernandes et al., 2011]. NMR studies have
+shown that EIAV MA binds to phosphatidylinositol 3-phosphate
+[PI(3)P] with a higher afﬁnity than that of PI(4,5)P2 (Fernandes
+et al., 2011). Treatment of cells with YM201636, a kinase inhibitor
+that blocks production of PI(3,5)P2 from PI(3)P led to Gag colo-
+calization with aberrant compartments and inhibited VLP release
+(Fernandes et al., 2011). In contrast to HIV-1, release of EIAV VLPs
+was not signiﬁcantly diminished by coexpression with 5ptase IV.
+Taken together, these results indicate that membrane targeting in
+EIAV proceeds via a mechanism that is probably distinct from that
+in HIV-1 or HIV-2. On the other hand, when compared to HIV-1
+and HIV-2 recent studies have shown that human T-lymphotropic
+virus type (HTLV-1) and RSV Gag proteins have either lower or no
+requirement for PI(4,5)P2 for membrane association (Chan et al.,
+2011; Inlora et al., 2011).
+
+ROLE OF Gag IN ENVELOPE (Env) INCORPORATION
+Retroviral Env protein is a glycosylated polyprotein synthesized
+as intact gp160 precursor that is subsequently cleaved by cellular
+proteases to form a complex of a surface unit (gp120) and trans-
+membrane domain (gp41). During virus assembly, the gp120/gp41
+complex is incorporated in the lipid bilayer of the nascent virions.
+Despite the progress made in understanding the structural details
+of Env and its components as well as the trafﬁcking pathway of Env
+polyprotein, the mechanism by which Env is incorporated into
+virus particles is not completely understood. The Gag protein has
+long been implicated in Env incorporation based on the proposed
+interaction between the MA domain and the cytoplasmic (CT)
+domain of gp41 (Yu et al., 1992; Dorfman et al., 1994; Freed and
+Martin, 1995, 1996; Mammano et al., 1995). However, importance
+of this interaction is controversial since in many cell lines (HeLa,
+293T, CV-1, and COS), deletion of the CT domain has virtually no
+effect on Env incorporation (Wilk et al., 1992; Freed and Martin,
+1995, 1996; Murakami and Freed, 2000). Checkley et al. (2011)
+have recently reviewed the current understanding of HIV-1 Env
+trafﬁcking and incorporation into virions. Several models have
+been proposed to explain Env incorporation into virus particles
+(Checkley et al., 2011):
+
+(i) “Passive” model: Env is expressed on the host PM and sub-
+sequently incorporated into budding virions. Support of this
+model stems from the observation that host membrane pro-
+teins are abundantly incorporated into retrovirus particles
+(Lusso et al., 1990; Arthur et al., 1992; Ott, 2008).
+
+(ii) Direct Gag–Env interaction: Genetic data revealed that the
+MA domain of Gag is required for Env incorporation (Yu
+et al., 1992; Dorfman et al., 1994; Freed and Martin, 1995,
+1996). Mutations in or deletion of the MA domain of Gag
+decreased Env incorporation (Freed and Martin, 1995, 1996;
+Mammano et al., 1995; Reil et al., 1998; Brandano and Steven-
+son, 2012), while deletion of the gp41 CT domain reversed the
+Env incorporation defect dictated by MA mutations (Freed
+
+Frontiers in Microbiology | Virology
+
+February 2012 | Volume 3 | Article 55 | 6
+
+Ghanam et al.
+
+Role of HIV-1 matrix in virus assembly
+
+and Martin, 1995, 1996; Mammano et al., 1995), or MA dele-
+tion (Reil et al., 1998). Altogether, these studies suggest that
+MA is required for full-length Env incorporation whereas
+Env–MA interaction is apparently not required for incorpo-
+ration of truncated Env. The requirement of the MA and CT
+domains for Gag–gp41 interactions appears to be supported
+by a few studies albeit evidence for direct interactions is still
+weak. For example, previous studies have shown that HIV-1
+Env is localized to the basolateral surface of polarized epithe-
+lial cells (Owens and Compans, 1989). Gag has been shown to
+bud in a non-polarized manner in these cells when Env was
+not expressed. Budding, however, was restricted to the basolat-
+eral surface upon coexpression of Gag and Env (Owens et al.,
+1991). Mutations in MA or CT truncation undermined the
+ability of Env to direct basolateral budding of Gag (Lodge et al.,
+1994). Although these studies suggest a cross-talk between the
+MA and CT domains, they do not necessarily indicate a direct
+interaction (Checkley et al., 2011).
+
+(iii) Gag–Env cotargeting : As mentioned above, the absence of com-
+pelling evidence for direct interactions between Gag and gp41
+may suggest that a cellular constituent like a protein or mem-
+brane acts as a bridge or a docking platform for the Gag–Env
+complex. A role of a cellular factor(s) in Env incorporation is
+perhaps supported by the results showing that the requirement
+of CT domain is strongly dependent on the cell type (permis-
+sive cells like HeLa, COS, and 293T; Wilk et al., 1992; Akari
+et al., 2000; Murakami and Freed, 2000). In non-permissive
+cell lines (e.g., T cells and macrophages), removal of gp41 CT
+led to ∼10-fold decrease in Env incorporation (Murakami and
+Freed, 2000). The identity of cellular factors required for Env
+incorporation in permissive and non-permissive cells have yet
+to be determined.
+
+(iv) Indirect Gag–Env interaction: Since it is not clear whether
+there is a direct interaction between the MA domain of Gag
+and gp41 CT, it is conceivable that the interaction is medi-
+ated by cellular protein(s). Among the gp41 CT-interacting
+proteins are the adaptor protein complexes AP-1 and AP-2.
+The AP complexes are heterotetramers that mediate both the
+recruitment of clathrin to membranes and the recognition of
+sorting signals within the cytosolic tails of transmembrane
+cargo molecules (Robinson and Bonifacino, 2001; Boehm and
+Bonifacino, 2002; Nakatsu and Ohno, 2003). While AP-1 has
+been shown to regulate the subcellular localization of Env via
+binding to a dileucine motif in gp41 CT (Berlioz-Torrent et al.,
+1999; Byland et al., 2007; Wyss et al., 2011), AP-2 has been
+shown to bind to the gp41 CT domain and drive clathrin-
+mediated endocytosis of Env from the PM (Ohno et al., 1997;
+Boge et al., 1998). Interestingly, AP-1 and AP-2 has been shown
+to bind to the MA domain of Gag (see below; Batonick et al.,
+2005; Camus et al., 2007). Other proteins like the 47-kDa tail
+interacting protein (TIP47) and calmodulin (CaM) have been
+proposed to play some role in Env incorporation (discussed in
+more details below).
+
+POTENTIAL ROLE OF MA IN GENOMIC RNA PACKAGING
+Although MA’s role in HIV-1 Gag targeting and assembly on the
+PM is the best understood, there is mounting evidence that it also
+
+plays a role in retroviral genome packaging. A recent review has
+shed light on the current understanding of the functional role of
+MA in genome packaging (Parent and Gudleski, 2011). Since the
+MA protein is usually associated to the lipid bilayer and on the
+opposite end from the NC domain, the biological importance for
+the proposed MA–RNA interactions is controversial and has been
+under scrutiny for a long time. Interest in assessing the functional
+role of MA in genome packaging stems from earlier studies on
+the interactions between HIV-1 MA and other retroviruses (e.g.,
+RSV and bovine leukemia virus) with single-stranded and double-
+stranded DNA and RNA (Leis et al., 1978; Darlix and Spahr, 1982;
+Méric and Spahr, 1986; Steeg and Vogt, 1990; Katoh et al., 1991; Ott
+et al., 2005; Alfadhli et al., 2009b; Cai et al., 2010; Ramalingam et al.,
+2011). It has been shown that MA binds directly to an RNA mol-
+ecule that is highly homologous to a fragment of the pol domain
+(Purohit et al., 2001). The interaction interface of MA is conﬁned
+to the basic domain; substitutions in the basic residues led to weak-
+ened afﬁnity to RNA in vitro and a delay in virus replication in vivo
+(Purohit et al., 2001). However, it has yet to be established whether
+MA binds directly to the packaging signal (ψ) of the RNA genome.
+Most recent studies by Akira Ono and co-workers revealed that
+the highly basic region (HBR) in the N-terminus of MA not only
+contributes to binding of PI(4,5)P2 to Gag, but is also capable of
+binding to RNA (Chukkapalli et al., 2010). These results are con-
+sistent with in vitro and NMR studies (Purohit et al., 2001; Hearps
+et al., 2008; Alfadhli et al., 2011). Interestingly, binding of RNA to
+HBR was found to inhibit association of Gag to membrane lipo-
+somes in the absence of PI(4,5)P2 (Chukkapalli et al., 2010). As a
+consequence, RNA was considered as a negative regulator of Gag-
+membrane binding. Thus, the interplay between Gag, PI(4,5)P2,
+and RNA appears to be an important aspect of Gag assembly that
+has to be examined further.
+
+THE MISSING LINK: HIV-1 Gag EN ROUTE TO THE PLASMA
+MEMBRANE?
+Great progress has been made in deﬁning both the viral and cellu-
+lar determinants of HIV-1 assembly and release (Chu et al., 2010).
+However, the trafﬁcking pathway used by Gag to reach its assembly
+sites in the infected cell is poorly understood. There is mounting
+evidence that HIV-1 Gag interacts with several cellular proteins
+during the replication cycle. These include CaM (Radding et al.,
+2000), the human adaptor protein complexes AP-1,AP-2, and AP-3
+(Batonick et al., 2005; Dong et al., 2005; Camus et al., 2007), TIP47
+(Lopez-Vergès et al., 2006), Golgi-localized gammaear containing
+Arf-binding protein (GGA; Joshi et al., 2008, 2009b), ADP ribo-
+sylation factor (Arf; Joshi et al., 2008), the suppressor of cytokine
+signaling 1 (SOCS1; Ryo et al., 2008; Nishi et al., 2009), a lymphoid
+speciﬁc Src kinase (Lck; Strasner et al., 2008), N -ethylmaleimide-
+sensitive factor attachment protein receptor (SNARE; Joshi et al.,
+2011), Filamin A (Cooper et al., 2011), vacuolar protein sorting-
+associated protein 18 (Vps18; Tomita et al., 2011), Mon2 (Tomita
+et al., 2011), and Lyric (Engeland et al., 2011). The majority of
+these proteins have been implicated in retroviral assembly. Since
+we are focusing on the MA protein, we will summarize the cur-
+rent understanding of the proposed interactions between the MA
+domain of Gag and a small selection of the proteins described
+above including CaM, AP-3, TIP47, SOCS1, and Lyric.
+
+www.frontiersin.org
+
+February 2012 | Volume 3 | Article 55 | 7
+
+Ghanam et al.
+
+Role of HIV-1 matrix in virus assembly
+
+POTENTIAL ROLE OF CaM IN HIV REPLICATION
+CaM is a ubiquitous calcium-binding protein expressed in all
+eukaryotic cells. It binds to and regulates different protein targets,
+thereby affecting many different cellular functions (Osawa et al.,
+1999; Chin and Means, 2000; Hoeﬂich and Ikura, 2002; Vetter and
+Leclerc, 2003; Yamniuk and Vogel, 2004; Ishida and Vogel, 2006). It
+binds more than 100 proteins “speciﬁcally” (Rogers and Strehler,
+1996) and is found in different subcellular locations, including
+the cytoplasm, within organelles, or associated with the plasma or
+organelle membranes (Osawa et al., 1999; Chin and Means, 2000;
+Hoeﬂich and Ikura, 2002; Vetter and Leclerc, 2003; Yamniuk and
+Vogel, 2004; Ishida and Vogel, 2006). CaM is perhaps one of the
+most characterized cellular proteins and its interactions with pro-
+teins have been extensively studied (Chattopadhyaya et al., 1992;
+Finn et al., 1995; Chin and Means, 2000; Fallon and Quiocho,
+2003). Binding of calcium to CaM triggers a major conforma-
+tional change and helical rearrangement, enabling it to bind to
+speciﬁc proteins for a speciﬁc response.
+
+Subcellular distribution of CaM in HIV-infected cells has been
+shown to be distinct from that observed in uninfected cells
+(Radding et al., 1996). In vivo and in vitro studies revealed that
+CaM interacts with HIV-1 Gag, Nef, and gp160 proteins (Towler
+et al., 1988; Srinivas et al., 1993; Radding et al., 2000; Hayashi et al.,
+2002; Matsubara et al., 2005). Pioneering studies by Hunter and
+co-workers have shown that HIV-1 Gag can interact with CaM in a
+calcium-dependent manner (Radding et al., 2000). Gag and CaM
+colocalize in a diffuse pattern in the cytoplasm. Investigation of the
+underlying mechanism of Gag–CaM interactions has gained some
+momentum recently. Our lab (Ghanam et al., 2010) and others
+(Chow et al., 2010) have shown that CaM binds directly to the MA
+protein with 1:1 stoichiometry in a Ca2+
+-dependent manner. We
+have also established that: (i) CaM-binding to myr(+)MA induces
+a structural change that triggers myr exposure (Figure 5), (ii) the
+myr group is not involved in CaM-binding, and (iii) CaM–MA
+interaction is hydrophobic and entropically driven, while electro-
+static interactions appear to be inconsequential (Ghanam et al.,
+2010).
+
+Radding et al. (2000) have shown that peptides from the N-
+terminus of MA bind to CaM with variable afﬁnities and in
+different modes. These studies have prompted others to conduct
+SAXS experiments to elucidate the global features of CaM bound
+to short peptides derived from the MA protein (Izumi et al., 2008).
+SAXS studies conducted on CaM complexed with full-length MA
+shed light on the global features of the complex (Chow et al.,
+2010). However, SAXS methods cannot provide details on the
+complex interface and cannot identify speciﬁc residues that are
+important for the formation and stabilization of the complex. We
+have utilized NMR, biochemical, and biophysical methods to elu-
+cidate the precise molecular mechanism of MA–CaM interactions
+(Samal et al., 2011). In this work, we have (i) identiﬁed the inter-
+action interface of CaM bound to short peptides derived from the
+MA protein, (ii) shown that MA peptides bind to CaM with vari-
+able afﬁnities and diverse modes, and (iii) identiﬁed the minimal
+CaM-binding domain of MA as residues 8–43 (MA-8–43).
+
+A typical CaM-binding peptide is 15–30 residues long with
+amphipathic character and a propensity to form an α-helix (Ishida
+and Vogel, 2006), features that helices I and II of MA possess
+
+FIGURE 5 | CaM-binding to MA triggers myr exposure. Surface
+representation of CaM (orange) and myr(+)MA (slate) with the myr group
+(red) sequestered and exposed in the free and bound states, respectively.
+Spheres represent Ca2+ ions.
+
+(Figure 6). The 36-residue long MA-8–43 peptide is perhaps one
+of the largest CaM-binding motifs to be discovered. The fact that
+MA-8–43 forms two helices is another striking feature of this pep-
+tide since almost all known CaM-target proteins usually possess
+a domain that forms only one α-helix. In many of the classical
+CaM-binding targets, hydrophobic residues usually occupy con-
+served positions at 1–5–10 or 1–8–14, which point to one face
+of the helix (Ishida and Vogel, 2006). Although these patterns are
+typically found in many CaM-binding proteins, numerous unclas-
+siﬁed examples were also identiﬁed (Ishida and Vogel, 2006). By
+using a web-based tool to identify a sequence pattern with potential
+CaM-binding sites (Yap et al., 2000), the region between Arg22 and
+Glu40 (Figure 6) scored the highest. Scores are based on several
+criteria including hydropathy, α-helical propensity, residue weight
+and charge, hydrophobic residue content, helical class, and occur-
+rence of particular residues. Arg22–Glu40 represents the majority
+of helix II. However, this peptide does not contain a motif that
+matches any of the known patterns of CaM-binding sites. Thus,
+MA-8–43 is considered a novel and unclassiﬁed CaM-binding
+sequence that is substantially different (in length and composition)
+
+Frontiers in Microbiology | Virology
+
+February 2012 | Volume 3 | Article 55 | 8
+
+Ghanam et al.
+
+Role of HIV-1 matrix in virus assembly
+
+signaling through a “Ca2+
+
+cytoplasm of the infected cell may suggest a role of CaM in
+the (pre)assembly stage. Could it be that CaM facilitates Gag
+transport to the PM? This is a reasonable hypothesis given the
+fact that one of the major functions of CaM is shuttling pro-
+teins to the PM. However, this hypothesis has yet to be tested.
+One interesting characteristic of CaM is its preferential binding
+to myristoylated proteins. Membrane association and dissocia-
+tion of myristoylated proteins are often regulated by intracellular
+Ca2+
+-myr switch” such as recoverin
+(Tanaka et al., 1995), neurocalcin (Faurobert et al., 1996), and S-
+modulin (Matsuda et al., 1998). As a consequence, intracellular
+localization from the cytosol to the membrane is dependent on
+Ca2+
+binding (Braunewell and Gundelﬁnger, 1999). Other myris-
+toylated proteins including myristoylated alanine-rich C kinase
+substrate (MARCKS), brain-speciﬁc protein kinase C substrate
+(CAP-23/NAP-22) and HIV-1 Nef interact with CaM via the myr
+group to facilitate their intracellular localization and membrane
+targeting (Matsubara et al., 2003, 2004, 2005). Our structural stud-
+ies were the ﬁrst of their kind to be conducted on binding of CaM
+to a native myristoylated protein and the ﬁrst to show the subse-
+quent exposure of the myr group (Figure 5). The ﬁnding that the
+myr group is not“grabbed” by CaM may suggest a novel functional
+role of CaM in the trafﬁcking and/or targeting of Gag to the PM
+for assembly.
+
+The functional role of CaM in the HIV replication cycle could
+be rather complex since interactions with gp160 and Nef have
+also been detected. Expression of the HIV-1 gp160 protein has led
+to a marked increase in CaM distribution (Radding et al., 1996).
+The CaM-binding region in gp160 was identiﬁed to be a heli-
+cal peptide in gp41. Deletion of this region led to diminished
+virus infectivity (Srinivas et al., 1993; Radding et al., 1996). On the
+other hand, mutations in the cytoplasmic domain of gp41 elim-
+inated co-immunoprecipitation of Env with calmodulin but had
+no signiﬁcant effect on viral production or Env expression (Micoli
+et al., 2006). Confocal microscopy data conﬁrmed the elevated
+level of CaM distribution and also showed that CaM colocalizes
+with the gp160 protein (Radding et al., 1996). Thus, the interplay
+between gp160, CaM, and Gag could be important in HIV repli-
+cation. Although it is reasonable to hypothesize that HIV–CaM
+protein interactions may lead to disruption of CaM-dependent
+cell-signaling pathways and contribute to immune dysfunction
+during HIV pathogenesis, the exact functional role of CaM in
+HIV replication has yet to be examined.
+
+ROLE OF THE ADAPTOR PROTEIN COMPLEXES IN Gag
+TRAFFICKING
+To understand the critical steps of the molecular mechanism of
+HIV assembly, it is vital to identify the cellular machinery, its
+components, and how these components interact with each other
+and/or the HIV proteins. Although it is widely accepted that in
+most cell types HIV-1 Gag budding and assembly occur on the
+PM (Hermida-Matsumoto and Resh, 2000; Jouvenet et al., 2006,
+2008; Finzi et al., 2007; Li et al., 2007; Welsch et al., 2007; Gousset
+et al., 2008; Joshi et al., 2009a; Ono, 2009, 2010), several research
+groups have shown that late endosomal compartments can serve
+as major assembly sites (Nguyen et al., 2003; Nydegger et al., 2003;
+Pelchen-Matthews et al., 2003; Sherer et al., 2003; Grigorov et al.,
+
+FIGURE 6 | (A) Amino acid sequence of the N-terminus of MA. (B) Cartoon
+representation of the NMR structure (2H3I) of myr(+)MA highlighting
+helices I and II in green and red, respectively. Myr group is shown in
+orange. (C) Amphipathic character of helices I and II with hydrophobic and
+basic residues shown in red and blue, respectively, “A modiﬁed version of
+this ﬁgure was published in the Journal of Biological Chemistry. Samal
+et al., 2011; The American Society for Biochemistry and Molecular Biology.”
+
+from all known CaM-binding domains. These ﬁndings conﬁrm
+the enormous versatility of CaM-target complex formation and
+suggest a novel CaM-binding mode that requires engagement of
+hydrophobic residues from both helices I and II of MA (Ghanam
+et al., 2010; Samal et al., 2011).
+
+The exact functional role of CaM in HIV replication is not
+known. The observation that CaM colocalized with Gag in the
+
+www.frontiersin.org
+
+February 2012 | Volume 3 | Article 55 | 9
+
+Ghanam et al.
+
+Role of HIV-1 matrix in virus assembly
+
+2006). To further explore the assembly pathway in late endosomal
+compartments, efforts focused on cellular proteins and protein
+complexes that typically play roles in protein sorting to and from
+the endosomal pathway. Several of these factors, which are impli-
+cated in Gag trafﬁcking and assembly have been discovered. These
+include AP-1, AP-2, and AP-3 (Batonick et al., 2005; Dong et al.,
+2005; Camus et al., 2007). AP-3 appears to be involved in the sort-
+ing of a subset of transmembrane proteins targeted to lysosomes
+and lysosome-related organelles. Studies by Spearman et al. (1997)
+indicate that HIV-1 Gag binds to the δ subunit of the AP-3 complex
+(Dong et al., 2005). The AP-3 binding domain in Gag is suggested
+to be within the N-terminal region of MA (helix I; Figure 6). Gag
+constructs lacking the MA domain failed to bind and recruit the
+AP-3 complex. In addition, particle formation by WT Gag was
+severely diminished by a dominant negative AP-3 δ fragment and
+by siRNA depletion of AP-3, indicating that interaction between
+Gag and AP-3 is essential for normal productive trafﬁcking path-
+way of Gag in the cell (Dong et al., 2005). The trafﬁcking of Gag
+to CD63-positive intracellular compartments was also eliminated
+when Gag–AP-3 interaction was disrupted.
+
+In addition to binding to Gag, the cytoplasmic tail of gp41
+contains a tyrosine-based signal that has been shown to be active
+in promoting clathrin-mediated endocytosis through interactions
+with the μ subunit of AP-2 (Boge et al., 1998; Berlioz-Torrent et al.,
+1999). This observation has led to the hypothesis that the Env pro-
+tein is internalized to sorting/recycling endosome compartment
+where it becomes associated with Gag (Dong et al., 2005). The
+dual role of AP complexes in Env and Gag trafﬁcking pathways
+and compelling evidence for direct physical interactions between
+MA and AP-3 have yet to be determined.
+
+TIP47: ROLE IN Gag LOCALIZATION AND Env
+INCORPORATION
+TIP47 is an essential protein for endosome-to-TGN retrograde
+transport of mannose-6-phosphate receptors, has been shown to
+form a ternary complex by bridging between the Env and Gag
+proteins (Lopez-Vergès et al., 2006). The interaction between Gag
+and TIP47 is mediated by the MA domain. Mutations in the MA
+domain of Gag that abrogate TIP47 binding were found to inhibit
+Env incorporation, Env–Gag colocalization, and virus infectiv-
+ity (Lopez-Vergès et al., 2006). Silencing of TIP47 was found
+to impair Env incorporation and infectivity and abolished co-
+immunoprecipitation of Gag and Env. Based on these ﬁndings,
+it was suggested that TIP47 acts as a connector between Gag and
+Env during assembly (Lopez-Vergès et al., 2006). Interestingly, sev-
+eral point mutations and deletions within the ﬁrst 23 residues of
+MA resulted in loss of TIP47 binding and thus Env incorpora-
+tion. Among these mutations were W16A and E17A. Mutations in
+helix I of MA (L13, W16, E17, and K18) have been shown to block
+Env incorporation (Dorfman et al., 1994; Freed and Martin, 1996;
+Davis et al., 2006), which led to the suggestion that MA interacts
+directly with the Env protein. Altogether, studies on TIP47 suggest
+a functional role of this protein in Env incorporation and colocal-
+ization of Gag and Env. However, role of TIP47 in HIV biology
+remains unclear as studies conducted in other laboratories have
+failed to support any role of TIP47 in particle production or virus
+replication (Checkley et al., 2011).
+
+Gag–SOCS1 INTERACTIONS
+SOCS1, a member of negative regulators of cytokine signaling
+(Yoshimura et al., 2007) has been recently shown to be an inducible
+host-factor during HIV-1 infection and to regulate the late stages
+of the virus replication pathway (Ryo et al., 2008; Nishi et al.,
+2009). SOCS1 interacts with the MA and NC regions of Gag to
+facilitate its intracellular trafﬁcking and stability. The depletion of
+SOCS1 caused a severe reduction in Gag trafﬁcking and assembly
+(Ryo et al., 2008). It has been also shown that SOCS1 is involved in
+regulating Gag trafﬁcking via the microtubule-dependent cellular
+machinery (Nishi et al., 2009).
+
+Genetically, SOCS family members have a central SH2 domain
+and a conserved SOCS box (Yoshimura et al., 2007). Structure–
+function analyses revealed that the SH2 domain is critical for
+efﬁcient binding to its substrates (Narazaki et al., 1998). Ryo et al.
+(2008) reinforced these ﬁndings by showing that a mutant lacking
+the SH2 domain does not bind HIV-1 Gag, whereas an N-terminus
+or a SOCS1 box deletion did not affect binding to Gag in 293T cells.
+Thus, elucidation of the structural requirements of Gag–SOCS1
+interactions will provide insights into the functional role of SOCS1
+in Gag trafﬁcking and stability throughout the HIV replication
+cycle.
+
+LYRIC–Gag INTERACTIONS
+Lyric is a ubiquitously expressed 64 kDa protein with several iso-
+forms due to differential splicing, which differ in their intracellular
+localization, and is normally involved in various signaling path-
+ways (Thirkettle et al., 2009). Previous studies have shown that
+Lyric is an HIV-inducible gene that is involved in various signal-
+ing pathways and acts in a positive-feedback loop promoting HIV
+replication (Thirkettle et al., 2009). A recent study has identiﬁed
+Lyric as an HIV-1 Gag-interacting protein. Endogenous Lyric has
+been shown to be incorporated in HIV-1 virions (Engeland et al.,
+2011). Both MA and NC appear to be required for Lyric binding.
+However, deleting NC and fusing MA with a GCN4 motif to drive
+trimerization led to the same binding afﬁnity to Lyric. Thus, it is
+possible that Lyric binding to Gag is mostly dependent on the MA
+protein but also requires multimerization. Gag-interacting region
+in the Lyric protein has been mapped to a region spanning residues
+101–289. Expression of this region increased Gag expression and
+viral infectivity. Interestingly, the observation of Gag–Lyric inter-
+actions in MMLV and EIAV (Engeland et al., 2011) suggests that
+Lyric’s role in the replication cycle is probably a conserved feature
+among retroviruses. Despite the experimental evidence for Gag–
+Lyric interaction, the precise functional role for Lyric has yet to be
+established.
+
+SUMMARY
+Several cellular factors have been proposed to interact directly
+with the MA domain to facilitate Gag trafﬁcking and assembly.
+However, molecular interactions have yet to be validated and char-
+acterized in most cases. Despite the tremendous progress achieved
+in understanding the structural properties of Gag and its domains,
+high-resolution structures of their complexes with cellular part-
+ners are very limited. The discovery of new cellular factors that
+bind to Gag or Gag components (Brass et al., 2008; Jäger et al.,
+2011) should pave the way for further structural investigation and
+
+Frontiers in Microbiology | Virology
+
+February 2012 | Volume 3 | Article 55 | 10
+
+Ghanam et al.
+
+Role of HIV-1 matrix in virus assembly
+
+hopefully will lead to identiﬁcation of novel mechanisms and/or
+pathways critical for virus assembly. Such knowledge should facil-
+itate the development of better approaches for the treatment of
+HIV.
+
+NOMENCLATURE
+MA mutants are named based on the myr group being designated
+as residue 1. In contrast, studies that performed the characteri-
+zation of the mutants discussed here considered the N-terminal
+Gly of the myristoylated protein as residue 1 (Freed et al., 1994;
+Ono and Freed, 1999, 2004; Ono et al., 2000a; Joshi et al., 2009a;
+
+Chukkapalli et al., 2010). Thus, the mutant names are offset by
+one residue.
+
+to our
+
+laboratory members
+
+ACKNOWLEDGMENTS
+invaluable
+Thanks
+comments on the manuscript. Work from our
+labora-
+tory described in this article is supported by the National
+Institutes of Health (1R01AI087101) and intramural
+fund-
+for AIDS Research and Compre-
+ing from the Center
+hensive Cancer Center at
+the University of Alabama at
+Birmingham.
+
+the
+
+for
+
+REFERENCES
+Adamson, C. S., and Freed, E. O.
+(2007). Human immunodeﬁciency
+virus type 1 assembly, release and
+maturation. Adv. Pharmacol. 55,
+347–387.
+
+Akari, H., Fukumori, T., and Adachi, A.
+(2000). Cell-dependent requirement
+of human immunodeﬁciency virus
+type 1 gp41 cytoplasmic tail for Env
+incorporation into virions. J. Virol.
+74, 4891–4893.
+
+Alfadhli, A., Barklis, R. L., and Barklis, E.
+(2009a). HIV-1 matrix organizes as
+a hexamer of trimers on membranes
+containing
+phosphatidylinositol-
+(4,5)-bisphosphate. Virology 387,
+466–472.
+
+Alfadhli, A., Still, A., and Barklis, E.
+(2009b). Analysis of human immun-
+odeﬁciency virus type 1 matrix bind-
+ing to membranes and nucleic acids.
+J. Virol. 83, 12196–12203.
+
+Alfadhli, A., Huseby, D., Kapit, E., Col-
+man, D., and Barklis, E. (2007).
+Human immunodeﬁciency virus
+type 1 matrix protein assembles on
+membranes as a hexamer. J. Virol. 81,
+1472–1478.
+
+Alfadhli, A., McNett, H., Tsagli, S.,
+Bächinger, H. P., Peyton, D. H., and
+Barklis, E. (2011). HIV-1 matrix pro-
+tein binding to RNA. J. Mol. Biol.
+410, 653–666.
+
+Aloia, R. C., Tian, H., and Jensen, F. C.
+(1993). Lipid composition and ﬂuid-
+ity of the human immunodeﬁciency
+virus envelope and host cell plasma
+membranes. Proc. Natl. Acad. Sci.
+U.S.A. 90, 5181–5185.
+
+Arthur, L. O., Bess, J. W. Jr., Sowder, R.
+C. I., Benveniste, R. E., Mann, D. L.,
+Chermann, J.-C., and Henderson, L.
+E. (1992). Cellular proteins bound
+to immunodeﬁciency virus: implica-
+tions for pathogenesis and vaccines.
+Science 258, 1935–1938.
+
+Batonick, M., Favre, M., Boge, M.,
+Spearman, P., Höning, S., and Thali,
+M. (2005). Interaction of HIV-1 Gag
+with the clathrin-associated adaptor
+AP-2. Virology 342, 190–200.
+
+Behnia, R., and Munro, S. (2005).
+Organelle identity and the signposts
+
+for membrane trafﬁc. Nature 438,
+597–604.
+
+Berlioz-Torrent, C.,
+
+the
+
+Shacklett, B.
+L., Erdtmann, L., Delamarre, L.,
+Bouchaert, I., Sonigo, P., Dokhelar,
+M. C., and Benarous, R. (1999).
+Interactions of
+cytoplasmic
+domains of human and simian
+retroviral transmembrane proteins
+with components of
+the clathrin
+adaptor complexes modulate intra-
+cellular and cell surface expression
+of envelope glycoproteins. J. Virol.
+73, 1350–1361.
+
+Boehm, M., and Bonifacino, J. S. (2002).
+Genetic analyses of adaptin function
+from yeast to mammals. Gene 286,
+175–186.
+
+Boge, M., Wyss, S., Bonifacino,
+
+and Thali, M.
+
+J.
+S.,
+(1998). A
+membrane-proximal tyrosine-based
+signal mediates internalization of
+the HIV-1 envelope glycoprotein
+via
+interaction with the AP-2
+clathrin adaptor. J. Biol. Chem. 273,
+15773–15778.
+
+Bouamr, F., Scarlata, S., and Carter, C.
+A. (2003). Role of myristylation in
+HIV-1 Gag assembly. Biochemistry
+42, 6408–6417.
+
+Brandano, L., and Stevenson, M. (2012).
+A highly conserved residue in the
+C-terminal helix of HIV-1 matrix
+is required for envelope incorpora-
+tion into virus particles. J. Virol. 86,
+2347–2359.
+
+Brass, A. L., Dykxhoorn, D. M., Benita,
+Y., Yan, N., Engelman, A., Xavier,
+R. J., Lieberman, J., and Elledge,
+S. J. (2008). Identiﬁcation of host
+proteins required for HIV infec-
+tion through a functional genomic
+screen. Science 319, 921–926.
+
+Braunewell, K. H., and Gundelﬁnger,
+E. D. (1999). Intracellular neuronal
+calcium sensor proteins: a family of
+EF-hand calcium-binding proteins
+in search of a function. Cell Tissue
+Res. 295, 1–12.
+
+Briggs, J. A. G., and Kräusslich, H.-G.
+(2011). The molecular architecture
+of HIV. J. Mol. Biol. 410, 491–500.
+
+Briggs, J. A. G., Riches, J. D., Glass,
+B., Bartonova, V., Zanetti, G., and
+
+Kräusslich, H.-G. (2009). Structure
+and assembly of
+immature HIV.
+Proc. Natl. Acad. Sci. U.S.A. 106,
+11090–11095.
+
+of
+
+Brown, D. A., and London, E. (1997).
+Structure
+detergent-resistant
+membrane domains: does phase
+separation occur
+in biological
+membranes? Biochem. Biophys. Res.
+Commun. 240, 1–7.
+
+Brown, D. A., and London, E. (1998).
+Structure and origin of ordered
+lipid domains in biological mem-
+branes.
+164,
+103–114.
+
+J. Membr. Biol.
+
+Brown, D. A.,
+
+and London, E.
+(2000). Structure
+and function
+of sphingolipid- and cholesterol-
+rich membrane rafts. J. Biol. Chem.
+275, 17221–17224.
+
+Bryant, M., and Ratner, L. (1990).
+Myristoylation-dependent
+repli-
+cation and assembly of human
+immunodeﬁciency
+1.
+Proc. Natl. Acad. Sci. U.S.A. 87,
+523–527.
+
+virus
+
+Burniston, M. T., Cimarelli, A., Col-
+gan, J., Curtis, S. P., and Luban, J.
+(1999). Human immunodeﬁciency
+virus type 1 Gag polyprotein multi-
+merization requires the nucleocap-
+sid domain and RNA and is pro-
+moted by the capsid-dimer inter-
+face and the basic region of matrix
+protein. J. Virol. 73, 8527–8540.
+
+Byland, R., Vance, P. J., Hoxie, J. A.,
+and Marsh, M. (2007). A conserved
+dileucine motif mediates clathrin
+and AP-2-dependent endocytosis of
+the HIV-1 envelope protein. Mol.
+Biol. Cell 18, 414–425.
+
+Cai, M., Huang, Y., Craigie, R., and
+(2010). Structural
+Clore, G. M.
+basis of
+the association of HIV-
+1 matrix protein with DNA. PLoS
+ONE 5, e15675. doi:10.1371/jour-
+nal.pone.0015675
+
+Campbell, S., Fisher, R. J., Towler, E. M.,
+Fox, S., Issaq, H. J., Wolfe, T., Phillips,
+L. R., and Rein, A. (2001a). Mod-
+ulation of HIV-like particle assem-
+bly in vitro by inositol phosphates.
+Proc. Natl. Acad. Sci. U.S.A. 98,
+10875–10879.
+
+Campbell, S. M., Crowe, S. M., and
+Mak, J. (2001b). Lipid rafts and HIV-
+1: from viral entry to assembly of
+progeny virions. J. Clin. Virol. 22,
+217–227.
+
+Campbell, S., and Rein, A. (1999).
+In vitro assembly properties of
+human immunodeﬁciency
+virus
+type 1 Gag protein lacking the p6
+domain. J. Virol. 73, 2270–2279.
+
+Camus, G., Segura-Morales, C., Molle,
+D., Lopez-Vergès, S., Begon-Pescia,
+C., Cazevieille, C., Schu, P., Bertrand,
+E., Berlioz-Torrent, C., and Basyuk,
+E. (2007). The clathrin adaptor com-
+plex AP-1 binds HIV-1 and MLV Gag
+and facilitates their budding. Mol.
+Biol. Cell 18, 3193–3203.
+
+(2011). Rous
+
+Chan, J., Dick, R. A., and Vogt, V.
+M.
+sarcoma virus
+Gag has no speciﬁc requirement
+for
+phosphatidylinositol-(4,5)-
+bisphosphate for plasma membrane
+association in vivo or for liposome
+interaction in vitro. J. Virol. 85,
+10851–10860.
+
+Chan, R., Uchil, P. D., Jin, J., Shui,
+G., Ott, D. E., Mothes, W., and
+Wenk, M. R. (2008). Retroviruses
+human immunodeﬁciency virus and
+murine leukemia virus are enriched
+in phosphoinositides. J. Virol. 82,
+11228–11238.
+
+Chattopadhyaya, R., Meador, W. E.,
+Means, A. R., and Quiocho, F.
+A. (1992). Calmodulin structure
+reﬁned at 1.7 Å resolution. J. Mol.
+Biol. 228, 1177–1192.
+
+Checkley, M. A., Luttge, B. G., and Freed,
+E. O. (2011). HIV-1 envelope gly-
+coprotein biosynthesis, trafﬁcking,
+and incorporation. J. Mol. Biol. 410,
+582–608.
+
+Chen, K., Bachtiar, I., Piszczek, G.,
+Bouamr, F., Carter, C., and Tjan-
+dra, N. (2008). Solution NMR char-
+acterization of oligomerization and
+dynamics of equine infectious ane-
+mia virus matrix protein and its
+interaction with PIP2. Biochemistry
+47, 1928–1937.
+
+Chin, D., and Means, A. R. (2000).
+Calmodulin: a prototypical calcium
+sensor. Trends Cell Biol. 10, 322–328.
+
+www.frontiersin.org
+
+February 2012 | Volume 3 | Article 55 | 11
+
+Ghanam et al.
+
+Role of HIV-1 matrix in virus assembly
+
+Chow, J. Y. H., Jeffries, C. M., Kwan,
+A. H., Guss, J. M., and Trewhella,
+J. (2010). Calmodulin disrupts the
+structure of the HIV-1 MA protein.
+J. Mol. Biol. 400, 702–714.
+
+Chu, H., Wang, J. J., and Spearman, P.
+(2010). Human immunodeﬁciency
+virus type-1 Gag and host vesicu-
+lar trafﬁcking pathways. Curr. Top.
+Microbiol. Immunol. 339, 67–84.
+
+Chukkapalli, V., Hogue, I. B., Boyko, V.,
+Hu, W.-S., and Ono, A. (2008). Inter-
+action between HIV-1 Gag matrix
+domain and phosphatidylinositol-
+(4,5)-bisphosphate is essential for
+efﬁcient Gag-membrane binding. J.
+Virol. 82, 2405–2417.
+
+Chukkapalli, V., Oh, S. J., and Ono,
+A. (2010). Opposing mechanisms
+involving RNA and lipids regu-
+late HIV-1 Gag membrane binding
+through the highly basic region of
+the matrix domain. Proc. Natl. Acad.
+Sci. U.S.A. 107, 1600–1605.
+
+Chukkapalli, V., and Ono, A. (2011).
+Molecular determinants that regu-
+late plasma membrane association
+of HIV-1 Gag. J. Mol. Biol. 410,
+512–524.
+
+Cimarelli, A., Sandin, S., Hoglund, S.,
+and Luban, J. (2000). Basic residues
+in human immunodeﬁciency virus
+type 1 nucleocapsid promote virion
+assembly via interaction with RNA.
+J. Virol. 74, 3046–3057.
+
+Cooper, J., Liu, L., Woodruff, E. A., Tay-
+lor, H. E., Goodwin, J. S., D’Aquila,
+R. T., Spearman, P., Hildreth, J. E. K.,
+and Dong, X. (2011). Filamin A pro-
+tein interacts with human immun-
+odeﬁciency virus type 1 Gag protein
+and contributes to productive par-
+ticle assembly. J. Biol. Chem. 286,
+28498–28510.
+
+Crist, R. M., Datta, S. A. K., Stephen,
+A. G., Soheilian, F., Mirro, J., Fisher,
+J., Nagashima, K., and Rein,
+R.
+(2009). Assembly properties
+A.
+immunodeﬁciency
+of
+virus
+zip-
+per
+for
+retrovirus assembly.
+J. Virol. 83,
+2216–2225.
+
+human
+type 1 Gag-leucine
+implications
+
+chimeras:
+
+Dalton, A. K., Ako-Adjei, D., Mur-
+ray, P. S., Murray, D., and Vogt,
+M. V. (2007). Electrostatic interac-
+tions drive membrane association of
+the human immunodeﬁciency virus
+type 1 Gag MA domain. J. Virol. 81,
+6434–6445.
+
+Dalton, A. K., Murray, P. S., Murray, D.,
+and Vogt, V. M. (2005). Biochemi-
+cal characterization of Rous sarcoma
+virus MA protein interaction with
+membranes. J. Virol. 79, 6227–6238.
+Darlix, J. L., and Spahr, P. F. (1982).
+Binding sites of viral protein P19
+onto Rous sarcoma virus RNA and
+
+possible controls of viral functions.
+J. Mol. Biol. 160, 147–161.
+
+Datta, S. A. K., Curtis, J. E., Ratcliff, W.,
+Clark, P. K., Crist, R. M., Lebowitz,
+J., Krueger, S., and Rein, A. (2007a).
+Conformation of
+the HIV-1 Gag
+protein in solution. J. Mol. Biol. 365,
+812–824.
+
+Datta, S. A. K., Zhao, Z., Clark, P.
+K., Tarasov, S., Alexandratos, J. N.,
+Campbell, S. J., Kvaratskhelia, M.,
+Lebowitz, J., and Rein, A. (2007b).
+Interactions between HIV-1 Gag
+molecules in solution: an inositol
+phosphate-mediated switch. J. Mol.
+Biol. 365, 799–811.
+
+Davis, M. R., Jiang, J., Zhou, J., Freed, E.
+O., and Aiken, C. (2006). A mutation
+in the human immunodeﬁciency
+virus type 1 Gag protein destabi-
+lizes the interaction of the envelope
+protein subunits gp120 and gp41. J.
+Virol. 80, 2405–2417.
+
+Dawson, L., and Yu, X. F. (1998).
+The role of nucleocapsid of HIV-
+1 in virus assembly. Virology 251,
+141–157.
+
+Ding, L., Derdowski, A., Wang, J.-J., and
+Spearman, P. (2003). Independent
+segregation of human immunodeﬁ-
+ciency virus type 1 Gag protein com-
+plexes and lipid rafts. J. Virol. 77,
+1916–1926.
+
+Dong, X., Li, H., Derdowski, A., Ding,
+L., Burnett, A., Chen, X., Peters, T. R.,
+Dermody, T. S., Woodruff, E., Wang,
+J.-J., and Spearman, P. (2005). AP-
+3 directs the intracellular trafﬁcking
+of HIV-1 Gag and plays a key role in
+particle assembly. Cell 120, 663–674.
+Dorfman, T., Mammano, F., Hasel-
+tine, W. A., and Göttlinger, H. G.
+(1994). Role of
+the matrix pro-
+tein in the virion association of
+the human immunodeﬁciency virus
+type 1 envelope glycoprotein.J. Virol.
+68, 1689–1696.
+
+Dou, J., Wang, J.-J., Chen, X., Li, H.,
+Ding, L., and Spearman, P. (2009).
+Characterization of a myristoylated,
+monomeric HIV Gag protein. Virol-
+ogy 387, 341–352.
+
+Edgcomb, S. P., and Murphy, K. P.
+(2002). Variability in the pKa of
+histidine side-chains correlates with
+burial within proteins. Proteins 49,
+1–6.
+
+Engeland, C. E., Oberwinkler, H., Schü-
+mann, M., Krause, E., Müller, G.
+A., and Kräusslich, H.-G. (2011).
+The cellular protein lyric inter-
+acts with HIV-1 Gag. J. Virol. 85,
+13322–13332.
+
+Erdie, C. R., and Wills, J. W. (1990).
+Myristoylation of Rous
+sarcoma
+virus Gag protein does not prevent
+replication in avian cells. J. Virol. 64,
+5204–5208.
+
+Fallon, J. L., and Quiocho, F. A. (2003).
+A closed compact structure of native
+Ca+ 2-calmodulin. Structure 11,
+1303–1307.
+
+Faurobert, E., Chen, C.-K., Hurley,
+J. B., and Teng, D. H.-F. (1996).
+Drosophila neurocalcin, a fatty acy-
+lated, Ca-binding protein that asso-
+ciates with membranes and inhibits
+in vitro phosphorylation of bovine
+rhodopsin.
+J. Biol. Chem. 271,
+10256–10262.
+
+Fernandes, F., Chen, K., Ehrlich, L. S.,
+Jin, J., Chen, M. H., Medina, G. N.,
+Symons, M., Montelaro, R., Donald-
+son, J., Tjandra, N., and Carter, C.
+A. (2011). Phosphoinositides direct
+equine infectious anemia virus Gag
+trafﬁcking and release. Trafﬁc 12,
+438–451.
+
+Finn, B. E., Evenäs, J., Drakenberg, T.,
+Waltho, J. P., Thulin, E., and Forsén,
+S. (1995). Calcium-induced struc-
+tural changes and domain autonomy
+in calmodulin. Nat. Struct. Biol. 2,
+777–783.
+
+Finzi, A., Orthwein, A., Mercier, J.,
+and Cohen, E. A. (2007). Pro-
+ductive human immunodeﬁciency
+virus type 1 assembly takes place at
+the plasma membrane. J. Virol. 81,
+7476–7490.
+
+Fledderman, E. L., Fujii, K., Ghanam, R.
+H., Waki, K., Prevelige, P. E., Freed, E.
+O., and Saad, J. S. (2010). Myristate
+exposure in the HIV-1 matrix pro-
+tein is modulated by ph. Biochem-
+istry 49, 9551–9562.
+
+Freed, E. O., and Martin, A. M. (1996).
+Domains of the human immonode-
+ﬁciency virus type 1 matrix and gp41
+cytoplasmic tail required for enve-
+lope incorporation into virions. J.
+Virol. 70, 341–351.
+
+Freed, E. O., Orenstein, J. M., Buckler-
+White, A. J., and Martin, M. A.
+(1994). Single amino acid changes
+in the human immunodeﬁciency
+virus type 1 matrix protein block
+virus particle production. J. Virol. 68,
+5311–5320.
+
+Freed, O. E., and Martin, A. M. (1995).
+Virion incorporation of envelope
+glycoproteins with long but not
+short cytoplasmic tails is blocked by
+speciﬁc, single amino acid substi-
+tutions in the human immunodeﬁ-
+ciency virus type 1 matrix. J. Virol.
+69, 1984–1989.
+
+Ganser-Pornillos, B. K., Cheng, A., and
+Yeager, M. (2007). Structure of full-
+length HIV-1 CA: a model
+for
+the mature capsid lattice. Cell 131,
+70–79.
+
+Ganser-Pornillos, B. K., Yeager, M., and
+Sundquist, W. I. (2008). The struc-
+tural biology of HIV assembly. Curr.
+Opin. Struct. Biol. 18, 203–217.
+
+Ghanam, R. H., Fernandez, T. F., Fled-
+derman, E. L., and Saad, J. S. (2010).
+Binding of calmodulin to the HIV-
+1 matrix protein triggers myris-
+tate exposure. J. Biol. Chem. 285,
+41911–41920.
+
+Gheysen, D., Jacobs, E., De Foresta,
+F., Thiriart, C., Francotte, M.,
+Thines, D., and De Wilde, M.
+(1989). Assembly and release of
+HIV-1 precursor Pr55gag virus-
+from recombinant
+like particles
+baculovirus-infected insect
+cells.
+Cell 59, 103–112.
+
+Golub, T., and Caroni, P.
+
+(2005).
+PI(4,5)P2-dependent microdomain
+capture microtubules
+assemblies
+to promote and control
+leading
+J. Cell Biol. 169,
+edge motility.
+151–162.
+
+Gottlieb, R. A., Giesing, H. A., Zhu, J.
+Y., Engler, R. L., and Babior, B. M.
+(1995). Cell acidiﬁcation in apopto-
+sis: granulocyte colony-stimulating
+factor delays programmed cell
+by
+death
+neutrophils
+up-
++
+-ATPase.
+regulating the vacuolar H
+Proc. Natl. Acad. Sci. U.S.A. 92,
+5965–5968.
+
+in
+
+Gousset, K., Ablan, S. D., Coren,
+L. V., Ono, A., Soheilian, F.,
+Nagashima, K., Ott, D. E., and
+Freed, E. O.
+(2008). Real-time
+visualization of HIV-1 GAG traf-
+ﬁcking in infected macrophages.
+PLoS
+e1000015.
+doi:10.1371/journal.ppat.1000015
+
+Pathog.
+
+4,
+
+Greene, W. C., Debyser, Z., Ikeda, Y.,
+Freed, E. O., Stephens, E., Yonemoto,
+W., Buckheit, R. W., Esté, J. A.,
+and Cihlar, T. (2008). Novel targets
+for HIV therapy. Antiviral Res. 80,
+251–265.
+
+Grigorov, B., Arcanger, F., Roingeard,
+J. L., and Muriaux,
+P., Darlix,
+D. (2006). Assembly of infectious
+HIV-1 in human epithelial and T-
+lymphoblastic cell lines. J. Mol. Biol.
+359, 848–862.
+
+Hamard-Peron, E., Juilliard, F., Saad,
+J. S., Roy, C., Roingeard, P., Sum-
+mers, M. F., Darlix, J. L., Picart,
+C., and Muriaux, D. (2010). Tar-
+to the
+geting of MuLV Gag
+plasma membrane
+is mediated
+by PI(4,5)P2/PS and a polybasic
+region in the Matrix. J. Virol. 84,
+503–515.
+
+Hamard-Peron, E., and Muriaux, D.
+(2011). Retroviral matrix and lipids,
+the intimate interactions. Retrovirol-
+ogy 8, 15.
+
+Hayashi, N., Matsubara, M.,
+
+Jinbo,
+Y., Titani, K., Izumi, Y., and Mat-
+sushima, N. (2002). Nef of HIV-
+1 interacts directly with calcium-
+bound calmodulin. Protein Sci. 11,
+529–537.
+
+Frontiers in Microbiology | Virology
+
+February 2012 | Volume 3 | Article 55 | 12
+
+Ghanam et al.
+
+Role of HIV-1 matrix in virus assembly
+
+Hearps, A. C., Wagstaff, K. M., Piller, S.
+C., and Jans, D. A. (2008). The N-
+terminal basic domain of the HIV-
+1 matrix protein does not contain
+a conventional nuclear localization
+sequence but is required for DNA
+binding and protein self-association.
+Biochemistry 47, 2199–2210.
+
+Hermida-Matsumoto, L., and Resh, M.
+D. (1999). Human immunodeﬁ-
+ciency virus type 1 protease triggers
+a myristoyl switch that modulates
+membrane binding fo Pr55gag and
+p17MA. J. Virol. 73, 1902–1908.
+
+Hermida-Matsumoto, L., and Resh, M.
+D. (2000). Localization of human
+immunodeﬁciency virus type 1 Gag
+and Env at the plasma membrane
+by confocal
+imagine. J. Virol. 74,
+8670–8679.
+
+Hoeﬂich, K. P., and Ikura, M. (2002).
+Calmodulin in action: diversity in
+target recognition and activation
+mechanisms. Cell 108, 739–742.
+
+(2009). Quantitative
+
+Hogue, I. B., Hoppe, A., and Ono,
+FRET
+A.
+of HIV-1
+microscopy
+analysis
+Gag-Gag interaction:
+the relative
+contributions of CA and NC
+domains, and membrane binding. J.
+Virol. 83, 7322–7336.
+
+Holm, K., Weclewicz, K., Hewson,
+R., and Suomalainen, M. (2003).
+Human immunodeﬁciency virus
+type 1 assembly and lipid rafts:
+Pr55gag associates with membrane
+domains that are largely resistant to
+Brij98 but sensitive to Triton X-100.
+J. Virol. 77, 4805–4817.
+
+Inlora,
+
+J., Chukkapalli, V., Derse,
+D., and Ono, A.
+(2011). Gag
+localization and virus-like parti-
+cle release mediated by the matrix
+domain of human T-lymphotropic
+virus type 1 Gag are less depen-
+dent on phosphatidylinositol-(4,5)-
+bisphosphate than those mediated
+by the matrix domain of HIV-1 Gag.
+J. Virol. 85, 3802–3810.
+
+Ishida, H., and Vogel, H. J. (2006).
+Protein-peptide interaction stud-
+ies demonstrate the versatility of
+calmodulin target protein binding.
+Protein Pept. Lett. 13, 455–465.
+
+Izumi, Y., Watanabe, H., Watanabe, N.,
+Aoyama, A., Jinbo, J., and Hayashi,
+N. (2008). Solution X-ray scatter-
+ing reveals a novel structure of
+calmodulin complexed with a bind-
+ing domain peptide from the HIV-1
+matrix protein p17. Biochemistry 47,
+7158–7166.
+
+Jäger, S., Cimermancic, P., Gulbahce,
+N., Johnson, J. R., McGovern, K.
+E., Clarke, S. C., Shales, M., Mer-
+cenne, G., Pache, L., Li, K., Her-
+nandez, H., Jang, G. M., Roth, S.
+L., Akiva, E., Marlett, J., Stephens,
+
+M., D’Orso, I., Fernandes, J., Fahey,
+M., Mahon, C., O’Donoghue, A. J.,
+Todorovic, A., Morris, J. H., Maltby,
+D. A., Alber, T., Cagney, G., Bush-
+man, F. D., Young, J. A., Chanda,
+S. K., Sundquist, W. I., Kortemme,
+T., Hernandez, R. D., Craik, C. S.,
+Burlingame, A., Sali, A., Frankel,
+A. D., and Krogan, N. J. (2011).
+Global
+landscape of HIV-human
+protein complexes. Nature 481,
+365–370.
+
+Janmey, P. A.,
+
+and Stossel, T. P.
+
+Iida, K., Yin, H.
+L.,
+(1987).
+Polyphosphoinositide micelles and
+polyphosphoinositide-containing
+vesicles
+endogenous
+gelsolin-actin complexes and pro-
+mote
+actin assembly from the
+fast-growing end of actin ﬁlaments
+blocked by gelsolin. J. Biol. Chem.
+262, 12228–12236.
+
+dissociate
+
+Joshi, A., Ablan, S. D., Soheilian,
+F., Nagashima, K., and Freed, E.
+O. (2009a). Evidence that produc-
+tive human immunodeﬁciency virus
+type 1 assembly can occur in an
+intracellular compartment. J. Virol.
+83, 5375–5387.
+
+Joshi, A., Nagashima, K., and Freed,
+E. O. (2009b). Defects in cellu-
+lar sorting and retroviral assem-
+bly induced by GGA overexpression.
+BMC Cell Biol. 10, 72. doi:10.1186/
+1471-2121-10-72
+
+Joshi, A., Garg, H., Ablan, S. D., and
+Freed, E. O. (2011). Evidence of a
+role for soluble N-ethylmaleimide-
+sensitive factor attachment protein
+receptor
+(SNARE) machinery in
+HIV-1 assembly and release. J. Biol.
+Chem. 286, 29861–28971.
+
+Joshi, A., Garg, H., Nagashima, K., Boni-
+facino, J. S., and Freed, E. O. (2008).
+GGA and Arf proteins modulate
+retrovirus assembly and release. Mol.
+Cell 30, 227–238.
+
+Joshi, A., Nagashima, K., and Freed, E.
+O. (2006). Mutation of dileucine-
+like motifs in the human immun-
+odeﬁciency virus
+type 1 capsid
+disrupts virus assembly, Gag-Gag
+interactions, Gag-membrane bind-
+ing, and virion maturation. J. Virol.
+80, 7939–7951.
+
+Jouvenet, N., Bieniasz, P. D., and Simon,
+S. M. (2008). Imaging the biogene-
+sis of individual HIV-1 virions in live
+cells. Nature 454, 236–240.
+
+Jouvenet, N., Neil, S. J. D., Bess, C., John-
+son, M. C., Virgen, C. A., Simon,
+S. M., and Bieniasz, P. D. (2006).
+Plasma membrane is the site of
+productive HIV-1 particle assembly.
+PLoS Biol. 4, e435. doi:10.1371/jour-
+nal.pbio.0040435
+
+Katoh, I., Kyushiki, H., Sakamoto, Y.,
+Ikawa, Y., and Yoshinaka, Y. (1991).
+
+leukemia
+
+Bovine
+virus matrix-
+associated protein MA(p15): further
+processing and formation of a spe-
+ciﬁc complex with the dimer of the
+(cid:2)
+-terminal genomic rna fragment.
+5
+J. Virol. 65, 6845–6855.
+
+Kinnunen, P. K., Kõiv, A., Lehtonen, J.
+Y., Rytömaa, M., and Mustonen, P.
+(1994). Lipid dynamics and periph-
+eral
+interactions of proteins with
+membrane surfaces. Chem. Phys.
+Lipids 73, 181–207.
+
+König, R., Zhou, Y., Elleder, D., Dia-
+mond, T. L., Bonamy, G. M. C., Ire-
+lan, J. T., Chiang, C.-Y., Tu, B. P.,
+De Jesus, P. D., Lilley, C. E., Sei-
+del, S., Opaluch, A. M., Caldwell, J.
+S., Weitzman, M. D., Kuhen, K. L.,
+Bandyopadhyay, S., Ideker, T., Orth,
+A. P., Miraglia, L. J., Bushman, F.
+D., Young, J. A., and Chanda, S.
+K. (2008). Global analysis of host-
+pathogen interactions that regulate
+early-stage HIV-1 replication. Cell
+135, 49–60.
+
+Leis, J. P., McGinnis, J., and Green, R.
+W. (1978). Rous sarcoma virus p19
+binds to speciﬁc double-stranded
+regions of viral RNA: effect of p19
+on cleavage of viral RNA by RNase
+III. Virology 84, 87–98.
+
+Lever, A. M. L., and Jeang, K.-T. (2011).
+Insights into cellular factors that reg-
+ulate HIV-1 replication in human
+cells. Biochemistry 50, 920–931.
+
+Li, H., Dou, J., Ding, L., and Spear-
+man, P. (2007). Myristoylation is
+required for human immunodeﬁ-
+ciency virus type 1 Gag-Gag mul-
+timerization in mammalian cells. J.
+Virol. 81, 12899–12910.
+
+Li, S., Hill, C. P., Sundquist, W. I., and
+Finch, J. T. (2000). Image recon-
+structions of helical assemblies of
+the HIV-1 CA protein. Nature 407,
+409–413.
+
+Lindwasser, O. W., and Resh, M. D.
+(2001). Multimerization of human
+immunodeﬁciency virus type 1 Gag
+promotes its localization to barges,
+raft-like membrane microdomains.
+J. Virol. 75, 7913–7924.
+
+Lindwasser, O. W., and Resh, M. D.
+(2002). Myristoylation as a target
+for inhibiting HIV assembly: unsat-
+urated fatty acids block viral bud-
+ding. Proc. Natl. Acad. Sci. U.S.A. 99,
+13037–13042.
+
+Liu, T., Ryan, M., Dahlquist, F. W., and
+Grifﬁth, O. H. (1997). Determina-
+tion of pKa values of the histidine
+side chains of phosphatidylinositol-
+speciﬁc phospholipase C from Bacil-
+lus cereus by NMR spectroscopy
+and site-directed mutagenesis. Pro-
+tein Sci. 6, 1937–1944.
+
+Lodge, R., Gottlinger, H., Gabuzda, D.,
+Cohen, E. A., and Lemay, G. (1994).
+
+The intracytoplasmic domain of
+gp41 mediates polarized budding
+of human immunodeﬁciency virus
+type 1 in MDCK cells.J. Virol. 68,
+4857–4861.
+
+Lopez-Vergès, S., Camus, G., Blot, G.,
+Beauvoir, R., Benarous, R., and
+Berlioz-Torrent, C.
+(2006). Tail-
+interacting protein TIP47 is a con-
+nector between Gag and Env and is
+required for Env incorporation into
+HIV-1 virions. Proc. Natl. Acad. Sci.
+U.S.A. 103, 14947–14952.
+
+Lusso, P., Di Marzo Veronese, F.,
+Ensoli, B., Franchini, G., Jemma,
+C., Derocco, S. E., Kalyanaraman,
+V. S., and Gallo, R. C. (1990).
+Expanded HIV-1 cellular tropism
+by phenotypic mixing with murine
+endogenous
+retroviruses. Science
+247, 848–852.
+
+Makutonina, A., Voss, T. G., Plymale,
+D. R., Fermin, C. D., Norris, C.
+H., Vigh, S., and Garry, R. F.
+(1996). Human immunodeﬁciency
+virus infection of T-lymphoblastoid
+cells reduces intracellular pH.
+J.
+Virol. 70, 7049–7055.
+
+Mammano, F., Kondo, E., Sodroski, J.,
+Bukovsky, A., and Gottlinger, H. G.
+(1995). Rescue of human immunod-
+eﬁciency virus type I matrix protein
+mutants by envelope glycoproteins
+with short cytoplasmic domains. J.
+Virol. 69, 3824–3830.
+
+Matsubara, M., Jing, T., Kawamura, K.,
+Shimojo, N., Titani, K., Hashimoto,
+K., and Hayashi, N. (2005). Myris-
+toyl moiety of HIV Nef is involved
+in regulation of the interaction with
+calmodulin in vivo. Protein Sci. 14,
+494–503.
+
+Matsubara, M., Nakatsu, T., Kato, H.,
+and Taniguchi, H. (2004). Crystal
+structure of a myristoylated CAP-
+23/NAP-22 N-terminal
+domain
+complexed with Ca2+/calmodulin.
+EMBO J. 23, 712–718.
+
+Matsubara, M., Titani, K., Taniguchi,
+H., and Hayashi, N. (2003). Direct
+involvement of protein myristoy-
+lation in myristoylated alanine-
+rich C kinase substrate (MARCKS)-
+calmodulin interaction.
+J. Biol.
+Chem. 278, 48898–48902.
+
+Matsuda, S., Hisatomi, O., Ishino, T.,
+Kobayashi, Y., and Tokunaga, F.
+(1998). The role of calcium-binding
+sites in S-modulin function. J. Biol.
+Chem. 273, 20223–20227.
+
+McLaughlin, S., and Murray, D. (2005).
+Plasma membrane phosphoinosi-
+tide organization by protein electro-
+statics. Nature 438, 605–611.
+
+Melkonian, K. A., Ostermeyer, A. G.,
+Chen, J. Z., Roth, M. G., and Brown,
+D. A. (1999). Role of lipid mod-
+iﬁcations in targeting proteins to
+
+www.frontiersin.org
+
+February 2012 | Volume 3 | Article 55 | 13
+
+Ghanam et al.
+
+Role of HIV-1 matrix in virus assembly
+
+detergent-resistant membrane rafts.
+J. Biol. Chem. 274, 3910–3917.
+
+Méric, C., and Spahr, P.-F. (1986). Rous
+sarcoma virus nucleic acid-binding
+protein p12 is necessary for viral 70S
+RNA dimer formation and packag-
+ing. J. Virol. 60, 450–459.
+
+Micoli, K. J., Mamaeva, O., Piller, S. C.,
+Barker, J. L., Pan, G., Hunter, E., and
+McDonald, J. M. (2006). Point muta-
+tions in the C-terminus of HIV-1
+gp160 reduce apoptosis and calmod-
+ulin binding without affecting viral
+replication. Virology 344, 468–479.
+
+Moolenaar, W. H., Tsien, R. Y., Van Der
+Saag, P. T., and De Laat, S. W. (1983).
+Na+/H+ exchange and cytoplasmic
+pH in the action of growth factors
+in human ﬁbroblasts. Nature 304,
+645–648.
+
+Morikawa,Y., Hockley, D. J., Nermut, M.
+V., and Jones, I. M. (2000). Roles of
+matrix, p2, and N-terminal myris-
+toylation in human immunodeﬁ-
+ciency virus type 1 Gag assembly. J.
+Virol. 74, 16–23.
+
+Morikawa, Y., Zhang, W.-H., Hock-
+ley, D.
+J., Nermut, M. V., and
+Jones, I. M. (1998). Detection of a
+trimeric human immunodeﬁciency
+virus type 1 Gag intermediate is
+dependent on sequences
+in the
+matrix protein, p17. J. Virol. 72,
+7659–7663.
+
+Murakami, T., and Freed, E. O. (2000).
+The long cytoplasmic tail of gp41
+is required in a cell type-dependent
+manner for HIV-1 envelope gly-
+coprotein incorporation into viri-
+ons. Proc. Natl. Acad. Sci. U.S.A. 97,
+343–348.
+
+Muriaux, D., Mirro, J., Harvin, D., and
+Rein, A. (2001). RNA is a struc-
+tural element in retrovirus parti-
+cles. Proc. Natl. Acad. Sci. U.S.A. 98,
+5246–5251.
+
+Nakatsu, F., and Ohno, H. (2003). Adap-
+tor protein complexes as the key reg-
+ulators of protein sorting in the post-
+Golgi network. Cell Struct. Funct. 28,
+419–429.
+
+Narazaki, M., Fujimoto, M., Mat-
+sumoto, T., Morita, Y., Saito, H.,
+Kajita, T., Yoshizaki, K., Naka, T., and
+Kishimoto, T. (1998). Three distinct
+domains of SSI-1/SOCS-1/JAB pro-
+tein are required for its suppression
+of interleukin 6 signaling. Proc. Natl.
+Acad. Sci. U.S.A. 95, 13130–13134.
+
+Nguyen, D. G., Booth, A., Gould, S.
+J., and Hildreth, J. E. (2003). Evi-
+dence that HIV budding in pri-
+mary macrophages occurs through
+the exosome release pathway. J. Biol.
+Chem. 278, 52347–52354.
+
+Nguyen, D. H.,
+
+and Hildreth,
+
+J.
+E. (2000). Evidence for budding
+of human immunodeﬁciency virus
+
+type 1 selectively from glycolipid-
+enriched membrane lipid rafts. J.
+Virol. 74, 3264–3272.
+
+Nishi, M., Ryo, A., Tsurutani, N., Ohba,
+K., Sawasaki, T., Morishita, R., Per-
+rem, K., Aoki, I., Morikawa, Y.,
+and Yamamoto, N. (2009). Require-
+ment for microtubule integrity in
+the SOCS1-mediated intracellular
+dynamics of HIV-1 Gag. FEBS Lett.
+583, 1243–1250.
+
+Nydegger, S., Foti, M., Derdowski, A.,
+Spearman, P., and Thali, M. (2003).
+HIV-1 egress is gated through late
+endosomal membranes. Trafﬁc 4,
+902–910.
+
+Ohno, H.,Aguilar, R. C., Fournier, M. C.,
+Hennecke, S., Cosson, P., and Boni-
+facino, J. S. (1997). Interaction of
+endocytic signals from the HIV-1
+envelope glycoprotein complex with
+members of the adaptor medium
+chain family. Virology 238, 305–315.
+Ono, A. (2009). HIV-1 assembly at
+the plasma membrane: Gag trafﬁck-
+ing and localization. Future Virol. 4,
+241–257.
+
+Ono, A. (2010). Relationships between
+plasma membrane microdomains
+and HIV-1 assembly. Biol. Cell 102,
+335–350.
+
+Ono, A., Ablan, S. D., Lockett, S. J.,
+Nagashima, K., and Freed, E. O.
+(2004). Phosphatidylinositol (4,5)
+bisphosphate regulates HIV-1 Gag
+targeting to the plasma membrane.
+Proc. Natl. Acad. Sci. U.S.A. 101,
+14889–14894.
+
+Ono, A., Demirov, D., and Freed, E.
+O. (2000a). Relationship between
+human immunodeﬁciency
+virus
+type-1 Gag multimerization and
+membrane binding.
+J. Virol. 74,
+5142–5150.
+
+Ono, A., Orenstein, J. M., and Freed, E.
+O. (2000b). Role of the Gag matrix
+domain in targeting human immun-
+odeﬁciency virus type 1 assembly. J.
+Virol. 74, 2855–2866.
+
+Ono, A., and Freed, E. O. (1999). Bind-
+ing of human immunodeﬁciency
+virus type 1 Gag to membrane: role
+of the matrix amino terminus. J.
+Virol. 73, 4136–4144.
+
+Ono, A., and Freed, E. O. (2001).
+Plasma membrane rafts play a crit-
+ical role in HIV-1 assembly and
+release. Proc. Natl. Acad. Sci. U.S.A.
+98, 13925–13930.
+
+Ono, A., and Freed, E. O. (2004). Cell-
+type-dependent tageting of human
+immunodeﬁciency virus
+type 1
+assembly to the plasma membrane
+and the multivesicular body. J. Virol.
+78, 1552–1563.
+
+Ono, A., and Freed, E. O. (2005). Role of
+lipid rafts in virus replication. Adv.
+Virus Res. 64, 311–358.
+
+Ono, A., Huang, M., and Freed, E. O.
+(1997). Characterization of human
+immunodeﬁciency virus
+type 1
+matrix revertants: effects on virus
+assembly, Gag processing, and Env
+incorporation into virions. J. Virol.
+71, 4409–4418.
+
+Osawa, M., Tokumitsu, H., Swindells,
+M. B., Kurihara, H., Orita, M.,
+Shibanuma, T., Furuya, T., and
+Ikura, M. (1999). A novel target
+recognition revealed by calmodulin
+in complex with Ca2+-calmodulin-
+dependent kinase kinase. Nat. Struct.
+Biol. 6, 819–824.
+
+Ott, D. E. (2008). Cellular proteins
+detected in HIV-1. Rev. Med. Virol.
+18, 159–175.
+
+sequences
+
+Ott, D. E., Coren, L. V., and Gagliardi,
+T. D. (2005). Redundant roles for
+nucleocapsid and matrix RNA-
+human
+binding
+in
+immunodeﬁciency virus
+type 1
+assembly. J. Virol. 79, 13839–13847.
+Owens, R. J., and Compans, R. W.
+(1989). Expression of the human
+immunodeﬁciency virus envelope
+glycoprotein is restricted to basolat-
+eral surfaces of polarized epithelial
+cells. J. Virol. 63, 978–982.
+
+Owens, R. J., Dubay, J. W., Hunter, E.,
+and Compans, R. W. (1991). Human
+immunodeﬁciency virus envelope
+protein determines the site of virus
+release in polarized epithelial cells.
+Proc. Natl. Acad. Sci. U.S.A. 88,
+3987–3991.
+J.-C.,
+
+and Gottlinger, H.
+G.
+(1999). Opposing effects of
+human immunodeﬁciency
+virus
+type 1 matrix mutations support
+a myristyl switch model of Gag
+membrane targeting. J. Virol. 73,
+2604–2612.
+
+Paillart,
+
+Parent, L. J., and Gudleski, N. (2011).
+Beyond plasma membrane target-
+ing: role of the MA domain of Gag
+in retroviral genome encapsidation.
+J. Mol. Biol. 410, 553–564.
+
+Pelchen-Matthews, A., Krameer, B., and
+Marsh, M. (2003). Infectious HIV-1
+assembles in late endosomes in pri-
+mary macrophages. J. Cell Biol. 162,
+443–445.
+
+Provitera, P., Bouamr, F., Murray, D.,
+Carter, C., and Scarlata, S. (2000).
+Binding of equine infectious anemia
+virus matrix protein to membrane
+bilayers involves multiple interac-
+tions. J. Mol. Biol. 296, 887–898.
+
+Purohit, P., Dupont, S., Stevenson, M.,
+and Green, M. R. (2001). Sequence-
+speciﬁc interaction between HIV-1
+matrix protein and viral genomic
+RNA revealed by in vitro genetic
+selection. RNA 7, 576–584.
+
+Radding, W., Pan, Z. Q., Hunter, E.,
+Johnston, P., Williams, J. P., and
+
+McDonald, J. M. (1996). Expres-
+sion of HIV-1 envelope glyco-
+protein alters cellular calmodulin.
+Biochem. Biophys. Res. Commun.
+218, 192–197.
+
+Radding, W., Williams, J. P., McKenna,
+M. A., Tummala, R., Hunter, E.,
+Tytler, E. M., and McDonald, J. M.
+(2000). Calmodulin and HIV type 1:
+interactions with Gag and Gag prod-
+ucts. AIDS Res. Hum. Retroviruses
+16, 1519–1525.
+
+Ramalingam, D., Duclair, S., Datta, S. A.,
+Ellington, A., Rein, A., and Prasad,
+V. R. (2011). RNA aptamers directed
+to human immunodeﬁciency virus
+type 1 Gag polyprotein bind to the
+matrix and nucleocapsid domains
+and inhibit virus production. J. Virol.
+85, 305–314.
+
+Reil, H., Bukovsky, A. A., Gelderblom,
+H. R.,
+and Gottlinger, H. G.
+(1998). Efﬁcient HIV-1 replication
+can occur in the absence of the
+viral matrix protein. EMBO J. 17,
+2699–2708.
+
+Robinson, M. S., and Bonifacino, J.
+S. (2001). Adaptor-related proteins.
+Curr. Opin. Cell Biol. 13, 444–453.
+
+Rogers, M. S., and Strehler, E. E.
+(1996). “Calmodulin-like proteins,”
+in Guidebook to the Calcium-Binding
+Proteins, eds M. R. Celio, T. Pauls,
+and B. Schwaller (Oxford: Oxford
+University Press), 34–40.
+
+Ryo, A., Tsurutani, N., Obha, K.,
+Kimura, R., Komano, J., Nishi, M.,
+Soeda, H., Hattori, S., Perrem, K.,
+Yamamoto, M., Chiba, J., Mimaya,
+J.-I., Yoshimura, K., Matsushita, S.,
+Honda, M., Yoshimura, A., Sawasaki,
+T., Aoki,
+I., Morikawa, Y., and
+Yamamoto, N. (2008). SOCS1 is an
+inducible host factor during HIV-1
+infection and regulates the intracel-
+lular trafﬁcking and stability of HIV-
+1 Gag. Proc. Natl. Acad. Sci. U.S.A.
+105, 294–299.
+
+Rytömaa, M., and Kinnunen, P. K.
+(1995). Reversibility of the binding
+of cytochrome c to liposomes. Impli-
+cations for lipid-protein interac-
+tions. J. Biol. Chem. 270, 3197–3202.
+Saad, J. S., Ablan, S. D., Ghanam, R. H.,
+Kim, A., Andrews, K., Nagashima,
+K., Soheilian, F., Freed, E. O., and
+Summers, M. F. (2008). Structure of
+the myristylated HIV-2 MA protein
+and the role of phosphatidylinositol-
+(4,5)-bisphosphate in membrane
+targeting. J. Mol. Biol. 382, 434–447.
+Saad, J. S., Kim, A., Ghanam, R. H., Dal-
+ton, A. K., Vogt, M. V., Wu, Z., Lu, W.,
+and Summers, M. F. (2007a). Muta-
+tions that mimic phosphorylation of
+the HIV-1 matrix protein do not per-
+turb the myristyl switch. Protein Sci.
+16, 1793–1797.
+
+Frontiers in Microbiology | Virology
+
+February 2012 | Volume 3 | Article 55 | 14
+
+Ghanam et al.
+
+Role of HIV-1 matrix in virus assembly
+
+Saad, J. S., Loeliger, E., Luncsford, P.,
+Liriano, M., Tai, J., Kim, A., Miller,
+J., Joshi, A., Freed, E. O., and Sum-
+mers, M. F. (2007b). Point mutations
+in the HIV-1 matrix protein turn off
+the myristyl switch. J. Mol. Biol. 366,
+574–585.
+
+Saad, J. S., Miller, J., Tai, J., Kim, A.,
+Ghanam, R. H., and Summers, M.
+F. (2006). Structural basis for target-
+ing HIV-1 Gag to virus assembly sites
+on the plasma membrane. Proc. Natl.
+Acad. Sci. U.S.A. 103, 11364–11369.
+Samal, A. B., Ghanam, R. H., Fernandez,
+T. F., Monroe, E. B., and Saad, J. S.
+(2011). NMR, biophysical and bio-
+chemical studies reveal the minimal
+calmodulin-binding domain of the
+HIV-1 matrix protein. J. Biol. Chem.
+286, 33533–33543.
+
+Schuldiner, S., and Rozengurt, E. (1982).
+Na+/H+ antiport in Swiss 3T3 cells:
+mitogenic stimulation leads to cyto-
+plasmic alkalinization. Proc. Natl.
+Acad. Sci. U.S.A. 79, 7778–7782.
+
+Sherer, N. M., Lehmann, M. J., Jimenez-
+Soto, L. F., Ingmundson, A., Horner,
+S. M., Cicchetti, G., Allen, P. G.,
+Pypaert, M., Cunningham, J. M., and
+Mothes, W. (2003). Visualization of
+retroviral replication in living cells
+reveals budding into multivesicular
+bodies. Trafﬁc 4, 785–801.
+
+Shkriabai, N., Datta, S. A., Zhao, Z.,
+Hess, S., Rein, A., and Kvaratskhe-
+lia, M. (2006). Interactions of HIV-1
+Gag with assembly cofactors. Bio-
+chemistry 45, 4077–4083.
+
+Spearman, P., Horton, R., Ratner, L.,
+and Kuli-Zade, I. (1997). Mem-
+brane binding of human immunod-
+eﬁciency virus type 1 matrix protein
+in vivo supports a conformational
+myristyl switch mechanism. J. Virol.
+71, 6582–6592.
+
+Srinivas, S. K., Srinivas, R. V., Anan-
+tharamaiah, G. M., Compans, R. W.,
+and Segrest, J. P. (1993). Cytosolic
+domain of the human immunodeﬁ-
+ciency virus envelope glycoproteins
+binds to calmodulin and inhibits
+calmodulin-regulated proteins.
+J.
+Biol. Chem. 268, 22895–22899.
+
+Stansell, E., Apkarian, R., Haubova, S.,
+Diehl, W. E., Tytler, E. M., and
+Hunter, E. (2007). Basic residues in
+the Mason-Pﬁzer monkey virus Gag
+matrix domain regulate intracellu-
+lar trafﬁcking and capsid-membrane
+
+interactions. J. Virol. 81, 8977–8988.
+Steeg, C. M., and Vogt, V. M. (1990).
+RNA-binding properties of
+the
+matrix protein (p19gag) of avian sar-
+coma and leukemia viruses. J. Virol.
+64, 847–855.
+
+Strasner, A. B., Natarajan, M., Doman,
+T., Key, D., August, A., and Hender-
+son, A. J. (2008). The Src kinase Lck
+facilitates assembly of HIV-1 at the
+plasma membrane. J. Immunol. 181,
+3706–3713.
+
+Tanaka, T., Ames, J. B., Harvey, T. S.,
+Stryer, L., and Ikura, M. (1995).
+Sequestration of
+the membrane-
+targeting myristoyl group of recov-
+erin in the calcium-free state. Nature
+376, 444–447.
+
+Tang, C., Loeliger, E., Luncsford, P.,
+Kinde, I., Beckett, D., and Summers,
+M. F. (2004). Entropic switch regu-
+lates myristate exposure in the HIV-
+1 matrix protein. Proc. Natl. Acad.
+Sci. U.S.A. 101, 517–522.
+
+Thirkettle, H. J., Girling, J.,Warren,A. Y.,
+Mills, I. G., Sahadevan, K., Leung, H.,
+Hamdy, F.,Whitaker, H. C., and Neal,
+D. E. (2009). LYRIC/AEG-1 is tar-
+geted to different subcellular com-
+partments by ubiquitinylation and
+intrinsic nuclear localization signals.
+Clin. Cancer Res. 15, 3003–3013.
+
+Tomita, Y., Noda, T., Fujii, K., Watan-
+abe, T., Morikawa, Y., and Kawaoka,
+Y. (2011). The cellular factors Vps18
+and Mon2 are required for efﬁ-
+cient production of infectious HIV-1
+particles. J. Virol. 85, 5618–5627.
+
+Towler, D. A., Adams, S. P., Eubanks, S.
+R., Towery, D. S., Jackson-Machelski,
+E., Glaser, L., and Gordon, J. I.
+(1988). Myristyl CoA:protein N-
+myristoyltransferase activities from
+rat
+liver and yeast possess over-
+lapping yet distinct peptide sub-
+strate speciﬁcities. J. Biol. Chem. 263,
+1784–1790.
+
+Tuominen, E. K., Wallace, C. J., and Kin-
+nunen, P. K. (2002). Phospholipid-
+cytochrome c interaction: evidence
+for the extended lipid anchorage. J.
+Biol. Chem. 277, 8822–8826.
+
+Turner, B. G., and Summers, M. F.
+(1999). Structural biology of HIV. J.
+Mol. Biol. 285, 1–32.
+
+Valentine, K. G., Peterson, R., Saad, J.
+S., Summers, M. F., Xu, X., Ames, J.
+B., and Wand, A. J. (2010). Reverse
+micelle encapsulation of membrane
+
+anchored proteins for solution NMR
+studies. Structure 18, 9–16.
+
+Vetter, S. W., and Leclerc, E. (2003).
+Novel aspects of calmodulin target
+recognition and activation. Eur. J.
+Biochem. 270, 404–414.
+
+Waheed, A. A., and Freed, E. O.
+and membrane
+(2009). Lipids
+microdomains in HIV-1 replication.
+Virus Res. 143, 162–176.
+
+Welsch, S., Keppler, O. T., Haber-
+mann, A., Allespach, I., Krijnse-
+Locker, J., and Kräusslich, H.-G.
+(2007). HIV-1 buds predominantly
+at the plasma membrane of primary
+human macrophages. PLoS Pathog.
+3, e36.
+
+Wilk, T., Pfeiffer, T., and Bosch, V.
+(1992). Retained in vitro infectiv-
+ity and cytopathogenicity of HIV-1
+despite truncation of the C-terminal
+tail of the env gene product. Virology
+189, 167–177.
+
+Wright, E. R., Schooler, J. B., Ding, H. J.,
+Kieffer, C., Fillmore, C., Sundquist,
+W. I., and Jensen, G. J. (2007). Elec-
+tron crytomography of immature
+HIV-1 virions reveals the structure
+of the CA and SP1 Gag shells. EMBO
+J. 26, 2218–2226.
+
+Wyss, S., Berlioz-Torrent, C., Boge, M.,
+Blot, G., Höning, S., Benarous, R.,
+and Thali, M. (2011). The highly
+conserved C-terminal
+dileucine
+motif in the cytosolic domain of
+the
+immunodeﬁciency
+virus type 1 envelope glycoprotein
+is critical for its association with
+the AP-1 clathrin adaptor [cor-
+rection of adapter]. J. Virol. 75,
+2982–2992.
+
+human
+
+Yamniuk, A. P., and Vogel, H. J. (2004).
+Calmodulin’s ﬂexibility allows for
+promiscuity in its interactions with
+target proteins and peptides. Mol.
+Biotechnol. 27, 33–57.
+
+Yap, K. L., Kim, J., Truong, K., Sher-
+man, M., Yuan, T., and Ikura, M.
+(2000). Calmodulin target data-
+base. J. Struct. Funct. Genomics 1,
+8–14.
+
+Yoshimura, A., Naka, T., and Kubo, M.
+(2007). SOCS proteins, cytokine sig-
+nalling and immune regulation. Nat.
+Rev. Immunol. 7, 454–465.
+
+Yu, X., Yuan, X., Matsuda, Z., Lee,
+T.-H., and Essex, M. (1992). The
+matrix protein of human immunod-
+eﬁciency virus type I is required for
+
+incorporation of viral envelope pro-
+tein into mature virions. J. Virol. 66,
+4966–4971.
+
+Zacharias, D. A.,Violin, J. D., Newton,A.
+C., and Tsien, R. Y. (2002). Partition-
+ing of
+lipid-modiﬁed monomeric
+GFPs into membrane microdomains
+live
+of
+296,
+913–916.
+
+Science
+
+cells.
+
+Zhou, H., Xu, M., Huang, Q., Gates, A.
+T., Zhang, X. D., Castle, J. C., Stec,
+E., Ferrer, M., Strulovici, B., Hazuda,
+D. J., and Espeseth, A. S. (2008).
+Genome-scale RNAi screen for host
+factors required for HIV replication.
+Cell Host Microbe 4, 495–504.
+
+Zhou, W., Parent, L. J., Wills, J. W., and
+Resh, M. D. (1994). Identiﬁcation
+of a membrane-binding domain
+within the amino-terminal region
+of human immunodeﬁciency virus
+type 1 Gag protein which interacts
+with acidic phospholipids. J. Virol.
+68, 2556–2569.
+
+Zhou, W., and Resh, M. D. (1996).
+Differential membrane binding of
+the human immunodeﬁciency virus
+type 1 matrix protein. J. Virol. 70,
+8540–8548.
+
+Conﬂict of Interest Statement: The
+authors declare that the research was
+conducted in the absence of any com-
+mercial or ﬁnancial relationships that
+could be construed as a potential con-
+ﬂict of interest.
+
+Received: 27 December 2011; paper pend-
+ing published: 09 January 2012; accepted:
+01 February 2012; published online: 17
+February 2012.
+Citation: Ghanam RH, Samal AB,
+Fernandez TF and Saad JS (2012)
+Role of the HIV-1 matrix protein in
+Gag intracellular trafﬁcking and tar-
+geting to the plasma membrane for
+virus assembly. Front. Microbio. 3:55. doi:
+10.3389/fmicb.2012.00055
+This article was submitted to Frontiers
+in Virology, a specialty of Frontiers in
+Microbiology.
+Copyright  2012 Ghanam, Samal, Fer-
+nandez and Saad. This is an open-access
+article distributed under the terms of
+the Creative Commons Attribution Non
+Commercial License, which permits non-
+commercial use, distribution, and repro-
+duction in other forums, provided the
+original authors and source are credited.
+
+www.frontiersin.org
+
+February 2012 | Volume 3 | Article 55 | 15
+
+

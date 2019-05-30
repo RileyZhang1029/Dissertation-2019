@@ -1,0 +1,2126 @@
+ORIGINAL RESEARCH ARTICLE
+published: 09 December 2011
+doi: 10.3389/fmicb.2011.00236
+
+Genome-wide sequence variation among Mycobacterium
+avium subspecies paratuberculosis isolates: a better
+understanding of Johne’s disease transmission dynamics
+
+Chung-Yi Hsu 1, Chia-Wei Wu 1 and Adel M. Talaat 1,2*
+
+1 Laboratory of Bacterial Genomics, Department of Pathobiological Sciences, University of Wisconsin–Madison, Madison, WI, USA
+2 Department of Food Hygiene, Cairo University, Giza, Egypt
+
+Edited by:
+Thomas A. Ficht, Texas A&M
+University, USA
+Reviewed by:
+Srinand Sreevastan, University of
+Minnesota, USA
+Michael L. Vasil, University of
+Colorado Medical School, USA
+*Correspondence:
+Adel M. Talaat, Laboratory of Bacterial
+Genomics, Department of
+Pathobiological Sciences, University
+of Wisconsin–Madison, 1656 Linden
+Drive, Madison, WI 53706-1581, USA.
+e-mail: atalaat@wisc.edu
+
+Mycobacterium avium subspecies paratuberculosis (M. ap), the causative agent of Johne’s
+disease, infects many farmed ruminants, wild-life animals, and recently isolated from
+humans. To better understand the molecular pathogenesis of these infections, we ana-
+lyzed the whole-genome sequences of several M. ap and M. avium subspecies avium (M.
+avium) isolates to gain insights into genomic diversity associated with variable hosts and
+environments. Using Next-generation sequencing technology, all six M. ap isolates showed
+a high percentage of similarity (98%) to the reference genome sequence of M. ap K-10
+isolated from cattle. However, two M. avium isolates (DT 78 and Env 77) showed signiﬁcant
+sequence diversity (only 87 and 40% similarity, respectively) compared to the reference
+strain M. avium 104, a reﬂection of the wide environmental niches of this group of mycobac-
+teria. Within the M. ap isolates, genomic rearrangements (insertions/deletions) were not
+detected, and only unique single nucleotide polymorphisms (SNPs) were observed among
+M. ap isolates. While more of the SNPs (∼100) in M. ap genomes were non-synonymous,
+a total of ∼6,000 SNPs were detected among M. avium genomes, most of them were
+synonymous suggesting a differential selective pressure between M. ap and M. avium
+isolates. In addition, SNPs-based phylo-genomics had a enough discriminatory power to
+differentiate between isolates from different hosts but yet suggesting a bovine source of
+infection to other animals examined in this study. Interestingly, the human isolate (M. ap
+4B) was closely related to a M. ap isolate from a dairy facility, suggesting a common source
+of infection. Overall, the identiﬁed phylo-genomes further supported the idea of a common
+ancestor to both M. ap and M. avium isolates. Genome-wide analysis described here could
+provide a strong foundation for a population genetic structure that could be useful for the
+analysis of mycobacterial evolution and for the tracking of Johne’s disease transmission
+among animals.
+
+Keywords: Mycobacteria, paratuberculosis, Johne’s disease, whole-genome sequencing, genomics, pathogenesis
+
+INTRODUCTION
+Infection with Mycobacterium avium subspecies paratuberculosis
+(M. ap) causes Johne’s disease, or paratuberculosis, in a large num-
+ber of ruminants and wild-life animals (Collins et al., 1994b). The
+combination of low milk yield and mortalities caused by Johne’s
+disease signiﬁcantly impacts the economics of the dairy industry in
+the US and worldwide (Barrett et al., 2006; Raizman et al., 2009).
+Both infected and clinically ill animals can shed M. ap in their
+feces, a common source of infection, especially to young calves
+through a fecal–oral route (Collins et al., 1994a). The infected ani-
+mals usually have a prolonged subclinical phase which eventually
+leads to severe gastroenteritis and death. The disease affects mainly
+ruminants with some evidence suggesting an association between
+M. ap and Crohn’s disease in humans (Naser et al., 2002, 2004;
+Over et al., 2011). As expected, M. ap isolates from variable hosts
+were the subject of several genetic analyses to decipher a potential
+role for genetic variations on M. ap virulence and pathogenesis.
+
+For example, approaches based on PCR ampliﬁcation of speciﬁc
+targets (e.g., IS1311, IS900; Whittington et al., 2000) and short
+sequence repeats (SSR; Sevilla et al., 2008) revealed isolate varia-
+tion on a genetic level. Recently, DNA microarrays were applied
+to examine variations on a whole-genome level (Paustian et al.,
+2005; Wu et al., 2006) which provided a comprehensive analy-
+sis of large scale differences among examined isolates. However,
+events of genomic rearrangements (insertions/deletions, Indels)
+were not easily identiﬁed. In this report, we resorted to a high
+throughput sequencing strategy to address our hypothesis linking
+genomic diversity to mycobacterial adaption to variable host and
+environments where they replicate and persist.
+
+Several studies attempted to examine the genomic polymor-
+phisms among M. avium complex (MAC) strains to better identify
+mycobacterial species associated with infections. In one study,
+dnaJ sequence revealed a limited genomic diversity among human
+and veterinary strains (Morita et al., 2004). However, comparative
+
+www.frontiersin.org
+
+December 2011 | Volume 2 | Article 236 | 1
+
+Hsu et al.
+
+Genomic diversity among M. ap isolates
+
+genomic hybridization revealed more diversity among M. avium,
+M. ap, and M. avium subsp. silvaticum (Semret et al., 2004; Paus-
+tian et al., 2005). Despite a 95% similarity at the nucleotide level
+between M. avium and M. ap, long oligonucleotide microarrays
+were able to assess genomic diversity among the genomes of MAC
+members (Semret et al., 2004; Wu et al., 2006). Fortunately, the
+complete genome sequence of M. ap K-10 was reported in 2005
+and has been revised and re-sequenced recently (Li et al., 2005; Wu
+et al., 2009; Wynne et al., 2010) which allowed more detailed com-
+parative analysis of several M. ap strains. For the M. tuberculosis
+complex, the presence of historical data and documented isolates
+collection helped in better understanding of the origin and evolu-
+tion of members of this group (Behr and Small, 1999; Smith et al.,
+2009). Unfortunately, such records are not available for members
+of MAC.
+
+With the advancements in next-generation sequencing tech-
+nology (Bentley et al., 2008), we took advantage of Illumina-based
+technology to decipher the genome contents of M. ap isolates from
+various animals and their environments. This technology allows
+us to compare genomic sequences on unprecedented level, the
+nucleotide level, with high speed and accuracy. With the help of an
+array of bioinformatics tools, we were able to analyze the genomes
+of eight mycobacterial isolates including the ATCC 19698, a widely
+used M. ap isolate in several virulence and pathogenesis stud-
+ies (Tanaka et al., 1994; Shin et al., 2006; Van et al., 2010). Most
+M. ap isolates had a high level of sequence similarity to the ref-
+erence, M. ap K-10 strain on a genome-wide scale even when
+human isolates were analyzed (Wynne et al., 2011). However, the
+genomes of two M. avium isolates had lower level of sequence
+identity to the M. avium 104 genome, the reference genome for M.
+avium subsp. hominissuis (MAH). Overall, genomic rearrange-
+ments represented by large scale inversions and deletions were
+found between M. ap and M. avium genomes. However, single
+nucleotide polymorphisms (SNPs) were the most common varia-
+tions observed among M. ap isolates from different animals despite
+the bovine origin for all of these isolates. The observed genomic
+polymorphism among MAC isolates provided us a better under-
+standing for the evolutionary forces active on both closely related
+organisms with different characteristic phenotypes.
+
+MATERIALS AND METHODS
+BACTERIAL STRAINS
+Six strains of M. avium subspecies paratuberculosis (M. ap) from
+different hosts and environments and two M. avium subspecies
+
+avium (M. avium) were selected (Table 1) for whole-genome
+sequencing. Laboratory strain of M. ap ATCC 19698, JTC 1281,
+JTC 1285, and DT 3 were all obtained from Johne’s testing cen-
+ter (JTC) at the University of Wisconsin–Madison. M. ap 4B, a
+human isolate, was provided by Dr. Saleh Naser at the Univer-
+sity of Central Florida (Wu et al., 2006). Environmental isolates
+were obtained from the soil and utensils of dairy farms and pro-
+vided by National Veterinary Service Laboratories at Ames, IA. The
+identity of each strain was conﬁrmed and genotyped as M. ap ver-
+sus M. avium by PCR analysis of three genes (16S rRNA, IS1311,
+hsp65) and growth phenotype in presence/absence of mycobactin
+J as outlined before (Wu et al., 2006). Each strain was cultured
+in Middlebrook 7H9 broth media supplemented with 10% ADC
+(2% glucose, 5% bovine serum albumin factor V, and 0.85% NaCl),
+0.05% Tween 80 at 37˚C. For M. ap isolates, 2 μg/ml of Mycobactin
+J was added.
+
+GENOMIC DNA EXTRACTION
+Five to 10 ml of bacterial cultures at mid-log phase were used for
+DNA extraction and isolation. Brieﬂy, M. ap cultures were cen-
+trifuged down at 10,000 rpm for 3 min and pellets were then resus-
+pended in sterile Tris–EDTA buffer. Bacterial cells were killed at
+80˚C for 20 min before adding lysozyme (10 μl of 100 mg/ml) for
+an overnight incubation at 37˚C. After cell lysis, 12 μl of 20 mg/ml
+proteinase K/pellet was added and incubated at 65˚C for 2–3 h. For
+DNA isolation, 100 μl of 5 M NaCl/pellet was added and incubated
+at 65˚C for 10 min, followed by adding 80 μl of CTAB/NaCl and
+then incubated for another 10 min at 65˚C. In addition, equal vol-
+ume of phenol–chloroform–isoamyl alcohol (25:24:1) was added
+to each tube and centrifuge at 10,000 rpm for 5 min at room tem-
+perature. The aqueous upper layers were collected and transferred
+to a fresh tube for washing with equal volume of chloroform–
+isoamyl alcohol (24:1) and then with isopropanol followed by
+incubation at −20˚C for at least 1 h. Genomic DNA was pre-
+cipitated by centrifugation at 10,000 rpm for 15 min followed by
+washing in 75% ethanol. After wash, DNA pellets were dried in a
+Speed-Vac and resuspended in nuclease-free sterile water.
+
+WHOLE-GENOME SEQUENCING
+Puriﬁed genomic DNA (1–5 μg) samples isolated from each target
+strain were sent to the Genomic Resource Center (GRC) at the Uni-
+versity of Maryland for Illumina GAIIx whole-genome sequencing
+with multiplexing using the sample preparation oligonucleotide
+kit from Illumina. The integrity and concentration of DNA was
+
+Table 1 | A list of mycobacterial isolates used in this study.
+
+Strain
+
+ATCC 19698
+JTC 1281
+JTC 1285
+M. ap 4B
+DT 3
+Env 210
+DT 78
+Env 77
+
+Organism
+
+Genes used to verify identity
+
+Host
+
+Sample origin
+
+M. ap
+M. ap
+M. ap
+M. ap
+M. ap
+M. ap
+M. avium
+M. avium
+
+16s rRNA, IS1311
+16s rRNA, IS1311
+16s rRNA, IS1311
+16s rRNA, IS1311
+16s rRNA, IS1311
+16s rRNA, IS1311
+16s rRNA, Hsp65
+16s rRNA, Hsp65
+
+Cow
+Oryx
+Goat
+Human
+British red deer
+Dairy farm
+Water buffalo
+Dairy farm
+
+Feces
+Lymph node
+Feces
+Ileum
+Feces
+Environment
+Ileum
+Environment
+
+Frontiers in Microbiology | Cellular and Infection Microbiology
+
+December 2011 | Volume 2 | Article 236 | 2
+
+Hsu et al.
+
+Genomic diversity among M. ap isolates
+
+checked by GRC again and followed by fragmentation of DNA
+using nebulization. DNA ends were repaired and A-tails and adap-
+tors were added using Illumina protocols. The desired size of DNA
+(around 200 bp) were selected and then ampliﬁed with adaptor
+speciﬁc primers that contained four nucleotide barcode tags. The
+ampliﬁed DNA libraries were analyzed by Agilent Bioanalyzer to
+determine the size and the concentration of DNA fragments. DNA
+libraries were loaded onto eight channel ﬂow cell. DNA fragments
+were denatured and hybridized to the oligonucleotides in ﬂow
+cells followed by and ampliﬁcation step to form clusters. The ﬂow
+cells were then transferred to Genome analyzer II for sequencing.
+For paired-end sequence reads, the amplicons were ﬂipped on the
+ﬂowcells so the other end can be read as described before (Quail
+et al., 2008). At the end of each run, four images were collected
+and used for base-calling.
+
+SEQUENCE ASSEMBLY AND ALIGNMENTS
+Raw sequences obtained from the Illumina GAIIx were analyzed
+using the CLC Genomic Workbench software (version 4.0.3, CLC
+Bio, Cambridge, MA, USA) to perform both de novo and com-
+parative reference assembly. For the M. ap genomes, all sequences
+were assembled in reference to the revised M. ap K-10 sequences
+(Wynne et al., 2010). The M. avium DT 78 genome was assem-
+bled using the genome of M. avium subsp. hominissuis 104 (NCBI
+accession NC 008595) as a reference. The de novo assembly was
+used for the genome sequence of Env 77 strain because of the
+lack of signiﬁcant similarity to other genomes. Additionally, the
+MAUVE algorithm was used to align paired or multiple genomes
+for comparative purposes, as outlined before (Perna et al., 1998;
+Darling et al., 2010). The gapped consensus sequence of each strain
+was imported to MAUVE for sequence alignment at default seed
+weight setting.
+
+SINGLE NUCLEOTIDE POLYMORPHISMS ANALYSIS
+For SNPs detection, we used algorithms implemented in CLC
+Bio Workstation. Criteria for identifying SNPs included a cov-
+erage range setting at 10–55 reads and a presence frequency in
+at least 50% of the reads before consideration for further analy-
+sis. A randomly selected number of SNPs were further analyzed
+using Sanger sequencing to conﬁrm Next-Generation sequencing
+data. The primers were designed to cover 10 possible SNPs. The
+BigDye Terminator (Applied Biosystems, Foster City, CA, USA)
+version 3.1 cycle sequencing kit was used for sequencing. The
+sequencing PCR included an initial denaturation cycle at 95˚C
+for 5 min followed by 35 cycles of 95˚C for 20 s, 45˚C for 30 s
+and 60˚C for 2 min with a ﬁnal extension at 72˚C for 7 min. All
+samples were sent to the Biotechnology Center at the University
+of Wisconsin–Madison for sequencing on a ABI 3730XL machine
+(Applied Biosystems).
+
+For the genome-wide phylogeny (phylo-genome analysis), the
+predicted SNPs from sequenced genomes (M. ap isolates) and the
+corresponding nucleotides in DT 78, M. ap K-10 and M. avium 104
+were tabulated to create a concatenated sequences of each strain.
+The genome of M. avium Env 77 isolate was excluded from such
+analysis because of the low similarity to other genomes. The con-
+catenated sequence of each strain was aligned using CLUSTALW,
+and phylogenetic trees were generated with MEGA version 5
+
+using one of the following methods: maximum parsimony (MP),
+maximum likelihood (ML), maximum likelihood with molecular
+clock (MLK) assumption in addition to Neighbor-joining algo-
+rithm with a bootstrapping values of 1,000 replicates applied to all
+methods (Tamura et al., 2011).
+
+RESULTS
+CHARACTERIZATION OF MYCOBACTERIAL ISOLATES
+Several mycobacterial species belonging to the M. avium com-
+plex are present in animal surroundings; each with different
+capacities to cause illness (e.g., M. ap, M. avium) and poten-
+tial to spread to humans (Alvarez-Uria, 2010). Before initiating
+our genome analysis of members of the M. avium complex, we
+searched our collection of mycobacterial isolates originating from
+diverse hosts, diverse tissues as well as from environmental sam-
+ples of dairy herds that might help in spreading the infection. Our
+selection scheme identiﬁed eight isolates that were subjected for
+further genotyping protocols to conﬁrm their identity. Based on
+acid-fast staining and ampliﬁcation of the 16S rRNA gene using
+mycobacteria-speciﬁc primers (Talaat et al., 1997), all eight isolates
+were shown to belong to the genus mycobacterium. Moreover, typ-
+ing based on the hsp65 gene (Smole et al., 2002) conﬁrmed the
+identity of two mycobacterial isolates, DT 78 and Env 77 as M.
+avium subspecies avium (M. avium) while the rest of the isolates
+were all M. ap. Identiﬁcation of sheep or cattle types of M. ap was
+based on IS1311 ampliﬁcation followed by HinfI digestion (data
+not shown). All of the six M. ap isolates belonged to the bovine
+origin (M. ap type II). A compiled list of all mycobacterial isolates
+used in this study and their origin is shown in Table 1.
+
+WHOLE-GENOME SEQUENCING OF MYCOBACTERIAL ISOLATES
+The Illumina sequencer generated an average read length of 50
+nucleotides with an average coverage of 42–68× of each sequenced
+genome after reference assembly. The number of reads, mapped
+reads, and the length of consensus sequence are all listed in Table 2.
+The revised version of M. ap K-10 sequence (Wynne et al., 2010)
+and M. avium subspecies hominissuis (M. avium 104) were used as
+references for comparative genome assembly of the target isolates.
+As expected, all examined M. ap genomes showed a high sequence
+identity (up to 99%) to the M. ap K-10 genome. Lack of sequence
+coverage in some parts of the genome could explain some of the
+differences from the reference genome. Despite the presence of
+small deleted regions among M. ap genomes, only 2 gaps >1 kb
+had been seen among M. ap genomes, including the one isolated
+from human (M. ap 4B isolate), suggesting a high level of simi-
+larity to the M. ap K-10 strain isolated from cattle. On the other
+hand, the M. avium DT 78 strain had only 87% sequence iden-
+tity to the M. avium 104 genome while it had a higher similarity
+(93%) to the M. ap K-10 genome, despite its established geno-
+type as M. avium isolate. In the DT 78 genome, more gaps were
+present whether M. avium 104 or M. ap K-10 were used for ref-
+erence alignment (Figure 1). The average gap size in this genome
+is ∼4 kb.
+
+Among the sequenced genomes, the genome of M. avium Env
+77 provided a signiﬁcant challenge because of the low level of
+similarity to M. avium 104 genome during the reference assem-
+bly phase. Accordingly, we employed an algorithm for de novo
+
+www.frontiersin.org
+
+December 2011 | Volume 2 | Article 236 | 3
+
+Hsu et al.
+
+Genomic diversity among M. ap isolates
+
+Table 2 | A summary report for CLC Bio reference assembly of M. avium and M. ap isolates.
+
+ATCC 19698
+
+M. ap 4B
+
+JTC 1281
+
+JTC 1285
+
+DT 3
+
+Env 210
+
+DT 78
+
+Reference organism
+Reference length
+Total read count
+Matched read count
+Non-speciﬁc match read counta
+Consensus length
+Homology (%)b
+Average coveragec
+
+M. ap K-10
+4,832,589
+5,994,312
+5,417,459
+53,145
+4,822,328
+99.79
+55.77
+
+M. ap K-10
+4,832,589
+6,729,396
+6,522,333
+56,051
+4,815,985
+99.66
+68.71
+
+M. ap K-10
+4,832,589
+4,645,230
+4,164,731
+39,879
+4.823.742
+99.82
+42.87
+
+M. ap K-10
+4,832,589
+5,985,952
+5,391,674
+54,951
+4,823,165
+99.80
+55.50
+
+M. ap K-10
+4,832,589
+6,374,242
+6,177,155
+50,700
+4,815,376
+99.64
+65.07
+
+M. ap K-10
+4,832,589
+6,294,162
+6,080,493
+53,340
+4,817,334
+99.68
+64.05
+
+M. avium 104
+5,475,491
+6,978,706
+5,637,136
+61,192
+4,808,427
+87.82
+51.16
+
+aNon-speciﬁc match read counts are those reads that can be matched more than one place in the reference genome and such reads were randomly placed in one of
+the matched spots.
+bHomology percentage was calculated as: consensus length divided by reference length and then multiplies 100.
+cAverage coverage is the average of all the reads coverage in each area in the consensus sequence.
+
+FIGURE 1 | A whole-genome alignment of M. avium DT 78, M. avium
+104 and M. ap DT 78. MAUVE algorithm (Darling et al., 2010) was used for
+the alignment of the three genomes where white areas indicate low
+coverage gaps in the sequence of M. avium DT 78 genome, and about
+
+seven large region Indels were identiﬁed in M. avium DT 78. Regions with
+the same color indicate high similarity and connected by same color bars.
+The genomes were drawn to scale based on the reference M. avium 104
+genome.
+
+assembly that generated 772 contigs. These contigs were used as
+queries in MegaBLAST search against the Mycobacteria genome
+database (blast.ncbi.nlm.nih.gov). The coverage of each contig is
+at least 20× and the average coverage of all contigs is around 30×
+for this strain. In fact, the Env 77 genome was sequenced twice with
+similar result for each sequencing run (data not shown). Interest-
+ingly, BLAST analysis showed only a third of the Env 77 genome
+with sequence similarity to the genomes of either the M. ap K-
+10 or M. avium 104 and to a lesser degree to other sequenced
+mycobacterial genomes, suggesting a mosaic genome structure
+(Figure 2). Detailed BLAST analysis of the Env 77 draft genome
+shared common conserved genes, mainly with four mycobac-
+terium species, including ribosomal proteins, DNA polymerase,
+proteinase Clp, cell division protein Fts, and some transcription
+
+or translation regulatory factors. As indicated in Figure 2, the
+genome of M. avium Env 77 has higher similarity to M. avium
+104 and M. ap K-10 than other mycobacterial species. Overall,
+the sequenced genomes from all strains, except Env 77, mapped
+to the reference genomes with a signiﬁcantly high level of similar-
+ity. All sequenced genomes were deposited to GenBank database
+for download and further analysis. The accession numbers for the
+deposited sequences are listed in Table A1 in Appendix.
+
+GENOMIC REARRANGEMENTS AMONG M. AP ISOLATES
+A major goal of our investigation was to delineate events of
+insertions and deletions among mycobacterial genomes to bet-
+ter understand their evolutionary relationships. To identify large
+scale events of insertions/deletions (Indels), we compared the
+
+Frontiers in Microbiology | Cellular and Infection Microbiology
+
+December 2011 | Volume 2 | Article 236 | 4
+
+Hsu et al.
+
+Genomic diversity among M. ap isolates
+
+SNPS AMONG M. AP ISOLATES
+To better analyze genomic diversity among M. ap isolates, we also
+examined genomic variations on the nucleotide level. For SNPs
+analysis, we set stringent criteria for SNP detection (see Materi-
+als and Methods). The total number of SNPs among six M. ap
+genomes ranged from 56 to 131 (Figure 4), among which 17 were
+found in >1 genome (Table 4). The number of non-synonymous
+SNPs (nSNPs) is slightly higher than synonymous SNPs (sSNPs),
+suggesting a positive selective pressure on the identiﬁed genes. In
+addition, most genes harbored one SNP with exceptions of 23
+genes that contained two or three SNPs (Table A2 in Appendix).
+Interestingly, GlnE and MAPK 4304 contained three SNPs each,
+all are nSNPs, suggesting a high selective pressure on these two
+genes. Majority of genes contained >1 SNP are larger than 1 kb in
+size with an average SNP density of 1 SNP per 1.44 kb. Remain-
+ing 232 genes that harbored only one SNP represented a similar
+SNP density of one SNP per 1.44 kb that was identiﬁed in other
+mycobacterium (Qi et al., 2009). For the M. ap JTC 1281 and M. ap
+4B, the percentage of nSNPs were 52.68 and 51.76% respectively,
+and the rest of M. ap strains with >60% of SNPs were nSNPs. Inter-
+estingly, genes encoding the Cytochrome P450 proteins harbored
+a high number of alleles in three of the six examined genomes
+(Table 5), similar to the same family of genes in M. tuberculo-
+sis (Cole, 1999). Intergenic SNPs were identiﬁed and counted for
+<10% of total SNPs.
+
+Generally, a modest number of SNPs were detected among
+genomes of M. ap isolates, unlike M. avium isolates. The M.
+avium DT 78 genome had a signiﬁcantly high number of SNPs
+detected (6,278 SNPs) when compared to the standard M. avium
+104 genome suggesting an earlier separation of this strain dur-
+ing its evolutionary pathway. In addition, >75% of the identiﬁed
+SNPs were synonymous, an indication of a higher stabilizing selec-
+tive pressure for M. avium genes than those of M. ap. For the M.
+avium Env 77, SNP detection was not performed because the whole
+sequence aligned poorly with either M. ap K-10 or M. avium 104.
+Finally, 10 SNPs were randomly chosen for further conﬁrmation
+using the Sanger sequencing method. The 10 SNPs were chosen
+based on the ATCC 19698 genome. The same 10 SNPs were also
+found in JTC 1281, while only 5 common SNPs were found in
+JTC 1285. All amplicons were sequenced from both forward and
+reverse strands (Table A3 in Appendix). Three SNPs were not
+detected in JTC 1285 based on the Sanger results, and is most
+likely caused by the Illumina sequencer error. Overall, Illumina
+sequencing was very beneﬁcial in providing a high level of single
+nucleotide polymorphism in all examined genomes.
+
+PHYLO-GENOMIC RELATIONSHIP AMONG M. AP ISOLATES
+Single nucleotide polymorphisms of six M. ap strains were con-
+catenated and used for phylogenetic analysis on a genome-wide
+(phylo-genome) level. The two reference strains, M. ap K-10 and
+M. avium 104, were included in the analysis. A total of 301 SNPs
+present among the six M. ap strains as well as in M. avium 104 and
+M. avium DT 78 genomes were included in this analysis using the
+Neighbor-joining method (Tamura et al., 2011). The un-rooted
+tree showed a strong discriminatory power of SNP for all exam-
+ined isolates based on their origin (Figure 5A) while maintained
+branches of M. avium genomes separate from genomes of M. ap
+
+FIGURE 2 | Genome composition of M. avium Env 77. MegaBLAST
+algorithm was used to identify closely related bacteria to all contig
+sequences from the M. avium Env 77 isolate. Genomes with <10%
+homology were excluded from representation. Members of the M.
+tuberculosis complex included M. tuberculosis and M. bovis with sequence
+divergence <5%. The same criteria was used to formulate M. avium and
+M. ap groups.
+
+assembled genomes of the six M. ap isolates to the standard M. ap
+K-10 genome using MAUVE software (version 2.3.1; Darling et al.,
+2010; Figure 3). Among the potential Indels that could exist among
+these genomes, we identiﬁed only gaps that are <1 kb. A common
+gap area located at reference position 3,767,550–3,767,870 which is
+part of MAPK 3350 gene encoding a hypothetical protein has been
+seen among all six strains with a gap size ∼300 bp. At this region,
+low or zero read coverage has observed among all six strains sug-
+gesting a problematic region for Illumina sequencer. The sequence
+in this gap region appeared to have high GC contents (82%) but
+no repetitive elements involved.
+
+Based on the MAUVE comparison, the consensus sequences of
+these six strains are closely matched to the M. ap K-10 genome and
+no inversions were observed (Figure 3). On the other hand, when
+MAUVE was used to compare the genome of M. ap isolates to
+the M. avium 104 or M. avium DT78 genomes, about seven large
+regions of Indels were identiﬁed, conﬁrming earlier ﬁndings by
+our group when DNA microarray was used (Wu et al., 2006). For
+example, one 11 kb Indel was found in all six M. ap strains at posi-
+tion 2,318,400–2,333,740 (MAPK 2038–MAPK 2050) but absent
+from M. avium. This 11 kb region encodes mostly hypothetical
+proteins in M. ap K-10 genome with two exceptions, MAPK 2040
+and MAPK 2050. MAPK 2040 is a predicted hydrolase and earlier
+analysis (Santema et al., 2009) also showed the absence of this gene
+in M. avium 104, but present in other M. avium strain (Table 3). In
+addition, a total of six genomic inversions spanning ∼2.4 Mb were
+identiﬁed among all M. ap strains when compared to M. avium
+104 genome, similar to our earlier analysis of only M. ap K-10 and
+M. avium 104 genomes (Wu et al., 2006).
+
+www.frontiersin.org
+
+December 2011 | Volume 2 | Article 236 | 5
+
+Hsu et al.
+
+Genomic diversity among M. ap isolates
+
+FIGURE 3 | Comparative analysis of M. ap and M. avium from
+animals and environmental sources. The gapped consensus sequence
+of each strain was used for comparison by MAUVE version 2.3.1. (A) A
+close-up depiction of a breaking point in the alignment of six M. ap
+genomes in comparison to M. ap K-10 reference genome. The white
+
+areas indicated low or zero reads. In this example, the ﬂanking
+sequences of the breaking point contain high GC percentage sequence
+but not repetitive sequences. (B) Indels among M. ap and M. avium
+genomes. Notice genome rearrangements are usually surrounding the
+genome origin of replication.
+
+Frontiers in Microbiology | Cellular and Infection Microbiology
+
+December 2011 | Volume 2 | Article 236 | 6
+
+Hsu et al.
+
+Genomic diversity among M. ap isolates
+
+Table 3 | A list of genes in the 11 kb island which is absent in M. avium
+104.
+
+New annotation
+(Wynne et al., 2010)
+
+Old annotation
+(Li et al., 2005)
+
+Length
+(bp)
+
+Function
+
+MAPK 2038
+MAPK 2039
+MAPK 2040
+MAPK 2041
+MAPK 2042
+MAPK 2043
+MAPK 2044
+MAPK 2045
+MAPK 2046
+MAPK 2047
+MAPK 2048
+MAPK 2049
+MAPK 2050
+
+MAP 1730c
+MAP 1729c
+MAP 1728c
+MAP 1727
+MAP 1726c
+MAP 1725c
+MAP 1724c
+MAP 1723
+MAP 1722
+MAP 1721c
+MAP 1720
+MAP 1719c
+MAP 1718c
+
+1,023
+828
+723
+906
+585
+1,029
+558
+666
+1,221
+672
+1,020
+615
+456
+
+Hypothetical protein
+Hypothetical protein
+YfnB-hydrolase
+Hypothetical protein
+Hypothetical protein
+Hypothetical protein
+Hypothetical protein
+Hypothetical protein
+Hypothetical protein
+Hypothetical protein
+Hypothetical protein
+Hypothetical protein
+MAP speciﬁc protein
+
+FIGURE 4 | The total number of single nucleotide polymorphism (SNP)
+among M. ap isolates. The number of nSNP (non-synonymous) and sSNP
+(synonymous) and SNPs in the intergenic regions are color coded as
+indicated. SNPs were detected using reference assembled sequences of
+each strain. About 60–130 SNPs were detected M. ap isolates. Percentage
+of nSNP is generally higher than sSNP which indicates a high selective
+pressure in these strains.
+
+isolates. Such discriminatory power was not possible when single-
+gene genotypes were tried (see above). Nonetheless, when the tree
+was rooted to M. avium 104 genome, two distinct major branches
+within the M. ap genomes were easily discerned (Figure 5B).
+
+In one branch within M. ap genomes (Figure 5B), an isolate
+from red deer (M. ap DT 3) was closely related to the standard
+cattle strains (M. ap K-10 and ATCC 19698). On the other hand,
+isolates from goat and oryx (M. ap JTC 1281 and JTC 1285, respec-
+tively) were more closely related to the recently isolated cattle type
+strain (M. ap K-10) than to other laboratory strain (ATCC 19698),
+suggesting a cattle source of infection. In the other branch of the
+
+tree, M. ap 4B and M. ap Env 210 isolates from human and dairy
+farm, respectively, were closely related to each other. It is note-
+worthy to mention here that the association of M. avium DT 78
+genome to the M. avium 104 strain based on phylo-genomic analy-
+sis conﬁrmed our earlier identiﬁcation of this isolate to belong M.
+avium group despites its overall higher similarity to the M. ap
+K-10. Finally, when we tried additional three methods for tree
+construction (MP, ML, MLK) on independent lists of sSNPs and
+nSNPs, a congregant topology was obtained for all trees with a
+high bootstrap support, similar to the one showed in Figure 5B.
+The Log Likelihood Ratio test for MLK consensus tree against ML
+tree indicated that the molecular clock assumption was not valid
+(p < 0.007). Overall, the identiﬁed tree topology suggests that M.
+avium 104 as a common ancestor from which M. ap likely emerged
+and diversiﬁed into two lineages: a lineage that clustered Env 210
+with M. ap 4B (Human) while the second clustered all type II
+strains of M. ap. In both lineages, infected cows are the most likely
+reservoir for spreading the type II M. ap strains.
+
+DISCUSSION
+Understanding the genome-wide variations among pathogenic
+Mycobacteria will improve our understanding of the pathogen-
+esis and evolution of these important pathogens. Recently, Next-
+generation sequencing technologies provided us the opportunity
+to examine whole-genome variations on a much faster basis than
+traditional sequencing or DNA-microarray technologies. In this
+study, M. ap isolates were chosen from diverse hosts, sources,
+and locations to better assess the impact of these variations
+on pathogen genome composition. As expected, the six M. ap
+genomes sequenced in this study shared ∼99% sequence similar-
+ity M. ap K-10 reference genome with a modest number of SNPs
+(∼100) suggesting a stabilizing selective pressure. On the contrary,
+isolates of M. avium origin showed more diversity. For example,
+the M. avium DT 78 genome had a signiﬁcant number of gaps
+and a large number of SNPs (∼6,000) compared to M. avium
+104 despite its signiﬁcant similarity to M. ap K-10 (>90%) on a
+whole-genome level. This isolate is likely to represents an inter-
+mediate strain between M. avium 104 and M. ap K-10. Generally,
+M. avium replicate faster than M. ap and survive in a more diverse
+environments, those factors are likely to contribute to adaptive
+polymorphism. Previous analyses showed that M. avium has more
+diversity than M. ap strains (Turenne et al., 2006; Wu et al., 2006).
+Additionally, the M. avium Env 77 genome BLAST search indicated
+its complex and mosaic structure, another indication of diversity
+among M. avium isolates. Although standard genotyping proto-
+cols used here (based on hsp65 and IS1311) clearly typed DT78 and
+Env 77 isolates as M. avium, our genome sequencing approach
+question the validity of genotyping of Mycobacteria based on a
+single or a few genes and advocate for a whole-genome based
+approach.
+
+Because of the close relatedness of M. ap genomes, SNPs from
+each strain provided valuable information on the divergence and
+evolutionary process that control members of MAC. A wide range
+of studies used SNPs for studying drug resistance mutations in
+organisms (Xu et al., 2008), analysis of genomic evolution (Filliol
+et al., 2006), and association of M. ap infection to Crohn’s dis-
+ease patients (Wynne et al., 2011). In this study, SNPs were used
+
+www.frontiersin.org
+
+December 2011 | Volume 2 | Article 236 | 7
+
+Hsu et al.
+
+Genomic diversity among M. ap isolates
+
+Table 4 | A list of non-synonymous SNPs in M. ap genome resulted in more than one strain.
+
+Strains
+
+K-10 position
+
+K-10 allele Variation Gene
+
+Function
+
+1
+2
+3
+4
+5
+6
+7
+
+All 6 strains
+All 6 strains
+All 6 strains
+ATCC 198698, JTC 1281, JTC 1285, DT 3, Env 210
+ATCC 198698, JTC 1281, JTC 1285, DT 3, Env 210
+JTC 1281, JTC 1285, M. ap 4B, Env 210
+JTC 1281, M. ap 4B, DT 3, Env 210
+
+ATCC 19698, JTC 1281, JTC 1285, DT 3
+ATCC 19698, JTC 1281, DT 3
+JTC 1281, JTC 1285, Env 210
+
+8
+9
+10
+11 M. ap 4B, Env 210
+12 M. ap 4B, Env 210
+13 M. ap 4B, Env 210
+
+14 M. ap 4B, Env 210
+15 M. ap 4B, Env 210
+16 M. ap 4B, Env 210
+17
+ATCC 19698, DT 3
+
+3,259,329
+4,394,282
+2,041,445
+1,169,976
+91,310
+3,133,871
+2,806,612
+
+3,278,891
+1,204,735
+4,206,587
+1,50,857
+2,25,551
+6,47,971
+
+2,353,857
+3,981,515
+4,262,844
+1,363,662
+
+C
+A
+T
+A
+A
+G
+G
+
+A
+T
+C
+G
+C
+C
+
+C
+G
+T
+A
+
+Table 5 | A list of nSNP in cytochrome P450 proteins.
+
+T
+G
+C
+C
+G
+A
+T
+
+T
+C
+T
+C
+T
+A
+
+A
+A
+G
+C
+
+MAPK 2850
+MAPK 3393
+glnE
+MAPK 1064
+nirB
+speE
+cydD
+
+pyrH
+bpoB
+pks2
+lipW
+fctA
+nuoL
+
+Trypsin-like serine protease
+Fucose permease
+Glutamine synthase
+Hemolysin-like protein
+Nitrate reductase
+Spermidine synthase
+ATP-binding protein ABC
+transporter CydD
+Uridylate kinase PyrH
+Peroxidase BpoB
+Polyketide synthase Pks2
+Esterase LipW
+Transferase
+NADH dehydrogenase sub-
+unit L
+
+MAPK 2071, hspR Heat shock regulator protein
+pks13
+MAPK 3814
+MAPK 1234
+
+Polyketide synthase Pks13
+Lipoprotein
+Arabinose efﬂux permease
+
+Strains
+
+K-10 position
+
+K-10 allele
+
+Variation
+
+Gene
+
+Env 210
+JTC 1285
+JTC 1285
+JTC 1281
+JTC 1281
+
+1,227,540
+1,301,615
+2,024,939
+1,973,792
+3,841,168
+
+A
+C
+G
+A
+G
+
+G
+T
+A
+G
+C
+
+MAPK 1119
+MAPK 1184
+MAPK 1789
+MAPK 1738
+MAPK 3424
+
+Amino acid change (functional consequence)
+Ile→ Met (non-polar)
+Glu→ Lys (Polar acidic→ polar basic)
+Ala→Val (non-polar)
+Val→ Ala (non-polar)
+Arg→ Pro (polar basic→ non-polar)
+
+for genome-wide typing of isolates to understand the dynamics
+of Johne’s disease transmission. Examining the modest number
+of SNPs detected inM. ap identiﬁed the presence of a higher
+percentage of nSNPs in all six M. ap isolates, suggesting a close
+relatedness among strains (Gutacker et al., 2002; Holden et al.,
+2004; Rocha et al., 2006). This close relationship among M. ap
+isolates could indicate a “spillover” infection from cattle to other
+animals (in this study red deer). However, the observed higher
+percentage of nSNPs could indicate adaptive evolution of M. ap
+to different hosts with positive selective pressure. A signiﬁcant
+number of nSNPs were located in genes that encode hypothetical
+proteins while others in genes that encode proteins with enzymatic
+functions, some of them involved in metabolism and energy path-
+ways, such as Pks proteins and NuoL protein. Interestingly, a SNP
+in the glnE gene were identiﬁed in all six M. ap genomes and
+additional SNPs in this gene were observed in ATCC 19698 and
+M. ap 4B separately. In M. tuberculosis, GlnE is an adenylyl trans-
+ferase modulating glutamine synthetase activity and it is essential
+for bacterial growth under alternative nitrogen sources (Carroll
+et al., 2008). SNPs within this gene could likely be an indication
+of common evolutionary ancestor with environmental isolates.
+Similarity, SNPs in cytochrome P450 enzymes (Table 5) that
+
+catalyze mixed oxidation of hydrophobic compounds associated
+with free-living saprophyte (Arnold, 2007), another indication of a
+common environmental ancestor for M. ap. Finally, genes encod-
+ing cytochrome P450 were shown to play a role in the persistence
+of M. tuberculosis in tissues (McLean et al., 2010). SNPs found in
+M. ap counterpart could potentially contribute to the M. ap-host
+interactions.
+
+An interesting outcome of the employed phylo-genomic analy-
+sis provided here is the further support provided to the hypothesis
+of presence of common origin to both subspecies of M. avium
+complex, namely, M. ap and M. avium subsp. avium. Such hypoth-
+esis was supported before based on large genomic regions of
+insertions/deletions (Wu et al., 2006; Alexander et al., 2009). This
+study provides further support to this hypothesis using SNPs on
+a genome-wide level. The whole-genome approach we employed
+here allowed us to explore the diversity among MAC isolates from
+different hosts and variable locations. It also provided more clues
+regarding the dynamic of mycobacterial transmission among ani-
+mals. Sequencing the genome of more isolates will deﬁnitely enrich
+our understanding of the genome content and evolution of both
+environmental and pathogenic strains of mycobacteria and will
+eventually provide a comprehensive population genetic structure.
+
+Frontiers in Microbiology | Cellular and Infection Microbiology
+
+December 2011 | Volume 2 | Article 236 | 8
+
+Hsu et al.
+
+Genomic diversity among M. ap isolates
+
+FIGURE 5 | Phylogenomic analysis of M. ap and M. avium strains. (A) A
+dendrogram displaying an un-rooted, Neighbor-joining tree of the
+concatenated SNPs from all eight mycobacterial isolates under study. (B) A
+rooted Neighbor-joining tree using M. ah 104 genome as out group. The
+bootstrap consensus tree inferred from 1,000 replicates is taken to
+
+represent the evolutionary history of the taxa analyzed. The bootstrap
+replicates are marked on each branch and a less than 50% bootstrap
+replicates were collapsed. The percentage of replicate trees in which the
+associated taxa clustered together in the bootstrap test is shown next to
+the branches.
+
+Such knowledge base could elucidate the relationship between
+strains and host or some special environmental cues. In addi-
+tion, sequencing more diverse isolates will help to evaluate the
+
+dynamic of disease transmission among animals or from animals
+to humans. Developing algorithms that can utilize the informa-
+tion gained from Next-generation sequencers will only improve
+
+www.frontiersin.org
+
+December 2011 | Volume 2 | Article 236 | 9
+
+Hsu et al.
+
+Genomic diversity among M. ap isolates
+
+the phylo-genomic analysis and is greatly needed to advance our
+understanding of microbe–host interactions.
+
+ACKNOWLEDGMENTS
+We would like to thank Meagan Cooney for reading the man-
+uscript. We also like to thank Sarah Marcus and Eric Cabot
+for assisting with the CLC Bio assembling software. Illumina
+
+genome sequencing was performed by Genomic Resource cen-
+ter at University of Maryland, Baltimore. This project is sup-
+ported by National Research Initiative of
+the U.S. Depart-
+ment of Agriculture Cooperative State Research, Education and
+Extension Service (grants #2007-35204-18400 and #2004-35605-
+14243 for Johne’s disease integrated program) and US-AID grant
+#1937.
+
+REFERENCES
+Alexander, D. C., Turenne, C. Y.,
+Inser-
+and Behr, M. A. (2009).
+tion and deletion events that deﬁne
+the pathogen Mycobacterium avium
+subsp. paratuberculosis. J. Bacteriol.
+191, 1018–1025.
+
+Alvarez-Uria, G. (2010). Lung disease
+caused by nontuberculous mycobac-
+teria. Curr. Opin. Pulm. Med. 16,
+251–256.
+
+Arnold, C. (2007). Molecular evolution
+of Mycobacterium tuberculosis. Clin.
+Microbiol. Infect. 13, 120–128.
+
+Barrett, D. J., Good, M., Hayes, M., and
+More, S. J. (2006). The economic
+impact of Johne’s disease in an Irish
+dairy herd: a case study. Ir. Vet. J. 59,
+282.
+
+Behr, M. A., and Small, P. M. (1999).
+A historical and molecular phy-
+logeny of BCG strains. Vaccine 17,
+915–922.
+
+Bentley, D. R., Balasubramanian, S.,
+Swerdlow, H. P., Smith, G. P., Milton,
+J., Brown, C. G., Hall, K. P., Evers,
+D. J., Barnes, C. L., Bignell, H. R.,
+Boutell, J. M., Bryant, J., Carter, R.
+J., Keira, C. R., Cox, A. J., Ellis, D.
+J., Flatbush, M. R., Gormley, N. A.,
+Humphray, S. J., Irving, L. J., Kar-
+belashvili, M. S., Kirk, S. M., Li, H.,
+Liu, X., Maisinger, K. S., Murray, L. J.,
+Obradovic, B., Ost, T., Parkinson, M.
+L., Pratt, M. R., Rasolonjatovo, I. M.,
+Reed, M. T., Rigatti, R., Rodighiero,
+C., Ross, M. T., Sabot, A., Sankar, S.
+V., Scally, A., Schroth, G. P., Smith,
+M. E., Smith, V. P., Spiridou, A., Tor-
+rance, P. E., Tzonev, S. S., Vermaas,
+E. H., Walter, K., Wu, X., Zhang, L.,
+Alam, M. D., Anastasi, C., Aniebo,
+I. C., Bailey, D. M., Bancarz, I. R.,
+Banerjee, S., Barbour, S. G., Bay-
+bayan, P. A., Benoit, V. A., Benson,
+K. F., Bevis, C., Black, P. J., Bood-
+hun, A., Brennan, J. S., Bridgham,
+J. A., Brown, R. C., Brown, A. A.,
+Buermann, D. H., Bundu, A. A., Bur-
+rows, J. C., Carter, N. P., Castillo, N.,
+Chiara E Catenazzi, Chang, S., Neil,
+C. R., Crake, N. R., Dada, O. O.,
+Diakoumakos, K. D., Dominguez-
+Fernandez, B., Earnshaw, D. J., Egbu-
+jor, U. C., Elmore, D. W., Etchin, S.
+S., Ewan, M. R., Fedurco, M., Fraser,
+L. J., Fuentes Fajardo, K. V., Scott, F.
+W., George, D., Gietzen, K. J., God-
+dard, C. P., Golda, G. S., Granieri,
+
+P. A., Green, D. E., Gustafson, D.
+L., Hansen, N. F., Harnish, K., Hau-
+denschild, C. D., Heyer, N. I., Hims,
+M. M., Ho, J. T., Horgan, A. M.,
+Hoschler, K., Hurwitz, S., Ivanov, D.
+V., Johnson, M. Q., James, T., Huw
+Jones, T. A., Kang, G. D., Kerelska,
+T. H., Kersey, A. D., Khrebtukova,
+I., Kindwall, A. P., Kingsbury, Z.,
+Kokko-Gonzales, P. I., Kumar, A.,
+Laurent, M. A., Lawley, C. T., Lee,
+S. E., Lee, X., Liao, A. K., Loch, J.
+A., Lok, M., Luo, S., Mammen, R.
+M., Martin, J. W., McCauley, P. G.,
+McNitt, P., Mehta, P., Moon, K. W.,
+Mullens, J. W., Newington, T., Ning,
+Z., Ling, N. B., Novo, S. M., O’Neill,
+M. J., Osborne, M. A., Osnowski, A.,
+Ostadan, O., Paraschos, L. L., Pick-
+ering, L., Pike, A. C., Pike, A. C.,
+Chris, P. D., Pliskin, D. P., Podhasky,
+J., Quijano, V. J., Raczy, C., Rae, V. H.,
+Rawlings, S. R., Chiva, R. A., Roe, P.
+M., Rogers, J., Rogert Bacigalupo, M.
+C., Romanov, N., Romieu, A., Roth,
+R. K., Rourke, N. J., Ruediger, S. T.,
+Rusman, E., Sanches-Kuiper, R. M.,
+Schenker, M. R., Seoane, J. M., Shaw,
+R. J., Shiver, M. K., Short, S. W., Sizto,
+N. L., Sluis, J. P., Smith, M. A., Ernest
+Sohna, S. J., Spence, E. J., Stevens, K.,
+Sutton, N., Szajkowski, L., Tregidgo,
+C. L., Turcatti, G., Vandevondele, S.,
+Verhovsky, Y., Virk, S. M., Wakelin,
+S., Walcott, G. C., Wang, J., Wors-
+ley, G. J., Yan, J., Yau, L., Zuerlein,
+M., Rogers, J., Mullikin, J. C., Hurles,
+M. E., McCooke, N. J., West, J. S.,
+Oaks, F. L., Lundberg, P. L., Klen-
+erman, D., Durbin, R., and Smith,
+A. J. (2008). Accurate whole human
+genome sequencing using reversible
+terminator chemistry. Nature 456,
+53–59.
+
+Carroll, P., Pashley, C. A., and Parish, T.
+(2008). Functional analysis of GlnE,
+an essential adenylyl transferase in
+Mycobacterium tuberculosis. J. Bacte-
+riol. 190, 4894–4902.
+
+Cole, S. T. (1999). Learning from the
+genome sequence of Mycobacterium
+tuberculosis H37Rv. FEBS Lett. 452,
+7–10.
+
+Collins, D. M., Radford, A.
+
+J., De
+Lisle, G. W., and Billman-Jacobe,
+H. (1994a). Diagnosis and epidemi-
+ology of bovine tuberculosis using
+molecular biological approaches.
+Vet. Microbiol. 40, 83–94.
+
+Collins, M. T., Sockett, D. C., Goodger,
+W. J., Conrad, T. A., Thomas, C.
+B., and Carr, D. J. (1994b). Herd
+prevalence and geographic distri-
+bution of, and risk factors
+for,
+bovine paratuberculosis in Wiscon-
+sin. J. Am. Vet. Med. Assoc. 204,
+636–641.
+
+Darling, A. E., Mau, B., and Perna, N.
+T. (2010). progressiveMauve: mul-
+tiple genome alignment with gene
+gain, loss and rearrangement. PLoS
+ONE 5, e11147. doi:10.1371/jour-
+nal.pone.0011147
+
+Filliol, I., Motiwala, A. S., Cavatore, M.,
+Qi, W., Hazbon, M. H., Bobadilla, d.,
+V, Fyfe, J., Garcia-Garcia, L., Rastogi,
+N., Sola, C., Zozio, T., Guerrero, M.
+I., Leon, C. I., Crabtree, J., Angiuoli,
+S., Eisenach, K. D., Durmaz, R.,
+Joloba, M. L., Rendon, A., Sifuentes-
+Osornio, J., Ponce de, L. A., Cave, M.
+D., Fleischmann, R., Whittam, T. S.,
+and Alland, D. (2006). Global phy-
+logeny of Mycobacterium tuberculo-
+sis based on single nucleotide poly-
+morphism (SNP) analysis: insights
+into tuberculosis evolution, phy-
+logenetic accuracy of other DNA
+ﬁngerprinting systems, and recom-
+mendations for a minimal stan-
+dard SNP set.
+J. Bacteriol. 188,
+759–772.
+
+J. M.
+
+Gutacker, M. M., Smoot, J. C., Migli-
+accio, C. A. L., Ricklefs, S. M.,
+Hua, S., Cousins, DV, Graviss, E.
+A., Shashkina, E., Kreiswirth, B.
+N., and Musser,
+(2002).
+Genome-wide analysis of synony-
+mous single nucleotide polymor-
+phisms in Mycobacterium tuberculo-
+sis complex organisms: resolution of
+genetic relationships among closely
+related microbial strains. Genetics
+162, 1533–1543.
+
+Holden, M. T., Feil, E.
+
+J., Lindsay,
+J. A., Peacock, S. J., Day, N. P.,
+Enright, M. C., Foster, T. J., Moore,
+C. E., Hurst, L., Atkin, R., Bar-
+ron, A., Bason, N., Bentley, S. D.,
+Chillingworth, C., Chillingworth, T.,
+Churcher, C., Clark, L., Corton, C.,
+Cronin, A., Doggett, J., Dowd, L.,
+Feltwell, T., Hance, Z., Harris, B.,
+Hauser, H., Holroyd, S., Jagels, K.,
+James, K. D., Lennard, N., Line,
+A., Mayes, R., Moule, S., Mungall,
+K., Ormond, D., Quail, M. A.,
+Rabbinowitsch, E., Rutherford, K.,
+
+Sanders, M., Sharp, S., Simmonds,
+M., Stevens, K., Whitehead, S., Bar-
+rell, B. G., Spratt, B. G., and Parkhill,
+J. (2004). Complete genomes of
+two clinical Staphylococcus aureus
+strains: evidence for the rapid evolu-
+tion of virulence and drug resistance.
+Proc. Natl. Acad. Sci. U.S.A. 101,
+9786–9791.
+
+Li, L., Bannantine, J. P., Zhang, Q.,
+Amonsin, A., May, B.
+J., Alt,
+D., Banerji, N., Kanjilal, S., and
+Kapur, V. (2005). The complete
+genome sequence of Mycobacterium
+avium subspecies paratuberculosis.
+Proc. Natl. Acad. Sci. U.S.A. 102,
+12344–12349.
+
+McLean, K. J., Belcher, J., Driscoll, M. D.,
+Fernandez, C. C., Le, V. D., Bui, S.,
+Golovanova, M., and Munro, A. W.
+(2010). The Mycobacterium tuber-
+culosis cytochromes P450: physiol-
+ogy, biochemistry and molecular
+intervention. Future Med. Chem. 2,
+1339–1353.
+
+Morita, Y., Maruyama, S., Kabeya, H.,
+Nagai, A., Kozawa, K., Kato, M.,
+Nakajima, T., Mikami, T., Katsube,
+Y., and Kimura, H. (2004). Genetic
+diversity of the dnaJ gene in the
+Mycobacterium avium complex. J.
+Med. Microbiol. 53, 813–817.
+
+Naser, S. A., Ghobrial, G., Romero, C.,
+and Valentine, J. F. (2004). Culture
+of Mycobacterium avium subspecies
+paratuberculosis from the blood of
+patients with Crohn’s disease. Lancet
+364, 1039–1044.
+
+Naser, S. A., Shafran, I., Schwartz, D.,
+El Zaatari, F., Biggerstaff, J. (2002).
+In situ identiﬁcation of mycobac-
+teria in Crohn’s disease patient tis-
+sue using confocal scanning laser
+microscopy. Mol. Cell. Probes 16,
+41–48.
+
+Over, K., Crandall, P. G., O’Bryan, C. A.,
+and Ricke, S. C. (2011). Current per-
+spectives on Mycobacterium avium
+subsp. paratuberculosis, Johne’s dis-
+ease, and Crohn’s disease: a review.
+Crit. Rev. Microbiol. 37, 141–156.
+
+Paustian, M. L., Kapur, V.,
+
+J. P.
+
+and
+(2005). Com-
+Bannantine,
+parative
+genomic hybridizations
+reveal genetic regions within the
+Mycobacterium avium complex that
+are divergent from Mycobacterium
+avium subsp. paratuberculosis iso-
+lates. J. Bacteriol. 187, 2406–2415.
+
+Frontiers in Microbiology | Cellular and Infection Microbiology
+
+December 2011 | Volume 2 | Article 236 | 10
+
+Hsu et al.
+
+Genomic diversity among M. ap isolates
+
+Perna, N. T., Mayhew, G. F., Posfai,
+G., Elliott, S., Donnenberg, M. S.,
+Kaper, J. B., and Blattner, F. R.
+(1998). Molecular evolution of a
+pathogenicity island from entero-
+hemorrhagic Escherichia coli O157-
+H7. Infect. Immun. 66, 3810–3817.
+
+Qi, W., Kaser, M., Roltgen, K., Yeboah-
+Manu, D., and Pluschke, G. (2009).
+Genomic diversity and evolution
+of Mycobacterium ulcerans revealed
+by
+sequenc-
+ing. PLoS Pathog. 5, e1000580.
+doi:10.1371/journal.ppat.1000580
+
+next-generation
+
+Quail, M. A., Kozarewa, I., Smith, F.,
+Scally, A., Stephens, P. J., Durbin,
+R., Swerdlow, H., and Turner, D.
+J. (2008). A large genome cen-
+ter’s improvements to the Illumina
+sequencing system. Nat. Methods 5,
+1005–1010.
+
+Raizman, E. A., Fetrow,
+
+J. P., and
+Wells, S. J. (2009). Loss of income
+from cows shedding Mycobacterium
+avium subspecies paratuberculosis
+prior to calving compared with cows
+not shedding the organism on two
+Minnesota dairy farms. J. Dairy Sci.
+92, 4929–4936.
+
+Rocha, E. P., Smith, J. M., Hurst, L. D.,
+Holden, M. T., Cooper, J. E., Smith,
+N. H., and Feil, E. J. (2006). Compar-
+isons of dN/dS are time dependent
+for closely related bacterial genomes.
+J. Theor. Biol. 239, 226–235.
+
+Santema, W., Overdijk, M., Barends, J.,
+Krijgsveld, J., Rutten, V., and Koets,
+A. (2009). Searching for proteins
+of Mycobacterium avium subspecies
+paratuberculosis with diagnostic
+potential by comparative qualitative
+proteomic analysis of mycobacter-
+ial tuberculins. Vet. Microbiol. 138,
+191–196.
+
+Semret, M., Zhai, G., Mostowy, S.,
+Cleto, C., Alexander, D., Cangelosi,
+G., Cousins, D., Collins, D. M.,
+van Soolingen, D., and Behr, M.
+A.
+genomic
+polymorphism within Mycobac-
+
+Extensive
+
+(2004).
+
+terium avium.
+6332–6334.
+
+J. Bacteriol. 186,
+
+Sevilla, I., Li, L., Amonsin, A., Garrido,
+J. M., Geijo, M. V., Kapur, V.,
+and Juste, R. A. (2008). Compar-
+ative analysis of Mycobacterium
+paratuberculosis
+avium
+isolates
+sheep and
+goats by short
+sequence repeat
+and pulsed-ﬁeld gel electrophoresis
+typing. BMC Microbiol. 8, 204.
+doi:10.1186/1471-2180-8-204
+
+subsp.
+from cattle,
+
+Shin, S. J., Wu, C.-W., Steinberg, H.,
+and Talaat, A. M. (2006). Identiﬁ-
+cation of novel virulence determi-
+nants in Mycobacterium paratuber-
+culosis by screening a library of inser-
+tional mutants. Infect. Immun. 7,
+3825–3833.
+
+Smith, N. H., Hewinson, R. G., Kre-
+mer, K., Brosch, R., and Gordon,
+S. V. (2009). Myths and miscon-
+ceptions: the origin and evolution
+of Mycobacterium tuberculosis. Nat.
+Rev. Microbiol. 7, 485–491.
+
+Smole, S. C., McAleese, F., Ngampasuta-
+dol, J., von Reyn, C. F., and Arbeit, R.
+D. (2002). Clinical and epidemiolog-
+ical correlates of genotypes within
+the Mycobacterium avium complex
+deﬁned by restriction and sequence
+analysis of hsp65. J. Clin. Microbiol.
+40, 3374–3380.
+
+Talaat, A. M., Reimschuessel, R., and
+Trucksis, M. (1997). Identiﬁcation
+of mycobacteria infecting ﬁsh to the
+species level using polymerase chain
+reaction and restriction enzyme
+analysis. Vet. Microbiol. 58, 229–237.
+Tamura, K., Peterson, D., Peterson,
+N., Stecher, G., Nei, M.,
+and
+Kumar, S. (2011). MEGA5: molec-
+ular evolutionary genetics analysis
+using maximum likelihood, evolu-
+tionary distance, and maximum par-
+simony methods. Mol. Biol. Evol. 28,
+2731–2739.
+
+Tanaka, S., Sato, M., Taniguchi, T., and
+Yokomizo, Y. (1994). Histopatholog-
+ical and morphometrical compar-
+
+ison of granulomatous lesions in
+BALB/c and C3H/HeJ mice inoc-
+ulated with Mycobacterium paratu-
+J. Comp. Pathol. 110,
+berculosis.
+381–388.
+
+(2006).
+
+Turenne, C. Y., Semret, M., Cousins,
+D. V., Collins, D. M., and Behr,
+M. A.
+Sequencing of
+hsp65 distinguishes among sub-
+sets of the Mycobacterium avium
+complex.
+J. Clin. Microbiol. 44,
+433–440.
+
+Van, B. L., Coudijzer, K., Vlaemynck,
+G., Hendrickx, M., Michiels, C.,
+Messens, W., Herman, L., and De, B.
+J. (2010). Localization of Mycobac-
+terium avium subspecies paratuber-
+culosis in artiﬁcially inoculated milk
+and colostrum by fractionation. J.
+Dairy Sci. 93, 4722–4729.
+
+Whittington, R. J., Hope, A. F., Mar-
+shall, D. J., Taragel, C. A., and Marsh,
+I.
+(2000). Molecular epidemiol-
+ogy of Mycobacterium avium subsp.
+paratuberculosis:
+IS900 restriction
+fragment length polymorphism and
+IS1311 polymorphism analyses of
+isolates from animals and a human
+in Australia. J. Clin. Microbiol. 38,
+3240–3248.
+
+Wu, C.-W., Glasner, J., Collins, M.
+T., Naser, S., and Talaat, A. M.
+(2006). Whole genome plasticity
+among Mycobacterium avium sub-
+species: insights from comparative
+genomic hybridizations. J. Bacteriol.
+188, 711–723.
+
+Wu, C. W., Schramm, T. M., Zhou,
+S., Schwartz, D. C., and Talaat, A.
+M.
+(2009). Optical mapping of
+the Mycobacterium avium sub-
+species paratuberculosis genome.
+BMC Genomics
+doi:
+10.1186/1471-2164-10-25
+
+10,
+
+25.
+
+Wynne, J. W., Bull, T. J., Seemann,
+T., Bulach, D. M., Wagner,
+J.,
+Kirkwood, C. D., and Michal-
+ski, W. P. (2011). Exploring the
+zoonotic potential of Mycobacterium
+avium subspecies paratuberculosis
+
+through
+PLoS
+doi:10.1371/journal.pone.0022171
+
+comparative
+ONE
+6,
+
+genomics.
+e22171.
+
+Wynne, J. W., Seemann, T., Bulach, D.
+M., Coutts, S. A., Talaat, A. M.,
+and Michalski, W. P. (2010). Rese-
+quencing the Mycobacterium avium
+subsp. paratuberculosis K10 genome:
+improved annotation and revised
+genome sequence. J. Bacteriol. 192,
+6319–6320.
+
+Xu, C., Zhou, Y. F., Deng, J. Y., Deng,
+X., Guo, Y. C., Cui, Z. Q., Zhang, Z.
+P., Wei, H. P., Bi, L. J., and Zhang,
+X. E. (2008). On-chip ligation of
+multiplexing probe-pairs for identi-
+fying point mutations out of dense
+SNP loci. Biosens. Bioelectron. 24,
+818–824.
+
+Conﬂict of Interest Statement: The
+authors declare that the research was
+conducted in the absence of any
+commercial or ﬁnancial relationships
+that could be construed as a potential
+conﬂict of interest.
+
+Received: 09 August 2011; paper pending
+published: 02 September 2011; accepted:
+09 November 2011; published online: 09
+December 2011.
+Citation: Hsu C-Y, Wu C-W and Talaat
+AM (2011) Genome-wide sequence vari-
+ation among Mycobacterium avium sub-
+species paratuberculosis isolates: a bet-
+ter understanding of
+Johne’s disease
+transmission dynamics. Front. Microbio.
+2:236. doi: 10.3389/fmicb.2011.00236
+This article was submitted to Frontiers
+in Cellular and Infection Microbiology, a
+specialty of Frontiers in Microbiology.
+Copyright  2011 Hsu, Wu and Talaat .
+This is an open-access article distrib-
+uted under the terms of the Creative
+Commons Attribution Non Commercial
+License, which permits non-commercial
+use, distribution, and reproduction in
+other
+forums, provided the original
+authors and source are credited.
+
+www.frontiersin.org
+
+December 2011 | Volume 2 | Article 236 | 11
+
+Hsu et al.
+
+APPENDIX
+
+Table A1 | A list of accession numbers of genome deposited to GenBank.
+
+Organisms
+
+Mycobacterium avium subsp. paratuberculosis ATCC 19698
+Mycobacterium avium subsp. paratuberculosis JTC 1281
+Mycobacterium avium subsp. paratuberculosis JTC 1285
+Mycobacterium avium subsp. paratuberculosis 4B
+Mycobacterium avium subsp. paratuberculosis DT 3
+Mycobacterium avium subsp. paratuberculosis Env 210
+Mycobacterium avium subsp. avium DT 78
+Mycobacterium avium subsp. avium Env 77
+
+Genomic diversity among M. ap isolates
+
+Accession number
+
+AGAR00000000
+AGAK00000000
+AGAL00000000
+AGAM00000000
+AGAN00000000
+AGAO00000000
+AGAP00000000
+AGAQ00000000
+
+Frontiers in Microbiology | Cellular and Infection Microbiology
+
+December 2011 | Volume 2 | Article 236 | 12
+
+Hsu et al.
+
+Genomic diversity among M. ap isolates
+
+Table A2 | A list of genes that harbored >1 SNPs and its SNPs density.
+
+No.
+
+K-10 position
+
+N/S
+
+Annotations
+
+Size of gene
+
+SNP density
+
+1
+
+2
+
+3
+
+4
+
+5
+
+6
+
+7
+
+8
+
+9
+
+10
+
+11
+
+12
+
+13
+
+14
+
+15
+
+16
+
+17
+
+18
+
+19
+
+20
+
+21
+
+22
+
+23
+
+38,870
+46,975
+1,42,825
+1,42,835
+1,57,866
+1,57,867
+2,05,752
+2,05,753
+5,09,508
+5,09,633
+6,93,293
+6,93,483
+1,233,762
+1,233,871
+1,603,684
+1,604,357
+1,910,469
+1,910,564
+1,994,322
+1,994,370
+2,040,806
+2,040,946
+2,041,445
+2,150,741
+2,151,370
+2,353,857
+2,353,858
+2,367,415
+2,367,416
+2,605,368
+2,605,372
+2,664,521
+2,676,784
+2,785,781
+2,786,976
+2,92,000
+2,920,661
+3,888,659
+3,888,879
+4,040,757
+4,041,118
+4,079,226
+4,079,231
+4,206,587
+4,211,613
+4,773,398
+4,774,040
+4,774,041
+
+N, non-synonymous SNP; S, synonymous SNP.
+
+N
+N
+N
+N
+N
+S
+S
+N
+S
+N
+S
+N
+N
+N
+N
+S
+S
+N
+S
+S
+N
+N
+N
+N
+S
+N
+S
+N
+N
+S
+N
+N
+S
+N
+S
+N
+S
+N
+N
+S
+N
+N
+S
+N
+S
+N
+N
+N
+
+MAPK 0028
+MAPK 0028
+MAPK 0106
+MAPK 0106
+fadD4
+fadD4
+mecD
+mecD
+MAPK 0430
+MAPK 0430
+MAPK 0603
+MAPK 0603
+MAPK 1125
+MAPK 1125
+MAPK 1444
+MAPK 1444
+MAPK 1687
+MAPK 1687
+MAPK 1761
+MAPK 1761
+GlnE
+GlnE
+GlnE
+MAPK 1898
+MAPK 1898
+MAPK 2071
+MAPK 2071
+MAPK 2083
+MAPK 2083
+MAPK 2303
+MAPK 2303
+MAPK 2348
+MAPK 2348
+MAPK 2437
+MAPK 2437
+MAPK 2539
+MAPK 2539
+MAPK 3467
+MAPK 3467
+MAPK 3602
+MAPK 3602
+MAPK 3645
+MAPK 3645
+pks2
+pks2
+MAPK 4304
+MAPK 4304
+MAPK 4304
+
+11,206
+
+1,481
+
+1,517
+
+1,613
+
+524
+
+1,166
+
+500
+
+2,354
+
+1,730
+
+1,061
+
+2,996
+
+4,377
+
+380
+
+1,577
+
+1,454
+
+19,154
+
+2,600
+
+1,196
+
+689
+
+1,604
+
+905
+
+6,296
+
+1,208
+
+5,603
+
+740.5
+
+758.5
+
+806.5
+
+262
+
+583
+
+250
+
+1,177
+
+865
+
+530.5
+
+998.7
+
+2188.5
+
+190
+
+788.5
+
+727
+
+9,577
+
+1,300
+
+598
+
+344.5
+
+802
+
+452.5
+
+3,148
+
+402.7
+
+www.frontiersin.org
+
+December 2011 | Volume 2 | Article 236 | 13
+
+Hsu et al.
+
+Genomic diversity among M. ap isolates
+
+Table A3 | A list of 10 SNPs picked for Sanger sequencing.
+
+No.
+
+Gene name
+
+K-10 position
+
+K-10 allele
+
+ATCC 19698
+
+JTC 1285
+
+JTC 1281
+
+M. av ATCC 25291
+
+M. av 104
+
+1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+
+MAP 2578
+MAP 2578
+MAP 3165
+MAP 3165
+MAP 3391c
+MAP 3391c
+Neighbor of rpoC
+rpoC
+MAP 4302c
+MAP 4302c
+
+2,900,072
+2,900,076
+3,517,478
+3,517,668
+3,767,913
+3,767,939
+4,606,712
+4,607,283
+4,771,441
+4,771,588
+
+N/D, not detected.
+
+G
+A
+C
+C
+T
+G
+G
+G
+A
+G
+
+C
+T
+A
+G
+G
+C
+G
+A
+T
+A
+
+C
+T
+C
+G
+G
+C
+C
+G
+T
+A
+
+N/D
+N/D
+N/D
+G
+G
+C
+N/D
+N/D
+T
+A
+
+C
+T
+C
+G
+G
+C
+G
+G
+T
+A
+
+C
+T
+C
+G
+G
+C
+G
+G
+T
+A
+
+Frontiers in Microbiology | Cellular and Infection Microbiology
+
+December 2011 | Volume 2 | Article 236 | 14
+
+
