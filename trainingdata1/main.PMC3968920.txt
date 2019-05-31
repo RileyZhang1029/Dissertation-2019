@@ -1,0 +1,1369 @@
+Genomics Proteomics Bioinformatics 11 (2013) 18–28
+
+Genomics Proteomics Bioinformatics
+
+www.elsevier.com/locate/gpb
+
+www.sciencedirect.com
+
+REVIEW
+
+Interactome Mapping: Using Protein Microarray
+Technology to Reconstruct Diverse Protein Networks
+
+Ijeoma Uzoma 1,2, Heng Zhu 1,2,*
+
+1 Department of Pharmacology and Molecular Sciences, The Johns Hopkins University School of Medicine, Baltimore, MD
+
+21205, USA
+
+2 The Center for High-Throughput Biology, The Johns Hopkins University School of Medicine, Baltimore, MD 21205, USA
+
+Received 5 December 2012; accepted 20 December 2012
+Available online 17 January 2013
+
+KEYWORDS
+
+Protein microarray;
+Protein network;
+Biomarker;
+Interactome;
+Serum proﬁling;
+Systems biology
+
+Abstract A major focus of systems biology is to characterize interactions between cellular compo-
+nents, in order to develop an accurate picture of the intricate networks within biological systems.
+Over the past decade, protein microarrays have greatly contributed to advances in proteomics
+and are becoming an important platform for systems biology. Protein microarrays are highly ﬂex-
+ible, ranging from large-scale proteome microarrays to smaller customizable microarrays, making
+the technology amenable for detection of a broad spectrum of biochemical properties of proteins.
+In this article, we will focus on the numerous studies that have utilized protein microarrays to recon-
+struct biological networks including protein–DNA interactions, posttranslational protein modiﬁca-
+tions (PTMs), lectin–glycan recognition, pathogen–host interactions and hierarchical signaling
+cascades. The diversity in applications allows for integration of interaction data from numerous
+molecular classes and cellular states, providing insight into the structure of complex biological sys-
+tems. We will also discuss emerging applications and future directions of protein microarray tech-
+nology in the global frontier.
+
+Introduction
+
+Since the completion of major whole genome sequencing ef-
+forts, the scientiﬁc community has been faced with the chal-
+lenge of identifying and characterizing the expressed gene
+products of given organisms [1]. The post-genomics era gave
+
+* Corresponding author.
+
+E-mail: Heng.Zhu@jhmi.edu (Zhu H).
+
+Peer review under responsibility of Beijing Institute of Genomics,
+Chinese Academy of Sciences and Genetics Society of China.
+
+Production and hosting by Elsevier
+
+birth to the ﬁeld of proteomics that aimed to systematically
+chart the biochemical properties and functions of all expressed
+proteins [2]. With a global view in mind, we now strive to inte-
+grate complex ‘‘omics’’-data from all molecular ranks. The
+scope of proteomics is not limited to identifying protein–pro-
+tein interactions, but also includes identiﬁcation of protein
+posttranslational modiﬁcations (PTMs) and of interactions
+with DNA and RNA sequences, lipids and glycans. Weaving
+these layers together will allow us to construct the carefully
+tuned network that exists within live cells. Improvements in
+high throughput proteomic technologies coupled with ad-
+vances in genomics and bioinformatics have laid a framework
+to enable this level of research.
+
+Two of the most powerful platforms for proteomic studies
+are mass spectrometry and protein microarray technologies.
+
+1672-0229/$ - see front matter ª 2013 Beijing Institute of Genomics, Chinese Academy of Sciences and Genetics Society of China. Published by Elsevier Ltd
+and Science Press. All rights reserved.
+http://dx.doi.org/10.1016/j.gpb.2012.12.005
+
+Uzoma I and Zhu H / Using Protein Microarrays to Construct Protein Networks
+
+19
+
+Although mass spectrometry is well suited for high throughput
+protein identiﬁcation, quantiﬁcation and PTM site mapping
+[3], it still has its disadvantages such as bias against low abun-
+dance proteins and modiﬁcations, as well as undersampling of
+complex proteomes [4]. On the contrary, the protein micro-
+array platform avoids these limitations and is particularly sui-
+ted for unbiased global proﬁling [5].
+
+A protein microarray, also termed a protein chip, is created
+by immobilization of thousands of different proteins (e.g.,
+antigens, antibodies, enzymes and substrates, etc.) in discrete
+spatial locations at high density on a solid surface [6]. Depend-
+ing on their applications, protein microarrays can be catego-
+rized into two varieties: analytical and functional protein
+microarrays. Analytical protein microarrays are usually com-
+posed of well-characterized biomolecules with speciﬁc binding
+activities, such as antibodies, to analyze the components of
+complex biological samples (e.g., serum and cell lysates) or
+to determine whether a sample contains a speciﬁc protein of
+interest [7]. They have been used for protein activity proﬁling,
+biomarker identiﬁcation, cell surface marker/glycosylation
+proﬁling, clinical diagnosis and environmental/food safety
+analysis [8–10]. Alternatively, functional protein microarrays
+are constructed by printing a large number of individually
+puriﬁed proteins and are mainly used to comprehensively
+query biochemical properties and activities of those immobi-
+lized proteins. In principle, it is feasible to print arrays com-
+posed of virtually all annotated proteins of a given organism,
+effectively comprising a whole-proteome microarray [11].
+
+In 2001 the Snyder group reported the fabrication of the
+ﬁrst proteome microarray in the budding yeast, representing
+a major advance for the ﬁeld [12]. In order to construct this ar-
+ray, approximately 5800 full-length yeast ORFs were individu-
+ally expressed in yeast and their protein products puriﬁed as
+N-terminal GST-fusion proteins. Each puriﬁed protein was
+then robotically spotted on a single glass slide in duplicate at
+high density to form the ﬁrst ‘‘proteome’’ microarray, covering
+more than 75% of the yeast proteome. More recently, prote-
+ome microarrays have been fabricated from the proteomes of
+viruses, bacteria, plants and humans [8,13–16]. Functional pro-
+tein microarrays have been successfully applied to identify pro-
+tein–protein, protein–lipid, protein–antibody, protein–small
+molecules, protein–DNA, protein–RNA, protein–lectin and
+lectin–cell interactions [8,9,12,14,16–19], to identify substrates
+or enzymes for phosphorylation, ubiquitylation, acetylation
+and nitrosylation [11,20–24], as well as to proﬁle immune re-
+sponse [25]. In this review, we will focus on inventive applica-
+tions for protein microarrays and the signiﬁcant ﬁndings that
+contribute to understanding the complex interactomes within
+cells (Table 1).
+
+Network construction
+
+A solid understanding of the molecular mechanisms of biolog-
+ical functions requires systematic proﬁling of dynamic interac-
+tions between biomolecules. Processes such as transcriptional
+regulation, viral infection, numerous PTMs and protein–pro-
+tein interactions account for a small fraction of the potential
+molecular interactions within a cell but highlight how funda-
+mental
+functions. High
+throughput technologies strive to provide an unbiased plat-
+form for charting these relationships at the proteome and gen-
+
+these networks are for essential
+
+ome scale. In this section we will review several studies that
+demonstrate the utility of protein microarrays in reconstruct-
+ing interaction networks.
+
+Protein–DNA interactions
+
+With the completion of the human genome sequencing, decod-
+ing the functional elements is a major challenge. Computa-
+tional approaches have the power to identify conserved
+DNA regulatory elements; however, computational strategies
+cannot conﬁdently predict the proteins that bind to these ele-
+ments. Identiﬁcation of the interaction networks between the
+DNA functional elements and the human proteome requires
+extensive predictions and powerful high throughput tech-
+niques. Hu and colleagues undertook a large-scale analysis
+of protein–DNA interactions (PDIs) using a protein micro-
+array composed of 4191 unique full length human proteins,
+encompassing 90% of the annotated transcriptions factors
+(TFs) and members of many other protein categories, such
+as RNA-binding proteins, chromatin-associated proteins,
+nucleotide-binding proteins, transcription co-regulators, mito-
+chondrial proteins and protein kinases [18]. The protein micro-
+arrays were probed with 400 predicted and 60 known DNA
+motifs. As a result, a total of 17,718 PDIs were identiﬁed.
+Many known PDIs and a large number of new PDIs for both
+well characterized and predicted TFs were recovered, as well as
+new consensus sites for human TFs. Surprisingly, over 300
+proteins that do not encode any known DNA-binding do-
+mains showed sequence-speciﬁc PDIs, suggesting that many
+human proteins may bind speciﬁc DNA sequences as a second-
+ary function. To further investigate whether the DNA-binding
+activities of
+these unconventional DNA binding proteins
+(uDBPs) were physiologically relevant, Hu et al. carried out
+in-depth analysis on a well-studied protein kinase, Erk2, to
+determine the potential mechanism behind its DNA-binding
+activity [18]. Using a combination of in vitro and in vivo ap-
+proaches,
+electrophoretic mobility shift assays
+(EMSA), luciferase assays, mutagenesis, and chromatin immu-
+noprecipitation (chIP), they demonstrated that the DNA-bind-
+ing activity of Erk2 is independent of its protein kinase activity
+and it acts as a transcription repressor of transcripts induced
+by interferon gamma signaling [18]. This approach allows for
+sophisticated network mapping of protein–DNA interactions
+and enables the discovery of the uncharacterized DNA-bind-
+ing proteins. The emergence of uDBPs strengthens the ability
+to piece together the machinery involved in transcriptional
+regulation.
+
+such as
+
+MAP kinase substrate phosphorylation network
+
+The mitogen-activated protein kinase (MAPK) signaling cas-
+cade involves a hierarchy of kinases that activate one another
+through consecutive phosphorylation events in response to
+extracellular or intracellular signals [15]. Standard methods
+have only been able to establish a few combinatorial connec-
+tions from upstream MKK-activating kinases (MKKKs) to
+downstream MPK-activating kinases (MKKs), MAPKs and
+their cytoplasmic and nuclear substrates [26,27]. Constructing
+this complicated interconnected network necessitates a system-
+atic unbiased high-throughput approach to avoid confounding
+issues of redundancy and functional pleiotropy [15]. Akin to
+
+20
+
+Genomics Proteomics Bioinformatics 11 (2013) 18–28
+
+Table 1 Applications of protein microarrays in diverse biological network construction
+
+Assay type
+
+Array content
+
+Type of probe
+
+Application
+
+Protein–DNA interaction
+Kinase assay
+Ubiquitylation assay
+
+Acetylation assay
+
+Viral kinase assay
+Protein–protein interaction
+
+Protein–RNA interaction
+
+Antigen–antibody interaction
+
+Lectin–glycan interaction
+
+Network construction
+4191 Human proteins
+2158 Arabidopsis proteins
+Yeast proteome
+9000 Human proteins
+Human protoarray, invitrogen
+Yeast proteome
+
+Pathogen–host interactions
+4191 Human proteins
+60 EBV viral proteins
+4191 Human proteins
+Yeast proteome
+
+Biomarker identiﬁcation
+5011 Human proteins
+82 Corona virus proteins
+E. coli K12 proteome
+Yeast proteome
+94 Lectins
+
+DNA motif
+Protein kinase
+Ubiquitylation enzymes
+Concentrated cell extract
+
+Protein–DNA interaction network
+Signaling network
+PTM network
+PTM network
+
+Acetyltransferase
+
+PTM network
+
+Conserved viral kinases
+Human protein
+Viral protein
+BMV SLD RNA loop
+
+Viral PTM target network
+Protein–protein interaction network
+Protein–protein interaction network
+Protein–RNA interaction network
+
+AIH patient sera
+SARS patient sera
+IBD patient sera
+Lectins
+Live mammalian cells
+
+Biomarker identiﬁcation
+Antibody proﬁling
+Biomarker identiﬁcation
+Protein glycosylation proﬁling
+Cell surface biomarker identiﬁcation
+
+Ref
+
+[16]
+[23]
+[20]
+[19]
+
+[21]
+
+[31]
+[13]
+[44]
+[17]
+
+[47]
+[48]
+[8]
+[53]
+[9]
+
+the protein microarray based kinase assays developed by Pta-
+cek et al. [20], Popescu et al. employed high-density protein
+microarrays to identify novel MPK substrates. The authors
+ﬁrst determined which Arabidopsis thaliana MKKs preferen-
+tially activate 10 different MPKs in vivo and used the activated
+MPKs to probe Arabidopsis protein microarrays containing
+2158 unique proteins to reveal their phosphorylation sub-
+strates [15]. The initial screen identiﬁed 570 nonredundant
+MPK phosphorylation substrates with an average of 128 tar-
+gets per activated MPK. With this data the authors were able
+to reconstruct a complex signaling cascade involving nine
+MKKs, 10 MPKs and 570 substrates [15]. Moreover, the
+resulting nodes and edges highlighted the speciﬁcity conserved
+within these interactions: 290 (51%) of MPK phosphorylation
+targets were hit by only one MPK and only 94 (16%) were
+phosphorylated by two or more MPKs [15]. Gene ontology
+(GO) analysis of effector substrates showed enrichment in
+TFs involved in the regulation of development, defense and
+stress responses [15]. The network that emerged from this
+study suggests the MAPK signaling cascade regulates tran-
+scription through combinatorial enzyme speciﬁcity and dis-
+crete phosphorylation events.
+
+Ubiquitin E3 ligase substrate discovery
+
+Ubiquitylation is one of the most widespread PTMs and medi-
+ates a huge range of cellular events and processes in eukaryotes
+[28]. Understanding ubiquitin substrate speciﬁcity is a complex
+combinatorial question, as it is conferred by unique permuta-
+tions of E1, E2 and E3 enzymes. Lu et al. developed an assay
+to determine substrates of a HECT domain E3 ligase, Rsp5,
+using yeast proteome microarrays [22]. Over 90 novel proteins
+were found to be readily ubiquitylated by Rsp5, eight of which
+were validated as in vivo targets. Deeper in vivo characteriza-
+tion of two substrates, Sla1 and Rnr2, revealed that Rsp5-
+dependent ubiquitylation affects either the posttranslational
+process of the substrate or subcellular localization [22]. This
+design offers the ability to dissect the molecular mechanisms
+
+of a complex enzymatic cascade and gives the ﬁeld a tool to
+understand how the system is organized globally.
+
+Identiﬁcation of non-histone substrates of protein
+acetyltransferases in yeast
+
+Acetylation is a major epigenetic PTM widely known for its
+role in regulating chromatin state. However, it is suspected
+to regulate nonnuclear functions as well [29]. In yeast, no
+non-histone proteins were reported as substrates of histone
+acetyltransferases (HATs) and histone deacetylases (HDACs).
+The catalytic enzyme, Esa1, of the essential nucleosome acetyl-
+transferase of the complex, NuA4, is the only essential HAT in
+yeast [30], strongly suggesting that it may mediate acetylation
+of non-histone proteins critical for cell survival. Another
+intriguing question was whether HATs could regulate activity
+of cytosolic proteins or even enzymes like protein kinases. To
+comprehensively discover the non-chromatin substrates of the
+NuA4 HAT complex in the yeast proteome, Lin et al. devel-
+oped in vitro acetylation reactions on the yeast proteome
+microarrays, containing 5800 yeast proteins, using NuA4 and
+[14C]-acetyl-CoA [23]. Over 90 non-histone proteins were read-
+ily acetylated by the NuA4 complex. Although it was expected
+that the majority of the substrates would be involved in nucle-
+osome assembly and histone binding categories, a signiﬁcant
+number of the identiﬁed substrates were cytoplasmic proteins
+and metabolic enzymes [23]. Twenty proteins involved in a
+variety of cellular functions such as metabolism, transcription,
+cell cycle progression, RNA processing and stress response
+were selected for further validation. Standard double-immuno-
+precipitation techniques were used to validate 13 of the 20 sub-
+strates,
+carboxykinase
+(Pck1p). To understand the physiological relevance of non-
+chromatin acetylation, the authors focused on the cytosolic en-
+zyme Pck1p to explore a connection between acetylation and
+metabolism. Tandem mass spectrometry (MS/MS) identiﬁed
+lysine 19 (K19) and K514 as the acetylation sites of Pck1p
+and site-directed mutagenesis revealed that acetylation of
+K514 is critical for its enzymatic activity and promotes exten-
+
+phosphoenolpyruvate
+
+including
+
+Uzoma I and Zhu H / Using Protein Microarrays to Construct Protein Networks
+
+21
+
+sion of life span in yeast growing under starvation conditions.
+These ﬁndings demonstrate a functional role for non-chroma-
+tin acetylation in yeast metabolism and longevity.
+
+Based on GO analysis, acetylation may regulate several
+other cellular processes as well. In a follow up study, Lu et al.
+investigated the impact of acetylation on another NuA4 sub-
+strate, Sip2, a regulatory subunit of the SNF1 kinase complex
+(yeast AMPK). Based on the MS/MS analysis and site-directed
+mutagenesis studies, the authors found that Sip2 acetylation
+enhances its interaction with the catalytic subunit Snf1 and
+inhibits Snf1’s kinase activity [31]. As a result, phosphorylation
+of one of Snf1’s downstream targets, Sch9 (homolog of Akt/
+S6K), is decreased, ultimately leading to slower growth but ex-
+tended replicative life span. Finally, the authors demonstrated
+that the anti-aging effect of Sip2 acetylation is independent of
+extrinsic nutrient availability and TORC1 activity. These stud-
+ies are now echoed by recent discoveries of many mitochondrial
+and cytosolic enzymes as substrates of acetyltransferases in
+higher eukaryotes via MS-based PTM proﬁling [32–34].
+
+Global ubiquitylation substrate discovery from cell extracts
+
+Readily generating a snapshot of global protein PTM proﬁles
+under various cellular conditions could be considered the Holy
+Grail for those researching PTMs. General PTM substrate
+identiﬁcation strategies require enrichment from a cell extract
+sample followed by MS or in vitro assays using puriﬁed com-
+ponents. While both approaches have their strengths and
+weaknesses, a hybrid of the two is possible. The use of concen-
+trated mammalian cell extracts in combination with protein
+microarrays can serve to identify PTM targets in a semi-
+in vivo setting while alleviating the challenge of analyzing a
+complex mixture. Merbl and Kirschner generated cell extracts
+that replicate the mitotic checkpoint and anaphase release to
+identify differentially regulated polyubiquitylation substrates
+[21]. The synchronized cell extracts were incubated with Invit-
+rogen’s Human ProtoArray composed of 8000 proteins and
+the resulting polyubiquitylated proteins were detected with
+antibodies directed to ubiquitin chains [21]. The authors ex-
+pected to recover substrates of the anaphase promoting com-
+plex (APC), the major ubiquitin ligase in mitosis and G1. To
+differentiate polyubiquitylation substrates of the APC from
+other ligases, Merbl and Kirschner designed three experimen-
+tal set ups. All cell extracts were arrested with nocodozole as
+the control which inhibits the APC, in the second condition
+the sample was released from checkpoint arrest with the addi-
+tion of UbcH10, an E2 ligase, and the ﬁnal condition was sup-
+plemented with both UbcH10 and a speciﬁc inhibitor of APC.
+Approximately 132 proteins were differentially polyubiquity-
+lated, 11 of which were known APC substrates, conﬁrming
+the validity on the experimental design. Validation studies per-
+formed in rabbit reticulocyte lysate conﬁrmed the degradation/
+ubiquitylation of 7 novel APC substrates [21]. This study dem-
+onstrates the efﬁcacy of using protein microarrays in combina-
+tion with cell extracts to recapitulate the global PTM signature
+in a speciﬁc cellular state.
+
+Pathogen–host interactions
+
+Protein microarrays allow for exploration of hypotheses that
+cannot be addressed by standard methods. Investigating the
+
+interactions between viral encoded proteins and the proteins
+within the infected host has been an important yet cumber-
+some task. Protein microarrays composed of either the host
+or the viral proteome can be fabricated and subsequently used
+to examine the relationships between the viral machinery and
+the host. This in vitro approach recapitulates viral infection
+in that the viral genome/proteome are allowed to physically
+interact with the host. The Hayward and Zhu groups have re-
+cently developed this new paradigm to examine direct interac-
+tions between viral and host proteins [14,35,36], leading to a
+deeper understanding of the mechanisms by which the viral
+proteins hijack the host as well as uncovering the direct targets
+of major viral enzymes.
+
+Herpesvirus kinase-phosphorylome
+
+The human a, b, and c herpesviruses cause diseases distinct
+from one another, ranging from mild cold sores to pneumoni-
+tis, birth defects and cancers [35]. Although the viruses are dif-
+ferent, once they enter the host cells they all must reprogram
+cellular gene expression, sense cell-cycle phase, modify cell-cy-
+cle progression and reactivate the lytic life cycle to produce
+new virions to spread infection [37]. Many lytic cycle genes in-
+volved in replication of the viral genomes are highly conserved
+across the herpesvirus family. For example, each herpesvirus
+encodes for an orthologous serine/threonine kinase [38] that
+shares structural similarity with human cyclin-dependent ki-
+nases (CDKs) [39] and phosphorylates the substrates of CDKs
+[38]. The ability of viral kinase to mimic host CDKs results in
+hijacking of key pathways to potentiate their own replication.
+Particular cellular phosphorylation events are observed during
+herpes infection and speciﬁc phosphorylation of antiviral
+drugs in infected cells are mediated by the conserved viral ki-
+nases [40]. Identifying the collective host targets of the viral ki-
+nases would reveal the commonly shared mechanisms and
+signaling pathways among different herpesviruses to promote
+their lytic replication. This knowledge will increase the thera-
+peutic target options necessary for developing pan-antivirals.
+To test this idea, Li et al. utilized the human transcription
+factor (TF) proteome array containing 4191 human proteins
+to identify commonly shared substrates of herpesvirus-en-
+coded kinases [35]. Parallel kinases assays were performed
+using the four viral kinases, UL31, UL97, BGLF4 and
+ORF36, which is encoded by herpes simplex type 1 (HSV1),
+human cytomegalovirus (HCMV), Epstein-Barr virus (EBV)
+and Kaposi Sarcoma associated-virus (KSHV), respectively
+[38]. In total, 643 nonredundant substrates were identiﬁed
+across the four kinases and 110 substrates were targets of at
+least three kinases. GO analysis of the 110 shared substrates
+indicates that DNA damage functional class was signiﬁcantly
+enriched. Among the DNA damage proteins, TIP60 was se-
+lected as a lead candidate for regulation of viral replication,
+due to its roles in DNA damage as well as transcriptional reg-
+ulation through its HAT activity. Phosphorylation of TIP60
+by BGLF4 in EBV-infected B cells was validated during fur-
+ther analysis. BGLF4 is known to phosphorylate multiple
+EBV proteins and only a small number of host proteins
+[38,41]. The functions of its previously-characterized targets
+are varied, implying that the kinase plays multiple roles to pro-
+mote viral replication [41]. It is expressed in the early phase of
+the lytic infection cycle and is localized mainly in the nuclei of
+
+22
+
+Genomics Proteomics Bioinformatics 11 (2013) 18–28
+
+EBV-infected cells [42]. BGLF4 knockdown revealed that it is
+critical for release of infectious virus during viral lytic reactiva-
+tion [41]. Subsequent experiments demonstrated that BGLF4-
+mediated phosphorylation enhanced TIP60 HAT activity by
+10-fold, linking the phosphorylation event to viral replication.
+They also demonstrated the importance of phosphorylation of
+host DNA damage proteins for viral replication. More specif-
+ically, phosphorylation and activation of TIP60 by BGLF4
+triggers EBV-induced DNA damage response (DDR) and pro-
+motes positive transcriptional regulation of critical lytic genes
+involved in viral replication. Lastly, the study conﬁrmed that
+TIP60 was also required for efﬁcient lytic replication in
+HCMV, KSHV and HSV-1. Taken together, this unbiased ap-
+proach provides a novel paradigm for discovery of conserved
+targets of viral enzymes. While herpes kinases have been cred-
+ible therapeutic candidates, knowing their targets and the sig-
+exploit will better
+naling pathways
+the
+development of widely effective antiviral drugs.
+
+enable
+
+they
+
+BGLF4–SUMO2
+
+transduction, regulation of
+
+In a follow up study, Li et al. took the inverse approach that
+employed a herpesvirus EBV protein microarray to assess hu-
+man-host protein binding events [14]. Small ubiquitin-related
+modiﬁer (SUMO) is covalently attached to proteins via an
+enzymatic cascade analogous
+to the ubiquitin pathway.
+SUMO is involved in a broad range of cellular processes
+including signal
+transcription,
+DNA damage response and mediation of protein–protein
+interactions [43,44]. Both latent and lytic EBV proteins inter-
+act with components of the SUMO machinery [14,44]. While
+covalent modiﬁcation by SUMO is more commonly under-
+stood, noncovalent interactions with SUMO also contribute
+to SUMO effector signaling [43,44]. Noncovalent binding to
+SUMO is often mediated through SUMO-interaction motif
+(SIM) domains on target proteins [43,44]. To comprehensively
+identify the EBV proteins that bind to the SUMO moiety, the
+authors fabricated a protein microarray of full length proteins
+from EBV and KSHV individually puriﬁed from yeast. The ar-
+ray was used to perform a protein–protein binding assay using
+the SUMO2 paralog. They identiﬁed 11 EBV proteins as po-
+tential SUMO partners, including BGLF4, a conserved kinase
+[14]. As BGLF4 is known to play a multitude of roles in EBV,
+the authors pursued the importance of the cellular PTM in
+BGLF4 function. The BGLF4 SIM domains were mapped
+and when mutated at both the N- and C-terminal SIMs, the
+intracellular localization of the kinase shifted from nuclear to
+cytoplasmic. A mutation in the N-terminal SIM showed lar-
+gely nuclear localization, whereas the C-terminal SIM muta-
+tion generated an intermediate phenotype with nuclear and
+cytoplasmic expression. The authors found that BGLF4 inhib-
+its SUMOylation of lytic cycle transactivator ZTA and dem-
+onstrated that the SIM domains as well as kinase activity are
+required for inhibition [14]. SIM domains of BLGF4 were also
+shown to be necessary for suppressing global SUMOylation,
+inducing cellular DDR and promoting EBV lytic replication.
+The virus takes advantage of the SUMOylation system by
+encoding proteins that are SUMO modiﬁed and those that
+bind to SUMO [14]. As previously mentioned SUMO is in-
+volved in DDR, which is further supported by the ﬁnding that
+BGLF4 appears to interact with sites of DNA damage via
+
+SUMO binding, revealing an additional mechanism promoting
+EBV-mediated DDR and lytic replication. SUMO interaction
+is as important as the kinase activity for the function of
+BGLF4.
+
+LANA-interacting cellular protein
+
+Another variation of protein microarray used for investigating
+pathogen–host interaction involves the human TF array to
+proﬁle the interactions between KSHV latency proteins and
+host proteins. In KSHV-associated malignancies, majority of
+the tumor cells are latently-infected and express viral latency
+proteins including LANA [45]. LANA functions to maintain
+KSHV latency by driving viral replication [46,47], promoting
+dysregulated cell growth [48] and dynamically regulating both
+viral and cell gene transcription [49–51]. Identiﬁcation of LA-
+NA’s interacting partners would provide new insights into the
+mechanisms LANA uses to maintain latent infection. LANA
+has been an attractive target and previous efforts to identify
+LANA binding proteins have attempted yeast two-hybrid
+screens [52], glutathione S-transferase (GST) afﬁnity immuno-
+precipitation [53] and MS, resulting in apparent approach-
+dependent binding partners [54]. In a recent study, Shamay
+et al. puriﬁed FLAG-tagged LANA and probed it against
+the human TF array, which recovered 61 candidate binding
+partners [36]. Eight candidates validated by co-immunoprecip-
+itation assays
+included TIP60, protein phosphatase 2A
+(PP2A), replication protein A (RPA) and XPA. LANA-associ-
+ated TIP60 retained its acetyltransferase activity and showed
+enhanced stability, which is consistent with Li et al.’s ﬁnding
+that TIP60 in critical for KSHV lytic replication (see above).
+The binding interactions between LANA, RPA and XPA seem
+to echo LANA’s role in DNA damage, but further character-
+ization of the LANA’s ability to bind to additional RPA com-
+plex members, RPA1 and RPA2, spawned a new hypothesis
+that LANA may also regulate host telomere length. To test
+this hypothesis, the authors performed ChIP assays with
+anti-RPA1 and -RPA2 antibodies using primers speciﬁc to
+the telomere regions and found that the presence of LANA
+drastically reduced the recruitment of both RPA1 and RPA2
+to the host telomeres, while it had no impact on the protein le-
+vel of the RPA complex. This observation raised the possibility
+that LANA might affect telomere length. Using Southern blot
+analysis of terminal restriction fragments, the standard method
+for quantifying telomere length, the authors demonstrated that
+the average length of telomeres was shortened by at least 50%
+in both LANA-expressing endothelial cells and KSHV-in-
+fected primary effusion lymphoma cells [55].
+
+Biomarker identiﬁcation
+
+Biomarker identiﬁcation represents a major effort in modern
+biomedical and clinical research, as it allows for better screen-
+ing methods, diagnosis criteria, prognosis predictions and ulti-
+mately superior treatment for a broad range of diseases.
+Traditionally, biomarker discovery has utilized popular meth-
+ods such as MS, ELISA, gene expression and antibody arrays
+to proﬁle serum samples [56]. In recent years, protein micro-
+array technology has extended into clinical proteomics and is
+becoming a powerful tool for biomarker discovery. Proteins
+on functional protein microarrays were originally viewed as
+
+Uzoma I and Zhu H / Using Protein Microarrays to Construct Protein Networks
+
+23
+
+substrates and binding partners, but when applied to immunol-
+ogy, the proteins on the array could be potential antigens asso-
+ciated with certain diseases. By
+comparison, protein
+microarray based-serum proﬁling is much more sensitive and
+can be performed at higher throughput while requiring less
+amount of sample. Here we will review a variety of clini-
+cally-relevant applications for protein microarrays in bio-
+marker identiﬁcation.
+
+Autoantigen discovery for autoimmune hepatitis
+
+and
+
+liver-related
+
+autoantibodies
+
+In many autoimmune diseases, there is an unmet clinical need
+for cost-effective and accurate diagnostic methods. Improving
+upon the current standard requires discovery and characteriza-
+tion of reliable autoantigens coupled with sensitive and repro-
+ducible assays. Take autoimmune hepatitis (AIH) as an
+example: AIH is a chronic necroinﬂammatory disease of hu-
+man liver with little known etiology. Detection of non-or-
+gan-speciﬁc
+using
+immunoserological approaches has been widely used for diag-
+nosis and prognosis [57]. However, these traditional autoanti-
+gens, such as anti-smooth muscle autoantibodies (SMA) and
+anti-antinuclear autoantibodies (ANA) are often mixtures of
+complex biological materials. Unambiguous and accurate
+detection of the disease demands identiﬁcation and character-
+ization of these autoantigens. Therefore, Song et al. fabricated
+a human protein microarray of 5011 non-redundant proteins
+that were expressed and puriﬁed as GST fusions in yeast
+[25]. There are several advantages associated with producing
+human proteins in yeast rather than bacteria: (1) higher solu-
+bility, (2) higher yields of large proteins (e.g., >50 kD), (3) bet-
+ter preserved conformation of proteins and (4)
+less
+immunogenicity of proteins when produced in yeast than in
+Escherichia coli [7,12,17]. However, unlike a viral or bacterial
+protein microarray, a signiﬁcant obstacle to the use of a hu-
+man protein microarray of high content is the high cost. For
+example, cost for a human protein array of 9000 proteins
+can exceed $1000 per array. In order to reduce the cost, Song
+et al. developed a two-phase strategy to identify new biomark-
+ers in AIH. Phase I is designed for rapid selection of candidate
+biomarkers, which are then validated in Phase II (Figure 1). In
+Phase I, serum samples from 22 AIH patients and 30 healthy
+controls were selected and individually used to probe the hu-
+man protein microarrays at a 1000-fold dilution, followed by
+detection of bound human autoantibodies using a Cy-5-conju-
+gated anti-human IgG antibody. Statistical analysis revealed
+11 candidate autoantigens. To validate these candidates and
+to avoid a potential overﬁtting problem (see below), which is
+especially likely when dealing with a small sample size, the
+11 proteins and 3 positive controls were re-puriﬁed to build
+a large number of low-cost small arrays for Phase II valida-
+tion. These arrays were then sequentially probed with serum
+samples used in Phase I and serum samples obtained from
+an additional 52 AIH, 50 primary biliary cirrhosis (PBC), 43
+hepatitis B virus (HBV), 41 hepatitis C virus (HCV), 11 system
+lupus erythematosus (SLE) and 11 primary Sjo¨ gren’s syn-
+drome (pSS) patients. As negative controls, they also included
+26 serum samples from patients suffering from other types of
+severe diseases and 50 samples from healthy subjects. Three
+new antigens, RPS20, Alb2-like and dUTPase, were identiﬁed
+as highly AIH-speciﬁc biomarkers with sensitivity of 47.5%,
+
+Scheme of
+
+Figure 1
+the two-phase strategy for biomarker
+identiﬁcation in human autoimmune diseases taking AIH as example
+In Phase I, a small cohort is used to rapidly identify a group of
+candidate biomarkers via serum proﬁling assays on a human
+protein microarray of high cost. Because a small number of
+microarrays are needed, cost of the experiments is relatively low.
+In Phase II, a focused protein microarray of low cost is fabricated
+by spotting down puriﬁed candidate proteins. A much larger
+cohort is then assayed on these arrays in a double blind fashion to
+validate the candidates identiﬁed in Phase I. AIH, autoimmune
+hepatitis; ASGR2, asialoglycoprotein receptor 2; PBC, primary
+biliary cirrhosis; HBV, hepatitis virus B; HCV, hepatitis C virus;
+SLE,
+system lupus erythematosus; pSS, primary Sjo¨ gren’s
+syndrome.
+
+45.5% and 22.7%, respectively, which were further validated
+with additional AIH samples in a double-blind design. Finally,
+they demonstrated that these new biomarkers could be readily
+applied to ELISA-based assays for clinical diagnosis and prog-
+nosis [25].
+
+24
+
+Genomics Proteomics Bioinformatics 11 (2013) 18–28
+
+This study represents a new paradigm in biomarker identi-
+ﬁcation using protein microarrays for three reasons. First, a
+manageable number of candidate biomarkers can be rapidly
+identiﬁed at low cost because fewer expensive protein micro-
+arrays of high-content are needed in the ﬁrst phase of this
+two-phase strategy. Second, by using small arrays comprised
+of selected candidate proteins, the validation step can be rap-
+idly carried out with a much larger cohort at low cost. This val-
+idation step is extremely important for avoiding the overﬁtting
+problem associated with statistical analysis in biomarker or
+classiﬁer identiﬁcation, especially when dealing with a small
+cohort (e.g., <40). Overﬁtting is a problem in which a statisti-
+cal model describes random error or noise instead of the
+underlying relationship. It generally occurs in biomarker iden-
+tiﬁcation when the system is excessively complex, such as hav-
+ing too many individual-to-individual variations relative to the
+number of samples used. As a result, biomarkers that have
+been overﬁt generally have poor predictive performance.
+Therefore, testing an additional, larger cohort in a double-
+blind design is an effective way to rule out overﬁt biomarkers.
+Third, the authors developed ELISA-based assays to examine
+the performance of the validated biomarkers with additional
+samples. These newly identiﬁed biomarkers could serve as a
+translational step toward clinical practice.
+
+SARS-CoV diagnosis
+
+Protein microarrays can also be used as a diagnostic tool for
+infectious diseases. Severe acute respiratory syndrome (SARS)
+is an infectious disease, caused by a novel coronavirus (CoV),
+which appeared in Guangdong, China in November 2002. As
+of March 2003, the virus had spread globally and by July over
+8000 SARS cases and approximately 800 deaths were reported
+worldwide [58]. At the time of the outbreak, no effective treat-
+ment of SARS was available, thus isolation and infection con-
+trol were the best way to limit the spread of the virus.
+Therefore, rapid and reliable, early diagnosis is critical to con-
+trol such an epidemic. Zhu et al. developed the ﬁrst virus pro-
+tein microarray, which included all the SARS-CoV proteins as
+well as proteins from ﬁve additional coronaviruses that can in-
+fect human (HCoV-299E and HCoV-OC43), cow (BCV), cat
+(FIPV) and mouse (MHVA59) [13]. The SARS microarray
+was used to screen sera from infected and noninfected individ-
+uals in a double-blind format. The samples were quickly distin-
+guished as SARS positive or SARS negative based on the
+presence of human IgG and IgM antibodies against SARS-
+CoV proteins, with a 94% accuracy rate compared to a stan-
+dard ELISA diagnostic test. The SARS microarray improved
+the sensitivity of the assay 50-fold over the ELISA and dra-
+matically reduced the amount of sample required. This method
+may be suitable for diagnosis for many viral infections.
+
+Novel serological biomarkers for inﬂammatory bowel disease
+
+The two most common subtypes of inﬂammatory bowel dis-
+ease (IBD) are Crohn’s disease (CD) and ulcerative colitis
+(UC). They are idiopathic in nature and are both characterized
+by an abnormal immunological response in the gut [59]. IBD is
+clinically thought to have autoimmune etiology, although,
+anti-microbial antibodies to normal bacteria are present in
+the sera of patients, leading to the pathogenesis of the disease
+
+[8]. The known serological antibodies are currently used as
+partial diagnostic criteria as they are not robust enough to
+stand alone [60]. Chen et al. elected to use an E. coli proteome
+microarray to characterize the differential immune response
+(serum anti-E. coli antibodies) in patients with CD and UC
+compared to healthy controls (HC). The microarray included
+4256 E. coli proteins, encompassing the vast majority of the
+proteome of E. coli K12 strain. The sera from HC (n = 29),
+CD (n = 66) and UC (n = 39) were proﬁled using this array
+and the reactive anti-E. coli antibodies were detected with
+anti-human IgG antibodies. Data analysis revealed differential
+immunogenic response to 417 proteins between these three
+groups: 169, 186 and 19 were highly immunogenic in HC,
+CD and UC, respectively. Two robust sets of novel serological
+biomarkers were identiﬁed that can discriminate CD from HC
+or UC with >80% overall accuracy and sensitivity [8]. This is
+the ﬁrst study to identify serological biomarkers in human
+immunological diseases with respect to the entire proteome
+of a microbial species. The underlying molecular pathology
+of other immune system related diseases can also be examined
+with this proteome microarray approach.
+
+Lectin study: protein–glycan interaction
+
+Cell surface glycosylation is a complex and highly-varied PTM
+that in turn is not amenable to standard high-throughput tech-
+niques. Glycosylation is present on the surface of all vertebrate
+cells, and it serves to distinguish cell types through very deli-
+cate differences [9]. It is also shown to be associated with cell
+differentiation, malignant
+transformation and subcellular
+localization [61–65]. Glycan binding proteins, known as lec-
+tins, are used to characterize glycosylation marks due to their
+ability to discriminate sugar isoforms [66]. Lectin microarrays
+have already been employed to characterize glycoproteins and
+lysates [67,68], however, they have not been used to systemat-
+ically proﬁle cell surface glycosylation signatures of mamma-
+lian cell types. Such studies have the potential to provide a
+tool for distinguishing normal versus abnormal cell surface
+proﬁles based on glycan–lectin interactions. Tao et al. fabri-
+cated a lectin microarray composed of 94 non-redundant lec-
+tins selected for deﬁning cell surface glycan signatures [5].
+Using 23 well-studied mammalian cell lines, the authors devel-
+oped a systematic binary analysis of binding interactions of the
+selected lectins and cell types. They observed a broad range of
+binding potential and speciﬁcity across cell types, implying a
+high level of variation in cell surface glycans within mamma-
+lian cell types. For example, less than 20 lectins could capture
+the hESC, Caco-2, D407 and U937 cells, while more than 50
+lectins captured the HEK293, K1106 and MCF7 cells [9].
+Interestingly, similar cell types such as various breast cancer
+cell lines did not reveal overlapping lectin binding proﬁles,
+indicating lectins can discern subtle differences between phys-
+iologically-related cells.
+
+To further test the utility of the lectin microarray for bio-
+marker discovery, Tao et al. analyzed lectin binding in a model
+cancer stem-like system by comparing cell surface glycan sig-
+natures of all 24 cell types [9]. Focusing on MCF7, a breast
+cancer cell line that adopts cancer stem-like phenotypes when
+grown under speciﬁc conditions, the authors demonstrated
+that different growth conditions give rise to distinct lectin
+binding proﬁles that can distinguish these cancer cell subpop-
+
+Uzoma I and Zhu H / Using Protein Microarrays to Construct Protein Networks
+
+25
+
+ulations [9]. The lectin LEL was identiﬁed as a biomarker that
+can discriminate between MCF7 subpopulations. The authors
+propose that combined with other stem cell enrichment meth-
+ods, lectin microarray technology is a potential tool for identi-
+fying cell surface markers in tumors, enabling the discovery of
+cancer stem cell-like targeted therapies.
+
+Perspectives
+
+Over the past decade, protein microarrays have evolved into a
+powerful and versatile tool for systems biology. They capitalize
+on femtomolar sensitivity, proﬁling full proteomes and high-
+throughput yet straightforward assays. We have described
+their utility for a myriad of applications that have resulted in
+impactful scientiﬁc ﬁndings including pathogen–host interac-
+tions, biomarker identiﬁcation, unconventional transcription
+factors and PTM substrates (Figure 2).
+
+While protein microarrays leverage the advantage of uni-
+form protein expression, for proteomics, their impact is limited
+by the extent of coverage. A remarkable advance was put forth
+by the Zhu laboratory with the construction of the ﬁrst human
+proteome microarray containing over 17,000 full length pro-
+
+teins [16], the largest available to date (Figure 3). The discovery
+potential for this technology is dramatically increased by ex-
+panded proteome coverage. Multiple large-scale studies in-
+tended to link PTM substrates with their upstream enzymes,
+such as kinases, SUMO E3 ligases and ubiquitin ligases, are
+ongoing with the human proteome microarrays. As the num-
+ber of bona ﬁde PTMs increase and more substrates are found
+to acquire numerous modiﬁcations, we cannot ignore coregu-
+lation of PTMs. Directed studies to recapitulate crosstalk be-
+tween enzymes, PTMs and their common substrates are
+possible with protein microarrays and may uncover key nodes
+of regulation and critical points where pathways converge.
+While MS is an ideal technology for the discovery of novel
+PTMs, such as the crotonylation PTM [69], it is not well suited
+to identify the enzymes responsible for novel modiﬁcation. The
+richness of 17,000 natively-puriﬁed proteins on a single surface
+provides an ideal platform for discovery of novel enzyme func-
+tion. The human proteome array can also be harnessed as a
+tool for high-throughput characterization of monoclonal anti-
+body (mAb) speciﬁcity from hybridomas [16].
+
+The capabilities of microarray technology are further
+expanding with the development of label-free optical tech-
+
+Figure 2 Reconstituted interaction networks in cellular systems generated through protein microarray studies
+Interaction mapping with protein microarrays has been applied to numerous organisms to achieve diverse representations of molecular
+networks. A. Li et al. probed a human transcription factor (TF) microarray with four conserved kinases encoded by herpesviruses to reveal
+the host targets of the viral kinases [35]. Veriﬁed interactions between the viral target host proteins are shown. B. Using a yeast proteome
+microarray, Lu et al. identiﬁed the substrates of the HECT E3 ligase Rsp5 [22]. Through gene ontology analysis Rsp5 was linked to
+subgroups of substrates based on function. C. The A. thaliana MAP kinase signaling network was reconstructed using an Arabidopsis
+protein microarray [15] (adapted with permission from Dr. Savithramma P. Dinesh-Kumar). The hierarchical phosphorylation network
+depicts the MKKs (upper nodes), MPKs (middle nodes) and substrates (bottom nodes). D. DNA binding speciﬁcity of unconventional
+DNA-binding proteins (uDBPs) was characterized using the TF microarray [18]. The uDBPs are clustered based on target sequence
+similarity and proteins of different functional classes are color-coded. ‘‘C’’ denotes consensus sequences for each sub-branch are shown. E.
+The E. coli proteome microarray was used to identify differentially immunogenic proteins between HC and CD patient samples depicted in
+the heat map [8]. The yellow and blue colors indicate high and low immunogenic responses, respectively. HC, healthy controls; CD,
+Crohn’s disease.
+
+26
+
+Genomics Proteomics Bioinformatics 11 (2013) 18–28
+
+Figure 3 The human proteome microarray
+A. The human proteome microarray composed of 16,368 unique full-length recombinant proteins printed in duplicate on Full Moon glass
+slides. To monitor the quality, the microarray was probed with anti-GST monoclonal antibody, followed by Alexa-555 secondary
+antibody to visualize the signals. The proteins positively detected by the anti-GST antibody are represented in green. B. Cellular
+distribution of the proteins included in the human proteome microarray. ER, endoplasmic reticulum; Mito, mitochondria.
+
+niques that monitor the real-time dynamics of biomolecular
+interactions. Oblique-incidence reﬂectivity difference (OIRD)
+is an emerging technique that measures the changes in reﬂectiv-
+ity of polarized light [70,71]. OIRD has recently been applied
+to DNA and protein microarrays and has successfully deter-
+mine association and dissociation rates of biomolecular inter-
+actions in a high-throughput format [72,73].
+
+Constructing complex interaction networks involving the
+full range of cellular components is critical for deciphering
+how organisms are organized and is essential for understand-
+ing the aberrant changes that result in diseases. We have dis-
+cussed the vast applications of protein microarrays for global
+characterization of interactomes and the signiﬁcance of their
+ﬁndings for creating a comprehensive view of biological sys-
+tems. In conclusion, protein microarray technology is no long-
+er in its infancy and will undoubtedly serve as an invaluable
+tool for proteomics and systems biology.
+
+Competing interests
+
+The authors have declared no conﬂicts of interest.
+
+Acknowledgements
+
+We thank the NIH for supporting this work through the
+Grants awarded to HZ (Grant No. RR020839, DK082840,
+RO1GM076102, CA125807, CA160036 and HG006434) and
+an F31 NRSA Predoctoral Fellowship to IU (Grant No.
+5F31GM096716).
+
+References
+
+[1] Kenyon GL, DeMarini DM, Fuchs E, Galas DJ, Kirsch JF, Leyh
+TS, et al. Deﬁning the mandate of proteomics in the post-
+genomics era: workshop report. Mol Cell Proteomics 2002;1:
+763–80.
+
+[2] Neet KE, Lee JC. Biophysical characterization of proteins in the
+post-genomic era of proteomics. Mol Cell Proteomics 2002;1:
+415–20.
+
+[3] Aebersold R, Mann M. Mass spectrometry-based proteomics.
+
+Nature 2003;422:198–207.
+
+[4] Desiere F, Deutsch EW, Nesvizhskii AI, Mallick P, King NL, Eng
+JK, et al. Integration with the human genome of peptide sequences
+obtained by high-throughput mass spectrometry. Genome Biol
+2005;6:R9.
+
+Uzoma I and Zhu H / Using Protein Microarrays to Construct Protein Networks
+
+27
+
+[5] Yang L, Guo S, Li Y, Zhou S, Tao S. Protein microarrays for
+systems biology. Acta Biochim Biophys Sin (Shanghai)
+2011;43:161–71.
+
+[26] Asai T, Tena G, Plotnikova J, Willmann MR, Chiu WL, Gomez-
+Gomez L, et al. MAP kinase signalling cascade in Arabidopsis
+innate immunity. Nature 2002;415:977–83.
+
+[6] Smith MG, Jona G, Ptacek J, Devgan G, Zhu H, Zhu X, et al.
+Global analysis of protein function using protein microarrays.
+Mech Ageing Dev 2005;126:171–5.
+
+[27] Ichimura K, Mizoguchi T, Yoshida R, Yuasa T, Shinozaki K.
+Various abiotic stresses rapidly activate Arabidopsis MAP kinases
+ATMPK4 and ATMPK6. Plant J 2000;24:655–65.
+
+[7] Zhu H, Qian J. Applications of functional protein microarrays in
+
+[28] VanDemark AP, Hill CP. Structural basis of ubiquitylation. Curr
+
+basic and clinical research. Adv Genet 2012;79:123–55.
+
+Opin Struct Biol 2002;12:822–30.
+
+[8] Chen CS, Sullivan S, Anderson T, Tan AC, Alex PJ, Brant SR,
+et al. Identiﬁcation of novel serological biomarkers for inﬂam-
+matory bowel disease using Escherichia coli proteome chip. Mol
+Cell Proteomics 2009;8:1765–76.
+
+[9] Tao SC, Li Y, Zhou J, Qian J, Schnaar RL, Zhang Y, et al.
+Lectin microarrays identify cell-speciﬁc and functionally signiﬁ-
+cant cell surface glycan markers. Glycobiology 2008;18:761–9.
+
+[10] Kumble KD. Protein microarrays: new tools for pharmaceutical
+
+development. Anal Bioanal Chem 2003;377:812–9.
+
+[11] Hu S, Xie Z, Qian J, Blackshaw S, Zhu H. Functional protein
+microarray technology. Wiley Interdiscip Rev Syst Biol Med
+2011;3:255–68.
+
+[12] Zhu H, Bilgin M, Bangham R, Hall D, Casamayor A, Bertone P,
+et al. Global analysis of protein activities using proteome chips.
+Science 2001;293:2101–5.
+
+[13] Zhu H, Hu S, Jona G, Zhu X, Kreiswirth N, Willey BM, et al.
+Severe acute respiratory syndrome diagnostics using a coronavirus
+protein microarray. Proc Natl Acad Sci U S A 2006;103:4011–6.
+[14] Li R, Wang L, Liao G, Guzzo CM, Matunis MJ, Zhu H, et al.
+SUMO binding by the Epstein-Barr virus protein kinase BGLF4
+is crucial for BGLF4 function. J Virol 2012;86:5412–21.
+
+[15] Popescu SC, Popescu GV, Bachan S, Zhang Z, Gerstein M,
+Snyder M, et al. MAPK target networks in Arabidopsis thaliana
+revealed using functional protein microarrays. Genes Dev
+2009;23:80–92.
+
+[16] Jeong JS, Jiang L, Albino E, Marrero J, Rho HS, Hu J, et al.
+Rapid identiﬁcation of monospeciﬁc monoclonal antibodies using
+a
+proteome microarray. Mol Cell Proteomics
+2012;11:1–10.
+
+human
+
+[17] Huang J, Zhu H, Haggarty SJ, Spring DR, Hwang H, Jin F, et al.
+Finding new components of the target of rapamycin (TOR)
+signaling network through chemical genetics and proteome chips.
+Proc Natl Acad Sci U S A 2004;101:16594–9.
+
+[18] Hu S, Xie Z, Onishi A, Yu X, Jiang L, Lin J, et al. Proﬁling the
+human protein–DNA interactome reveals ERK2 as a transcrip-
+tional repressor of interferon signaling. Cell 2009;139:610–22.
+
+[19] Zhu J, Gopinath K, Murali A, Yi G, Hayward SD, Zhu H, et al.
+RNA-binding proteins that inhibit RNA virus infection. Proc
+Natl Acad Sci U S A 2007;104:3129–34.
+
+[20] Ptacek J, Devgan G, Michaud G, Zhu H, Zhu X, Fasolo J, et al.
+Global analysis of protein phosphorylation in yeast. Nature
+2005;438:679–84.
+
+[21] Merbl Y, Kirschner MW. Large-scale detection of ubiquitination
+substrates using cell extracts and protein microarrays. Proc Natl
+Acad Sci U S A 2009;106:2543–8.
+
+[22] Lu JY, Lin YY, Qian J, Tao SC, Zhu J, Pickart C, et al.
+Functional dissection of a HECT ubiquitin E3 ligase. Mol Cell
+Proteomics 2008;7:35–45.
+
+[23] Lin YY, Lu JY, Zhang J, Walter W, Dang W, Wan J, et al.
+Protein acetylation microarray reveals that NuA4 controls key
+metabolic
+Cell
+2009;136:1073–84.
+
+gluconeogenesis.
+
+regulating
+
+target
+
+[24] Foster MW, Forrester MT, Stamler JS. A protein microarray-
+based analysis of S-nitrosylation. Proc Natl Acad Sci U S A
+2009;106:18948–53.
+
+[25] Song Q, Liu G, Hu S, Zhang Y, Tao Y, Han Y, et al. Novel
+autoimmune hepatitis-speciﬁc autoantigens identiﬁed using pro-
+tein microarray technology. J Proteome Res 2010;9:30–9.
+
+[29] Close P, Creppe C, Gillard M, Ladang A, Chapelle JP, Nguyen L,
+et al. The emerging role of lysine acetylation of non-nuclear
+proteins. Cell Mol Life Sci 2010;67:1255–64.
+
+[30] Allard S, Utley RT, Savard J, Clarke A, Grant P, Brandl CJ,
+et al. NuA4, an essential
+transcription adaptor/histone H4
+acetyltransferase complex containing Esa1p and the ATM-related
+cofactor Tra1p. EMBO J 1999;18:5108–19.
+
+[31] Lu JY, Lin YY, Sheu JC, Wu JT, Lee FJ, Chen Y, et al.
+Acetylation of yeast AMPK controls intrinsic aging independently
+of caloric restriction. Cell 2011;146:969–79.
+
+[32] Choudhary C, Kumar C, Gnad F, Nielsen ML, Rehman M,
+Walther TC, et al. Lysine acetylation targets protein complexes
+and
+Science
+2009;325:834–40.
+
+co-regulates
+
+functions.
+
+cellular
+
+major
+
+[33] Chen Y, Zhao W, Yang JS, Cheng Z, Luo H, Lu Z, et al.
+Quantitative acetylome analysis reveals the roles of SIRT1 in
+regulating diverse substrates and cellular pathways. Mol Cell
+Proteomics 2012;11:1048–62.
+
+[34] Zhang T, Wang S, Lin Y, Xu W, Ye D, Xiong Y, et al.
+Acetylation negatively regulates glycogen phosphorylase by
+recruiting protein phosphatase 1. Cell Metab 2012;15:75–87.
+
+[35] Li R, Zhu J, Xie Z, Liao G, Liu J, Chen MR, et al. Conserved
+herpesvirus kinases target the DNA damage response pathway
+and TIP60 histone acetyltransferase to promote virus replication.
+Cell Host Microbe 2011;10:390–400.
+
+[36] Shamay M, Liu J, Li R, Liao G, Shen L, Greenway M, et al. A
+protein array screen for Kaposi’s sarcoma-associated herpesvirus
+LANA interactors links LANA to TIP60, PP2A activity and
+telomere shortening. J Virol 2012;86:5179–91.
+
+[37] Arvin A, Campadelli-Fiume G, Mocarski E, Moore PS, Roizman
+B, Whitley R, et al., editors. Human herpesviruses: biology,
+therapy and immunoprophylaxis. Cambridge: Cambridge Uni-
+versity Press; 2007.
+
+[38] Gershburg E, Pagano JS. Conserved herpesvirus protein kinases.
+
+Biochim Biophys Acta 2008;1784:203–12.
+
+[39] Romaker D, Schregel V, Maurer K, Auerochs S, Marzi A, Sticht
+H, et al. Analysis of the structure–activity relationship of four
+herpesviral UL97 subfamily protein kinases reveals partial but not
+full functional conservation. J Med Chem 2006;49:7044–53.
+
+[40] Meng Q, Hagemeier SR, Fingeroth JD, Gershburg E, Pagano JS,
+Kenney SC. The Epstein-Barr virus (EBV)-encoded protein
+kinase, EBV-PK, but not the thymidine kinase (EBV-TK),
+is
+required for ganciclovir and acyclovir inhibition of lytic viral
+production. J Virol 2010;84:4534–42.
+
+[41] Gershburg E, Raffa S, Torrisi MR, Pagano JS. Epstein–Barr
+virus-encoded protein kinase (BGLF4) is involved in production
+of infectious virus. J Virol 2007;81:5407–12.
+
+[42] Gershburg E, Pagano JS. Phosphorylation of the Epstein–Barr
+virus (EBV) DNA polymerase processivity factor EA-D by the
+EBV-encoded protein kinase and effects of the L-riboside benz-
+imidazole 1263W94. J Virol 2002;76:998–1003.
+
+[43] Gareau JR, Lima CD. The SUMO pathway: emerging mecha-
+nisms that shape speciﬁcity, conjugation and recognition. Nat Rev
+Mol Cell Biol 2010;11:861–71.
+
+[44] Johnson ES. Protein modiﬁcation by SUMO. Annu Rev Biochem
+
+2004;73:355–82.
+
+[45] Ye F, Lei X, Gao SJ. Mechanisms of Kaposi’s sarcoma-associated
+herpesvirus latency and reactivation. Adv Virol 2011;2011:193860.
+
+28
+
+Genomics Proteomics Bioinformatics 11 (2013) 18–28
+
+[46] Grundhoff A, Ganem D. The latency-associated nuclear antigen
+of Kaposi’s sarcoma-associated herpesvirus permits replication of
+terminal repeat-containing plasmids. J Virol 2003;77:2779–83.
+
+[47] Hu J, Garber AC, Renne R. The latency-associated nuclear
+antigen of Kaposi’s sarcoma-associated herpesvirus supports
+latent DNA replication in dividing cells. J Virol 2002;76:11677–87.
+[48] Fakhari FD, Jeong JH, Kanan Y, Dittmer DP. The latency-
+associated nuclear antigen of Kaposi sarcoma-associated herpes-
+virus induces B cell hyperplasia and lymphoma. J Clin Invest
+2006;116:735–42.
+
+[49] An J, Sun Y, Rettig MB. Transcriptional coactivation of c-Jun by
+
+the KSHV-encoded LANA. Blood 2004;103:222–8.
+
+[50] Cai Q, Lan K, Verma SC, Si H, Lin D, Robertson ES. Kaposi’s
+sarcoma-associated herpesvirus latent protein LANA interacts
+with HIF-1 alpha to upregulate RTA expression during hypoxia:
+latency control under low oxygen conditions. J Virol 2006;80:
+7965–75.
+
+[51] Kusano S, Eizuru Y. Human I-mfa domain proteins speciﬁcally
+interact with KSHV LANA and affect its regulation of Wnt
+signaling-dependent transcription. Biochem Biophys Res Com-
+mun 2010;396:608–13.
+
+[52] Krithivas A, Fujimuro M, Weidner M, Young DB, Hayward SD.
+Protein interactions
+targeting the latency-associated nuclear
+antigen of Kaposi’s sarcoma-associated herpesvirus to cell chro-
+mosomes. J Virol 2002;76:11596–604.
+
+[53] Barbera AJ, Chodaparambil JV, Kelley-Clarke B, Joukov V,
+Walter JC, Luger K, et al. The nucleosomal surface as a docking
+station for Kaposi’s sarcoma herpesvirus LANA. Science 2006;
+311:856–61.
+
+[54] Chen W, Dittmer DP. Ribosomal protein S6 interacts with the
+latency-associated nuclear antigen of Kaposi’s sarcoma-associated
+herpesvirus. J Virol 2011;85:9495–505.
+
+[55] Zhu H, Cox E, Qian J. Functional protein microarray as
+molecular decathlete: a versatile player in clinical proteomics.
+Proteomics Clin Appl 2012;6:548–62.
+
+[56] Mattoon D, Michaud G, Merkel J, Schweitzer B. Biomarker
+discovery using protein microarray technology platforms: anti-
+body–antigen complex proﬁling. Expert Rev Proteomics 2005;2:
+879–89.
+
+[57] Manns MP, Vogel A. Autoimmune hepatitis, from mechanisms to
+
+therapy. Hepatology 2006;43:S132–44.
+
+[58] Satija N, Lal SK. The molecular biology of SARS coronavirus.
+
+Ann N Y Acad Sci 2007;1102:26–38.
+
+[59] Thoreson R, Cullen JJ. Pathophysiology of inﬂammatory bowel
+
+disease: an overview. Surg Clin North Am 2007;87:575–85.
+
+[60] Bossuyt X. Serologic markers in inﬂammatory bowel disease. Clin
+
+Chem 2006;52:171–81.
+
+[61] Hakomori S. Aberrant glycosylation in cancer cell membranes as
+focused on glycolipids: overview and perspectives. Cancer Res
+1985;45:2405–14.
+
+[62] Hakomori S. Glycosylation deﬁning cancer malignancy: new wine
+
+in an old bottle. Proc Natl Acad Sci U S A 2002;99:10231–3.
+
+[63] Dennis JW, Granovsky M, Warren CE. Glycoprotein glycosyla-
+tion and cancer progression. Biochim Biophys Acta 1999;1473:
+21–34.
+
+[64] Dwek MV, Ross HA, Leathem AJ. Proteome and glycosylation
+mapping identiﬁes post-translational modiﬁcations associated
+with aggressive breast cancer. Proteomics 2001;1:756–62.
+
+[65] Kung LA, Tao SC, Qian J, Smith MG, Snyder M, Zhu H. Global
+analysis of the glycoproteome in Saccharomyces cerevisiae reveals
+new roles for protein glycosylation in eukaryotes. Mol Syst Biol
+2009;5:308.
+
+[66] Hirabayashi J. Lectin-based structural glycomics: glycoproteo-
+
+mics and glycan proﬁling. Glycoconj J 2004;21:35–40.
+
+[67] Ebe Y, Kuno A, Uchiyama N, Koseki-Kuno S, Yamada M, Sato
+T, et al. Application of lectin microarray to crude samples:
+differential glycan proﬁling of LEC mutants.
+J Biochem
+2006;139:323–7.
+
+[68] Kuno A, Uchiyama N, Koseki-Kuno S, Ebe Y, Takashima S,
+Yamada M, et al. Evanescent-ﬁeld ﬂuorescence-assisted lectin
+microarray: a new strategy for glycan proﬁling. Nat Methods
+2005;2:851–6.
+
+[69] Tan M, Luo H, Lee S, Jin F, Yang JS, Montellier E, et al.
+Identiﬁcation of 67 histone marks and histone lysine crotonyla-
+tion as a new type of histone modiﬁcation. Cell 2011;146:
+1016–28.
+
+[70] Chen F, Lv H, Chen Z, Zhao T, Yang G. Optical real-time
+monitoring of the laser molecular-beam epitaxial growth of
+perovskite oxide thin ﬁlms by an oblique-incidence reﬂectance-
+difference technique. J Opt Soc Am B 2000;18:1031–5.
+
+[71] Landry JP, Zhu XD, Gregg JP. Label-free detection of micro-
+arrays of biomolecules by oblique-incidence reﬂectivity difference
+microscopy. Opt Lett 2004;29:581–3.
+
+[72] Lu H, Wen J, Wang X, Yuan K, Li W, Lv H, et al. Detection of
+the speciﬁc binding on protein microarrays by oblique-incidence
+reﬂectivity difference method. J Opt 2010;12:1–5.
+
+[73] Wang X, Lu H, Wen J, Yuan K, Lv H, Jin K, et al. Label-free
+and high-throughput detection of protein microarrays by oblique-
+incidence reﬂectivity difference method. Chinese Phys Lett 2010;
+27:1–4.
+
+

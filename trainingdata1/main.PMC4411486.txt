@@ -1,0 +1,1298 @@
+Genomics Proteomics Bioinformatics 12 (2014) 284–291
+
+H O S T E D   BY
+
+Genomics Proteomics Bioinformatics
+
+www.elsevier.com/locate/gpb
+
+www.sciencedirect.com
+
+ORIGINAL RESEARCH
+
+Expression Proﬁling and Structural
+Characterization of MicroRNAs in Adipose Tissues
+of Hibernating Ground Squirrels
+
+Cheng-Wei Wu, Kyle K. Biggar $, Kenneth B. Storey *
+
+Department of Biology, Carleton University, Ottawa, ON K1S 5B6, Canada
+
+Received 17 June 2014; revised 24 July 2014; accepted 17 August 2014
+Available online 16 December 2014
+
+Handled by William C.S. Cho
+
+KEYWORDS
+
+Non-coding RNA;
+Dicer;
+Ground squirrel;
+Stress adaptation;
+Hypometabolism
+
+Abstract MicroRNAs (miRNAs) are small non-coding RNAs that are important in regulating
+metabolic stress. In this study, we determined the expression and structural characteristics of 20
+miRNAs in brown (BAT) and white adipose tissue (WAT) during torpor in thirteen-lined ground
+squirrels. Using a modiﬁed stem-loop technique, we found that during torpor, expression of six
+miRNAs including let-7a, let-7b, miR-107, miR-150, miR-222 and miR-31 was signiﬁcantly down-
+regulated in WAT (P < 0.05), which was 16%–54% of euthermic non-torpid control squirrels,
+whereas expression of three miRNAs including miR-143, miR-200a and miR-519d was found to
+be upregulated by 1.32–2.34-fold. Similarly, expression of more miRNAs was downregulated in
+BAT during torpor. We detected reduced expression of 6 miRNAs including miR-103a, miR-
+107, miR-125b, miR-21, miR-221 and miR-31 (48%–70% of control), while only expression of
+miR-138 was signiﬁcantly upregulated (2.91 ± 0.8-fold of the control, P < 0.05). Interestingly,
+miRNAs found to be downregulated in WAT during torpor were similar to those dysregulated
+in obese humans for increased adipogenesis, whereas miRNAs with altered expression in BAT dur-
+ing torpor were linked to mitochondrial b-oxidation. miRPath target prediction analysis showed
+that miRNAs downregulated in both WAT and BAT were associated with the regulation of mito-
+gen-activated protein kinase (MAPK) signaling, while the miRNAs upregulated in WAT were
+linked to transforming growth factor b (TGFb) signaling. Compared to mouse sequences, no
+unique nucleotide substitutions within the stem-loop region were discovered for the associated
+pre-miRNAs for the miRNAs used in this study, suggesting no structure-inﬂuenced changes in
+pre-miRNA processing efﬁciency in the squirrel. As well, the expression of miRNA processing
+
+* Corresponding author.
+
+E-mail: kenneth_storey@carleton.ca (Storey KB).
+
+$ Current address: Biochemistry Department, Schulich School of
+Medicine and Dentistry, Western University, London, ON N6A 5C1,
+Canada.
+Peer review under responsibility of Beijing Institute of Genomics,
+Chinese Academy of Sciences and Genetics Society of China.
+
+http://dx.doi.org/10.1016/j.gpb.2014.08.003
+1672-0229 ª 2014 The Authors. Production and hosting by Elsevier B.V. on behalf of Beijing Institute of Genomics, Chinese Academy of Sciences and
+Genetics Society of China.
+This is an open access article under the CC BY-NC-ND license (http://creativecommons.org/licenses/by-nc-nd/3.0/).
+
+Wu CW et al / Adipose MicroRNA Regulation in Ground Squirrel Torpor
+
+285
+
+enzyme Dicer remained unchanged in both tissues during torpor. Overall, our ﬁndings suggest that
+changes of miRNA expression in adipose tissues may be linked to distinct biological roles in WAT
+and BAT during hibernation and may involve the regulation of signaling cascades.
+
+Introduction
+
+Mammalian hibernation is a natural phenotype that involves
+the re-programing of metabolic function in response to
+changes in animals’ surrounding environment. Hibernators
+are able to undergo extreme depression of their metabolic rate
+(< 5% euthermic values), which is characterized by reduced
+body temperature (from 37 °C to 5 °C), heart rate (from
+200–300 to < 5 beats/min), respiration (from 100–300 to 4–
+6 breaths/min) and brain activity. However, all physiological
+and metabolic adaptations can be reversed upon arousal [1–
+4]. Programed increase in body weight perhaps is one of the
+most fascinating changes for hibernators [5]. During the fall,
+hibernators undergo periods of hyperphagia that can increase
+their total body mass by 40% in males and 60% in females,
+primarily via accumulation of triglycerides in the white adipose
+tissue (WAT) [5]. This increase in fat storage functions as the
+primary source for metabolic fuel during hibernation, as evi-
+dent by a respiratory quotient value (i.e., measurement of
+basal metabolic rate determined by CO2 eliminated/O2 consumed)
+of 0.70 during torpor, which indicated the exclusive fat catab-
+olism of the metabolically depressed state (where a value of 1.0
+would represent pure carbohydrate oxidation) [6]. In addition
+to white adipose storage, hibernators also experience a sub-
+stantial increase in brown adipose tissue (BAT) mass during
+torpor. However, BAT is functionally distinguished from
+WAT, which acts to dissipate energy through production of
+heat and gets involved in regulating adaptive thermogenesis
+during hibernation cycle [7,8]. The major role of BAT in hib-
+ernators is to provide non-shivering thermogenesis (NST) dur-
+ing periods of torpor. The mitochondria in BAT are able to
+uncouple the electron transport chain and disrupt oxidative
+phosphorylation via uncoupling proteins (UCPs), resulting in
+the generation of heat that is used to provide NST [9].
+
+A major driving force in understanding the mechanisms
+underlying ‘mammalian life in the cold’ is the potential for
+medical applications of cryopreservation, which would allow
+prolonged storage of human organs for transplantation. Less
+well known are the implications of hibernation to many meta-
+bolic diseases, by comparing the known molecular changes in
+hibernators to those observed in obese and diabetic pheno-
+types in humans [10]. For example, the observed increase in
+lipid accumulation in hibernators is coupled with periods of
+insulin resistance of the adipose tissues, which contributes to
+the development of an obesity-like phenotype that is character-
+ized by hyperinsulinemia and increased adipocyte diameter
+[11,12]. Interestingly, this obese state and periods of insulin
+resistance are reversed at the end of the hibernation season
+[11,12].
+
+MicroRNAs (miRNAs) are short (18–25 nt) non-coding
+single-stranded RNA molecules that function to post-trans-
+criptionally regulate gene expression [13]. miRNAs are initially
+transcribed as primary transcripts that contain secondary hair-
+pin structures, which are subsequently processed by a class 2
+RNase III enzyme Drosha into precursor miRNAs (pre-miR-
+NAs). The pre-miRNA is then exported out of the nucleus,
+
+and is further processed into mature miRNAs in the cytoplasm
+by another RNase III enzyme called Dicer [14]. Mature miR-
+NAs have been estimated to regulate at least 60% of human
+protein-coding genes [15]. Not surprisingly, recent ﬁndings
+have linked miRNA dysregulation to many metabolic diseases
+such as obesity and diabetes [16,17]. In adipose tissues, miR-
+NAs have been reported to both accelerate and suppress the
+rate of adipocyte differentiation,
+implicating multiple roles
+for miRNAs in fat cell development [18].
+
+As it is vitally important to rapidly and readily reduce the
+activity of ATP-costly processes in a coordinated and revers-
+ible fashion during hibernation, miRNAs may aid in the repri-
+oritization of ATP use and stress-speciﬁc cellular adaptation
+[13]. In this regard, it is possible that miRNAs act with a rapid
+and reversible mechanism to dynamically regulate critical cel-
+lular processes. In this study, we used the 13-lined ground
+squirrel (Ictidomys tridecemlineatus) as a well-studied model
+with a known genome and known roles for miRNA during
+hibernation [13]. To better understand the regulatory mecha-
+nisms of adipose metabolism in hibernators, we chose to char-
+acterize 20 miRNAs in ground squirrels during torpor that
+have been shown to be altered in human obesity.
+
+This present study provides a comparative analysis of the
+expression and characterization of adipose-associated miR-
+NAs in hibernation. A stem-loop miRNA ampliﬁcation proto-
+col was employed to measure the expression of these miRNAs
+in both WAT and BAT of euthermic and torpid ground squir-
+rels. As it has been previously reported that pre-miRNA can
+contain unique nucleotide substitutions that inﬂuence second-
+ary structure to promote low-temperature mature miRNA
+processing [19], we also analyzed the pre-miRNA sequence
+and secondary structure to identify any potential nucleotide
+substitutions that are unique to hibernators.
+
+Results
+
+Structural characterization of squirrel miRNAs
+
+in H.
+
+We searched the I. tridecemlineatus genome (SpeTri2.0 squirrel
+assembly) against Homo sapiens and Mus musculus precursor
+sequences in miRbase. A total of 20 miRNAs were selected
+based on their roles in human adipogenesis and obesity. These
+pre-miRNAs showed high sequence homology with their coun-
+sapiens and M. musculus, which are
+terparts
+89.70% ± 2.91% and 97.58% ± 0.36% on average, respec-
+tively (Table S1). The genomic miRNA-coding regions from
+I.
+also identiﬁed using BLAST
+(Table S2). The sequence length, base composition (GC%,
+AU%, U/A ratio and G/C ratio) and minimal free energy
+(MFE) are important features in identifying pre-miRNAs, so
+the structural and thermodynamic characteristics of the I. tri-
+decemlineatus pre-miRNA were analyzed (Table 1). The 20 I.
+tridecemlineatus pre-miRNAs identiﬁed in our study folded
+into stem-loop structures that ﬁt expected structural character-
+istics (average of 51.9% GC, 0.96 U/A ratio and 1.13 G/C
+
+tridecemlineatus were
+
+286
+
+Genomics Proteomics Bioinformatics 12 (2014) 284–291
+
+Table 1 Thermodynamic and structural characteristics of pre-miRNAs in I. tridecemlineatus
+
+miRNA
+
+itr-let-7a-1
+itr-let-7b
+itr-mir-15a
+itr-mir-21a
+itr-mir-24–1
+itr-mir-31
+itr-mir-103–1
+itr-mir-107
+itr-mir-125b-1
+itr-mir-138–1
+itr-mir-143
+itr-mir-150
+itr-mir-200a
+itr-mir-210
+itr-mir-221
+itr-mir-222
+itr-mir-326
+itr-mir-378a
+itr-mir-448
+itr-mir-519d
+
+Length
+
+94
+82
+84
+92
+68
+105
+86
+87
+77
+84
+63
+59
+90
+100
+95
+79
+88
+97
+107
+58
+
+MFE (kcal/mol)
+ 43.2
+ 44.7
+ 29.4
+ 42.7
+ 26.3
+ 44.5
+ 35.6
+ 33.3
+ 29.3
+ 37.7
+ 36.6
+ 26.0
+ 41.4
+ 43.8
+ 42.9
+ 38.7
+ 48.8
+ 27.9
+ 42.4
+ 25.2
+
+GC (%)
+
+AU (%)
+
+U/A ratio
+
+G/C ratio
+
+42.6
+50.0
+41.7
+45.7
+50.0
+51.4
+51.2
+46.0
+51.9
+57.1
+55.6
+61.0
+51.1
+69.0
+45.3
+50.6
+65.9
+50.5
+53.3
+48.3
+
+57.4
+50.0
+58.3
+54.3
+50.0
+48.6
+48.8
+54.0
+48.1
+42.9
+44.4
+39.0
+48.9
+31.0
+54.7
+49.4
+34.1
+49.5
+46.7
+51.7
+
+1.35
+1.00
+1.40
+1.19
+1.00
+0.95
+0.95
+1.17
+0.93
+0.75
+0.80
+0.64
+0.96
+0.45
+1.21
+0.98
+0.52
+0.98
+0.88
+1.07
+
+0.74
+1.00
+0.72
+0.84
+1.00
+1.06
+1.05
+0.85
+1.08
+1.33
+1.25
+1.56
+1.04
+2.23
+0.83
+1.02
+1.93
+1.02
+1.14
+0.93
+
+ratio) to the known pre-miRNAs [20], displaying MFE values
+of  25.2 to  48.8 kcal/mol (Table 1; Figure S1).
+
+miRNA expression during torpor
+
+To identify potential regulatory roles of the 20 selected miR-
+NAs in adipose metabolism of hibernating ground squirrels,
+we used a modiﬁed miRNA stem-loop ampliﬁcation technique
+to evaluate the expression of
+the selected miRNAs. In
+WAT, we identiﬁed three miRNAs that showed signiﬁcantly
+upregulated expression during torpor,
+including miR-143
+
+and miR-519d
+
+(2.34 ± 0.28-fold, P < 0.005), miR-200a (1.32 ± 0.04-fold,
+P < 0.05)
+(1.86 ± 0.17-fold, P < 0.05)
+(Figure 1). Meanwhile, expression of six miRNAs was signiﬁ-
+cantly downregulated during torpor. These include let-7a,
+let-7b, miR-31, miR-107, miR-150 and miR-222 (P < 0.05;
+Figure 1). Among them, expression of miR-150 was reduced
+the most, which is only 16% ± 2% of the euthermic state,
+whereas about 50% reduction was observed for the other 5
+miRNAs. We did not observe signiﬁcant alteration in the
+expression of the remaining 11 miRNAs such as miR-103a
+during torpor, albeit modest variations exist.
+
+3.0
+
+2.5
+
+2.0
+
+1.5
+
+1.0
+
+0.5
+
+Euthermic control
+Late torpor
+
+**
+
+* 
+
+* 
+
+* 
+
+* 
+
+*  * 
+
+* 
+
+* 
+
+i
+
+n
+o
+s
+s
+e
+r
+p
+x
+e
+ 
+A
+N
+R
+m
+e
+v
+i
+t
+
+ 
+
+i
+
+l
+
+a
+e
+R
+
+0 
+
+let-7a
+
+miR-221
+miR-448
+miR-378
+miR-222
+miR-210
+miR-326
+miR-150
+miR-138
+miR-143
+miR-107
+miR-24-1
+miR-31
+miR-21
+miR-519d
+let-7b
+miR-125b
+miR-15a
+miR-200a
+miR-103a
+
+Figure 1 miRNA expression in white adipose tissue during torpor
+Expression of miRNAs in white adipose tissue samples from the euthermic control (black bar) and torpid ground squirrels (gray bar) was
+evaluated by RT-PCR. Relative expression of indicated miRNAs was normalized to the expression of 5S rRNA from the same sample.
+The relative miRNA expression in the torpid animals was further normalized to that in the euthermic control, which was arbitrarily set as
+1.0. Data are mean ± SEM (n = 4–5 independent trials from different animals). Signiﬁcant difference in miRNA expression in torpid
+compared to that of the euthermic control according to Student’s t-test was indicated with *(P < 0.05) or **(P < 0.005).
+
+Wu CW et al / Adipose MicroRNA Regulation in Ground Squirrel Torpor
+
+287
+
+Similarly, we examined the expression of these 20 miRNAs in
+BAT during torpor. As shown in Figure 2, miR-138 was the only
+miRNA with signiﬁcantly-upregulated expression in BAT dur-
+ing torpor (2.91 ± 0.8-fold, P < 0.05). On the other hand, we
+observed signiﬁcantly-reduced expression for six miRNAs
+including miR-21, miR-31, miR-103a, miR-107, miR-125b
+and miR-221. However, expression of the affected miRNAs is
+reduced to a less extent in general compared to that of the miR-
+NAs affected in WAT during torpor. For example, expression of
+miR-107 during torpor is 61% ± 6% of the control in BAT
+(P < 0.005), compared to 42% ± 5% observed in WAT
+(P < 0.05). No signiﬁcant alteration in expression was observed
+in BAT for all three miRNAs that were signiﬁcantly upregulated
+in WAT (miR-143, miR200a, or miR-519d; Figures 1 and 2).
+Among the signiﬁcantly-downregulated miRNAs in BAT
+(miR-103a, miR-107, miR-125b, miR-21, miR-221 and miR-
+31), only miR-107 was downregulated in both tissues.
+
+Dicer expression during torpor
+
+Immunoblotting was performed to determine if the miRNA
+processing enzyme Dicer is regulated during torpor. The Dicer
+antibody detected a single band of approximately 200 kDa,
+which is the expected monomer size of the human Dicer pro-
+tein. As seen in Figure 3, the relative expression of Dicer in
+both WAT and BAT did not change signiﬁcantly between
+euthermic control and torpid squirrels.
+
+Pathway enrichment of torpor-responsive miRNAs
+
+To help determine the collective impact of the torpor-respon-
+sive miRNA, we used DIANA-miRPath to predict the cellular
+pathways targeted during torpor in WAT and BAT. miRPath
+
+generates a list of predicted miRNA targets and deﬁnes for tar-
+get enrichment using the Kyoto Encyclopedia of Genes and
+Genomes (KEGG) pathway database. In both BAT and
+WAT, the top KEGG pathway found to be targeted by signif-
+icantly-downregulated miRNAs during torpor was the mito-
+gen-activated protein kinase (MAPK) signaling cascade, with
+putative targets of 36 and 45 genes, respectively (Figures S2
+and S3, Table S4). Interestingly, the top signal transduction
+pathway targeted by the three miRNAs upregulated in WAT
+was the transforming growth factor b (TGFb) signaling path-
+way with 19 putative targets (Figure S4 and Table S3).
+
+Discussion
+
+Adipose tissues function as a storage depot for lipid molecules
+and act as a major endocrine signaling organ that is crucial for
+regulating whole-body energy homeostasis [21]. Several studies
+have shown a dependence on lipid as the primary source of
+metabolic fuel during torpor in several species of hibernators
+including bats, squirrels and lemurs [6,22,23]. Both WAT
+and BAT are specialized organs that are activated during
+metabolic depression, with transcriptional upregulation of
+transcription factors
+in peroxisome proliferator-activated
+receptor (PPAR) family [24]. Meanwhile, expression of both
+heart and adipose-speciﬁc fatty acid binding proteins has been
+shown to be upregulated in the BAT during torpor to promote
+fatty acid transport [24,25]. Although some similarities in gene
+expression patterns have been observed for the two adipose tis-
+sues during torpor, these two adipose tissues are distinct in
+terms of their biological roles. WAT primarily function as
+energy storage in the form of triglycerides, while BAT is
+involved in heat dissipation via non-shivering thermogenesis.
+In humans, the development of pre-adipocytes to mature
+
+Euthermic control
+Late torpor
+
+* 
+
+4.0
+
+3.0
+
+2.0
+
+i
+
+ 
+
+n
+o
+s
+s
+e
+r
+p
+x
+e
+A
+N
+R
+m
+e
+v
+i
+t
+
+ 
+
+i
+
+l
+
+a
+e
+R
+
+1.0
+
+0 
+
+* 
+
+* 
+
+* 
+
+**
+
+* 
+
+**
+
+let-7a
+
+miR-24-1
+miR-519d
+miR-125b
+miR-448
+miR-378
+miR-326
+miR-221
+miR-210
+miR-222
+miR-150
+miR-143
+miR-138
+miR-107
+miR-31
+miR-21
+miR-200a
+miR-103a
+miR-15a
+let-7b
+
+Figure 2 miRNA expression in brown adipose tissue during torpor
+Expression of miRNAs in the brown adipose tissue samples from euthermic control (black bar) and torpid ground squirrels (gray bar) was
+evaluated by RT-PCR. Relative expression of indicated miRNAs was normalized to the expression of 5S rRNA from the same sample.
+The relative miRNA expression in the torpid animals was further normalized to that in the euthermic control, which was arbitrarily set as
+1.0. Data are mean ± SEM (n = 4–5 independent trials from different animals). Signiﬁcant difference in miRNA expression in torpid
+compared to that of the euthermic control according to Student’s t-test was indicated with *(P < 0.05) or **(P < 0.005).
+
+Genomics Proteomics Bioinformatics 12 (2014) 284–291
+
+288
+
+A
+
+Dicer
+GAPDH
+
+B
+
+i
+
+ 
+
+i
+
+n
+o
+s
+s
+e
+r
+p
+x
+e
+n
+e
+t
+o
+r
+p
+ 
+r
+e
+c
+D
+e
+v
+i
+t
+a
+e
+R
+
+l
+
+ 
+
+i
+
+1.4
+
+1.2
+
+1.0
+
+0.8
+
+0.6
+
+0.4
+
+0.2
+
+0
+
+White adipose tissue
+Torpor
+Control
+
+Brown adipose tissue
+Control
+Torpor
+
+Euthermic control
+Late torpor
+
+White adipose tissue
+
+Brown adipose tissue
+
+Figure 3 Dicer protein expression during torpor
+A. Protein expression of Dicer in the white and brown adipose
+tissue samples from euthermic control (black bar) and torpid
+ground squirrels (gray bar) was examined using immunoblotting.
+B. Relative expression of Dicer was normalized to the expression of
+GAPDH from the same sample. The relative miRNA expression in
+the torpid animals was further normalized to that in the euthermic
+control, which was arbitrarily set as 1.0. Data are presented as
+mean ± SEM (n = 4 independent trials from different animals).
+Statistical analysis was performed using Student’s t-test.
+
+adipocytes is a tightly regulated multi-step process [26]. When
+adipogenesis becomes dysregulated, aberrant accumulation of
+fat can lead to the onset of obesity, increasing the health-
+related risks of metabolic diseases such as diabetes, atheroscle-
+rosis, and cancer [27,28]. In recent years, with the revealed
+importance of miRNAs in many life processes, multiple study
+groups began to characterize miRNAs whose expression is
+dysregulated in obesity phenotypes (such as body composition
+and body fat amount) [18].
+
+Our data show that during torpor, WAT and BAT both
+exhibit tissue-speciﬁc patterns of miRNA regulation and this
+could potentially be attributed to their distinct biological roles.
+Of the 20 miRNAs studied in WAT (Figure 1), we observed a
+signiﬁcant decrease in the torpor-expression of six miRNAs,
+while signiﬁcant torpor-responsive increase was observed for
+three miRNAs. Interestingly, several of the downregulated
+miRNAs during torpor have also been shown with decreased
+expression during adipogenesis in humans [29,30]. For exam-
+ple, let-7 has been shown to inhibit clonal expansion of pre-
+adipocytes through targeting the gene encoding high-mobility
+group AT-hook 2 (HMGA2). HMGA2 is a transcription fac-
+tor that can promote adipogenesis and mice lacking HMGA2
+exhibit signiﬁcant reduction in adipose tissue [29,30]. In addi-
+tion, the decreased expression of both miR-31 and miR-150 in
+WAT has also been linked to adipogenesis [31]. Overexpres-
+sion of miR-31 has been shown to suppress adipogenic
+
+including AP2, glucose transporter 4,
+
+markers including PPAR-c, C/EBP and adipocyte protein-2
+(AP2) [32], whereas miR-150 has recently been shown to
+directly target and repress PR domain-containing 16 (prdm16)
+and PPAR-c-coactivator 1a [31]. PPAR-c function as a master
+regulator for adipogenic differentiation by promoting expres-
+sion of downstream genes that are important for triglyceride
+uptake,
+lipoprotein
+lipase, phosphoenolpyruvate carboxykinase and more [33]. In
+addition, the upregulation of miR-143 in WAT was previously
+linked to promotion of adipose differentiation, while
+upregulation of miR-200a and miR-138 has been shown to
+be negative regulators of adipogenic differentiation [34–36].
+The combination of elevated expression of miRNAs that
+accelerate adipogenesis along with a decrease in expression
+of miRNAs that inhibit such process would suggest that
+miRNAs could play a prominent role in WAT regulation
+during torpor.
+
+When examining the miRNA regulation in BAT, results
+suggest a limited overlap in regulation patterns as compared
+to WAT. Interestingly, several miRNAs that were downregu-
+lated during torpor in BAT have been shown to negatively tar-
+get genes in the mitochondria (miR-103 and miR-107).
+Silencing of miR-103 using antagomir-103 in mice led to an
+increased expression of genes involved in b-oxidation, includ-
+ing carnitine palmitoyltransferase 1A (cpt1a), peroxisomal
+acyl-coenzyme A oxidase (acox) and very long chain acyl-
+coenzyme A dehydrogenase. Meanwhile, miR-107 expression
+has been negatively correlated with the expression of mito-
+chondria uncoupling protein 2 [37,38]. Recent studies have
+shown that expression of both cpt1a and acox is upregulated
+in squirrel during torpor, suggesting a potential role of miR-
+103 in regulation of b-oxidation [39,40]. The link between
+miR-103 and miR-107 to mitochondria oxidation is of partic-
+ular interest to hibernation research, as the decrease in both of
+these miRNAs could be linked to the increased b-oxidation
+that is known to occur during torpor [41]. Although several
+miRNAs characterized in this study have each been previously
+experimentally validated to regulate adipogenesis in mice and
+humans, we used miRPath to predict possible cellular pro-
+cesses and signaling pathways that could be affected in a com-
+binatorial manner by these
+torpor-responsive miRNA.
+Interestingly, although WAT and BAT showed distinct pat-
+terns in miRNA expression during torpor, all the miRNAs
+that were downregulated were predicted to target a large num-
+ber of proteins in the MAPK signaling pathway, with 45 genes
+collectively targeted in WAT and 36 genes target in BAT. The
+decrease in expression of these miRNAs could suggest a
+reduced inhibitory effect on the expression of these genes in
+the MAPK signaling pathway during torpor. Recent studies
+have also found that MAPK signaling may be a predicted tar-
+get
+for miRNAs altered in estivation-induced metabolic
+depression, suggesting MAPK signaling cascade as a promi-
+nent pathway targeted by miRNAs that are regulated during
+metabolic depression [42]. In addition, prediction of putative
+targets of miRNAs that were upregulated in WAT during tor-
+por (miR-143, miR-200a and miR-519d) identiﬁed TGFb as
+the top candidate signaling pathway with 19 putative targets.
+In the adipose tissues, TGFb has been found to inhibit adipo-
+genesis by repressing the transcriptional activity of C/EBP [43].
+The upregulation of these three miRNAs along, with the
+down-regulation of miR-31 (negative regulator of C/EBP),
+
+Wu CW et al / Adipose MicroRNA Regulation in Ground Squirrel Torpor
+
+289
+
+would suggest that the differential expression of miRNAs in
+WAT during torpor is likely to be aimed at promoting adipose
+tissue development.
+
+Changes in RNA secondary structure have been shown to
+allow efﬁcient precursor processing at the low temperatures,
+such as that experienced during torpor [19,44]. To identify
+potential structural mechanisms that regulate differential miR-
+NA expression in torpor, we investigated the sequence and
+structural characteristic of the terminal stem-loop region of
+the squirrel miRNAs examined in this study. Previous studies
+have also found that single nucleotide substitutions of miR-
+29b at the stem-loop terminal region in freeze-tolerant Western
+painted turtle (Chrysemys picta bellii) lead to a more ﬂexible
+stem-loop, which could be linked to its increased expression dur-
+ing freezing, suggesting miRNA nucleotide substitution as a
+potential mechanism to allow efﬁcient processing at low temper-
+ature [19,44]. Of the 20 miRNAs we examined in this study, we
+were unable to identify unique nucleotide substitution of the
+miRNA at the terminal stem-loop region using BLAST analysis.
+In addition, no qualitative correlation was found between
+increased mature miRNA expression and any unique structural
+characteristics of its pre-miRNA when compared to homolo-
+gous structures in H. sapiens or M. musculus. Moreover, we
+did not observe any changes in the protein expression of Dicer
+between euthermia and torpor. The mechanisms controlling dif-
+ferential expression of miRNAs during torpor remains to be
+determined, and future studies examining the transcription fac-
+tors controlling the expression of these miRNAs would shed
+more light in their regulatory mechanism during torpor.
+
+In conclusion, the present study measured the expression of
+20 miRNAs in BAT and WAT during ground squirrel torpor
+and observed differential expressions of miRNAs between the
+two tissues. The pattern of miRNA expression in WAT is con-
+sistent with some of the previous ﬁndings of miRNA dysregu-
+lation in obese humans. Our ﬁndings suggest that although the
+difference in miRNA expression patterns are likely linked to
+the distinct biological roles between WAT and BAT, signaling
+cascades such as the MAPK pathway could be regulated in
+both tissues during torpor. In summary, our data suggest the
+involvement of miRNAs in the regulation of adipose metabo-
+lism during torpor.
+
+Materials and methods
+
+Identiﬁcation of pre-miRNA sequences
+
+We screened the I. tridecemlineatus genome (SpeTri2.0 Ref.
+assembly top-level) to select the pre-miRNA candidates using
+the BLASTn tool (available at ftp://ftp.ncbi.nlm.nih.gov/gen-
+omes/Ictidomys_tridecemlineatus). The query sequences used
+for the genome screening were conserved pre-miRNAs from
+H. sapiens and M. musculus (miRbase v.20). Once putative
+miRNA candidates were found, the respective sequences that
+matched were retrieved from the SpeTri2.0 assembly. For fur-
+ther analysis, a set of structural characteristics and thermody-
+namic parameters were selected and analyzed in the identiﬁed
+I. tridecemlineatus pre-miRNAs. These include length, minimal
+free energy (MFE), GC content, AU content, G/C ratio and
+A/U ratio. The MFE of the secondary structures was mea-
+sured using mfold (available at http://mfold.rna.albany.edu/
+?q=mfold).
+
+Animal treatment
+
+the National
+
+The 13-lined ground squirrels used for this study were
+captured by USDA licensed personnel
+(TLS Research,
+Bartlett, IL, USA) and transported to the Hibernation
+Facility at the National Institute of Neurological Disorder
+and Stroke (NINDS), National Institute of Health (NIH),
+Bethesda, MD. All protocols used for animal procedures
+were approved by the NINDS Animal Care and Use
+Committee of
+Institute of Neurological
+Disorders and Stroke (Animal protocol No. ASP 1223-02),
+with procedures described in detail previously [45]. Brieﬂy,
+a temperature transponder
+(IPTT-300, Bio Medic Data
+System) was injected into the intrascapular region of the
+ground squirrel in order to monitor the body temperature
+(Tb) of individual animals. Torpor was induced by keeping
+the animals at 4–5 °C in constant darkness, whereas the
+euthermic animals used as the control group were kept in
+a cold room (4–5 °C)
+for 3 days while maintaining a
+constant Tb of 36–38 °C. Tissues for late torpid ground
+squirrels were collected when Tb of the animal was reduced
+to 5–8 °C and maintained for >3 days. During tissue
+collection, the animals were anesthetized with 5% isoﬂurane
+and sacriﬁced by decapitation for excision of BAT and
+WAT. Tissues collected were rinsed in ice-cold phosphate-
+buffered saline (PBS) and immediately frozen in 2-methylbu-
+tane chilled in dry ice and stored at  80 °C until use.
+
+miRNA polyadenylation and cDNA synthesis and real-time
+PCR
+
+Total RNA was isolated from WAT and BAT of euthermic
+control and torpid 13-lined ground squirrels as previously
+described [46]. Polyadenylation of miRNAs was carried out
+using the Poly(A) Polymerase Tailing Kit (Epibio, Madison,
+WI, USA) as instructed by the manufacturer. Reverse tran-
+scription (RT) of polyadenylated miRNAs was performed as
+previously described [47] using universal stem-loop RT adapter
+(Table S4) and the resulting product was serially diluted and
+stored at  20 °C until use.
+
+Real-time PCR was performed using a BioRad MyiQ2
+Detection System (BioRad, Hercules, CA, USA) using the
+sense primer speciﬁc to individual miRNA and the universal
+reverse primer (Table S1). A melting curve analysis was per-
+formed for each miRNA as a quality check.
+
+Protein extraction and immunoblotting
+
+Samples of frozen BAT and WAT (0.5 g) were homogenized
+using a Polytron PT 1000 homogenizer at a 1:2 (weight/vol-
+ume) in buffer containing 20 mM HEPES pH 7.5, 200 mM
+NaCl, 0.1 mM EDTA, 10 mM NaF, 1 mM Na3VO4, and
+10 mM b-glycerol-phosphate, supplemented with 1 lL of pro-
+tease inhibitor cocktail (BioShop, Burlington, ON, Canada).
+Tissues were centrifuged at 10,000 · g for 15 min at 4 °C to
+collect supernatant containing soluble proteins. Samples con-
+taining 30 lg of protein were separated on 6% SDS–PAGE
+gel and electroblotted by wet transfer onto PVDF membrane.
+The blots were incubated overnight at 4 °C with rabbit
+anti-Dicer polyclonal primary antibody (1:1000; Santa
+Cruz Biotechnologies, Santa Cruz, CA, USA) or rabbit
+
+290
+
+Genomics Proteomics Bioinformatics 12 (2014) 284–291
+
+3-phosphate
+
+dehydrogenase
+
+anti-glyceraldehyde
+(1:1000;
+GAPDH; Satan Cruz Biotechnologies, Santa Cruz, CA,
+USA) polyclonal antibody. After extensive wash, the blots
+were subsequently incubated with HRP-linked anti-rabbit
+IgG secondary antibody (1:4000; BioShop, Burlington, ON,
+Canada) and developed using enhanced chemiluminescence
+reagent (BioRad, Hercules, CA, USA) after wash.
+
+Pathway analysis
+
+The DIANA miRPath web-based bioinformatics program
+(http://diana.cslab.ece.ntua.gr/pathways/) was used to deter-
+mine pathway enrichment for miRNAs found to be altered
+during torpor [48].
+
+Data and statistical analysis
+
+For real-time PCR analysis, cycle threshold (Ct) of each
+miRNA was normalized to the Ct of endogenous control
+5S rRNA from the same sample. The comparative DDCt
+method was used to quantify relative expression of miRNA
+expression. For immunoblots, band densities were analyzed
+using ChemiGenius Bio-Imaging System of GeneTools
+software (SynGene, Fredrick, MD, USA). Band intensities
+of Dicer in each lane were normalized against the corre-
+sponding band intensities of endogenous control protein
+GAPDH from the same sample. For both qRT-PCR and
+immunoblot results, data were expressed as mean expression
+(mean ± SEM, n = 4–5 independent samples from different
+animals at each sampling point) and were plotted relative
+to euthermic control
+that was arbitrarily set as 1.0. A
+statistical analysis of the data was carried out using student’s
+t-test with P < 0.05 for signiﬁcant change (SigmaPlot 12.0
+statistical package).
+
+Authors’ contributions
+
+CWW, KKB and KBS conceived and designed the
+project, while CWW and KKB designed and performed
+the
+the
+manuscript. All authors
+read and approved the ﬁnal
+manuscript.
+
+analyzed the data,
+
+experiments,
+
+and wrote
+
+Competing interests
+
+The authors declare that there are no competing interests.
+
+Acknowledgements
+
+We thank Dr. J.M. Hallenbeck at the NIH for providing
+ground squirrel tissues, H.A. Holden and J.M. Storey for edit-
+ing of the manuscript. This work was supported by a Discov-
+ery grant from the Natural Sciences and Engineering Research
+Council (NSERC) of Canada (Grant No. 6793). KBS holds
+the Canada Research Chair in Molecular Physiology. Both
+CWW and KBB were supported by the NSERC postgraduate
+fellowships.
+
+Supplementary material
+
+Supplementary material associated with this article can be
+found,
+in the online version, at http://dx.doi.org/10.1016/
+j.gpb.2014.08.003.
+
+References
+
+[1] Wang LCH, Wolowyk M. Torpor in mammals and birds. Can J
+
+Zool 1987;66:133–7.
+
+[2] McArthur MD, Milsom WK. Changes in ventilation and respi-
+ratory sensitivity associated with hibernation in Columbian
+(Spermophilus columbianus) and golden-mantled (Spermophilus
+lateralis) ground squirrels. Physiol Zool 1991;64:940–59.
+
+[3] Heldmaier G, Ortmann S, Elvert R. Natural hypometabolism
+during hibernation and daily torpor in mammals. Respir Physiol
+Neurobiol 2004;141:317–29.
+
+[4] Frerichs KU, Smith CB, Brenner M, DeGracia DJ, Krause GS,
+Marrone L, et al. Suppression of protein synthesis in brain during
+hibernation involves inhibition of protein initiation and elonga-
+tion. Proc Natl Acad Sci U S A 1998;95:14511–6.
+
+[5] Sheriff MJ, Fridinger RW, Tøien Ø, Barnes BM, Buck CL.
+Metabolic rate and prehibernation fattening in free-living arctic
+ground squirrels. Physiol Biochem Zool 2013;86:515–27.
+
+[6] Buck CL, Barnes BM. Effects of ambient
+
+temperature on
+metabolic rate, respiratory quotient, and torpor in an arctic
+hibernator. Am J Physiol Regul
+Integr Comp Physiol
+2000;279:R255–62.
+
+[7] Smith RE, Horwitz BA. Brown fat and thermogenesis. Physiol
+
+Rev 1969;49:330–425.
+
+[8] Milner RE, Wang LC, Trayhurn P. Brown fat thermogenesis
+during hibernation and arousal in Richardson’s ground squirrel.
+Am J Physiol 1989;256:R42–8.
+
+[9] Dark J. Annual
+
+lipid cycles in hibernators:
+
+integration of
+
+physiology and behavior. Annu Rev Nutr 2005;25:469–97.
+
+[10] Wu CW, Biggar KK, Storey KB. Biochemical adaptations of
+mammalian hibernation: exploring squirrels as a perspective
+model for naturally induced reversible insulin resistance. Braz J
+Med Biol Res 2013;46:1–13.
+
+[11] Buck MJ, Squire TL, Andrews MT. Coordinate expression of the
+PDK4 gene: a means of regulating fuel selection in a hibernating
+mammal. Physiol Genomics 2002;8:5–13.
+
+[12] Martin SL. Mammalian hibernation: a naturally reversible model
+
+for insulin resistance in man? Diab Vasc Dis Res 2008;5:76–81.
+
+[13] Biggar KK, Storey KB. The emerging roles of microRNAs in the
+molecular responses of metabolic rate depression. J Mol Cell Biol
+2011;3:167–75.
+
+[14] Cullen BR. Transcription and processing of human microRNA
+
+precursors. Mol Cell 2004;16:861–5.
+
+[15] Friedman RC, Farh K, Burge CB, Bartel DP. Most mammalian
+mRNAs are conserved targets of microRNAs. Genome Res
+2009;19:92–105.
+
+[16] Rajewsky N. MicroRNA target predictions in animals. Nat Genet
+
+2006;38:S8–S13.
+
+[17] Xie H, Sun L, Lodish HF. Targeting microRNAs in obesity.
+
+Expert Opin Ther Targets 2009;13:1227–38.
+
+[18] McGregor RA, Choi MS. MicroRNAs in the regulation of
+
+adipogenesis and obesity. Curr Mol Med 2011;11:304–16.
+
+[19] Shaffer HB, Minx P, Warren DE, Shedlock AM, Thomson RC,
+Valenzuela N, et al. The western painted turtle genome, a model
+for the evolution of extreme physiological adaptations in a slowly
+evolving lineage. Genome Biol 2013;14:R28.
+
+[20] Bonnet E, Wuyts J, Rouze P, Van de Peer Y. Evidence that
+microRNA precursors, unlike other non-coding RNAs, have
+lower folding free energies than random sequences. Bioinformatics
+2004;20:2911–7.
+
+Wu CW et al / Adipose MicroRNA Regulation in Ground Squirrel Torpor
+
+291
+
+[21] Rosen ED, Spiegelman BM. Adipocytes as regulators of energy
+
+balance and glucose homeostasis. Nature 2006;444:847–53.
+
+[22] Kunz TH, Wrazen JA, Burnett CD. Changes in body mass and fat
+reserves in pre-hibernating little brown bats (Myotis lucifugus).
+Ecoscience 1998;5:8–17.
+
+[23] Giroud S, Perret M, Stein P, Goudable J, Aujard F, Gilbert C,
+et al. The grey mouse lemur uses season-dependent fat or protein
+sparing strategies to face chronic food restriction. PLoS One
+2010;5:e8823.
+
+[24] Eddy SF, Morin Jr P, Storey KB. Cloning and expression of
+PPAR-gamma and PGC-1alpha from the hibernating ground
+squirrel, Spermophilus
+tridecemlineatus. Mol Cell Biochem
+2005;269:175–82.
+
+[36] Yang Z, Bian C, Zhou H, Huang S, Wang S, Liao L, et al.
+MicroRNA has-miR-138 inhibits adipogenic differentiation of
+human adipose tissue-derived mesenchymal stem cells through
+adenovirus EID-1. Stem Cells Dev 2011;20:259–67.
+
+[37] Trajkovski M, Hausser J, Soutschek J, Bhat B, Akin A, Zavolan
+M, et al. MicroRNAs 103 and 107 regulate insulin sensitivity.
+Nature 2011;474:649–53.
+
+[38] Parra P, Serra F, Palou A. Expression of adipose microRNAs is
+sensitive to dietary conjugated linoleic acid treatment in mice.
+PLoS One 2010;5:e13005.
+
+[39] Hampton M, Melvin RG, Andrews MT. Transcriptomic analysis
+of brown adipose tissue across the physiological extremes of
+natural hibernation. PLoS One 2013;8:e85157.
+
+[25] Hittel D, Storey KB. Differential expression of adipose- and
+heart-type fatty acid binding proteins in hibernating ground
+squirrels. Biochim Biophys Acta 2001;1522:238–43.
+
+[40] Williams DR, Epperson LE, Li W, Hughes MA, Taylor R, Rogers
+J, et al. Seasonally hibernating phenotype assessed through
+transcript screening. Physiol Genomics 2005;24:13–22.
+
+[26] Ali AT, Hochfeld WE, Myburgh R, Pepper MS. Adipocyte and
+
+adipogenesis. Eur J Cell Biol 2013;92:229–36.
+
+[27] Calle EE, Kaaks R. Overweight, obesity and cancer: epidemio-
+logical evidence and proposed mechanisms. Nat Rev Cancer
+2004;4:579–91.
+
+[28] Kopelman PG. Obesity
+
+as
+
+a medical problem. Nature
+
+2000;404:635–43.
+
+[29] Zhou X, Benson KF, Ashar HR, Chada K. Mutation responsible
+for the mouse pygmy phenotype in the developmentally regulated
+factor HMGI-C. Nature 1995;376:771–4.
+
+[30] Sun T, Fu M, Bookout AL, Kliewer SA, Mangelsdorf DJ.
+MicroRNA let-7 regulates 3T3-L1 adipogenesis. Mol Endocrinol
+2009;23:925–31.
+
+[31] Chou CF, Lin YY, Wang HK, Zhu X, Giovarelli M, Briata P,
+et al. KSRP ablation enhances brown fat gene program in white
+adipose tissue through reduced miR-150 expression. Diabetes
+2014;63:2949–61.
+
+[32] Son YH, Ka S, Kim AY, Kim JB. Regulation of adipocyte
+Endocrinol Metab
+
+microRNAs.
+
+via
+
+differentiation
+2014;29:122–35.
+
+[33] Tontonoz P, Spiegelman BM. Fat and beyond:
+
+the diverse
+biology of PPAR-gamma. Annu Rev Biochem 2008;77:
+289–312.
+
+[34] Esau C, Kang X, Peralta E, Hanson E, Marcusson EG,
+Ravichandran LV, et al. MicroRNA-143 regulates adipocyte
+differentiation. J Biol Chem 2004;279:52361–5.
+
+[41] El Kebbaj Z, Andreoletti P, Mountassif D, Kabine M, Schohn H,
+Dauc¸ a M, et al. Differential regulation of peroxisome prolifera-
+tor-activated receptor (PPAR)-alpha1 and truncated PPAR-
+alpha2 as an adaptive response to fasting in the control of hepatic
+peroxisomal fatty acid beta-oxidation in the hibernating mammal.
+Endocrinology 2009;150:1192–201.
+
+[42] Wu CW, Biggar KK, Storey KB. Dehydration mediated micr-
+oRNA response in the African clawed frog Xenopus laevis. Gene
+2013;529:269–75.
+
+[43] Choy L, Derynck R. Transforming growth factor-beta inhibits
+adipocyte differentiation by Smad3 interacting with CCAAT/
+enhancer-binding protein (C/EBP) and repressing C/EBP trans-
+activation function. J Biol Chem 2003;278:9609–19.
+
+[44] Zhang XX, Zeng Y. The terminal loop region controls microRNA
+and Dicer. Nucleic Acids Res
+
+by Drosha
+
+processing
+2010;38:7689–97.
+
+[45] McMullen DC, Hallenbeck JM. Regulation of Akt during torpor
+in the hibernating ground squirrel, Ictidomys tridecemlineatus. J
+Comp Physiol B 2010;180:927–34.
+
+[46] Wu CW, Storey KB. Pattern of cellular quiescence over the
+hibernation cycle in liver of thirteen-lined ground squirrels. Cell
+Cycle 2012;11:1714–26.
+
+[47] Biggar KK, Wu CW, Storey KB. High-throughput ampliﬁcation
+of mature microRNA in uncharacterized animal models using
+polyadenylated RNA and stem-loop RT-PCR. Anal Biochem
+2014;462:32–4.
+
+[35] Kennell JA, Gerin I, MacDougald OA, Cadigan KM. The
+microRNA miR-8 is a conserved negative regulator of Wnt
+signaling. Proc Natl Acad Sci U S A 2008;105:15417–22.
+
+[48] Papadopoulos GL, Alexiou P, Maragkakis M, Reczko M,
+Hatzigeorgiou AG. DIANA-mirPath:
+integrating human and
+mouse microRNAs in pathways. Bioinformatics 2009;25:1991–3.
+
+

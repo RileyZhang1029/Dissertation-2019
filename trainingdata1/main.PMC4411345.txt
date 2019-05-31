@@ -1,0 +1,1237 @@
+Genomics Proteomics Bioinformatics 12 (2014) 137–143
+
+Genomics Proteomics Bioinformatics
+
+www.elsevier.com/locate/gpb
+
+www.sciencedirect.com
+
+APPLICATION NOTE
+
+DNA Extraction Protocol for Biological
+Ingredient Analysis of Liuwei Dihuang Wan
+
+Xinwei Cheng 1,3, Xiaohua Chen 2, Xiaoquan Su 2, Huanxin Zhao 1, Maozhen Han 2,
+Cunpei Bo 2, Jian Xu 2, Hong Bai 1,*, Kang Ning 2,*
+
+1 Institute of Materia Medica, Shandong Academy of Medical Sciences, Jinan 250062, China
+2 Shandong Key Laboratory of Energy Genetics, CAS Key Laboratory of Biofuels and Bioinformatics Group of Single Cell Center,
+
+Qingdao Institute of Bioenergy and Bioprocess Technology, Chinese Academy of Sciences, Qingdao 266101, China
+
+3 School of Medicine and Life Sciences, University of Jinan, Shandong Academy of Medical Sciences, Jinan 250062, China
+
+Received 25 February 2014; revised 29 March 2014; accepted 31 March 2014
+Available online 14 May 2014
+
+Handled by Jun Yu
+
+KEYWORDS
+
+DNA extraction;
+Traditional Chinese medicine
+preparation;
+Biological ingredients;
+Liuwei Dihuang Wan
+
+Abstract Traditional Chinese medicine (TCM) preparations are widely used for healthcare and
+clinical practice. So far, the methods commonly used for quality evaluation of TCM preparations
+mainly focused on chemical ingredients. The biological ingredient analysis of TCM preparations is
+also important because TCM preparations usually contain both plant and animal ingredients,
+which often include some mis-identiﬁed herbal materials, adulterants or even some biological con-
+taminants. For biological ingredient analysis, the efﬁciency of DNA extraction is an important fac-
+tor which might affect the accuracy and reliability of identiﬁcation. The component complexity in
+TCM preparations is high, and DNA might be destroyed or degraded in different degrees after a
+series of processing procedures. Therefore, it is necessary to establish an effective protocol for
+DNA extraction from TCM preparations. In this study, we chose a classical TCM preparation,
+Liuwei Dihuang Wan (LDW), as an example to develop a TCM-speciﬁc DNA extraction method.
+An optimized cetyl trimethyl ammonium bromide (CTAB) method (TCM-CTAB) and three com-
+monly-used extraction kits were tested for extraction of DNA from LDW samples. Experimental
+results indicated that DNA with the highest purity and concentration was obtained by using
+TCM-CTAB. To further evaluate the different extraction methods, ampliﬁcation of the second
+internal transcribed spacer (ITS2) and the chloroplast genome trnL intron was carried out.
+
+* Corresponding authors.
+
+E-mail: baihong@gmail.com (Bai H), ningkang@qibebt.ac.cn
+
+(Ning K).
+Peer review under responsibility of Beijing Institute of Genomics,
+Chinese Academy of Sciences and Genetics Society of China.
+
+Production and hosting by Elsevier
+
+1672-0229/$ - see front matter ª 2014 Beijing Institute of Genomics, Chinese Academy of Sciences and Genetics Society of China. Production and hosting
+by Elsevier B.V. All rights reserved.
+http://dx.doi.org/10.1016/j.gpb.2014.03.002
+
+138
+
+Genomics Proteomics Bioinformatics 12 (2014) 137–143
+
+The results have shown that PCR ampliﬁcation was successful only with template of DNA
+extracted by using TCM-CTAB. Moreover, we performed high-throughput 454 sequencing using
+DNA extracted by TCM-CTAB. Data analysis showed that 3–4 out of 6 prescribed species were
+detected from LDW samples, while up to 5 contaminating species were detected, suggesting
+TCM-CTAB method could facilitate follow-up DNA-based examination of TCM preparations.
+
+Introduction
+
+Traditional Chinese medicine (TCM) preparations are widely
+used for healthcare and clinical practice in China and many
+other Asian countries. They are usually made from medicinal
+plants, animal materials and minerals, containing hundreds
+of compounds [1,2]. So far, the commonly used methods for
+quality evaluation of TCM preparations have mainly focused
+on chemical ingredient analysis by various chromatographic
+and spectroscopic methods [3,4]. However, these targeted
+approaches can only measure the chemicals of interest, but
+often fail to identify the contaminating biological ingredients.
+Mis-identiﬁed herbal materials, adulterants or even some bio-
+logical contaminants could be potentially included during the
+complex collection and manufacture procedures. Therefore,
+in addition to the analysis of chemical ingredients, the analysis
+of biological
+is also
+important.
+
+in TCM preparations
+
+ingredients
+
+In recent years, DNA ﬁngerprinting and sequencing tech-
+nologies have been applied to the ﬁeld of TCM quality evalu-
+ation [5–7]. Some studies on molecular authentication of TCM
+preparations have been reported recently [8–10]. In combina-
+tion with the sensitive high-throughput sequencing (HTS) tech-
+nology [11], all biological constituents, even those with trace
+amount, in TCM preparations could be potentially identiﬁed,
+including both prescribed and contaminating species [12].
+DNA of different ingredients present in the preparations could
+be ampliﬁed and sequenced, whose abundance would be pro-
+portionally represented within the ﬁnal DNA extract [13].
+Therefore, the efﬁciency of DNA extraction is critical, which
+might affect
+ingredient
+identiﬁcation.
+
+the accuracy and reliability of
+
+The sequencing-based method has been used in a number of
+herb identiﬁcation instances, and methods for extracting DNA
+from fresh plants have been intensively investigated [14–17].
+However, there is still lack of studies exploring efﬁcient proto-
+cols for DNA extraction from TCM preparations. On the one
+hand, compared to fresh herbal plants, TCM preparations are
+composed of various decoction pieces and some excipients,
+thus extraction methods with universal applicability would
+be desired. On the other hand, after a series of processing pro-
+cedures such as drying and stewing, DNA would be destroyed
+or degraded to different extents. Therefore, an improved DNA
+extraction method should be developed to extract DNA with
+high sensitivities and accuracies for the identiﬁcation of both
+prescribed and contaminating species in TCM preparations.
+As a result, the following ampliﬁcation, sequencing and data
+analysis could reliably reﬂect the biological
+ingredients in
+TCM preparations.
+
+In this study, we chose a classical TCM preparation, Liuwei
+Dihuang Wan (LDW), as an example in order to develop a
+TCM-speciﬁc DNA extraction method. LDW comprises six
+traditional herbs including Rehmannia glutinosa Libosch.,
+Cornus ofﬁcinalis Sieb. et Zucc., Paeonia suffruticosa Andr.,
+
+Dioscorea opposita Thunb., Poria cocos (Schw.) Wolf and
+Alisma orientalis (Sam.) Juzep. Among them, R. glutinosa and
+C. ofﬁcinalis are steam processed while the others are raw mate-
+rials. All herbal materials are crushed to powder, mixed and
+made into pills together with honey or water. With each of its
+components having distinct properties (processed vs. unpro-
+cessed, plant vs. fungi), LDW could serve as a representative
+TCM preparation for the assessment of DNA extraction method.
+
+Results and discussion
+
+Assessment of DNA extraction methods for LDW samples
+
+We used LDW purchased in Qingdao, China (QD) and Singa-
+pore (SG), respectively, as examples for DNA extraction and
+selected four DNA extraction methods for performance com-
+parison. These included three commonly-used commercial
+DNA extraction kits: OMEGA E.Z.N.A. HP Plant DNA
+Kit (OMEGA Kit), MOBIO PowerSoil DNA Isolation Kit
+(MOBIO Kit) and Chinese Herbal Medicine Kit (Henan Huier
+Nano Technology, Huier Kit), as well as our newly-developed
+TCM-cetyl trimethyl ammonium bromide (CTAB) method.
+OMEGA Kit is designed for fresh, dry or frozen specimen;
+MOBIO Kit is used for environmental samples; whereas Huier
+Kit is a universal extraction kit for Chinese medicinal materi-
+als. The TCM-CTAB method was reported for the ﬁrst time in
+this work. TCM-CTAB was optimized from the CTAB
+method [18], which is a manual method widely used for
+DNA extraction from different types of samples. We combined
+the CTAB method with sodium dodecyl sulfate (SDS) method
+[19] to remove polysaccharides effectively [20]. In addition, the
+lysis duration was prolonged to increase DNA yield, whereas
+phenol–chloroform–isoamyl alcohol extraction was performed
+twice to remove any possible remaining proteins and chloro-
+form–isoamyl alcohol extraction was performed to remove
+residual phenol
+interfere with PCR
+ampliﬁcation.
+
+[21], which might
+
+(Table 1). However, A260/A280
+
+The yield and quality of DNA extracted were determined
+spectrometrically. It was shown that the purity of DNA
+extracted by the TCM-CTAB method was high for both QD
+and SG samples, with an A260/A280 ratio in the optimal range
+(1.6–1.8)
+ratio of DNA
+extracted by OMEGA, MOBIO and Huier kits was lower than
+1.6, suggesting possible contaminants like polysaccharides,
+polyphenols, etc. In addition, different DNA yield was
+achieved when using four extraction protocols. With the
+TCM-CTAB method, the DNA concentrations of samples
+QD and SG were 589.0 ± 61.2 and 691.0 ± 54.2 ng/lL,
+respectively, whereas the extraction rates were 70.7 ± 7.3
+and 82.9 ± 6.3 lg/g, respectively. Compared to the results of
+the other three kits (Table 1), it was obvious that the best per-
+formance in terms of both DNA concentration and extraction
+rate was achieved using TCM-CTAB. Furthermore, gel
+
+Cheng X et al / DNA Extraction Protocol of Liuwei Dihuang Wan
+
+139
+
+Table 1 Purity and concentration of DNA extracted from LDW samples with different extraction methods
+
+Extraction method
+
+Sample
+
+A260/A280 ratio
+
+DNA concentration (ng/lL)
+
+Extraction rate (lg/g)
+
+MOBIO
+
+OMEGA
+
+Huier
+
+TCM-CTAB
+
+QD
+SG
+QD
+SG
+QD
+SG
+QD
+SG
+
+1.27 ± 0.08
+1.14 ± 0.03
+1.06 ± 0.12
+0.79 ± 0.13
+0.82 ± 0.04
+1.43 ± 0.01
+1.67 ± 0.15
+1.73 ± 0.012
+
+30.0 ± 6.3
+40.5 ± 11.7
+47.4 ± 13.6
+60.5 ± 22.3
+109.0 ± 13.9
+145.1 ± 32.7
+589.0 ± 61.2
+691.0 ± 54.2
+
+3.6 ± 0.8
+4.86 ± 1.4
+28.4 ± 8.1
+36.3 ± 13.4
+32.7 ± 4.2
+43.5 ± 9.8
+70.7 ± 7.3
+82.9 ± 6.3
+
+Note: Data were obtained based on 3 replicates for each setting.
+
+electrophoresis analysis (Figure 1) showed that obvious bands
+were only detected for DNA extracted using TCM-CTAB and
+Huier Kit. Moreover, the band intensity of DNA extracted
+using TCM-CTAB was higher than that using Huier Kit,
+although both exhibited dispersal pattern. All these data indi-
+cated that the highest extraction efﬁciency and quality of DNA
+were obtained using the TCM-CTAB method. Commercial
+DNA extraction kits usually have deﬁned reagents and proto-
+cols, making them difﬁcult to modify according to the speciﬁc
+requirements of varied TCM preparations. On the contrary,
+when using the TCM-CTAB method, we can easily change
+the concentration and composition of extraction buffer. On
+top of that, the TCM-CTAB method is also cost effective,
+compared to other DNA extraction kits tested in this study.
+
+There were many successful trials of genome extraction for
+fresh herbs, but few studies were reported for TCM prepara-
+tions. While some ingredients in TCM preparations might
+remain unprocessed before mixing with others (such as P. suf-
+fruticosa in LDW), some other plant or animal tissues in TCM
+preparations (such as R. glutinosa in LDW) might be com-
+pletely or partially destroyed during the processing procedures,
+which would lead to degraded genomes in various degrees. As
+a result, the amount and quality of DNA retained in TCM
+preparations would be much lower than those in the fresh
+
+e
+v
+i
+t
+a
+g
+e
+N
+
+l
+
+o
+r
+t
+n
+o
+c
+
+QD
+
+SG
+
+r
+e
+d
+d
+a
+l
+ 
+ 
+
+A
+N
+D
+
+A
+G
+E
+M
+O
+
+r
+e
+i
+u
+H
+
+I
+
+O
+B
+O
+M
+
+B
+A
+T
+C
+M
+C
+T
+
+-
+
+A
+G
+E
+M
+O
+
+r
+e
+i
+u
+H
+
+I
+
+O
+B
+O
+M
+
+B
+A
+T
+C
+M
+C
+T
+
+-
+
+MW
+(bp)
+
+23130
+9416
+6557
+4361
+
+2322
+2027
+
+564
+
+plants. Therefore, thorough lysis of TCM preparations to
+enrich DNA with high quality is very important. In addition,
+the complex components in TCM preparations,
+including
+many kinds of secondary metabolites such as phenolics and
+polysaccharides, might have negative effects on DNA puriﬁca-
+tion [22,23]. Besides, different excipients were also used in
+TCM preparations. All these factors would reduce DNA pur-
+ity, which might affect
+the following ampliﬁcation and
+sequencing.
+
+DNA ampliﬁcation of LDW samples
+
+Since serious DNA degradation was observed with gel electro-
+phoresis, PCR ampliﬁcation of the second internal transcribed
+spacer (ITS2) [24] and the chloroplast genome trnL (intron)
+with universal primers [25] was performed to evaluate the
+integrity of the extracted DNA samples. ITS2 (500 bp) has
+been used as a standard molecular marker to identify medici-
+nal plants for its high inter-speciﬁc and intra-speciﬁc discrimi-
+nation power [26,27] while trnL (p-loop) (200 bp) is a short
+fragment that can be easily ampliﬁed in heavily degraded
+DNA samples [28]. Therefore, ITS2 and trnL were chosen as
+the biomarkers for species discrimination of LDW. PCR with-
+out DNA template was served as a negative control. As shown
+in Figure 2, no band was revealed in the negative control, indi-
+cating no contamination from environment and reagents. Fur-
+thermore, when DNA extracted with the TCM-CTAB method
+was used as template, strong bands for ITS2 and trnL were
+
+QD
+
+A
+G
+E
+M
+O
+
+i
+
+r
+e
+u
+H
+
+I
+
+O
+B
+O
+M
+
+B
+A
+T
+C
+M
+C
+T
+
+-
+
+ 
+r
+e
+d
+d
+a
+
+l
+
+A
+N
+D
+
+SG
+
+A
+G
+E
+M
+O
+
+i
+
+r
+e
+u
+H
+
+I
+
+O
+B
+O
+M
+
+B
+A
+T
+C
+M
+C
+T
+
+-
+
+MW
+(bp)
+
+500
+300
+100
+
+e
+v
+
+l
+
+i
+t
+a
+g
+e
+N
+
+o
+r
+t
+n
+o
+c
+
+Figure 1 DNA extraction from LDW samples with different
+extraction methods
+PCR without DNA template was served as the negative control,
+which was provided at the right-most column. The DNA ladder is
+kDNA /HindIII.
+
+Figure 2 PCR ampliﬁcation of ITS2 using DNA extracted by
+different methods
+PCR without DNA template was served as the negative control,
+which was provided at the right-most column. The DNA ladder is
+100 bp DNA ladder.
+
+140
+
+Genomics Proteomics Bioinformatics 12 (2014) 137–143
+
+observed at 500 bp (Figure 2) and 200 bp for both the QD and
+SG samples. Using ITS2 as the biomarker, a weak band was
+detected with DNA extracted by Huier Kit as the template
+for QD samples but not for SG samples, whereas no bands
+were detected for any samples when using DNA isolated by
+OMEGA or MOBIO Kit as the template. Therefore, DNA
+extracted using the TCM-CTAB method was readily ampliﬁed
+compared to the other three kits. Given the highest quality and
+concentration of DNA recovered, as well as the satisfactory
+PCR results, the TCM-CTAB method was the most effective
+method for the DNA isolation of LDW among the four
+DNA extraction methods tested. We thus chose TCM-CTAB
+for the following sequencing experiments.
+
+A
+
+i
+
+s
+d
+a
+e
+r
+ 
+g
+n
+c
+n
+e
+u
+q
+e
+s
+ 
+f
+o
+
+ 
+.
+
+o
+N
+
+High-throughput sequencing of LDW samples
+
+The ITS2 and trnL ampliﬁcation products were further sub-
+jected to high-throughput sequencing, so as to examine the
+actual biological
+ingredients of LDW samples. The high-
+throughput sequencing was performed by a 454 GS-Titanium
+sequencer with default setting, and an analysis of sequencing
+data was carried out for both QD and SG samples. After strin-
+gent ﬁltering process for quality control (see Materials and
+methods), we obtained 4151 ITS2 and 2677 trnL reads (1384
+ITS2 reads and 892 trnL reads per sample on average) for
+QD samples, while 7162 ITS2 and 1665 trnL reads were
+obtained for SG samples (2387 ITS2 reads and 555 trnL reads
+per sample on average) (Table 2). The length of ITS2 and trnL
+sequencing reads from QD samples varied from 151 bp to
+493 bp (354 bp on average) and 75 bp to 208 bp (126 bp on
+average). Similar results were also obtained for SG samples.
+The read length was 150–502 bp (352 bp on average) for
+ITS2 and 75–211 bp (125 bp on average) for trnL (Table S1).
+The length distribution of the sequencing reads for all LDW
+samples was shown in Figure 3. Some variations were observed
+between samples for both ITS2 and trnL groups. As we pri-
+marily focused on the evaluation of DNA extraction methods
+for TCM preparations in this study, the details of biological
+and technical effects would be scrutinized in the future.
+
+Sequencing reads were searched against the NCBI database
+by BLAST for species identiﬁcation. As listed in Table 3 for
+ITS2 and Table 4 for trnL, P. suffruticosa, D. opposite and
+A. orientalis were detected from both QD and SG samples
+by both biomarkers, while C. ofﬁcinalis (by trnL) and R. glutin-
+osa (by ITS2 and trnL) were only detected in SG samples. We
+failed to identify P. cocos from any samples by either ITS2 or
+trnL. Failure to identify P. cocos using trnL can be easily
+explained by the fact that as a fungus, P. cocos does not pos-
+sess chloroplast. However it is surprising that P. cocos was not
+detected using ITS2. We suspected that the universal ITS2
+primers may not work for P. cocos. To test this possibility,
+multiple sequence alignment was performed for ITS2 reference
+sequences (from NCBI) for all 6 species in LDW around the
+
+1000
+
+800
+
+600
+
+400
+
+200
+
+0
+
+400
+
+300
+
+200
+
+100
+
+0
+
+B
+
+i
+
+s
+d
+a
+e
+r
+ 
+g
+n
+c
+n
+e
+u
+q
+e
+s
+ 
+f
+o
+
+ 
+.
+
+o
+N
+
+ITS2
+QD.1 QD.2 QD.3
+SG.1 SG.2 SG.3
+
+251-350
+351-450
+Read length (bp)
+
+451-510
+
+150-250
+
+trnL
+
+75-110
+
+111-145
+146-180
+Read length (bp)
+
+181-215
+
+Figure 3 The length distribution of sequencing reads for LDW
+samples
+The length distributions for ITS2 and trnL are shown in panel A
+and panel B, respectively.
+
+region where the forward primer S2F is located. It was shown
+that ITS2 S2F primer sequence was identical to the sequences
+of ITS2 from 5 plant species but not P. cocos. 4-bp mismatch
+existed between the primer sequence and the corresponding
+ITS2 sequence of P. cocos (Figure S1), which may underlie
+the failure to identify P. cocos by using universal ITS2 primers.
+Instead, our ongoing efforts indicated that P. cocos can be
+detected with a primer set speciﬁcally designed according to
+the P. cocos ITS2 sequences (unpublished data). These data
+suggested that ITS2 universal primers have limited applicabil-
+ity and caution should be taken when using these primers for
+the identiﬁcation of some species. Moreover, R. glutinosa
+and C. ofﬁcinalis were only identiﬁed from one SG sample.
+R. glutinosa and C. ofﬁcinalis in LDW samples are processed
+by steaming and stewing, and these harsh processing proce-
+dures might lead to severe DNA degradation or loss. In addi-
+tion, it is also possible that there might be differences between
+
+Table 2 Number of sequencing reads from LDW samples after quality control
+
+QD
+
+Sequencing library
+
+ITS2
+trnL
+
+1
+
+1135
+886
+
+2
+
+2188
+867
+
+3
+
+828
+924
+
+Total
+
+4151
+2677
+
+Average
+
+1
+
+1384
+892
+
+2879
+597
+
+2
+
+2193
+407
+
+SG
+
+3
+
+2090
+661
+
+Total
+
+7162
+1665
+
+Average
+
+2387
+555
+
+Cheng X et al / DNA Extraction Protocol of Liuwei Dihuang Wan
+
+141
+
+Table 3
+
+Identiﬁcation of biological ingredients in LDW samples based on ITS2 sequencing data
+
+Ingredient
+
+Alisma orientalis
+Dioscorea opposita
+Paeonia suﬀruticosa
+Rehmannia glutinosa
+
+Apiaceae
+
+– Saposhnikovia
+
+Asteraceae
+
+– Taraxacum
+
+Fabaceae
+– Vigna
+
+Polygonaceae
+– Persicaria
+– Rumex
+
+1
+p
+p
+
+QD
+
+2
+p
+p
+p
+
+3
+p
+p
+
+1
+p
+p
+p
+
+p
+
+p
+
+SG
+
+2
+p
+p
+
+3
+p
+p
+p
+
+p
+
+p
+p
+
+Note: Sequencing data were generated using the DNA extracted with TCM-CTAB method as template for ITS2 ampliﬁcation. The words in bold
+represented the family-level taxonomical terms of contaminating species.
+
+Table 4
+
+Identiﬁcation of biological ingredients in LDW samples based on trnL sequencing data
+
+Ingredient
+
+Alisma orientalis
+Cornus oﬃcinalis
+Dioscorea opposita
+Paeonia suﬀruticosa
+Rehmannia glutinosa
+
+QD
+
+SG
+
+1
+p
+p
+p
+
+2
+p
+p
+p
+
+3
+p
+p
+p
+
+1
+p
+p
+p
+
+2
+p
+p
+p
+
+3
+p
+p
+p
+p
+
+Note: Sequencing data were generated using the DNA extracted with TCM-CTAB method as template for trnL ampliﬁcation.
+
+SG and QD samples in the source of medicinal plants or pro-
+cessing procedures. Without a clearly-deﬁned standard for the
+processing procedures, DNA preservation from herbal materi-
+als and TCM preparations would be varied, which may lead to
+variations in detection.
+
+Other than the prescribed species, 5 other plant genera
+including Persicaria, Rumex, Vigna, Saposhnikovia and Tarax-
+acum were detected from SG samples, suggesting possible bio-
+logical contaminations. We speculated that these plant species
+might be incorporated unintentionally during collection, pro-
+cessing or manufacturing steps. Biological contaminations
+would lower the efﬁcacy of the TCM preparations or might
+cause adverse effects. Therefore, strict manufacturing process
+would be of great
+importance for the safety of TCM
+preparations.
+
+LDW samples. By using the TCM-CTAB method, the DNA
+was recovered with desirable yield and purity. Then by means
+of PCR ampliﬁcation and high-throughput sequencing tech-
+nology, 4 prescribed species and 5 contaminating species were
+identiﬁed from LDW samples based on the ITS2 sequencing
+analysis, and 5 prescribed species were identiﬁed based on
+the trnL sequencing analysis. Therefore, the TCM-CTAB
+method can serve as an efﬁcient DNA extraction procedure
+to achieve relatively complete identiﬁcation of biological ingre-
+dients in TCM preparations.
+
+Materials and methods
+
+Sample collection
+
+Conclusion
+
+In conclusion, we tested four different DNA extraction meth-
+ods for LDW samples and indicated that our newly-developed
+DNA extraction protocol TCM-CTAB can be used to extract
+DNA efﬁciently for the following detection of both prescribed
+and potential contaminating biological species in TCM prepa-
+rations. Compared to three commonly-used DNA extraction
+kits (OMEGA Kit, MOBIO Kit and Huier Kit), the TCM-
+CTAB method can work more competently when tested on
+
+LDW was produced by Beijing Tong Ren Tang Co. Two sets
+of LDW were collected, with one purchased in Qingdao, China
+(QD) in April 2012 and the other purchased in Singapore (SG)
+in June 2012.
+
+DNA extraction and quantiﬁcation
+
+We extracted DNA from the two LDW samples (each with
+three replicates) using four protocols, including TCM-CTAB
+and three
+commercial DNA extraction kits, OMEGA
+E.Z.N.A. HP Plant DNA Kit (OMEGA Bio-Tek, Georgia,
+
+142
+
+Genomics Proteomics Bioinformatics 12 (2014) 137–143
+
+USA), MOBIO PowerSoil DNA Isolation Kit (MOBIO, San
+Diego, USA) and Chinese Herbal Medicine Kit (Henan Huier
+Nano Technology, Henan, China). DNA was extracted from
+50–250 mg LDW per sample as instructed by the manufactur-
+ers except TCM-CTAB and the resulting DNA was dissolved
+in 30 lL TE buffer.
+
+The TCM-CTAB method is an optimized CTAB method
+specialized for the extraction of DNA from biological ingredi-
+ents of TCM samples. The procedures of the TCM-CTAB
+method were described as follows. Each sample (2.5 g) was
+homogenized with 5 mL buffer containing 0.1 M Tris–HCl
+(pH 8.0) and 20 mM EDTA (pH 8.0) with mortar and pestle.
+Afterward, 1 mL of the homogenate was transferred into
+50 mL tubes and diluted with 4 mL of CTAB extraction buffer
+containing 100 mM Tris–HCl (pH 8.0), 20 mM EDTA (pH
+8.0), 2% CTAB and 1.4 M NaCl, supplemented with 500 lL
+10% SDS, 10 lL proteinase K (10 mg/mL) and 100 lL
+b-mercaptoethanol. The mixture was incubated at 65 °C for
+3 h with occasional vortexing. Polysaccharides and proteins
+were removed by extracting twice with phenol:chloroform:iso-
+amyl-alcohol (25:24:1) and the residue phenol was removed by
+extracting once using chloroform:isoamyl-alcohol (24:1). The
+supernatant was then incubated at  20 °C with 0.6-fold of
+cold isopropanol for 1 h and then centrifuged at 12,500 rpm
+for 10 min. The resulting precipitate was rinsed with 1 mL
+70% ethanol twice and then dissolved in 30 lL TE buffer.
+
+2 lL of each DNA sample obtained with the four afore-
+mentioned methods was electrophoresed on 1% agarose gel
+and their concentration was quantiﬁed using NanoVue UV
+visible spectrophotometer.
+
+for which the possible corresponding species is evidenced by 3
+or less reads, in order to avoid random sequence alignment
+bias.
+Afterward, BLASTN [31] searches were performed (E value
+cutoff: 10 10) for all query sequences against the NCBI data-
+base for identiﬁcation. According to the BLASTN results,
+the majority of the top hits (96.57% of the matches for ITS2
+reads and 97.01% of the matches for trnL reads) showed high
+identity (>98%) with the reference databases. Thus, we
+believe that top hits of BLASTN were adequate for identiﬁca-
+tion of query sequences.
+
+The 454 sequencing data for 6 LDW samples were depos-
+ited to NCBI SRA database with accession number
+SRR1049940.
+
+Authors’ contributions
+
+HB and KN conceived of and proposed the idea. XC, XC, HB
+and KN designed the study. XC, MH and CB performed the
+experiments. XC, XS and KN analyzed the sequencing data.
+XC, HB and KN drafted the manuscript. XC, XS, XC, HZ,
+JX, HB and KN edited and proof-read the manuscript. All
+authors read and approved the ﬁnal manuscript.
+
+Competing interests
+
+The authors declare that they have no competing interests.
+
+PCR ampliﬁcation and sequencing of ITS2/trnL
+
+Acknowledgments
+
+Standard PCR ampliﬁcation was performed with 50–200 ng
+DNA as template and the following primers (Sangon). The
+primers are S2F (50-ATG CGA TAC TTG GTG TGA AT-
+30) and S3R (50-GAC GCT TCT CCA GAC TAC AAT-30)
+with 7 bp multiplex identiﬁer (MID) tags for ITS2 [24], and
+trnL c (50-CGA AAT CGG TAG ACG CTA CG-30) and trnL
+h (50-CCA TTG AGT CTC TGC ACC TAT C-30) with 7 bp
+MID tags for trnL [25]. The PCR products were electrophore-
+sed on 2% agarose gel and puriﬁed with QIAquick Gel Extrac-
+tion kit (QIAGEN). ITS2 and trnL amplicons were sequenced
+by a Roche 454 GS FLX Titanium sequencer with default
+parameters (XLR70 sequence kit, 2 · 200 cycles).
+
+Sequencing data analysis
+
+There were totally 25,137 ITS2 and 20,661 trnL raw sequenc-
+ing reads obtained (Table S2) and a relatively strict quality
+control process was applied in order to eliminate false negative
+data as much as possible. We used Mothur software package
+[29,30] to discard sequencing reads that were shorter than
+150 bp in ITS2 dataset and 75 bp in trnL datasets. Sequences
+with an average quality score <20 in each 5-bp window rolling
+along the whole read were also discarded. Moreover, the
+sequencing reads containing primer mismatches, uncorrectable
+barcodes, ambiguous bases, or homopolymer runs in excess of
+8 bp were also removed from both datasets. We also ﬁltered
+the trnL sequences for which the possible corresponding spe-
+cies is evidenced (matched) by only 1 read, and ITS2 sequences
+
+This work is partially supported by the grants from the
+National Natural Science Foundation of China (Grant Nos.
+30870572, 61303161 and 61103167) and National High-tech
+R&D Program (863 Program) funded by Ministry of Science
+and Technology of China (Grant Nos. 2012AA02A707 and
+2014AA021502) and the Key Laboratory for Rare and
+Uncommon Diseases of Shandong Province, China.
+
+Supplementary material
+
+Supplementary data associated with this article can be found,
+in the online version, at http://dx.doi.org/10.1016/j.gpb.2014.
+03.002.
+
+References
+
+[1] Li Y, Qu H, Cheng Y. Identiﬁcation of major constituents in the
+traditional Chinese medicine ‘‘QI-SHEN-YI-QI’’ dropping pill by
+high-performance liquid chromatography coupled with diode
+array detection-electrospray ionization tandem mass spectrome-
+try. J Pharm Biomed Anal 2008;47:407–12.
+
+[2] Li Y, Liu L, Cheng Y. Identiﬁcation of components of traditional
+Chinese medicine preparation ‘‘Jing-Zhi-Guan-Xin’’ troche by
+medium pressure LC and HPLC–DAD–MS. Chromatographia
+2007;65:749–55.
+
+[3] Li S, Zhao J, Yang B. Strategies for quality control of Chinese
+
+medicines. J Pharm Biomed Anal 2011;55:802–9.
+
+Cheng X et al / DNA Extraction Protocol of Liuwei Dihuang Wan
+
+143
+
+[4] Jing J, Parekh HS, Wei M, Ren W, Chen S. Advances in analytical
+traditional Chinese
+
+technologies to evaluate the quality of
+medicines. TrAC Trends Anal Chem 2013;44:39–45.
+
+[5] Joshi K, Chavan P, Warude D, Patwardhan B. Molecular markers
+
+in herbal drug technology. Curr Sci 2004;87:159–65.
+
+[6] Hon CC, Chow YC, Zeng FY, Leung FCC. Genetic authentica-
+tion of ginseng and other traditional Chinese medicine. Acta
+Pharmacol Sin 2003;24:841–6.
+
+[7] Sucher NJ, Hennell JR, Carles MC. Genomic and transcriptomic
+proﬁling: tools for the quality production of plant-based medi-
+cines. In: Chandra S, Lata H, Varma A, editors. Biotechnology
+for Medicinal Plants. Berlin Heidelberg: Springer; 2013. p.
+439–55.
+
+[8] Cao M, Wang J, Yao L, Xie S, Du J, Zhao X. Authentication of
+animal signatures in traditional Chinese medicine of Lingyang
+Qingfei Wan using routine molecular diagnostic assays. Mol Biol
+Rep 2014;41:2485–91.
+
+[9] Cui Z, Jiang C, Li M, Chen M, Zhou L, Yuan Y. Molecular
+identiﬁcation of raw materials from Lianqiao Baidu Wan. Acta
+Pharm Sin 2013;48:590–6.
+
+[10] Newmaster SG, Grguric M, Shanmughanandhan D, Ramalingam
+S, Ragupathy S. DNA barcoding detects contamination and
+substitution in North American herbal products. BMC Med
+2013;11:222.
+
+[11] Shokralla S, Spall JL, Gibson JF, Hajibabaei M. Next-generation
+sequencing technologies for environmental DNA research. Mol
+Ecol 2012;21:1794–805.
+
+[12] Coghlan ML, Haile J, Houston J, Murray DC, White NE,
+Moolhuijzen P, et al. Deep sequencing of plant and animal DNA
+contained within traditional Chinese medicines reveals legality
+issues and health safety concerns. PLoS Genet 2012;8:436–46.
+
+[13] Binladen J, Gilbert MTP, Bollback JP, Panitz F, Bendixen C,
+Nielsen R, et al. The use of coded PCR primers enables high-
+throughput sequencing of multiple homolog ampliﬁcation prod-
+ucts by 454 parallel sequencing. PLoS One 2007;2:e197.
+
+[14] Pirttila¨ AM, Hirsikorpi M, Ka¨ ma¨ ra¨ inen T, Jaakola L, Hohtola A.
+DNA isolation methods for medicinal and aromatic plants. Plant
+Mol Biol Rep 2001;19:273.
+
+[15] Khan S, Qureshi MI, Kamaluddin TA, Abdin M. Protocol for
+isolation of genomic DNA from dry and fresh roots of medicinal
+plants suitable for RAPD and restriction digestion. Afr J
+Biotechnol 2007;6:175–8.
+
+[16] Azmat MA, Khan IA, Cheema HMN, Rajwana IA, Khan AS,
+Khan AA. Extraction of DNA suitable for PCR applications from
+mature leaves of Mangifera indica L. J Zhejiang Univ Sci B
+2012;13:239–43.
+
+[17] Shepherd LD, McLay TGB. Two micro-scale protocols for the
+isolation of DNA from polysaccharide-rich plant tissue. J Plant
+Res 2011;124:311–4.
+
+[18] Murray MG, Thompson WF. Rapid isolation of high molecular
+
+weight plant DNA. Nucleic Acids Res 1980;8:4321–5.
+
+[19] Mo¨ ller EM, Bahnweg G, Sandermann H, Geiger HH. A simple
+and efﬁcient protocol for isolation of high molecular weight DNA
+from ﬁlamentous fungi, fruit bodies, and infected plant tissues.
+Nucleic Acids Res 1992;20:6115.
+
+[20] Kim WK, Mauthe W, Hausner G, Klassen GR. Isolation of high
+molecular weight DNA and double-stranded RNAs from fungi.
+Can J Bot 1990;68:1898–902.
+
+[21] Zidani S, Ferchichi A, Chaieb M. Genomic DNA extraction
+method from pearl millet (Pennisetum glaucum) leaves. Afr J
+Biotechnol 2005;4:862–6.
+
+[22] Chaudhary K, Mathur N, Choudhary P, Pillai U. Protocol for
+isolation of genomic DNA from dry and fresh leaves of Vigna
+species suitable for RAPD and restriction digestion. Adv Biol Res
+2008;2:5–6.
+
+[23] Porebski S, Bailey LG, Baum BR. Modiﬁcation of a CTAB DNA
+extraction protocol for plants containing high polysaccharide and
+polyphenol components. Plant Mol Biol Rep 1997;15:8–15.
+
+[24] Chen S, Yao H, Han J, Liu C, Song J, Shi L, et al. Validation of
+the ITS2 region as a novel DNA barcode for identifying medicinal
+plant species. PLoS One 2010;5:e8613.
+
+[25] Taberlet P, Coissac E, Pompanon F, Gielly L, Miquel C, Valentini
+A, et al. Power and limitations of the chloroplast trnL (UAA)
+intron for plant DNA barcoding. Nucleic Acids Res 2007;35:e14.
+[26] Yao H, Song J, Liu C, Luo K, Han J, Li Y, et al. Use of ITS2
+region as the universal DNA barcode for plants and animals.
+PLoS One 2010;5:e13102.
+
+[27] Gao T, Yao H, Song J, Liu C, Zhu Y, Ma X, et al. Identiﬁcation
+of medicinal plants in the family Fabaceae using a potential DNA
+barcode ITS2. J Ethnopharmacol 2010;130:116–21.
+
+[28] Valentini A, Miquel C, Nawaz MA, Bellemain EVA, Coissac E,
+Pompanon F, et al. New perspectives in diet analysis based on
+DNA barcoding and parallel pyrosequencing: the trnL approach.
+Mol Ecol Resour 2009;9:51–60.
+
+[29] Schloss PD, Westcott SL, Ryabin T, Hall JR, Hartmann M,
+Hollister EB. Introducing mothur: open-source, platform-inde-
+pendent, community-supported software for describing and com-
+paring microbial
+communities. Appl Environ Microbiol
+2009;75:7537–41.
+
+[30] Schloss PD, Gevers D, Westcott SL. Reducing the effects of PCR
+ampliﬁcation and sequencing artifacts on 16S rRNA-based
+studies. PLoS One 2011;6:e27310.
+
+[31] Altschul SF, Madden TL, Schaffer AA, Zhang J, Zhang Z, Miller
+W, et al. Gapped BLAST and PSI-BLAST: a new generation of
+protein
+database
+programs. Nucleic Acids Res
+1997;25:3389–402.
+
+search
+
+

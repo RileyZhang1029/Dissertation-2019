@@ -1,0 +1,1190 @@
+BIOINFORMATICS ORIGINAL PAPER Vol. 25 no. 16 2009, pages 2095–2102
+
+doi:10.1093/bioinformatics/btp065
+
+Sequence analysis
+Lightweight comparison of RNAs based on exact
+sequence–structure matches
+Steffen Heyne, Sebastian Will, Michael Beckstette and Rolf Backofen∗
+
+Bioinformatics Group, Albert-Ludwigs-University Freiburg, Georges-Koehler-Allee 106, Freiburg, D-79110,
+Germany
+Received and revised on October 31, 2008; accepted on January 26, 2009
+Advance Access publication February 2, 2009
+Associate Editor: Trey Ideker
+
+ABSTRACT
+Motivation: Speciﬁc functions of ribonucleic acid (RNA) molecules
+are often associated with different motifs in the RNA structure. The
+key feature that forms such an RNA motif is the combination of
+sequence and structure properties. In this article, we introduce a new
+RNA sequence–structure comparison method which maintains exact
+matching substructures. Existing common substructures are treated
+as whole unit while variability is allowed between such structural
+motifs.
+
+Based on a fast detectable set of overlapping and crossing
+substructure matches for two nested RNA secondary structures, our
+method ExpaRNA (exact pattern of alignment of RNA) computes the
+longest collinear sequence of substructures common to two RNAs
+in O(H·nm) time and O(nm) space, where H (cid:2) n·m for real RNA
+structures. Applied to different RNAs, our method correctly identiﬁes
+sequence–structure similarities between two RNAs.
+Results: We have compared ExpaRNA with two other alignment
+methods that work with given RNA structures, namely RNAforester
+and RNA_align. The results are in good agreement, but can be
+obtained in a fraction of running time, in particular for larger RNAs.
+We have also used ExpaRNA to speed up state-of-the-art Sankoff-
+style alignment tools like LocARNA, and observe a tradeoff between
+quality and speed. However, we get a speedup of 4.25 even in the
+highest quality setting, where the quality of the produced alignment
+is comparable to that of LocARNA alone.
+Availability: The presented algorithm is implemented in the program
+ExpaRNA, which is available from our website (http://www.bioinf.uni-
+freiburg.de/Software).
+Contact: {exparna,backofen}@informatik.uni-freiburg.de
+Supplementary information: Supplementary data are available at
+Bioinformatics online.
+
+1 INTRODUCTION
+Ribonucleic acids (RNAs) are associated with a large range
+of important cellular functions in living organisms. Moreover,
+recent ﬁndings show that RNAs can perform regulatory functions
+formerly assigned only to proteins. Likewise to proteins, these
+functions are often associated with evolutionary conserved motifs
+that contain speciﬁc sequence and structure properties. Examples
+for such regulatory RNA elements, whose functions are mediated
+∗
+
+To whom correspondence should be addressed.
+
+by sequence–structure motifs are selenocysteine insertion sequence
+(SECIS) elements (Huttenhofer et al., 1996) (see Fig. 1 for an
+example),
+iron-responsive elements (IREs) (Hentze and Kuhn,
+1996), different riboswitches (Serganov and Patel, 2007) or internal
+ribosomal entry sites (IRESs) (Martineau et al., 2004). Therefore,
+the detection of similar structural motifs in different RNAs is
+an important aspect for function determination and should be
+considered in pairwise RNA comparison methods. Although this
+problem is addressed in sequence–structure alignment methods,
+these approaches are often very time-consuming and do not
+necessarily preserve functionally important common substructures
+in the alignment (Jiang et al., 1995, 2002).
+
+In this article, we propose a new lightweight, motif-based method
+for the pairwise comparison of RNAs. Instead of computing a full
+sequence–structure alignment, our approach efﬁciently computes a
+signiﬁcant arrangement of sequence–structure motifs, common to
+two RNAs. For the sake of algorithmic complexity and applicability
+in practice, we neglect higher order interactions like pseudoknots.
+This allows to describe sequence–structure motifs with nested RNA
+secondary structures, as shown in Figure 1.
+
+Our ExpaRNA (exact pattern of alignment of RNA) method
+uses as a pre-processing step a fast O(nm) time and space
+algorithm from Backofen and Siebert (2007) for the identiﬁcation
+of isolated common substructures for the two given RNAs of
+lengths n and m with nested secondary structures. More precisely,
+this method identiﬁes the complete, but overlapping set of exact
+common substructures. Our approach makes use of these common
+substructures and computes the longest collinear, non-overlapping
+sequence of substructures common to two RNAs in O(H·nm) time
+and O(nm) space, where H (cid:2) n·m for real RNA structures. Herein
+after, we call this the Longest Common Subsequence of Exact
+Pattern Matchings problem (LCS-EPM).
+
+The LCS-EPM requires known or predicted structure. We have
+compared our approach with two other alignment methods that
+work with given RNA structures, namely RNAforester and
+RNA_align. The results are in good agreement, but can be obtained
+in a fraction of running time, in particular for larger RNAs.
+
+Since in many practical applications, there is no known structure,
+and structure prediction would lead to wrong results, we have
+also setup a pipeline that combines ExpaRNA with a state-
+of-the-art Sankoff-style algorithm for simultaneous alignment
+and folding (Sankoff, 1985). Albeit Sankoff-like approaches are
+currently the gold standard for RNA alignment, it has the drawback
+
+ 2009 The Author(s)
+This is an Open Access article distributed under the terms of the Creative Commons Attribution Non-Commercial License (http://creativecommons.org/licenses/
+by-nc/2.0/uk/) which permits unrestricted non-commercial use, distribution, and reproduction in any medium, provided the original work is properly cited.
+
+[16:00 14/7/2009 Bioinformatics-btp065.tex]
+
+Page: 2095
+
+2095–2102
+
+S.Heyne et al.
+
+pairwise sequence–structure comparison. In addition, we explain
+how sequence–structure alignment methods can proﬁt from anchor
+constraints. Sections 3 and 4 present the results for two applications
+of our tool ExpaRNA.
+
+(cid:4)
+
+(cid:4)
+
+(cid:4) < j
+
+2 METHODS
+RNA is a macro molecule described formally by a pairR=(S,B) of a primary
+structure S and a secondary structure B. A primary structure S is a sequence of
+nucleotides S= s1s2 ...sn over the alphabet {A,C,G,U}. With |S| we denote
+the length of sequence S. S[i] indicates the nucleotide at position i in sequence
+S. With S[i...j] we deﬁne the substring of S starting at position i until j for
+1≤ i < j≤|S|. A secondary structure B is a set of base pairs B={(i,i
+) | 1≤
+(cid:4)≤|S|} over S, where each base takes part in at most one base pair. A
+i < i
+)∈ B
+(cid:4)
+secondary structure B is called crossing if there are two pairs (i,i
+with i < j < i
+. Otherwise it is called non-crossing or nested.
+For the deﬁnition of local RNA motifs, we represent an RNAR=(S,B) as
+undirected labeled graph G=(V ,E), called the structure graph of R. Its set
+of vertices V is the set of positions in S, i.e. V ={1,...,|S|}. Its set of edges
+E comprises all backbone bonds and all base pairs, i.e. E={(i,i+1)|1≤ i <
+|S|}∪B. An RNA pattern in R is a set of positions P ⊆{1,...,|S|}, such that
+the pattern graph for P in G, deﬁned as the subgraph G
+) of G,
+(cid:4)∈P}, is connected. By this
+where V
+deﬁnition, an RNA pattern corresponds to a local motif, i.e. a substructure
+consisting of neighbored nucleotides according to a neighborhood that is
+induced by the backbone bonds and base pairs within a ﬁxed secondary
+structure (cf. Fig. 1).
+
+)∈ E | i∈P and i
+
+(cid:4)=P and E
+
+(cid:4)={(i,i
+
+(cid:4)=(V
+
+(cid:4),E
+
+),(j,j
+
+(cid:4)
+
+(cid:4)
+
+(cid:4)
+
+(cid:4)
+
+(cid:4)
+
+(cid:4)
+
+(cid:4)
+
+(cid:4)
+
+(cid:4)
+
+(cid:4)
+
+(cid:4),q
+
+(cid:4),q
+
+implies q < q
+
+and p= p
+(cid:4)
+
+)∈M:(p,p
+
+)∈ B1⇔(q,q
+
+)∈ E1 and (q,q
+
+))∈M×M|(p,p
+
+)∈M it holds that p < p
+
+in structure i: single stranded,
+(cid:4)
+(cid:4),q
+
+2.1 Exact pattern matchings of two RNAs
+In the following, we consider two ﬁxed, non-crossing RNAs R1=(S1,B1)
+and R2=(S2,B2). Their corresponding structure graphs are G1=(V1,E1)
+and G2=(V2,E2), respectively. We will deﬁne an exact pattern matching as
+a special ordered matching of V1 and V2, i.e. as a set M⊆ V1×V2, where for
+iff q= q
+(cid:4).
+all (p,q),(p
+According to an ordered matching M of V1 and V2, we merge
+the graphs G1 and G2 into a matching graph GM=(M,EM), where
+EM={((p,q),(p
+)∈ E2}. A pair (p,q)∈
+M is called admissible if it satisﬁes the following conditions: (i) S1[p]=
+S2[q] and (ii) STRUCT1(p)=STRUCT2(q). Here, function STRUCTi(j)
+types for a nucleotide at
+yields one of the three possible structural
+position j
+left paired or right paired.
+Furthermore, exact pattern matchings need to preserve all base pairs. A
+matching M satisﬁes this iff ∀(p,q),(p
+)∈ B2.
+Then, an exact pattern matching PM is an ordered matching where
+GPM is connected, all (p,q)∈PM are admissible and all base pairs are
+preserved.
+Hence, an exact pattern matching PM describes the matching between
+sets of positions in the two RNAs R1 and R2, namely the projections
+π1PM={p|(p,q)∈PM} and π2PM={q|(p,q)∈PM}. Note that π1PM
+and π2PM are patterns in R1 and R2, respectively, i.e. in particular they
+correspond to the connected pattern graphs Gp
+2. Note further, although
+we require that an exact pattern matching PM is an isomorphism on base
+pairs, PM does not necessarily describe an isomorphism on backbone
+)∈PM where
+edges in the pattern graphs Gp
+form an edge in Gp
+do not necessarily form an edge in
+p and p
+Gp
+2. For details and proofs we refer to Backofen and Siebert (2007).
+For our algorithm, we utilize only maximal exact pattern matchings, i.e.
+∀PM(cid:4):PM⊆PM(cid:4)⇒PM(cid:4)=PM. In the following, we abbreviate the
+term maximal exact matching pattern by EPM. Similar to the minimal word
+size as e.g. used in BLAST (Altschul et al., 1997), it is reasonable to consider
+a minimal size γ for EPMs. Hence, the set of all maximal exact pattern
+matchings E over two RNAs R1 and R2 is deﬁned as
+γ =(cid:1) E | E is EPM ∧ |E|≥ γ
+(cid:2)
+
+2, since for (p,q),(p
+(cid:4)
+
+1 and Gp
+1, q and q
+
+1 and Gp
+
+(cid:4),q
+
+E1,2
+
+(cid:4)
+
+(cid:4)
+
+(cid:4)
+
+.
+
+Fig. 1. Putative SECIS elements in non-coding regions of Methanococcus
+jannaschii according to Wilting et al. (1997). The indicated substructure
+represents a common substructure, i.e. a local motif.
+
+of a high computational complexity. Basically, we predict a
+longest common subsequence of exact pattern ﬁrst, and then use
+LocARNA (Will et al., 2007) to ﬁll the unaligned space between
+the exact pattern matchings. This amounts to calculate a constraint
+alignment by LocARNA, which restricts the search space and
+thus speeds up LocARNA. Moreover, the speedup increases with
+the extent of information calculated by ExpaRNA. However, this
+normally implies that the quality is decreased. Hence, there is a trade-
+off between the speedup resulting from this combined pipeline, and
+the quality of the produced alignment. However, we get a speedup
+of 4.25 even in the highest quality setting, where the quality of the
+produced alignment is comparable to that of LocARNA alone. In
+application scenarios where optimal quality is not strictly required,
+we obtain a speedup up to 8.25. Note that this pipeline could also
+be used in combination with other Sankoff-like tools that are in
+principle able to proﬁt from alignment constraints, e.g. Dynalign,
+PMComp and FoldalignM (Hofacker et al., 2004; Mathews and
+Turner, 2002; Torarinsson et al., 2007).
+
+existing approaches addressing the sequence–
+Related work:
+structure comparison problem for RNA molecules can be
+distinguished by the given structural
+information and their
+representation. The standard alignment-based comparison approach
+employs the computation of edit distances between given RNA
+secondary structures (Bafna et al., 1995; Jiang et al., 2002).
+In (Evans, 1999) the author introduced the problem of ﬁnding the
+longest arc-preserving common subsequence (LAPCS). However,
+even for two nested RNA secondary structures, both problems
+remain NP-hard (Blin et al., 2003; Lin et al., 2002). With
+some restrictions to the scoring scheme, the time complexity for
+determination of the edit distance can be lowered to polynomial
+time (Jiang et al., 2002).
+
+If the nested secondary structure is represented as a tree,
+comparison methods exist for the edit distance between two
+ordered labeled trees (Zhang and Shasha, 1989) as well as for the
+alignment of trees (Jiang et al., 1995). An improved version of the
+tree alignment method with extension to global and local forest
+alignments is given in Höchsmann et al. (2003) and implemented
+in the program RNAforester. The MiGaL (Allali and Sagot, 2005)
+approach extends the tree edit distance model by the two new tree
+edit operations and is especially efﬁcient due to its usage of different
+abstraction layers.
+
+The article is organized as follows. In Section 2, we describe
+the way in which exact common substructures can be used for
+
+2096
+
+[16:00 14/7/2009 Bioinformatics-btp065.tex]
+
+Page: 2096
+
+2095–2102
+
+Lightweight RNA comparison
+
+Fig. 3. Ordering of exact pattern matchings relative to EPM E1 (indicated in
+dark gray). The cases before, inside and after do not violate the non-crossing
+condition. Only EPM E3 crosses E1. Note that an arc denotes a base pair
+within an EPM.
+
+Formally, LCS-EPM is deﬁned as follows. Given two nested RNAs R1,
+R2 and a set of exact pattern matchings E1,2
+γ of these two RNAs, ﬁnd an
+ordered matching MEPM consisting of a subset of EPMs from E1,2
+maximal cardinality. Thus, MEPM is deﬁned as the union MEPM=(cid:3)C of a
+that has
+subset C⊆E1,2
+γ , where all EPMs contained in C are mutually non-crossing.
+Note that this implies that the found subsequence is a common subsequence
+since MEPM is an ordered matching. The common base pairs are induced
+by the EPMs itself.
+
+γ
+
+Given a library of EPMs, our algorithm works by singling out the best
+combination of compatible EPMs. This task is performed efﬁciently by
+dynamic programming. The main idea is to recursively reduce the problem
+of solving the EPM puzzle for the EPMs enclosed in subsequences S1[i...j]
+and S2[k ...l] to the problem for smaller subsequences. For our recursion
+scheme, we exploit the special structure of EPMs, which span matchings
+of certain subsequences of consecutive nucleotides. Between the boundaries
+of these matched consecutive subsequence, EPMs can omit subsequences;
+thereby they contain holes.
+Figure 3 illustrates this structure of EPMs and shows how, given a single
+EPM E, the relative position of the other EPMs to E can be distinguished.
+Formally, this is deﬁned via the boundaries and holes of a single EPM.
+
+2.3 Algorithmic concepts: boundaries and holes
+The nucleotide positions of a pattern P of size k can be written as an
+increasing sequence. Similarly, an EPM E of size k over two RNAs is given
+with its corresponding patterns P1 in R1 and P2 in R2 and their increasing
+sequences P1=(cid:13)p1,p2,...,pk(cid:14) and P2=(cid:13)q1,q2,...,qk(cid:14).
+
+2.3.1 Boundaries of EPMs
+In the view of the secondary structure, the
+elements (p1,pk) and (q1,qk) determine the outside borders of the EPM.
+Therefore, we call them outside-boundaries and write them as OUTE =
+(cid:4)
+(p1,pk),(q1,qk)
+. In the view of an arc-annotated sequence, we call (p1,q1)
+left-outside-boundaries and (pk ,qk) right-outside-boundaries and denote
+them as LEFTE and RIGHTE .
+
+(cid:5)
+
+If an EPM contains base pairs, the structural shape is more complex and
+the outside-boundaries are not sufﬁcient to describe all structural borders. If
+not all enclosed nucleotides of a base pair are part of the EPM, then there
+exist two positions in each RNA that form an additional structural border
+inside the range of the outside-boundaries. In addition, if a pattern contains
+several independent base pairs (e.g. in a multi-loop), there can be several
+boundaries and is deﬁned as INE =(cid:1)(cid:4)
+such inside borders (cf. Fig. 4). The set of all such borders is called inside-
+(cid:2)
+⇔ qj+1 > qj+1
+. Note that outside-boundaries always exists, whereas the
+set inside-boundaries can be empty. For example, assume an EPM that
+comprises only unpaired nucleotides or a complete hairpin including the
+closing bond. If an EPM consists of only one base pair in each sequence,
+then inside-and outside-boundaries are identical. With the superscript index
+for the RNA we retrieve the boundaries for a single RNA. For example
+LEFT1E = p1.
+
+(cid:5) | pi+1 > pi+1
+
+(pi,pi+1),(qj,qj+1)
+
+2.3.2 Holes Holes
+and
+describe the subsequences which are not the part of the subsequence
+
+are directly related to inside-boundaries
+
+2097
+
+for two RNAs R1, R2. The set {E1,E2,E3,E4}
+Fig. 2. A possible set E1,2
+can be used for a comparison, whereas {E5,E6} should be excluded. E5 is
+γ
+crossing E2 and E3, whereas E6 is overlapping with E3 in R1 and with E4 in
+R2. Note that not all possible EPMs are indicated.
+
+E1,2
+
+Note that each EPM is an arc-preserving common (but not longest common)
+subsequence as deﬁned in Evans (1999) for the LAPCS problem. Since
+EPMs have in addition the above described properties, the detection of all
+EPMs is a computationally light problem, compared to LAPCS, which is NP-
+complete even for nested sequences (Blin et al., 2003). Using the dynamic
+programming approach described in Backofen and Siebert (2007), the set
+of all EPMs can be found in O(nm) time and O(nm) space, making this
+approach applicable for fast sequence–structure comparisons. Now recall
+that each EPM is maximal. This implies that any two exact pattern matchings
+are disjoint and therefore a pair (p,q)∈E ∈E1,2
+is unique in E1,2
+and part of
+γ
+at most one EPM. The number of EPMs contained in E1,2
+is bounded by
+n·m, with n=|S1| and m=|S2|.
+γ
+
+γ
+
+γ
+
+can be seen as a ‘library’ of all common motifs between two RNAs
+that can be utilized for a pairwise comparison method. Thus, the main idea of
+our approach will be to take a subset EPMs from E1,2
+that in combination will
+γ
+cover a large portion of both RNAs. The EPMs in E1,2
+γ differ in their size and
+shape as well as in their structural positions in both RNAs. Simply selecting
+two or several of these substructures for combination would probably lead to
+overlapping or crossing structures (Fig. 2). Hence, the set of all EPMs is not
+a solution for the LAPCS problem since the combination of several EPMs
+is not necessarily arc-preserving. Clearly, a meaningful subset of common
+substructures excludes overlapping and crossing patterns. This guarantees
+that the backbone order of matched nucleotides as well as base pairs of
+the given RNAs are preserved. Compatible EPMs are called non-crossing.
+Formally, two EPMs E1 and E2 are non-crossing if E1∪E2 is an ordered
+matching. Figure 2 shows an example of a possible set E1,2
+γ . A ‘good’ subset
+to describe the similarity between the two RNAs would probably exclude
+the EPMs indicated in red.
+
+2.2 Combining EPMs for comparing RNAs: problem
+
+deﬁnition and algorithm overview
+
+The formulation of LCS-EPM is motivated by the fact that similar RNAs
+with ﬁxed secondary structures share identical structural elements in a similar
+arrangement. Examples are shown in our result section for the comparison
+of thermodynamically folded as well as experimentally veriﬁed secondary
+structures. The knowledge of such a ‘common core’of identical substructures
+in two RNAs is interesting for different tasks.
+
+For our global approach, we are interested in a maximal possible
+arrangement of substructures shared by two RNAs. If the motifs are given
+in the form of exact pattern matchings, we call this the LCS-EPM problem.
+Basically, we search for a maximal combination of EPMs that form a
+common subsequence. Note that albeit the problem shares some similarity
+with LAPCS, it is restricted in such a way that an efﬁcient solution is possible.
+
+[16:00 14/7/2009 Bioinformatics-btp065.tex]
+
+Page: 2097
+
+2095–2102
+
+S.Heyne et al.
+
+an EPM can be computed using only a two-dimensional matrix. By ordering
+all holes according to (cid:15)HOLES, we guarantee that all necessary scores are
+already computed and stored, whenever an EPM is considered. Due to this
+order, the recursion starts with the smallest holes and goes on to the larger
+ones. Note that the two holes of the same size can be treated in any order.
+recursion scheme works for any hL1≤ j≤ hR1 and hL2≤ l≤ hR1.
+
+For the formal description of the recursion, ﬁx a hole h. The following
+
+Fig. 4. A pattern of an EPM in one RNA (green nucleotides). The different
+boundaries are indicated.
+
+Dh(j,l)=max
+
+⎧⎪⎪⎪⎪⎪⎪⎨
+Dh(j−1,l)
+Dh(j,l−1)
+Dh(i−1,k−1)+SE ,
+⎪⎪⎪⎪⎪⎪⎩
+if ∃E ∈E1,2
+
+γ with RIGHTE =(j,l) and
+LEFTE =(i,k),i≥ hL1,k≥ hL2
+(cid:10)
+
+Dh(hR1,hR2).
+
+h∈HOLESE
+
+SE = ω(E) +
+
+After ﬁlling the matrices, the best score is computed from treating the
+whole sequence as hole. With a standard traceback technique the set of EPMs
+that form the LCS-EPM are found.
+
+2.5 Complexity
+Let n=|S1| and m=|S2| denote the lengths of the sequences. The time
+complexity depends primarily on the total number of holes. The set E1,2
+contains maximal n·m different holes which is estimated with O(nm). The
+γ
+proof is omitted. For each hole, we ﬁll a two-dimensional matrix with a size
+of at most |S1[l1,r1]|≤|S1|= n and |S2[l2,r2]|≤|S2|= m. Consequently, for
+all holes we need O(n2m2) time as worst case complexity. For real RNAs, a
+more appropriate time complexity can be given as O(H·nm) with H as the
+number of holes, since H (cid:2) n·m. This explains the fast running time of our
+algorithm on RNA. The space complexity is only O(nm) because for each
+hole, after computing its score contribution and adding the score to its EPM,
+the space for the corresponding matrix Dh is recycled.
+We summarize the complexity of solving the LCS-EPM problem as
+follows. Given two nested RNAs R1=(S1,B1) and R2=(S2,B2). The
+problem to determine the longest common subsequence of exact pattern
+matchings (LCS-EPM), including computation of E1,2
+γ , is solvable in total
+O(n2 m2) time and O(nm) space.
+
+2.6 Speeding up RNA alignment by EPMs
+One important application of LCS-EPM is the use of the predicted alignment
+edges MEPM as anchor constraints for sequence–structure alignment
+methods (Bauer et al., 2007; Havgaard et al., 2007; Will et al., 2007). The
+idea of this combined alignment approach is to ﬁrst solve the LCS-EPM for
+two given RNAs and then hand over the obtained result to an (usually much
+more expensive) sequence–structure alignment algorithm. This algorithm
+is used to ﬁll the unaligned space between the exact pattern matchings in
+MEPM in order to produce a complete alignment, i.e. an alignment that also
+includes all the bases that do not occur in exact pattern matchings.
+
+In general, anchor constraints restrict the space of possible alignments.
+Thus any alignment algorithm can be sped up by the use of such constraints.
+Therefore, one expects a speed up of the existing sequence–structure
+alignment tools that support anchor constraints, when one combines them
+with the preprocessing by ExpaRNA that generates anchor constraints. Thus,
+the proposed combination will result in an accelerated RNA alignment
+approach compared to the underlying RNA alignment approach alone, which
+will work for any available alignment method.
+
+In particular, we modiﬁed the LocARNA algorithm for simultaneous
+folding and alignment of two RNA sequences S1 and S2 in order to proﬁt
+from anchors. As a Sankoff-style algorithm, LocARNA essentially evaluates
+
+(cid:4)
+
+(cid:2)
+
+(l1,r1),(l2,r2)
+
+(hL1−1,hR1+1),(hL2−1,hR2+1)
+
+(cid:5) | r1≥ l1+γ ∧ r2≥ l2+γ
+
+Si[LEFTiE ,RIGHTiE] of an EPM E. For a given EPM E with its set of
+as HOLESE =(cid:1)(cid:4)
+inside-boundaries INE , the set of holes with minimal size γ is deﬁned
+(l1,r1),(l2,r2)
+. We introduce
+(cid:5)
+h=(cid:4)
+the notations hL1, hR1, hL1 and hR2 to refer to l1,r1,l2 and r2 of a hole
+, respectively. For each h∈HOLESE there exists a pair of
+(cid:5) ∈INE . Clearly,
+inside-boundaries with
+a hole spans a substring S1[hL1 ...hR1] in the ﬁrst RNA and a substring
+S2[hL2 ...hR2] in the second RNA. With γ we refer to the same size as
+indicated by E1,2
+γ .
+According to the length of the induced subsequences Si[hLi ...hRi], we can
+sort all holes in one RNA. Let hi ∈HOLESEi and hj ∈HOLESEj two holes
+for any two Ei,Ej ∈E1,2
+γ . We deﬁne an ordering hi (cid:15)HOLES hj in R1 if and
+only if hi is of smaller size than hj or of equal size in R1, i.e. hi (cid:15)HOLES
+)≤(hR1
+hj ⇐⇒(hR1
+
+−hL1
+
+−hL1
+
+).
+
+i
+
+i
+
+j
+
+j
+
+2.4 Dynamic programming recursion for LCS-EPM
+The essential difference of LCS-EPM to other alignment-based RNA
+comparison problems (including LAPCS) is that
+treats a common
+substructure (i.e. an exact pattern matching) as a whole, unbreakable unit.
+This means that a solution of LCS-EPM either completely includes or
+completely excludes the edges (p,q) of each EPM. Following this idea, we
+want to compute the longest collinear sequence of EPMs which does not
+contain any crossing and overlapping EPMs.
+
+it
+
+The overall solution for LCS-EPM is constructed by a bottom-up
+approach from the comparison of substructures that are covered by the
+subsequences S1[i...j] and S2[k ...l]. In principle, this requires a four-
+dimensional matrix, denoted as D(i,j,k,l), which contains the maximal
+score for combining EPMs that match only bases in S1[i...j] and S2[k ...l].
+However, we can restrict ourselves to two-dimensional matrices using our
+notions of boundaries and holes for an exact pattern matching E. For each
+hole, we introduce one two-dimensional matrix of entries Dh(j,l), such that
+Dh(j,l) is D(hL1,j,hL2,l) of our imaginary four-dimensional matrix.
+Finding non-crossing regions relative to an EPM is achieved as
+follows: all nucleotides before LEFTE , i.e Si[1,LEFTiE −1], as well as
+all nucleotides after the RIGHTE , i.e. Si[RIGHTiE +1,|Si|] fulﬁll the non-
+crossing condition. This means that any EPM with its outside-boundaries
+OUTE in these regions is non-crossing relative to the considered EPM.
+Similarly we handle EPMs that contain base pairs with the introduced notion
+of HOLESE . All EPMs that are located inside any hole of E cannot cross or
+overlap with E.
+The recursion scheme for a dynamic programming algorithm is as follows.
+Any E is handled only once at its right-outside-boundary RIGHTE . The
+score of E is composed of the score before E (Fig. 3), given at the position
+LEFTE −1, plus the size of E itself, denoted by the function ω, plus possible
+scores between inside-boundaries, given recursively by the computation for
+scores for holes h∈HOLESE . This last recursion case recurses to possible
+substructures and therefore suggests the use of a four-dimensional matrix.
+However, it sufﬁces to use only quadratic space, since (1) all the scores for
+EPMs are stored in a vector with entries SE and (2) the score of each hole of
+
+2098
+
+[16:00 14/7/2009 Bioinformatics-btp065.tex]
+
+Page: 2098
+
+2095–2102
+
+Lightweight RNA comparison
+
+Table 1. Comparison of the number of exactly matching alignment edges found by LCS-EPM and two alignment methods
+
+Methods
+
+IRES RNAs
+
+16S rRNAs
+
+No. of matches
+
+Coverage (%)
+
+Time (s)
+
+No. of matches
+
+Coverage (%)
+
+Time
+
+ExpaRNA
+RNA_align
+RNAforester
+
+Comparison
+
+175
+192
+128
+
+45
+50
+33
+
+0.97
+62.1
+5.41
+
+875
+861
+847
+
+57
+56
+55
+
+16.9 s
+1 h 35 m
+7 m 25 s
+
+IRES RNAs
+No. of common matches
+
+16S rRNAs
+No. of common matches
+
+ExpaRNA and RNA_align
+ExpaRNA and RNAforester
+
+159 (82.8%)
+103 (80.5%)
+
+688 (79.9%)
+700 (82.6%)
+
+In the lower part, no. of common matches deﬁnes the number of identical aligned nucleotides of ExpaRNA and the other methods.
+
+the recursion
+
+Mij;kl =max
+
+⎧⎪⎪⎪⎪⎨
+Mij−1;kl−1+σ (j,l)
+Mij−1;kl+α
+Mij;kl−1+α
+⎪⎪⎪⎪⎩
+j(cid:4)l(cid:4) Mij(cid:4)−1;kl(cid:4)−1+Dj(cid:4) j;l(cid:4) l
+max
+
+Dij;kl = Mij−1;kl−1+τij;kl,
+
+where i,j,k,l are sequence positions, i.e. 1≤ i < j≤ n=|S1| and 1≤ k < l≤
+m=|S2|, α is the gap cost, σ is a base similarity function and τ is a base pair
+similarity function τ , which reﬂects Turner’s RNA energy model (Hofacker
+et al., 2004; Mathews et al., 1999). An entry Mij;kl contains the maximal
+score of alignments of S1[i..j] with S2[k..l], whereas for the entries Dij;kl
+the alignments additionally have to match the base pairs (i,j) and (k,l). In
+consequence, Dij;kl are only required when (i,k) and (j,l) can be alignment
+edges of some alignment at all. For computing all entries Dij;kl with a
+common (i,k), the algorithm ﬁlls the matrix slice Mi·;k·, which is the main
+load of the algorithm.
+
+Given anchors, the algorithm can be modiﬁed to require less entries in
+Dij;kl, namely only those where (i,k) and (j,l) are compatible with the
+anchors. Particularly, this implies that it needs to compute only entries Mij;kl
+where (i,k) is compatible with the anchor constraints.
+For example, assume that we have a single anchor constraint (n/2,m/2)
+(w.l.o.g. n and m even). Because only alignment edges (i,k) with i≤ n/2 and
+k≤ n/2 or i > n/2 and k > n/2 are compatible with the anchor, the algorithm
+computes only entries in Mij;kl for those (i,j), i.e. only half of the entries
+compared to the unconstrained algorithm.
+
+3 RESULTS
+We implemented the algorithm for ﬁnding the longest common
+subsequence of exact RNA patterns (i.e. LCS-EPM)
+in the
+tool ExpaRNA. The algorithm to determine all EPMs
+is
+implemented according to Backofen and Siebert (2007). ExpaRNA
+is implemented in C++.
+
+We see at least two main application areas for ExpaRNA. First,
+given two RNAs along with their known or predicted secondary
+structure, the result of ExpaRNA comprises the optimal set of
+compatible exact common substructures. In biology, this can be used
+to get a good, ﬁrst overview of existing similarities. Second, due
+to the fast running time of ExpaRNA, it is very attractive to use
+ExpaRNA for high-throughput RNA analysis tasks. We designed
+
+scenarios for both applications to study the different uses of our tool
+in detail.
+
+3.1 Comparative structural analysis of large RNAs
+Here, we study the application of ExpaRNA for analyzing large
+RNAs that are very costly to compare by other sufﬁciently accurate
+tools and where ExpaRNA elucidates information about identical
+structural motifs, which is not directly addressed by these tools and
+therefore may remain hidden. To enable an evaluation of our results,
+the experiments are performed on medium-sized and large RNAs
+where sequence–structure alignment tools are still applicable.
+
+We have chosen two pairs of RNAs: (a) two IRES RNAs from
+hepatitis C virus, which belong both to the Rfam family HCV_IRES
+for IRESs (Grifﬁths-Jones et al., 2005). GenBank: AF165050 (bases
+1–379) and D45172 (bases 1–391). The secondary structures were
+predicted by RNAfold (Hofacker et al., 1994). (b) Two 16S rRNAs.
+The ﬁrst RNA is from Escherichia coli and is 1541 bases long. The
+second RNA of length 1551 stems from Dictyostelium discoideum
+(GenBank codes: J01859 and D16466). The secondary structures
+were taken from the Comparative RNA Web (CRW) site (Cannone
+et al., 2002).
+
+Table 1 shows the results for both pairs of RNAs. The solution
+of LCS-EPM is depicted as annotation of the secondary structures
+in Figure 5 for the IRES RNAs and in Figure 6 for the 16S rRNAs.
+These ﬁgures are directly produced by ExpaRNA using the Vienna
+RNA Package (Hofacker et al., 1994) for the structure layout. For
+the IRES RNAs, the numbers mark the ﬁve largest EPMs from the
+set E1,2
+and correspond to the manually marked EPMs in Backofen
+γ
+and Siebert (2007). LCS-EPM predicts all of them automatically. In
+the case of the 16S rRNAs, the result of ExpaRNA shows signiﬁcant
+similarities in nearly all stem and loop regions. Note that the set E1,2
+was computed with γ =2 for both examples.
+γ
+We compare our results with the output of RNA_align and
+RNAforester. The ﬁrst method computes sequence-structure
+alignments according to the general edit distance algorithm (Jiang
+et al., 2002). The RNAforester program of Höchsmann et al.
+(2003) is built upon the tree editing algorithm for ordered trees of
+Jiang et al. (1995) and extends it to calculate forest alignments. We
+compare us with these tools since both tools cover the state-of-the-art
+in RNA alignment that is based on ﬁxed structures. The general edit
+
+2099
+
+[16:00 14/7/2009 Bioinformatics-btp065.tex]
+
+Page: 2099
+
+2095–2102
+
+S.Heyne et al.
+
+Fig. 5. LCS-EPM approach applied to two hepatitis C virus IRES RNAs.
+The colored nucleotides represent the found LCS-EPM with a coverage of
+45% (175 nt). Each EPM is shown in a different color. The numbers indicate
+the ﬁve largest EPMs from E1,2
+γ . GenBank: D45172 (upper RNA), AF165050
+(lower RNA).
+
+Fig. 6. LCS-EPM approach applied to two 16S RNAs. The colored
+nucleotides represent the found LCS-EPM with a coverage of 57% (875
+nt). Each EPM is shown in a different color. (a) D. discoideum 16S rRNA
+(D16466), (b) E. coli 16S rRNA (J01859).
+
+distance algorithm is a classic editing type algorithm for RNA
+comparison, whereas RNAforester represents the class of tree
+alignment-based algorithms, which can be due to their working
+principle much faster, but are less accurate than editing algorithms.
+We compared the methods by the number of common realized
+alignment edges. Therefore, we have ﬁrst computed the alignments
+for both RNA pairs. Next, we have counted all positions with
+exact sequence–structure matchings in these alignments and also
+determined the intersections with LCS-EPM. Note that the time for
+ExpaRNA in Table 1 includes the time to determine all EPMs for
+the two IRES RNAs (0.44s) and for the two 16S rRNAs (1.2s). The
+
+2100
+
+Fig. 7. Obtained alignment qualities for different minimal EPM sizes γ in
+comparison to LocARNA and Lara on Bralibase 2.1 k2 dataset.
+
+given sequence coverage rate is twice the number of predicted exact
+matches divided by the sum of the two sequence lengths.
+
+3.2 Speeding up RNA alignment for large-scale analysis
+Here, we study the performance of ExpaRNA for high-throughput
+RNA analysis. In Section 2.6, we showed by which means sequence–
+structure alignment algorithms can proﬁt from anchor constraints
+and suggested to combine such tools with ExpaRNA that yields
+EPMs as anchor constraints in the form of a pre-computation step.
+In order to assess the possible speedup by this combination, we
+tested ExpaRNA in combination with the LocARNA algorithm (Otto
+et al., 2008; Will et al., 2007).
+
+The accuracy of our combined approach (called ExpLoc) was
+evaluated with the Bralibase 2.1 benchmark (Gardner et al., 2005;
+Wilm et al., 2006). The Bralibase 2.1 consists of a collection of
+hand-curated sets of RNA alignments. Because we are interested in
+the performance of pairwise alignment, we choose the k2 dataset
+with 8976 pairwise alignments. For each reference alignment, we
+compute the corresponding ExpLoc alignment and determined
+its sum of pair scores (SPS)/Compalign score (Bahr et al., 2001;
+Gardner et al., 2005; Wilm et al., 2006) that measures the accuracy
+of reproducing the reference alignment. Furthermore, we recorded
+the running times of ExpLoc and LocARNA for each k2 alignment.
+For the computation of a single ExpLoc alignment, we ﬁrst
+computed the mfe structure with RNAfold of each sequence and
+input the two RNAs to ExpaRNA. Afterwards, the ExpaRNA output
+is used as anchor constraints for LocARNA in order to obtain the
+complete alignment of the two RNAs.
+
+To test the performance of the two approaches, we carried out
+ﬁve experiments. First, we examined the accuracy of LocARNA
+alone. The other four experiments evaluate the performance of
+the combined approach ExpLoc. Here, we assessed the resulting
+alignment quality for different values γ =7,8,9 and 10 for the
+ExpaRNA algorithm.
+
+Figure 7 shows the achieved SPS scores at different levels
+of sequence identity for all ﬁve experiments. In addition, we
+
+[16:00 14/7/2009 Bioinformatics-btp065.tex]
+
+Page: 2100
+
+2095–2102
+
+Lightweight RNA comparison
+
+in a nice way. Existing relationships can be detected in a fraction of
+runtime without using a full alignment procedure.
+
+Due to the availability of more and more large-scale datasets
+from modern pyro-sequencing techniques, high-throughput analysis
+methods for thousands of RNAs are needed. We analyzed the
+contribution of ExpaRNA for such tasks with the Bralibase
+benchmark. In general, our combined approach yields comparable
+results like other sequence–structure alignment algorithms. We
+observed a scaleable tradeoff between speedup and resulting
+alignment quality according to the selected minimal EPM size γ
+(Figs 7 and 9). By using different γ parameters our combined
+approach ExpLoc can be nicely balanced. This is important for
+problems with large datasets in which often a lower quality setting
+is sufﬁcent. Moreover, our results show that anchor constraints
+are able to speedup Sankoff-style alignment algorithms in general
+(see Section 2.6).
+A more ﬁne-grained picture of the achieved accuracy of ExpLoc
+with γ =10 is shown in Figure 8. In the <70% sequence identity the
+differences are small. The lowered quality especially in region with
+a high sequence identity can be explained by the used mfe structures
+for ExpaRNA. Only slight differences in the sequence result in wide
+changes of the secondary structure which in turn leads to wrong
+predicted anchors. However, pure sequence alignment programs are
+sufﬁcent here. For low sequence identities (≤30%), there are nearly
+no differences. Here, ExpaRNA often does not ﬁnd anchors which
+result in a standard LocARNA alignment. However, these cases are
+rare, which is also indicated by the width of the boxes in Figure 8.
+The different speedups of ExpLoc for different γ values can
+be explained by the number of predicted anchor points. For γ =7
+there exists more anchors than for γ =10. Further, we observe
+from our data speedups for short as well as for long alignments
+(Supplementary Figs 1 and 2). In particular, the speedup for long
+alignments is higher than for small ones, but also the majority of
+small alignments are accelerated. For longer RNAs we observe
+speedups around 100. We also look into the distribution of the
+speedups over different sequence identity classes. In general,
+sequences with a high sequence identity gain a higher speedup, but
+we also observe high speedups for classes between 35% and 65%
+sequence identity. This range is especially relevant for sequence–
+structure alignment methods, as pure sequence alignment methods
+will fail here.
+Finally, we also observe 336 alignments for ExpLocwith γ =10
+(447 for γ =7) resulting in a better SPS score than LocARNA alone.
+
+5 CONCLUSION
+We have developed a new algorithm for the pairwise sequence–
+structure comparison of RNAs and implemented it in the program
+ExpaRNA. Our approach utilizes common substructures for the
+detection of global similarities between two RNAs. We have applied
+the presented dynamic programming algorithm to two different
+kinds of application. In comparative sequence analysis, ExpaRNA
+can be used as good overview of existing similarities between
+two RNAs. Especially for large RNAs, ExpaRNA produces fast
+meaningful results without the need for usually more expensive
+alignment methods. In addition, we tested the performance of
+ExpaRNA in large-scale data analysis. Here, the main idea is to
+use the predicted LCS-EPM, i.e. an optimal set of compatible
+substructures, as anchor constraints for Sankoff-style alignment
+
+2101
+
+Fig. 8. Comparison of the quality of obtained results for ExpLoc (light
+blue) and LocARNA (orange). The boxplot shows distributions of sum-of-
+pairs scores (SPS) on the y-axis for different sequence identities on the x-axis
+for all 8976 pairwise alignments from Bralibase 2.1 and an minimal
+EPM size of γ =10. To compute distributions, alignments were grouped
+according to their APSI in intervals of width 5.
+
+Fig. 9. Achieved speedup of ExpLoc with respect to LocARNA running
+time when using different minimal EPMsizes γ . Total times were measured
+for both methods when applied to all alignments of the Bralibase
+2.1 k2 dataset.
+
+included the performance of the Lara sequence–structure alignment
+algorithm (Bauer et al., 2007).
+
+Figure 8 shows a boxplot (also called box-and-whisker plot)
+visualizing min-values, max-values, medians and quartiles of the
+SPS/Compalign score distribution for varying pairwise sequence
+identities.
+
+The obtained speedup factors shown in Figure 9 are calculated
+relative to the LocARNA algorithm. The shown values correspond to
+the experiments in Figure 7. The overall running time of LocARNA
+was 19 h 26 min. All computations were carried out on a Pentium 4
+with 3.2 GHz.
+
+4 DISCUSSION
+Our results indicate that ExpaRNA can be advantageous in different
+application scenarios. In comparative RNA analysis, the results of
+ExpaRNA exhibit the existing similarities between RNA structures
+
+[16:00 14/7/2009 Bioinformatics-btp065.tex]
+
+Page: 2101
+
+2095–2102
+
+S.Heyne et al.
+
+algorithms in order to compute a complete gapped global alignment.
+We tested ExpaRNA in combination with the LocARNA algorithm
+on the Bralibase benchmark. In our experiments, we observe
+a trade-off between quality and speedup according to the chosen
+parameter γ . However, we get a speedup of 4.25 even in the highest
+tested quality setting, where the quality of the produced alignment
+is comparable to other sequence–structure alignment methods. The
+achieved results also suggests further exploration of the full potential
+of the ExpaRNA and ExpLoc approach for a variety of RNA
+structure comparsion-based applications.
+
+Funding: German Research Foundation (DFG grant BA 2168/2-1
+SPP 1258); Federal Ministry of Education and Research (BMBF
+grant 0313921 FORSYS/FRISYS).
+
+Conﬂict of Interest: none declared.
+
+REFERENCES
+Allali,J. and Sagot,M.-F. (2005) A new distance for high level RNA secondary structure
+
+comparison. IEEE/ACM Trans. Comput. Biol. Bioinfor., 2, 3–14.
+
+Altschul,S.F. et al. (1997) Gapped BLAST and PSI-BLAST: a new generation of protein
+
+database search programs. Nucleic Acids Res., 25, 3389–3402.
+
+Backofen,R. and Siebert,S. (2007) Fast detection of common sequence structure patterns
+
+in RNAs. J. Discrete Algorithm, 5, 212–228.
+
+Bafna,V. et al. (1995) Computing similarity between RNA strings. In Proceedings of the
+6th Symposium Combinatorial Pattern Matching. Zvi,G. and Esko,U eds. Lecture
+Notes in Computer Science, pp. 1–16.
+
+Bahr,A. et al. (2001) BAliBASE (Benchmark Alignment dataBASE): enhancements for
+repeats, transmembrane sequences and circular permutations. Nucleic Acids Res.,
+29, 323–326.
+
+Bauer,M. et al. (2007) Accurate multiple sequence-structure alignment of RNA
+
+sequences using combinatorial optimization. BMC Bioinformatics, 8, 271.
+
+Blin,G. et al. (2003) RNA sequences and the edit(nested,nested) problem. Technical
+
+Report RR-IRIN-03.07, IRIN, Université de Nantes.
+
+Cannone,J.J. et al. (2002) The Comparative RNA Web (CRW) Site: an online database
+of comparative sequence and structure information for ribosomal, intron, and other
+RNAs: Correction. BMC Bioinformatics, 3, 15.
+
+Evans,P.A. (1999) Algorithms and Complexity for Annotated Sequence Analysis. Ph.D.
+
+thesis, University of Alberta.
+
+Gardner,P.P. et al. (2005) A benchmark of multiple sequence alignment programs upon
+
+structural RNAs. Nucleic Acids Res., 33, 2433–2439.
+
+Grifﬁths-Jones,S. et al. (2005) Rfam: annotating non-coding RNAs in complete
+
+genomes. Nucleic Acids Res., 33, D121–D124.
+
+Havgaard,J.H. et al. (2007) Fast pairwise structural RNA alignments by pruning of the
+
+dynamical programming matrix. PLoS Comput. Biol., 3, 1896–1908.
+
+Hentze,M.W. and Kuhn,L.C. (1996) Molecular control of vertebrate iron metabolism:
+mRNA-based regulatory circuits operated by iron, nitric oxide, and oxidative stress.
+Proc. Natl. Acad. Sci. USA, 93, 8175–8182.
+
+Höchsmann,M. et al. (2003) Local similarity in RNA secondary structures. In
+Proceedings of Computational Systems Bioinformatics (CSB 2003), vol. 2. IEEE
+Computer Society, pp. 159–168.
+
+Hofacker,I.L. et al. (1994) Fast folding and comparison of RNA secondary structures.
+
+Monatsh. Chem., 125, 167–188.
+
+Hofacker,I.L. et al. (2004) Alignment of RNA base pairing probability matrices.
+
+Bioinformatics, 20, 2222–2227.
+
+Huttenhofer,A. et al.
+
+(1996) Solution structure of mRNA hairpins promoting
+selenocysteine incorporation in Escherichia coli and their base-speciﬁc interaction
+with special elongation factor SELB. RNA, 2, 354–366.
+
+Jiang,T. et al. (1995) Alignment of trees - an alternative to tree edit. Theor. Comput.
+
+Sci., 143, 137–148.
+
+Jiang,T. et al. (2002) A general edit distance between RNA structures. J. Comput. Biol.,
+
+9, 371–388.
+
+Lin,G. et al. (2002) The longest common subsequence problem for sequences with
+
+nested arc annotations. J. Comput. Syst. Sci., 65, 465–480.
+
+Martineau,Y. et al. (2004) Internal ribosome entry site structural motifs conserved
+among mammalian ﬁbroblast growth factor 1 alternatively spliced mRNAs. Mol.
+Cell Biol., 24, 7622–7635.
+
+Mathews,D.H. and Turner,D.H. (2002) Dynalign: an algorithm for ﬁnding the secondary
+
+structure common to two RNA sequences. J. Mol. Biol., 317, 191–203.
+
+Mathews,D. et al. (1999) Expanded sequence dependence of thermodynamic parameters
+
+improves prediction of RNA secondary structure. J. Mol. Biol., 288, 911–940.
+
+Otto,W. et al. (2008) Structure local multiple alignment of RNA. In Proceedings
+of German Conference on Bioinformatics (GCB’2008), Vol. P-136 of LNI.
+Gesellschaft für Informatik, pp. 178–188.
+
+Sankoff,D.
+
+(1985) Simultaneous solution of
+
+the RNA folding, alignment and
+
+protosequence problems. SIAM J. Appl. Math., 45, 810–825.
+
+Serganov,A. and Patel,D.J. (2007) Ribozymes, riboswitches and beyond: regulation of
+
+gene expression without proteins. Nat. Rev. Genet., 8, 776–790.
+
+Torarinsson,E. et al. (2007) Multiple structural alignment and clustering of RNA
+
+sequences. Bioinformatics, 23, 926–932.
+
+Will,S. et al. (2007) Inferring non-coding RNA families and classes by means of
+
+genome-scale structure-based clustering. PLOS Comput. Biol., 3, e65.
+
+Wilm,A. et al. (2006) An enhanced RNA alignment benchmark for sequence alignment
+
+programs. Algorithms Mol. Biol., 1, 19.
+
+Wilting,R. et al. (1997) Selenoprotein synthesis in archaea: identiﬁcation of an mRNA
+element of Methanococcus jannaschii probably directing selenocysteine insertion.
+J. Mol. Biol., 266, 637–641.
+
+Zhang,K. and Shasha,D. (1989) Simple fast algorithms for the editing distance between
+
+trees and related problems. SIAM J. Comput., 18, 1245–1262.
+
+2102
+
+[16:00 14/7/2009 Bioinformatics-btp065.tex]
+
+Page: 2102
+
+2095–2102
+
+

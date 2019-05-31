@@ -1,0 +1,1801 @@
+BIOINFORMATICS
+
+Vol. 24 ISMB 2008, pages i15–i23
+doi:10.1093/bioinformatics/btn171
+
+The effectiveness of position- and composition-speciﬁc gap
+costs for protein similarity searches
+Aleksandar Stojmirovi ´c , E. Michael Gertz , Stephen F. Altschul and Yi-Kuo Yu∗
+National Center for Biotechnology Information, National Library of Medicine, National Institutes of Health, Bethesda,
+MD 20894, USA
+
+ABSTRACT
+Motivation: The ﬂexibility in gap cost enjoyed by hidden Markov
+models (HMMs) is expected to afford them better retrieval accuracy
+than position-speciﬁc scoring matrices (PSSMs). We attempt to
+quantify the effect of more general gap parameters by separately
+examining the inﬂuence of position- and composition-speciﬁc gap
+scores, as well as by comparing the retrieval accuracy of the
+PSSMs constructed using an iterative procedure to that of the HMMs
+provided by Pfam and SUPERFAMILY, curated ensembles of multiple
+alignments.
+Results: We found that position-speciﬁc gap penalties have an
+advantage over uniform gap costs. We did not explore optimizing
+distinct uniform gap costs for each query. For Pfam, PSSMs
+iteratively constructed from seeds based on HMM consensus
+sequences perform equivalently to HMMs that were adjusted
+to have constant gap transition probabilities, albeit with much
+greater variance. We observed no effect of composition-speciﬁc
+gap costs on retrieval performance. These results suggest possible
+improvements to the PSI-BLAST protein database search program.
+Availability: The scripts for performing evaluations are available
+upon request from the authors.
+Contact: yyu@ncbi.nlm.nih.gov
+
+1 INTRODUCTION
+from molecular databases by sequence
+Information retrieval
+alignment
+is an essential component of modern biology. The
+effectiveness of retrieval strategies depends crucially on how
+alignments are scored. A pairwise alignment score typically
+combines scores for the substitutions, insertions and deletions that
+transform one sequence into another. Scores for substitutions are
+derived from a substitution matrix, while scores for insertions and
+deletions are known as gap costs. The importance of gap costs
+has prompted numerous studies proposing various reasonable gap
+penalty schemes (Benner et al., 1993; Chang and Benner, 2004;
+Pascarella and Argos, 1992; Qiu and Elber, 2006; Reese and Pearson,
+2002; Wrabl and Grishin, 2004).
+
+Search accuracy may be improved substantially by using position-
+speciﬁc scoring matrices (PSSMs; Gribskov et al., 1987). In
+addition, it is possible to introduce position- and composition-
+speciﬁc gap costs, which so far have been implemented primarily by
+hidden Markov models (HMMs) (Durbin et al., 1998; Krogh et al.,
+1994). In this article, we attempt to quantify the effect of different
+gap scores on retrieval performance using PSI-BLAST (Altschul
+et al., 1997) and HMMER (Eddy, 1998, 2003), canonical examples
+of software tools employing PSSMs and HMMs, respectively.
+∗
+
+To whom correspondence should be addressed.
+
+As its name suggests, a PSSM assigns scores to amino acids in
+a database sequence based on the position in which they occur in
+the alignment. PSI-BLAST computes and scores alignments using
+a heuristic approximation to the Smith–Waterman algorithm (Smith
+and Waterman, 1981) with afﬁne gap costs (Gotoh, 1982) providing
+uniform penalties for opening and extending a gap. PSSMs used by
+PSI-BLAST may be generated through an iterative search procedure
+or obtained from other sources, such as databases of curated multiple
+sequence alignments (MSAs).
+
+Two publicly available sources of curated alignments are the
+Pfam (Finn et al., 2006) and SUPERFAMILY (Gough et al., 2001;
+Wilson et al., 2007) databases. The latter is derived from the SCOP
+(structural classiﬁcation of proteins) database (Andreeva et al., 2007;
+Murzin et al., 1995). In both, each MSA is represented by an
+HMM, which may be used for similarity searches. An HMM is
+a ﬁnite-state automaton, characterized by state-to-state transition
+probabilities and emission probabilities that generate hypothetical
+protein sequences. See Figure 1 for an example and Appendix 1 for
+more details.
+
+The HMMER package (Eddy, 1998, 2003) uses the Viterbi
+algorithm (Durbin et al., 1998), which ﬁnds the highest scoring
+sequence of states in the HMM that produces the database sequence.
+The probability that a particular amino acid is emitted in a HMMER
+substitution state may be identiﬁed with the probability that it
+occurs in a corresponding position in a PSI-BLAST PSSM. On the
+other hand, HMMER allows position- and composition-speciﬁc gap
+scores, which model the probability that an insertion or deletion
+occurs at a particular position in an alignment.
+
+With their greater gap cost ﬂexibility, HMMs may be expected
+to have better retrieval accuracy than PSSMs. We attempt
+to
+quantify the effect of HMMER’s use of more general gap
+parameters by separately examining the inﬂuence of position- and
+
+B
+
+S1
+
+l1
+
+l2
+
+S2
+
+D2
+
+S3
+
+D3
+
+E
+
+Sn
+
+Dn
+
+Fig. 1. An example of a protein proﬁle HMM architecture used by HMMER.
+The model contains n positions plus a begin state (B) and end state (E). Each
+position contains a substitution (S) and a deletion state (D), with a possible
+insertion state (I) between two S-nodes. Allowed transitions are shown by
+arrows. To simulate local alignments, transitions B→Si and Si → E, for any
+Si, are permitted.
+
+ 2008 The Author(s)
+This is an Open Access article distributed under the terms of the Creative Commons Attribution Non-Commercial License (http://creativecommons.org/licenses/by-nc/2.0/uk/)
+which permits unrestricted non-commercial use, distribution, and reproduction in any medium, provided the original work is properly cited.
+
+[20:41 18/6/03 Bioinformatics-btn171.tex]
+
+Page: i15
+
+i15–i23
+
+A.Stojmirovi ´c et al.
+
+composition-speciﬁc gap scores. We also compare the retrieval
+accuracy of the PSSMs constructed using PSI-BLAST’s iterative
+procedure to that of the HMMs provided by the Pfam and
+SUPERFAMILY collections. Our
+some
+directions for improvements to PSI-BLAST, and the magnitude of
+the improvements one might expect.
+
+results may suggest
+
+We collected protein proﬁle HMMs from SUPERFAMILY and
+Pfam. We then modiﬁed the proﬁles from each source to simulate
+different retrieval strategies, and used them as queries for HMMER
+and PSI-BLAST to search a set of sequences from the SCOP
+database, which forms our ‘gold standard’. We use the results of
+the searches to evaluate and compare the retrieval performance of
+the search methods considered.
+
+SCOP is a database of protein domains, classiﬁed by structure,
+function and sequence. Protein domains are classiﬁed into a
+hierarchy of class, fold, superfamily and family. Domains sharing
+the same superfamily are assumed to be homologous. For our testing
+purposes, we use the ASTRAL 40 (Chandonia et al., 2004) subset
+of SCOP (release 1.71), consisting of domain sequences that were
+ﬁltered so that no two sequences share more than 40% pairwise
+identity. ASTRAL has been used as the testing set in a number of
+performance evaluations of protein sequence comparison algorithms
+(Green and Brenner, 2002; Price et al., 2005; Vinga et al., 2004; Yu
+et al., 2006).
+
+It is generally useful to evaluate not only the difference in
+performance of two search methods, but also whether such a
+difference is statistically signiﬁcant. A number of procedures
+have been proposed, mostly based on bootstrap resampling with
+replacement (Green and Brenner, 2002; Price et al., 2005). In this
+context, Green and Brenner (2002) observed that large superfamilies
+have an undue inﬂuence on the results, as the number of possible
+relationships grows quadratically with the number of members in a
+superfamily. They, therefore, proposed two weighting schemes that
+reduce the inﬂuence of large superfamilies. Price et al. (2005) noted
+technical challenges in obtaining accurate variances for the weighted
+statistics and proposed an improved bootstrap.
+
+Our query sets, based on Pfam and SUPERFAMILY, contain
+several models for each SCOP-classiﬁed superfamily. Some
+superfamilies are overrepresented both in the query sets and in
+the ASTRAL database. We propose a different method than Price
+et al. (2005) to address the difﬁculties associated with having
+superfamilies of different sizes. Our strategy is to sample without
+replacement three fourths of the superfamilies and then select a
+single model for each superfamily in any given query set. Hence,
+each sample contains no more than a single proﬁle from each
+superfamily and therefore captures the most distant relationships
+among queries.
+
+2 MATERIALS AND METHODS
+2.1 Software tools
+For HMM-based queries, we used the HMMER package (version 2.3.2)
+(Eddy, 1998, 2003), which is also used internally by Pfam. Local alignment
+between a sequence and an HMM is allowed by the non-zero probabilities
+of entering match nodes directly from the begin state, as well as moving
+directly to the end state from them (Fig. 1). The statistical signiﬁcance of each
+alignment score is estimated using an assumed extreme value distribution,
+with model-speciﬁc parameters. The ﬁnal E-value, adjusted for model and
+sequence composition, is used to rank the hits. Another popular HMM
+
+i16
+
+platform is SAM (Barrett et al., 1997; Hughey and Krogh, 1996; Karplus
+et al., 2005), which is used by SUPERFAMILY. We used HMMER rather
+than SAM for all our HMM-based queries because the programs’ retrieval
+performances were shown to be comparable (Madera and Gough, 2002;
+Wistrand and Sonnhammer, 2005) and because the SUPERFAMILY models
+were available in HMMER format.
+
+For PSSM-based queries, we used PSI-BLAST (version 2.2.17) (Altschul
+et al., 1997). The statistics of PSI-BLAST scores are based on the extreme
+value distribution (Gumbel, 1958) with a correction for ﬁnite sequence
+length. The statistical signiﬁcance of each database hit is reﬁned by taking
+into account its composition as well as that of the PSSM (Schäffer et al.,
+2001).
+
+PSI-BLAST allows one to start a search from a ‘checkpoint’ﬁle containing
+a PSSM saved from an earlier PSI-BLAST run, or built by other means.
+In addition to a PSSM, PSI-BLAST requires gap penalties as input: a gap
+opening cost and a gap extension cost. The choice of gap penalties is restricted
+to a few values because the parameters required to produce accurate statistics
+are precomputed using large-scale simulations. For both HMMER and PSI-
+BLAST runs, we used the standard search exectutables with their default
+settings.
+
+2.2 Query sets
+Following Wistrand and Sonnhammer (2005), we constructed a query set
+of Pfam (release 22.0) models by identifying all Pfam-A models that were
+cross-referenced by Pfam with an identiﬁer in SCOP 1.71, and mapping the
+cross-referenced SCOP identiﬁer to a SCOP superfamily. We did not consider
+models that have multiple domains mapping to different superfamilies.
+
+We ﬁltered the resulting set of Pfam models using two additional rules.
+First, any model mapping to a SCOP superfamily that had fewer than
+four members in ASTRAL 40 was removed from further consideration, to
+avoid superfamilies with a small number of members from disproportionally
+inﬂuencing the results. Next, we examined the MSA used to generate the
+Pfam proﬁle and kept only those families whose MSA contained at least
+10 sequences and had an average sequence length of at least 30 amino
+acids. Our ﬁnal Pfam query set contained 703 Pfam models representing
+299 superfamilies. We used the proﬁles from the Pfam_fs set, built for
+local/local alignment.
+
+Our
+
+second query set consisted of all 6729 models
+
+from the
+SUPERFAMILY database (release 1.69)
+that belonged to the 299
+superfamilies in the Pfam query set. These models were also built for
+local/local alignment. The above query sets, paired with HMMER, formed
+our ﬁrst two search methods, which we named HOF (HMM, ‘original’, Pfam)
+and HOU (HMM, ‘original’, SUPERFAMILY).
+
+Table 1. Nomenclature of search strategies
+
+Name
+
+Description
+
+HO
+HB
+HG
+
+PO
+PC
+
+PS
+
+Original HMM dataset
+HMMs, background insertion emission probabilities
+HMMs, constant state transitions and background insertion
+
+emissions
+
+PSSMs, converted from original HMMs.
+PSSMs, from ﬁve PSI-BLAST iterations over nr using proﬁle
+
+consensus seeds
+
+PSSMs, from ﬁve PSI-BLAST iterations over nr using SCOP
+
+domain sequence seeds
+
+As shown in this table, the ﬁrst two letters of the abbreviations of various search
+strategies denote the type of proﬁle (HMM or PSSM), and the method of construction.
+The third letter is optionally appended to show the database of origin (F for Pfam, U
+for SUPERFAMILY).
+
+[20:41 18/6/03 Bioinformatics-btn171.tex]
+
+Page: i16
+
+i15–i23
+
+The second pair of search methods, called HBF and HBU (see Table 1
+for an outline of all search methods), was constructed by taking the HMMs
+from HOF and HOU, respectively, and replacing all emission scores for
+each insert state with 0. This is equivalent to setting all insertion emission
+probabilities to the background probabilities.
+
+We constructed the third pair of search methods, called HGF and HGU
+by taking the HMMs from HBF and HBU, respectively, and adjusting the
+state transition probabilities to correspond to those implied by the afﬁne gap
+penalties used by PSI-BLAST (see Appendix 1 for a detailed explanation).
+Let α denote the gap opening cost and β the gap extension cost, in bits. We
+used the default penalty of PSI-BLAST, which is 11 (α=5.040 bits) for gap
+opening and 1 for gap extension (β=0.458 bits). This scale was chosen to
+match the scale of BLOSUM62 (Henikoff and Henikoff, 1992), the default
+scoring matrix of BLAST.
+For each position m of an HMM, we left the probabilities P(B→Sm) and
+em= P(Sm→E) unchanged and set the remaining transition probabilities as
+follows:
+
+P(Dm→Dm+1)= P(Im→Im)= ν,
+P(Dm→Sm+1)= P(Im→Sm+1)=1−ν,
+P(Sm→Dm+1)= P(Sm→Im)= µ(1−em)
+1+2µ−ν
+P(Sm→Sm+1)= (1−em)(1−ν)
+1+2µ−ν
+
+(1)
+
+(2)
+
+(3)
+
+,
+
+,
+
+(4)
+where µ=2α+β and ν=2β . The probabilities were read from HMMER
+ﬁles, converted from scores, modiﬁed and written back as scores, as
+per HMMER convention (Eddy, 2003). After modiﬁcation, the HMMER
+statistical parameters of each HMM of HBF, HBU, HGF and HGU were
+recalibrated.
+
+The remaining search methods used PSI-BLAST with default gap
+penalties. POF and POU used PSSMs derived from HOF and HOU,
+respectively, by taking the match state emission probabilities and writing
+them in PSI-BLAST checkpoint format. PCF and PCU used PSSMs
+obtained using the standard PSI-BLAST iterative procedure. We obtained
+the consensus (most likely) sequences of POF and POU proﬁles and used
+them as seeds for the initial searches, running ﬁve iterations in total against
+nr, the database of non-redundant protein sequences maintained by NCBI
+(frozen on April 11, 2007) (Wheeler et al., 2007).
+
+The ﬁnal search method, named PSU used the same construction
+procedure as POU except
+the SCOP sequences associated with
+SUPERFAMILY models were used as PSI-BLAST seeds instead of proﬁle
+consensus sequences.
+
+that
+
+2.3 Performance evaluation
+As described earlier, our query sets contained no proﬁles assigned to more
+than one SCOP superfamily. Each pair p,s, where p is a query proﬁle and s
+is an ASTRAL sequence, was classiﬁed as similar (‘positive’) if s belongs
+to the superfamily associated with p, and not similar (‘negative’) otherwise.
+For every query pk from a set of queries, denote by Np(pk) the number of
+ASTRAL 40 sequences belonging to the same superfamily as pk (i.e. the
+
+total number of positives for pk) and let Np=(cid:1)
+
+k Np(pk).
+
+Comparing each query proﬁle to the ASTRAL 40 database, we retrieved
+a number of sequences ranked according to their E-values. These sequences
+were classiﬁed as true or false positives. For a given search strategy, after
+merging the results for the whole set of queries, we obtain the (step) functions
+p(E) and f (E) giving, respectively, the cumulative numbers of true and false
+positives with E-value E or smaller. The function p can also be expressed as
+a function of f , the number of false positives and the graph of p( f ) versus
+f is called the receiver operating characteristic (ROC) curve (Gribskov and
+Robinson, 1996; Hajian-Tilaki and Hanley, 2002; Hanley and McNeil, 1982).
+The same curve can be displayed as a coverage versuss error-per-query (EPQ)
+or which is known as a CVE plot.
+
+Effectiveness of gap costs
+
+Our main performance statistic is the (truncated) ROC score. Given a
+
+number of false positives F, the ROCF score is deﬁned by
+
+ROCF = 1
+F·Np
+
+(cid:2)
+
+0
+
+F
+
+p(f ) df .
+
+(5)
+
+It represents the accuracy of the search method (given a set of queries)
+for a given number of false positives. To compare two search methods M1
+and M2 we compute their relative ROCF score difference, denoted RRSDF,
+deﬁned by
+
+RRSDF(M1, M2)≡ ROCF(M1)−ROCF(M2)
+
+ROCF(M2)
+
+.
+
+(6)
+
+To overcome the aforementioned problems associated with overrepre-
+sentation of large superfamilies, we sampled according to the superfamily
+classiﬁcation. For each sample we randomly picked 224 out of 299 super-
+families (leaving one-fourth out) without replacement. Then, we selected
+one representative proﬁle for each superfamily to form a sample query set.
+Search methods using the proﬁles originating from the same source (Pfam
+or SUPERFAMILY) used the same samples so that their performances could
+be compared for each sample. Our main statistic is the RRSD224 per sample,
+which measures performance at 1 EPQ or less. It allows a fair comparison
+of search methods.
+
+3 RESULTS
+Figure 2 shows the distributions of ROC224 scores and their relative
+differences (RRSD224) per sample with respect to HO for all query
+sets. Comparison of Figure 2a and b shows that, in general, the
+strategies using proﬁles from SUPERFAMILY perform better than
+those using Pfam proﬁles. In terms of relative difference (Figure 2c
+and d, Table 2), using both Pfam and SUPERFAMILY proﬁles,
+original HMMs (HO) perform signiﬁcantly better than all other
+query sets except HB. There is no perceivable difference between
+HB and HO. There is also no signiﬁcant difference between HG
+and PO.
+
+In the case of PSSMs, POU gives better performance than PCU
+and PSU, but there is no signiﬁcant difference between POF and
+PCF, although PCF shows a large variance in performance. In a
+number of cases, a PCF sample even outperforms the corresponding
+HOF sample. The relative ROC score difference between PCU and
+PSU is slightly positive, but not signiﬁcantly so.
+
+Using proﬁles from Pfam (SUPERFAMILY), we observed two
+(three) clusters of search strategies that performed equivalently
+based on RRSD224 (Fig. 2c and d). This trend in performance is
+supported by Figure 3, which displays examples of CVE curves for
+all alignment methods tested. The samples associated with these
+CVE curves have the median ROC224 score.
+
+4 DISCUSSION AND CONCLUSION
+The clear
+separation in retrieval performance between the
+SUPERFAMILY and Pfam proﬁles could be explained by the fact
+that the former are based on ASTRAL sequences, which form our
+testing set as well. In contrast, Pfam models are based on a variety
+of sequence sources and were not trained on ASTRAL. Hence, a
+degree of overﬁtting the SUPERFAMILY models to the testing set,
+as well as the fact that ASTRAL is structure based, may explain the
+overall differences in performance.
+
+Another interesting observation is that CVE curves (Fig. 3) cross
+at low EPQ and form distinct clusters above 0.5 EPQ. Due to small
+sample size, the coverage at low EPQ is expected to have a larger
+
+i17
+
+[20:41 18/6/03 Bioinformatics-btn171.tex]
+
+Page: i17
+
+i15–i23
+
+A.Stojmirovi ´c et al.
+
+(a)
+
+y
+c
+n
+e
+u
+q
+e
+r
+F
+
+(b)
+
+0
+0
+0
+8
+
+0
+0
+0
+6
+
+0
+0
+0
+4
+
+0
+0
+0
+2
+
+0
+
+0
+0
+0
+8
+
+0
+0
+0
+6
+
+0
+0
+0
+4
+
+0
+0
+0
+2
+
+0
+
+HBF
+HGF
+POF
+PCF
+
+HOF
+HBF
+HGF
+POF
+PCF
+
+(c)
+
+0
+0
+0
+0
+1
+
+0
+0
+1
+
+1
+
+0.3
+
+0.4
+
+0.5
+
+0.6
+
+−0.3
+
+−0.2
+
+−0.1
+
+0.0
+
+0.1
+
+HOU
+HBU
+HGU
+POU
+PCU
+PSU
+
+(d)
+
+0
+0
+0
+0
+1
+
+0
+0
+1
+
+1
+
+HBU
+HGU
+POU
+PCU
+PSU
+
+0.3
+
+0.4
+
+ROC score
+
+0.5
+
+0.6
+
+−0.3
+
+−0.2
+ROC score relative difference
+
+−0.1
+
+0.0
+
+0.1
+
+Fig. 2. ROC score statistics of 1 million samples. In each sample, 224 superfamilies are ﬁrst randomly chosen from 299 superfamilies. A representative query
+proﬁle is then randomly selected from each chosen superfamily. ROC score histograms from using Pfam HMMs (a) and SUPERFAMILY HMMs (b) show
+appreciable difference in average ROC scores for each search method tested: SUPERFAMILY HMMs always perform better. Note that in panels (a) and (b),
+the curve for HO is completely covered by that for HB. Using HOF and HOU as baselines, the values of RRSD224 (measurement at 1 EPQ) between various
+methods and the baselines are computed for each sample. The resulting histograms are shown in panels (c) and (d).
+
+uncertainty, thus the crossing of CVE curves there is anticipated. At
+moderate EPQ, the distinct clusters indicate that the relative retrieval
+efﬁciency is not inﬂuenced by the choice of EPQ.
+
+On both testing collections, we have observed almost no
+difference in performance between the original HMMs (HO)
+and the models derived from them having insertion emission
+probabilities reset to the background (HB). Examining the models in
+HMMER format, we found that the insertion emission distributions
+were almost constant over all the positions, with the common
+distribution being slightly biased in favor of hydrophilic amino
+acids. The average relative entropy between this distribution and
+the background distribution is very small (0.037 bits for Pfam,
+0.005 bits for SUPERFAMILY), explaining the very small effect
+of the insertion emissions on the retrieval performance. Note that
+SUPERFAMILY models had higher overall probabilities of entering
+a gap state and hence showed a larger inﬂuence of insertion
+emissions than Pfam models (Figure 2c and d).
+
+In addition, an insertion emission distribution biased in favor of
+hydrophilic amino acids may not be appropriate for all positions
+within proteins: it implicitly assumes a globular protein structure,
+with hydrophobic core and hydrophilic surface. Finally, from an
+information theoretic point of view, it is very difﬁcult to reliably
+estimate insertion emission probabilities. In particular, if one wishes
+to establish an emission model whose emission probabilities are
+similar to those of the background and wants to conﬁdently
+distinguish those two sets of probabilities, it is necessary to have
+a large amount of data. The following example illustrates this point.
+In the Pfam insertion emission model, Leucine’s emission
+probability, 0.0676, has the largest deviation compared to the
+background 0.0934. Consider a simple coin tossing experiment
+where the probability of seeing a leucine (head) is P=0.0676 and
+the probability of seeing any other amino acid (tail) is 1−0.0676.
+One may ask how many tosses (number of amino acids present in a
+gap column of an MSA) are needed in order to conﬁdently rule out
+
+i18
+
+[20:41 18/6/03 Bioinformatics-btn171.tex]
+
+Page: i18
+
+i15–i23
+
+Table 2. Summary of statistics of RRSD224 between every pair search strategies using the same source
+
+Panel A
+
+HOF
+
+HBF
+
+HGF
+
+POF
+
+HOF
+HBF
+HGF
+POF
+PCF
+
+0.0
+0.0
+
+0.0
+0.0
+−0.1
+0.1
+−5.9 −4.3 −2.8
+−7.5 −4.8 −2.3
+−16.3 −7.8
+
+0.0
+0.0
+
+−0.1
+0.1
+0.0
+0.0
+−5.9 −4.3 −2.8
+−7.5 −4.8 −2.4
+
+2.9
+4.5
+2.9
+4.5
+0.0
+0.0
+−3.0 −0.5
+0.6 −12.3 −3.7
+
+0.6 −16.3 −7.8
+
+2.4
+2.4
+−1.7
+0.0
+
+6.3
+5.1
+6.3
+5.1
+0.0
+0.5
+1.8
+0.0
+5.1 −11.6 −3.1
+
+Effectiveness of gap costs
+
+8.1
+8.1
+3.0
+0.0
+5.3
+
+−0.6
+−0.6
+−4.9
+−5.1
+0.0
+
+PCF
+
+8.5
+8.5
+3.8
+3.2
+0.0
+
+19.5
+19.4
+14.1
+13.1
+0.0
+
+Panel B
+
+HOU
+
+HBU
+
+HGU
+
+POU
+
+PCU
+
+HOU
+HBU
+HGU
+POU
+PCU
+PSU
+
+0.0 −0.4
+0.0
+0.4
+
+0.0
+0.0
+
+0.0
+0.0
+
+0.0
+0.4
+2.9
+8.2
+21.4
+−0.4
+0.0
+2.9
+8.2
+21.4
+−9.3 −6.4 −2.8 −9.3 −6.4 −2.8
+0.0
+1.4
+13.6
+−7.6 −5.0 −2.0 −7.6 −5.1 −2.0 −1.4
+0.0
+15.3
+−23.3 −17.6 −11.0 −23.3 −17.7 −11.0 −17.2 −12.0 −6.6 −18.6 −13.3 −7.5
+0.0
+−25.5 −19.6 −13.0 −25.5 −19.7 −13.1 −19.5 −14.1 −8.8 −20.8 −15.4 −9.7 −6.7 −2.4
+
+10.2
+5.3
+10.2
+5.3
+0.0 −4.1 −1.4
+0.0
+4.3
+
+12.4
+12.4
+7.0
+8.1
+0.0
+
+6.9
+6.9
+0.0
+1.5
+
+2.0
+2.1
+
+0.0
+
+PSU
+
+24.5
+24.5
+16.4
+18.2
+2.5
+0.0
+
+34.2
+34.2
+24.3
+26.3
+7.2
+0.0
+
+30.3
+15.0
+30.3
+15.0
+20.8
+9.6
+22.8
+10.7
+0.0 −1.5
+0.0
+1.5
+
+In Figure 2c and d, HOF and HOU were used as the baselines for Pfam and SUPERFAMILY search strategies, respectively, and the histograms of RRSD224 relative to the baselines
+are shown. It is impractical to show such histograms for all possible baselines. However, for each pair of search strategies, we may sort (in ascending order) their 1 million values
+of RRSD224 and record the corresponding RRSD224 value at various designated percentiles. In the table, there are three numbers in a row for any given pair of search strategies.
+As an example, the numbers 2.9, 4.5 and 6.3, associated with M1=HBF and M2=HGF, are located in the row labeled by HBF and within the column headed by HGF. Those
+numbers, when divided by 100, have the following interpretation: the leftmost corresponds to the RRSD224 value at the 2.5th percentile, the middle to the median and the rightmost
+to the 97.5th percentile. Panel A records the numbers associated with Pfam search methods, while Panel B documents those associated with the SUPERFAMILY strategies tested.
+
+the possibility that the probability is 0.0934. It is well known that a
+binomial distribution in the large number limit becomes a Gaussian.
+In our example, the probability of observing k heads out of n tosses
+becomes
+
+k pk(1−p)n−k k≈
+Cn
+
+−n( k
+e
+
+n
+
+−p)2/2p(1−p)d
+
+(cid:3)
+
+n/p(1−p)
+
+2π
+
+(cid:4)
+
+(cid:5)
+
+.
+
+k
+n
+
+To reject with 85% conﬁdence the value of 0.0934 as the
+probability of seeing a head, the absolute difference between the
+two probabilities, 0.0934 and 0.0676, must be greater than or equal
+to 1.037 times the SD,
+
+(cid:6)
+
+(cid:3)
+
+p(1−p)/n. This leads to
+⇒ n >137 .
+
+0.0847
+
+n
+
+0.0258 >1.037
+
+When applied to estimating insertion emission probabilities, this
+example implies that one needs to have about 137 amino acids
+in a gap column of a multiple alignment. This number seems
+large for columns associated with an insert state, as these columns
+normally have more gaps than amino acids. On the other hand,
+we can conﬁdently determine emission probabilities for columns
+that contain mostly amino acids and are therefore usually assigned
+to substitution states. Furthermore, the dominant amino acid in a
+match column often has very different observed and background
+frequencies. For example, consider a match column with 20%
+leucine. The same calculation as above tells us that we need only
+eight or more amino acids in the match column to indicate a
+preference for leucine. Of course, considering the subdominant
+amino acids require more entries in the match column.
+
+Comparing HO to HG and PO, we see that proﬁles with position-
+dependent gap parameters have 5% better retrieval performance (as
+measured by the median RRSD224 value) than those with position-
+independent ones. This is an area where HMMs are clearly superior
+to the PSSMs with constant gap penalties, as used by PSI-BLAST.
+
+Hence, a possible direction for improvement of PSI-BLAST is to
+introduce position-dependent gap parameters. When interpreting
+this difference, one should note that we did not optimize the PSI-
+BLAST gap penalties, but use only the defaults. It is therefore
+possible that the performance of PSI-BLAST with a better set of
+gap opening and extension penalties would more closely match
+the performance of HMMs. Another possibility is to estimate and
+optimize gap parameters for each PSSM separately, at the time of
+its creation (that is, each PSSM would still carry a single, position
+independent, gap opening and gap extension penalty, but they would
+not be input beforehand but estimated from the data). The practical
+problem with these suggested improvements is that the statistical
+parameters for position-speciﬁc gap penalties cannot be quickly
+computed as yet, and one is therefore restricted to the costs for
+which the parameters have been precomputed. Another possibility is
+to modify PSI-BLAST to use the hybrid alignment algorithm (Yu and
+Hwa, 2001; Yu et al., 2002), which is probabilistic, naturally accepts
+PSSMs with position-speciﬁc gap costs, and has well-characterized,
+universal statistics.
+
+It is not surprising that the performances of HG and PO show no
+signiﬁcant difference because HG was designed to simulate the PSI-
+BLAST gap parameters in the HMM framework. Some differences
+still exist due to a fundamental difference between the underlying
+algorithms. First, although the score statistics for HMMER and PSI-
+BLAST are both based on the extreme value distribution, there
+are still differences in details. Second, PSI-BLAST alignments
+may have longer segments of ungapped alignment because the
+score associated with ungapped alignment is not reduced by the
+probability of entering another node. Some difference can also be
+explained by slightly different background probabilities in each case.
+Finally, local alignment is achieved through different mechanisms:
+PSI-BLAST alignments terminate when their accumulated score is
+maximal, while HMMER alignments terminate only when they hit
+
+i19
+
+[20:41 18/6/03 Bioinformatics-btn171.tex]
+
+Page: i19
+
+i15–i23
+
+A.Stojmirovi ´c et al.
+
+(a)
+
+4
+
+.
+
+0
+
+e
+g
+a
+r
+e
+v
+o
+C
+
+(b)
+
+e
+g
+a
+r
+e
+v
+o
+C
+
+3
+0
+
+.
+
+2
+
+.
+
+0
+
+1
+
+.
+
+0
+
+0
+
+.
+
+0
+
+5
+
+.
+
+0
+
+4
+
+.
+
+0
+
+3
+
+.
+
+0
+
+2
+0
+
+.
+
+1
+0
+
+.
+
+0
+.
+0
+
+HOF
+HBF
+HGF
+POF
+PCF
+
+1e−03
+
+1e−02
+
+1e−01
+
+1e+00
+
+1e+01
+
+Error per query
+
+HOU
+HBU
+HGU
+POU
+PCU
+PSU
+
+1e−03
+
+1e−02
+
+1e−01
+
+1e+00
+
+1e+01
+
+Error per query
+
+Fig. 3. Example CVE curves for various search strategies based on Pfam (a)
+and SUPERFAMILY (b) proﬁles. Each curve shown is a representative that
+corresponds to a sample with ROC224 score equal to the median of 1 000 000
+samples.
+the end state. Thus, HMMER alignments may tend to be more global
+with respect to the proﬁle.
+
+The difference in performance of PSI-BLAST using PSSMs
+constructed in different ways shows that focusing on proﬁle
+construction as well as on position-speciﬁc gaps may yield
+signiﬁcant improvement. In particular, the performance of PSSMs
+converted from HMMs (PO) versus those iteratively constructed
+(PC and PS) shows that a more carefully constructed proﬁle may
+yield better performance, with the difference being more pronounced
+in SUPERFAMILY than in Pfam. The fact that the PSSMs obtained
+iteratively from nr based on SUPERFAMILY consensus seeds
+generally perform better than those originating from Pfam consensus
+seeds shows the importance of the choice of the initial seed sequence.
+This is further emphasized by the slightly better performance of
+the PSSMs based on the consensus sequence as seed (PCU) than
+the performance of those based on the seeds taken from ASTRAL
+(PSU). Hence, another possible way of improving PSI-BLAST
+would be to run one iteration using the normal scoring matrix and
+construct a proﬁle as before, but then to rerun the search using
+the consensus sequence as the seed instead of proceeding into the
+
+i20
+
+iterative stage with the proﬁle. In that way, a more ‘central’ seed can
+be obtained, which, while not corresponding exactly to any sequence
+present in the dataset, may yield a more accurate proﬁle for the
+iterative steps. Naturally, the choice of the weighting scheme for the
+multiple alignment used to obtain the consensus sequence or proﬁle
+as well as the associated pseudocounts will also exert a signiﬁcant
+inﬂuence on the result.
+
+Finally, our methodology must be understood in the context of
+the small size of the testing suite. This does not present a signiﬁcant
+problem when testing different parameter sets of the same alignment
+algorithm but when comparing different algorithms it is essential
+to eliminate bias due to superfamily size. Our approach, based on
+sampling three fourth of the superfamilies without replacement, was
+designed with this aim in mind.
+
+ACKNOWLEDGEMENTS
+We thank M. Wistrand and E. Sonnhammer for useful corres-
+pondence.
+
+Funding: This work was supported by the Intramural Research
+Program of the National Library of Medicine at National Institutes
+of Health.
+
+Conﬂict of Interest: none declared.
+
+REFERENCES
+Altschul,S.F. et al. (1997) Gapped BLAST and PSI–BLAST: a new generation of protein
+
+database search programs. Nucleic Acids Res., 25, 3389–3402.
+
+Andreeva,A.A. et al. (2007) Data growth and its impact on the SCOP database: new
+
+developments. Nucleic Acids Res., 36(Database issue), D419–D425
+
+Barrett,C. et al. (1997) Scoring hidden Markov models. Comput. Appl. Biosci., 13,
+
+191–199.
+
+Benner,S.A. et al. (1993) Empirical and structural models for insertions and deletions
+
+in the divergent evolution of proteins. J. Mol. Biol., 229, 1065–1082.
+
+Chandonia,J.-M. et al. (2004) The ASTRAL Compendium in 2004. Nucleic Acids Res.,
+
+32, D189–D192.
+
+Chang,M.S. and Benner,S.A. (2004) Empirical analysis of protein insertions and
+deletions determining parameters for the correct placement of gaps in protein
+sequence alignments. J. Mol. Biol., 341, 617–631.
+
+Durbin,R. et al. (1998) Biological Sequence Analysis. Cambridge University Press,
+
+Cambridge, UK.
+
+Eddy,S.R. (1998) Proﬁle hidden Markov models. Bioinformatics, 14, 755–763.
+Eddy,S.R. (2003) HMMER user’s guide. ftp://selab.janelia.org/pub/software/hmmer/
+
+CURRENT/Userguide.pdf.
+
+Finn,R.D. et al. (2006) Pfam: clans, web tools and services. Nucleic Acids Res., 34,
+
+D247–D251.
+
+Gotoh,O. (1982) An improved algorithm for matching biological sequences. J. Mol.
+
+Biol., 162, 705–708.
+
+Gough,J. et al. (2001) Assignment of homology to genome sequences using a library of
+hidden Markov models that represent all proteins of known structure. J. Mol. Biol.,
+313, 903–919.
+
+Green,R.E. and Brenner,S.A. (2002) Bootstrapping and normalization for enhanced
+
+evaluations of pairwise sequence comparison. Proc. IEEE, 90(12), 1834–1847.
+
+Gribskov,M. and Robinson,N.L. (1996) Use of receiver operating characteristic (ROC)
+
+analysis to evaluate sequence matching. Comput. Chem., 20, 25–33.
+
+Gribskov,M. et al. (1987) Proﬁle analysis: detection of distantly related proteins. Proc.
+
+Natl Acad. Sci. USA, 84, 4355–4358.
+
+Gumbel,E.J. (1958) Statistics of Extremes. Columbia University Press, New York.
+Hajian-Tilaki,K.O. and Hanley,J.A. (2002) Comparison of three methods for estimating
+the standard error of the area under the curve in ROC analysis of quantitative data.
+Acad. Radiol., 9, 1278–1285.
+
+Hanley,J.A. and McNeil,B.J. (1982) The meaning and use of the area under a receiver
+
+operating characteristic (ROC) curve. Radiology, 143, 29–36.
+
+Henikoff,S. and Henikoff,J. (1992) Amino acid substitution matrices from protein
+
+blocks. Proc. Natl Acad. Sci. USA, 89, 10915–10919.
+
+[20:41 18/6/03 Bioinformatics-btn171.tex]
+
+Page: i20
+
+i15–i23
+
+Hughey,R. and Krogh,A. (1996) Hidden Markov models for sequence analysis:
+
+extension and analysis of the basic method. Comput. Appl. Biosci., 12, 95–107.
+
+Karplus,K. et al. (2005) Calibrating E-values for hidden Markov models using reverse-
+
+sequence null models. Bioinformatics, 21, 4107–4115.
+
+Krogh,A. et al. (1994) Hidden Markov models in computational biology: applications
+
+to protein modeling. J. Mol. Biol., 235, 1501–1531.
+
+Madera,M. and Gough,J. (2002) A comparison of proﬁle hidden Markov model
+
+procedures for remote homology detection. Nucleic Acids Res., 30, 4321–4328.
+
+Murzin,A.G. et al. (1995) SCOP: a structural classiﬁcation of proteins database for the
+
+investigation of sequences and structures. J. Mol. Biol., 247, 536–540.
+
+Pascarella,S. and Argos,P. (1992) Analysis of insertions/deletions in protein structures.
+
+J. Mol. Biol., 224, 461–471.
+
+Price,G.A. et al. (2005) Statistical evaluation of pairwise protein sequence comparison
+
+with the Bayesian bootstrap. Bioinformatics, 21, 3824–3831.
+
+Qiu,J. and Elber,R. (2006) SSALN: an alignment algorithm using structure-dependent
+substitution matrices and gap penalties learned from structurally aligned protein
+pairs. Proteins, 62, 881–891.
+
+Reese,J.T. and Pearson,W.R. (2002) Empirical determination of effective gap penalties
+
+for sequence comparison. Bioinformatics, 18, 1500–1507.
+
+Schäffer,A.A. et al. (2001) Improving the accuracy of PSI-BLAST protein database
+searches with composition-based statistics and other reﬁnements. Nucleic Acids
+Res., 29, 2994–3005.
+
+Smith,T.F.
+
+and Waterman,M.S.
+
+(1981)
+
+Identiﬁcation of
+
+common molecular
+
+subsequences. J. Mol. Biol., 147, 195–197.
+
+Vinga,S. et al. (2004) Comparative evaluation of word composition distances for the
+
+recognition of SCOP relationships. Bioinformatics, 20, 206–215.
+
+Wheeler,D.L. et al. (2007) Database resources of the National Center for Biotechnology
+
+Information. Nucleic Acids Res., 35, D5–D12.
+
+Wilson,D. et al. (2007) The SUPERFAMILY database in 2007: families and functions.
+
+Nucleic Acids Res., 35, D308–D313.
+
+Wistrand,M. and Sonnhammer,E.L. (2005) Improved proﬁle HMM performance
+by assessment of critical algorithmic features in SAM and HMMER. BMC
+Bioinformatics, 6, 99.
+
+Wrabl,J.O. and Grishin,N.V. (2004) Gaps in structurally similar proteins: towards
+
+improvement of multiple sequence alignment. Proteins, 54, 71–87.
+
+Yu,Y.-K. and Hwa,T. (2001) Statistical signiﬁcance of probabilistic sequence alignment
+
+and related local hidden Markov models. J. Comput. Biol., 8, 249–282.
+
+Yu,Y.-K. et al. (2002) Hybrid alignment: high-performance with universal statistics.
+
+Bioinformatics, 18, 864–872.
+
+Yu,Y.-K. et al. (2003) The compositional adjustment of amino acid substitution matrices.
+
+Proc. Natl Acad. Sci. USA, 100, 15688–15693.
+
+Yu,Y.-K. et al. (2006) Retrieval accuracy, statistical signiﬁcance and compositional
+similarity in protein sequence database searches. Nucleic Acids Res., 34, 5966–5973.
+
+APPENDIX 1
+The connection between the transition probabilities of HMMs for
+sequence evolution and the scoring function (scoring matrices and
+gap parameters) used in sequence comparison is elaborated in this
+appendix. Since such a connection has been sketched explicitly
+in earlier publications on hybrid alignment (Yu and Hwa, 2001;
+Yu et al., 2002), interested readers are encouraged to look into
+the original literature. We present a self-contained exposition here
+to save the reader some effort in reading through earlier papers,
+and to present a minor extension needed for aligning a protein
+sequence to a local HMM with explicit termination probabilities
+at its nodes. Note that keeping a non-zero termination probability is
+how HMMER achieves local alignments. Hybrid alignments achieve
+a local alignment by taking the maximum of the log-odd ratios
+at each possible termination point, and hence do not need to deal
+explicitly with the termination probabilities of the HMMs.
+
+The fundamental idea of protein sequence comparison is rooted
+in the amino acid score (substitution) matrix, where the (i,j)-th entry
+
+(cid:7)
+
+(cid:8)
+
+sij = 1
+
+λ
+
+ln
+
+Qij
+pipj
+
+(A1)
+
+Effectiveness of gap costs
+
+is the log–odd ratio of the joint probability Qij of amino acids i and j
+in the target ensemble to the product of the background probabilities,
+pi and pj, of the two amino acids. Here λ is just a scale and is set to
+one has pi=(cid:1)
+unity from this point on. For a valid scoring matrix (Yu et al., 2003),
+j Qij, and one may express Qij as Qij = piT(j|i)=
+pjT(i|j), with T(j|i) being the probability for amino acid i to mutate
+into amino acid j. In this case, we may also write
+
+(cid:8)
+
+(cid:7)
+
+T(j|i)
+pj
+
+sij =ln
+
+,
+
+(A2)
+
+which may now be viewed as the log–odds ratio of a conditional
+emission probability to the background probability.
+
+Extending this concept (Yu and Hwa, 2001; Yu et al., 2002), one
+may score the global relatedness (alignment) between two protein
+sequences, a and b, the same way: using the log–odds ratio of Q[a,b]
+to P[a]P[b] (the background probability of generating a pair of
+random sequences a and b). In terms of global relatedness, Q[a,b]
+may be regarded again as P[a]T[b|a] and
+Q[a,b]
+P[a]P[b] = T[b|a]
+P[b] .
+
+(A3)
+Here T[b|a] is the probability for sequence a to mutate into sequence
+b. It is not hard to convince oneself that there are many different
+‘ways’ or ‘paths’ for sequence a to mutate into sequence b. In fact,
+it has been argued that the usual optimal alignment corresponds
+to the most probable evolutionary path. In this context, the gap
+cost is related to the transition probabilities in and out of the
+insertion/deletion states of the HMM.
+
+A protein HMM consists of a number of nodes. Except at the
+begin node, each node j allows two possible states, substitution (S)
+and deletion (D). The substitution state associated with node j is
+characterized by the transition probability from aj to other amino
+acids. The deletion state is further divided into cases depending
+on its preceding state. In between two nodes, one can have an
+insertion (I) state. The transition probabilities from a given state to
+all other allowed states have to sum to 1. Four transitions—S→S,
+S→D, D→S, and D→D—will each advance the node index by 1.
+Transitions S→I and I→S combined together increase effectively
+the node index by 1, while the transitions I→I and D→I (if
+allowed) do not change the node index at all. In many HMMs, such
+as the ones used by HMMER, the transitions between I and D states
+are strictly forbidden and we follow this rule here to simplify our
+exposition.
+
+Constrained by the probability conservation condition,
+are usually made node-speciﬁc
+
+the
+transition probabilities
+(or
+equivalently termed position-speciﬁc). Focusing on the substitution
+scores of protein HMMs, position-speciﬁc scoring simply means
+that the substitution states at different nodes may emit amino acids
+with different sets of probabilities.
+As a concrete example,
+let us consider an alignment of a
+partial HMM model of eight nodes aligned with a sequence b=
+[b1,b2,...,b7] of seven amino acids. Their alignment is shown in
+Figure A1. The alignment score S is given by
+
+S = s1(b1)+s2(b2)+gD
+
+(3−6)
+
++s7(b3)
+
++gI
+
+7+([b4,b5,b6])+s8(b7)
+
+(A4)
+
+i21
+
+[20:41 18/6/03 Bioinformatics-btn171.tex]
+
+Page: i21
+
+i15–i23
+
+A.Stojmirovi ´c et al.
+
+S1
+
+b1
+
+D6
+
+S2
+
+b2
+
+S7
+
+b3
+
+D3
+
+D4
+
+D5
+
+I7
+
+b4
+
+I7
+
+b5
+
+I7
+
+b6
+
+S8
+
+b7
+
+Fig. A1. An example of a partial alignment between a proﬁle HMM and a
+protein sequence. Note that in the text, the state preceding S1 is assumed to
+be a substitution state.
+
+where si(bj) represents the substitution score for amino acid j at node
+(3−6) represents the gap score associated with deleting nodes 3
+i, gD
+7+([b4,b5,b6]) represents the gap score associated
+through 6, and gI
+with inserting amino acids b4,b5 and b6 between nodes 7 and 8
+of the HMM. The superscript ‘+’ associated with the I state will
+be suppressed from this point on. The probability of occurrence
+associated with this alignment A may be written as
+
+TA[b|a]= P(S0→S1)Ta1(b1)P(S1→S2)Ta2(b2)P(S2→D3)
+P(D3→D4)P(D4→D5)P(D5→D6)P(D6→S7)
+Ta7(b3)P(S7→I7)˜p(b4)P(I7→I7)˜p(b5)
+P(I7→I7)˜p(b6)P(I7→S8)Ta8(b7),
+
+7 and 8. Assuming that P[b]=(cid:9)
+where ˜p(b) is the insertion probability of amino acid b between nodes
+TA[b|a]
+P[b] = P(S0→S1)
+
+i p(bi), one obtains the ratio
+P(S1→S2)
+
+Ta1(b1)
+p(b1)
+
+Ta2(b2)
+p(b2)
+
+P(S2→D3)
+P(D3→D4)P(D4→D5)P(D5→D6)P(D6→S7)
+Ta7(b3)
+p(b3)
+P(I7→I7)
+
+˜p(b4)
+p(b4)
+P(I7→S8)
+
+P(S7→I7)
+˜p(b6)
+p(b6)
+
+P(I7→I7)
+Ta8(b7)
+p(b7)
+
+˜p(b5)
+p(b5)
+
+(A5)
+
+.
+
+Comparing (A4) and (A5) and events of similar type yields the
+
+following mappings:
+
+exp[si(bj)] = P(Si−1→Si)
+exp[gD
+
+(3−6)
+
+Tai (bj)
+p(bj)
+
+] = P(D3→D4)P(D4→D5)P(D5→D6)
+
+exp[gI
+
+× P(S2→D3)P(D6→S7)
+
+P(S6→S7)
+7([b4,b5,b6])] = P(S7→I7)P(I7→S8)
+˜p(b6)
+p(b6)
+
+× ˜p(b4)
+p(b4)
+
+P(S7→S8)
+
+˜p(b5)
+p(b5)
+
+.
+
+[P(I7→I7)]2
+
+(A6)
+
+Frequently, HMMs take P(Di−1→Di) and P(Ij→Ij) each to be
+a constant. In this case, the ratio P(S7→I7)P(I7→S8)
+P(S7→S8)P(I→I) contributes to
+˜p(b)
+p(b) contributes
+
+a position-speciﬁc gap opening cost and the ratio
+
+to a composition-dependent insertion cost. The quantity P(I→I)
+contributes to the insertion gap extension cost. If one keeps emission
+probabilities Tai (b) node-dependent, but demands that all the state-
+to-state transition probabilities be node-independent, one essentially
+has a PSSM with uniform afﬁne gap costs, although possibly with
+composition-speciﬁc insertion gap costs if ˜p is chosen to be different
+from the background p.
+
+Since the transition probabilities are constrained by the respective
+conservation conditions, and those probabilities are related to the
+scoring function through (A6), the substitution and gap scores
+are no longer independent if one wishes to have a probabilistic
+interpretation. We now turn to the relationship among score
+parameters when the state-to-state transition probabilities are node-
+independent constants. Let η≡ P(S→S), µD1≡ P(D→S)/P(S→
+S), µD2≡ P(S→D), µI1≡ P(I→S)/P(S→S), µI2≡ P(S→I), νI ≡
+P(I→I) and νD≡ P(D→D). Because µI1(µD1) and µI2(µD2)
+always appear together as a product, we further deﬁne µI ≡
+µI1µI2 (µD≡ µD1µD2). The probability conservation condition
+then demands that
+
+η+µI2+µD2 = 1
+ηµI1+νI = 1
+ηµD1+νD = 1.
+
+(A7)
+
+(A8)
+
+(A9)
+Treating νI , νD, µI and µD as ﬁxed parameters allows us to express
+η, µI2 and µD2 in terms of νI(D) and µI(D). To do so, we multiply
+(A8) by µI2 and multiply (A9) by µD2. Together with (A7), we
+have three linear equations with three unknowns: η, µI2 and µD2.
+Solving these equations yields
+
+η =
+
+µI2 =
+
+µD2 =
+
+1
+
+1+µI /(1−νI )+µD/(1−νD)
+
+1+µI /(1−νI )+µD/(1−νD)
+
+µI /(1−νI )
+
+µD/(1−νD)
+
+1+µI /(1−νI )+µD/(1−νD)
+
+.
+
+η = 1−ν
+1+2µ−ν
+1+2µ−ν
+
+µ
+
+.
+
+µD2= µI2 =
+
+For the case µD= µI = µ and νD= νI = ν,
+simplify to
+
+these expressions
+
+Note that with this notation, we may rewrite (A6) as
+
+Tai (bj)
+p(bj)
+
+exp[si(bj)] = η
+exp[gD
+7([b4,b5,b6])] = µν2× ˜p(b4)
+
+] = µν3
+
+(3−6)
+
+p(b4)
+
+exp[gI
+
+˜p(b5)
+p(b5)
+
+˜p(b6)
+p(b6)
+
+.
+
+It becomes evident that ln(µ/ν) corresponds to the gap opening score
+while ln(ν) corresponds to the gap extension score, and ln(˜p(b)/p(b))
+becomes an additional composition-speciﬁc insertion score.
+
+In HMMER, the local alignment is terminated by going into
+the end state, and the end state can be reached only from
+substitution states. In this context, the probability conservation
+
+i22
+
+[20:41 18/6/03 Bioinformatics-btn171.tex]
+
+Page: i22
+
+i15–i23
+
+Equations (A8) and (A9) remain unchanged. However, we may
+allow a node-speciﬁc termination probability from the S state.
+This requires the introduction of a position index for the other
+
+m ≡ P(Dm→Sm+1)/P(Sm→Sm+1), µD2
+
+transition probabilities. Let ηm≡ P(Sm→Sm+1), em≡ P(Sm→
+m ≡ P(Sm→Dm+1),
+E), µD1
+m ≡ P(Im→Sm+1)/P(Sm→Sm+1), µI2
+m ≡ P(Sm→Im). However,
+µI1
+note that P(Im→Sm+1)
+should remain the same, because
+transition Im→E. Thus, we may still keep
+there is no direct
+m= ν as constants. The
+m = νI
+m = µ and νD
+both µD1
+m µI2
+probability conservation condition then yields
+m +em=1
+m +µD2
+ηm+µI2
+m +ν=1
+ηmµI1
+m +ν=1,
+ηmµD1
+
+m = µI1
+
+m µD2
+
+(A10)
+
+(A12)
+
+(A11)
+
+Effectiveness of gap costs
+
+the solution of which is
+
+ηm= (1−em)(1−ν)
+1+2µ−ν
+m = µ(1−em)
+m = µI2
+µD2
+1+2µ−ν
+m µD1
+m are decreased, µD2
+
+.
+
+m and µI2
+
+m and µI2
+
+Although µD2
+m are kept
+the same as before. As a consequence, the only change is that the
+substitution score at each node is reduced by a node-speciﬁc constant
+ln[1/(1−em)] when it is not preceded by a gap state. If an alignment
+has deletion at node m followed by k more substitutions from node
+m+1 to node m+k, then the substitution score reduction starts only
+at node m+2 and persists to node m+k.
+
+m µI1
+
+[20:41 18/6/03 Bioinformatics-btn171.tex]
+
+Page: i23
+
+i15–i23
+
+i23
+
+

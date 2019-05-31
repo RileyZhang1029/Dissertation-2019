@@ -1,0 +1,1666 @@
+BIOINFORMATICS
+
+Vol. 26 ECCB 2010, pages i460–i466
+doi:10.1093/bioinformatics/btq372
+
+RactIP: fast and accurate prediction of RNA-RNA interaction
+using integer programming
+Yuki Kato1,∗,†, Kengo Sato2,∗,†, Michiaki Hamada3,4, Yoshihide Watanabe5,
+Kiyoshi Asai2,4 and Tatsuya Akutsu1
+1Bioinformatics Center, Institute for Chemical Research, Kyoto University, Gokasho, Uji, Kyoto 611-0011, 2Graduate
+School of Frontier Sciences, University of Tokyo, 5-1-5 Kashiwanoha, Kashiwa, Chiba 277-8561, 3Mizuho
+Information & Research Institute, Inc, 2-3 Kanda-Nishikicho, Chiyoda-ku, Tokyo 101-8443, 4Computational Biology
+Research Center (CBRC), National Institute of Advanced Industrial Science and Technology (AIST), 2-41-6, Aomi,
+Koto-ku, Tokyo 135-0064 and 5Department of Mathematical Sciences, Faculty of Science and Engineering,
+Doshisha University, 1-3 Tataramiyakodani, Kyotanabe, Kyoto 610-0321, Japan
+
+ABSTRACT
+Motivation: Considerable attention has been focused on predicting
+RNA–RNA interaction since it is a key to identifying possible targets
+of non-coding small RNAs that regulate gene expression post-
+transcriptionally. A number of computational studies have so far been
+devoted to predicting joint secondary structures or binding sites
+under a speciﬁc class of interactions. In general, there is a trade-
+off between range of interaction type and efﬁciency of a prediction
+algorithm, and thus efﬁcient computational methods for predicting
+comprehensive type of interaction are still awaited.
+Results: We present RactIP, a fast and accurate prediction method
+for RNA–RNA interaction of general type using integer programming.
+RactIP can integrate approximate information on an ensemble of
+equilibrium joint structures into the objective function of integer
+programming using posterior
+internal and external base-paring
+probabilities. Experimental results on real interaction data show that
+prediction accuracy of RactIP is at least comparable to that of
+several state-of-the-art methods for RNA–RNA interaction prediction.
+Moreover, we demonstrate that RactIP can run incomparably faster
+than competitive methods for predicting joint secondary structures.
+Availability: RactIP is implemented in C++, and the source code is
+available at http://www.ncrna.org/software/ractip/
+Contact: ykato@kuicr.kyoto-u.ac.jp; satoken@k.u-tokyo.ac.jp
+Supplementary information: Supplementary data are available at
+Bioinformatics online.
+
+1 INTRODUCTION
+Recent years have seen a renewal of interest in the biological roles
+of functional non-coding RNAs (ncRNAs). Modern studies have
+provided evidence that they can act as ubiquitous regulators in
+living cells (Eddy, 2001; Vogel and Wagner, 2007). A class of
+small ncRNAs downregulates gene expression post-transcriptionally
+via base-pairing with target mRNAs of the ncRNAs to inhibit the
+translation into the corresponding proteins. Eukaryotic microRNAs
+(miRNAs) and small interfering RNAs (siRNAs) are very short and
+have almost full sequence complementarity to their targets. On the
+other hand, several regulatory antisense RNAs have been found in
+
+∗
+To whom correspondence should be addressed.
+†The authors wish it to be known that, in their opinion, the ﬁrst two authors
+should be regarded as joint First Authors.
+
+bacterial chromosomes, which have relatively long sequences and
+interact with their target mRNAs in a more intricate manner (Brantl,
+2002). This type of interaction comes from the fact that the genes
+encoding the antisense RNAs are located at loci different from those
+encoding their targets (i.e. trans-encoded antisense RNAs) (Wagner
+and Flärdh, 2002). In particular, kissing hairpin structures (see
+Fig. 1) caused by loop–loop interaction have been observed (Brunel
+et al., 2002). To help to understand the mechanism of RNA–RNA
+interaction further, as well as to identify target RNAs of speciﬁc
+ncRNAs, it is desirable to develop fast and accurate computational
+methods for predicting interacting RNA structures.
+
+RNA–RNA interaction prediction has so far been performed by
+several computational approaches, which can be roughly classiﬁed
+into four groups. The ﬁrst group including UNAFold (Dimitrov
+and Zuker, 2004), RNAhybrid (Rehmsmeier et al., 2004) and
+RNAduplex from the Vienna RNA Package (Hofacker et al., 1994;
+Hofacker, 2003) disregards intramolecular bonds in both sequences
+and computes the minimum free energy (MFE) hybridization. They
+work out for short interacting RNAs but are impracticable for
+long sequences with intramolecular structures. The second group
+belongs to the category that uses the idea of concatenating two RNA
+sequences and considering them as a single strand so that the MFE
+structure of the resulting sequence can be computed. PairFold
+(Andronescu et al., 2005) and RNAcofold (Bernhart et al., 2006)
+adopt this procedure, but these methods cannot predict general type
+of interaction such as kissing hairpins. Other approaches such as
+RNAup (Mückstein et al., 2006), IntaRNA (Busch et al., 2008),
+inRNAs (Salari et al., 2010a) and bistaRNA (Poolsap et al., 2010)
+fall into the third group, which considers RNA–RNA interaction
+as the stepwise process of individual intramolecular foldings and
+their hybridization. RNAup and IntaRNA can predict only one
+binding site, whereas inRNAs and bistaRNA can predict multiple
+binding sites. The ﬁnal group aims at predicting the MFE joint
+secondary structure or computing the interaction partition function
+under the comprehensive type of interaction. IRIS (Pervouchine,
+2004), inteRNA (Alkan et al., 2006), RIG (Kato et al., 2009),
+piRNA (Chitsaz et al., 2009), rip (Huang et al., 2009, 2010) and
+also inRNAs (Salari et al., 2010a) are listed as this category. These
+methods impose natural constraints on the joint structure such that
+there are no internal pseudoknots, crossing interactions and zigzags
+(Alkan et al., 2006; Chitsaz et al., 2009). Note that Alkan et al.
+suggested that these constraints are satisﬁed by all examples of
+
+ The Author(s) 2010. Published by Oxford University Press.
+This is an Open Access article distributed under the terms of the Creative Commons Attribution Non-Commercial License (http://creativecommons.org/licenses/
+by-nc/2.5), which permits unrestricted non-commercial use, distribution, and reproduction in any medium, provided the original work is properly cited.
+
+[10:41 28/8/2010 Bioinformatics-btq372.tex]
+
+Page: i460 i460–i466
+
+ncRNA
+
+target RNA
+
+Fig. 1. An example of RNA–RNA interaction containing two kissing
+hairpins. A broken line represents an internal base pair, and a black circle
+indicates a base that constitutes an external base pair (binding site).
+
+complex RNA–RNA interactions in the literature. In this sense, we
+can consider the class of joint structures satisfying those constraints
+the most general type of interaction. Although the ﬁnal group can
+cover wider class of interacting structures simultaneously, their
+computational costs could be prohibitively expensive for long
+sequences.
+
+Prediction of interacting RNA structure can be considered as a
+kind of optimization problem in a sense that we seek to minimize
+the free energy of the joint structure or maximize a score such
+as an interaction probability under the possible topology of the
+interacting structure. Various problems presented in bioinformatics
+have been formulated as mathematical programming problems,
+where the objective function is minimized or maximized under
+some constraints. Recently, Bauer et al. (2007) presented LARA
+that implements an integer programming-based method for multiple
+structural alignment of RNA sequences. To reduce the computational
+cost of the structural alignment, they simpliﬁed the mathematical
+structure of the integer programming (IP) formulation, eliminating
+information on the topology of secondary structure from the
+constraints and integrating the structural
+information into the
+objective function, as well as using the Lagrangian relaxation. In
+general, IP problems are known to be NP-hard, but use of IP
+formulation fascinates us due to its strong and ﬂexible descriptive
+power to model a large number of combinatorial optimization
+problems.
+
+Motivated in part by Bauer et al.’s work, we present a novel
+method called RactIP, RNA–RNA interACTion prediction using
+Integer Programming. In our IP formulation, the objective function,
+which is to be maximized, is deﬁned as the sum of scores with
+respect to internal and external base pairs of two interacting RNAs.
+In particular, we make use of posterior probabilities such as base-
+pairing probabilities and hybridization probabilities for scores of
+internal pairs and those of external pairs, respectively, to incorporate
+further structural information into the objective function as in
+the case of LARA (Bauer et al., 2007). It is to be noted that
+use of such posterior probabilities enables the method to take
+account of an ensemble of equilibrium structures approximately,
+which will lead to improve expected accuracy. We introduce a
+threshold cut technique to solve the IP problem efﬁciently, which
+is shown to be reasonable from the viewpoint of maximizing
+expected accuracy. By virtue of this technique, RactIP achieves
+considerably short run-time despite the computational hardness of
+IP. We demonstrate the prediction performance of RactIP on a set
+of known interacting RNA pairs both for joint structure prediction
+
+RactIP
+
+and binding site prediction, making a comparison with several state-
+of-the-art methods. Advantages of RactIP are summarized as
+follows:
+
+(cid:127) As for joint secondary structure prediction under the most
+general type of interaction, RactIP can run overwhelmingly
+faster than competitive prediction methods with O(n6) time
+complexities, where n is the length of the longer input sequence.
+In fact, experimental results reveal that computation time of
+RactIP is an order of magnitude shorter than that of inRNAs
+(the joint structure prediction model) (Salari et al., 2010a),
+inteRNA (the Loop Model) (Alkan et al., 2006) and rip
+(Huang et al., 2009, 2010). Recently, Salari et al. (2010b)
+proposed a sparsiﬁed dynamic programming algorithm whose
+time complexity is O(n5) on average. To the best of the authors’
+knowledge, RactIP is the fastest method for predicting
+both internal structures and binding sites simultaneously on
+condition of the comprehensive class of interactions.
+
+(cid:127) RactIP is comparable in accuracy to inRNAs (the joint
+structure prediction model) and outperforms inteRNA and
+rip for joint structure prediction. From the viewpoint of
+binding site prediction that disregards (predicted) internal base
+pairs, accuracy of RactIP is as good as that of inRNAs (the
+binding site prediction model) and better than that of IntaRNA
+(Busch et al., 2008).
+
+(cid:127) The mathematical model of RactIP is compact. In particular,
+the IP objective function ﬁt in well with the sum of the
+posterior probabilities that consider many complex loop
+energies necessary to achieve prediction of good quality.
+
+(cid:127) The IP-based method is ﬂexible and extensible. Compared with
+other computational approaches, it is easy to change the model
+to cope with a desired class of secondary structures simply by
+adding or removing appropriate constraints. In our model, we
+employ additional constraints to represent stacking base pairs,
+which is expected to improve prediction accuracy.
+
+The rest of the article is organized as follows. Section 2 describes
+our prediction model RactIP in detail after providing several
+preliminaries to grasp it. We show experimental results of interaction
+prediction and discuss them in Sections 3 and 4, respectively. Section
+5 concludes the article.
+
+2 METHODS
+We propose a new method RactIP for RNA–RNA interaction prediction
+using IP. RactIP executes the following two steps when two RNA
+sequences are given:
+
+(1) compute the score matrices of the IP objective function for internal
+
+and external base pairs;
+
+(2) solve the IP problem to predict the optimal joint secondary structure.
+
+It should be noted that the program RactIP actually solves the IP problem
+using libraries of a high-performance solver (see Section 3 for details).
+
+interaction
+
+2.1 Scoring functions for predicting RNA–RNA
+Let ={A,C,G,U} and ∗
+consisting of bases in . For a sequence a∈ ∗
+
+denote the set of all ﬁnite RNA sequences
+, let |a| denote the number
+
+[10:41 28/8/2010 Bioinformatics-btq372.tex]
+
+Page: i461 i460–i466
+
+i461
+
+Y.Kato et al.
+
+.
+
+of symbols appearing in a, which is called the length of a. For 1≤ i < j≤|a|,
+we let a[i..j] denote a sequence aiai+1···aj ∈ ∗
+Let S(a) be a space of all possible secondary structures of a sequence
+a∈ ∗
+. An element x∈S(a) is represented as a |a|2 binary-valued triangular
+matrix x=(xij)i<j, where xij =1 means that bases ai and aj form a base pair.
+We denote by P(x| a) a probability distribution over S(a). Let H(a,b) be a
+space of all possible hybridized structures between a,b∈ ∗
+, which considers
+no secondary structures of a and b. An element z∈H(a,b) is represented as
+a |a|×|b| binary-valued matrix z=(zij), where zij =1 means that the base ai
+interacts with the base bj. We denote by P(z| a,b) a probability distribution
+over H(a,b). Let J S(a,b) be a space of the joint secondary structures of
+a and b that considers both the secondary structures of a and b and the
+hybridized structures between a and b. In other words, J S(a,b) is a subset
+of S(a)×S(b)×H(a,b). We denote by P(σ| a,b) a probability distribution
+over J S(a,b), where σ=(x,y,z)∈J S(a,b) such that x∈S(a), y∈S(b) and
+z∈H(a,b). We assume that each base can be paired with at most one base
+regardless of whether the base pair is formed inside or outside the sequence,
+and internal pseudoknots and crossing interactions (external pseudoknots)
+are disallowed.
+
+We now deﬁne the problem of predicting RNA-RNA interaction as
+
+follows:
+
+Deﬁnition 1 (RNA–RNA interaction prediction). Given two RNA sequences
+a= a[1..n]∈ ∗
+direction),
+predict a joint secondary structure σ∈J S(a,b).
+
+direction) and b= b[1..m]∈ ∗
+
+–3
+
+–5
+
+(5
+
+(3
+
+(cid:4)
+
+(cid:4)
+
+(cid:4)
+
+(cid:4)
+
+To tackle this problem, we ﬁrst deﬁne the gain function for the true joint
+
+structure σ=(x,y,z) and a predicted joint structure ˆσ=(ˆx,ˆy,ˆz) as
+
+where
+
+G(σ, ˆσ)= Gγs (x,ˆx)+Gγs (y,ˆy)+αGγh (z,ˆz)
+(cid:1)
+(cid:1)
+(cid:1)
+
+(cid:3)
+(cid:3)
+γs I(yij =1)I(ˆyij =1)+I(yij =0)I(ˆyij =0)
+(cid:3)
+
+γs I(xij =1)I(ˆxij =1)+I(xij =0)I(ˆxij =0)
+
+γh I(zij =1)I(ˆzij =1)+I(zij =0)I(ˆzij =0)
+
+(cid:2)
+(cid:2)
+(cid:2)
+
+i<j
+
+i<j
+
+.
+
+Gγs (x,ˆx)=
+Gγs (y,ˆy)=
+Gγh (z,ˆz)=
+
+(1)
+
+,
+
+,
+
+i,j
+
+a
+
+b
+
+P(σ | a, b)
+
+a
+
+b
+
+a
+
+b
+
+P(x | a)
+
+P(y | b)
+
+P(z | a, b)
+
+ij
+
+ij
+
+i<j
+
+i<j
+
+(cid:5)
+
+(cid:5)
+
+=
+
+ˆyij
+
++α
+
+−1
+
+(γs+1)p(b)
+
+(γh+1)qij−1
+
+Gγs (y,ˆy)P(y| b)
+
+(cid:1)
+x∈S(a)
++α
+(cid:4)
+(cid:1)
+
+Fig. 2. An illustration of the factorization [Equation (3)] of the posterior
+probability P(σ| a,b) of a joint structure σ. A broken line shows an internal
+or external base pair.
+for σ=(x,y,z) (Fig. 2). As a result, the expected gain (2) can be replaced by
+
+Gγs (x,ˆx)P(x| a)+
+(cid:1)
+z∈H(a,b)
+(γs+1)p(a)
+(cid:1)
+(cid:2)
+
+(cid:1)
+y∈S(b)
+Gγh (z,ˆz)P(z| a,b)
+(cid:4)
+(cid:1)
+ˆxij+
+−1
+(cid:3)ˆzij+C
+where C is a constant independent of ˆσ, p(a)
+x∈S(a) I(xij =1)P(x| a)
+(cid:6)
+is a base-pairing probability that the base ai is paired with aj, and qij =
+z∈H(a,b) I(zij =1)P(z| a,b) is a hybridization probability that the base ai
+interacts with the base bj (see Supplementary Material for the derivation).
+Finally, we ﬁnd a joint structure ˆσ=(ˆx,ˆy,ˆz) that maximizes the approximate
+estimator (4). We should notice that maximizing the approximate estimator
+(4) is equivalent to maximizing the sum of: (i) the sum of the base-pairing
+larger than θs=1/(γs+1); (ii) the sum of the base-pairing
+probabilities p(a)
+ij
+probabilities p(b)
+larger than θs; and (iii) the sum of the hybridization
+probabilities qij larger than θh=1/(γh+1). This means that there is no
+ij
+need to consider the base pairs whose posterior probabilities are at most
+the predeﬁned thresholds θs and θh so that the search space for the optimal
+structure can be reduced. This threshold cut technique makes our method
+run much faster.
+
+=(cid:6)
+
+(4)
+
+i,j
+
+ij
+
+Here, I(condition) is the indicator function that takes a value of 1 or 0
+depending on whether the condition is true or false, γs and γh are weight
+parameters for base pairs, and α is a balancing parameter between internal
+base pairs and external base pairs. The gain function (1) is equal to the
+weighted sum of the number of true positives and the number of true
+negatives of base pairs. In order to maximize the expected number of
+true predictions, we ﬁnd a joint secondary structure ˆσ that maximizes the
+expectation of the gain function (1) with respect to an ensemble of all possible
+joint secondary structures under a given posterior distribution:
+
+Eσ|a,b[G(σ, ˆσ)]=
+
+G(σ, ˆσ)P(σ| a,b).
+
+(2)
+
+(cid:1)
+σ∈J S(a,b)
+
+For the posterior distribution P(σ| a,b) over a space of joint secondary
+structures, we can employ the piRNA model (Chitsaz et al., 2009) and the
+rip model (Huang et al., 2009, 2010). However, these exact models are
+impractical since O(n6) time and O(n4) space are required where n is the
+length of the longer RNA sequence. Therefore, we approximate the posterior
+distribution over a space of joint secondary structures by its factorization:
+
+IP model
+
+2.2
+2.2.1 Deﬁnition of IP Integer (linear) programming, which is one of the
+mathematical programming methods, seeks to maximize/minimize a linear
+function called objective function subject to linear equality and/or inequality
+constraints. The most important constraint of IP is that speciﬁed variables
+must take integral values. An IP problem where all variables are non-negative
+integers can be described as follows:
+
+maximize
+
+subject to
+
+cjxj
+
+n(cid:1)
+j=1
+n(cid:1)
+j=1
+xj ∈ Z+ (1≤∀j≤ n)
+
+aijxj ≤ bi
+
+(1≤∀i≤ m),
+
+where aij,bi,cj ∈ R and xj is a variable deﬁned over a set Z+ of non-negative
+integers.
+
+P(σ| a,b)(cid:5) P(x| a)P(y| b)P(z| a,b)
+
+2.2.2 Formulation for RNA–RNA interaction prediction We use the entries
+of the binary-valued triangular matrices x=(xij)i<j ∈S(a), y=(yij)i<j ∈S(b)
+
+(3)
+
+i462
+
+[10:41 28/8/2010 Bioinformatics-btq372.tex]
+
+Page: i462 i460–i466
+
+RactIP
+
+(a) 
+
+(b) 
+
+Fig. 3. An illustration of variables used in the IP formulation. This variable
+setting enables the model to represent a kissing hairpin.
+
+(a) 
+
+(b) 
+
+(c) 
+
+(cid:4)
+
+maximize
+
+Fig. 4. An illustration of several constraints of the IP formulation. In each
+of the three diagrams, at most one variable shown by a broken (curved) line
+can take a value 1.
+and z=(zij)∈H(a,b) deﬁned in Section 2.1 as the fundamental IP variables
+for describing internal and external base pairs. Figure 3 indicates a simple
+kissing hairpin structure by setting these variables as xij =1, yi(cid:4)j(cid:4) =1 and
+zkl =1 where i < k < j and i
+(cid:4) < l < j
+. With these variables, we can formulate
+an IP problem for joint secondary structure prediction as follows:
+n−1(cid:1)
+n(cid:1)
+j=i+1
+i=1
+xji+ n(cid:1)
+i−1(cid:1)
+j=1
+i−1(cid:1)
+yji+ m(cid:1)
+j=1
+xij+xkl ≤1
+yij+ykl ≤1
+zij+zkl ≤1
+
+m(cid:1)
+ij xij+ m−1(cid:1)
+j=i+1
+xik+ m(cid:1)
+zil ≤1
+yik+ n(cid:1)
+
+(1≤∀i <∀k <∀j <∀l≤ n),
+(1≤∀i <∀k <∀j <∀l≤ m),
+(1≤∀i <∀k≤ n; 1≤∀l <∀j≤ m)
+
+m(cid:1)
+j=1
+(1≤∀i≤ n),
+
+(1≤∀i≤ m),
+
+ij yij+α
+p(b)
+
+n(cid:1)
+i=1
+
+zli ≤1
+
+subject to
+
+k=i+1
+
+k=i+1
+
+qijzij
+
+p(a)
+
+(10)
+
+l=1
+
+l=1
+
+i=1
+
+(5)
+
+(6)
+
+(7)
+
+(8)
+
+(9)
+
+, p(b)
+ij
+
+where p(a)
+and qij denote the base-pairing probabilities and the
+hybridization probability deﬁned in Section 2.1, respectively, and α∈(0,1)
+ij
+is a parameter that regulates the proportion of hybridization in the predicted
+structure. Recall that values of all variables must be either 0 or 1.
+
+Here,
+
+let us look more carefully into each equation of the above
+IP formulation. The objective function (5) shows an instantiation of
+the approximate estimator (4) using the base-pairing probabilities and
+hybridization probabilities. Note that the third term describing sum of scores
+of external base pairs is multiplied by a positive weight parameter α. As
+suggested by Alkan et al. (2006), we set α∈(0,1) so that external base
+pairs are less likely to be formed than internal ones. In this study, we ﬁx
+α=0.5, that is, external base pairs contribute to the objective function by
+half compared with internal base pairs. Constraints (6) and (7) mean that each
+base can be paired with at most one base regardless of whether the base pair
+is formed inside or outside the sequence (Fig. 4a). Internal pseudoknots and
+crossing interactions are prohibited by constraints (8), (9) and the constraint
+(10), respectively (Fig. 4b and c).
+
+Fig. 5. An illustration of stacked pairing constraints of the IP formulation.
+
+To solve the IP problem, we employ the threshold cut technique where we
+exclude the IP variables in advance representing internal and external base
+pairs whose posterior probabilities are not exceeding θs and θh, respectively,
+deﬁned in Section 2.1, before computing the optimal solution. As described
+in Section 2.1, this threshold cut is derived from the viewpoint of maximizing
+expected accuracy of joint structure prediction.
+
+It is widely accepted that
+2.2.3 Incorporating stacked pairing constraints
+base pairs in stable RNA structures are likely to appear in a stacked form
+rather than an isolated one. Following the IP formulation for predicting
+secondary structure of a single RNA sequence proposed by Poolsap et al.
+(2009), we deﬁne further variables for promoting stacking base pairs as
+follows:
+=
+
+1 (ai bonds with a base in a at a position greater than i),
+0 (otherwise),
+
+x(cid:6)
+i
+
+(cid:7)
+(cid:7)
+
+=
+
+xr
+i
+
+1 (ai bonds with a base in a at a position less than i),
+0 (otherwise).
+
+In the IP formulation, we describe the deﬁnitions of x(cid:6)
+
+= n(cid:1)
+
+j=i+1
+
+x(cid:6)
+i
+
+(1≤∀i < n),
+
+xij
+
+xr
+i
+
+= i−1(cid:1)
+
+j=1
+
+xji
+
+i and xr
+i as
+(1 <∀i≤ n).
+
+We should notice that the following ingenious constraints containing linear
+combinations of these variables actually play a role in yielding stacking base
+pairs:
+
++(1−x(cid:6)
++(1−xr
+
+i )+x(cid:6)
+i+1
+i )+xr
+i+1
+
+i−1
+x(cid:6)
+i−1
+xr
+
+≥1 (1 <∀i < n),
+≥1
+(1 <∀i < n).
+
+(11)
+
+(12)
+
+These constraints guarantee that if a base ai is paired with another one,
+the base(s) adjacent to ai must also form a base pair (Fig. 5). The rest of the
+variable deﬁnitions with respect to the sequence b and interaction part, and
+related constraints, are similarly represented in the IP formulation.
+
+Implementation
+
+3 RESULTS
+3.1
+Our method was implemented as a program called RactIP, which
+uses Gurobi optimizer 2.0 (http://gurobi.com/) for solving the IP
+problem. We employed the CONTRAfold model (Do et al., 2006)
+
+i463
+
+[10:41 28/8/2010 Bioinformatics-btq372.tex]
+
+Page: i463 i460–i466
+
+Y.Kato et al.
+
+Table 1. Comparison with competitive methods for joint structure prediction
+
+Antisense-target
+
+No. of sites
+
+Sensitivity
+
+PPV
+
+F-measure
+
+Time (s)
+
+RactIP
+
+inRNAs
+
+inteRNA
+
+RactIP
+
+inRNAs
+
+inteRNA
+
+RactIP
+
+inRNAs
+
+inteRNA
+
+RactIP
+
+CopA-CopT
+DIS-DIS
+IncRNA54-RepZ
+R1inv-R2inv
+Tar-Tar*
+Average
+
+2
+1
+1
+1
+1
+
+1.000
+1.000
+0.813
+1.000
+1.000
+0.963
+
+1.000
+1.000
+0.875
+0.900
+1.000
+0.955
+
+0.731
+1.000
+0.958
+0.800
+1.000
+0.898
+
+0.754
+1.000
+0.736
+1.000
+0.875
+0.873
+
+0.846
+1.000
+0.792
+0.900
+0.875
+0.883
+
+0.655
+1.000
+0.836
+0.889
+0.875
+0.851
+
+0.860
+1.000
+0.772
+1.000
+0.933
+0.913
+
+0.917
+1.000
+0.831
+0.900
+0.933
+0.916
+
+0.691
+1.000
+0.893
+0.842
+0.933
+0.872
+
+0.13
+0.05
+0.10
+0.03
+0.03
+
+The ﬁve RNA–RNA interaction pairs were predicted by RactIP, inRNAs (the joint structure prediction model) (Salari et al., 2010a) and inteRNA (the Loop Model) (Aksay
+et al., 2007; Alkan et al., 2006). In the table, No. of sites represents the number of binding sites. We set the parameters for RactIP as α=0.5, θs =0.5 and θh =0.2. Running time
+of RactIP was measured on Mac OS X 10.6 running Intel Core 2 Duo 2.13 GHz with 2 GB memory. Note that computation time of inRNAs is reported to be at most 4000 s for
+long sequences on Sun Fire X4600 2.6 GHz with 64 GB memory (Salari et al., 2010a).
+
+for
+the probability distribution of RNA secondary structures
+and the RNAduplex model for the probability distribution of
+hybridization of two RNA sequences. CONTRAfold, based on a
+machine-learning algorithm, is one of the most accurate programs
+for predicting RNA secondary structures. We utilized part of
+CONTRAfold to calculate base-pairing probabilities p(a)
+and
+ij
+p(b)
+. RNAduplex is a program from the Vienna RNA package
+ij
+(Hofacker et al., 1994; Hofacker, 2003) for computing the MFE
+structure of hybridization of two RNA sequences. We modiﬁed
+the code of RNAduplex to calculate hybridization probabilities
+qij instead of the MFE structures, designing a forward-backward-
+like algorithm. The source code of RactIP is freely available at
+http://www.ncrna.org/software/ractip/.
+
+3.2 Data
+In our experiments, we used two datasets of RNA–RNA interactions.
+The ﬁrst set comprises ﬁve pairs of RNA sequences with their joint
+secondary structures including kissing hairpins, which was used
+by Kato et al. (2009). We made use of this set to evaluate the
+performance of joint secondary structure prediction. The second set
+contains 18 sRNA–target pairs with their binding sites, which was
+used by Busch et al. (2008). All of the two datasets (i.e. 23 pairs of
+interacting RNAs) were used to assess the performance of binding
+site prediction.
+
+Joint structure prediction
+
+3.3
+We ﬁrst conducted experiments in joint secondary structure
+prediction on the dataset compiled by Kato et al. (2009). The
+performance was evaluated by sensitivity and positive predictive
+value (PPV) deﬁned as follows:
+sensitivity= TP
+TP+FN
+
+, PPV= TP
+
+TP+FP
+
+,
+
+where TP is the number of correctly predicted base pairs, FN is the
+number of base pairs in the true structure that were not predicted,
+and FP is the number of incorrectly predicted base pairs. We also
+used F-measure as the balanced measure between sensitivity and
+PPV, which is deﬁned as the harmonic mean of them:
+
+F= 2×sensitivity×PPV
+sensitivity+PPV
+
+.
+
+We compared our method RactIP with two state-of-the-art
+methods: inRNAs (the exact model for joint structure prediction)
+(Salari et al., 2010a) and inteRNA (Alkan et al., 2006).
+The accuracy of inRNAs is extracted from their literature. In
+order to calculate the accuracy of inteRNA, we computed
+the joint structure of each pair in the dataset by using the
+inteRNA Web server with default settings (Aksay et al., 2007)
+(http://compbio.cs.sfu.ca/taverna/interna/).
+
+Table 1 shows the results of joint structure prediction using our
+approach and two existing methods. As can be seen, RactIP
+outperforms inteRNA and is comparable to inRNAs. It should
+be noted that computation time of RactIP includes both the pre-
+processing step to calculate posterior pairing probabilities and the
+one to solve the IP problem. We did not compare the running
+time strictly between the three methods due to difﬁculty in their
+availability. However, we would like to remark that Salari et al.
+(2010a) reported in their literature that inRNAs runs for ∼4000 s
+on Sun Fire X4600 2.6 GHz with 64 GB memory to predict the
+joint structures of CopA–CopT and IncRNA54-RepZ. Meanwhile,
+RactIP consumes only 0.13 s and 0.10 s to predict
+the joint
+structures of CopA-CopT and IncRNA54-RepZ, respectively, on
+Mac OS X 10.6 running on Intel Core 2 Duo 2.13 GHz with 2 GB
+memory.
+
+3.4 Binding site prediction
+In the second experiment, we assessed the performance of predicting
+binding sites on the dataset reported by Kato et al. (2009) and Busch
+et al. (2008). The accuracy was measured by sensitivity, PPV and
+F-measure such that only external base pairs are considered. Table 2
+shows the results of prediction by our program RactIP, inRNAs
+(the heuristic model for binding site prediction) (Salari et al., 2010a)
+extracted from their literature, and IntaRNA (Busch et al., 2008)
+with default settings, indicating that our method is more accurate
+or comparable as compared with the existing methods. It is worth
+noting that RactIP has no restriction on the number of accessible
+regions to predict, whereas IntaRNA and inRNAs can consider
+only one or two accessible regions that are putative binding sites.
+
+3.5 Time and accuracy trade-off by approximation
+To conﬁrm the effectiveness of approximating the joint posterior
+distribution by its factorization, we compared running time and
+
+i464
+
+[10:41 28/8/2010 Bioinformatics-btq372.tex]
+
+Page: i464 i460–i466
+
+RactIP
+
+Table 2. Comparison with competitive methods for binding site prediction
+
+Antisense-target No. of sites Sensitivity
+
+PPV
+
+F-measure
+
+Time (s)
+
+∗
+
+2
+CopA-CopT
+DIS-DIS
+1
+IncRNA54-RepZ 1
+1
+R1inv-R2inv
+Tar-Tar
+1
+DsrA-RpoS
+1
+1
+GcvB-argT
+1
+GcvB-dppA
+1
+GcvB-gltI
+1
+GcvB-livJ
+GcvB-livK
+1
+GcvB-oppA
+1
+GcvB-STM4351 1
+1
+IstR-tisAB
+1
+MicA-ompA
+MicA-lamB
+1
+1
+MicC-ompC
+1
+MicF-ompF
+2
+OxyS-fhlA
+1
+RyhB-sdhD
+RyhB-sodB
+1
+1
+SgrS-ptsG
+Spot42-galK
+1
+Average
+
+RactIP inRNAs
+
+IntaRNA RactIP inRNAs
+
+IntaRNA RactIP inRNAs
+
+IntaRNA RactIP inRNAs
+
+IntaRNA
+
+0.815
+1.000
+0.750
+1.000
+1.000
+0.654
+0.950
+0.941
+1.000
+0.955
+0.958
+1.000
+0.880
+0.778
+0.875
+0.565
+0.727
+0.833
+0.563
+0.824
+1.000
+0.739
+0.682
+0.847
+
+0.889
+1.000
+1.000
+1.000
+1.000
+0.808
+0.950
+1.000
+0.750
+0.634
+0.540
+1.000
+0.760
+0.722
+1.000
+1.000
+1.000
+0.960
+0.813
+0.618
+1.000
+0.566
+0.432
+0.845
+
+1.000
+1.000
+0.738
+1.000
+1.000
+0.808
+0.950
+1.000
+0.000
+0.955
+0.542
+1.000
+0.760
+0.879
+1.000
+1.000
+1.000
+0.960
+0.500
+0.588
+1.000
+0.739
+0.409
+0.819
+
+0.579
+1.000
+0.783
+1.000
+0.833
+0.739
+1.000
+0.593
+1.000
+0.955
+0.958
+1.000
+1.000
+1.000
+0.875
+0.867
+0.889
+0.769
+0.818
+0.824
+0.391
+1.000
+0.698
+0.851
+
+0.828
+1.000
+0.889
+0.778
+0.833
+0.778
+0.864
+0.850
+0.500
+0.824
+0.570
+0.733
+1.000
+1.000
+1.000
+1.000
+1.000
+0.960
+1.000
+0.955
+1.000
+0.765
+0.760
+0.865
+
+0.391
+1.000
+0.850
+1.000
+0.833
+0.778
+0.950
+0.586
+0.000
+0.955
+0.565
+0.957
+0.905
+0.960
+1.000
+0.821
+0.537
+0.960
+1.000
+1.000
+0.818
+1.000
+0.643
+0.805
+
+0.677
+1.000
+0.766
+1.000
+0.909
+0.694
+0.974
+0.727
+1.000
+0.955
+0.958
+1.000
+0.936
+0.875
+0.875
+0.684
+0.800
+0.800
+0.667
+0.824
+0.563
+0.850
+0.690
+0.836
+
+0.857
+1.000
+0.941
+0.875
+0.909
+0.793
+0.905
+0.919
+0.600
+0.717
+0.555
+0.846
+0.864
+0.839
+1.000
+1.000
+1.000
+0.960
+0.897
+0.750
+1.000
+0.651
+0.551
+0.845
+
+0.562
+1.000
+0.790
+1.000
+0.909
+0.793
+0.950
+0.739
+0.000
+0.955
+0.553
+0.978
+0.826
+0.918
+1.000
+0.902
+0.699
+0.960
+0.667
+0.741
+0.900
+0.850
+0.500
+0.791
+
+0.14
+0.04
+0.10
+0.03
+0.02
+0.06
+0.04
+0.05
+0.05
+0.04
+0.04
+0.05
+0.04
+0.05
+0.32
+0.08
+0.07
+0.73
+0.32
+0.07
+0.19
+0.06
+0.13
+
+0.21
+0.03
+2.56
+0.03
+0.03
+6.80
+8.07
+5.59
+2.74
+6.10
+3.24
+8.23
+2.59
+8.24
+3.29
+5.38
+8.11
+17.82
+0.21
+7.74
+3.23
+12.07
+5.94
+
+0.14
+0.04
+0.11
+0.02
+0.03
+0.05
+0.03
+0.04
+0.04
+0.04
+0.03
+0.04
+0.04
+0.05
+0.04
+0.08
+0.06
+0.83
+0.39
+0.06
+0.21
+0.05
+0.13
+
+The 23 RNA–RNA interaction pairs were predicted by RactIP, inRNAs (the binding site prediction model) (Salari et al., 2010a) and IntaRNA (Busch et al., 2008). We set the
+parameters for RactIP as α=0.5, θs =0.3 and θh =0.5. Running time of RactIP and IntaRNA was measured on Mac OS X 10.6 running on Intel Core 2 Duo 2.13 GHz with
+2 GB memory. Computation time of inRNAs measured on Intel Core 2 Duo 2.53 GHz with 4 GB memory was given by R. Salari (personal communication).
+
+Table 3. Comparison of accuracy and running time for joint structure prediction
+
+Antisense target
+
+Sensitivity
+
+PPV
+
+F-measure
+
+Time
+
+RactIP
+
+rip
+
+rip+RactIP
+
+RactIP
+
+rip
+
+rip+RactIP
+
+RactIP
+
+rip
+
+rip+RactIP
+
+RactIP (s)
+
+rip
+
+DIS-DIS
+IncRNA54-RepZ
+R1inv-R2inv
+Tar-Tar*
+
+1.000
+0.813
+1.000
+1.000
+
+0.500
+0.562
+0.900
+1.000
+
+0.500
+1.000
+1.000
+1.000
+
+1.000
+0.736
+1.000
+0.875
+
+0.500
+0.500
+0.900
+0.875
+
+0.500
+0.889
+1.000
+0.875
+
+1.000
+0.772
+1.000
+0.933
+
+0.500
+0.529
+0.900
+0.933
+
+0.500
+0.941
+1.000
+0.933
+
+0.05
+0.10
+0.03
+0.03
+
+19 m 40 s
+860 m
+37 s
+9.5 s
+
+The four RNA–RNA interaction pairs were predicted by RactIP, rip (Huang et al., 2009, 2010) and RactIP with base-pairing probabilities calculated by rip (rip+RactIP).
+We set the parameters for RactIP as α=0.5, θs =0.5 and θh =0.2. Running time of RactIP was measured on Mac OS X 10.6 running on Intel Core 2 Duo 2.13 GHz with 2 GB
+memory. Computation time of rip was measured on linux kernel 2.6.30 running on Intel Xeon 3.33 GHz with 32 GB memory.
+
+prediction accuracy of the factorized model that we proposed with
+those of the naïve model by rip (Huang et al., 2009, 2010). rip
+calculates exact base-pairing probabilities of internal base pairs and
+external base pairs by taking O(n6) time and O(n4) space where
+n is the length of the longer sequence. We compared RactIP
+with rip, which samples joint structures from internal and external
+base-pairing probabilities, and RactIP combined with rip, in
+which internal and external base-pairing probabilities calculated by
+rip were used in the IP [see Equation (5)] instead of factorized
+ones. Note that rip failed to calculate base-pairing probabilities
+for the CopA–CopT pair since their length might be too long for
+rip. As shown in Table 3, our approximation by factorization
+
+is signiﬁcantly faster than the naïve calculation of base-pairing
+probabilities, though the accuracy of our approximation dropped
+slightly. The results indicate that our method can be applicable to
+joint secondary structure prediction for long sequences.
+
+4 DISCUSSION
+We employed the threshold cut technique to reduce the search space
+for the optimal joint secondary structure, which makes RactIP
+run much faster than existing state-of-the-art algorithms for joint
+structure prediction. Let us stress again that there is a close relation
+between the threshold cut and maximizing expected accuracy.
+
+i465
+
+[10:41 28/8/2010 Bioinformatics-btq372.tex]
+
+Page: i465 i460–i466
+
+Y.Kato et al.
+
+The scoring scheme of RactIP can be regarded as the generalized
+centroid estimator (Hamada et al., 2009) since the gain function (1)
+
+with γs= γh and α=1 corresponds to the γ-centroid estimator. As
+
+described in Section 2.1, the thresholds correspond to the weights
+for base pairs in Equation (1), which control the balance between the
+expected number of true positives and that of true negatives. This
+means that an appropriate choice of the thresholds will improve the
+balanced accuracy such as F-measure. See Supplementary Material
+for more details.
+
+In the experiments, we used the combination of the parameters
+derived from the machine-learning model and the ones from the
+thermodynamic model to implement the scores of the RactIP
+objective function. It is possible to adopt such a hybrid scoring
+scheme due to the factorization of the posterior probability of
+a joint structure shown in Equation (3).
+In fact, prediction
+accuracy decreased when adopting the identical scoring scheme
+(e.g.
+is used to derive both base-
+pairing probabilities and hybridization probabilities). The main
+reason will be that the machine-learning model (CONTRAfold)
+specializes in predicting internal secondary structures, whereas the
+thermodynamic model (RNAduplex) aims at predicting hybridized
+structures. Therefore, the approximation enables us to select good
+models separately and integrate them into the prediction model.
+
+the CONTRAfold model
+
+The results shown in Table 2 tell us that RactIP performs
+worse than inRNAs and is not signiﬁcantly better than IntaRNA
+on CopA–CopT and OxyS–fhlA pairs with two binding sites. One
+reason is that lack of interaction data with multiple binding sites
+makes our method fail to optimize appropriately. Nevertheless,
+we would like to emphasize again that RactIP can deal with
+complex interactions with more than one binding site in the
+framework of the integer programming formulation. As our future
+work, optimizing hybridization scores appropriately is necessary to
+improve prediction performance on the data with multiple binding
+sites.
+
+5 CONCLUSION
+We proposed RactIP, a novel method for predicting RNA–
+RNA interaction of general type using IP. In our approach, the
+threshold cut technique was adopted to reduce the complexity of the
+solution space of the IP problem, which also leads to maximizing
+expected accuracy. Experimental results on real interaction data
+demonstrated that prediction accuracy of RactIP is at
+least
+comparable to that of several state-of-the-art methods for joint
+structure prediction and binding site prediction. Although it is
+difﬁcult to evaluate theoretically the time complexity of our IP-
+based approach, experimental validations revealed that RactIP
+can run much faster than competitive methods for predicting
+joint secondary structures. This is an important fact
+to stress
+since RactIP is expected to improve prediction performance in
+unknown target search in long genomes by predicting respective
+intramolecular structures as well as intermolecular binding sites
+in practical time. For this purpose, we should also show that
+RactIP can discriminate between targets and non-targets, which
+is left as our future work. RactIP not only achieved success
+in RNA–RNA interaction prediction but also showed further
+possibility of applying the fast IP-based method with threshold cut
+to other biologically important problems, which are worthwhile and
+challenging tasks.
+
+i466
+
+ACKNOWLEDGEMENTS
+The authors would like to thank Ms Unyanee Poolsap for her
+assistance in collecting the experimental data. The authors also wish
+to thank Ms Raheleh Salari for providing them with experimental
+results using the method presented by her group.
+
+Funding: Young Scientists (B) (KAKENHI) from Ministry of
+Education, Culture, Sports, Science and Technology (MEXT), Japan
+(#22700313 to Y.K., #22700305 to K.S.).
+
+Conﬂict of Interest: none declared.
+
+REFERENCES
+Aksay,C. et al. (2007) taveRNA: a web suite for RNA algorithms and applications.
+
+Nucleic Acids Res., 35, W325–W329.
+
+Alkan,C. et al. (2006) RNA-RNA interaction prediction and antisense RNA target
+
+search. J. Comput. Biol., 13, 267–282.
+
+Andronescu,M. et al. (2005) Secondary structure prediction of interacting RNA
+
+molecules. J. Mol. Biol., 345, 987–1001.
+
+Bauer,M. et al. (2007) Accurate multiple sequence-structure alignment of RNA
+
+sequences using combinatorial optimization. BMC Bioinformatics, 8, 271.
+
+Bernhart,S.H. et al. (2006) Partition function and base pairing probabilities of RNA
+
+heterodimers. Algorithms Mol. Biol., 1, 3.
+
+Brantl,S. (2002) Antisense-RNA regulation and RNA interference. Biochim. Biophys.
+
+Acta, 1575, 15–25.
+
+Brunel,C. et al. (2002) RNA loop-loop interactions as dynamic functional motifs.
+
+Biochimie, 84, 925–944.
+
+Busch,A. et al. (2008) IntaRNA: efﬁcient prediction of bacterial sRNA targets
+incorporating target site accessibility and seed regions. Bioinformatics, 24,
+2849–2856.
+
+Chitsaz,H. et al. (2009) A partition function algorithm for interacting nucleic acid
+
+strands. Bioinformatics, 25, i365–i373.
+
+Dimitrov,R.A. and Zuker,M. (2004) Prediction of hybridization and melting for double-
+
+stranded nucleic acids. Biophys. J., 87, 215–226.
+
+Do,C.B. et al. (2006) CONTRAfold: RNA secondary structure prediction without
+
+physics-based models. Bioinformatics, 22, e90–e98.
+
+Eddy,S.R. (2001) Non-coding RNA genes and the modern RNA world. Nat. Rev. Genet.,
+
+2, 919–929.
+
+Hamada,M. et al. (2009) Prediction of RNA secondary structure using generalized
+
+centroid estimators. Bioinformatics, 25, 465–473.
+
+Hofacker,I.L. et al. (1994) Fast folding and comparison of RNA secondary structures.
+
+Monatsh. Chem., 125, 167–188.
+
+Hofacker,I.L. (2003) Vienna RNA secondary structure server. Nucleic Acids Res., 31,
+
+3429–3431.
+
+Huang,F.W.D. et al. (2009) Partition function and base pairing probabilities for RNA-
+
+RNA interaction prediction. Bioinformatics, 25, 2646–2654.
+
+Huang,F.W.D. et al. (2010) Target prediction and a statistical sampling algorithm for
+
+RNA-RNA interaction. Bioinformatics, 26, 175–181.
+
+Kato,Y. et al. (2009) A grammatical approach to RNA-RNA interaction prediction.
+
+Pattern Recognit., 42, 531–538.
+
+Mückstein,U. et al. (2006) Thermodynamics of RNA-RNA binding. Bioinformatics,
+
+22, 1177–1182.
+
+Pervouchine,D.D. (2004) IRIS:
+
+intermolecular RNA interaction search. Genome
+
+Inform., 15, 92–101.
+
+Poolsap,U. et al. (2009) Prediction of RNA secondary structure with pseudoknots using
+
+integer programming. BMC Bioinformatics, 10 (Suppl. 1), S38.
+
+Poolsap,U. et al. (2010) Dynamic programming algorithms for RNA structure prediction
+
+with binding sites. Proc. Pac. Symp. Biocomput., 15, 98–107.
+
+Rehmsmeier,M. et al. (2004) Fast and effective prediction of microRNA/target
+
+duplexes. RNA, 10, 1507–1517.
+
+Salari,R. et al. (2010a) Fast prediction of RNA-RNA interaction. Algorithms Mol. Biol.,
+
+5, 5.
+
+Salari,R. et al. (2010b) Time and space efﬁcient RNA-RNA interaction prediction via
+
+sparse folding. Lect. Notes Bioinformatics, 6044, 473–490.
+
+Vogel,J. and Wagner,E.G.H. (2007) Target identiﬁcation of small noncoding RNAs in
+
+bacteria. Curr. Opin. Microbiol., 10, 262–270.
+
+Wagner,E.G.H. and Flärdh,K. (2002) Antisense RNAs everywhere? Trends Genet., 18,
+
+223–226.
+
+[10:41 28/8/2010 Bioinformatics-btq372.tex]
+
+Page: i466 i460–i466
+
+

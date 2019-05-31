@@ -1,0 +1,1902 @@
+Genomics Proteomics Bioinformatics 11 (2013) 354–367
+
+Genomics Proteomics Bioinformatics
+
+www.elsevier.com/locate/gpb
+
+www.sciencedirect.com
+
+ORIGINAL RESEARCH
+
+An Integrative Meta-analysis of MicroRNAs
+in Hepatocellular Carcinoma
+
+Mahmoud ElHefnawi 1,*, Bangli Soliman 1, Nourhan Abu-Shahba 2,
+Marwa Amer 3,4
+
+1 Centre of Excellence for Advanced Sciences, Informatics and Systems Department, National Research Centre, Cairo 12622, Egypt
+2 Stem Cells Research Group, Centre of Excellence for Advanced Sciences, Medical Molecular Genetics Department,
+
+National Research Centre, Cairo 12622, Egypt
+
+3 Biology Department, American University in Cairo (AUC), New Cairo 11211, Egypt
+4 Faculty of Biotechnology, Misr University for Science and Technology (MUST), 6th of October City 16432, Egypt
+
+Received 12 December 2012; revised 14 September 2013; accepted 14 November 2013
+Available online 25 November 2013
+
+KEYWORDS
+
+Hepatocellular carcinoma;
+miRNA;
+Target prediction;
+Integrative bioinformatics;
+Cancer hallmarks
+
+Abstract We aimed to shed new light on the roles of microRNAs (miRNAs) in liver cancer using
+an integrative in silico bioinformatics analysis. A new protocol for target prediction and functional
+analysis is presented and applied to the 26 highly differentially deregulated miRNAs in hepatocel-
+lular carcinoma. This framework comprises: (1) the overlap of prediction results by four out of ﬁve
+target prediction tools, including TargetScan, PicTar, miRanda, DIANA-microT and miRDB
+(combining machine-learning, alignment, interaction energy and statistical tests in order to mini-
+mize false positives), (2) evidence from previous microarray analysis on the expression of these tar-
+gets, (3) gene ontology (GO) and pathway enrichment analysis of the miRNA targets and their
+pathways and (4) linking these results to oncogenesis and cancer hallmarks. This yielded new
+insights into the roles of miRNAs in cancer hallmarks. Here we presented several key targets
+and hundreds of new targets that are signiﬁcantly enriched in many new cancer-related hallmarks.
+In addition, we also revealed some known and new oncogenic pathways for liver cancer. These
+included the famous MAPK, TGFb and cell cycle pathways. New insights were also provided into
+Wnt signaling, prostate cancer, axon guidance and oocyte meiosis pathways. These signaling and
+developmental pathways crosstalk to regulate stem cell transformation and implicate a role of
+miRNAs in hepatic stem cell deregulation and cancer development. By analyzing their complete
+
+* Corresponding author.
+
+E-mail: mahef@aucegypt.edu (ElHefnawi M).
+
+Peer review under responsibility of Beijing Institute of Genomics,
+Chinese Academy of Sciences and Genetics Society of China.
+
+Production and hosting by Elsevier
+
+1672-0229/$ - see front matter ª 2013 Beijing Institute of Genomics, Chinese Academy of Sciences and Genetics Society of China. Production and hosting
+by Elsevier B.V. All rights reserved.
+http://dx.doi.org/10.1016/j.gpb.2013.05.007
+
+ElHefnawi M et al / Wholistic Analysis of MicroRNAs in Liver Cancer
+
+355
+
+interactome, we proposed new categorization for some of these miRNAs as either tumor-suppres-
+sors or oncomiRs with dual roles. Therefore some of these miRNAs may be addressed as therapeu-
+tic targets or used as therapeutic agents. Such dual roles thus expand the view of miRNAs as active
+maintainers of cellular homeostasis.
+
+Introduction
+
+MicroRNAs (miRNAs) are a group of short non-coding RNA
+post-transcriptional regulatory molecules found in many spe-
+cies, including human, which play a major role in many funda-
+mentally important biological processes [1]. About 3% of
+human genes encode miRNAs [2,3] and >1500 miRNA genes
+have been predicted or experimentally shown to play critical
+roles in normal cellular functions [4], which are often found
+in fragile sites on chromosomes [5]. The expression of miRNAs
+is highly speciﬁc for the tissue and the developmental stage
+[6,7]. Several miRNA proﬁle signatures are being advanced
+as markers of different cancers [8,9]. They are involved in
+numerous cellular processes, including cell cycle, proliferation,
+apoptosis and response to stress [10]. Although miRNA regu-
+lation mainly utilizes the RNA interference pathway to
+suppress the expression of protein-encoding genes at posttran-
+scriptional level [11], other modes of action are emerging [12].
+Principles of miRNA target binding show that miRNA has key
+targets that it binds to in almost complete complementarity at
+the target sites (the 30UTR of mature mRNAs), leading to their
+degradation (canonical binding). In addition, for most targets,
+50 dominant
+seed region or
+incomplete complementarity to 50 and 30 (30UTR compensa-
+tory) occurs, resulting in translational suppression [11,12].
+Biogenesis and transcription of miRNAs have been thoroughly
+reviewed [13] and more insights into miRNA transcription
+regulation are ongoing. miRNAs can work both as tumor
+tumor
+suppressors
+
+complementarity to the
+
+and as oncogenes
+
+[8,9,14,15]. As
+
+(Figure 1)
+
+suppressors, they repress oncogenic targets, but are usu-
+ally down-regulated in cancer tissues [15]. Others are up-regu-
+lated and have a stimulating role for cancer progression
+[14,16]. These miRNAs can up regulate multiple cancer
+hallmarks [17]
+through induction of different
+pathways and biological processes (adhesion, proliferation,
+transcription, translation and inﬂammation), hence, several
+cancer hallmarks that contribute to cancer initiation and devel-
+opment are affected [17]. This dual role as oncomiRs and
+tumor suppressors has stimulated multiple studies on miRNAs
+and cancers [8,10], prompting full identiﬁcations of miRNA
+target genes [18].
+
+The difﬁculty of miRNA target prediction and biological
+validation has been a major obstacle to miRNA research.
+Experimental identiﬁcation of miRNA targets is still slow,
+since some miRNAs are difﬁcult to isolate by cloning due to
+low expression, low stability, tissue speciﬁcity and problems
+in cloning procedures. Computational algorithms have been
+developed to identify miRNA target genes, since the 30UTRs
+of transcripts were shown to contain miRNA binding sites
+[19] (Figure 2). To develop such algorithms, principles of miR-
+NA target recognition are often established based on empirical
+evidence. A lot of features are used by mammalian target pre-
+diction programs. These include base pairing pattern, thermo-
+dynamic
+the miRNA–mRNA duplex [20],
+comparative sequence analysis of target sites in different
+species, multiple target site evaluation, site accessibility and
+UTR context [20–22]. The well known miRanda program
+employs a two-step algorithm: in the ﬁrst step, an alignment
+algorithm is used to align the seed region of the miRNA to
+
+stability of
+
+Figure 1 A portrayal of the important miRNA targets linked to the hallmarks of cancer
+The deregulated miRNA targets in HCC were assigned based on GO annotations using DAVID tool, highlighting the impact of miRNA
+deregulation on carcinogenesis and metastasis for HCC and other common cancers.
+
+356
+
+Genomics Proteomics Bioinformatics 11 (2013) 354–367
+
+Step 1
+
+Step 2
+
+Step 3
+
+Step 4
+
+Step 5
+
+Data collecƟon: miRNA expression in hepatocellular carcinoma
+
+miRNA target predicƟon 
+
+Target
+Scan
+
+PicTar
+
+miRDB
+
+DIANA- 
+microT
+
+miRanda
+
+IntersecƟon of results
+
+IdenƟfying the new targets from the experimentally-validated 
+
+ones
+
+HybridizaƟon free energy and 
+
+binding predicƟon (RNAhybrid and 
+
+RNAup)
+
+StaƟsƟcal validaƟon using  shuﬄing,  P
+value calculaƟon and microarray gene 
+
+expression data for conﬁrmaƟon
+
+Target set funcƟon and  pathway enrichment analysis
+
+Data analysis : interacƟon and relaƟonship with cancer hallmarks
+
+Figure 2 A ﬂow chart illustrating our new improved protocol for the miRNA target prediction steps and functional analysis
+
+been
+
+have
+
+developed
+
+the 30UTRs of the target mRNAs and in the second step, cross-
+species conservation and target accessibility are used for
+conﬁrming the target, in addition to the several other afore-
+mentioned factors [22,23]. More recently, several new algo-
+rithms
+using machine-learning
+approaches like support vector machine (SVM), artiﬁcial
+neural network (ANN) such as the MTar tool
+[24] and
+Bayesian classiﬁers [25], trained on known miRNA target
+datasets. Some recent tools also combined other features like
+negative examples for improving the speciﬁcity and sensitiv-
+ity. Still, the sensitivity and particularly the speciﬁcity of tar-
+get prediction can be
+improved [26,27]. The use of
+combinations of target prediction tools as recently presented
+by the miRWalk and the mirror servers address some of
+these issues [28,29]. However, the mirror server analyzes
+combinations of miRNAs, not
+and
+miRWalk only ﬁnds targets based on its algorithm, and then
+ﬁnd the scores of those combinations using other tools. This
+motivated us to employ an improved approach for target
+prediction based on consensus of
+tools and multiple
+statistical steps.
+
+individual ones,
+
+Hepatocellular carcinoma (HCC) is a worldwide health
+problem with tools for early diagnosis and novel therapies ur-
+gently needed. Prognosis and survival rates can be improved
+signiﬁcantly in cases of early diagnosis. Hence, the need arises
+for ﬁnding early biomarkers and drug targets as well as novel
+therapeutic intervention strategies [30]. Several studies indi-
+cated that some miRNAs were differentially expressed in liver
+disease and could be potential biomarkers [31–37]. Interest-
+ingly, different miRNAs and molecular mechanisms were
+unravelled for HCV-induced and HBV-induced HCC [31]. In
+addition, pathways related to apoptosis, DNA damage, recom-
+bination and signal transduction were activated in HBV,
+whereas those related to antigen presentation, lipid metabo-
+lism, cell cycle, proteasome and immune response were acti-
+vated in HCV [31].
+
+Furthermore, there has been a controversy in the literature
+about the roles of miRNAs in different cancers. Most reports
+point to miRNA deregulation being associated with the genesis
+and development of cancers [14,38,39]. Other studies reported
+miRNAs as contributing to cellular immune responses to
+pathogens and cancers [40–46].
+
+The large number of high throughput data generated and
+the different expression proﬁling studies in liver cancer has
+triggered this investigation of a holistic look on the functional
+roles of miRNAs in liver cancer [31–37,47]. Here, we aim to
+investigate the functional roles of deregulated miRNAs during
+initiation and development of HCC by performing a uniﬁed
+meta-analysis. To our knowledge, this integrative in silico bio-
+informatics analysis has not been previously performed. An
+improved protocol for miRNA target prediction with multiple
+steps of statistical validation was introduced to help minimize
+false positives. The analysis steps included identiﬁcation of key
+miRNAs deregulated in HCC from different reports in the lit-
+erature [16,31–37,47], followed by identiﬁcation of their target
+genes using an integrated in silico approach. Identiﬁcation of
+the key enriched pathways and gene ontology annotations
+which affected cancer hallmarks were then conducted. Finally,
+at Step 4 of the framework, we attempted to classify the impor-
+tant miRNAs as tumor suppressors or oncomiRs.
+
+This analysis unravelled the participation of miRNAs in
+regulation of key oncogenic and new pathways affecting liver
+cancer, such as the MAPK, TGFb, Wnt, cell cycle and oocyte
+meiosis pathways that drive tumorigenic transformations of
+somatic and stem cells. Also, different roles for the miRNAs
+examined have been revealed, many of which have been previ-
+ously validated by experimental studies, thus providing
+support to our ﬁndings. For example, a new role for HCV-in-
+duced, HCC-upregulated miR-96 has been inferred in sup-
+pressing expression of
+some important oncogenes. This
+analysis also led us to infer that some miRNAs are up-regu-
+lated target oncogenes (upregulate tumor suppressor miRNAs)
+
+ElHefnawi M et al / Wholistic Analysis of MicroRNAs in Liver Cancer
+
+357
+
+and thus contribute to ‘‘ﬁghting’’ cancer progression, while
+‘‘mixed-effect miRNAs’’ were found that have both tumor
+suppressors and oncogenes as targets, thus playing a dual role.
+The novel protocol for comprehensive meta-analysis proposed
+in this study could be extended to other cancers.
+
+Results
+
+The miRNAs with highly differential expression in cancerous
+versus non-cancerous tissue were identiﬁed from published
+miRNA proﬁling studies [17,31–39,47] as well as in the Pheno-
+miR database (www.mips.helmholtz-muenchen.de/phenomir/
+). These miRNAs, their expression levels and their predicted
+and validated target genes are listed in Table S1. There are
+17 miRNAs with high expression in HCC (including miR-18,
+miR-224, miR-21, miR-182, miR-183, miR-222, miR-96,
+miR-9, miR-216, miR-155, miR-301, miR-221, miR-324-5p,
+miR-186, miR-151, miR-106b and miR-374). Additionally,
+there are 9 miRNAs with low expression in HCC (miR-199a-
+3p, miR-125a, miR-195, miR-199a-5p, miR-200a, miR-122a,
+miR-139 miR-214 and miR-34a).
+
+Improved prediction of miRNA targets
+
+To ﬁnd miRNA target genes with a good compromise between
+sensitivity and speciﬁcity, several steps were included to mini-
+
+mize false positives and false negatives (Figure 2). (A) First we
+identify the overlap, which is the consensus among four out of
+ﬁve different algorithms; (B) identifying seed-region full com-
+plementarity and low hybridization energies and (C) statistical
+analysis through a process of shufﬂing the miRNAs was per-
+formed for target validation (P < 0.005 for all targets); and
+(D) ﬁnally, expression of miRNAs and their targets was anti-
+correlated using liver cancer microarray studies [48]. Such
+expression anti-correlation provides another layer of evidence,
+suggesting that they are real miRNA targets.
+
+The miRNA targets commonly picked up by 4 out of 5 dif-
+ferent programs (TargetScan, PicTar, miRanda, DIANA-mi-
+croT and miRDB) (Figure 2 and methods for details) were
+identiﬁed with a Perl script (Table S1). These were then com-
+pared to the experimentally-validated targets according to
+miRTarBase and miRecord to identify novel targets. The
+important miRNA target sets that contribute to the hallmarks
+of cancer are presented in Figure 1. Further improvements to
+reduce false positives were achieved by making use of informa-
+tion from a previous gene expression analysis study in HCC
+[48]. The target genes that showed expression inversely-corre-
+lated with that of miRNAs were collected from the liver micro-
+array dataset available as a supplementary ﬁle [48] and are
+indicated by an asterisk (*) in Table S1. Moreover, RNAhy-
+brid was used to calculate the minimum free energy (MFE)
+of the duplex miRNA:mRNA [49]. RNAhybrid was optimized
+
+Secondary structure hybridization and MFE of different miRNA-target pairs
+
+Figure 3
+Shown are the examples for hybridization between miRNAs and their respective target genes for miR-195 and FGF-7 (A), miR-195 and
+GHR (B), miR-122a and GIT1 (C), miR-199a-3p and FOXQ1 (D), miR-182 and RASA1 (E), miR-182 and MTSS1 (F), miR-199a-5p and
+CELSR1 (G), miR-224 and NUP153 (H), indicating different modes of target recognition exhibited by miRNAs (canonical for some key
+targets that would undergo degradation similar to siRNA mode of action, while 50 dominant and 30UTR compensatory for targets that
+would undergo translational suppression). All these examples show the fertility of our approach of uniﬁed target prediction, as all targets
+have MFE <  20 kcal/mol (I). Green represents miRNA and red represents the target sequence. MFE stands for minimum free energy.
+
+358
+
+Genomics Proteomics Bioinformatics 11 (2013) 354–367
+
+Table 1 Examples of transcription factors/regulators targeted by some miRNAs examined in this study
+
+Gene name
+
+Function
+
+Sox 5
+E2F1
+E2F5
+
+NFYB
+ETS1
+
+MEF2D
+BACH2
+FOXQ1
+CITED2
+
+PTPRF
+
+Transcription factor
+Transcription factor
+Transcription factor
+
+Transcription factor
+Transcription factor
+Proto-oncogene
+Transcription factor
+Transcription regulator
+Transcription factor
+Positive regulation of TGFb receptor signaling
+Negative regulation of cell migration, motion and apoptosis
+Positive regulation of cell development
+
+miRNA
+
+has-mir-96
+hsa-mir-106b
+hsa-mir-96
+hsa-mir-106b
+hsa-mir-34a
+hsa-mir-222
+hsa-mir199a-5p
+hsa-miR-155
+hsa-miR-182
+hsa-miR-182
+hsa-miR-199a-3p
+hsa-miR-199a-3p
+
+miRNA expression in HCC
+›
+›
+›
+›
+ﬂ
+›
+ﬂ
+›
+›
+›
+ﬂ
+ﬂ
+
+hsa-miR-199a-3p
+
+ﬂ
+
+to show the hybridization at the 30UTR of the target genes.
+The common targets were thus conﬁrmed according to low
+MFE values. Examples of the miRNA-gene interactions are
+illustrated in Figure 3. Some of miRNAs can bind at different
+sites within the 30UTR of the target gene at different MFEs
+and different modes of binding as illustrated in the description
+of Figure 3. The key targets of miRNA would have canonical
+matching and these miRNAs employ the similar mode of gene
+silencing as siRNAs through mRNA cleavage and degradation
+[11,12]. Statistical shufﬂing to determine the signiﬁcance of the
+target prediction approach was then performed, which was sig-
+niﬁcant (P < 0.005) for all the predicted targets. The extre-
+mely low P values (<60.05) indicate that these targets are
+likely to represent true targets. These results highlight the high
+speciﬁcity and richness of our approach in using consensus
+predictions for targets and combining microarray validation,
+whenever possible, and free energy hybridization/target acces-
+sibility. This detailed analysis enabled us to deﬁne different
+modes of binding for some of the targets and hence their pro-
+spective regulation modes (mRNA cleavage versus transla-
+tional suppression). The recent miRWalk and mirror servers
+were also used [26,27], providing a platform for target predic-
+tion using the miRWalk algorithm to check the prediction
+results across different tools and mirror to provide a combina-
+torial view of targets of these set of miRNAs.
+
+tools
+
+Some examples of target genes with high prediction scores
+using most
+include CPEB4, PLAG1, TP53INP2,
+PRKCE, BCL2, CUGBP22, FOXQ1, PEX5, PEX13, FGF7,
+ETS1, E2F5, RASA1 and ARHGEF12 (see Table S1 for the
+full names and miRNAs targeting these genes). In Table 1
+we listed some important predicted transcription factors
+(TFs) and regulators of growth factors and their regulatory
+genes that have been targeted by some miRNAs examined in
+this study due to their important link to cancer and potential
+as drug targets/tumor suppressors.
+
+Enrichment analysis of gene ontology annotations and pathways
+
+testing [50]. Most of the gene ontology (GO) annotations were
+associated with regulation of cell cycle, transcription, cell
+adhesion, cell signaling, apoptosis and proliferation pathways
+(Figures 4 and 5, S1–S3 and Tables 2–4). Therefore, a strong
+link exists between these target pathways and the hallmarks
+of cancer [51,52] and how the miRNAs can affect carcinogen-
+esis of the liver [48,50–53]. Enriched pathways were evaluated
+using the gene set enrichment analysis of GeneTrail. These en-
+riched pathways that are targeted by these miRNAs and af-
+fected genes and signiﬁcance
+level are summarized in
+Table 2. Some important genes and miRNAs appear in more
+than one pathway, highlighting potential cross talks between
+these pathways. The predicted targets covered almost all the
+cancer hallmarks. The DAVID bioinformatics tool was used
+to calculate the P value of the most signiﬁcant GO annotations
+with FDR correction. This was done for the target set of the
+ﬁrst seven miRNAs in Table S1 as shown in Figure 4. In Fig-
+ure 5, the enriched GO annotations and pathways of the target
+set of the 22 miRNAs using GenTrail are presented as well as
+in Tables 2–4. The results of GeneTrail analysis showed a sig-
+niﬁcant P-value for some important GO annotations and path-
+ways. It was interesting that
+these GO annotations and
+pathways were highly linked to oncogenesis, transcription,
+growth control and growth factors that affect the cell during
+oncogenesis and the cell cycle (Figures 4 and 5).
+
+The pathways that showed signiﬁcant enrichment for the
+miRNA target set from Table S1 using the miRNA target
+genes were of two categories: active pathways and inactive
+pathways. Active pathways include MAPK signaling pathway
+(P = 0.0030), TGFb signaling pathway (P = 0.0030), regula-
+tion of the actin cytoskeleton pathway (P = 0.0173), prostate
+cancer
+pathway
+(P = 0.0247), axon guidance pathway, which controls regula-
+tion of actin cytoskeleton (P = 0.0117), Wnt signaling path-
+way (P = 0.0053) and oocyte meiosis pathway (P = 0.0053).
+On the other hand, there is only one pathway in the category
+of
+the metabolic pathway
+(P = 0.0030).
+
+inactive pathways, which is
+
+(P = 0.0227),
+
+pathway
+
+cycle
+
+cell
+
+Finally, statistical functional enrichment analysis was per-
+formed using the DAVID server with Bonferroni correction
+for multiple testing for a sample of seven key miRNAs (the
+common core targets). This was followed by a comprehensive
+function and pathway enrichment analysis using the GeneTrail
+suite with false discovery rate (FDR) correction for multiple
+
+The most common functions of the predicted targets in-
+cluded cell adhesion, proliferation, cell cycle regulation and
+apoptosis (Figure 5), which cover all the hallmarks of cancer
+(see Figure 1 for illustration) [50,51,54]. The signiﬁcant enrich-
+ment of many GO annotations of the 26 miRNAs provides a
+clear picture for having a deﬁnitive impact on all HCC/other
+
+ElHefnawi M et al / Wholistic Analysis of MicroRNAs in Liver Cancer
+
+359
+
+Figure 4 GO functional categories of the targets for miR-122a, miR-199 a-3p, miR-182, miR-195, miR-221, miR-224 and miR-96 that are
+differentially expressed in HCC
+The functional categories that are enriched in response to miRNA deregulation in HCC were analyzed using DAVID with P < 0.05. The
+result shows deregulation in transcriptional-related processes such as activity of transcription factors, gene expression and cellular
+biosynthetic process.
+
+Figure 5 Highly enriched pathways and GO terms for the miRNA target gene set
+The functional categories that are enriched in response to miRNA deregulation in HCC were analyzed using GeneTrail with the
+enrichment analysis option (P < 0.05) and Bonferroni and FDR corrections.
+
+360
+
+Genomics Proteomics Bioinformatics 11 (2013) 354–367
+
+Table 2 KEGG pathway enrichment analysis for the deregulated miRNA target set
+
+KEGG_Subcategory
+
+Expected Observed
+
+P value
+(FDR)
+
+miRNAs
+
+MAPK signaling pathway
+
+8.49658
+
+21 (up)
+
+0.00300 miR-96
+
+miR-222
+miR-21
+miR-221
+miR-106b
+
+miR-214
+miR-155
+miR-34a
+miR-195
+miR-183
+miR-199a-3p
+miR-182
+
+Metabolic
+
+35.6411
+
+17 (up)
+
+0.00300 miR-34a
+
+miR-214
+miR-224
+miR-186
+miR-155
+miR-183
+miR-195
+miR-96
+
+TGFb (down-regulated)
+
+2.7049
+
+11
+
+0.00300 miR-96
+
+miR-106b
+
+miR-34a
+miR-21
+miR-155
+miR-183
+
+Oocyte meiosis
+
+3.62775
+
+12
+
+0.00532 miR-96
+
+Wnt signaling pathway
+(up-regulated 88% of genes)
+
+miR-34a
+miR-155
+miR-183
+miR-195
+miR-222
+miR-214
+
+4.80518
+
+14
+
+0.00532 miR-96
+
+miR-222
+miR-106b
+miR-34a
+miR-155
+miR-183
+miR-195
+miR-221
+miR-186
+
+Axon guidance (up-regulated)
+
+4.10509
+
+12
+
+0.01178 miR-96
+
+miR-221
+miR-106b
+
+miR-155
+miR-182
+miR-224
+miR-222
+miR-96
+miR-183
+miR-186
+
+miRNA
+expression
+›
+›
+›
+›
+›
+
+ﬂ
+›
+ﬂ
+ﬂ
+›
+ﬂ
+›
+›
+
+ﬂ
+›
+›
+›
+›
+ﬂ
+›
+›
+›
+
+ﬂ
+›
+›
+›
+›
+ﬂ
+›
+›
+ﬂ
+›
+ﬂ
+›
+›
+›
+ﬂ
+›
+›
+ﬂ
+›
+›
+›
+›
+›
+
+›
+›
+›
+›
+›
+›
+›
+
+Target genes
+
+PPP3R1, MAP2K1, CACNB4
+PPP3R1, NTF3, NLK
+NTF3
+NLK
+MAP3K2, CRK, DUSP2, RPS6KA5,
+MAP3K14
+CRK
+MAP3K14, FGF7
+CACNB3, RRAS, PDGFRA
+FGF7, CACNB1
+MEF2C, MAP3K4, NTRK2, MAPK8IP1
+MAP3K4
+RASA1
+
+FUT8, GALNT7, NDST1, ACSL4,
+GLCE, ACSL1
+GALNT7
+ACSL4
+ACSL4, BCAT1
+UPP2, BCAT1
+IDH2, GPAM, AMD1, MTMR6, SMPD3
+PISD
+ABAT, GALNT2, EXT1
+
+E2F5
+E2F5, BMPRII, RBL2, ZFYVE9,
+RBL1, SMAD7
+E2F5, ACVR2B
+SMAD7
+GDF6, SP1
+PPP2CA, PPP2C
+
+PPP3R1, ITPR1, ITPR2, MAP2K1, FBXW11
+CCNE2
+YWHAZ
+PPP2CA, PPP2CB
+BTRC
+PPP3R1
+YWHAZ
+
+PPP3R1, FBXW11
+PPP3R1, NLK
+NFAT5, ANGL1
+DAAM1, FOSL1, LEF1
+CSNK1A1
+PPP2CA, LRP6, PPP2CB
+BTRC, AXIN2
+NLK
+NFAT5
+
+PPP3R1
+GNAI3
+NTN4, DPYSL5, EPHA4, NFAT5,
+CFL2, LIMK1, DPYSL2
+SEMA5A
+RASA1
+ARHGEF12, DPYSL2
+PPP3R1
+NTN4
+EPHA4
+NFAT5
+
+ElHefnawi M et al / Wholistic Analysis of MicroRNAs in Liver Cancer
+
+361
+
+Table 2 KEGG pathway enrichment analysis for the deregulated miRNA target set
+
+KEGG_Subcategory
+
+Regulation of actin cytoskeleton
+(mostly up-regulated, 84% of genes)
+
+miRNA
+expression
+
+16
+
+6.87364
+
+miRNAs
+
+Expected Observed P value
+(FDR)
+0.01739 miR-106b ›
+ﬂ
+miR-34a
+ﬂ
+miR-214
+›
+miR-183
+›
+miR-155
+ﬂ
+miR-195
+miR-122a ﬂ
+›
+miR-224
+›
+miR-96
+
+Prostate cancer (up-regulated)
+
+2.83219
+
+9
+
+Cell cycle
+
+4.07327
+
+11
+
+0.02272 miR-222
+
+0.02474 miR-222
+
+›
+miR-106b ›
+ﬂ
+miR-34a
+›
+miR-182
+›
+miR-96
+›
+›
+miR-96
+miR-106b ›
+ﬂ
+miR-34a
+›
+miR-155
+ﬂ
+miR-214
+›
+miR-21
+
+Target genes
+
+ITGB8, CRK, PFN2 SSH2,CFL2, LIMK1
+RRAS, PDGFRA
+CRK
+PFN2, TMSL3, TMSB4X, ENAH
+FGF7
+FGF7
+GIT1
+ARHGEF12
+MAP2K1, FN1
+
+CDKN1B
+E2F1, CDKN1A
+CCNE2, LEF1, PDGFRA
+BCL2
+CREB3L2, MAP2K1
+
+CDKN1B, CDKN1C
+E2F5
+E2F5, RBL2, WEE1, E2F1, RBL1, CDKN1A
+E2F5, CCNE2
+WEE1, YWHAZ
+YWHAZ
+STAG2
+
+Note: This table was generated using the GeneTrail enrichment for the miRNA targets on the KEGG database. Expected indicates the random
+effect of the targets in the pathway and observed means the actual effect of the targets in the pathway.
+
+Table 3 TRANSFAC enrichment analysis
+
+TRANSFAC_Subcategory
+
+Expected
+
+Observed
+
+P value (FDR)
+
+Genes
+
+T09767 (hsa-miR-221)
+T09768 (hsa-miR-222)
+T14653 (hsa-miR-21)
+T06135 (TAp63 gamma)
+T09762 (hsa-miR-34a)
+T09877 (hsa-miR-20b)
+T09807 (hsa-miR-15b)
+T09810 (hsa-miR-124a)
+
+0.168593
+0.126445
+0.252889
+0.084296
+0.337186
+0.126445
+0.168593
+0.168593
+
+4
+3
+3
+2
+3
+2
+2
+2
+
+8.90E–05
+0.00110727
+0.0134703
+0.0135548
+0.0212936
+0.0263714
+0.0384832
+0.0384832
+
+CDKN1B, BMF, KIT, CDKN1C
+CDKN1B, KIT, CDKN1C
+PDCD4, SOX5, RASA1
+CDKN1A, JAG1
+MYCN, NOTCH1, SIRT1
+RBL2, E2F1
+DMTF1, BCL2
+STAT3, MITF
+
+Table 4 A sample selection of the GO enrichment analysis
+
+GO term
+
+Expected
+
+Observed
+
+Transcription
+Regulation of transcription
+Signaling pathway
+Transcription factor activity
+Signaling process
+Cell communication
+Transcription from RNA polymerase II promoter
+Cell diﬀerentiation
+Regulation of cell communication
+Cell migration
+Cell motility
+Localization of cell
+Growth
+Chromatin organization
+Transmembrane receptor protein serine/threonine kinase signaling
+pathway
+Positive regulation of transcription
+
+76.0252
+73.3377
+70.5671
+26.7086
+71.3983
+46.74
+25.4618
+50.8127
+32.4991
+12.8002
+13.7145
+13.7145
+14.9612
+11.775
+
+4.6269
+
+16.5959
+
+142
+136
+132
+68
+128
+94
+58
+90
+64
+33
+34
+34
+35
+29
+16
+
+34
+
+P value (FDR)
+1.63E 12
+1.02E 11
+1.38E 11
+6.84E 11
+5.22E 10
+1.53E 09
+1.47E 07
+1.40E 06
+3.90E 06
+1.58E 05
+2.39E 05
+2.39E 05
+5.65E 05
+1.40E 04
+2.70E 04
+9.00E 04
+
+362
+
+Genomics Proteomics Bioinformatics 11 (2013) 354–367
+
+Important pathways in HCC
+
+Figure 6
+Shown is the mTOR/AKP/PIP3 pathway that contributes to transformation of nodules into metastatic counterparts [57]. The target genes
+are indicated in green and key pathway phenotypes are shown at the bottom. Deactivation of the MAPK pathway through inhibition/
+repression of the up-regulating miRNAs or activation of suppressing miRNAs might be useful as an alternative therapeutic intervention
+strategy. Genes are indicated in pink ovals; FGF signaling pathway, actin cytoskeleton pathway and mTOR pathway are represented with
+lines in black, red and green, respectively.
+
+cancer hallmarks (Figures 4–6). Whether these effects are posi-
+tive or negative depends on the speciﬁc miRNA(s) and their
+speciﬁc targets. This important impact of miRNAs in cancer
+has opened new therapeutic modalities for liver cancer by sup-
+pression or induction of these miRNAs [40–44].
+
+Discussion
+
+This study reports an improved protocol for prediction and
+analysis of novel miRNA targets that have been shown to be
+deregulated in liver cancer. It also sheds more light on their
+functional roles in relative to oncogenesis. Our study identiﬁed
+several targets related to oncogenesis and metastasis. Some of
+the predicted miRNA targets in this study have already been
+experimentally validated (according to databases of experi-
+mentally veriﬁed targets such as miRecord and miRTarBase).
+
+The improved miRNA target prediction protocol
+
+In this study, functional role of miRNA targets in liver cancer
+was evaluated and a comprehensive analysis of deregulated
+miRNAs in HCC was performed, yielding novel insight into
+carcinogenesis and metastasis. Below we discuss some of the
+important novel targets, according to pathway analysis and
+GO functional category enrichment analysis. The presence of
+tens of already experimentally-validated targets, after inspec-
+tion of the experimentally-validated target databases, was the
+
+ﬁnal step to conﬁrm the reliability of this approach. The set
+of overlapping targets (core or common targets) would have
+a high speciﬁcity (low false positives), while the set of pooled
+targets predicted with different programs would have a high
+sensitivity, but high false positives. We used the core common
+targets to analyze these deregulated miRNAs in order to get a
+reliable analysis from the functional enrichment analysis. In
+discussing some of the key targets in the pathways below; we
+refer to the validated ones from miRecords and miRTarBase
+with [V] and predicted ones with [P]. A quantitative evaluation
+and comparison of the performance of our integrated ap-
+proach is beyond the scope of this manuscript, and faces the
+challenge of correlating heterogeneous microarray studies to
+ﬁnd a substantial inverse correlation between a miRNA and
+its targets. On a qualitative note, our core set is much smaller
+than that presented by a single tool (Figure 2, target prediction
+step), and has a high statistical signiﬁcance (P < 0.01). More
+detailed comparisons of methods are aimed in the future. We
+then performed the pathway analysis and GO functional cate-
+gory enrichment analysis, trying to understand how deregula-
+tion of
+important cellular and
+molecular processes,
+induce/repress critical pathways, and
+hence contributing to carcinogenesis and metastasis.
+
+the targets would affect
+
+Analysis of key target genes and pathways
+
+The global analysis of hundreds of predicted targets in this
+study highlights the new key targets that were not discussed
+
+ElHefnawi M et al / Wholistic Analysis of MicroRNAs in Liver Cancer
+
+363
+
+before. Also, unlike previous reports which only present
+enrichment analysis [35,50], an in-depth analysis is presented
+and discussed concerning the roles of the miRNAs and the
+contribution of their deregulation to cancer progression along
+with their roles in cancer hallmarks. Also, the mode of regula-
+tion of the different miRNAs whether to suppress or induce
+the pathway or the hallmark is inferred. These unravel signif-
+icant new and valuable information on the different pathways
+affected by the set of highly differentially regulated miRNAs in
+liver cancer, and key genes that are affected in each of the en-
+riched pathways. Some previous reports on the roles of miR-
+NAs in liver cancer rely only on experimentally validated
+targets, thus limiting their scope of coverage [31,34,35,55]. In
+addition, some studies based their views on the role of a certain
+miRNA on only one validated target, which gives a very nar-
+row and inaccurate perspective. Some exceptions in the litera-
+ture include the recent work on global miRNA analysis in
+breast cancer [56]. This study found previously mentioned
+pathways linked to miRNA deregulation and liver cancer, such
+as the MAPK, TGFb and cell cycle pathways, discussed in
+studies and reviews such as [10,34,35,50]. Meanwhile, the
+GeneTrail analysis showed up regulation of the Wnt signaling
+and the oocyte meiosis pathways (Table 2), in addition to axon
+guidance and actin cytoskeleton which are involved in develop-
+mental processes and in stem cell differentiation and prolifera-
+tion, highlighting a possible link between miRNAs and errors
+in stem cell differentiation and their transformation into can-
+cer stem cells [43,46,57]. The role of miRNAs in inducing can-
+cer stem cells was previously noted for some well known tumor
+suppressor miRNAs like miR-34a and others in different tu-
+mors [16,44,46]. The link between miRNAs and stem cells
+was in agreement with previous reports highlighting miRNA
+roles in stem cell differentiation and liver cancer [44,57]. Also
+worth noting is emergence of the enriched prostate cancer path-
+way as an enriched pathway, signifying the important impact of
+miRNAs in cancer and offering possible general uniﬁed roles for
+these miRNAs in closely-related tumors like solid tumors.
+
+The MAPK and mTOR signaling and cancer hallmarks
+
+Interestingly, the MAPK signaling pathway was one of the en-
+riched pathways with the highest statistical signiﬁcance (with
+part of it and the candidate targets highlighted red in Figure S1
+and some others shown in Table 2 and Figure 6 linked to cros-
+stalks to other important pathways in cancer that are affected
+by the miRNA targets). Dual mode of regulation of target
+genes by miRNAs was noticed. For example, gene encoding
+ﬁbroblast growth factor 7 (FGF7) is targeted by two miRNAs:
+miR-155 [V], which is validated in miRTarBase and miRWalk
+with up-regulated expression in HCC, and miR-195 [P] with
+down-regulated expression in HCC. FGF7 induces the MAPK
+pathway by binding to extracellular receptors [58]. FGF7 is in-
+ferred from its GO annotation to be involved in self-sufﬁciency
+in growth signals and limitless replicative potential, in addition
+to evading apoptosis and tissue invasion and metastasis [40]
+(Figures 1 and 6). Besides, FGF7 is also a key regulator of
+the actin cytoskeleton pathway (shown in pathway targets in
+Table 2). Furthermore, up regulation of FGF7 expression con-
+tributes to the FGF receptor signaling pathway [59] and posi-
+tively regulates cell division, proliferation and keratinocyte
+migration pathways, which were also signiﬁcantly enriched in
+
+the GO analysis (Figures 4 and 6 for part of the FGF path-
+way). Sufﬁciency in growth signals is revealed by signiﬁcantly
+enriched GO terms such as growth and positive regulation of
+transcription (Figures 3 and 4). Another important key gene,
+mitogen-activated protein kinase kinase 1 (MAP2K1) (Fig-
+ure S1), is a target for miR-96 [P], which is up regulated in
+HCC. MAP2K1 is the upstream activator of MAPK, thus
+occupying a central role in the MAPK pathway. Given its high
+selectivity to MAPK and elevated levels of constitutively acti-
+vated MAP2K1 is frequently-observed in carcinoma cell lines
+[60], MAP2K1 represents an excellent target for pharmacolog-
+ical intervention.
+
+Similarly, suppression of the MAPK signaling pathway
+could be inferred by miR-34 [V]. miR-34 suppresses platelet-
+derived growth factor A (PDGFRA) [V] (validated in miRTar-
+Base) and other oncogenes that have been validated previously
+such as c-Met, NOTCH and Wnt1 [41]. Although of its pre-
+dominant down expression in many cancer cell lines, the mixed
+levels of miR-34a in different liver cancer cell lines reported by
+different investigators may reﬂect the opposing mechanisms
+that affect its expression (activated by P53 and inactivated
+by methylation and many other factors) and contribute to
+enhancement or decrease of its tumor suppressor role in
+ﬁghting cancer. Expression of miR-34a is activated by p53 pro-
+tein, thus resulting in a high tumor-suppressing mode [61].
+Also, miR-34 contributes to decreasing proliferation by target-
+ing CCNE2 Cyclin E2 [V] (validated in miRTarBase and
+miRWalk), which may allow proliferation when miR-34 is
+down regulated. From our analysis and previous reports,
+hsa-miR-34 also targets PDGFRA and E2F5, all of which in-
+duce proliferation and replication [41]. Interestingly, miR-34,
+which is currently introduced as a replacement therapy for
+different cancers in the clinic, plays a clearly-deﬁned role in
+stem cell regulation through regulating the Wnt signaling
+pathway [41].
+
+In agreement with this, growth hormone receptor (GHR) is
+another predicted target for down-regulated miR-195 [P] in
+cancer tissue (Figures 6 and S1). miR-195 contributes to
+evading apoptosis, sustained angiogenesis, cell growth, tissue
+invasion and metastasis. This miRNA is an important
+tumor-suppressor [45]. Insensitivity to anti-growth signals, an-
+other important cancer hallmark, is illustrated by suppression
+of a tumor suppressor of MAPK signaling, the SPRY4 gene
+[62]. SPRY4 is predicted to be a target for miR-182 [P], which
+is highly expressed in HCC. As a result, SPRY4 expression is
+down-regulated in HCC. Additionally, RAS p21 protein acti-
+vator 1 (RASA1), a target of up-regulated miR-182 [V] [63],
+stimulates the GTPase activity of normal RAS p21 but not
+its oncogenic counterpart, hence, acting as a suppressor of
+RAS and thereby allowing control of cellular proliferation
+and differentiation. Due to its down regulation, the active
+form of RAS is stimulated, which functions as an oncogene.
+These data support the inference of an oncomiR role for
+miR-182. Also, expression of receptor-type tyrosine-protein
+phosphatase F (PTPRF) that is involved in the negative regu-
+lation of epidermal growth factor receptor (EGFR) signaling
+pathway [64] would be up regulated, since it is a target for
+down-regulated miR-199a-3p [V] [65], leading to insensitivity
+to anti-growth signals. CACNB4 is one of the important genes
+in the MAPK pathway (controlled by miR-96 [V], which is
+highly expressed in HCC), hence, helping in controlling the
+MAPK signaling pathway.
+
+364
+
+Genomics Proteomics Bioinformatics 11 (2013) 354–367
+
+The TGFb pathway
+
+The TGFb was the second most highly enriched pathway (Fig-
+ure S3). Bone morphogenetic protein (BMP) receptor II
+(BMPRII), through which the BMP ligand transduces its sig-
+nals in the TGFb pathway, was predicted as a target for
+miR-106b over-expressed in HCC. Upon ligand binding,
+BMPRII phosphorylates and activates BMPRI, which then
+initiates downstream signaling by phosphorylating the recep-
+tor-regulated Smads (R-Smads) [57]. Smad7, a negative regula-
+tor of TGFb signaling, is targeted by miR-106b [V] [36] and
+miR-21 [V] [66] highly-expressed in HCC, resulting in down
+regulation of Smad7.
+
+Cell cycle pathway
+
+The E2F family plays a crucial role in the control of cell cycle
+and regulation of tumor suppressor proteins. E2F5, a regula-
+tor of the TGFb and cell cycle pathways [67], was targeted
+by miR-96 [P], miR- 34a [V] (validated in miRTarBase) and
+miR-106 [P]. Down regulation of E2F5 through this combina-
+torial mechanism by miR-96 and miR-106 inhibits the synthe-
+sis of DNA, thus repressing the S phase. On the other hand,
+E2F5 is involved in cell cycle regulation by inhibiting c-Myc,
+an oncogene and a transcription factor that is believed to reg-
+ulate expression of 15% of all genes [68]. Thus a reduced level
+of E2F5 would lead to compromised control over c-myc. These
+data suggest that involvement of different miRNAs with
+opposing roles for E2F5 which itself has dual roles could result
+in different outcomes.
+
+Other new pathways linked to stem cells and their regulation
+that are signiﬁcantly enriched in our analysis
+
+Two additional pathways that were enriched for the miRNA
+target set genes include regulation of actin cytoskeleton and
+axon guidance. Cancer cells are marked by their ability to mi-
+grate and invade the adjacent tissues. Interestingly, several
+studies have shown that proteins linking migratory signals to
+actin cytoskeleton are up regulated in cancer tissues [69,70].
+For example, ﬁbronectin 1 (FN1) plays an important role in
+the actin cytoskeleton pathway because it activates the integrin
+(ITG) gene. ITG in turn activates a series of other genes, lead-
+ing to the formation of actin ﬁbers and polymerization [71,72],
+which connects the cells to each other. Therefore, the axon
+guidance pathway is involved in regulation of the actin cyto-
+skeleton and represents a key factor in the formation of the
+neuronal network (Figures 6 and S2). Both pathways are in-
+ferred to be linked with tissue invasion and metastasis cancer
+hallmark.
+
+The oocyte meiosis pathway is another enriched pathway
+for our gene set (part of which is shown in Figure S3). This
+pathway is highly important during the differentiation of stem
+cells [73]. MAP2K1 that was described in the aforementioned
+MAPK pathway is one of the most important genes in this
+pathway and contributes to control of stem cells and their
+oncogenic transformation.
+
+Some other interesting targets in this pathway include aden-
+ylate cyclase 2 (ADCY2) and ADCY6, which are targets for
+miR-182. ADCY6 has been experimentally veriﬁed previously
+while ADCY2 is reported in this work for the ﬁrst time.
+
+ADCY2 is involved in the chemokine signaling pathway and
+is one of the key genes in the oocyte meiosis pathway. Once it
+is activated through progesterone induction, it activates a series
+of gene cascades leading to completion of the meiosis process.
+
+Conclusion
+
+Some important conclusions that could be drawn from this
+study on some of the general features of miRNAs roles in liver
+cancer are as follows. (1) The miRNA targets, as revealed from
+their enriched GO annotations and pathways, cover many of
+the known hallmarks of cancer [51,52,54]. Expression of many
+growth and transcription factors is up regulated due to the
+down regulation of their regulating miRNAs. (2) Positive con-
+tribution to cancer development is implicated for many down-
+regulated miRNAs that suppress important oncogenes, such as
+miR-122, miR-214, miR-199a-3p/5p and miR-34a, and for sev-
+eral up-regulated miRNAs that suppress tumor-suppressors,
+such as miR-182 and miR-186 oncomiRs. Some miRNAs
+may play dual roles by targeting both tumor-suppressors and
+oncogenes. Therefore, without complete analysis of their tar-
+gets and pathways (interactome), caution should be taken in
+deﬁning the role of deregulated miRNAs in liver cancer, as
+well as in using miRNAs in cancer therapeutics. (3) Some miR-
+NAs down regulate cancer hallmarks by downregulating some
+oncogenic pathways, which was also inferred by other studies
+[74]. Although there is an ongoing debate on what are cancer
+hall marks and the complex interplay between causes, onco-
+genic events, signal transduction programs and hallmarks
+[54,75], it is clear that miRNA deregulation can have dual
+roles. (4) miR-96 was inferred in this study to play a tumor
+suppressor role by targeting MAP2K1, E2F5 and CACNB4.
+miR-96 was reported to suppress oncogenes such as glypi-
+can-3 (GPC3) [76], although an oncomiR role was inferred
+as well. Silencing of miR96 was associated with decreased
+expression of osteopontin and forkhead box O1 (FOXO1)
+and FOXO3a and hence decreased invasion and metastasis
+and proliferation, respectively [77,78]. Some targets were
+found to be controlled by more than one miRNA. Also, some
+TFs like TP63 gamma coordinate with miRNAs for regulation
+of some targets, supporting the miRNA-TF regulatory net-
+work analysis [79]. (5) Targets of miR-96, miR-106b, miR-
+34a and miR-155 were most often highly represented in the
+most enriched oncogenic pathways, suggesting their involve-
+ment in liver cancer.
+
+Materials and methods
+
+The miRNA data were downloaded from miRBase release 19
+(http://www.mirbase.org/). The steps of this comprehensive
+global analysis of differentially-regulated miRNAs in liver can-
+cer are detailed below and also illustrated in Figure 2. This
+workﬂow is similar to the integrative automated siRNA design
+and selection protocol and tool that we previously devised [80].
+
+Protocol for miRNA target prediction
+
+miRNA prediction was done using ﬁve different programs in
+the present study to ensure high speciﬁcity in target prediction.
+The programs that were used include TargetScan 5.1 [81],
+
+ElHefnawi M et al / Wholistic Analysis of MicroRNAs in Liver Cancer
+
+365
+
+PicTar [82], DIANA-microT v3.0 [83], miRDB [84] and miR-
+anda [23]. Targets that were commonly predicted by 4 or 5
+out of 5 programs were retained. The programs were chosen
+to represent different approaches for miRNA target predic-
+tion. The miRanda prediction software identiﬁed potential
+binding sites by looking for high-complementarity regions on
+the 30UTRs, which is called seed region [23]. Then the resulting
+binding sites are evaluated thermodynamically using the Vien-
+na RNA folding package. The second program TargetScan 5.1
+[81] combines thermodynamics-based modeling of RNA–RNA
+duplex interactions with comparative sequence analysis to pre-
+dict miRNA targets conserved across multiple mammalian
+genomes. TargetScan mainly depends on perfect complemen-
+tarity to the seed region of miRNA and then extends to com-
+plementarity outside the region. PicTar also depends on the
+seed region complementarity and its most distinguishing fea-
+ture is its probabilistic identiﬁcation of combinations of target
+sites [82]. DIANA-microT 3.0 [83] searches in the UTRs for
+stringent seed paring (at least 7 consecutive Watson–Crick
+pairs) to the miRNA. The last algorithm miRDB uses a newly
+developed SVM classiﬁer [84].
+
+Identiﬁcation of experimentally-validated targets and
+differentially-expressed predicted targets in HCC
+
+Next, the targets were compared against already predicted and
+validated targets known in databases such as the database of
+experimentally-validated targets in miRTarBase (http://mirtar-
+base.mbc.nctu.edu.tw/) and miRecord (http://mirecords.bio-
+lead.org/) [79].
+
+Statistical enrichment analysis of the predicted target set
+
+for
+
+the database
+
+Statistically overrepresented functions were revealed in a sam-
+ple of seven miRNA targets as a ﬁrst indication of essential en-
+riched terms by using
+annotation,
+visualization and integrated discovery (DAVID) (http://davi-
+d.abcc.ncifcrf.gov/summary.jsp). This was combined with a
+more comprehensive analysis, enrichment analysis of the pre-
+dicted target set, using the GeneTrail tool [86] (http://gene-
+trail.bioinf.uni-sb.de/) with FDR and Bonferroni corrections
+for multiple items in the set. The list of predicted genes was
+compared against a random list of genes to predict which func-
+tions and pathways are enriched in the target genes and signif-
+icance level
+[50]. GeneTrail was used again to obtain the
+functions of different miRNA target sets and their combina-
+tions for identifying their possible roles in cancer.
+
+Authors’ contributions
+
+ME conceived the idea and designed the study. ME, MA and
+BS performed the study, analyzed the data and drafted the
+manuscript. MA, NA and ME revised the manuscript. All
+authors read and approved the ﬁnal manuscript.
+
+Competing interests
+
+The authors report no competing interests.
+
+Combining microarray data
+
+Acknowledgements
+
+The microarray dataset showing differentially-expressed genes
+in hepatocellular carcinoma patients [48] was used to correlate
+the predicted targets and those differentially-expressed in HCC
+patients. The two-sample t-test was used for correlation anal-
+ysis. This was yet another step to improve the reliability of
+the predictions of the miRNA targets.
+
+Ranking according to MFE
+
+Ranking of miRNA targets was done using the RNAhybrid
+program according to MFE, (DG) [36,81]. Some important
+examples are illustrated in Figure 3.
+
+Shufﬂing and statistical analysis of the targets
+
+Statistical analysis of the targets was performed to support the
+validity of the prediction. We used Jemboss (graphical user
+interface for European Molecular Biology Open Software
+Suite) Shufﬂe Seq program [85], in which the target’s sequences
+were shufﬂed 500 times as previously described [17]. The 100
+sets for each of the target genes were independently searched
+against its reported predicted miRNA using miRanda soft-
+ware. Z scores were calculated for each target using the equa-
+tion Z ¼ X l
+(where X is the miRanda score for real gene, l
+and d are the mean and standard deviation for miRanda score
+of each miRNA with shufﬂe gene). Then, P values were calcu-
+lated to estimate the signiﬁcance of the predicted targets.
+
+r
+
+We acknowledge partial support through Science and Technol-
+ogy Development Fund (STDF) by Egyptian Ministry of Sci-
+entiﬁc Research (Grant No. 1169 and 1679). We thank the help
+and assistance of Dr. Suher Zada and of many research assis-
+tants in the group for their long-standing efforts. We are very
+grateful to Gehad Abdel Rahman, Mohamed Mysara, Soha
+Gamal ElDin, Asmaa Ezzat, Lesley Twaitol, Dr. Fareed
+Aboul-Ela, Dr. Manal ElHemshary especially among others
+for their roles in editing/revising and data analysis during the
+course of this publication. We also thank Dr. Marc Windisch
+for editing and revising the manuscript.
+
+Supplementary material
+
+Supplementary data associated with this article can be found,
+in the online version, at http://dx.doi.org/10.1016/j.gpb.2013.
+05.007.
+
+References
+
+[1] Bartel DP. MicroRNAs: genomics, biogenesis, mechanism, and
+
+function. Cell 2004;116:281–97.
+
+[2] Sassen S, Miska EA, Caldas C. MicroRNA––implications for
+
+cancer. Virchows Arch 2008;452:1–10.
+
+[3] Xiao ZD, Diao LT, Yang JH, Xu H, Huang MB, Deng YJ, et al.
+Deciphering the transcriptional regulation of microRNA genes in
+humans with ACTLocater. Nucleic Acids Res 2013;41:e5.
+
+366
+
+Genomics Proteomics Bioinformatics 11 (2013) 354–367
+
+[4] Holland B, Wong J, Li M, Rasheed S. Identiﬁcation of human
+microRNA-like sequences embedded within the protein-encoding
+genes of the human immunodeﬁciency virus. PLoS One 2013;8:
+e58586.
+
+[5] Calin GA, Sevignani C, Dumitru CD, Hyslop T, Noch E,
+Yendamuri S, et al. Human microRNA genes are frequently
+located at fragile sites and genomic regions involved in cancers.
+Proc Natl Acad Sci U S A 2004;101:2999–3004.
+
+[6] Xu S, Witmer PD, Lumayag S, Kovacs B, Valle D. MicroRNA
+(miRNA) transcriptome of mouse retina and identiﬁcation of a
+sensory organ-speciﬁc miRNA cluster. J Biol Chem 2007;282:
+25053–66.
+
+[7] Chen YJ, Min J, Shang CZ, Ren M, Peng XX, Cao J, et al.
+MicroRNA differential expression proﬁle during differentiation of
+embryonic stem cells towards hepatocytes induced by sodium
+butyrate. Zhongguo Yi Xue Ke Xue Yuan Xue Bao 2008;30:
+469–73.
+
+[8] Cho WC. MicroRNAs: potential biomarkers for cancer diagnosis,
+prognosis and targets for therapy. Int J Biochem Cell Biol
+2010;42:1273–81.
+
+[9] Bartels CL, Tsongalis GJ. MicroRNAs: novel biomarkers for
+
+human cancer. Clin Chem 2009;55:623–31.
+
+[10] Chen F, Hu SJ. Effect of microRNA-34a in cell cycle, differen-
+tiation, and apoptosis: a review. J Biochem Mol Toxicol 2012;26:
+79–86.
+
+relaxed seed and no conservation requirements. PLoS One
+2011;6:e20622.
+
+[27] Barbato C, Arisi I, Frizzo ME, Brandi R, Da Sacco L, Masotti A.
+Computational challenges in miRNA target predictions: to be or
+not to be a true target? J Biomed Biotechnol 2009;2009:803069.
+
+[28] Dweep H, Sticht C, Pandey P, Gretz N. MiRWalk – database:
+prediction of possible miRNA binding sites by ‘‘walking’’ the
+genes of three genomes. J Biomed Inform 2011;44:839–47.
+
+[29] Friedman Y, Naamati G, Linial M. MiRror: a combinatorial
+analysis web tool for ensembles of microRNAs and their targets.
+Bioinformatics 2010;26:1920–1.
+
+[30] Temirak A, Abdulla M, Elhefnawi M. Rational drug design for
+identifying novel multi-target inhibitors for hepatocellular carci-
+noma. Anticancer Agents Med Chem 2012;12:1088–97.
+
+[31] Ura S, Honda M, Yamashita T, Ueda T, Takatori H, Nishino R,
+et al. Differential microRNA expression between hepatitis B and
+hepatitis C leading disease progression to hepatocellular carci-
+noma. Hepatology 2009;49:1098–112.
+
+[32] Pei Y, Zhang T, Renault V, Zhang X. An overview of hepato-
+cellular carcinoma study by omics-based methods. Acta Biochim
+Biophys Sin (Shanghai) 2009;41:1–15.
+
+[33] Hou J, Lin L, Zhou W, Wang Z, Ding G, Dong Q, et al.
+Identiﬁcation of miRNomes in human liver and hepatocellular
+carcinoma reveals mir-199a/b-3p as therapeutic target for hepa-
+tocellular carcinoma. Cancer Cell 2011;19:232–43.
+
+[11] Brennecke J, Stark A, Russell RB, Cohen SM. Principles of
+
+[34] Huang S, He X. The role of microRNAs in liver cancer
+
+microRNA-target recognition. PLoS Biol 2005;3:e85.
+
+progression. Br J Cancer 2011;104:235–40.
+
+[12] Brodersen P, Voinnet O. Revisiting the principles of microRNA
+target recognition and mode of action. Nat Rev Mol Cell Biol
+2009;10:141–8.
+
+[13] Graves P, Zeng Y. Biogenesis of mammalian microRNAs: a global
+
+view. Genomics Proteomics Bioinformatics 2012;10:239–45.
+
+[14] Esquela-Kerscher A, Slack FJ. Oncomirs – microRNAs with a
+
+role in cancer. Nat Rev Cancer 2006;6:259–69.
+
+[15] Yan K, Gao J, Yang T, Ma Q, Qiu X, Fan Q, et al. MicroRNA-
+34a inhibits the proliferation and metastasis of osteosarcoma cells
+both in vitro and in vivo. PLoS One 2012;7:e33778.
+
+[16] Lodygin D, Tarasov V, Epanchintsev A, Berking C, Knyazeva T,
+Ko¨ rner H, et al. Inactivation of mir-34a by aberrant cpg
+methylation in multiple types of cancer. Cell Cycle 2008;7:
+2591–600.
+
+[17] Varnholt H. The role of microRNAs in primary liver cancer. Ann
+
+Hepatol 2008;7:104–13.
+
+[18] Worley LA, Long MD, Onken MD, Harbour JW. Micro-RNAs
+associated with metastasis in uveal melanoma identiﬁed by
+multiplexed microarray proﬁling. Melanoma Res 2008;18:184–90.
+[19] Lee RC, Feinbaum RL, Ambros V. The C. elegans heterochronic
+gene lin-4 encodes small RNAs with antisense complementarity to
+lin-14. Cell 1993;75:843–54.
+
+[20] Mendes ND, Freitas AT, Sagot MF. Current tools for the
+identiﬁcation of miRNA genes and their targets. Nucleic Acids
+Res 2009;37:2419–33.
+
+[21] Watanabe Y, Tomita M, Kanai A. Computational methods for
+microRNA target prediction. Methods Enzymol 2007;427:65–86.
+target? Computational methods for
+microRNA target prediction and their extension. Exp Mol Med
+2010;42:233–44.
+
+[22] Min H, Yoon S. Got
+
+[23] John B, Enright AJ, Aravin A, Tuschl T, Sander C, Marks DS.
+
+Human microRNA targets. PLoS Biol 2004;2:e363.
+
+[24] Chandra V, Girijadevi R, Nair AS, Pillai SS, Pillai RM. MTar: a
+computational microRNA target prediction architecture for
+human transcriptome. BMC Bioinformatics 2010;11:S2.
+
+[25] Liu H, Yue D, Zhang L, Chen Y, Gao SJ, Huang Y. A Bayesian
+approach for identifying miRNA targets by combining sequence
+prediction and gene expression proﬁling. BMC Genomics
+2010;11:S12.
+
+[26] Lekprasert P, Mayhew M, Ohler U. Assessing the utility of
+thermodynamic features for microRNA target prediction under
+
+[35] Murakami Y, Yasuda T, Saigo K, Urashima T, Toyoda H,
+Okanoue T, et al. Comprehensive analysis of microRNA expres-
+sion patterns in hepatocellular carcinoma and non-tumorous
+tissues. Oncogene 2006;25:2537–45.
+
+[36] Wang Y, Lee AT, Ma JZI, Wang J, Ren J, Yang Y, et al. Proﬁling
+microRNA expression in hepatocellular carcinoma reveals micr-
+oRNA-224 up-regulation and apoptosis inhibitor-5 as a microR-
+NA-224-speciﬁc target. J Biol Chem 2008;283:13205–15.
+
+[37] Barshack I, Meiri E, Rosenwald S, Lebanony D, Bronfeld M,
+Aviel-Ronen S, et al. Differential diagnosis of hepatocellular
+carcinoma from metastatic tumors in the liver using microRNA
+expression. Int J Biochem Cell Biol 2010;42:1355–62.
+
+[38] Pineau P, Volinia S, McJunkin K, Marchio A, Battiston C, Terris
+B, et al. MiR-221 overexpression contributes to liver tumorigen-
+esis. Proc Natl Acad Sci U S A 2010;107:264–9.
+
+[39] Hirata H, Ueno K, Shahryari V, Tanaka Y, Tabatabai ZL,
+Hinoda Y, et al. Oncogenic miRNA-182-5p targets Smad4 and
+RECK in human bladder cancer. PLoS One 2012;7:e51056.
+
+[40] Coulouarn C, Factor VM, Andersen JB, Durkin ME, Thorgeirs-
+son SS. Loss of miR-122 expression in liver cancer correlates with
+suppression of the hepatic phenotype and gain of metastatic
+properties. Oncogene 2009;28:3526–36.
+
+[41] Gupta OP, Permar V, Koundal V, Singh UD, Praveen S.
+MicroRNA regulated defense responses in Triticum aestivum L.
+during Puccinia graminis f.sp. tritici
+infection. Mol Biol Rep
+2012;39:817–24.
+
+[42] Watanabe Y, Kishi A, Yachie N, Kanai A, Tomita M. Compu-
+tational analysis of microRNA-mediated antiviral defense in
+humans. FEBS Lett 2007;581:4603–10.
+
+[43] Shimono Y, Zabala M, Cho RW, Lobo N, Dalerba P, Qian D,
+et al. Downregulation of miRNA-200c links breast cancer stem
+cells with normal stem cells. Cell 2009;138:592–603.
+
+[44] Bader AG. MiR-34 – a microRNA replacement therapy is headed
+
+to the clinic. Front Genet 2012;3:120.
+
+[45] Xu T, Zhu Y, Xiong Y, Ge YY, Yun JP, Zhuang SM.
+MicroRNA-195 suppresses tumorigenicity and regulates G1/S
+transition of human hepatocellular carcinoma cells. Hepatology
+2009;50:113–21.
+
+[46] Ji Q, Hao X, Zhang M, Tang W, Yang M, Li L, et al. MicroRNA
+miR-34 inhibits human pancreatic cancer tumor-initiating cells.
+PLoS One 2009;4:e6816.
+
+ElHefnawi M et al / Wholistic Analysis of MicroRNAs in Liver Cancer
+
+367
+
+[47] Huang YS, Dai Y, Yu XF, Bao SY, Yin YB, Tang M, et al.
+Microarray analysis of microRNA expression in hepatocellular
+carcinoma and non-tumorous tissues without viral hepatitis. J
+Gastroenterol Hepatol 2008;23:87–94.
+
+[48] Mas VR, Maluf DG, Archer KJ, Yanek K, Williams B, Fisher
+RA. Differentially expressed genes between early and advanced
+hepatocellular carcinoma (HCC) as a potential tool for selecting
+liver transplant recipients. Mol Med 2006;12:97–104.
+
+[49] Rehmsmeier M, Steffen P, Hochsmann M, Giegerich R. Fast and
+effective prediction of microRNA/target duplexes. RNA 2004;10:
+1507–17.
+
+[50] Backes C, Meese E, Lenhof HP, Keller A. A dictionary on
+microRNAs and their putative target pathways. Nucleic Acids
+Res 2010;38:4476–86.
+
+[51] Hanahan D, Weinberg RA. The hallmarks of cancer. Cell 2000;
+
+100:57–70.
+
+[52] Hanahan D, Weinberg RA. Hallmarks of cancer:
+
+the next
+
+generation. Cell 2011;144:646–74.
+
+[53] Jiang J, Gusev Y, Aderca I, Mettler TA, Nagorney DM, Brackett
+DJ, et al. Association of microRNA expression in hepatocellular
+carcinomas with hepatitis infection, cirrhosis, and patient survival.
+Clin Cancer Res 2008;14:419–27.
+
+[54] Lazebnik Y. What are the hallmarks of cancer? Nat Rev Cancer
+
+2010;10:232–3.
+
+[55] Bala S, Marcos M, Szabo G. Emerging role of microRNAs in liver
+
+diseases. World J Gastroenterol 2009;15:5633–40.
+
+[56] Uhlmann S, Mannsperger H, Zhang JD, Horvat EA´ , Schmidt C,
+Ku¨ blbeck M, et al. Global microRNA level regulation of EGFR-
+driven cell-cycle protein network in breast cancer. Mol Syst Biol
+2012;8:570.
+
+[57] Xia H, Ooi LL, Hui KM. MicroRNA-216a/217-induced epithe-
+lial-mesenchymal transition targets PTEN and SMAD7 to pro-
+mote drug resistance and recurrence of liver cancer. Hepatology
+2013;58:629–41.
+
+[58] Fata JE, Mori H, Ewald AJ, Zhang H, Yao E, Werb Z, et al. The
+MAPK(ERK-1,2) pathway integrates distinct and antagonistic
+signals from TGFalpha and FGF7 in morphogenesis of mouse
+mammary epithelium. Dev Biol 2007;306:193–207.
+
+[59] Turner N, Grose R. Fibroblast growth factor signalling: from
+
+development to cancer. Nat Rev Cancer 2010;10:116–29.
+
+[60] Choi YL, Soda M, Ueno T, Hamada T, Haruta H, Yamato A,
+et al. Oncogenic MAP2K1 mutations in human epithelial tumors.
+Carcinogenesis 2012;33:956–61.
+
+[61] Dalgard CL, Gonzalez M, deNiro JE, O’Brien JM. Differential
+microRNA-34a expression and tumor suppressor function in
+retinoblastoma cells. Invest Ophthalmol Vis Sci 2009;50:4542–51.
+[62] Yang X, Gong Y, Tang Y, Li H, He Q, Gower L, et al. Spry1 and
+Spry4 differentially regulate human aortic smooth muscle cell
+phenotype via Akt/FoxO/myocardin signaling. PLoS One 2013;8:
+e58746.
+
+[63] Xu J, Wong C. A computational screen for mouse signaling
+pathways targeted by microRNA clusters. RNA 2008;14:1276–83.
+[64] Du WW, Fang L, Li M, Yang X, Liang Y, Peng C, et al.
+MicroRNA miR-24 enhances tumor invasion and metastasis by
+targeting PTPN9 and PTPRF to promote EGF signaling. J Cell
+Sci 2013;126:1440–53.
+
+[65] Amer M, El-Ahwany E, Elhefnawi M, Awad A, Abdel Gawad N,
+Zada S, et al. Prediction of miRNA target genes involved in liver
+cancer pathways and its validation. J Hepatol 2013;58:S120.
+
+[66] Smith AL, Iwanaga R, Drasin DJ, Micalizzi DS, Vartuli RL, Tan
+AC, et al. The miR-106b-25 cluster targets Smad7, activates
+TGF-b signaling, and induces EMT and tumor initiating cell
+characteristics downstream of Six1 in human breast cancer.
+Oncogene 2012;31:5162–71.
+
+[67] Jiang Y, Yim SH, Xu HD, Jung SH, Yang SY, Hu HJ, et al. A
+potential oncogenic role of the commonly observed E2F5 over-
+expression in hepatocellular carcinoma. World J Gastroenterol
+2011;17:470–7.
+
+[68] Gearhart J, Pashos EE, Prasad MK. Pluripotency redux ––
+advances in stem-cell research. N Engl J Med 2007;357:1469–72.
+[69] Yamaguchi H, Condeelis J. Regulation of the actin cytoskeleton
+in cancer cell migration and invasion. Biochim Biophys Acta
+2007;1773:642–52.
+
+[70] Bloom L, Ingham KC, Hynes RO. Fibronectin regulates assembly
+of actin ﬁlaments and focal contacts in cultured cells via the
+heparin-binding site in repeat III13. Mol Biol Cell 1999;10: 1521–36.
+[71] Galbraith CG, Yamada KM, Galbraith JA. Polymerizing actin
+ﬁbers position integrins primed to probe for adhesion sites.
+Science 2007;315:992–5.
+
+[72] Vicente-Manzanares M, Choi CK, Horwitz AR. Integrins in
+cell migration – the actin connection. J Cell Sci 2009;122:
+199–206.
+
+[73] Takebe N, Warren R, Ivy SP. Breast cancer growth and
+stem cells, embryonic
+transition.
+
+metastasis:
+signaling pathways and epithelial-to-mesenchymal
+Breast Cancer Res 2011;13:211.
+
+interplay between cancer
+
+[74] Gusev Y. Computational methods for analysis of cellular func-
+collectively targeted by differentially
+
+tions and pathways
+expressed microRNA. Methods 2008;44:61–72.
+
+[75] Floor SL, Dumont JE, Maenhaut C, Raspe E. Hallmarks of
+the time? Trends Mol Med
+
+cancer: of all cancer cells, all
+2012;18:509–15.
+
+[76] Maurel M, Jalvy S, Ladeiro Y, Combe C, Vachet L, Sagliocco F,
+et al. A functional screening identiﬁes ﬁve microRNAs control-
+ling glypican-3: role of miR-1271 down-regulation in hepatocel-
+lular carcinoma. Hepatology 2013;57:195–204.
+
+[77] Chen RX, Xia YH, Xue TC, Ye SL. Suppression of microRNA-
+96 expression inhibits the invasion of hepatocellular carcinoma
+cells. Mol Med Rep 2012;5:800–4.
+
+[78] Xu D, He X, Chang Y, Xu C, Jiang X, Sun S, et al. Inhibition of
+miR-96 expression reduces cell proliferation and clonogenicity of
+HepG2 hepatoma cells. Oncol Rep 2013;29:653–61.
+
+[79] Wang J, Haubrock M, Cao KM, Hua X, Zhang CY, Wingender
+E, et al. Regulatory coordination of clustered microRNAs based
+on microRNA-transcription factor regulatory network. BMC Syst
+Biol 2011;5:199.
+
+[80] Mysara M, Garibaldi JM, Elhefnawi M. MysiRNA-designer:
+PLoS One
+
+siRNA design.
+
+efﬁcient
+
+a workﬂow for
+2011;6:e25642.
+
+[81] Lewis BP, Burge CB, Bartel DP. Conserved seed pairing, often
+ﬂanked by adenosines, indicates that thousands of human genes
+are microRNA targets. Cell 2005;120:15–20.
+
+[82] Krek A, Grun D, Poy MN, Wolf R, Rosenberg L, Epstein EJ,
+et al. Combinatorial microRNA target predictions. Nat Genet
+2005;37:495–500.
+
+[83] Kiriakidou M, Nelson PT, Kouranov A, Fitziev P, Bouyioukos C,
+Mourelatos Z, et al. A combined computational–experimental
+approach predicts human microRNA targets. Genes Dev 2004;18:
+1165–78.
+
+[84] Wang X. MiRDB: a microRNA target prediction and func-
+tional annotation database with a wiki interface. RNA 2008;14:
+1012–7.
+
+[85] Rice P, Longden I, Bleasby A. EMBOSS: the European Molecular
+
+Biology Open Software Suite. Trends Genet 2000;16:276–7.
+
+[86] Keller A, Backes C, Al-Awadhi M, Gerasch A, Kuntzer J,
+Kohlbacher O, et al. GeneTrailExpress: a web-based pipeline for
+the statistical evaluation of microarray experiments. BMC Bioin-
+formatics 2008;9:552.
+
+

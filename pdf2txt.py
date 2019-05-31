@@ -50,5 +50,5 @@ def traversal(rootdir):
                 # 原因是这里，把方块替换成''了，应该替换成空格。
 
 if __name__=='__main__':
-    rootdir = "C:/Users/Administrator/Documents/GitHub/Dissertation-2019/trainingdata"
+    rootdir = "C:/Users/Administrator/Documents/GitHub/Dissertation-2019/trainingdata1"
     traversal(rootdir)

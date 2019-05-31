@@ -1,0 +1,2302 @@
+Genomics Proteomics Bioinformatics 11 (2013) 207–218
+
+Genomics Proteomics Bioinformatics
+
+www.elsevier.com/locate/gpb
+
+www.sciencedirect.com
+
+ORIGINAL RESEARCH
+
+Exploring the Nicotinic Acetylcholine Receptor-associated
+Proteome with iTRAQ and Transgenic Mice
+
+Tristan D. McClure-Begley 1,2, Kathy L. Stone 3, Michael J. Marks 2,4,
+Sharon R. Grady 2, Christopher M. Colangelo 3,5, Jon M. Lindstrom 6,
+Marina R. Picciotto 1,*
+
+1 Department of Psychiatry, Yale University School of Medicine, New Haven, CT 06508, USA
+2 Institute for Behavioral Genetics, University of Colorado, Boulder, CO 80303, USA
+3 W.M. Keck Biotechnology Resource Laboratory, Yale University School Medicine, New Haven, CT 06509, USA
+4 Department of Psychology and Neuroscience, University of Colorado, Boulder, CO 80309, USA
+5 Department of Molecular Biophysics & Biochemistry, Yale University, New Haven, CT 06520, USA
+6 Department of Neuroscience, Medical School of the University of Pennsylvania, Philadelphia, PA 19104, USA
+
+Received 19 February 2013; revised 1 May 2013; accepted 19 May 2013
+Available online 25 July 2013
+
+KEYWORDS
+
+Nicotinic receptor;
+Afﬁnity puriﬁcation;
+Quantitative proteomics;
+Transgenic mouse
+
+Abstract Neuronal nicotinic acetylcholine receptors (nAChRs) containing a4 and b2 subunits are
+the principal receptors in the mammalian central nervous system that bind nicotine with high afﬁn-
+ity. These nAChRs are involved in nicotine dependence, mood disorders, neurodegeneration and
+the interactions between a4b2-containing
+neuroprotection. However, our understanding of
+(a4b2*) nAChRs and other proteins remains limited. In this study, we identiﬁed proteins that inter-
+act with a4b2* nAChRs in a gene-dose dependent pattern by immunopurifying b2* nAChRs from
+mice that differ in a4 and b2 subunit expression and performing proteomic analysis using isobaric
+tags for relative and absolute quantitation (iTRAQ). Reduced expression of either the a4 or the b2
+subunit results in a correlated decline in the expression of a number of putative interacting proteins.
+We identiﬁed 208 proteins co-immunoprecipitated with these nAChRs. Furthermore, stratiﬁed lin-
+ear regression analysis indicated that levels of 17 proteins was correlated signiﬁcantly with expres-
+sion of a4b2 nAChRs, including proteins involved in cytoskeletal rearrangement and calcium
+
+* Corresponding author.
+
+E-mail: marina.picciotto@yale.edu (Picciotto MR).
+
+Peer review under responsibility of Beijing Institute of Genomics,
+Chinese Academy of Sciences and Genetics Society of China.
+
+Production and hosting by Elsevier
+
+1672-0229/$ - see front matter ª 2013 Beijing Institute of Genomics, Chinese Academy of Sciences and Genetics Society of China. Production and hosting
+by Elsevier B.V. All rights reserved.
+http://dx.doi.org/10.1016/j.gpb.2013.05.005
+
+208
+
+Genomics Proteomics Bioinformatics 11 (2013) 207–218
+
+signaling. These ﬁndings represent the ﬁrst application of quantitative proteomics to produce a b2*
+nAChR interactome and describe a novel technique used to discover potential targets for pharma-
+cological manipulation of a4b2 nAChRs and their downstream signaling mechanisms.
+
+Introduction
+
+Neuronal nicotinic acetylcholine receptors (nAChRs) are in-
+volved in a wide variety of functions in the central nervous sys-
+tem (CNS) and are disrupted in several psychiatric and
+neurological disorders. The most abundant high-afﬁnity nAC-
+hRs in the mammalian CNS contain the a4 and b2 subunits [1–
+3] and this receptor subtype represents an important target for
+studies of functionally relevant protein–protein interactions.
+Heteromeric a4b2* nAChRs (where \ denotes other, poten-
+tially unidentiﬁed, subunits) bind nicotine with high afﬁnity
+[4,5] and are targeted by pharmacotherapies for smoking ces-
+sation [6], Alzheimer’s disease [7], Parkinson’s disease [8],
+mood disorders [9] and attention deﬁcit hyperactivity disorder
+(ADHD) [10]. A better understanding of the nAChR signaling
+complex could lead to a better drug design to achieve desired
+therapeutic effects.
+
+A number of studies have elucidated regulatory mechanisms
+that modulate nAChR function and cellular trafﬁcking. The
+interaction of 14-3-3 adaptor proteins with a4 subunit affects
+the stoichiometry and agonist sensitivity of a4b2 nAChRs
+[11,12]. Interactions with the calcium-sensor protein VILIP-1 af-
+fect the agonist sensitivity and assembly of a4* nAChRs [13].
+Phosphorylation of a4 subunit by protein kinase A (PKA) affects
+association with 14-3-3 adaptor proteins and regulate a4b2
+nAChR assembly [12,14]. Phosphorylation by protein kinase C
+(PKC) and dephosphorylation by the phosphatase calcineurin al-
+ter the transition of a4b2 nAChRs into and out of functionally
+desensitized states following prolonged exposure to agonists
+[15–17]. Although these studies, and others, have identiﬁed pro-
+tein–protein interactions with a4b2 nAChRs, our knowledge of
+the receptor interactome remains incomplete.
+
+Mass spectrometry (MS)-based proteomic analysis allows
+simultaneous identiﬁcation of multiple proteins present in
+varying quantities in complex mixtures. The ability of MS to
+obtain accurate peptide sequences, and subsequently identify
+proteins from these detected unique sequences using protein
+databases, has been a signiﬁcant technological advance provid-
+ing high-throughput accurate protein proﬁling (see [18,19] for
+review). A set of proteins that appear to be associated with b2*
+nAChRs were identiﬁed previously by analyzing proteins iso-
+lated from the mouse brain tissue using a b2-selective mono-
+clonal antibody (mAb270) and MS with matrix-assisted laser
+desorption and tandem time-of-ﬂight (MALDI–ToF-ToF) fol-
+lowed by comparison to complexes in b2 subunit null-mutant
+mice [20]. This study demonstrated the utility of MS to detect
+nAChR-interacting proteins from the brain tissue. However,
+no quantitative methods have been employed to address spec-
+iﬁcity of the interaction between the identiﬁed proteins and the
+b2* nAChRs, as well as their partner subunits.
+
+Stable isotopic labeling in cell culture (SILAC) has been
+used to identify highly speciﬁc protein–protein interactions.
+Selective protein was knocked down via siRNA in cultured
+cells grown in standard media, in comparison with cells grown
+in media supplemented with ‘‘heavy’’ amino acids [21,22].
+However, this technique is limited by its capacity to compare
+
+only two samples, and stable isotopic labeling is not currently
+feasible for tissue homogenates. In contrast, label-free based
+quantitative MS is performed sequentially and thus introduces
+run-to-run variations in peptide elution, preventing accurate
+quantitation between sample sets. In order to facilitate identi-
+ﬁcation of nAChR-interacting proteins with high conﬁdence,
+we performed quantitative proteomic analysis using isobaric
+tags for relative and absolute quantitation (iTRAQ) [23].
+iTRAQ reduces variation by labeling multiple protein samples
+and mixing these samples together prior to liquid chromatog-
+raphy–tandem MS (LC–MS/MS) analysis, enabling identiﬁca-
+tion and quantitation of multiple proteins from several
+samples concurrently [24].
+
+In this study, we combined the iTRAQ technique with the
+use of a4 and b2 nAChR subunit null-mutant mouse lines
+(these null-mutants express no functional a4b2 nAChRs
+[4,25] and heterozygotes express intermediate levels [26]). A
+b2 subunit speciﬁc monoclonal antibody was used to isolate
+the receptors and quantify gene dose-dependent changes in
+the a4b2* nAChR interactome. The ability of iTRAQ to mul-
+tiplex all six genotypes in a single LC–MS/MS experiment is
+essential for the quantitative identiﬁcation and comparison
+of interacting proteins across genotypes. This integrated strat-
+egy recapitulates powerful cell-based techniques, but capital-
+izes on the ability of iTRAQ to label multiple ex vivo tissue
+samples. This technique identiﬁed a group of proteins that
+are associated linearly with mature nAChRs expressed in the
+mammalian brain and provided a platform for exploring func-
+tional relevance of this interactome.
+
+Results
+
+Characterizing quantitative mAb295-M270 solid phase
+immunodepletion of b2* nAChRs from mouse brain
+
+We ﬁrst generated mAb295-coupled M270 Dynabeads using
+0.5, 1, 2 or 5 lg of mAb295/mg of M270 beads in order to
+determine the optimal concentration of beads as well as the
+optimal ratio of bead suspension to brain extracts for quanti-
+tative immunoprecipitation of b2* nAChRs. Increasing vol-
+umes (0, 1.56, 3.125, 6.25, 12.5, 25, 50, 100 ll) of bead
+suspension from each concentration of mAb295 were used to
+capture b2* nAChRs labeled with 1 nM [3H]-epibatidine. Brain
+samples of three C57BL/6 mice were solubilized. After centri-
+fugation, supernatants were pooled, and 100 ll aliquots were
+used in triplicate for each concentration of mAb295 across
+all eight bead volumes to measure the efﬁciency and extent
+of [3H]-epibatidine binding site capture. Depletion of [3H]-epi-
+batidine binding from mouse brain extracts by immobilized
+mAb295 was saturable and nearly complete across all four
+concentrations of mAb295 tested (Figure S1A). The ½ maxi-
+mal bead volume for nAChR capture decreased with increas-
+ing concentrations of mAb295 (R2 = 0.83; Figure S1B), but
+the calculated maximal binding site capture was not signiﬁ-
+cantly different across the four mAb295-M270 bead ratios
+
+McClure-Begley TD et al / Quantitative Nicotinic Receptor Proteomics
+
+209
+
+(F(3, 11) = 1.23, P = 0.36). This suggests that the amount of
+mAb295 coupled to the magnetic beads is more important
+for efﬁcient capture of b2* nAChRs than the total available
+surface area of the beads themselves. Therefore, under the con-
+ditions outlined in this experiment, steric hindrance of protein
+complexes adhering to the nAChRs was not likely to affect the
+ability of the mAb295-M270 beads to trap solubilized b2*
+nAChRs and their associated protein complexes from brain ex-
+tracts effectively. Calculated parameters for speciﬁc capture of
+[3H]-epibatidine binding sites by mAb295-M270 beads are pre-
+sented in Table S1.
+
+Immunopuriﬁcation of b2* nAChRs from brain tissue of a4 or b2
+subunit transgenic mice
+
+Using optimal conditions (5 lg mAb295/mg M270 beads; bead
+volume 10% of total extracts), we extracted b2* nAChRs from
+mouse brain extracts prepared from wild type (WT), heterozy-
+gous (HET) and homozygous (KO) mice lacking either a4 or
+b2 nAChR subunit. There was a gene dose-dependent effect
+on the number of total [3H]-epibatidine binding sites in brain
+detergent extracts (Table 1) across genotypes. There was no
+signiﬁcant binding site capture from brains of a4 KO or b2
+KO mice. No signiﬁcant difference was detected in the percent-
+age of binding sites captured from tissue samples of WT and
+HET a4 (79.6 ± 5.4 vs 83.1 ± 7.5%; n = 3, P = 0.72, t-test)
+or b2 (79.3 ± 0.9 vs 78.8 ± 1.3%; n = 3, P = 0.78, t-test),
+indicating that immobilized mAb295 performed similarly in
+all samples regardless of nAChR protein content.
+
+Measurement of relative expression of nAChR subunit proteins
+by iTRAQ and LC–MS/MS
+
+Quantitation of iTRAQ measured abundance is expressed as
+the log2 of the ratio of mean reporter ion peak areas (log2MRI-
+PA) of all proteins present in all samples relative to the average
+WT abundance of the b2 nAChR subunit (the target of the IP).
+Since a4 and b2 nAChR subunit levels vary with gene dose, we
+evaluated their levels in each sample to judge the ability of
+iTRAQ to quantify proteins in immunocaptured eluates.
+Although [3H]-epibatidine binding sites varied with a4 and
+b2 genotypes, total protein eluted following immunoprecipita-
+tion (IP) did not differ
+signiﬁcantly across genotypes
+(F(5, 17) = 2.52, P = 0.09). However, log2MRIPA ratio of b2
+nAChR subunit was signiﬁcantly affected by nAChR subunit
+knockout in a gene dose-dependent fashion (mean log2MRI-
+PA ± SEM; a4 WT: 0.12 ± 0.17, HET:  0.31 ± 0.16, KO:
+ 0.94 ± 0.23; F(2, 8) = 7.39, P = 0.024; one-way ANOVA.
+b2 WT:  0.19 ± 0.23, HET:  0.60 ± 0.31, KO:
+ 1.53 ± 0.19; F(2, 8) = 8.35, P = 0.018; one-way ANOVA).
+However, although the log2MRIPA ratio for a4 subunit was
+
+signiﬁcantly affected by a4 subunit knockout
+in a gene
+dose-dependent
+fashion (mean log2MRIPA ± SEM; WT:
+0.09 ± 0.25, HET:  0.46 ± 0.39, KO:  1.44 ± 0.05;
+F(2, 8) = 9.34, P = 0.014; one-way ANOVA), such alteration
+was not obviously observed in b2 subunit knockout mice
+(WT:  0.21 ± 0.33, HET:  0.42 ± 0.23, KO:  1.40 ± 0.43;
+F(2, 8) = 3.27, P = 0.1;
+1).
+Log2MRIPA was correlated positively with [3H]-epibatidine
+binding sites captured by immobilized mAb295 for both a4
+(R2 = 0.80, P < 0.0009)
+(R2 = 0.65,
+P < 0.0009), indicating that log2MRIPA ratio for each sub-
+unit is a reliable measure of the assembled nAChRs in each
+sample. The data for a4 and b2 WT, HET and KO mice
+appear as three distinct groupings along the regression line
+(Figure 2).
+
+one-way ANOVA; Figure
+
+subunit
+
+and
+
+b2
+
+It should be noted that the log2MRIPA ratio measures the
+relative abundance of labeled peptides using a control sample
+as a reference. In fact, peptides that uniquely identify b2 and
+a4 nAChR subunits were detected in the subunit KO brain tis-
+sue, despite the lack of [3H]-epibatidine binding. These data
+are consistent with the fact that neither b2 nor a4 knockout
+completely abolishes the entire extracellular domain of the
+b2 nAChR subunit that is speciﬁcally recognized by mAb295
+[4,25]. Thus, although these nAChR subunit knockouts com-
+pletely eliminate nicotinic agonist binding sites and functional
+nAChRs, a small amount of a non-functional protein appears
+to be produced that is able to form some complexes with inter-
+acting proteins.
+
+Deﬁning and stratifying an a4b2* nAChR interactome by
+multiple linear regression following iTRAQ LC–MS/MS
+
+We performed multiple linear regression on the positively iden-
+tiﬁed proteins in the three biological replicates to identify
+highly speciﬁc interacting peptides whose relative abundance
+changes proportionally with the amount of quantitated nAC-
+hRs. Included proteins were identiﬁed by more than one signif-
+icant and unique peptide (peptide expectation score <1.7,
+corresponding to a conﬁdence interval of 95%) in at least
+one biological replicate. There were 208 proteins identiﬁed
+by LC–MS/MS acquired, iTRAQ labeled peptides, with linear
+correlation coefﬁcients ranging from +1 for b2 nAChR sub-
+unit to  0.847 for vesicle-associated membrane protein 2
+(VAMP2) (Table S2).
+
+Identiﬁcation of signiﬁcant a4b2* interacting proteins
+
+We did not fractionate tissue prior to processing, which max-
+imized b2* nAChR content, but also introduced proteins from
+irrelevant cellular compartments that formed complexes with
+the immunopuriﬁed nAChRs. Some proteins appeared to be
+
+Table 1 Gene dose-dependent effect on the number of [3H]-epibatidine binding sites of nAChRs
+Number of [3H]-epibatidine binding sites (fmol)
+
+Genotype
+
+F(2, 8) score
+
+P value
+
+Total in brain extracts (mean ± SEM)
+
+Captured by immobilized mAb295 (mean ± SEM)
+
+nAChR subunit WT
+
+HET
+
+KO
+
+a4
+b2
+
+a4
+b2
+
+609.3 ± 101.5
+633.6 ± 124.0
+
+522.7 ± 120.3
+505.6 ± 103.5
+
+514.0 ± 109.0
+51.9 ± 4.5
+463.6 ± 2.6
+38.9 ± 9.7
+420.3 ± 116.8  1.0 ± 12.2
+ 5.0 ± 10.5
+365.2 ± 6.5
+
+12.00
+18.17
+
+8.18
+19.21
+
+0.008
+0.003
+
+0.019
+0.002
+
+210
+
+Genomics Proteomics Bioinformatics 11 (2013) 207–218
+
+protein
+
+thyroid
+
+hormone
+
+receptor-associated
+
+the nucleus or mitochondria. The UniProt Knowledgebase
+(UniProtKB) [27] was therefore used to cull proteins from
+the list when the assigned cellular compartment did not corre-
+spond to sites of known nAChR localization. Exceptions were
+made in the case of two transcription factors: Pur-a, which has
+the capacity to translocate from the cytosol to the nucleus [28],
+and
+3
+(THRAP3), which we previously identiﬁed in an additional
+unpublished nAChR interactome study. Additional analysis
+focused only on 91 proteins in these compartments, with 62
+identiﬁed as cytoplasmic, 26 associated with the plasma mem-
+brane and the remaining 3 proteins associated with the Golgi
+apparatus/endomembrane system (Table 2). Of these, only 17
+proteins (11 cytoplasmic and 6 associated with the plasma
+membrane) showed statistically signiﬁcant correlation with
+levels of the b2 nAChR subunit (Table 3). Classiﬁcation of
+these 17 proteins with PANTHER Gene Ontology (GO) of
+molecular function [29] revealed distinct biological activity
+proﬁles (Table 3).
+
+In the primary (unﬁltered) dataset, distribution of correla-
+tion coefﬁcients for b2 log2MRIPA was distinctly bimodal,
+with a major mode occurring between 0 and  0.5, and a minor
+mode occurring between 0.25 and 0.75 (Figure 3A). These data
+suggest that this dataset represents two sets of events: proteins
+that likely interacted with the antibody complex when it was
+not occupied by nAChRs (r < 0) and proteins that interacted
+selectively with the immunoprecipitated nAChRs (r > 0.25).
+In the secondary dataset, adjustment for cellular compartment
+eliminated the events with r < 0 and resulted in a unimodal
+distribution approximately equivalent to the minor mode with
+r > 0.25 (Figure 3B). These data suggest that eliminating the
+group of proteins that are not co-localized with the nAChRs
+in these cellular compartments also screens out the majority
+of proteins that interact non-speciﬁcally with the antibody
+complex. The tertiary dataset (selected for signiﬁcant positive
+correlation with b2 nAChR subunit expression; P < 0.05)
+was also unimodal, with the majority of the distribution cen-
+tered between 0.5 and 0.75 (Figure 3C). Eliminating proteins
+based on cellular compartments favored identiﬁcation of more
+positive correlations with b2 nAChR subunit abundance. Such
+result is consistent with the observation that calculated kurto-
+sis for the frequency distribution increased from an estimate of
+ 0.513 to 1.211 when moving from the primary to secondary
+dataset, an indication that the selected datasets deviated signif-
+icantly from chance. Indeed, all three frequency distributions
+were signiﬁcantly different from a normal distribution accord-
+ing to Shapiro–Wilk test (P = 0.006, 0.021 and 0.022 for pri-
+mary, secondary and tertiary dataset, respectively), indicating
+that the samples were substantially enriched for a particular
+target protein and the associated proteins identiﬁed were lar-
+gely non-random.
+
+Discussion
+
+This
+study used quantitative protein identiﬁcation with
+iTRAQ and LC–MS/MS to identify protein–protein interac-
+tions for a4b2 nAChRs. A highly speciﬁc monoclonal anti-
+body was used to capture b2* nAChRs
+reliably and
+efﬁciently from detergent extracts of mouse brain homoge-
+nates,
+facilitating the identiﬁcation of a set of putative
+nAChR-interacting proteins. Proteins of particular interest
+
+Figure 1 Gene dose-dependent effects of nAChR subunit gene
+deletion on the relative protein abundance of a4 and b2 subunits
+The relative abundance of a4 and b2 nAChR subunits determined
+by iTRAQ quantitation of the log2 mean reporter ion peak areas
+(log2MRIPA) is signiﬁcantly altered as measured by an overall
+ANOVA by the full or partial gene deletion of either subunit (a4:
+n = 9, F(2, 8) = 7.39, P = 0.024; b2:
+n = 9, F(2, 8) = 8.35,
+P = 0.018). Gene dose-dependent decreases in abundance dem-
+onstrate the interdependence of a4 and b2 nAChR subunits in
+mouse brain. MRIPA stands for mean reporter ion peak area.
+
+Figure 2 Correlation of nAChR abundance measured by iTRAQ
+and ligand binding
+Correlation between fmol of [3H]-epibatidine binding and mea-
+sured log2MRIPA of a4 and b2 was plotted. The relative
+abundance of a4 (black circles) and b2 (white circles) nAChR
+subunits measured by iTRAQ follow a gene-dose dependent
+decrease and is signiﬁcantly correlated with [3H]-epibatidine
+binding across the six genotypes examined (WT, HET and KO;
+a4: r = 0.894, P < 0.0009; b2: r = 0.804, P < 0.0009).
+
+associated quite strongly (r > 0.5 using Pearson’s product mo-
+ment correlation coefﬁcient since the relationship between
+nAChR subunit gene dose and receptor expression is linear)
+with b2* nAChRs (such as certain histone isoforms), despite
+the fact that nAChRs would not be expected to localize to
+
+McClure-Begley TD et al / Quantitative Nicotinic Receptor Proteomics
+
+211
+
+Table 2 Proteins speciﬁcally associated with nAChRs based on cellular compartments
+
+F score P value Protein
+
+UniProtKB
+accession No.
+
+Cellular compartment
+
+Previously
+identiﬁed?
+
+Correlation
+coeﬃcient
+
+0.185
+0.117
+0.326
+0.375
+0.645
+0.37
+0.104
+0.162
+0.464
+0.227
+0.021
+0.637
+
+0.172
+
+0.456
+
+0.917
+
+0.235
+0.598
+0.186
+0.468
+0.327
+0.539
+
+0.386
+0.57
+0.46
+0.337
+0.748
+0.476
+0.417
+0.045
+
+0.193
+0.46
+0.486
+0.243
+0.332
+0.332
+0.506
+0.262
+0.512
+0.085
+0.652
+0.379
+0.858
+1
+0.02
+0.431
+0.484
+0.287
+0.397
+0.31
+0.856
+0.171
+0.443
+
+0.69
+
+0.224
+
+N
+
+18
+18
+18
+18
+18
+18
+12
+12
+18
+18
+12
+18
+
+6
+
+6
+
+18
+
+18
+6
+18
+18
+18
+18
+
+6
+18
+6
+18
+12
+18
+18
+18
+
+18
+18
+12
+6
+18
+18
+18
+18
+18
+18
+18
+18
+18
+18
+18
+6
+12
+12
+6
+12
+6
+6
+12
+
+6
+
+12
+
+0.568
+0.221
+1.909
+2.623
+11.404
+2.536
+0.11
+0.271
+4.4
+0.866
+0.005
+10.904
+
+0.462
+0.645
+0.186
+0.125
+0.004
+0.131
+0.747
+0.614
+0.052
+0.366
+0.948
+0.004
+
+0.49
+
+0.494
+
+1.048
+
+0.364
+
+21.235
+
+0.01
+
+0.347
+0.21
+0.724
+0.05
+0.186
+0.021
+
+0.113
+0.014
+0.055
+0.171
+0
+0.117
+0.085
+0.859
+
+0.938
+2.221
+0.143
+4.495
+1.911
+6.563
+
+2.807
+7.681
+4.286
+2.052
+20.268
+2.937
+3.371
+0.033
+
+0.622
+4.29
+1.237
+1.957
+1.984
+1.984
+5.496
+1.183
+5.695
+0.117
+11.844
+2.683
+44.542
+
+–
+0.006
+2.279
+3.061
+0.901
+1.867
+1.063
+11.009
+0.302
+2.44
+
+P28652
+
+Q6PHZ2
+
+P63101
+P16330
+P68033
+P63260
+Q99JY9
+Q7TPR4
+Q9JI91
+P17182
+P46660
+Q8C8R3
+Q91XV3
+P11798
+
+14-3-3 protein f/d
+20,30-cyclic-nucleotide 30-phosp hodiesterase
+Actin, alpha cardiac muscle 1
+Actin, cytoplasmic 2
+Actin-related protein 3
+a-actinin-1
+a-actinin-2
+a-enolase
+a-internexin
+Ankyrin-2
+Brain acid soluble protein 1
+Calcium/calmodulin-dependent protein
+kinase type II subunit a
+Calcium/calmodulin-dependent protein
+kinase type II subunit b
+Calcium/calmodulin-dependent protein
+kinase type II subunit d
+Calcium/calmodulin-dependent protein
+kinase type II subunit c
+Coronin-2B
+Dihydropyrimidinase-related protein 2
+Disks large homolog 4
+Drebrin
+Dynein light chain 2, cytoplasmic
+Ectonucleotide pyrophosphatase/
+phosphodiesterase family member 6
+EF-hand domain-containing protein D2
+F-actin-capping protein subunit a2
+F-actin-capping protein subunit b
+Gelsolin
+Glial ﬁbrillary acidic protein
+Glutamine synthetase
+Glyceraldehyde-3-phosphate dehydrogenase
+Guanine nucleotide-binding protein G(o)
+subunit a
+Heat shock cognate 71 kDa protein
+P63017
+Heterogeneous nuclear ribonucleoprotein D0 Q60668
+Heterogeneous nuclear ribonucleoprotein U
+L-Lactate dehydrogenase A chain
+
+Q9D8Y0
+P47754
+P47757
+P13020
+P03995
+P15105
+P16858
+P18872
+
+Q8BH44
+O08553
+Q62108
+Q9QXS6
+Q9D0M5
+Q8BGN3
+
+Q923T9
+
+0.442
+0.055
+0.328
+0.192
+0.178 Myelin basic protein
+0.178 Myelin basic protein
+0.032 Myelin proteolipid protein
+0.293 Myosin light polypeptide 6
+0.03
+Myosin-10
+0.737 Myosin-9
+0.003
+0.121
+0
+0
+0.938
+0.162
+0.111
+0.365
+0.202
+0.327
+0.029
+0.595
+0.149
+
+Neuroﬁlament light polypeptide
+Neuroﬁlament medium polypeptide
+Neuronal acetylcholine receptor subunit a4
+Neuronal acetylcholine receptor subunit b2
+Peptidyl-prolyl cis–trans isomerase A
+Peroxiredoxin-1
+Pyruvate kinase isozymes M1/M2
+Ras-related protein Rab-11B
+Ras-related protein Rab-7a
+Ras-related protein Ral-A
+Ras-related protein Rap-1A
+Ras-related protein Rap-1b
+Serine/threonine-protein phosphatase PP1b
+catalytic subunit
+Serine/threonine-protein phosphatase PP1c
+catalytic subunit
+Sodium/potassium-transporting ATPase
+subunit a2
+
+Q8VEK3
+P16125
+P04370
+P04370
+P60202
+Q60605
+Q61879
+Q8VDD5
+P08551
+P08553
+O70174
+Q9ERK7
+P17742
+P35700
+P52480
+P46638
+P51150
+P63321
+P62835
+Q99JI6
+P62141
+
+Cytoplasm
+Cell membrane
+Cytoplasm
+Cytoplasm
+Cytoplasm
+Cytoplasm
+Cytoplasm
+Cytoplasm
+Cytoplasm
+Cytoplasm
+Cell membrane
+Cytoplasm
+
+Cytoplasm
+
+Cell membrane
+
+Sarcoplasmic reticulum
+membrane
+Cytoplasm
+Cytoplasm
+Cell membrane
+Cytoplasm
+Cytoplasm
+Cell membrane
+
+Membrane raft
+Cytoplasm
+Cytoplasm
+Cytoplasm
+Cytoplasm
+Cytoplasm
+Cytoplasm
+Heterotrimeric G-protein
+complex
+Cytoplasm
+Nucleus
+Nucleus
+Cytoplasm
+Myelin membrane
+Myelin membrane
+Cell membrane
+Cytoplasm
+Cytoplasm
+Cytoplasm
+Growth cone
+Growth cone
+Cell junction
+Cell junction
+Cytoplasm
+Cytoplasm
+Cytoplasm
+Cell membrane
+Late endosome
+Cell membrane
+Cell membrane
+Cell membrane
+Cytoplasm
+
+Yes
+Yes
+No
+Yes
+No
+No
+No
+No
+No
+No
+No
+No
+
+No
+
+No
+
+No
+
+No
+No
+Yes
+No
+No
+No
+
+No
+No
+No
+No
+No
+No
+Yes
+Yes
+
+No
+No
+No
+No
+Yes
+Yes
+No
+No
+No
+No
+No
+No
+No
+No
+No
+No
+No
+No
+No
+No
+No
+No
+No
+
+No
+
+No
+
+3.633
+
+0.129
+
+0.529
+
+0.484
+
+P63087
+
+Cytoplasm
+
+Q6PIE5
+
+Cell membrane
+
+212
+
+Genomics Proteomics Bioinformatics 11 (2013) 207–218
+
+Table 2
+
+continued
+
+Correlation
+coeﬃcient
+
+N
+
+F score P value Protein
+
+18
+
+1.169
+
+0.296
+
+18
+
+1.217
+
+0.286
+
+Sodium/potassium-transporting ATPase
+subunit a3
+Sodium/potassium-transporting ATPase
+subunit b1
+Spectrin a chain, brain
+Spectrin b chain, brain 1
+Synaptopodin
+Synaptotagmin-1
+Syntaxin-1B
+Syntaxin-binding protein 1
+
+0.034
+0.027
+0.229
+0.066
+0.073
+0.734
+0.015 Thyroid hormone receptor-associated
+
+UniProtKB
+accession No.
+
+Cellular compartment
+
+Q6PIC6
+
+Cell membrane
+
+P14094
+
+Cell membrane
+
+P16546
+Q62261
+Q8CC35
+P46096
+P61264
+O08599
+Q569Z6
+
+Cytoplasm
+Cytoplasm
+Cytoplasm
+Cytoplasmic vesicle
+Cell membrane
+Cell membrane
+Nucleus
+
+Previously
+identiﬁed?
+
+No
+
+No
+
+Yes
+No
+No
+No
+No
+No
+No
+
+protein 3
+
+0.018 Transcriptional activator protein Pur-a
+0.322 Triosephosphate isomerase
+0.175 Tropomodulin-2
+Tubulin a-1A chain
+0.06
+0.074 Tubulin a-4A chain
+0.081 Tubulin b-2A chain
+0.037 Tubulin b-3 chain
+0.121 Tubulin b-4A chain
+0.16
+0.072 Unconventional myosin-Va
+0.235 Unconventional myosin-VI
+0.975 Unconventional myosin-XVIIIa
+0.474 Vesicle-fusing ATPase
+0.712 Vimentin
+0.478 V-type proton ATPase catalytic subunit A
+
+Tubulin b-5 chain
+
+No
+Nucleus
+P42669
+No
+Cytoplasm
+P17751
+No
+Cytoplasm
+Q9JKK7
+Yes
+Cytoplasm
+P68369
+No
+P68368
+Cytoplasm
+No
+Q7TM M 9 Cytoplasm
+No
+Cytoplasm
+Q9ERD7
+No
+Q9D6F9
+Cytoplasm
+No
+Cytoplasm
+P99024
+No
+Cytoplasm
+Q99104
+Golgi apparatus
+Q64331
+No
+ER-Golgi intermediate compartment No
+Q9JMH9
+P46460
+Cytoplasm
+No
+No
+Cytoplasm
+P20152
+P50516
+Cell membrane
+No
+
+0.261
+
+0.266
+
+0.502
+0.519
+0.299
+0.547
+0.536
+0.086
+0.562
+
+0.665
+0.491
+0.334
+0.451
+0.431
+0.422
+0.493
+0.379
+0.432
+0.434
+0.295
+0.01
+0.18
+0.195
+0.179
+
+18
+18
+18
+12
+12
+18
+18
+
+12
+6
+18
+18
+18
+18
+18
+18
+12
+18
+18
+12
+6
+18
+6
+
+5.378
+5.884
+1.566
+4.265
+4.026
+0.119
+7.386
+
+7.933
+1.272
+2.011
+4.087
+3.652
+3.466
+5.149
+2.688
+2.298
+3.717
+1.52
+0.001
+0.537
+0.158
+0.527
+
+Note: Correlation coefﬁcient was calculated using Pearson’s product moment; N indicates the number of samples contributing to analysis; F score
+was generated by one-way ANOVA.
+
+were identiﬁed, amounts of which tend to follow a linear trend
+with respect to the measured quantity of a4b2* nAChRs that
+are present in the samples from WT, HET and KO mice trans-
+genic for the a4 or b2 subunit. The log2MRIPA ratios (trans-
+formed representation of average protein abundance measured
+by iTRAQ) of the individual a4 and b2 nAChR subunit
+proteins were signiﬁcantly correlated with the measured [3H]-
+epibatidine binding sites, supporting the accuracy and repro-
+ducibility of iTRAQ-coupled LC–MS/MS. Previous studies
+have shown that expression of a4 nAChR subunits is largely
+dependent on that of b2 subunit; however, low levels of b2*
+nAChRs remain in the absence of a4 [26,30]. Additional a sub-
+units (a2, a3 and a6) are expressed in the CNS and can form
+functional nAChRs together with b2 subunits [31]. Although
+the non-a4 nAChRs are not sufﬁciently abundant to allow
+identiﬁcation of these complexes from the whole brain lysate
+by iTRAQ. Our measurements of a4 and b2 nAChR subunit
+peptides across the six genotypes using iTRAQ are consistent
+with published studies on the effect of subunit null-mutation
+on mature b2* nAChR subtype expression. Importantly, our
+measures indicate that in the absence of a partner subunit,
+individual nAChR subunit monomers contributing to hetero-
+meric a4b2* nAChRs are not apparent, and that multi-subunit
+complexes are required to prevent rapid degradation of free
+subunits.
+
+nAChR peptides have been recognized previously by mAbs
+in knockout mouse tissue [30]. The genomic DNA encoding
+the majority of the extracellular domain of the b2 nAChR sub-
+unit (recognized by mAb295) is not removed by exon deletion,
+
+through which the a4 and b2 nAChR subunit knockout mice
+were generated [4,25], so identiﬁcation of low levels of a4
+and b2 nAChR subunit peptides in their respective KO mice
+is not surprising. It is also possible that some of the peptides
+recovered in the a4 and b2 KO samples are incorrectly identi-
+ﬁed as a result of chimeric spectra in MS/MS that do not actu-
+ally represent nAChR subunit peptides; however, chimeric
+spectra generally result in uncertainty of protein identiﬁcation,
+rather than positive identiﬁcation of peptides that are not actu-
+ally present in the sample [32].
+
+It is possible that truncated nAChR subunit peptides in KO
+tissue cannot form binding sites but retain some features of
+nascent nAChR assembly intermediates, since measurable
+[3H]-epibatidine binding sites decreased in gene-dose-depen-
+dent fashion following nAChR subunit deletion, while the
+amount of total eluted protein following mAb295 afﬁnity puri-
+ﬁcation did not change. In addition, when comparing func-
+tions of proteins
+identiﬁed in the dataset adjusted for
+improper cellular compartment to those in the dataset adjusted
+for correlation with b2 nAChR subunit expression, proteins
+serving chaperone isomerase, and ER-Golgi transport func-
+tions are lost. Therefore, proteins captured from detergent ex-
+tracts of KO brain homogenates that do not follow the
+regression trend likely represent proteins that are associated
+with incomplete/immature b2* nAChRs, while the more
+strongly and signiﬁcantly correlated proteins potentially inter-
+act with mature receptors. Proteins negatively correlated with
+nAChR subunit levels may be involved in degradation and/or
+compartmentalization of non-functional nAChR proteins, or
+
+Table 3 Proteins with their abundances signiﬁcantly positively correlated with that of b2 nAChR subunit across genotypes
+
+Correlation coeﬃcient N F score P value Protein
+
+UniProtKB
+accession No.
+
+Cellular
+compartment
+
+Previously
+identiﬁed?
+
+Molecular
+function
+
+0.748
+0.858
+1
+0.652
+0.645
+0.637
+
+0.917
+
+0.57
+0.562
+
+0.665
+
+0.539
+
+0.519
+
+0.856
+0.512
+0.506
+0.502
+0.493
+
+12
+18
+18
+18
+18
+18
+
+20.268
+44.542
+
+–
+
+11.844
+11.404
+10.904
+
+0
+0
+0
+0.003
+0.004
+0.004
+
+18
+
+21.235
+
+0.01
+
+7.681
+7.386
+
+0.014
+0.015
+
+7.933
+
+0.018
+
+6.563
+
+0.021
+
+5.884
+
+0.027
+
+18
+18
+
+12
+
+18
+
+18
+
+6
+18
+18
+18
+18
+
+P03995
+O70174
+Q9ERK7
+P08551
+Q99JY9
+P11798
+
+Glial ﬁbrillary acidic protein
+nAChR subunit a4
+nAChR subunit b2
+Neuroﬁlament light poly peptide
+Actin-related protein 3
+Calcium/calmodulin-dependent protein
+kinase type II subunit a
+Calcium/calmodulin-dependent protein
+kinase type II subunit c
+F-actin-capping protein subunit a2
+Thyroid hormone
+receptor- associated protein 3
+Transcriptional activator protein Pur-a P42669
+
+P47754
+Q569Z6
+
+Q923T9
+
+Cytoplasm
+Cell junction
+Cell junction
+Growth cone
+Cytoplasm
+Cytoplasm
+
+Sarcoplasmic
+reticulum membrane
+Cytoplasm
+Nucleus
+
+Nucleus
+
+Ectonucleotide
+pyrophosphatase/phosphodiesterase
+family member 6
+Spectrin b chain, brain 1
+
+11.009
+5.695
+5.496
+5.378
+5.149
+
+Ras-related protein Rap-1A
+Myosin-10
+
+0.029
+0.03
+0.032 Myelin proteolipid protein
+0.034
+0.037
+
+Spectrin a chain, brain
+Tubulin b-3 chain
+
+Q8BGN3
+
+Cell membrane
+
+Q62261
+
+Cytoplasm
+
+P62835
+Q61879
+P60202
+P16546
+Q9ERD7
+
+Cell membrane
+Cytoplasm
+Cell membrane
+Cytoplasm
+Cytoplasm
+
+No
+No
+No
+No
+No
+No
+
+No
+
+No
+No
+
+No
+
+No
+
+No
+
+No
+No
+No
+Yes
+No
+
+Protein binding, structural molecule
+Neuro-transmitter receptor
+Neuro-transmitter receptor
+Protein binding, structural molecule
+Nucleotide binding, protein binding
+Transferase, nucleotide binding, protein binding
+
+Transferase, nucleotide binding, protein binding
+
+Protein binding
+Nucleotide binding, protein binding
+
+Nucleic acid binding, translation
+regulator, protein binding
+Catalytic activity, hydrolase activity
+
+Protein binding, lipid binding,
+structural molecule activity
+Hydrolase activity, protein binding, nucleotide binding
+Protein binding, nucleotide binding, hydrolase
+Structural molecular, protein binding
+Hydrolase, protein binding, nucleotide binding
+Hydrolase, nucleotide binding, structural
+molecular, protein binding, peptide
+
+M
+c
+C
+l
+u
+r
+e
+-
+B
+e
+g
+l
+e
+y
+
+T
+D
+e
+t
+
+a
+l
+
+/
+
+Q
+u
+a
+n
+t
+i
+t
+a
+t
+i
+v
+e
+N
+i
+c
+o
+t
+i
+n
+i
+c
+R
+e
+c
+e
+p
+t
+o
+r
+
+P
+r
+o
+t
+e
+o
+m
+i
+c
+s
+
+2
+1
+3
+
+214
+
+Genomics Proteomics Bioinformatics 11 (2013) 207–218
+
+Frequency distribution of correlations for proteins associated with b2 subunit
+
+Figure 3
+Frequency distribution of calculated correlations between relative abundances of putative interacting proteins and b2 nAChR log2MRIPA
+was shown. A. The primary dataset (no protein exclusion) is bimodal, indicating the presence of a substantial number of proteins identiﬁed
+with no signiﬁcant correlation or a negative correlation. B. The major (negative correlation) mode is lost when identiﬁed proteins in
+cellular compartments that do not normally contain nAChRs are removed (secondary dataset), resulting in a skewed distribution. C. The
+tertiary dataset (signiﬁcantly correlated proteins) is also predictably skewed, indicating that the edited dataset favors proteins that are
+enriched for the b2 nAChR subunit.
+
+may bind to mAb295 and accumulate in the absence of bound
+nAChRs.
+
+The use of iTRAQ coupled with a4 and b2 nAChR subunit
+transgenic mouse tissue provides a signiﬁcant technical ad-
+vance over previous proteomic methods used to identify spe-
+ciﬁc nAChR-interacting proteins. Separating samples with
+difference in gel electrophoresis (DIGE) and eliminating
+bands/spots that appear in the KO control condition prior to
+LC–MS/MS pose the risk of missing signiﬁcantly-associated
+proteins that are expressed in low abundance and may co-mi-
+grate with non-speciﬁcally captured proteins [33]. Mulitplexing
+with iTRAQ and identifying as many proteins as possible in
+the post-IP eluent reduce the risk of missing proteins of interest
+due to preprocessing steps like DIGE, but increase the risk of
+identifying proteins that are not necessarily associated with
+assembled a4b2* nAChRs. Combining SILAC with siRNA-
+mediated knockdown reduces identiﬁcation of false interacting
+proteins, which is not suited to tissue samples and is limited to
+a direct comparison of two samples [22]. To address this issue,
+we took advantage of quantitation using iTRAQ to generate
+linear regression of the apparent abundance of each identiﬁed
+protein together with that of the b2 nAChR subunit across the
+six genotypes examined in each sample set, allowing us to iden-
+tify a continuum of protein associations, ranging from highly
+positive to highly negative correlations.
+
+Previously suggested nAChR-interacting proteins were lost
+from the dataset as our analysis became more stringent. Eight
+(out of 17 in total) of a4b2 nAChR-interacting proteins iden-
+tiﬁed by MALDI–ToF-ToF [20] are retained when identiﬁed
+proteins are restricted by cellular compartments, and 1 (out
+of 17) is identiﬁed when only proteins whose expression were
+signiﬁcantly correlated with b2 nAChR subunit expression lev-
+els were considered, suggesting that these previous analyses
+may have suffered from missed identiﬁcation and potentially
+false positive interactions. The current method, in contrast to
+MALDI–ToF-ToF [20], identiﬁed a signiﬁcant correlation be-
+tween the relative abundance of a4 nAChR subunit and the
+abundance of its primary partner b2 (r = 0.858). It is impor-
+tant to note that proteins listed in a recent comprehensive re-
+view (2011) [34] include those whose interactions are inferred
+from modulatory interactions (as with protein kinases and
+
+phosphatases which are known to phosphorylate or dephos-
+phorylate the nAChRs). Such interactions are transient and
+may be cell-type speciﬁc. Therefore, future studies using en-
+riched samples from a particular brain region and/or neuronal
+phenotype will be required to validate such associations.
+
+Interpretation of interacting proteins that are not likely to
+interact in functionally relevant ways with target proteins is
+a caveat in current proteomic methods. This highlights the
+need to curate results of these analyses carefully and is part
+of the tradeoff for enhanced discovery and unbiased identiﬁca-
+tion of novel interacting proteins. Examining the relative sub-
+cellular distribution of identiﬁed proteins in each of the lists
+generated by increasingly stringent criteria provided some
+interesting insights. Culling proteins by cellular compartment
+resulted in a dataset of 91 identiﬁed proteins in which 68%
+were cytoplasmic. Some Golgi/ER membrane resident proteins
+were also identiﬁed, indicating that the list of 91 interacting
+proteins likely includes proteins that interact with b2* nAChRs
+during assembly or maturation. The relative subcellular distri-
+bution of nAChRs in neurons in vivo is unknown, but cell sur-
+face expression of a4b2* nAChRs varies both by brain region
+and model organism [35,36]. The list of 17 proteins whose
+expression is correlated signiﬁcantly with that of b2 nAChR
+subunit eliminates the Golgi/ER resident proteins, suggesting
+that this group represents proteins that largely interact with
+mature nAChRs present in the plasma membrane. Interactions
+with other plasma-membrane resident proteins are likely dis-
+rupted following solubilization. This is reﬂected in the list of
+91 interacting proteins, where the majority (65%) are cytoplas-
+mic proteins, indicating that in the mature state, the large
+cytoplasmic loop of each subunit that resides between trans-
+membrane domains 3 and 4 represents the primary site for
+intracellular protein–protein interactions.
+
+Establishing molecular function classiﬁcations with PAN-
+THER pathway analysis [29] reveals that the primary interac-
+tions of mature b2* nAChRs occur with structural proteins
+that are part of, and regulate the growth and assembly of,
+the cytoskeleton. These data are consistent with studies show-
+ing that b2* nAChRs are involved in production and mainte-
+nance of dendritic spines during development
+[37]. Of
+particular interest are the cytoskeletal proteins that appear to
+
+McClure-Begley TD et al / Quantitative Nicotinic Receptor Proteomics
+
+215
+
+play functional roles in the growth and reorganization of syn-
+aptic processes, such as actin-related protein 3 (Arp3) and F-
+actin capping protein subunit a2. Arp3 contributes directly
+to axon branching [38] and is implicated in strain differences
+in hippocampal information processing [39]. Activity-depen-
+dent accumulation of F-actin capping proteins occurs in den-
+dritic spines [40], supporting the idea that b2* nAChRs play
+a role in dynamic neuronal cytoarchitecture remodeling and
+providing a potential molecular mechanism for
+future
+evaluation.
+
+Two isoforms of calcium/calmodulin-dependent protein
+kinase II (CaMKII), a and c, were identiﬁed in the current
+experiment. CamKII is involved in nAChR recycling [41]
+and a-kinase-anchoring protein (aKAP, a CaMKII anchor-
+ing protein) inhibits proteasomal degradation of muscle-type
+nAChRs [42]. CaMKII is also a critical mediator of long-
+term potentiation (LTP) (see [43] for review), a molecular
+mechanism underlying memory storage. CaMKIIa is specif-
+ically associated with the postsynaptic density in excitatory
+neurons (see [44] for review) and previous studies have dem-
+onstrated that acute nicotine exposure in mice activates
+CaMKII in the spinal cord and brain, which requires activa-
+tion of b2* nAChRs [45,46]. In addition, b2* nAChR-medi-
+ated activation of CaMKII is an essential component of the
+antinociceptive effects of nicotine [47] and affective signs of
+nicotine withdrawal [48]. Chronic nicotine exposure results
+in an increase in CaMKIIa expression and function in nu-
+cleus accumbens of mice and this effect is attenuated follow-
+ing administration of a b2 nAChR selective antagonist [49].
+Nicotine also inﬂuences several aspects of hippocampal-
+dependent learning [50]. Identiﬁcation here of a direct asso-
+ciation between a4b2* nAChRs and CaMKIIa provides
+rationale for
+role in hippocampal
+plasticity.
+
+future studies of
+
+its
+
+It should be noted that glial ﬁbrillary acidic protein
+(GFAP) is one of the most highly correlated proteins identi-
+ﬁed in the curated list of proteins. Homomeric a7 nAChRs
+have been reported to be expressed on astrocytes [51]. How-
+ever evidence of a4b2 nAChR expression on non-neuronal
+CNS cells is lacking. Identiﬁcation of GFAP in this study
+may imply that a4b2* nAChRs could participate in neu-
+ron–glia interactions.
+
+In conclusion, we have identiﬁed a novel set of nAChR-
+interacting proteins that are consistent with known nAChR-
+mediated functions, as well as previously identiﬁed interactors
+such as spectrin-a, validating our methodology. In addition
+to these biological ﬁndings, development of the iTRAQ tech-
+nique in combination with evaluation in knockout mouse
+lines will be important for identifying protein–protein interac-
+tion without prior knowledge of the complex and for identi-
+fying interactions that cannot be detected using traditional
+protein
+an
+nAChR-associated proteome also provides a set of novel tar-
+gets for drug discovery of therapeutics for smoking cessation
+and psychiatric or neurological disorders associated with nic-
+otinic dysfunction. Ultimately, generation of small molecules
+that are capable of disrupting or facilitating interactions be-
+tween nAChRs and speciﬁc associated proteins holds the
+promise of providing more targeted therapies with higher
+selectivity for particular nAChR-mediated behavioral func-
+tions and fewer side effects.
+
+Identiﬁcation of
+
+identiﬁcation
+
+techniques.
+
+Materials and methods
+
+Chemicals
+
+Unless stated otherwise, all reagents were obtained from Sigma
+Aldrich (St. Louis, MO). [3H]-epibatidine (62.2 Ci/mmol) was
+purchased from PerkinElmer, Sheldon, CT. iTRAQ reagents
+were obtained from AB Sciex (Framingham, MA).
+
+Animals
+
+Homozygous wild type (WT), heterozygous (HET) and homo-
+zygous (KO) mice lacking either a4 or b2 nAChR subunit were
+used in the study. b2 nAChR subunit [4] and a4 nAChR sub-
+unit [25] knockout (KO) mice were backcrossed at least 30 gen-
+erations to a C57 BL/6 background. Mice were bred at the
+University of Colorado, Boulder, housed in groups of no more
+than 5 individuals per cage, maintained on a 12:12 h light:dark
+cycle and given ad libitum access to food and water. All proto-
+cols involving animals were approved by the Institutional Ani-
+mal Care and Use Committee (IACUC) of Yale University
+and the University of Colorado and conformed to the stan-
+dards for animal care and use set by the National Institutes
+of Health.
+
+Preparation of brain tissue extracts for immunoprecipitation
+
+solution (PBS, pH 7.4;
+
+Animals were sacriﬁced by cervical dislocation and brains were
+rapidly placed on an ice-cold surface. After rinsed in chilled
+phosphate buffer
+containing
+136.9 mM NaCl, 2.68 mM KCl, 10.14 mM Na2HPO4 and
+1.76 mM KH2PO4) to carefully wash off any debris, brains
+were then snap frozen by immersion in  35 °C isopentane
+and kept frozen at  80 °C until use. On the day of tissue prep-
+aration, brains were thawed on a chilled surface and cerebel-
+lum was removed and discarded. The resulting tissue (whole
+forebrain) was homogenized by hand with 37 strokes in a glass
+tissue grinder in 10 volumes of extraction buffer (EB) (0.6%
+Triton X-100, 121.9 mM NaCl, 2.68 mM KCl, 10.14 mM
+Na2HPO4, 1.76 mM KH2PO4, 5 mM EDTA, 5 mM EGTA,
+5 mM NaF, 0.1 mM Na3VO4, 1.0 mM PMSF and 10 lg/ml
+each of aprotonin, prepstatin A and leupeptin; pH 7.4). The
+resulting homogenate was incubated at 23 °C with gentle rota-
+tion for 30 min to facilitate protein solubilization, then sub-
+jected to centrifugation for 20 min at 5000 g, 4 °C. The
+resulting supernatant was used for all subsequent experiments.
+
+[3H]-Epibatidine binding from mouse brain extracts
+
+Measurement of the amount of high-afﬁnity nAChRs in brain
+extracts was performed essentially as described previously [52],
+except that 1 nM [3H]-epibatidine was used as the radioligand
+instead of 200 pM [125I]-epibatidine. [3H]-epibatidine labeled
+nAChRs were captured by ﬁltration through a Packard Filter-
+mate 196 Cell Harvester (Meriden, CT) onto Pall type A/D ﬁl-
+ters pre-soaked in 0.5% polyethylinimine. After washing three
+times with ice-cold wash buffer (140 mM NaCl, 1.5 mM KCl,
+.7H2O, 25 mM HEPES, pH
+2.0 mM CaCl2, 1.0 mM MgSO4
+7.5), radioactivity on individual ﬁlters was measured by liquid
+
+216
+
+Genomics Proteomics Bioinformatics 11 (2013) 207–218
+
+scintillation counting on a Beckmann LS6000LL (Indianapo-
+lis, IN) at 55% efﬁciency.
+
+Immunoprecipitation
+
+mAb295 has been previously characterized as an antibody spe-
+ciﬁc to b2* nAChRs [1]. A solid phase mAb295 immunopuriﬁ-
+cation matrix was prepared using M270 Dynabeads
+(Invitrogen) according to the manufacturer’s instructions and
+stored in PBS containing 0.5% Triton X-100 and 0.02%
+NaN3 at 4 °C until use. On the day of IP, bead suspensions
+were aliquoted, separated on a magnetic stand, and rinsed
+once with PBS prior to the addition of brain supernatant. IP
+took place overnight at 4 °C with gentle rotation. Following
+IP, beads were separated with a magnetic stand and the super-
+natant was aspirated and discarded. Beads were then rinsed
+twice with PBS containing 0.01% Tween-20, then again in
+PBS only. Proteins were eluted from rinsed beads with 500 ll
+elution buffer (0.5 M NH4OH and 0.5 mM EDTA) by incuba-
+tion at 23 °C for 20 min with gentle rotation. Elution was re-
+peated one more time. The resulting eluate was
+then
+combined and lyophilized in a Speedvac DNA120 overnight.
+The lyophilized proteins were used for subsequent proteomic
+analysis.
+
+iTRAQ labeling and protein identiﬁcation by LC–MS/MS
+
+All samples were prepared for iTRAQ analysis using a CHCl3/
+MeOH precipitation after diluting each to 100 ll with water.
+400 ll of MeoH was then added and vortexed extensively prior
+to the addition of 100 ll CHCl3. An additional 300 ll of water
+was added prior to vortexing and centrifuging at 14,000g for
+1 min. The top aqueous layer was removed and discarded
+and an additional 400 ll MeOH was added. After a 2 min cen-
+trifugation at 14,000 g, the MeOH was removed without dis-
+turbing the pellet. The pellet was dried in a Speedvac and
+dissolved in 50 ll of 0.5 M tetraethylammonium bicarbonate
+(TEAB) with 0.2% SDS. Table S3 lists the amount of each
+sample used per sample set for labeling which was determined
+based on a nanodrop measurement at A280versus a buffer
+blank. Disulﬁde reduction was performed by incubating with
+5 mM tris(2-carboxyethyl)phosphine (TCEP) at 60 °C for
+1 h. Alkylation was then performed by incubating with
+20 mM methylmethanethiolsulfonate (MMTS) at room tem-
+perature for 10 min. Samples were digested using a 1:10
+weight/weight ratio protein/trypsin and incubating at 37 °C
+for 16 h. Each dried iTRAQ label was dissolved in 50 ll of
+100% isopropanol. Reporter ion tags and sample identiﬁca-
+tions are listed in Table S3. After vortexing, each reconstituted
+iTRAQ reagent was transferred to the appropriate vial and
+incubated at room temperature for 2 h. At this point, the
+tagged sample digests were mixed together in each indicated
+set. 100 lg of sample mixture was then passed over a cation ex-
+change cartridge (AB Sciex) to remove unreacted reagent. The
+sample was diluted with 2 mL of 10 mM KH2PO4/25% aceto-
+nitrile (ACN) (pH 3.0) prior to passing over the cation ex-
+change cartridge (conditioned with 10 mM KH2PO4/ 25%
+ACN, pH 3.0). The cartridge was then washed with 1 mL of
+the same buffer prior to eluting the peptides with 500 ll
+10 mM KH2PO4, 25% ACN, 350 mM KCl (pH 3.0). The sam-
+ples were dried, dissolved in 20 ll 70% formic acid (FA) and
+
+diluted with 300 ll 0.1% triﬂuoroacetic acid (TFA), prior to
+desalting using a Macrospin C18 (The Nest Group, # SMM
+SS18V). The bound peptides were eluted with 360 ll of 80%
+ACN containing 0.1% TFA and the elution was repeated by
+washing with an additional 180 ll of same solution. Samples
+were dried in a Speedvac and dissolved in 3 ll FA mixed with
+8 ll 0.1% TFA.
+
+and
+
+uses
+
+a Waters
+
+Mass spectrometric analysis was performed on an AB Sciex
+TripleTOF 5600 which is equipped with a Waters nanoAcquity
+UPLC system,
+Symmetry C18
+180 lm · 20 mm trap column and a 1.7 lm, 75 lm · 150 mm
+nanoAcquity UPLC column (45 °C) for peptide separation
+with the following multiplexed groups: Set 1 with 6 plex con-
+taining a4WT1, a4HET1, a4KO1, b2WT1, b2HET1 and
+b2KO1; Set 2 with 6 plex containing a4WT2, a4HET2,
+a4KO2, b2WT2, b2HET2 and b2KO2, and Set 3 with 6 plex
+containing a4WT3, a4HET3, a4KO3, b2WT3, b2HET3 and
+b2KO3.
+
+Trapping was done at 15 ll/min, 99% Buffer A (99.9%
+water and 0.1% FA) for 1 min. Peptide separation was per-
+formed at 500 nl/min with Buffer A and Buffer B (99.925%
+and 0.075% FA). The gradient was 99% A at initial conditions
+with a linear gradient to 35% B at 160 min, and 95% B at
+160.3 min. Protein identiﬁcation and iTRAQ quantitation
+was performed using AB SCIEX ProteinPilot ver 4.2, which
+employs a Paragon algorithm with hybrid sequence tag and
+feature probability database searches [53]. Hence, speciﬁc de-
+tails such as mass tolerances, speciﬁc modiﬁcations, etc. are
+not used. All iTRAQ results were uploaded into the Yale pro-
+tein expression database (YPED; http://yped.med.yale.edu/
+repository/) [54].
+
+Data analysis
+
+Ligand binding and immunoprecipitation
+
+Ligand binding results were transformed from counts per min-
+ute (CPM) to fmol of bound ligand for all quantitations. To
+determine the maximally effective ratio of mAb bead volume
+for quantitative immunoprecipitation, the average depletion
+of nicotinic binding sites relative to the input was calculated
+using a 3-component hyperbolic equation y = y0 + a(x)/
+[b + (x)], where ‘‘y’’ is bound ligand captured with residual
+binding ‘‘y0’’, maximal depletion ‘‘a’’ at ½ maximal [bead]
+‘‘b’’ and [mAb] ‘‘x’’. Curve ﬁts were performed with the above-
+mentioned equation in SigmaPlot 2001. Statistical signiﬁcance
+of the inﬂuence of genotype and/or antibody capture efﬁciency
+was determined by Student’s t-test or a one-way ANOVA
+(when comparing two or more groups, respectively) conducted
+with SPSS19 with a conﬁdence interval set at 95%.
+
+iTRAQ data analysis
+
+For relative quantitation of proteins identiﬁed by LC–MS/MS,
+the quantiﬁed proteins should have a conﬁdence interval for
+positive identiﬁcation greater than 95% with at least two un-
+ique peptides contributing to the identiﬁcation. The reporter
+ion peak areas for each peptide measured were averaged for
+each protein identiﬁed in every group to provide an MRIPA.
+A control mean for every identiﬁed protein was generated by
+averaging the MRIPA for the two nAChR wild type control
+animals (a4WT and b2WT). All samples within a set were di-
+vided by these control means in order to calculate the ratios of
+
+McClure-Begley TD et al / Quantitative Nicotinic Receptor Proteomics
+
+217
+
+MRIPA in relative to an averaged control set. The ratio of
+each identiﬁed protein to the level of nAChR proteins was then
+log2 transformed and used to measure the relative quantitative
+expression. Except where indicated, log2MRIPA was used in
+all statistical analyses of iTRAQ data within this study. For
+regression analysis across biological replicates,
+log2MRIPA
+of each protein was correlated with that of the b2 nAChR sub-
+unit. Regression and correlation analysis was conducted using
+SPSS 19 with a conﬁdence interval set at 95%. The frequency
+distribution of identiﬁed proteins was interrogated using the
+Shapiro–Wilk test of normality with a conﬁdence interval set
+at 95%.
+
+Authors’ contributions
+
+McClure-Begley TD: experiment inception and design, princi-
+pal author, sample preparation and pharmacological quantita-
+tion, and data analysis; Stone KL: preparation of samples for
+LC–MS/MS, data acquisition and manuscript review; Marks
+MJ and Grady SR: experiment design, animal production, tis-
+sue collection and manuscript review; Colangelo CM: LC–MS/
+MS data preparation, data analysis and manuscript review;
+Lindstrom JM: antibody production, experiment design and
+manuscript review; Picciotto MR: experiment inception and
+design and manuscript review. All authors read and approved
+the ﬁnal manuscript.
+
+Competing interests
+
+Authors declare no competing interests.
+
+Acknowledgements
+
+This work was supported by the National Institutes of Health
+(NIH) [Grant No. DA14241, DA018343 (to NIDA Proteomics
+Center at Yale University) and UL1 RR024139 (to Yale Clin-
+ical and Translational Science Award)] and by the State of
+Connecticut, Department of Mental Health and Addiction
+Services. TDM was supported by NIH (Grant No. T32
+MH014276) and JML was supported by NIH (Grant No.
+NS11323). MJM and SRG were supported by NIH (Grant
+No. DA003194 and DA015663).
+
+Supplementary material
+
+Supplementary data associated with this article can be found,
+in the online version, at http://dx.doi.org/10.1016/j.gpb.2013.
+05.005.
+
+References
+
+[1] Whiting PJ, Lindstrom JM. Characterization of bovine and
+human neuronal nicotinic acetylcholine receptors using monoclo-
+nal antibodies. J Neurosci 1988;8:3395–404.
+
+[2] Zoli M, Le´ na C, Picciotto MR, Changeux JP. Identiﬁcation of
+four classes of brain nicotinic receptors using beta2 mutant mice. J
+Neurosci 1998;18:4461–72.
+
+[3] Gotti C, Moretti M, Meinerz NM, Clementi F, Gaimarri A,
+Collins AC, et al. Partial deletion of the nicotinic cholinergic
+receptor alpha 4 or beta 2 subunit genes changes the acetylcholine
+sensitivity of receptor-mediated 86Rb+ efﬂux in cortex and
+thalamus and alters relative expression of alpha 4 and beta 2
+subunits. Mol Pharmacol 2008;73:1796–807.
+
+[4] Picciotto MR, Zoli M, Le´ na C, Bessis A, Lallemand Y, Le Nove` re
+N, et al. Abnormal avoidance learning in mice lacking functional
+high-afﬁnity nicotine receptor in the brain. Nature 1995;374:65–7.
+[5] Millar NS, Gotti C. Diversity of vertebrate nicotinic acetylcholine
+
+receptors. Neuropharmacology 2009;56:237–46.
+
+[6] Cahill K, Stead LF, Lancaster T. Nicotine receptor partial
+agonists for smoking cessation. Cochrane Database Syst Rev
+2012;4:CD006103.
+
+[7] Ago Y, Koda K, Takuma K, Matsuda T. Pharmacological aspects
+of the acetylcholinesterase inhibitor galantamine. J Pharmacol Sci
+2011;116:6–17.
+
+[8] Quik M, Wonnacott S. a6b2* and a4b2* nicotinic acetylcholine
+receptors as drug targets for Parkinson’s disease. Pharmacol Rev
+2011;63:938–66.
+
+[9] Mineur YS, Picciotto MR. Nicotine receptors and depression:
+revisiting and revising the cholinergic hypothesis of depression.
+Trends Pharmacol Sci 2010;31:580–6.
+
+[10] Bacher I, Rabin R, Woznica A, Sacco KA, George TP. Nicotinic
+receptor mechanisms in neuropsychiatric disorders: therapeutic
+implications. Primary Psychiatry 2010;17:35–41.
+
+[11] Bermudez I, Moroni M. Phosphorylation and function of
+
+alpha4beta2 receptor. J Mol Neurosci 2006;30:97–8.
+
+[12] Exley R, Moroni M, Sasdelli F, Houlihan LM, Lukas RJ, Sher E,
+et al. Chaperone protein 14-3-3 and protein kinase A increase the
+relative abundance of low agonist sensitivity human alpha 4 beta 2
+nicotinic acetylcholine receptors in Xenopus oocytes. J Neuro-
+chem 2006;98:876–85.
+
+[13] Zhao CJ, Noack C, Brackmann M, Gloveli T, Maelicke A,
+Heinemann U, et al. Neuronal Ca2+ sensor VILIP-1 leads to the
+upregulation of functional alpha4beta2 nicotinic acetylcholine
+receptors
+neurons. Mol Cell Neurosci
+2009;40:280–92.
+
+hippocampal
+
+in
+
+[14] Pollock VV, Pastoor T, Katnik C, Cuevas J, Wecker L. Cyclic
+AMP-dependent protein kinase A and protein kinase C phos-
+phorylate alpha4beta2 nicotinic receptor subunits at distinct
+stages of receptor formation and maturation. Neuroscience
+2009;158:1311–25.
+
+[15] Eilers H, Schaeffer E, Bickler PE, Forsayeth JR. Functional
+deactivation of the major neuronal nicotinic receptor caused by
+nicotine and a protein kinase C-dependent mechanism. Mol
+Pharmacol 1997;52:1105–12.
+
+[16] Fenster CP, Beckman ML, Parker JC, Shefﬁeld EB, Whitworth
+TL, Quick MW, et al. Regulation of alpha4beta2 nicotinic
+receptor desensitization by calcium and protein kinase C. Mol
+Pharmacol 1999;55:432–43.
+
+[17] Marszalec W, Yeh JZ, Narahashi T. Desensitization of nicotine
+acetylcholine receptors: modulation by kinase activation and
+phosphatase inhibition. Eur J Pharmacol 2005;514:83–90.
+
+[18] Tannu NS, Hemby SE. Methods for proteomics in neuroscience.
+
+Prog Brain Res 2006;158:41–82.
+
+[19] Williams K, Wu T, Colangelo C, Nairn AC. Recent advances in
+neuroproteomics and potential application to studies of drug
+addiction. Neuropharmacology 2004;47:148–66.
+
+[20] Kabbani N, Woll MP, Levenson R, Lindstrom JM, Changeux JP.
+Intracellular complexes of the beta2 subunit of the nicotinic
+acetylcholine receptor in brain identiﬁed by proteomics. Proc Natl
+Acad Sci U S A 2007;104:20570–5.
+
+[21] Selbach M, Mann M. Protein interaction screening by quantita-
+tive immunoprecipitation combined with knockdown (QUICK).
+Nat Methods 2006;3:981–3.
+
+218
+
+Genomics Proteomics Bioinformatics 11 (2013) 207–218
+
+[22] Mittler G, Butter F, Mann M. A SILAC-based DNA protein
+interaction screen that identiﬁes candidate binding proteins to
+functional DNA elements. Genome Res 2009;19:284–93.
+
+[23] Luo R, Colangelo CM, Sessa WC, Zhao H. Bayesian analysis of
+identiﬁcation of
+
+iTRAQ data with nonrandom missingness:
+differentially expressed proteins. Stat Biosci 2009;1:228–45.
+
+[24] Hill EG, Schwacke JH, Comte-Walters S, Slate EH, Oberg AL,
+Eckel-Passow JE, et al. A statistical model for iTRAQ data
+analysis. J Proteome Res 2008;7:3091–101.
+
+[25] Ross SA, Wong JY, Clifford JJ, Kinsella A, Massalas JS, Horne
+MK, et al. Phenotypic characterization of an alpha 4 neuronal
+nicotinic acetylcholine receptor subunit knock-out mouse. J
+Neurosci 2000;20:6431–41.
+
+[26] Whiteaker P, Cooper JF, Salminen O, Marks MJ, McClure-
+Begley TD, Brown RW, et al. Immunolabeling demonstrates the
+interdependence of mouse brain alpha4 and beta2 nicotinic
+acetylcholine receptor
+subunit expression. J Comp Neurol
+2006;499:1016–38.
+
+[27] Consortium UniProt. Reorganizing the protein space at the
+Universal Protein Resource (UniProt). Nucleic Acids Res
+2012;40:D71–5.
+
+[28] Johnson EM, Kinoshita Y, Weinreb DB, Wortman MJ, Simon R,
+Khalili K, et al. Role of Pur alpha in targeting mRNA to sites of
+translation in hippocampal neuronal dendrites. J Neurosci Res
+2006;83:929–43.
+
+[29] Thomas PD, Kejariwal A, Campbell MJ, Mi H, Diemer K, Guo
+N, et al. PANTHER: a browsable database of gene products
+organized by biological function, using curated protein family and
+subfamily classiﬁcation. Nucleic Acids Res 2003;31:334–41.
+
+[30] Jones IW, Wonnacott S. Why doesn’t nicotinic ACh receptor
+
+immunoreactivity knock out? Trends Neurosci 2005;28:343–5.
+
+[31] Gotti C, Clementi F, Fornari A, Gaimarri A, Guiducci S, Manfredi
+I, et al. Structural and functional diversity of native brain neuronal
+nicotinic receptors. Biochem Pharmacol 2009;78:703–11.
+
+[32] Houel S, Abernathy R, Renganathan K, Meyer-Arendt K, Ahn
+NG, Old WM. Quantifying the impact of chimera MS/MS spectra
+on peptide identiﬁcation in large scale proteomics studies. J
+Proteome Res 2010;6:4152–60.
+
+[33] Wu WW, Wang G, Baek SJ, Shen RF. Comparative study of
+three proteomic quantitative methods, DIGE, cICAT, and
+iTRAQ, using 2D gel- or LC–MALDI TOF/TOF. J Proteome
+Res 2006;5:651–8.
+
+[34] Jones AK, Buckingham SD, Sattelle DB. Proteins interacting with
+nicotinic acetylcholine receptors: expanding functional and ther-
+apeutic horizons. Trends Pharmacol Sci 2010;31:455–62.
+
+[35] Hill Jr JA, Zoli M, Bourgeois JP, Changeux JP. Immunocyto-
+chemical localization of a neuronal nicotinic receptor: the beta 2-
+subunit. J Neurosci 1993;13:1551–68.
+
+[36] Zambrano CA, Salamander RM, Collins AC, Grady SR, Marks
+MJ. Regulation of the distribution and function of [(125)I]
+epibatidine binding sites by chronic nicotine in mouse embryonic
+neuronal cultures. J Pharmacol Exp Ther 2012;342:245–54.
+
+[37] Lozada AF, Wang X, Gounko NV, Massey KA, Duan J, Liu Z,
+et al. Induction of dendritic spines by b2-containing nicotinic
+receptors. J Neurosci 2012;32:8391–400.
+
+[38] Spillane M, Ketschek A, Jones SL, Korobova F, Marsick B,
+Lanier L, et al. The actin nucleating Arp2/3 complex contributes
+to the formation of axonal ﬁlopodia and branches through the
+regulation of actin patch precursors to ﬁlopodia. Dev Neurobiol
+2011;71:747–58.
+
+[39] Pollak DD, John J, Scharl T, Leisch F, Schneider A, Hoeger H,
+et al. Strain-dependent regulation of neurotransmission and
+
+actin-remodelling proteins in the mouse hippocampus. Genes
+Brain Behav 2006;5:200–4.
+
+[40] Kitanishi T, Sakai J, Kojima S, Saitoh Y, Inokuchi K, Fukaya M,
+et al. Activity-dependent localization in spines of the F-actin
+capping protein CapZ screened in a rat model of dementia. Genes
+Cells 2010;15:737–47.
+
+[41] Martinez-Pena y Valenzuela I, Mouslim C, Akaaboune M.
+Calcium/calmodulin kinase II-dependent AChR cycling at the
+mammalian neuromuscular
+J Neurosci
+2010;30:12455–65.
+
+junction in vivo.
+
+[42] Mouslim C, Aittaleb M, Hume RI, Akaaboune M. A role for the
+CaM kinase II related anchoring protein (akap) in maintaining
+the stability of nicotinic acetylcholine receptors. J Neurosci
+2012;32:5177–85.
+
+[43] Lisman J, Yasuda R, Raghavachari S. Mechanisms of CaMKII
+action in long-term potentiation. Nat Rev Neurosci 2012;13:
+169–82.
+
+[44] Liu XB, Murray KD. Neuronal excitability and calcium/calmod-
+ulin-dependent protein kinase type II: location, location, location.
+Epilepsia 2012;53:45–52.
+
+[45] Damaj MI. Nicotinic regulation of calcium/calmodulin-dependent
+protein kinase II activation in the spinal cord. J Pharmacol Exp
+Ther 2007;320:244–9.
+
+[46] Jackson KJ, Walters CL, Damaj MI. Beta 2 subunit-containing
+nicotinic receptors mediate acute nicotine-induced activation of
+calcium/calmodulin-dependent protein kinase II-dependent path-
+ways in vivo. J Pharmacol Exp Ther 2009;330:541–9.
+
+[47] Damaj MI. Behavioral modulation of neuronal calcium/calmod-
+ulin-dependent protein kinase II activity: differential effects on
+nicotine-induced spinal and supraspinal antinociception in mice.
+Biochem Pharmacol 2007;74:1247–52.
+
+[48] Jackson KJ, Damaj MI. L-Type calcium channels and calcium/
+calmodulin-dependent protein kinase II differentially mediate
+behaviors associated with nicotine withdrawal in mice. J Phar-
+macol Exp Ther 2009;330:152–61.
+
+[49] Jackson KJ, Damaj MI. Beta2-containing nicotinic acetylcholine
+receptors mediate calcium/calmodulin-dependent protein kinase
+II and synapsis I protein levels in the nucleus accumbens after
+nicotine withdrawal in mice. Eur J Pharmacol 2013;701:1–6.
+
+[50] Kenney JW, Gould TJ. Modulation of hippocampus-dependent
+learning and synaptic plasticity by nicotine. Mol Neurobiol
+2008;38:101–21.
+
+[51] Teaktong T, Graham AJ, Court JA, Perry RH, Jaros E, Johnson
+M, et al. Nicotinic acetylcholine receptor immunohistochemistry
+in Alzheimer’s disease and dementia with Lewy bodies: differential
+neuronal and astroglial pathology. J Neurol Sci 2004;225:
+39–49.
+
+[52] Marks MJ, McClure-Begley TD, Whiteaker P, Salminen O,
+Brown RW, Cooper J, et al. Increased nicotinic acetylcholine
+receptor protein underlies chronic nicotine-induced up-regulation
+of nicotinic agonist binding sites in mouse brain. J Pharmacol Exp
+Ther 2011;337:187–200.
+
+[53] Shilov IV, Seymour SL, Patel AA, Loboda A, Tang WH, Keating
+SP, et al. The Paragon Algorithm, a next generation search engine
+that uses sequence temperature values and feature probabilities to
+identify peptides from tandem mass spectra. Mol Cell Proteomics
+2007;6:1638–55.
+
+[54] Shifman MA, Li Y, Colangelo CM, Stone KL, Wu TL, Cheung
+KH, et al. YPED: a web-accessible database system for protein
+expression analysis. J Proteome Res 2007;6:4019–24.
+
+
