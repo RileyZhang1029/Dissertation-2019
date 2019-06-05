@@ -1,0 +1,389 @@
+BIOINFORMATICS  Vol.
+30 ISMB 2014, pages i219 i227 doi:10.1093/bioinformatics/btu263  New directions for diffusion-based network prediction of protein function: incorporating pathways with confidence Mengfei Cao1, Christopher M. Pietras1, Xian Feng1, Kathryn J. Doroschak2, Thomas Schaffner1, Jisoo Park1, Hao Zhang1, Lenore J. Cowen1,* and Benjamin J. Hescott1,* 1Department of Computer Science, Tufts University, Medford, MA 02155, USA and 2Department of Computer Science, University of Minnesota, Minneapolis, MN 55455, USA  functional  improve their utility for  ABSTRACT Motivation: It has long been hypothesized that incorporating models of network noise as well as edge directions and known pathway in- formation into the representation of protein protein interaction (PPI) networks might inference.
+However, a simple way to do this has not been obvious.
+We find that diffusion state distance (DSD), our recent diffusion-based metric for measuring dissimilarity in PPI networks, has natural extensions that incorporate confidence, directions and can even express coherent pathways by calculating DSD on an augmented graph.
+Results: We define three incremental versions of DSD which we term cDSD, caDSD and capDSD, where the capDSD matrix incorporates confidence, known directed edges, and pathways into the measure of how similar each pair of nodes is according to the structure of the PPI network.
+We test four popular function prediction methods (majority vote, weighted majority vote, multi-way cut and functional flow) using these different matrices on the Baker s yeast PPI network in cross- validation.
+The best performing method is weighted majority vote using capDSD.
+We then test the performance of our augmented DSD methods on an integrated heterogeneous set of protein associ- ation edges from the STRING database.
+The superior performance of capDSD in this context confirms that treating the pathways as prob- abilistic units is more powerful than simply incorporating pathway edges independently into the network.
+Availability: All source code for calculating the confidences, for ex- tracting pathway information from KEGG XML files, and for calculating the cDSD, caDSD and capDSD matrices are available from http://dsd.
+cs.tufts.edu/capdsd Contact: lenore.cowen@tufts.edu or benjamin.hescott@tufts.edu Supplementary information: Supplementary data are available at Bioinformatics online.
+1 INTRODUCTION  One of the most well-studied problems in computational network biology is the prediction of protein functional labels from dis- tance and neighborhood structure in the protein protein inter- action network (PPI network).
+In 2013, based on the observation that paths through high-degree  hub  nodes in the PPI network were less informative than short paths through protein nodes with fewer interaction partners, (Cao et al., 2013) introduce the diffusion state distance (DSD) metric that is able to quantify topological similarity in a PPI network in a more fine-grained way.
+Diffusion-based methods had been previously proposed for clustering similar proteins (Voevodski et al., 2009) and for  *To whom correspondence should be addressed.
+ranking candidate disease genes (Chen et al., 2009  Erten et al.
+2011  Kohler et al., 2008  Vanunu et al., 2010), but by explicitly taking an L1 norm of the vector of the random walks to all other nodes in the network to measure the distance between nodes, DSD is able to capture a more global view of the network than other prior work we are aware of, with the exception of Vavien (Erten et al.
+2011) for candidate disease gene ranking, and ISORANK-N (Liao et al., 2009), which also is based on a global embedding, but for a very different problem (network alignment).
+Cao et al.
+(2013) showed that when a DSD-based distance is substituted for ordinary next-hop shortest-path distance in four classical network-based function prediction methods, functional label prediction performance for the GO (Gene Ontology), as well as all three levels of the MIPS (Munich Information Center For Protein Sequences) ontology, improved across the board in cross-validation experiments on both the Saccharomyces cerevisiae and the S.pombe PPI networks.
+However, these results were based only on a simple undirected model of the PPI network, which additionally assumed that all the edges listed in the BioGRID data were uniformly correct.
+On the other hand, it is well-established both that there is noise in the PPI interaction network data (Mering et al., 2002  Reguly et al., 2006  Gandhi et al., 2006), and that some interactions are naturally directed in the PPI network (Liu et al., 2009  Gitter et al., 2011  Du et al., 2012).
+In addition, looking just at pairwise interaction data as edges does not fully capture all the informa- tion that is known about the PPI network.
+In particular, there is increasingly available data on biological pathways, for example, TGF-  binds TGF-  receptor 1, which phosphorylates Smad3, which with importin- 1 enters the nucleus and binds DNA to regulate expression (Moustakas 2002).
+In this article, we revisit the DSD metric we designed in earlier work for function prediction in the ordinary undirected PPI net- work.
+We find that its diffusion-based framework gives a natural way to incorporate edge confidences and directed edges (when known).
+However, the main contribution of this article is to show that there is a way to capture the cohesiveness of known pathways by calculating DSD on an augmented network, and that this way of representing pathways results in better perform- ance than just incorporating the pathway edges themselves for most, but not all of the function prediction methods we study.
+We show this first in cross-validation on the standard network consisting of just experimentally verified physical interaction edges from S.cerevisiae, and then on an integrative network with heterogeneous protein association data edges derived from the STRING database (Franceschini et al., 2013).
+ß The Author 2014.
+Published by Oxford University Press.
+This is an Open Access article distributed under the terms of the Creative Commons Attribution Non-Commercial License (http://creativecommons.org/licenses/by-nc/3.0/), which permits non-commercial re-use, distribution, and reproduction in any medium, provided the original work is properly cited.
+For commercial re-use, please contact journals.permissions@oup.com   M.Cao et al.
+1.1 Overview of DSD  1.2 New directions  PPI networks are known to be  small world  networks in the sense that they are small-diameter, and most nodes are close to all other nodes.
+Thus any method that infers similarity based on proximity will find that a large fraction of the network is prox- imate to any typical node.
+In fact, this issue has already been termed the  ties in proximity  problem in the computational biol- ogy literature (Arnau et al., 2005).
+Furthermore, the fact that two particular nodes are adjacent (i.e., have shortest-path distance 1) in a PPI network can signify something very different than the adjacency of two other nodes.
+For example, in PPI networks two nodes with many low-degree neighbors in common should be thought of as  more similar  than nodes with few low-degree neighbors in common  and such nodes should also be thought of as  more similar  than two nodes whose common neighbors have high-degree.
+Thus, characterizing node pairs based only on a shortest-path notion of distance fails to capture important knowledge encoded in the structure of the network.
+In (Cao et al., 2013), DSD is defined on an undirected connected simple graph.
+In particular, our PPI network is defined with a vertex set V, containing a node for each verified ORF, and an edge set E, containing an unweighted and undir- ected edge for each physical interaction.
+We first calculate He k (A,B) as the expected number of times that a random walk starting at node A and proceeding for k steps, will visit then we further define a n-dimensional vector node B  HefkgðviÞ 8vi 2 V, where  HefkgðviÞ=ðHefkgðvi  v1Þ  Hefkgðvi  v2Þ  :::  Hefkgðvi  vnÞÞ:  In what follows, the k-step DSD between two vertices u and v  8u  v 2 V is defined as  DSD  fkgðu  vÞ=jjHefkgðuÞ   HefkgðvÞjj1   where jjHefkgðuÞ   HefkgðvÞjj1 denotes the L1 norm of the He vectors of u and v. As proved in (Cao et al., 2013), on the simple connected graph whose random walk one-step transition probability matrix is diagonalizable and ergodic as a Markov chain, the limit of DSD when k approaches infinity exists and can be calculated as  k!1 DSD lim  fkgðu  vÞ=jjðbu  T   bv  TÞðI   P+CÞ 1jj1   where I is the identity matrix, C is the constant matrix in which each row is a copy of  T   T is the unique steady state distribu- tion, and for any i 2 V, bi T is the i-th basis vector, that is, the row vector of all zeros except for a 1 in the i-th position, and P=fpijgn i j=0 is the n-dimensional one-step transition probability matrix where the (i, j)th entry is given by  8  :  pij=  1 di 0  if ðvi  vjÞ 2 E     otherwise  where di is the degree of node vi.
+In this work, we use the con- verged DSD values as the original DSD calculation for comparison.
+i220  In the first DSD paper, we modified four classical function pre- diction methods (including Neighborhood Majority Vote (Schwikowski et al., 2000),  2 Neighborhood (Hishigaki et al., 2001), Multi-way Cut (Vazquez et al., 2003) and Functional Flow (Nabieva et al., 2005)) to use this dissimilarity metric rather than next-hop shortest-path distance as a dissimilarity metric, and showed that performance improved across the board.
+Now we extend the calculation of DSD to incorporate confidence, then confidence and directed and undirected path- way edges, then confidence, pathway edges and full biological pathways.
+We present three new dissimilarity measures, which we call cDSD, caDSD or capDSD, respectively, where capDSD stands for confidence, augmented pathway diffusion state distance.
+These measures can be substituted for original DSD in the four classical function prediction methods we studied (or in any func- tional prediction method that incorporates a pairwise dissimilar- ity measure between nodes).
+First, to define cDSD, similar to the approach suggested by Gitter et al.
+(2011), we assign a confidence to each PPI inter- action edge in BioGRID (Stark et al., 2006), based on the number of publications in which that PPI appears, and whether the reported experiments are high-throughput or low-through- put.
+Given the formal definition of DSD, there is a natural way to incorporate these confidences simply as edge weights, and the k-step DSD calculation is generalized to a weighted matrix in the natural way (see Section 2.1.3 for full details).
+We show that incorporating confidence values in this way improves perform- ance over the basic DSD method (which in turn improved the performance compared to the corresponding method based on shortest-path distances (Cao et al., 2013)) in cross-validation on each of the classical network-based function prediction methods we consider.
+On top of the confidence values, we then seek to augment the network by adding edges from the KEGG PATHWAY database in two ways.
+We find that 2471 of these edges are not already in BioGRID, and an additional 177 are in BioGRID, but we would have assigned them lower confidence without the additional in- formation that they also appeared in KEGG, so it is not surpris- ing that adding in these edges improves our results as compared to DSD and cDSD.
+In the first and simplest way, which we call caDSD, we augment the graph by adding undirected and dir- ected edges from the KEGG database  where edges of the types: activation, inhibition, phosphorylation, dephosphorylation and ubiquination are considered naturally directed as in (Liu et al., 2009) and all other KEGG edges are considered undirected (however, an undirected edge being included in the KEGG data- base raises its edge weight because KEGG is manually curated).
+However, we also create capDSD which creates an augmented graph that represents the signaling pathways coherently using new sets of nodes and edges.
+In this new augmented graph, path- ways can be thought of as being represented by  controlled- access highways , in the sense that once the diffusion random walk enters a pathway, it stays on that pathway with some fixed probability r and only leaves that pathway to walk in the regular PPI network (still augmented with directed edges, where known, and confidence) with probability 1  r, where the fixed r is a parameter of the method.
+Just like DSD, capDSD is not a   function prediction method in itself, it is a dissimilarity matrix: for each pair of nodes, capDSD gives a value that measures their similarity in this (now augmented, confidence weighted) network.
+For the best performing function prediction methods we test, we find that adding in the KEGG pathway edges using the highway approach is superior to just adding in the KEGG edges naively.
+Furthermore, the performance increase is even stronger when using an integrative network derived from the STRING data- base (see Section 2.1.2).
+Figure 1 shows an example of the modifications to the network involved in computing cDSD, caDSD and finally capDSD.
+Of the four different classical methods we test with all of DSD, cDSD, caDSD and capDSD, we find that our best function pre- diction method, over all three levels of the MIPS hierarchy is the one that predicts v s label based on the t closest neighbors in terms of their values in the capDSD matrix, and has them vote on the functional label of v, with a vote weight inversely proportional to  (a)  (b)  (c)  (d)  Fig.
+1.
+An example of constructing auxiliary graphs for calculating dif- ferent DSDs (with our BioGRID confidence scores).
+(a) The original PPI network and two KEGG pathways  (b) the weight graph with PPI con- fidence score as edge weights  (c) the directed graph with KEGG PPIs added  and (d) the augmented graph by incorporating KEGG pathways as weighted paths  New directions for network-based protein function prediction  their capDSD value, assigning v the function with the highest weighted vote.
+Significantly, the improvement is greater at the lower (more specific) levels of the MIPS hierarchy.
+2 MATERIALS AND METHODS  2.1 Datasets  2.1.1 Physical protein interaction network from BioGRID The S.cerevisiae protein protein physical interaction network is constructed as follows: the list of 5064 verified ORFs downloaded from the SGD website (Saccharomyces Genome Database, version date October 25, 2013) defines the nodes, and the 133 705 protein protein physical inter- actions from BioGRID (Stark et al., 2006) between nodes that are ver- ified by at least one wet-lab experiment define the edges.
+After removing edge redundancy, self-loops, and edges incident to unverified ORF nodes, we extract the largest connected component and obtain a simple undir- ected graph with n = 5001 nodes and m = 76 025 unique undirected edges  we denote by G0(V0, E0, W0) this simple undirected graph with unit-weight for all edges, where V0 =  v1,v2, .
+.
+.
+, vn  and W0, the weight matrix, is the n-dimensional square matrix with value 1 for entry (i, j) if and only if (vi, vj) is in E0, and 0 otherwise.
+2.1.2 Protein association network from STRING STRING (Franceschini et al., 2013) is a database that integrates known and pre- dicted protein associations from various sources, such as BioGRID (Stark et al., 2006), BIND (Bader et al., 2003), DIP (Xenarios et al., 2002), MINT (Licata et al., 2012), KEGG PATHWAY (Kanehisa and Goto 2000) and gene co-expression data (Franceschini et al., 2013).
+STRING assigns normalized confidence scores to many different types of protein associations: some from experiments (physical and genetic pro- tein interactions), or derived from co-expression, and others either inferred by literature annotation or transferred from homology.
+Because including edges inferred by literature annotation could invalidate the separation of training and testing in our cross-validation experiments, we could not use all the association categories in STRING.
+We extract all protein associations from the  experiments  and  co-expression  categories for yeast (with confidence score40 for at least one of the two categories), where  experiments  covers all physical and genetic protein interactions and  co-expression  refers to protein associations that are inferred from similar transcriptional patterns in terms of gene co-expression levels.
+We also want to include KEGG PATHWAY PPIs that have already been incorporated in STRING  however, such information is mixed with and cannot be separated from other data sources in the  database  category, including GO, which we do not want to include so as to avoid possible overlapping between test data and training data in our function predic- tion evaluation framework.
+Therefore, we directly extract association links for pathway neighbors and subunits of the same enzyme/complex from the KEGG PATHWAY database, the same fashion as what STRING utilizes.
+We extract 454 600 protein protein associations (being sure to exclude homology-based transferred interologs) from STRING version 9.05, release date: March 3, 2013 (Note that there is also a more recent December 27, 2013 version 9.1 of STRING now available, but it has no simple way to exclude interologs, so we used the previous version.)
+We also include edges directly from KEGG (all but 249 of these also appear in the portion of the STRING database we use for our network  the discrepancy of 249 additional edges comes from the fact that we use the December 2013 version of KEGG while STRING version 9.05 uses the August 2012 version of KEGG).
+We further filter the network by removing associations that are incident with at least one unverified ORF from SGD.
+Afterward we compile the undirected graph where a node corresponds to an ORF and an undirected edge is added if there exists an association link between the two ORFs (we did not add directed edges for the STRING experiment, since they were shown to  i221   M.Cao et al.
+matter so little on the BioGRID experiment, see Table 3).
+The resulting graph Gstr is undirected, connected, has diameter 5, and contains 5058 nodes and 404 358 edges.
+2.1.3 PPI confidence assignment Because there is no confidence score provided by BioGRID, we create confidence weights for BioGRID PPI edges in G0 using a scoring scheme similar to previous work by (Gitter et al., 2011), according to the following premises:    Low-throughput experiments, due to their lower false positive rate, are considered to provide more reliable PPIs than high-throughput experiments.
+If a PPI is verified experimentally by more experiments from curated publications, we hold higher confidence in the existence of the PPI.
+There are more than 7000 publications associated with the physical inter- action PPI data we collect from BioGRID, making a manual assignment of whether the experiment supporting the PPI is high- or low-throughput highly impractical.
+Instead, we automatically and efficiently determine a close proxy for this information by simply counting the number of differ- ent PPIs that a particular publication vouches for in BioGRID.
+If there are at least 100 PPIs associated with a particular publication, we classify that publication s endorsements as high-throughput and otherwise low- throughput.
+In total, 7112 publications are classified as low-throughput and 97 publications are classified as high-throughput.
+Note that these 97 high-throughput publications actually generate more than two-thirds of the physical interactions.
+(We tried other cutoff values for distinguishing low-throughput/high-throughput and the results were similar  in fact, very few publications lie close to the 100 threshold  most low-throughput publications have substantially less, and most high-throughput publica- tions have substantially more.)
+If an interaction edge is endorsed by only experiments of one type (either high- or low-throughput) we assign con- fidence weights according to Table 1.
+If an interaction edge is endorsed by both high confidence and low confidence experiments, we use the confi- dence score from the low-throughput column in Table 1 plus 5% times the number of high-throughput endorsements  however, if this value exceeds 95%, we still assign a maximum confidence score of 95%.
+For all pairs of nodes in G0, we can assign the confidence score as their weight.
+We denote by Wconf=fwijgn i j=1 the weight matrix, where wij is the confidence score for the node pair (vi, vj) (also denoted as wvi,vj when confusion does not and wij40 8ðvi  vjÞ 2 E0.
+We denote by GconfðVconf  Econf  WconfÞ this simple undirected graph where Vconf = V0, Econf = E0 and Wconf is defined above.
+that wij=0 8ðvi  vjÞ =2 E0  exist).
+Note  from STRING for each selected category:  For the edge weights in Gstr we simply take the confidence scores p1, p2 and p3  experiments ,  co-expression  and  database  (Note that we assign 0.9 for  database  confidence score if the association link is in the KEGG PATHWAY PPIs, and 0 otherwise  is similar to STRING s.)  then we calculate the combined confidence score as p=1   ð1   p1Þ   ð1   p2Þ   ð1   p3Þ in the Bayesian scheme, which is exactly how STRING (Franceschini et al., 2013) suggests indi- vidual confidence scores be combined.
+the choice of 0.9 for KEGG PPIs  2.1.4 Functional pathway maps We use all 105 S.cerevisiae signaling pathways from the KEGG PATHWAY database (Kanehisa and Goto, 2000) (version date: December 12, 2013) where there are 75 pathways from the metabolism category, 21 from the genetic information processing cat- egory, 3 from the environmental information processing category and 6 from the cellular processes category.
+Just as suggested in (Liu et al., 2009), in the BioGRID experiments, we run both caDSD with all edges undir- ected, and we also run the version of caDSD where we additionally con- sider the following five protein relations that appear in the KEGG database as directional: activation, inhibition, phosphorylation, depho- sphorylation and ubiquination.
+Any PPIs extracted with only one of  i222  Table 1.
+Confidence score assignment for PPIs when either only low- throughput or only high-throughput experiments are present  No.
+of experiments  Low-throughput  High-throughput  0 1 2 3  4  0 0.80 0.90 0.95 0.95  0 0.25 0.50 0.75 0.85  these five types are considered directed, while all the other PPIs annotated with types such as  compound  are considered undirected.
+In total, there are 206 directed PPIs and 6951 undirected PPIs separately, involving 1120 proteins in the KEGG PATHWAY database  since we only consider edges of which both endpoints appear in the connected PPI network G0, we extract 157 directed PPIs, the set of which is denoted by D, and 3374 undirected PPIs, the set of which is denoted by U, involving 1083 unique ORFs total.
+Because the results for the caDSD adding so few directed edges were very similar to the fully undirected version of caDSD, we do not add directions to the edges in the STRING experiment.
+2.1.5 Functional annotation We consider both the MIPS functional catalogue (FunCat) (Ruepp et al., 2004) and GO annotations (Ashburner et al., 2000).
+We use the latest version of FunCat (version 2.1) and the first, second and third level functional categories, retaining only those labels annotating at least three proteins in our dataset.
+We present results for MIPS annotations at the first level (4443 proteins with 10 569 anno- tations in 17 functional categories in BioGRID), second level (4428 pro- teins with 12 378 annotations in 74 out of 80 functional categories annotating at least 3 proteins in BioGRID) and third level (4061 proteins with 9441 annotations in 154 out of 181 functional categories annotating at least 3 proteins in BioGRID).
+We also present results for the popular GO (Ashburner et al., 2000), where the variable depth hierarchy of the annotation labels makes the evaluation of predicted labels more compli- cated, in the Supplementary Material.
+2.2  cDSD, caDSD and capDSD  2.2.1 cDSD: incorporating PPI confidence We build the undir- ected weighted simple graph Gconf(Vconf, Econf, Wconf) where Vconf = V0 and Econf = E0 are simply defined by assigning the confidence score to all pairs of nodes in V0.
+The confidence scores are assigned as described in Section 2.1.3.
+Let P0=fp0 ijgn 8   be the n-dimensional one-step transition wijX matrix where the (i, j)th entry is given by  :  if ðvi  vjÞ 2 Econf  p0 ij=  i j=0  wil  l=1  :  n  0  otherwise  0 Note that P represents the probability to reach each neighbor in the random walk.
+Then the definition of k-step transition probability matrix P0fkg=P0k follows for all positive k. It is easy to show that the expected number of times that a random walk starting at node vi and proceeding for k steps will visit node vj, denoted as He 0fkgðvi  vjÞ, is the (i, j)th entry can be calculated as  , where p 0flg  X  p 0flg  k  l=0  ij  ij  l-step transition probability matrix.
+The n-dimensional vector of He 0fkgðviÞ 8vi 2 Vconf can be constructed accordingly.
+Therefore, when we fix the number of random walk steps k, the definition of DSD with PPI confidence follows:  cDSD  fkgðu  vÞ=jjHe  0fkgðuÞ   He  0fkgðvÞjj1:   New directions for network-based protein function prediction  2.2.2 caDSD: adding KEGG PPIs We consider PPIs from KEGG PATHWAY database highly reliable since they are manually drawn by domain experts  for the BioGRID experiments, we will re-assign max- imum confidence score 1 to these PPIs no matter whether or not the PPI is present in the BioGRID database (For the STRING experiments, note that every KEGG edge is already assigned a confidence value of at least 0.9 by cDSD (and maybe larger if there is additional independent evi- dence) so we just retain cDSD confidence values on these edges).
+Thus, based on the undirected graph GconfðVconf  Econf  WconfÞ, the un- directed edge set U and the directed edge set D from KEGG pathways, we build a directed graph GaugðVaug  Eaug  WaugÞ, where Vaug=V0  Eaug and Waug=fw are constructed as follows (we use hi to denote directed edges compared to () for undirected edges):  faugg ij  gn  i j=0  w  faugg ij =w   8ðvi  vjÞ 2 Econf   (1) Initialize Eaug by adding hvi  vji and hvj  vii with weight  (2) For each edge ðvi  vjÞ 2 U,  faugg fconfg ji =w ij if (vi,vj) already exists in Econf, set faugg ji =1, otherwise add hvi  vji and hvj  vii into Eaug with (3) For each edge hvi  vji 2 D, if (vi,vj) already exists in Econf, set  w weight 1  and  faugg ij =w  faugg ij =1, otherwise add hvi  vji into Eaug with weight 1.  w  considered as two directed edges  denote by PV1,PV2, .
+.
+.
+,PVg the sets of proteins involved in each of the g pathways where each set is a subset of Vaug, namely the ORF list   (2) We initialize Vpath with fv0  ng by relabeling each ORF node vi 2 Vaug with a superscript 0, which stands for the original PPI network  we initialize Wpath as the empty map   2  :::v0  1  v0  (3) We initialize Epath by adding hv0  j i with weight Wpathðv0  i   v0  i   v0  j Þ=  wfaugg  vi vj  for all hvi  vji 2 Eaug   (4) For each pathway P  2 fP1  P2  :::  Pgg:  i  for  (a) For each protein vi 2 PV , add a pathway node v  (b) For  each pathway node   and for each edge hvj  vii 2 Eaug, we add an edge hv0  i 2 Vpath: v  hvi  vji 2 Eaug, we add an edge hv  i   v0 faugg w ij into Epath with weight w called cross edges  and  each edge j i into Epath with weight i i j   v    these newly added edges are  into Vpath   faugg ji  (c) For each edge hvi  vji 2 PE  which we call a pathway edge, add an edge hv  j i into Epath, and the weight assignment will not be set but the transition probability will be assigned specially in Step 7 when all the pathways are processed.
+i   v   Again, we define the one-step transition probability matrix Paug= faugg fp ij  gn  (  i j=0  as follows: faugg w ij  =  faugg p ij =  X  0  faugg w il  n  l=1  if hvi  vji 2 Eaug  otherwise:  aug=Pk  X augðvi  vjÞ=  Similarly we define the k-step transition probability matrix Pfkg aug and calculate the expected number of times that a random walk starting at node vi and proceeding for k steps will visit node faug lg vj  Hefkg , where p ij the l-step transition probability matrix Pflg vector Hefkg number of KEGG PPIs is  aug.
+Thus the n-dimensional follows similarly and when we fix the the definition of DSD with  augðviÞ 8vi 2 Vaug  random walk steps k,  j)th entry of  faug lg p ij  is the (i,  l=0  k  caDSD  fkgðu  vÞ=jjHefkg  augðuÞ   Hefkg  augðvÞjj1:  2.2.3 capDSD: the augmented graph with explicit pathways The previous caDSD makes use of the fact that the PPIs from the KEGG PATHWAY database are high-quality, and sometimes known to be dir- ectional  however it incorporates the KEGG pathway information as individual interaction edges and retains no notion of each pathway as a cohesive whole.
+In particular, some graph paths may not be meaningful at all when mapped to a chain of ORFs, while other graph paths corres- pond to signaling pathways.
+We hypothesize that if we can make the random walks used to calculate DSD values hew more tightly to the known pathways, the resulting diffusion process might better capture the notion of functional similarity.
+However, doing so directly would destroy the  memoryless  structure of the underlying random walk, and make the probabilities too difficult to calculate.
+Our solution is to instead build a new network, where nodes in pathways are replicated, into ordin- ary and  highway  versions, where the  highway  version is chosen with some probability, and if the  highway  is taken, edge probabilities for the highway nodes are set so that it is highly likely to continue along the pathway.
+More specifically, we build a network GpathðVpath  Epath  WpathÞ where Wpath will be a mapping: Wpath : Vpath   Vpath !
+R 8a  b 2 Vpath (instead of an n-dimensional square matrix because the size of Vpath will be different from n) as follows:  (1) Denote by  P1, P2, .
+.
+.
+, Pg  where g is the number of pathways, the set of pathways  denote by PE1, PE2, .
+.
+.
+, PEg the sets of directed edges from the g pathways where each undirected edge is  (5) For  edge  in the  each cross  j i 2 Epath  8i 2 f1  2  :::  ng  vj 2 PV     2 f1  2  :::  gg, boost the weight by j Þ by the factor of m and update the multiplying Wpathðv0 weight with the boosted value, where m is a multiplication factor parameter   hv0 i   v   form of  i   v   all  the  node  pairs  i   v   (6) For  hv  i   v   X (7) Let N =jVpathj, where N=n+    2 f0  1  :::  gg  v  not have any evidence for the existence of the PPI pair hvi  vji   j i =2 Epath 8   directed j 2 Vpath, assign 0 as the weight since we do jPV j.
+Now we calculate the N-dimensional one-step transition probability square matrix Ppath where we denote by pi  j  as the one-step transition probability from v    =1  g  i to v   j  8v   j 2 Vpath: (a) For each pathway node v   i   v   i  i 2 Vpath, where  40, the pathway edge hv  j i 2 Epath, will have transition probability set as i   v  i , where r 2 ð0  1Þ is a parameter and d  pi  j  =r=d  is the X number of pathway edges starting from v  i   the cross edge hv  j i 2 Epath will have transition probability set as pi  j0 =ð1 i   v0 X  rÞ   Wpathðv  l Þ Wpathðv  j Þ= i   v0 i 40, and i   v0 Wpathðv  l Þ otherwise (no j Þ= pi  j0 =Wpathðv  i   v0 i   v0 edges across two pathway nodes from two different pathways exist)  and  X i 2 Vpath, the transition probability will be set (b) For each node v0 j Þ= j i 2 as pi0 j  =Wpathðv0 i   v  Epath, and 0 otherwise.
+l i2Epath l i2Epath  hv  i  v0 hv  i  v0  l Þ, if hv0  Wpathðv0  l i2Epath  if d   i   v   hv0 i  v   i   v   Step 5 is used so that the probability of entering pathways can be adjusted higher by setting the multiplication factor m41  in the Results section, we report the results where m = 25.
+Step 7(a) is used so that the total probability of staying on the same pathway after one transition from a non-terminal pathway node (the node that has outgoing pathway edges) will be r, which in our case we set as r = 0.7.
+We tried different values for r and m empirically  and results are fairly robust to different choices of r and m (results of weighted majority voting capDSD over different choices of r and m appear in the Supplementary Material).
+Given the one-step transition probability matrix Ppath as well as the path 8l   0, we can calcu- l-step transition probability matrix P late the expected number of times that a random walk starting at node node j   EXPfkgðv  v  pi  j  .
+Then we define the He value for each  flg path=Pl  steps will  proceeding  and i   v   X  j Þ=  visit  for  v  i  k  k  l=0  i223   M.Cao et al.
+pair of ORF nodes vi  vj 2 V0: fkg pathðvi  vjÞ=  He  X   :v   j 2Vpath  EXP  fkgðv0  j Þ  i   v   as well as the n-dimensional vector:  fkg fkg fkg fkg pathðviÞ=ðHe pathðvi  v1Þ  He pathðvi  v2Þ  :::  He pathðvi  vnÞÞ:  He  The definition of DSD with external paths follows:  capDSD  fkg fkg fkgðvi  vjÞ=jjHe pathðviÞ   He pathðvjÞjj1 8vi  vj 2 V0:  2.3 Evaluation As shown in (5), the original DSD improves all the tested classical protein function prediction algorithms in 2-fold cross-validation for functional label prediction for all three levels of the MIPS hierarchy by simply replacing the shortest-path distance with the DSD matrix, where the best performing method overall was the DSD version of weighted major- ity vote.
+In this work, we similarly evaluate four methods (majority vote, weighted majority vote, multi-way cut and functional flow) using cDSD, caDSD and capDSD as the distance metric.
+While the results in (Cao et al., 2013) were based on the converged DSD as k !1, we have not yet been able to prove convergence for our new cDSd, caDSD and capDSD variants.
+Thus, in our experiments, we set the length of random walk step k = 7 for all the three variants of DSDs (we also tested other values of k and empirically observed that when k  5, the performance is almost unchanged even though we have not been able to prove the convergence of the variants of DSDs.)
+We stress that in each of our experiments, the function prediction method is unchanged, and does not explicitly incorporate confidence or pathway information in any way, except in that it uses the values from the cDSD, caDSD or capDSD matrix instead of from the DSD (or ordinary shortest-path distance) matrix.
+2.3.1 Cross-validation task We consider 2-fold cross-validation tasks.
+In each of the 2-fold cross-validation tasks, we first randomly split the annotated proteins into two sets.
+For each set, we use its anno- tations as the training set to predict the annotations on proteins in the other set.
+We then average the performance over the 2-folds of the cross- validation.
+We conduct 10 runs of 2-fold cross-validation.
+For MIPS function prediction we report the means and standard deviations of the two performance measures over these 10 runs: accuracy and F1 score (Cao et al., 2013).
+The accuracy is calculated as the percentage of proteins that are assigned a correct function annotation (Schwikowski et al., 2000).
+The F1 score for each protein function is calculated as (Darnell et al., 2007)  2   precision   recall precision+recall     F1=  where precision and recall are calculated by looking at the top   (in our case, we present results for   = 3) predicted annotations.
+We average F1 scores over the individual functions and obtain the overall F1 score for each algorithm.
+Our GO (Ashburner et al., 2000) results take into account partial matches based on the deep hierarchy of the GO labels according (Deng et al., 2003, 2004) and appear in the to the methods of Supplementary Material.
+2.3.2 Neighborhood majority voting algorithm: weighted and unweighted These are the simplest of all function prediction methods.
+Directly applying the concept of  guilt by association , (Schwikowski et al., 2000) consider for each protein u its neighboring proteins.
+Each neighbor votes for their own annotations, and the majority is used as the  i224  predicted functional label.
+To incorporate DSD, the neighborhood of u is defined simply as the t nearest neighbors of u under the DSD metric.
+Furthermore, two schemes are considered: an unweighted scheme where all new neighbors vote equally, and a DSD weighted scheme where all new neighbors get a vote proportional to the reciprocal of their DSD distance.
+As in (Cao et al., 2013), we set t = 10.
+Multi-way cut algorithm Similar to (Nabieva et al., 2005), we imple- ment the minimal multi-way k-cut algorithm of (Vazquez et al., 2003) whose motivation is to minimize the number of times that annotations associated with neighboring proteins differ, by approximately solving the integer linear programming problem:  X  maximize  X  ðu vÞ2E a2FUNC  Xu v a  a2FUNC  Xu a=1  Xu v a   Xu a  Xu v a 2 f0  1g subject to the constraints   Xv a 2 f0  1g where the edge variables Xu,v,a are defined for each function a in the function set FUNC, whenever there exists an edge between pro- teins u and v in the edge set E. Xu,v,a is set to 1, if protein u and v both are assigned function a, and 0 otherwise.
+The node variable Xu,a are set to 1 when u is labeled with function a and 0 otherwise.
+The first constraint insures that each protein is only given one annotation.
+The second con- straint makes sure only annotations that appear among the vertices can be assigned to the edges.
+While this problem is NP-hard, the ILP is tractable in practice  in our case we use the IBM CPLEX solver (version 12.4, http://www.ilog.com/products/cplex/).
+For the DSD version of this algorithm, we simply add additional edges between vertices whose DSD is below a threshold .
+We set a global threshold D based on the average DSD of all pairs, specifically we set D=    c    , where   is the average, and   is the standard deviation of the global set of DSD values among all pairs of nodes in the graph.
+As in (Cao et al., 2013), we set c = 1.5.
+Functional flow algorithm Nabieva et al.
+(2005) use a network flow algorithm on the graph of protein interactions to label proteins.
+The idea is to consider each protein having a known function annotation as a  reservoir  of that function, and to simulate flow of functional association through the network to make predictions.
+We adapt the approach to use DSD by creating an edge between each node pair, with a weight inversely proportional to DSD.
+For computational effi- ciency we do not create edges when the reciprocal of DSD is below a small value.
+This global threshold for DSD values is set the same as in the multi-way cut algorithm.
+As in the original functional flow, we calculate flow through this new network at each time step.
+We denote the size of the reservoir of function a at node u and time step i, to be i ðuÞ.
+For a given function (annotation) a we initialize the reservoir Ra size at node u to be infinite if protein u has been annotated with 0ðuÞ=1 if function a  otherwise we set it to be 0.
+More formally: Ra u is annotated with a and 0 otherwise.
+We then update the reservoir over a sequence of time steps (we use six time steps, as in the original version (Nabieva et al., 2005)): t 1ðuÞ+  ðga t ðv  uÞ   ga  t ðuÞ=Ra Ra  t ðu  vÞÞ   X  v:ðu vÞ2E  t ðv  uÞ is the amount of flow a that moves from u to v at time  where ga t. We incorporate DSD into the edge weight as follows:  0   1  DSDðu  vÞ   flowu vÞ  if Ra  t 1ðuÞ5Ra  t 1ðvÞ  otherwise:     8    : t ðu  vÞ= ga minð X  1  DSDðu vÞ  1  DSDðu yÞ  ðu yÞ2E  where flowu v=  .
+The final functional score for node u and  function a is computed as the total amount of incoming flow.
+New directions for network-based protein function prediction  Table 2.
+Summary of protein MIPS function prediction performance for the physical PPI network using DSD, cDSD, caDSD and capDSD compared to the original methods in 10 runs of 2-fold cross-validation (as a percentage)  MIPS 1  MIPS 2  MIPS 3  Accuracy  F1 score  Accuracy  F1 score  Accuracy  F1  Majority Vote (MV) MV with original DSD MV with cDSD MV with caDSD (directed edges) MV with caDSD (no directed edges) MV with capDSD Weighted MV (WMV) with original DSD WMV with cDSD WMV with caDSD (directed edges) WMV with caDSD (no directed edges) WMV with capDSD Multi-way Cut (GMC) GMC with original DSD GMC with cDSD GMC with caDSD (directed edges) GMC with caDSD (no directed edges) GMC with capDSD Functional Flow (FF) FF with original DSD FF with cDSD FF with caDSD (directed edges) FF with caDSD (no directed edges) FF with capDSD  50.08  0.72 62.96  0.45 66.16  0.56 67.61  0.56 67.61  0.42 67.60   0.37 63.40  0.51 67.07  0.45 68.69  0.40 68.68  0.41 68.90  0.49 55.31  0.41 58.36  0.32 61.11  0.37 62.71  0.30 62.76  0.31 62.44  0.31 50.48  0.48 53.58  0.36 57.78  0.49 60.09  0.55 60.18  0.47 58.98  0.53  41.45  0.40 47.40  0.28 49.10  0.24 50.37  0.22 50.36  0.24 50.28  0.27 48.29  0.25 50.12  0.35 51.48  0.29 51.48  0.25 51.61  0.21 42.18  0.29 42.51  0.19 42.85  0.23 43.46  0.24 43.45  0.25 43.43  0.17 37.17  0.25 40.75  0.11 42.82  0.27 44.81  0.24 44.80  0.20 43.80  0.27  40.69  0.49 49.41  0.65 53.08  0.54 59.11  0.67 59.11  0.57 59.46  0.57 50.69  0.82 54.82  0.56 60.96  0.51 60.96  0.53 61.82  0.59 42.02  0.43 44.63  0.32 47.11  0.35 52.59  0.25 52.61  0.25 52.30  0.46 32.57  0.48 38.20  0.65 42.17  0.58 49.73  0.41 49.67  0.51 49.32  0.61  30.85  0.33 35.71  0.33 38.12  0.16 41.58  0.19 41.57  0.25 41.58  0.22 36.74  0.36 39.53  0.18 43.13  0.23 43.13  0.22 43.54  0.26 28.21  0.36 29.51  0.27 30.52  0.25 32.47  0.30 32.50  0.30 32.48  0.31 22.64  0.32 26.71  0.29 29.29  0.38 33.89  0.32 33.89  0.28 33.32  0.29  38.03  0.37 43.87  0.47 47.73  0.56 52.14  0.55 52.13  0.56 52.97  0.59 45.20  0.58 49.56  0.49 54.51  0.51 54.51  0.46 56.16  0.59 36.69  0.50 38.20  0.40 40.83  0.61 44.29  0.63 44.31  0.63 44.18  0.59 25.29  0.39 30.70  0.45 35.68  0.48 40.82  0.60 40.82  0.51 41.04  0.33  29.50  0.14 32.33  0.18 35.13  0.33 38.09  0.16 38.07  0.21 38.19 0.23 33.72  0.27 36.71  0.32 39.91  0.28 39.90  0.32 40.42  0.35 24.98  0.21 25.49  0.22 26.66  0.22 28.46  0.19 28.46  0.19 28.34  0.32 18.27  0.14 22.29  0.28 25.72  0.17 28.94  0.27 28.97  0.23 28.83  0.33  Note: Weighted majority vote with capDSD (in bold) gives the best results over all three levels of the MIPS hierarchy.
+3 RESULTS  3.1 Performance of function prediction methods and  their DSD variants on MIPS  Cao et al.
+(2013) show how to modify several classical function prediction methods, including the four we study here (majority vote, weighted majority vote, multi-way cut and functional flow) to utilize the DSD pairwise dissimilarity metric in place of or- dinary shortest-path distance.
+In this work, we use the same DSD-based methods as in Cao et al.
+(2013), but instead substi- tute the cDSD, caDSD and capDSD matrices to incorporate confidence measures and pathways.
+Full MIPS results on BioGRID data appear in Table 2, where we have two versions of caDSD: one that adds directions to the 157 edges which are of the five types identified by Gitter et al.
+(2011) as naturally dir- ected, and one where all edges are left undirected.
+Table 3 then gives the results on the integrative STRING database.
+Note that for the STRING database, we already include all the KEGG edges, so cDSD is equivalent to (undirected) caDSD, so this merges the two lines in the table.
+GO results appear in the Supplementary Material.
+We observe that, on both BioGRID and STRING, over 10 runs of 2-fold cross-validation, the best method overall is weighted majority vote with capDSD.
+For example, weighted majority vote with capDSD achieves an average 68.90% accur- acy and 51.61% F1 score on the first level of the MIPS hierarchy on BioGRID, and an average 71.30% accuracy and 52.91% F1  score on the first level of the MIPS hierarchy using STRING.
+Several other observations are interesting.
+On the BioGRID data, substituting original DSD for the ordinary shortest-paths metric improved all the function prediction methods we tested across the board.
+On STRING, this was not the case: when additional edges such as co-expression were added in, ordinary DSD (without confidence weights) no longer improved the clas- sical function prediction methods we tested with the exception of functional flow, where there was a large improvement.
+But func- tional flow did much worse overall on the STRING database compared to BioGRID.
+This implies that when adding in add- itional edges from sources that might be more weakly correlated to functional transfer of annotation, it is crucial to include con- fidence values.
+Once we go from unweighted DSD to DSD with confidence, we again see improvements over classical methods.
+Going from unweighted DSD to cDSD improves everything, but it is even more crucial for STRING than for BioGRID to include a confidence measure.
+Now let us consider all the different ways to incorporate high- confidence KEGG edges.
+In the BioGRID experiments, as re- marked above, it is not surprising that caDSD and capDSD, which use these edges perform better than cDSD, since not all these edges appear already in BioGRID.
+In the STRING experi- ment, these edges are already present in cDSD, so cDSD=caDSD gives the naive way to put in these edges, whereas capDSD puts them in as augmented pathways.
+In the BioGRID experiments, we also experimentally tried assigning directions to some of the  i225   M.Cao et al.
+Table 3.
+Summary of protein MIPS function prediction performance for the STRING integrative network Gstr using DSD, cDSD/caDSD and capDSD compared to the original methods in 10 runs of 2-fold cross-validation (as a percentage)  MIPS 1  MIPS 2  MIPS 3  Accuracy  F1 score  Accuracy  F1 score  Accuracy  F1  Majority Vote (MV) MV with original DSD MV with cDSD/caDSD MV with capDSD Weighted MV (WMV) with original DSD WMV with cDSD/caDSD WMV with capDSD Multi-way Cut (GMC) GMC with original DSD GMC with cDSD/caDSD GMC with capDSD Functional Flow (FF) FF with original DSD FF with cDSD/caDSD FF with capDSD  65.71  0.36 64.93  0.56 69.38  0.71 70.25  0.47 65.25  0.45 69.67  0.56 71.30  0.44 63.48  0.56 63.29  0.68 65.18  0.38 65.21  0.46 39.91  0.77 47.44  0.42 51.70  0.43 53.00  0.37  49.50  0.25 48.55  0.42 51.54  0.36 52.22  0.39 49.15  0.44 52.20  0.37 52.97  0.38 43.03  0.20 42.80  0.23 43.39  0.16 43.31  0.15 31.61  0.25 36.46  0.18 38.57  0.21 39.73  0.19  53.95  0.47 50.99  0.35 58.01  0.50 61.22  0.57 52.19  0.42 59.41  0.42 62.88  0.54 52.66  0.54 52.34  0.56 53.59  0.47 51.09  0.37 22.26  0.53 29.46  0.30 34.67  0.27 37.93  0.50  37.96  0.19 36.10  0.24 40.41  0.32 42.52  0.29 37.10  0.29 41.62  0.26 43.98  0.39 31.67  0.18 31.60  0.21 31.89  0.18 30.74  0.20 17.25  0.21 21.06  0.25 24.03  0.19 26.56  0.18  46.17  0.50 44.47  0.35 51.48  0.46 55.54  0.44 45.64  0.41 53.21  0.37 57.84  0.50 43.37  0.60 43.59  0.33 44.46  0.36 40.73  0.40 18.48  0.49 23.08  0.21 28.32  0.35 31.18  0.36  33.75  0.33 31.85  0.22 36.86  0.32 39.36  0.21 33.00  0.16 38.29  0.28 41.07  0.21 26.20  0.19 26.39  0.18 26.50  0.17 25.49  0.21 14.26  0.09 16.68  0.16 19.39  0.20 21.59  0.20  Note: Weighted majority vote with capDSD (in bold) gives the best results over all three levels of the MIPS hierarchy.
+KEGG edges as well, as in the method of Gitter et al.
+(2011) (see Methods section).
+However, we find that directing 157 edges is much too small a number to affect results  as can be seen in Table 2, results are nearly identical to the undirected caDSD.
+We there- fore used only undirected caDSD which is the same as cDSD for the STRING experiments.
+So it remains to answer the main question of the article, whether using the augmented pathways as controlled-access highways is a better way to incorporate pathway information than just using individual edges.
+The best performing method, weighted majority vote, improved things only very slightly (by 51 1.5 pp) for BioGRID, on different levels of the MIPS hier- archy, with more improvement at the lower levels of the hier- archy.
+However, on STRING, with the presence of more edges that were more weakly correlated to function, the improvement is much greater.
+In the STRING experiments (Table 3), going to pathways (capDSD) improved weighted majority vote by over 1.5 pp on the first level of the MIPS hierarchy, by over 3 pp on the second level of the MIPS hierarchy and by over 4 pp on the third level of the MIPS hierarchy.
+Similar improvements are seen for capDSD with unweighted majority vote and functional flow on STRING, though these are not the best performing methods overall, while performance of multi-way cut degrades with aug- mented pathways.
+We next discuss why that might be the case.
+other methods was not as clearly served by the augmented path- ways  capDSD improved functional flow in the noisier STRING setting, but not on BioGRID.
+The performance of multi-way cut degraded across the board.
+We hypothesize that the methods that will improve using capDSD versus just caDSD are those that use only some sort of information about the local neighbor- hood of a node to predict its function  here, making path- ways  closer  with highways is helpful, whereas the amount of distortion in augmenting the graph causes too much noise for more global methods such as multi-way cut.
+Functional flow, has both local and global aspects, so its mixed performance would be consistent with this theory.
+Finally, the best modern function prediction methods are all integrative methods, and may do something more sophisticated than adding in data from other high-throughput data sources as edges with different confidences (Sharan et al., 2005, 2007  Borgwardt et al., 2005  Cozzetto et al., 2013  Dutkowski et al., 2013).
+Thus the next step would be to integrate our results into a hybrid method along these lines.
+We note that all code for calculating the confidences, for ex- tracting pathway information from KEGG XML files, and for calculating the cDSD, caDSD and capDSD matrices is available from http://dsd.cs.tufts.edu/capdsd.
+4 DISCUSSION  Incorporating confidence and pathways into our diffusion-based distance metric DSD, we studied whether it was best to incorp- orate pathway information as edges or as controlled-access high- ways in an augmented graph.
+We showed that the augmented graph improved the best function prediction method we tested, weighted majority vote, especially in our experiments on the STRING database, where there were additional edges whose correlation with function was weaker.
+The performance of  ACKNOWLEDGEMENTS  Thanks to the CRA-W DREU program which supported K.J.D.
+to spend the summer doing research with L.J.C.
+at Tufts.
+Thanks to Mark Crovella, Donna Slonim and the entire Tufts BCB group for helpful feedback.
+Funding: J.P. was partially supported by NIH grant R01 HD076140 (to D. K. S.).
+Conflict of interest: none declared.
+i226   New directions for network-based protein function prediction  REFERENCES  Kanehisa,M.
+and Goto,S.
+(2000) KEGG: Kyoto encyclopedia of genes and gen-  omes.
+Nucleic Acids Res., 28, 27 30.
+Arnau,V.
+et al.
+(2005) Iterative cluster analysis of protein interaction data.
+Kohler,S.
+et al.
+(2008) Walking the interactome for prioritization of candidate dis-  Bioinformatics, 21, 364 378.  ease genes.
+Am.
+J. Hum.
+Genet., 82, 949 958.
+Ashburner,M.
+et al.
+(2000) Gene Ontology: tool for the unification of biology.
+Nat.
+Liao,C.-S. et al.IsoRankN: spectral methods for global alignment of multiple pro-  Genet., 25, 25 29.  tein networks.
+Bioinformatics, 25, i253 i258.
+Bader,G.D.
+et al.
+(2003) BIND: the biomolecular interaction network database.
+Licata,L.
+et al.
+(2012) Mint, the molecular interaction database: 2012 update.
+Nucleic Acids Res., 31, 248 250.
+Borgwardt,K.M.
+et al.
+(2005) Protein function prediction via graph kernels.
+Bioinformatics, 21 (Suppl.
+1), i47 i56.
+Cao,M.
+et al.
+(2013) Going the distance for protein function prediction: a new  distance metric for protein interaction networks.
+PLoS One, 8, e76339.
+Chen,J.
+et al.
+(2009) Disease candidate gene identification and prioritization using protein interaction networks.
+BMC Bioinformatics, 10, doi:10.1186/1471 2105  10 73.
+Cozzetto,D.
+et al.
+(2013) Protein function prediction by massive integration of evolutionary analyses and multiple data sources.
+BMC Bioinformatics, 14 (Suppl.
+3), S1.
+Darnell,S.J.
+et al.
+(2007) An automated decision-tree approach to predicting protein  interaction hot spots.
+Prot.
+Struct.
+Funct.
+Bioinform., 68, 813 823.
+Deng,M.
+et al.
+(2003) Assessment of the reliability of protein-protein interactions and protein function prediction.
+Pacific Symposium on Biocomputing, 140 151.
+Deng,M.
+et al.
+(2004) Mapping Gene Ontology to proteins based on protein protein  interaction data.
+Bioinformatics, 20, 895 902.
+Du,D.
+et al.
+(2012) Systematic differences in signal emitting and receiving revealed  by pagerank analysis of a human protein interactome.
+PLoS One, 7, e44872.
+Dutkowski,J.
+et al.
+(2013) A Gene Ontology inferred from molecular networks.
+Nat.
+Biotechnol, 31, 38 45.
+Erten,S.
+et al.
+(2011) VAVIEN: an algorithm for prioritizing candidate disease genes based on topological similarity of protein interaction networks.
+J. Comput.
+Biol., 18, 1561 1574.
+Franceschini,A.
+et al.
+(2013) String v9.
+1: protein-protein interaction networks, with  increased coverage and integration.
+Nucleic Acids Res., 41, D808 D815.
+Gandhi,T.
+et al.
+(2006) Analysis of the human protein interactome and comparison  with yeast, worm and fly interaction datasets.
+Nat.
+Genet., 38, 285 293.
+Gitter,A.
+et al.
+(2011) Discovering pathways by orienting edges in protein inter-  action networks.
+Nucleic Acids Res., 39, e22 e22.
+Hishigaki,H.
+et al.
+(2001) Assessment of prediction accuracy of protein function  from protein-protein interaction data.
+Yeast, 18, 523 531.
+Nucleic Acids Res., 40, D857 D861.
+Liu,W.
+et al.
+(2009) Proteome-wide prediction of signal flow direction in protein interaction networks based on interacting domains.
+Mol.
+Cell.
+Proteom., 8, 2063 2070.
+Mering,V.C.
+et al.
+(2002) Comparative assessment of large-scale data sets of protein-  protein interactions.
+Nature, 417, 399 403.
+Moustakas,A.
+(2002) Smad signalling network.
+J.
+Cell Sci., 115, 3355 3356.
+Nabieva,E.
+et al.
+(2005) Whole-proteome prediction of protein function via graph-  theoretic analysis of interaction maps.
+Bioinformatics, 21, 302 310.
+Reguly,T.
+et al.
+(2006) Comprehensive curation and analysis of global interaction  networks in Saccharomyces cerevisiae.
+J.
+Biol., 5, 11.
+Ruepp,A.
+et al.
+(2004) The FunCat, a functional annotation scheme for system- atic classification of proteins from whole genomes.
+Nucleic Acids Res., 32, 5539 5545.
+Schwikowski,B.
+et al.
+(2000) A network of protein-protein interactions in yeast.
+Nat.
+Biotechnol., 18, 1257 1261.
+Sharan,R.
+et al.
+(2005) Conserved patterns of protein interaction in multiple species.
+Proc.
+Natl Acad.
+Sci.
+USA, 102, 1974 1979.
+Sharan,R.
+et al.
+(2007) Network-based prediction of protein function.
+Mol.
+Syst.
+Biol., 3, 88.
+Stark,C.
+et al.
+(2006) BioGRID: a general repository for interaction datasets.
+Nucleic Acids Res., 34 (Suppl.
+1), D535 D539.
+Vanunu,O.
+et al.
+(2010) Associating genes and protein complexes with disease via  network propogation.
+PLoS Comput.
+Biol., 6, e1000641.
+Vazquez,A.
+et al.
+(2003) Global protein function prediction from protein-protein  interaction networks.
+Nat.
+Biotechnol., 21, 696 700.
+Voevodski,K.
+et al.
+(2009) Spectral affinity in protein networks.
+BMC Syst.
+Biol., 3,  112.
+Xenarios,I.
+et al.
+(2002) DIP, the database of interacting proteins: a research tool for studying cellular networks of protein interactions.
+Nucleic Acids Res., 30, 303 305.  i227

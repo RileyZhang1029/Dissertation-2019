@@ -1,0 +1,328 @@
+BIOINFORMATICS  Vol.
+30 ECCB 2014, pages i564 i571 doi:10.1093/bioinformatics/btu465  Transcriptome-guided amyloid imaging genetic analysis via a novel structured sparse learning algorithm Jingwen Yan1,2, Lei Du2, Sungeun Kim2, Shannon L. Risacher2, Heng Huang3, Jason H. Moore4, Andrew J. Saykin2, Li Shen2,* and for the Alzheimer s Disease Neuroimaging Initiative 1BioHealth, Indiana University School of Informatics & Computing, 2Radiology and Imaging Sciences, Indiana University School of Medicine, Indianapolis, IN 46202, USA, 3Computer Science & Engineering, The University of Texas at Arlington, TX 76019, USA and 4Genetics, Community & Family Medicine, Dartmouth Medical School, Lebanon, NH 03756, USA  ABSTRACT Motivation: Imaging genetics is an emerging field that studies the influence of genetic variation on brain structure and function.
+The major task is to examine the association between genetic markers such as single-nucleotide polymorphisms (SNPs) and quantitative traits (QTs) extracted from neuroimaging data.
+The complexity of these datasets has presented critical bioinformatics challenges that require new enabling tools.
+Sparse canonical correlation analysis (SCCA) is a bi-multivariate technique used in imaging genetics to iden- tify complex multi-SNP multi-QT associations.
+However, most of the existing SCCA algorithms are designed using the soft thresholding method, which assumes that the input features are independent from one another.
+This assumption clearly does not hold for the ima- ging genetic data.
+In this article, we propose a new knowledge-guided SCCA algorithm (KG-SCCA) to overcome this limitation as well as improve learning results by incorporating valuable prior knowledge.
+Results: The proposed KG-SCCA method is able to model two types of prior knowledge: one as a group structure (e.g.
+linkage disequilib- rium blocks among SNPs) and the other as a network structure (e.g.
+gene co-expression network among brain regions).
+The new model incorporates these prior structures by introducing new regularization terms to encourage weight similarity between grouped or connected features.
+A new algorithm is designed to solve the KG-SCCA model without imposing the independence constraint on the input features.
+We demonstrate the effectiveness of our algorithm with both synthetic and real data.
+For real data, using an Alzheimer s disease (AD) cohort, we examine the imaging genetic associations between all SNPs in the APOE gene (i.e.
+top AD gene) and amyloid deposition measures among cortical regions (i.e.
+a major AD hallmark).
+In comparison with a widely used SCCA implementation, our KG-SCCA algorithm produces not only improved cross-validation performances but also biologically meaningful results.
+Availability: Software is freely available on request.
+Contact: shenli@iu.edu  1 INTRODUCTION  Brain imaging genetics is an emerging field that studies the influence of genetic variation on brain structure and function.
+Its major task is to examine the association between genetic markers such as single-nucleotide polymorphisms (SNPs) and  *To whom correspondence should be addressed.
+quantitative traits (QTs) extracted from multimodal neuroima- ging data (e.g.
+anatomical, functional and molecular imaging scans).
+Given the well-known importance of gene and imaging phenotype in brain function, bridging these two factors and exploring their connections would lead to a better mechanistic understanding of normal or disordered brain functions.
+The complexity of these data, however, has presented critical bio- informatics challenges requiring new enabling tools.
+Early stu- dies in imaging genetics typically focused on pairwise univariate analysis (Shen et al., 2010).
+Many recent studies turned to regres- sion analysis for exploring the joint effect of multiple SNPs on single or few QTs (Hibar et al., 2011) and bi-multivariate ana- lyses for revealing complex multi-SNPs multi-QTs associations (Chi et al., 2013  Lin et al., 2014  Vounou et al., 2010  Wan et al., 2011).
+Canonical correlation analysis  (CCA), a bi-multivariate method, has been applied to imaging genetics applications.
+It aims to find the best linear transformation for imaging and gen- etics features so that the highest correlation between imaging and genetic components can be achieved.
+Based on the assumption that a real imaging genetic signal typically involves a small number of SNPs and QTs, sparse canonical correlation analysis (SCCA) has also been applied in several imaging genetic studies by imposing the Lasso regularization term to yield sparse results (Chi et al., 2013  Lin et al., 2014  Wan et al., 2011).
+However, most existing SCCA algorithms are designed using the soft thresholding technique, which assumes that the input features are independent from one another (Tibshirani, 1996).
+This as- sumption clearly does not hold for the imaging genetic data [e.g.
+the existence of the structural and functional networks in the brain and the linkage disequilibrium (LD) blocks in the genome].
+Directly ignoring the covariance structure in the data will inev- itably limit the capability of yielding optimal results.
+In this article, we propose a new knowledge-guided SCCA algorithm (KG-SCCA) to overcome this limitation as well as to aim for improving learning results by incorporating valuable prior knowledge.
+The proposed KG-SCCA method is able to model two types of prior knowledge: one as a group structure (e.g.
+LD blocks among SNPs) and the other as a network struc- ture (e.g.
+gene co-expression network among brain regions).
+The new model incorporates these prior structures by introducing new regularization terms to encourage similarity between grouped or connected features.
+A new algorithm is designed to solve the KG-SCCA model without imposing the independence  ß The Author 2014.
+Published by Oxford University Press.
+This is an Open Access article distributed under the terms of the Creative Commons Attribution Non-Commercial License (http://creativecommons.org/licenses/by-nc/3.0/), which permits non-commercial re-use, distribution, and reproduction in any medium, provided the original work is properly cited.
+For commercial re-use, please contact journals.permissions@oup.com   constraint on the input features.
+We demonstrate the effective- ness of our algorithm with both synthetic and real data.
+For real data, using an Alzheimer s disease (AD) cohort, we examine the imaging genetic associations between all SNPs in the APOE gene (i.e.
+top AD gene) and amyloid deposition measures among cor- tical regions (i.e.
+a major AD hallmark).
+In comparison with a widely used SCCA implementation in the PMA software pack- age (http://cran.r-project.org/web/packages/PMA/) (Witten et al., 2009), our KG-SCCA algorithm produces improved cross- validation performances as well as biologically meaningful results.
+2 MATERIALS AND DATA SOURCES  To demonstrate the proposed KG-SCCA algorithm, we apply it to an amyloid imaging genetic analysis in the study of AD.
+Deposition of amyloid-  in the cerebral cortex is a major hall- mark in AD pathogenesis.
+Our prior studies (Ramanan et al., 2014  Swaminathan et al., 2012) performed univariate genetic association analyses of amyloid measures in a few candidate cor- tical regions of interest (ROIs), and identified several promising hits including rs429358 in APOE, rs509208 in BCHE and rs7551288 in DHCR24.
+In this work, using the proposed KG- SCCA algorithm, we perform a bi-multivariate analysis to exam- ine the association between all the available SNPs (58 in total) in the APOE gene (i.e.
+the top genetic risk factor for late onset AD) and 78 ROIs across the entire cortex.
+We use two types of prior knowledge in this analysis: (i) a group structure is imposed to the SNP data using the LD block information (Fig.
+4), and (ii) a network structure is imposed to the amyloid imaging data by computing an amyloid pathway-based gene co-expression net- work in the brain using Allen Human Brain Atlas (AHBA  Zeng et al., 2012).
+Below, we first describe our amyloid imaging and genotyping data, and then discuss our method for creating the amyloid pathway-based gene co-expression network in the brain.
+2.1  Imaging and genotyping data  The proposed algorithm, KG-SCCA, was empirically evaluated using the amyloid imaging and genotyping data obtained from the Alzheimer s Disease Neuroimaging Initiative (ADNI) data- base (adni.loni.usc.edu).
+One goal of ADNI has been to test whether serial magnetic resonance imaging (MRI), positron emission tomography (PET), other biological markers and clin- ical and neuropsychological assessment can be combined to measure the progression of mild cognitive impairment (MCI) and early AD.
+For up-to-date information, see www.adni-info.
+org.
+Preprocessed [18F]Florbetapir PET scans (i.e.
+amyloid ima- ging data) were downloaded from LONI (adni.loni.usc.edu).
+Before downloading, images were averaged, aligned to a stand- ard space, resampled to a standard image and voxel size, smoothed to a uniform resolution and normalized to a cerebellar gray matter reference region resulting in standardized uptake value ratio images as previously described (Jagust et al., 2010).
+After downloading, the images were aligned to each participant s same visit MRI scan and normalized to the Montreal Neurological Institute (MNI) space as 2  2  2 mm voxels using parameters from the MRI segmentation.
+ROI level amyl- oid measurements were further extracted based on the MarsBaR  Transcriptome-Guided Amyloid Imaging Genetics via KG-SCCA  Table 1.
+Participant characteristics  Subjects  AD  MCI  HC  Number Gender (M/F) Handedness (R/L) Age (mean  std) Education (mean  std)  28 18/10 23/5 75.23  10.66 15.61  2.74  343 203/140 309/34 71.92  7.47 15.99  2.75  196 102/94 178/18 74.77  5.39 16.46  2.65  AAL atlas.
+Genotype data of both ADNI-1 and ADNI-2/GO phases were also obtained from LONI (adni.loni.usc.edu).
+All the APOE SNPs were extracted based on the quality controlled and imputed data combining two phases together.
+Only SNPs available in Illumina 610Quad and/or OmniExpress arrays were included in the analysis.
+As a result, we had 58 SNPs located within 10 LD blocks (Fig.
+4) computed using HaploView (Barrett, 2009).
+A total of 568 non-Hispanic Caucasian partici- pants with both complete amyloid measurements and APOE SNPs were studied, including 28 AD, 343 MCI and 196 healthy control (HC) subjects (Table 1).
+Using the regression weights derived from the HC participants, amyloid and SNP measures were preadjusted for removing the effects of the baseline age, gender, education and handedness.
+2.2 Amyloid pathway-based gene co-expression network  in the brain  Because we examine cortical amyloid deposition in relation to genetic variation, we hypothesize that amyloid pathway-based gene co-expression profiles among cortical ROIs may provide valuable information in search for APOE-related amyloid dis- tribution pattern in the cortex.
+Thus, we used the brain tran- scriptome data from the AHBA (Zeng et al., 2012), coupled with 15 candidate genes from amyloid pathways studied in (Swaminathan et al., 2012), to create such a brain network.
+Gene expression profiles across the whole human brain were downloaded from Allen Institute for Brain Science.
+One of their goals is to advance the research and knowledge about neurobio- logical conditions, with extensive mapping of whole-genome gene expression throughout the brain.
+Among various organ- isms, AHBA is one of the projects seeking to combine the gen- omics with the neuroanatomy to better understand the connection between genes and brain functioning.
+Gene expres- sion profiles in eight health human brains have been released, including two full brains and six right hemispheres.
+Details can be found in www.brain-map.org.
+Brain-wide expression data of all 15 amyloid-related candidate genes, reported in (Swaminathan et al., 2012), were extracted from AHBA to construct the brain network.
+Because an early report indicated that individuals share as much as 95% gene expression profile (Zeng et al., 2012), in this study, we only included two full brains (H0351-2201 and H0351-2002) to con- struct the co-expression network.
+First all the brain samples ( 900) in AHBA were mapped to MarSBAR AAL atlas, which included 116 brain ROIs.
+According to Ramanan et al.
+(2014), cortical ROIs are typically believed to hold the amyloid  i565   J.Yan et al.
+Fig.
+1.
+Amyloid pathway-based gene co-expression networks among 78 AAL cortical ROIs constructed from AHBA using different statistics (see different rows) for two individuals and their combination  signals, whereas other ROIs hold similar amyloid measures across individuals.
+Thus, 39 pairs of bilateral cortical ROIs (78 in total), from frontal lobe, cingulate, parietal lobe, temporal lobe, occipital lobe, insula and sensory motor cortex, were included in our ana- lysis.
+Correlation among  900 brain locations was first calculated based on the gene expression profile of 15 amyloid candidate genes.
+Due to many-to-one mapping from the brain locations to AAL ROIs, for each ROI, there are more than one connections, represented by correlations between two brain locations.
+Therefore, we calculated ROI-level correlations of two individuals in five ways: minimum, maximum, mean, standard deviation and median.
+In addition, the ROI correlation structure based on the combination of both individuals was also generated in the same way for comparison (Fig.
+1).
+Clearly, for all five statistics, the pattern remains highly consistent across individuals and their combination.
+For simplicity, in the subsequent analysis, we adopt the brain connectivity matrix generated from the combin- ation sample using the median statistics (i.e.
+the panel in the lower right corner of Fig.
+1).
+Figure 2 shows a network visualization of this matrix, where edges correspond to matrix entries with values   0:5 or    0:5.
+Fig.
+2.
+Network visualization by thresholding the connectivity matrix shown in the lower right corner of Figure 1, where edges correspond to matrix entries with values   0:5 or    0:5.
+The circle is symmetric (left measures on left and right measures on right), from top to bottom are frontal lobe, cingulate, parietal lobe, temporal lobe, occipital lobe, insula and sensory motor cortex  (SNP) and Y=fy1  :::  yng    q be the imaging QT data, where n is the number of participants, p and q are the numbers of SNPs and QTs, respectively.
+CCA seeks linear transformations of variables X and Y to achieve the  maximal correlation between Xu and Yv, which can be formulated as: ð1Þ  s:t: uTXTXu=1  vTYTYv=1  uTXTYv  max u v  where u and v are canonical loadings or weights, reflecting the significance of each feature in the identified canonical correlation.
+Similar to many machine learning algorithms, overfitting could arise in CCA when the features outnumber the participants.
+In addition, the CCA outcome could spread non-trivial effects across all the features rather than only a few significant ones, making the results difficult to interpret.
+To address these issues, SCCA was proposed in (Witten et al., 2009) by introducing penalty terms, P1ðuÞ   c1 and P2ðvÞ   c2, to regu- larize the weights, as shown in Equation (2).
+max u v  s:t:  uTXTYv jjXujj2  2=1 jjYvjj2  2=1  P1ðuÞ   c1  P2ðvÞ   c2  ð2Þ  Here the objective function is bilinear in u and v: when u is fixed, it is linear in v and vice versa.
+But due to the L2 equality, with u or v fixed, the constraints are not convex.
+This can be solved by reformulating the L2 equality into inequality as jjXujj2 2   1.
+For easy compu- tation, Equation (2) is commonly rewritten in its Lagrangian form.
+2   1 and jjYvjj2  3 METHODS  max u v  uTXTYv    1 2  jjXujj2  2    2  2  jjYvjj2  2    1P1ðuÞ    2P2ðvÞ  ð3Þ  Now we present our KG-SCCA algorithm.
+We denote vectors as bold- face lowercase letters and matrices as boldface uppercase ones.
+For a given matrix M=ðmijÞ, we denote its i-th row and j-th column as mi and mj, respectively.
+Let X=fx1  :::  xng    p be the genotype data  Witten et al.
+(2009) and Witten and Tibshirani (2009) explored two penalty forms, L1 penalty and the chain structured fused Lasso penalty.
+L1 penalty imposes sparsity on both u and v and assumes that each ca- nonical correlation involves only a few features from X and Y.
+The fused  i566   Lasso penalty promotes the smoothness of weight vectors and encourages neighboring features to be selected together.
+To incorporate other struc- tures, group- and network-guided penalties were introduced (Chen and Liu, 2012  Chen et al., 2013).
+As mentioned earlier, most of these methods were designed using the soft thresholding technique, which was first pro- posed to solve Lasso problem when the features were independent from each other (Tibshirani, 1996).
+This condition does not hold in imaging genetics data.
+Thus, direct application of those methods into imaging genetics studies limits the capability of yielding optimal solutions.
+Below, we first present our KG-SCCA model and then present an effect- ive KG-SCCA algorithm without using the soft thresholding strategy.
+Brain has been studied as a complicated network.
+The SNP data have structures like LD blocks.
+Given these prior knowledge, we propose the following KG-SCCA model by introducing two penalty terms for genetic loadings u and imaging loading v, respectively.
+ﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃX s  K1  X X  K1  k1=1  k1=1  P1=jjujjG= 1  = 1  X  + 1jjujj1  u2 i  i2 k1  jjuk1jj2+ 1jjujj1   ð4Þ  P2=jjvjjN= 2  ði jÞ2E i5j   ðwijÞjjvi   signðwijÞvjjj2  2+ 2jjvjj1  = 2jjCvjj2  2+ 2jjvjj1:  In penalty P1ðuÞ, SNPs are partitioned into K1 groups  1=f k1gK1  X k1=1, such that fuigmk1 i=1 2  k1 , and mk1 is the number of SNPs in  k1 .
+While the jjuk1jj2 helps select all the SNPs in relevant LD blocks,  group term  1  K1  k1=1     L1 penalty manages to suppress those non-signals within selected LD blocks.
+The P1ðuÞ penalty is essentially the group Lasso penalty applied to the CCA framework.
+Penalty P2ðvÞ applies the network-guided constraint to encourage the joint selection of  connected  features (i.e.
+their connectivity matrix entry having a high weight) as well as uses L1 to impose global sparsity.
+E is   the set of all possible imaging QT pairs and jEj is the total number of QT pairs.
+C 2  jEj q is defined as follows.
+The row of C is indexed by all pairs ði  jÞ 2 ði  jÞji 2 1  :::  q   Cði jÞ i=wij and Cði jÞ j=signðwijÞwij.
+ðwijÞ provide the fusion effect that promotes similarity between vi and vj of related features.
+In this article, we use  ðwijÞ=w2 ij.
+With signðwijÞ we can have positively related features being pulled together and on the other hand the negatively related features being fused with opposite direction.
+Thus, for strongly connected features with a large fusion effect, they tend to be jointly selected or jointly not selected.
+j 2 1  :::q    i5 j           In this work, as mentioned earlier, we formed the group structure for the SNP data by partitioning them using LD blocks generated by HaploView (Barrett, 2009).
+We formed the network structure for the amyloid imaging data by constructing amyloid pathway-based gene co- expression network using AHBA.
+Because the model could be easily ex- tended to estimate multiple canonical variables, we only focus on creating the first pair of canonical variables in this article.
+Algorithm 1 Knowledge-guided SCCA (KG-SCCA)  Require:  X=fx1  :::  xng  Y=fy1  :::  yng, group and network structures  Ensure:  Canonical vectors u and v. t = 1, Initialize ut 2  p 1  vt 2  q 1   1: 2: while not converge do 3: 4:  Calculate B1t = 1  1 Calculate the block diagonal matrix D1t and D2t    Yvt  Transcriptome-Guided Amyloid Imaging Genetics via KG-SCCA   1  D1t +  1  1  D2tÞ 1XTB1t   t+1XTXut+1=1   ut+1=ðXTX+  1 Scale ut+1 so that uT Calculate B2t = 1  2 Calculate the block diagonal matrix D4t   vt+1=ðYTY+  2 Scale vt+1 so that vT t=t+1.
+D4tÞ 1YTB2t   t+1YTYvt+1=1   D3+  2  2  Xut+1    2  end while  5: 6: 7: 8: 9: 10: 11: 12:  We now present our algorithm to solve this model without using soft thresholding approach.
+By fixing u and v, respectively, we will have two convex problems shown in Equation (5).
+max  u  uTXTYv    1 2  jjXujj2  2    1  max  v  uTXTYv    2 2  jjYvjj2  2    2  2  jjuk1jj2    1jjujj1  k1=1  jjCvjj2  2    2jjvjj1  Let B1= 1  1 to Equation (6):  Yv and B2= 1  2  Xu, the above problems can be reformulated  X  K1  X  K1  k1=1  min  u  min  v  1 2  1 2  jjXu   B1jj2  2+   1  1  jjuk1jj2+  jjujj1  jjYv   B2jj2  2+   2 2 2  jjCvjj2  2+   2  2   1  1 jjvjj1  ð5Þ  ð6Þ  Here, while u can be solved by the G-SMuRFS method proposed in (Wang et al., 2012), optimization of v can be achieved by the network- guided L2 1 regression method proposed in (Yan et al., 2013).
+In both solutions, a smooth approximation has been estimated for group L2 1 and L1 terms by including an extremely small value.
+The solution for u and v in each iteration step is as follows:  u=ðXTX+  v=ðYTY+   1  1  2  2  D1+  D3+   1  1  2  2  D2Þ 1XTB1   D4Þ 1YTB2   ð7Þ  1  2kuik2  where D1 is a block diagonal matrix with the k-th diagonal block as 1kukkF Ik  Ik is an identity matrix with size of mk  mk is the total feature number in group k  D2 is a diagonal matrix with the i-th diagonal element   D3 = CTC is a matrix in which each row integrates all the neigh- as boring relationships (e.g.
+for the i-th row, it is the sum of all the rows in   whose i-th element is not zero)  and D4 is a diagonal matrix with the i-th diagonal element as .
+Algorithm 1 summarizes the KG-SCCA opti- mization procedure.
+Further details on how to solve for two objectives in Equation (6) are available in (Wang et al., 2012) and (Yan et al., 2013), respectively.
+2kvik2  1  In Algorithm 1, six parameters  1   2   1   2   1   2 need to be tuned to control the global sparsity as well as structured group or network con- straints.
+Chen and Liu (2012) studied a similar problem using a different method, and found that their results were insensitive to  1   2 settings.
+Following their observation, we set  1 and  2 to 1 for simplicity.
+Nested cross-validation can be used for parameter selection but will be extremely time-consuming for the remaining four parameters.
+Thus, we followed the strategy proposed in (Lin et al., 2014): parameters  1   2 controlling struc- tural constraints were first tuned without considering sparsity constraints.
+Then based on the obtained optimal  1   2, another nested cross-valid- ation was performed to acquire the optimal  1   2.
+4 EXPERIMENTAL RESULTS AND DISCUSSIONS  We performed comparative studies between the proposed KG-SCCA algorithm and a widely used SCCA implementation  i567   J.Yan et al.
+Fig.
+3.
+Five-fold trained weights of u and v. Ground truth of u and v are shown in the most left two panels.
+KG-SCCA results (top row) and PMA results (bottom row) are shown in the remaining panels, corresponding to true correlation coefficients (CCs) ranging from 0.6 to 1.0.
+For each panel pair, the five estimated u values are shown on the left panel, and the five estimated v values are shown on the right panel  Table 2.
+Five-fold cross-validation performance on synthetic data: mean  std is shown for estimated correlation coefficients and AUC of the test data using the trained model  True  Correlation coefficients (CC)  AUC  CC  0.60 0.64 0.70 0.77 0.85 0.95 1.00  KG-SCCA  PMA  P  KG-SCCA:u  PMA:u  P  KG-SCCA:v  PMA:v  0.56  0.12 0.56  0.1 0.64  0.1 0.7  0.14 0.76  0.08 0.87  0.04 0.92  0.04  0.31  0.14 0.51  0.12 0.53  0.1 0.6  0.14 0.65  0.1 0.67  0.09 0.71  0.06  2.19E-03 2.32E-02 1.27E-05 6.62E-03 1.02E-04 1.19E-03 2.46E-04  0.83  0.08 0.96  0.04 0.99  0.01 0.99  0.01 0.98  0.03 1.00  0.00 1.00  0.00  0.64  0.02 0.65  0.01 0.62  0.
+0.62  0.
+0.63  0.01 0.63  0.01 0.64  0.01  3.36E-03 2.20E-05 6.21E-08 9.67E-09 4.57E-06 1.39E-08 4.02E-08  1.0  0.00 1.0  0.00 1.0  0.00 1.0  0.00 1.0  0.00 1.0  0.00 1.0  0.00  1.0  0.00 1.0  0.00 1.0  0.00 1.0  0.00 1.0  0.00 1.0  0.00 1.0  0.00  Note.
+P-value of paired t-test between KG-SCCA and PMA results are also shown.
+in the PMA package (http://cran.r-project.org/web/packages/ PMA/) (Witten et al., 2009).
+For PMA experiments, the SCCA parameters were automatically tuned using a permutation scheme provided in PMA.
+Below we report our empirical results using both synthetic data and real imaging genetics data.
+4.1 Results on simulation data  Because it was not straightforward to manually construct a dataset with a network structure, we simulated group structures for both datasets and then converted them into network struc- tures for one dataset by connecting all the pairs within each group.
+Synthetic data (n=200  p=200  q=150) with diagonal block structure was generated with the following procedure: (i) Random positive definite covariance matrix M with non-over- lapping group structure was created, where correlations range from 0.6 to 1 within group and are set to 0 between groups.
+(ii) Dataset X with covariance structure M was calculated through Cholesky decomposition.
+(iii) Repeat Steps 1 and 2 to generate another dataset Y.
+(iv) With assigned canonical loadings of X, we calculated the first component Xu.
+(v) Given a desired correlation between components, we calculated the second com- ponent Yv.
+(vi) For simplicity, in this article, only one group in Y  was assigned to have signals.
+Therefore, based on predefined canonical loadings of Y and component Yv, final obtained group signals, added with some white noises (Signal to Noise Ratio (SNR) = 0.5), will replace the data in original dataset Y.
+By repeating this procedure we generated seven datasets with correlation levels from 0.6 to 1.
+The canonical loadings and group structure remained the same across all the datasets.
+KG-SCCA and PMA have been both tested on all seven data- sets.
+All the regularization parameters were optimally tuned  2 to 102 through nested 5-fold using a grid search from 10 cross-validation, as mentioned before.
+The true and estimated canonical loadings for both X and Y were shown in Figure 3.
+Owing to the difference in normalization and optimization pro- cedure, the weights yielded by KG-SCCA and PMA showed different scales.
+Yet, the overall profile of the estimated u and v values from KG-SCCA kept consistent with the ground truth across the entire range of tested correlation strengths (from 0.6 to 1.0), whereas PMA was only capable of identifying an incom- plete portion of all the signals.
+Furthermore, we also examined the correlation in the test set computed using the learned models from the training data for both methods.
+The left part of Table 2 demonstrated that KG-SCCA outperformed PMA consistently  i568   Transcriptome-Guided Amyloid Imaging Genetics via KG-SCCA  Table 3.
+Five-fold cross validation results on real data: the models learned from the training data were used to estimate the correlation coefficients between canonical components for both training and testing sets  Method  Train  Test  f1  f2  f3  f4  f5  Mean  f1  f2  f3  f4  f5  Mean  KG-SCCA  PMA  exp1 exp2 exp3 exp4 exp5 exp1 exp2 exp3 exp4 exp5  0.471 0.476 0.476 0.468 0.49 0.439 0.444 0.442 0.434 0.459  0.448 0.453 0.474 0.466 0.502 0.418 0.416 0.445 0.44 0.462  0.475 0.454 0.474 0.459 0.434 0.438 0.425 0.439 0.425 0.406  0.451 0.476 0.468 0.46 0.449 0.438 0.436 0.427 0.427 0.416  0.46 0.461 0.402 0.466 0.447 0.426 0.432 0.398 0.431 0.411 P-value  0.461 0.464 0.459 0.464 0.464 0.432 0.431 0.43 0.432 0.431 3.08E-6  0.431 0.402 0.408 0.441 0.35 0.368 0.354 0.382 0.414 0.288  0.515 0.505 0.393 0.409 0.297 0.45 0.463 0.341 0.363 0.287  0.401 0.503 0.413 0.47 0.584 0.398 0.449 0.382 0.445 0.517  0.417 0.401 0.435 0.476 0.527 0.379 0.399 0.432 0.438 0.486  0.459 0.458 0.565 0.445 0.528 0.439 0.416 0.544 0.415 0.501 P-value  0.445 0.454 0.443 0.448 0.457 0.407 0.416 0.416 0.415 0.416 8.07E-5  Note.
+P-values of paired t-tests were obtained for comparing KG-SCCA and PMA results.
+and significantly, and it could accurately reveal the embedded true correlation even in the test data.
+The right part of Table 2 demonstrated the sensitivity and specificity performance using area under ROC (AUC), where KG-SCCA also significantly outperformed PMA no matter whether the correlation was weak or strong in u.
+Because v is relatively simple structured, both KG-SCCA and PMA can restore the signals without any loss.
+From the above results, it is also observed that KG-SCCA could identify the correlations and signal locations not only more accurately but also more stably.
+4.2 Results on real imaging genetic data  Both KG-SCCA and PMA have been performed on real amyloid imaging and APOE genetics data.
+Similar to previous analysis, 5-fold nested cross-validation was applied to optimally tune the parameters.
+Five experiments were performed with five different partitions to eliminate the bias.
+For each single experiment, the same partition was used for both KG-SCCA and PMA.
+Table 3 shows both the training and test performances of KG-SCCA and PMA in all five folds of five experiments.
+Both methods demon- strated stable results across five trials.
+KG-SCCA was observed to outperform the PMA in every single experiment on both training and test performance.
+Paired t-test was performed to compare the performance across five experiments, and KG- SCCA outperformed PMA significantly in both training (P = 3.08E-6) and test cases (P = 8.07E-5).
+We also tested two simplified KG-SCCA models: one with only the penalty term for the LD structure and the other with only the penalty term for the network structure.
+Interestingly, both performed similarly to the original KG-SCCA, and significantly outperformed PMA.
+Figure 4 demonstrates the canonical loadings trained from 5-fold cross-validation in one experiment, suggesting relevant genetic (top panel) and imaging (bottom panel) markers.
+Although LD block constraints were imposed on relevant SNP markers, L1 penalty managed to exclude irrelevant signals.
+Only APOE e4 SNP (rs429358) was identified to be associated with amyloid accumulations in the brain.
+PMA also achieved a similar  pattern as KG-SCCA, but including a few additional SNPs from multiple LD blocks.
+The bottom panel of Figure 4 shows the canonical loading for the imaging data.
+Both methods identified similar imaging patterns, which are in accordance with prior findings (Ramanan et al., 2014).
+Figure 5 shows a brain map of canonical loadings generated by KG-SCCA.
+5 CONCLUSIONS  We have performed a brain imaging genetics study to explore the relationship between brain-wide amyloid accumulation and gen- etic variations in the APOE gene.
+Because most existing SCCA algorithms are designed using the soft thresholding technique, which assumes independence among data features, direct appli- cation of these methods into brain imaging genetics study cannot yield optimal results owing to the correlated imaging and genetic features.
+We have proposed a novel KG-SCCA algorithm, which not only removes the above independence assumption, but also can model both the group-like and network-like prior knowledge in the data to produce improved learning results.
+A comparative study has been performed between KG-SCCA and PMA (a widely used SCCA implementation) on both synthetic and real data.
+The promising empirical results demonstrated that KG- SCCA significantly outperformed PMA in both cases.
+Furthermore, KG-SCCA could accurately recover the true sig- nals from the synthetic data, as well as yield improved canonical correlation performances and biologically meaningful findings from real data.
+This study is an initial attempt to remove the feature independence assumption many existing SCCA methods have.
+The empirical studies designed here are targeted to identify relatively clean and simple multi-SNP multi-QT correlations.
+Given only 58 SNPs analyzed here, this work is not a demon- stration of a genome-wide analysis.
+Comparison with other com- plex SCCA models, building scalable KG-SCCA models, and applications to more complex imaging genetic tasks warrant fur- ther investigation.
+i569   J.Yan et al.
+Fig.
+4.
+Five-fold trained weights of u (top panel) and v (bottom panel).
+KG-SCCA results and PMA results are shown for each panel.
+For each of KG- SCCA and PMA imaging results (i.e.
+the bottom panel), the top and bottom rows correspond to left and right hemispheres, respectively  Funding: This work was supported by the National Institutes of Health [R01 LM011360 to L.S.
+and A.S., U01 AG024904 to M.W.
+and A.S., RC2 AG036535 to M.W.
+and A.S., R01 AG19771 to A.S., P30 AG10133 to A.S.] and the National IU  by the Science Foundation [IIS-1117335 to L.S.]
+at National Science Foundation [IIS-1117965 to H.H., IIS- 1302675 to H.H., IIS-1344152 to H.H., DBI-1356628 to H.H.]
+at UTA  and by the National Institutes of Health [R01 LM011360 to J.M., R01 LM009012 to J.M., R01 LM010098 to J.M.]
+at Dartmouth.
+Conflict of interest: none declared.
+REFERENCES  Barrett,J.C.
+(2009) Haploview: visualization and analysis of SNP genotype data.
+Cold Spring Harb.
+Protoc., 2009, pdb ip71.
+Chen,J.
+et  al.
+(2013) Structure-constrained sparse  correlation analysis with an application to microbiome data analysis.
+Biostatistics, 14, 244 258.  canonical  Chen,X.
+and Liu,H.
+(2012) An efficient optimization algorithm for structured sparse  CCA, with applications to eQTL mapping.
+Stat.
+Biosci., 4, 3 26.
+Fig.
+5.
+Mapping canonical loading generated by KG-SCCA onto the brain  ACKNOWLEDGEMENTS  Detailed ADNI Acknowledgements information is available in http://adni.loni.usc.edu/wp-content/uploads/how_to_apply/ADNI_ Manuscript_Citations.pdf.
+Data used in preparation of this article were obtained from the Alzheimer s Disease Neuroimaging Initiative (ADNI) database (adni.loni.usc.edu).
+As such, the in- vestigators within the ADNI contributed to the design and im- plementation of ADNI and/or provided data but did not participate in analysis or writing of this report.
+A complete listing of ADNI investigators can be found at: http://adni.loni.usc.edu/ wp-content/uploads/how_to_apply/ADNI_Acknowledgement_ List.pdf.
+i570   Chi,E.
+et al.
+(2013) Imaging genetics via sparse canonical correlation analysis.
+In: Biomedical Imaging (ISBI), 2013 IEEE 10th Int Sym on.
+San Francisco, USA, pp.
+740 743.
+Vounou,M.
+et al.
+(2010) Discovering genetic associations with high-dimensional reduced-rank regression approach.
+neuroimaging phenotypes: a sparse NeuroImage, 53, 1147 1159.
+Transcriptome-Guided Amyloid Imaging Genetics via KG-SCCA  Hibar,D.P.
+et al.
+(2011) Multilocus genetic analysis of brain images.
+Front.
+Genet.,  2, 73.
+Jagust,W.J.
+et al.
+(2010) The Alzheimer s Disease Neuroimaging Initiative positron  emission tomography core.
+Alzheimers Dement, 6, 221 229.
+Lin,D.
+et  al.
+(2014) Correspondence  SNP data by group sparse canonical correlation analysis.
+Med.
+Image Anal., 18, 891 902.  between  fMRI  and  Ramanan,V.K.
+et al.
+(2014) APOE and BCHE as modulators of cerebral amyloid deposition: a florbetapir PET genome-wide association study.
+Mol.
+Psychiatry, 19, 351 357.
+Shen,L.
+et al.
+(2010) Whole genome association study of brain-wide imaging pheno- types for identifying quantitative trait loci in MCI and AD: A study of the ADNI cohort.
+Neuroimage, 53, 1051 1063.
+Swaminathan,S.
+et al.
+(2012) Amyloid pathway-based candidate gene analysis of [(11)C]PiB-PET in the Alzheimer s Disease Neuroimaging Initiative (ADNI) cohort.
+Brain Imaging Behav., 6, 1 15.
+Wan,J.
+et al.
+(2011) Hippocampal surface mapping of genetic risk factors in AD via sparse learning models.
+Med.
+Image Comput.
+Comput.
+Assist.
+Interv., 14 (Pt 2), 376 383.
+Wang,H.
+et al.
+(2012) Identifying quantitative trait loci via group-sparse multitask regression and feature selection: an imaging genetics study of the ADNI cohort.
+Bioinformatics, 28, 229 237.
+Witten,D.M.
+and Tibshirani,R.J.
+(2009) Extensions of sparse canonical correlation analysis with applications to genomic data.
+Stat.
+Appl.
+Genet.
+Mol.
+Biol., 8, Article28.
+Witten,D.M.
+et al.
+(2009) A penalized matrix decomposition, with applications to sparse principal components and canonical correlation analysis.
+Biostatistics, 10, 515 534.
+Yan,J.
+et al.
+(2013) Network-guided sparse learning for predicting cognitive out- comes from MRI measures.
+In: Multimodal Brain Image Analysis (MBIA), Nagoya, Japan.
+LNCS 8159.
+Vol.
+8159, Springer International Publishing, Switzerland, pp.
+150 158.
+Tibshirani,R.
+(1996) Regression shrinkage and selection via the lasso.
+J. R. Stat.
+Zeng,H.
+et al.
+(2012) Large-scale cellular-resolution gene profiling in human neo-  Soc.
+Ser.
+B, 58, 267 288.  cortex reveals species-specific molecular signatures.
+Cell, 149, 483 496.  i571

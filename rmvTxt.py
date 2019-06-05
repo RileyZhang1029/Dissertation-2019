@@ -7,7 +7,7 @@ Created on Tue May 28 16:31:55 2019
 
 import os
 n = 0
-for root, dirs, files in os.walk("C:/Users/Administrator/Documents/GitHub/Dissertation-2019"):
+for root, dirs, files in os.walk("C:/Users/Administrator/Documents/GitHub/Dissertation-2019/trainingdata"):
     for name in files:
         if(name.endswith(".txt")):
             n += 1

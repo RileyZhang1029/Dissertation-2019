@@ -1,0 +1,478 @@
+BIOINFORMATICS  Vol.
+30 ISMB 2014, pages i139 i148 doi:10.1093/bioinformatics/btu293  Graph-regularized dual Lasso for robust eQTL mapping Wei Cheng1, Xiang Zhang2, Zhishan Guo1, Yu Shi3 and Wei Wang4,* 1Department of Computer Science, UNC at Chapel Hill, Chapel Hill, NC 27599, 2Department of EECS, Case Western Reserve University, OH 44106, USA 3Department of Mathematics, University of Science and Technology of China, Hefei 23002, China and 4Department of Computer Science, University of California, Los Angeles, CA 90095, USA  ABSTRACT Motivation: As a promising tool for dissecting the genetic basis of complex traits, expression quantitative trait loci (eQTL) mapping has attracted increasing research interest.
+An important issue in eQTL map- ping is how to effectively integrate networks representing interactions among genetic markers and genes.
+Recently, several Lasso-based methods have been proposed to leverage such network information.
+Despite their success, existing methods have three common limita- tions: (i) a preprocessing step is usually needed to cluster the networks  (ii) the incompleteness of the networks and the noise in them are not considered  (iii) other available information, such as location of genetic markers and pathway information are not integrated.
+Results: To address the limitations of the existing methods, we propose Graph-regularized Dual Lasso (GDL), a robust approach for eQTL mapping.
+GDL integrates the correlation structures among genetic markers and traits simultaneously.
+It also takes into account the incompleteness of the networks and is robust to the noise.
+GDL utilizes graph-based regularizers to model the prior networks and does not require an explicit clustering step.
+Moreover, it enables further refinement of the partial and noisy networks.
+We further generalize GDL to incorporate the location of genetic makers and gene-pathway information.
+We perform extensive experimental evaluations using both simulated and real datasets.
+Experimental results demonstrate that the proposed methods can effectively integrate various available priori knowledge and significantly outperform the state-of-the-art eQTL mapping methods.
+Availability: Software for both C++ version and Matlab version is available at http://www.cs.unc.edu/ weicheng/.
+Contact: weiwang@cs.ucla.edu Supplementary information: Supplementary data are available at Bioinformatics online.
+1 INTRODUCTION  Expression quantitative trait loci (eQTL) mapping aims at iden- tifying single nucleotide polymorphisms (SNPs) that influence the expression level of genes.
+It has been widely applied to dissect genetic basis of complex traits (Bochner, 2003  Michaelson et al., 2009).
+Several important issues need to be considered in eQTL mapping.
+First, the number of SNPs is usually much larger than the number of samples (Tibshirani, 1996).
+Second, the existence of confounding factors, such as expression heterogeneity, may result in spurious associations (Listgarten et al., 2010).
+Third, SNPs (and genes) usually work together to cause variation in complex traits (Michaelson et al., 2009).
+The interplay among SNPs and the interplay among genes can be represented as net- works and used as prior knowledge (Musani et al., 2007  Pujana  *To whom correspondence should be addressed.
+et al., 2007).
+However, such prior knowledge is far from being complete and may contain a lot of noises.
+Developing effective models to address these issues in eQTL studies has recently at- tracted increasing research interests (Biganzoli et al., 2006  Kim and Xing, 2012  Lee and Xing, 2012  Lee et al., 2010).
+In eQTL studies, two types of networks can be utilized.
+One is the genetic interaction network (Charles Boone and Andrews, 2007).
+Modeling genetic interaction (e.g.
+epistatic effect between SNPs) is essential to understanding the genetic basis of common diseases, since many diseases are complex traits (Lander, 2011).
+Another type of network is the network among traits, such as the protein protein interaction (PPI) network or the gene co-expres- sion network.
+Interacting proteins or genes in a PPI network are likely to be functionally related, i.e.
+part of a protein complex or in the same biological pathway (von Mering et al., 2002).
+Effectively utilizing such prior network information can signifi- cantly improve the performance of eQTL mapping (Lee and Xing, 2012  Lee et al., 2010).
+Figure 1 shows an example of eQTL mapping with prior net- work knowledge.
+The interactions among SNPs and genes are represented by matrices S and G, respectively.
+The goal of eQTL mapping is to infer associations between SNPs and genes repre- sented by the coefficient matrix W. Suppose that SNP ﬄ is strongly associated with gene  C. Using the network prior, the moderate association between SNP ﬃ and gene  A may be iden- tified since ﬃ and ﬄ   A and  C have interactions.
+To leverage the network prior knowledge, several methods based on Lasso have been proposed (Biganzoli et al., 2006  Kim and Xing, 2012  Lee and Xing, 2012  Lee et al., 2010).
+In Biganzoli et al.
+(2006), the group-Lasso penalty is applied to model the genetic interaction network.
+In (Kim and Xing, 2012) and (Lee et al., 2010), the authors consider groupings of genes and apply a multi-task Lasso penalty.
+In (Lee and Xing, 2012), the authors further extend the model to consider grouping information of both SNPs and genes.
+These methods apply a  hard  clustering of SNPs (genes) so that a SNP (gene) cannot belong to multiple groups.
+However, a SNP may affect multiple genes and a gene may function in multiple pathways.
+To address this limitation, in (Jenatton et al., 2011), the authors develop a model allowing overlap between different groups.
+Despite their success, there are three common limitations of these group penalty based approaches.
+First, a clustering step is usually needed to obtain the grouping information.
+To address this limitation, (Kim and Xing, 2009  Li and Li, 2008) introduce a network-based fusion penalty on the genes.
+However, this method does not consider the genetic-interaction network.
+A two-graph-guided multi-task Lasso approach is developed in (Chen et al., 2012) to make use of gene co-expression network and SNP-correlation network.
+However, this method does not  ß The Author 2014.
+Published by Oxford University Press.
+This is an Open Access article distributed under the terms of the Creative Commons Attribution Non-Commercial License (http://creativecommons.org/licenses/by-nc/3.0/), which permits non-commercial re-use, distribution, and reproduction in any medium, provided the original work is properly cited.
+For commercial re-use, please contact journals.permissions@oup.com   W.Cheng et al.
+consider the network prior knowledge.
+The second limitation of the existing methods is that they do not take into consideration the incompleteness of the networks and the noise in them (von Mering et al., 2002).
+For example, PPI networks may contain false interactions and miss true interactions (von Mering et al., 2002).
+Directly using the grouping penalty inferred from the noisy and partial prior networks may introduce new bias and thus impair the performance.
+Third, in addition to the network information, other prior knowledge, such as loca- tion of genetic markers and gene-pathway information are also available.
+The existing methods cannot incorporate such information.
+To address the limitations of the existing methods, we propose a novel approach, Graph-regularized Dual Lasso (GDL), which simultaneously learns the association between SNPs and genes and refines the prior networks.
+To support  soft  clustering (allowing genes and SNPs to be members of multiple clusters), we adopt the graph regularizer to encode structured penalties from the prior networks.
+The penalties encourage the connected nodes (SNPs/genes) to have similar coefficients.
+This enables us to find multiple-correlated genetic markers with pleiotropic ef- fects that affect multiple-correlated genes jointly.
+To tackle the problem of noisy and incomplete prior networks, we exploit the duality between learning the associations and refining the prior networks to achieve smoother regularization.
+That is, learning regression coefficients can help to refine the prior networks, and vice versa.
+For example, in Figure 1, if SNPs   and Ð have strong associations with the same group of genes, they are likely to have interaction, which is not captured in the prior network.
+An ideal model should allow to update the prior net- work according to the learned regression coefficients.
+GDL can also incorporate other available prior knowledge such as the physical location of SNPs and biology pathways to which the genes belong.
+The resultant optimization problem is convex and can be efficiently solved by using an alternating minimization procedure.
+We perform extensive empirical evaluation of the proposed method using both simulated and real eQTL datasets.
+The results demonstrate that GDL is robust to the incomplete and noisy prior knowledge and can significantly improve the accuracy of eQTL mapping compared to the state-of-the-art methods.
+Fig.
+1.
+Examples of prior knowledge on genetic-interaction network S and gene gene interactions represented by PPI network or gene co- expression network G. W is the regression coefficients to be learned  i140  2 BACKGROUND: LINEAR REGRESSION WITH  GRAPH REGULARIZER  Throughout the article, we assume that, for each sample, the SNPs and genes are represented by column vectors.
+Important notations are listed in Table 1.
+Let x=½x1  x2  .
+.
+.
+xK T represent the K SNPs in the study, where xi 2 f0  1  2g is a random variable cor- responding to the i-th SNP (e.g.
+0, 1, 2 may encode the homozy- gous major allele, heterozygous allele and homozygous minor allele, respectively).
+Let z=½z1  z2  .
+.
+.
+zN T represent expression levels of the N genes in the study, where zj is a continuous random variable corresponding to the j-th gene.
+The traditional linear re- gression model for association mapping between x and z is  z=Wx+ +    ð1Þ  where z is a linear function of x with coefficient matrix W and   is an N   1 translation factor vector.
+And   is the additive noise of Gaussian distribution with zero-mean and variance  I  where   is a scalar.
+That is,   Nð0   IÞ.
+The question now is how to define an appropriate objective function over W that (i) can effectively incorporate the prior network knowledge, and (ii) is robust to the noise and incom- pleteness in the prior knowledge.
+Next, we first briefly review Lasso and its variations and then introduce the proposed GDL method.
+2.1 Lasso and LORS  Lasso (Tibshirani, 1996) is a method for estimating the regression coefficients W using  1 penalty for sparsity.
+It has been widely used for association mapping problems.
+Let X=fxdj1   d   Dg 2 RK D be the SNP matrix and Z=fzdj1   d   Dg 2 RN D be the gene-expression matrix.
+Each column of X and Z stands for one sample.
+The objective function of Lasso is F+ jjWjj1  jjZ   WX    1jj2  ð2Þ  min W  1 2  Table 1.
+Summary of notations  Symbols  K N D X 2 RK D Z 2 RN D L 2 RN D S0 2 RK K G0 2 RN N S 2 RK K G 2 RN N W 2 RN K RðSÞ RðGÞ Dð   Þ  Description  Number of SNPs Number of genes Number of samples The SNP matrix data The gene matrix data A low-rank matrix The input affinity matrices of the genetic-interaction network The input affinity matrices of the network of traits The refined affinity matrices of the genetic-interaction network The refined affinity matrices of the network of traits The coefficient matrix to be inferred The graph regularizer from the genetic-interaction network The graph regularizer from the PPI network A non-negative distance measure   where jj   jjF denotes the Frobenius norm, jj   jj1 is the  1-norm, 1 is an 1   D vector of all 1 s,   is the empirical parameter for the  1 penalty and W is the parameter (also called weight) ma- trix parameterizing the space of linear functions mapping from X to Z.  Confounding factors, such as unobserved covariates, experimen- tal artifacts and unknown environmental perturbations, may mask real signals and lead to spurious findings.
+LORS (Yang et al., 2013) uses a low-rank matrix L 2 RN D to account for the variations caused by hidden factors.
+The objective function of LORS is  1 2  min W   L  F+ jjWjj1+ jjLjj   jjZ   WX    1   Ljj2  ð3Þ wherejj   jj  is the nuclear norm,   is the empirical parameter for the  1 penalty to control the sparsity of W and   is the regularization parameter to control the rank of L. L is a low-rank matrix assuming that there are only a small number of hidden factors influencing the gene-expression levels.
+2.2 Graph-regularized Lasso  To incorporate the network prior knowledge, group sparse Lasso (Biganzoli et al., 2006), multi-task Lasso (Obozinski and Taskar, 2006) and SIOL(Lee and Xing, 2012) have been proposed.
+Group sparse Lasso makes use of grouping information of SNPs  multi- task Lasso makes use of grouping information of genes, while SIOL uses information from both networks.
+A common draw- back of these methods is that the number of groups (SNP and gene clusters) has to be predetermined.
+To overcome this drawback, we propose to use two graph regularizers to encode the prior network information.
+Compared with the previous group penalty-based methods, our method does not need to pre-cluster the networks and thus may obtain smoother regularization.
+Moreover, these methods do not consider confounding factors that may mask real signals and lead to spurious findings.
+In this article, we further incorporate the idea in LORS (Yang et al., 2013) to tackle the confounding factors simultaneously.
+Let S0 2 RK K and G0 2 RN N be the affinity matrices of the genetic interaction network (e.g.
+epistatic effect between SNPs) and network of traits (e.g.
+PPI network or gene co-expression network), and DS0 and DG0 be their degree matrices.
+Given the two networks, we can employ a pairwise comparison between w i and w j ð1   i5j   KÞ : if SNPs i and j are closely related, jjw i   w jjj2 2 is small.
+The pairwise comparison can be naturally 2ðS0Þi j: encoded in the weighted fusion penalty This penalty will enforce jjw i   w jjj2 2=0 for closely related SNP pairs (with large ðS0Þi j value).
+Then, the graph regularizer from the genetic-interaction network takes the following form  jjw i   w jjj2  X  ij  X    ij  =  1 2  R Sð Þ  jjw i   w jjj2      2 S0ð Þi j    WT  :  =tr W DS0   S0             RðGÞ  =tr WT DG0   G0  W  :  ð4Þ  ð5Þ  Similarly, the graph regularizer for the network of traits is  GDL for robust eQTL mapping  These two regularizers encourage the connected nodes in a graph to have similar coefficients.
+A heavy penalty occurs if the learned-regression coefficients for neighboring SNPs (genes) are disparate.
+ðDS0   S0Þ and ðDG0   G0Þ are known as the combina- torial graph Laplacian, which are positive semi-definite (Chung, 1997).
+Graph-regularized Lasso (G-Lasso) solves the following optimization problem  min W   L  jjZ   WX    1   Ljj2 1 2 + jjWjj1+ jjLjj + RðSÞ where     40 are regularization parameters.
+F  + R Gð Þ:  ð6Þ  3 GDL  In eQTL studies, the prior knowledge is usually incomplete and contains noise.
+It is desirable to refine the prior networks accord- ing to the learned regression coefficients.
+There is a duality be- tween the prior networks and the regression coefficients: learning coefficients can help to refine the prior networks, and vice versa.
+This leads to mutual reinforcement when learning the two parts simultaneously.
+Next, we introduce the GDL.
+We further relax the constraints from the prior networks (two graph regularizers) introduced in Section 2.2, and integrate the G-Lasso and the dual refinement of graphs into a unified objective function     jjZ   WX    1   Ljj2  W   L S 0 G 0     min  1 2    F+ jjWjj1+ jjLjj  WTðDG   GÞW  WðDS   SÞWT  + tr + jjS   S0jj2  + tr F+ jjG   G0jj2  F  ð7Þ where     40 are positive parameters controlling the extent to which the refined networks should be consistent with the original prior networks.
+DS and DG are the degree matrices of S and G. Note that the objective function considers the non-negativity of S and G. As an extension, the model can be easily extended to incorporate prior knowledge from multiple sources.
+We only need to revise the last to F  where f and e are the   number of sources for genetic interaction networks and gene trait networks, respectively.
+i=1 jjG   Gijj2  jjS   Sijj2  in Equation (7)  two terms  X  P  F+   i=1  e  f  3.1 Optimization: an alternating minimization approach  In this section, we present an alternating scheme to optimize the objective function in Equation (7) based on block coordinate techniques.
+We divide the variables into three sets:  L ,  S, G  and fW   g: We iteratively update one set of variables while fixing the other two sets.
+This procedure continues until conver- gence.
+Since the objective function is convex, the algorithm will converge to a global optima.
+The optimization process is as fol- lows.
+The detailed algorithm is included in the Supplementary Material (Algorithm 1).
+(1) While fixing fW   g  fS  Gg  optimize fLg using singular  value decomposition (SVD).
+i141   W.Cheng et al.
+LEMMA 3.1.
+(Mazumder et al., 2010) Suppose that matrix A has rank r. The solution to the optimization problem  1 2  given  jjA   Bjj2  F+ jjBjj   ð8Þ min B ^B=H ðAÞ  where H ðAÞ=UD VT with is D =diag½ðd1    Þ+  ::: ðdr    Þ+   UDVTis the Singular Value Decomposition and ðdi    Þ+=max ððdi    Þ  0Þ ð1   i   rÞ:  A  D=diag½d1  :::  dr ,  (SVD)  by  of  Thus, for fixed W     S  G  the formula for updating L is  L   H  Z   WX    1 Þ:  ð  ð9Þ  (2) While fixing fW   g  fLg  optimize fS  Gg using semi- non-negative matrix factorization (semi-NMF) multiplicative updating on S and G iteratively (Ding et al., 2010).
+For the op- timization with non-negative constraints, our updating rule is based on the following two theorems.
+The proofs of the theorems are given in Section 3.2.
+THEOREM 3.2.
+For fixed L     W and G, updating S according to Equation (10) monotonically decreases the value of the objective function in Equation (7) until convergence.
+WTW    +  +2 S0        2 S+  WTW  + diag WTW  JK  S   S    ð10Þ  where JK is a K   K matrix of all 1 s.    ½   ½   are element-wise operators.
+Since WTW may take mixed signs, we denote WTW=ðWTWÞ+   ðWTWÞ  i j =ðjðWTWÞi jj+ ðWTWÞi jÞ=2 and ðWTWÞ  THEOREM 3.3.. For fixed L     W and S, updating G according to Equation (11) monotonically decreases the value of the ob- jective function in Equation (7) until convergence.
+i j=ðjðWTWÞi jj   ðWTWÞi jÞ=2:    where ðWTWÞ+                WWT    +  +2 G0        2 G+  WWT  + diag WWT  JN  G   G    ð11Þ  where JN is an N   N matrix of all 1 s.  (KKT)  The above two theorems are derived from the Karush Kuhn  Tucker and Vandenberghe, 2004).
+We show the updating rule for S below.
+The analysis for G is similar and omitted.
+We first formulate the Lagrange function of S for optimization  complementarity  condition  (Boyd       + jjS   S0jj2 F:  L Sð Þ= tr W DS   S  ð  ÞWT  The partial derivative of the Lagrange function with respect to  S is        The above formula leads  to the updating rule for S in Equation (10).
+It has been shown that the multiplicative updating algorithm has first order convergence rate (Ding et al., 2010).
+(3) While fixing fLg  fS  Gg  optimize fW   g using the coord-  inate descent algorithm.
+Because we use the  1 penalty on W, we can use the coordinate descent algorithm for the optimization of W, which gives the following updating formula:  Wi j=  Þi i where Fðmði  jÞ   Þ=signðmði  jÞÞmax ðjmði  jÞj      0Þ  and  XXT  ð  Þ    Þ Þj j+2  DG   G  ð  ð15Þ        ð F m i  j  ð j j+2  DS   S X       K  Wi k XXT  k j      Þ= ZXT i j   X  ð m i  j  K    2   Wi k DS   S  Þk j   2   k=1 k6¼j ð  k=1 k6¼j  X  N  k=1 k6¼j  DG   G ð  Þi kWk j:  ð16Þ  The solution of updating   can be derived by setting  r Lð Þ=0  which gives  ð  Z   WX  Þ1T  D  :   =  ð17Þ  3.2 Convergence analysis  the In the following, we investigate the convergence of algorithm.
+First, we study the convergence for the second step.
+We use the auxiliary-function approach (Lee and Seung, 2000) to analyze the convergence of the multiplicative updating for- mulas.
+Here we first introduce the definition of auxiliary function.
+DEFINITION 3.4.
+Given a function L(h) of any parameter h, a function Zðh   hÞ is an auxiliary function for L(h) if the condi- tions        Z h   h    L hð Þ and Z h  hð  Þ=L hð Þ   ð18Þ  ð12Þ  are satisfied for any given h   h (Lee and Seung, 2000).
+rSL=    WTW   2 S0+2 S+ diag WTW  JK:  ð13Þ  ð Þ h t+1  = argmin  h  ð19Þ  LEMMA 3.5.
+If Z is an auxiliary function for function L(h), then L(h) is non-increasing under the update (Lee and Seung, 2000).
+Z h  h tð Þ  :  Using the KKT complementarity condition for the non-  negative constraint on S, we have  rSL   S=0:  THEOREM 3.6.
+Let LðSÞ denote the Lagrange function of S for optimization.
+The following function  ð14Þ  i142         Z S   S  =   W2 i j  X X   X  ijk  ijk         2   jk     X    ijk  +   Wi jWi k    S2    !
+X  +   2 j k  j k+  S 2  Sj k  X  S2 j k  jk  !
+Sj k  Sj k  j k+  S S2 2  Sj k  2 j k        Wi jWi k  +  Sj k 1+log  S0ð  Þj k   Sj k 1+log  Sj k  Sj k  +   jk  S0ð  Þ2 j k:  ð20Þ  is an auxiliary function for LðSÞ: Furthermore, it is a convex  function in S and its global minimum is                WTW    +  +2 S0        2   S+  WTW  + diag WTW  JK  S=  S    :  ð21Þ  THEOREM 3.6. can be proved using a similar idea to that in (Ding et al., 2006) by validating (i) LðSÞ   ZðS   SÞ  (ii) LðSÞ=ZðS  SÞ (iii) ZðS   SÞ is convex with respect to S. The formal proof is provided in the Supplementary Material.
+THEOREM 3.7.
+Updating S using Equation (10) will monotonic- ally decrease the value of the objective in Equation (7), the ob- jective is invariant if and only if S is at a stationary point.
+PROOF.
+By Lemma 3.5 and Theorem 3.6, for each subsequent iteration of updating S, we have LððSÞ0Þ=ZððSÞ0 ðSÞ0Þ   ZððSÞ 1 ðSÞ0Þ   ZððSÞ1 ðSÞ1Þ=LððSÞ1Þ   :::   LððSÞIterÞ.
+Thus LðSÞ monotonically decreases.
+Since the objective function Equation (7) is obviously bounded below, the correctness of Theorem 3.2 is proved.
+Theorem 3.3 can be proved similarly.
+In addition to Theorem 3.7, since the computation of L in the first step decreases the value of the objective in Equation (7), and the coordinate descent algorithm for updating W in the third step also monotonically decreases the value of the objective, the al- gorithm is guaranteed to converge.
+4 GENERALIZED GDL  In this section, we extend our model to incorporate additional prior knowledge such as SNP locations and biological pathways.
+If the physical locations of two SNPs are close or two genes belong to the same pathway, they are likely to have interactions.
+Such information can be integrated to help refine the prior networks.
+Continue with our example in Figure 1.
+If SNPs   and Ð affect the same set of genes ( B and  D), and at the same time, they are close to each other, then it is likely there exists interaction between   and Ð.
+Formally, we would like to solve the following optimization  problem  min  W   L S 0 G 0  1 2  X jjWX   Z    1   Ljj2 Dðw i  w jÞSi j+   X F+ jjWjj1+ jjLjj  Dðwi   wj ÞGi j:  +   ð22Þ  GDL for robust eQTL mapping  X  X  Here Dð   Þ is a non-negative distance measure.
+Note that the Euclidean distance is used in previous sections.
+S and G are ini- tially given by inputs S0 and G0: We refer to this generalized model as the generalized GDL (GGDL).
+GGDL executes the following two steps iteratively until the termination condition is met: (i) update W while fixing S and G and (ii) update S and G according to W, while guarantee that both  X  X  Dðw i  w jÞSi j and  Dðwi   wj ÞGi j decrease.
+i j  i j These two steps are based on the aforementioned duality be- tween learning W and refining S and G. The detailed algorithm is provided in the Supplementary Material.
+Next, we illustrate the updating process assuming that S and G are unweighted graphs.
+It can be easily extended to weighted graphs.
+i j  i j  Dðw i  w jÞSi j and  Step 1 can be done by using the coordinate decent algorithm.
+D In Step 2, to guarantee that both ðwi   wj ÞGi j decrease, we can maintain a fixed number of 1 s in S and G. Taking G as an example, once Gi j is selected to change from 0 to 1, another element Gi0 j0 with Dðwi   wj Þ5Dðwi0   wj0 Þ should be changed from 1 to 0.
+The selection of (i, j) and ði0  j0Þ is based on the ranking of Dðwi   wj Þ (1   i5j   N).
+Specifically, we examine   pairs (the choice of   depends on the user s belief in the quality of the prior network.
+For example, it can be 5% of all (i, j) pairs) with the smallest distances.
+Among them, we pick those having no edges in G. Let P0 be this set of pairs.
+Accordingly, we examine   pairs with the largest distances.
+Among these pairs, we pick up only those having an edge in G. Let P1 be this set of pairs.
+The elements of G corresponding to pairs in P0 are candidates for updating from 0 to 1, since these pairs of genes are associated with similar SNPs.
+Similarly, elements of G corresponding to pairs in P1 are candidates for updating from 1 to 0.
+0j jP1  0  respectively.
+Then, we choose min ðjP0 with smallest Dðwi   wj Þ (ði  jÞ 2 P0 0 0 0j jP1  In this process, the prior knowledge of gene pathways can be easily incorporated to better refine G. For instance, we can fur- ther require that only the gene pairs in P0 belonging to the same pathway are eligible for updating, and only the gene pairs in P1 belonging to different pathways are eligible for updating.
+We denote the set of gene pairs eligible for updating by P0 0 and P1 0jÞ pairs in set P0 ) and update Gi j from 0 0jÞ pairs in set P1 to 1.
+Similarly, we choose min ðjP0 0 with largest Dðwi0   wj0 Þ (ði0  j0Þ 2 P1 0) and update Gi0 j0 from 1 to 0.
+Obviously, all Dðwi   wj Þ s are smaller than Dðwi0   wj0 Þ if Dðwi   wj ÞGi j is guaranteed to decrease.
+5 NðN 1Þ The updating process for S is similar except that we compare columns rather than rows of W and use SNP locations rather than pathway information for evaluating the eligibility for updat- ing.
+The updating process ends when no such pairs can be found so that switching their values will result in a decrease of the objective function.
+X  : Thus,  i j  4  The convergence of GGDL can be observed as follows.
+The decrease of the objective function value in the first step is straight- forward since we minimize it using coordinate decent.
+In the second step, the change of the objective function value is given by         D w iS   w jS   D wiG   wjG            + D w iS + D wiG  0  0   w jS 0  0   wjG       ð23Þ  i j  i j  which is always negative.
+Thus, in each iteration, the objective  i143   W.Cheng et al.
+Fig.
+2.
+Ground truth of matrix W and that estimated by different meth- ods.
+The x-axis represents traits and y-axis represents SNPs.
+Normalized absolute values of regression coefficients are used.
+Darker color implies stronger association  function value decreases.
+Since the objective function is non-nega- tive, the process eventually converges.
+X  X  THEOREM 4.1.
+GGDL converges to the global optimum if both  Dðwi   wj Þ and  i j  i j  Dðw i  w jÞ are convex to W.  PROOF: The last two terms in Equation (22) are linear with re- spect to S and G, and convex to W according to the conditions listed.
+Thus the objective function is convex over all variables.
+A convergent result to the global optimum can be guaranteed.
+5 EXPERIMENTS  In this section, we perform extensive experiments to evaluate the performance of the proposed methods.
+We use both simulated datasets and real yeast eQTL dataset (Brem et al., 2005).
+For comparison, we select several state-of-the-art methods, including SIOL (Lee and Xing, 2012), two graph guided multi-task lasso (mtlasso2G) (Chen et al., 2012), sparse group Lasso (Biganzoli et al., 2006), sparse multi-task Lasso (Biganzoli et al., 2006), LORS (Yang et al., 2013) and Lasso (Tibshirani, 1996).
+For all the methods, the tuning parameters were learned using cross validation.
+5.1 Simulation study  We first evaluate the performance of the selected methods using simulation study.
+Note that GGDL requires additional prior knowledge and will be evaluated using real dataset.
+We adopt the same setup for the simulation study as that in (Lee and Xing, 2012  Yang et al., 2013) and generate synthetic datasets as follows.
+100 SNPs are randomly selected from the yeast eQTL dataset (Brem et al., 2005) (112 samples).
+Ten gene- expression profiles are generated by Zj =Wj X+ j +Ej  (1   j   10), where Ej   Nð0   2IÞ ( =1) denotes Gaussian noise.
+j  is used to model non-genetic effects, which is drawn from Nð0   SÞ, where  =0:1.
+S is generated by MMT, where M 2 RD C and Mij Nð0  1Þ: C is the number of hidden factors and is set to 10 by default.
+The association matrix W is generated as follows.
+Three sets of randomly selected four SNPs are asso- ciated with three gene clusters (1 3), (4 6), (7 10), respectively.
+In addition, one SNP is associated with two gene clusters (1 3) and (4 6), and one SNP is associated with all genes.
+The associ- ation strength is set to 1 for all selected SNPs.
+The clustering structures among SNPs and genes serve as the ground truth of the  i144  Fig.
+3.
+The ground truth networks, prior partial networks and the refined networks  the  Figure 2 shows  prior network knowledge.
+Only two of the three SNP (gene) clusters are used in W to simulate incomplete prior knowledge.
+estimated W matrix by various methods.
+The x-axis represents traits (1 10) and y-axis represents SNPs (1 100).
+From the figure, we can see that GDL is more effective than G-Lasso.
+This is because the dual refinement en- ables more robust model.
+G-Lasso outperforms SIOL and mtlasso2G, indicating that the graph regularizer provides a smoother regularization than the hard clustering based penalty.
+In addition, SIOL and mtlasso2G do not consider confounding factors.
+SIOL and mtlasso2G outperform multi-task Lasso and sparse group Lasso since it uses both SNP and gene grouping information, while multi-task Lasso and sparse group Lasso only use one of them.
+We also observe that all methods utilizing prior grouping knowledge outperform LORS and Lasso which cannot incorporate prior knowledge.
+LORS outperforms Lasso since it considers the confounding factors.
+The ground-truth networks, prior networks and GDL-refined networks are shown in Figure 3.
+Note that only a portion of the ground-truth networks are used as prior networks.
+In particular, the information related to gene cluster (7 10) is missing in the prior networks.
+We observe that the refined matrix G well cap- tures the missing grouping information of gene cluster (7 10).
+Similarly, many missing pairwise relationships in S are recovered in the refined matrix (points in red ellipses).
+Using 50 simulated datasets with different Gaussian noise ( 2=1 and  2=5Þ  we compare the proposed methods with al- ternative state-of-the-art approaches.
+For each setting, we use 30 samples for test and 82 samples for training.
+We report the aver- aged result from 50 realizations.
+Figure 4 shows the ROC curves of TPR-FPR for performance comparison, together with the areas under the precision-recall curve (AUCs) (Chen et al., 2012).
+The association strengths between SNPs and genes are set to be 0.1, 1 and 3, respectively.
+It is clear that GDL outper- forms all alternative methods by effectively using and refining the prior network knowledge.
+We also computed test errors.
+On average, GDL achieved the best test error rate of 0.9122, and the order of the other methods in terms of the test errors is: G-Lasso (0.9276), SIOL (0.9485), Mtlasso2G (0.9521), Multi- task Lasso (0.9723), Sparse group Lasso (0.9814), LORS (1.0429) and Lasso (1.2153).
+GDL for robust eQTL mapping  (a)  (c)  (b)  (d)  Fig.
+4.
+Power curves for synthetic data.
+The left plots show the ROC curve, where our model GDL achieved maximum power.
+The black solid line denotes what random guessing would have achieved.
+The right plots illustrate the areas under the precision-recall curve (AUCs) of different methods  To evaluate the effectiveness of dual refinement, we compare GDL and G-Lasso since the only difference between these two methods is whether the prior networks are refined during the optimization process.
+We add noises to the prior networks by randomly shuffling the elements in them.
+Furthermore, we use  ﬃﬃﬃﬃﬃﬃﬃﬃﬃ  q  the signal-to-noise ratio defined as SNR=  WX  +E  (Yang et al.,  2013) to measure the noise ratio in the eQTL datasets.
+Here, we fix C=10   =0:1  and use different   s to control SNR.
+Figure 5 shows the results for different SNRs.
+For a fixed SNR, we vary the percentage of noises in the prior networks and compare the performance of selected methods.
+From the results, we can see that G-Lasso is more sensitive to noises in the prior networks than GDL is.
+Moreover, when the SNR is low, the advantage of GDL is more prominent.
+These results indicate using dual refinement can dramatically improve the ac- curacy of the identified associations.
+5.2 Yeast eQTL study We apply the proposed methods to a yeast (Saccharomyces cer- evisiae) eQTL dataset of 112 yeast segregants generated from a cross of two inbred strains (Brem et al., 2005).
+The dataset ori- ginally includes expression profiles of 6229 gene-expression traits and genotype profiles of 2956 SNPs.
+After removing SNPs with 410% missing values and merging consecutive SNPs high link- age disequilibrium, we get 1017 SNPs with unique genotypes (Huang et al., 2009).
+After removing the ones with missing values, 4474 expression profiles are selected.
+The genetic interaction network is generated as in (Lee and Xing, 2012).
+We use the PPI network downloaded from BioGRID (http:// thebiogrid.org/) to represent the prior network among genes.
+It takes  1 day for GGDL, and  10 h for GDL to run into completion.
+Fig.
+5.
+The areas under the TPR-FPR curve (AUCs) of Lasso, LORS, G-Lasso and GDL.
+In each panel, we vary the percentage of noises in the prior networks S0 and G0  cis- and trans-enrichment analysis  5.2.1 We follow the standard cis-enrichment analysis (Listgarten et al., 2010) to compare the performance of two competing models.
+The intuition behind cis-enrichment analysis is that more cis- acting SNPs are expected than trans-acting SNPs.
+A two-step procedure is used in the cis-enrichment analysis (Listgarten et al., 2010): (i) for each model, we apply a one-tailed Mann  Whitney test on each SNP to test the null hypothesis that the model ranks its cis hypotheses no better than its trans hypoth- eses, (ii) for each pair of models compared, we perform a two- tailed paired Wilcoxon sign-rank test on the P-values obtained from the previous step.
+The null hypothesis is that the median difference of the P-values in the Mann Whitney test for each SNP is zero.
+The trans-enrichment is implemented using similar strategy (Brem et al., 2003), in which genes regulated by tran- scription factors (obtained from http://www.yeastract.com/ download.php) are used as trans-acting signals.
+In addition to the methods evaluated in the simulation study, GGDL is also evaluated here (with  =100000   =5   =8   =15   =1) (for GDL,  =5   =8   =15   =1   =15   =1Þ: The Euclidean  i145   W.Cheng et al.
+Table 2.
+Pairwise comparison of different models using cis-enrichment and trans-enrichment analysis  GDL  G-Lasso  SIOL  Mtlasso2G  Multi-task  Sparse group  LORS  Lasso  Cis-enrichment  GGDL GDL G-Lasso SIOL Mtlasso2G Multi-task Sparse group LORS  Trans-enrichment  GGDL GDL G-Lasso SIOL Mtlasso2G Multi-task Sparse group LORS  0.0003                0.0881                (a)  50.0001 0.0009              0.0119 0.0481              50.0001 50.0001 50.0001             0.0102 0.0253 0.0312            50.0001 50.0001 50.0001 0.1213          0.0063 0.0211 0.0253 0.1976          50.0001 50.0001 50.0001 0.0331 0.0487        0.0006 0.0176 0.0183 0.1053 0.1785        50.0001 50.0001 50.0001 0.0173 0.0132 0.4563      0.0003 0.0004 0.0007 0.0044 0.0061 0.0235      50.0001 50.0001 50.0001 50.0001 50.0001 0.4132 0.4375    50.0001 50.0001 50.0001 0.0005 0.0009 0.0042 0.0075    50.0001 50.0001 50.0001 50.0001 50.0001 50.0001 50.0001 50.0001  50.0001 50.0001 50.0001 50.0001 50.0001 0.0011 0.0041 0.2059  (b)  (c)  Fig.
+6.
+The top-1000 significant associations identified by different methods.
+In each plot, the x-axis represents SNPs and y-axis represents genes.
+Both SNPs and genes are arranged by their locations in the genome  distance is used as the distance metric.
+We rank pairs of SNPs and genes according to the learned W. S is refined if the locations of the two SNPs are5500 bp.
+G is refined if the two genes are in the same pathway.
+The pathway information is downloaded from Saccharomyces Genome Database [SGD (http://www.yeastgenome.org/)].
+The results of pairwise comparison of selected models are shown in Table 2.
+In this table, a P-value shows how significant a method on the left column outperforms a method in the top row in terms of cis and trans enrichments.
+We observe that the proposed GGDL and GDL have significantly better enrichment scores than the other models.
+By incorporating genomic location and pathway information, GGDL performs better than GDL with P-value50.0001.
+The effectiveness of the dual refinement on prior graphs is demonstrated by GDL s better performance over G-Lasso.
+Note that the performance ranking of these models is consistent with that in the simulation study.
+The top-1000 significant associations given by GGDL, GDL and G-Lasso are shown in Figure 6.
+We can see that GGDL and GDL have stronger cis-regulatory signals than G-Lasso does.
+In total, these methods each detected  6000 associations according  to non-zero W values.
+We estimate FDR using 50 permutations as proposed in (Yang et al., 2013).
+With FDR   0.01, GGDL obtains  4500 significant associations.
+The plots of all identified significant associations for different methods are given in the Supplementary Material.
+5.2.2 Refinement of the prior networks  To investigate to what extend GGDL is able to refine the prior networks and study the effect of different parameter settings on  , we intentionally change 75% elements in the original prior PPI network and genetic-interaction network to random noises.
+We feed the new networks to GGDL and evaluate the refined net- works.
+The results are shown in Figure 7.
+We can see that for both PPI and genetic-interaction networks, many elements are recovered by GGDL.
+This demonstrates the effectiveness of GGDL.
+Moreover, when the number of SNP (gene) pairs ( ) examined for updating reaches 100 000, both PPI and genetic- iteration networks are well refined.
+i146   5.2.3 Hotspots analysis  the  than  relevant  associations  In this section, we study whether GGDL can help detect more biologically alternatives.
+Specifically, we examine the hotspots which affect 410 gene traits (Lee and Xing, 2012).
+The top-15 hotspots detected by GGDL are listed in Table 3.
+The top-15 hotspots detected by other methods are included in the Supplementary Material.
+From Table 3, we observe that for all hotspots, the associated genes are enriched with at least one GO category.
+Note that GGDL and GDL detect one hotspot (12), which cannot be de- tected by G-Lasso.
+They also detect one hotspot (6), which can not be detected by SIOL.
+The number of hotspots that are sig- nificant enriched is listed in Table 4.
+From the table, we can see that GGDL slightly outperforms GDL since it incorporates the location of SNPs and gene-pathway information.
+6 DISCUSSION  As a promising tool for dissecting the genetic basis of common diseases, eQTL study has attracted increasing research interest.
+Fig.
+7.
+Ratio of correct interactions refined when varying  .
+The initial input networks only contain 25% correct interactions  Table 3.
+Summary of the top-15 hotspots detected by GGDL  GDL for robust eQTL mapping  The traditional eQTL methods focus on testing the associations between individual SNPs and gene expression traits.
+A major drawback of this approach is that it cannot model the joint effect of a set of SNPs on a set of genes, which may correspond to biological pathways.
+Recent advancement in high-throughput biology has made a variety of biological interaction networks available.
+Effectively integrating such prior knowledge is essential for accurate and robust eQTL mapping.
+However, the prior networks are often noisy and incomplete.
+In this article, we propose novel graph- regularized-regression models to take into account the prior net- works of SNPs and genes simultaneously.
+Exploiting the duality between the learned coefficients and incomplete prior networks enables more robust model.
+We also generalize our model to integrate other types of information, such as SNP locations and gene pathways.
+The experimental results on both simulated  Table 4.
+Hotspots detected by different methods  GGDL GDL G-Lasso SIOL LORS  Number of hotspots significantly enriched (top 15 hotposts) Number of total reported hotspots (size410) Number of hotspots significantly enriched Ratio of significantly enriched hotspots (%)  15  65  45  70  14  13  10  9  82  56  68  96  61  64  89  53  60  64  41  56  ID Sizea Locib  GOc  Hitsd GDL (all)e GDL (hits)f G-Lasso(all)g G-Lasso(hits)h SIOL(all)i SIOL(hits)j LORS(all)k LORS(hits)l  31 XII:1056097 1 2 28 3 28 27 4 27 5 27 6 (2)*** 7 25 23 8 (3)*** 22 XII:1054278..1054302 (1)*** 9 (2)** 10 21 (3)* 11 20 12 20 (4)* (5)* 13 19 (6)* 14 19 (7)** 15 19 Total hits 75  7 (1)*** (2)** 5 III:81832..92391 (1)*** 7 XII:1056103 6 (2)*** III:79091 III:175799..177850 (3)* 3 XII:1059925..1059930 (1)*** 7 III:105042 6 3 III:201166..201167 7 5 3 4 4 3 5  III:100213 III:209932 XII:659357..662627 III:210748..210748 VIII:111679..111680 VIII:111682..111690  31 29 29 29 26 27 23 23 26 23 21 19 24 20 21 74  7 5 6 6 3 7 6 3 7 5 3 4 4 3 5  32 28 28 28 23 27 25 22 24 23 19 3 18 19 20 70  7 5 6 6 3 7 6 3 7 5 3 0 4 3 5  8 58 1 28 9 0 5 13 24 5 16 37 2 3 57 59  6 5 1 7 2 0 3 2 5 3 4 9 3 3 6  31 22 2 10 18 5 19 23 12 5 15 36 11 12 22 49  7 4 0 2 4 1 4 3 4 1 4 6 4 2 3  aNumber of genes associated with the hotspot bThe chromosome position of the hotspot.
+cThe most significant GO category enriched with the associated gene set.
+The enrichment test was performed using DAVID (Huang et al., 2009).
+The gene function is defined by GO category.
+The involved GO categories are: (i) telomere maintenance via recombination  (ii) branched chain family amino acid biosynthetic process  (iii).
+regulation of mating-type specific transcription, DNA-dependent  (iv) sterol biosynthetic process  (v) pheromone-dependent signal transduction involved in conjugation with cellular fusion  (vi) cytogamy  (vii) response to pheromone.
+dNumber of genes that have enriched GO categories.
+e,g,I,kNumber of associated genes that can also be identified using GDL, G-Lasso, SIOL and LORS, respectively.
+f,h,j,lNumber of genes that have enriched GO categories and can also be identified by GDL, G-Lasso, SIOL and LORS, respectively.
+Among these hotspots, hotspot (12) in bold cannot be detected by G- Lasso.
+Hotspot (6) in italic cannot be detected by SIOL.
+Hotspot (3) in teletype cannot be detected by LORS.
+Adjusted P-values using permutation tests.
+*10 2 10 3, **10 3 10 5, ***10 5 10 10.  i147   W.Cheng et al.
+and real eQTL datasets demonstrate that our models outperform alternative methods.
+In particular, the proposed dual refinement regularization can significantly improve the performance of eQTL mapping.
+Funding: National Institutes of Health (grants R01HG006703 and P50 GM076468-08)  NSF IIS-1313606  NSF IIS-1162374 and IIS-1218036.
+Conflict of Interest: none declared.
+REFERENCES  Huang,D.A.W.
+et al.
+(2009) Systematic and integrative analysis of large gene lists  using DAVID bioinformatics resources.
+Nat.
+Protoc., 4, 44 57.
+Jenatton,R.
+et al.
+(2011) Structured variable selection with sparsity-inducing norms.
+JMLR, 12, 2777 2824.
+Kim,S.
+and Xing,E.P.
+(2009) Statistical estimation of correlated genome associ-  ations to a quantitative trait network.
+PLoS Genet., 5, e1000587.
+Kim,S.
+and Xing,E.P.
+(2012) Tree-guided group lasso for multi-response regression with structured sparsity, with applications to eQTL mapping.
+Ann.
+Appl.
+Stat., 6, 1095 1117.
+Lander,E.S.
+(2011) Initial impact of the sequencing of the human genome.
+Nature,  470, 187 197.
+Lee,D.D.
+and Seung,H.S.
+(2000) Algorithms for non-negative matrix factorization.
+NIPS, 13, 556 562.
+Lee,S.
+and Xing,E.P.
+(2012) Leveraging input and output structures for joint map-  ping of epistatic and marginal eQTLs.
+Bioinformatics, 28, i137 i146.
+Biganzoli,E.M.
+et al.
+(2006) Artificial neural network for the joint modelling of  Lee,S.
+et al.
+(2010) Adaptive multi-task lasso: with application to eQTL detection.
+discrete cause-specific hazards.
+Artif.
+Intell.
+Med., 37, 119 130.
+NIPS, pp.
+1306 1314, Vancouver, British Columbia, Canada.
+Bochner,B.R.
+(2003) New technologies to assess genotype henotype relationships.
+Li,C.
+and Li,H.
+(2008) Network-constrained regularization and variable selection  Nat.
+Rev.
+Genet., 4, 309 314.  for analysis of genomic data.
+Bioinformatics, 24, 1175 1182.
+Boyd,S.
+and Vandenberghe,L.
+(2004) Convex Optimization.
+Cambridge University  Listgarten,J.
+et al.
+(2010) Correction for hidden confounders in the genetic analysis  Press, Cambridge.
+of gene expression.
+Proc.
+Natl Acad.
+Sci.
+USA., 107, 16465 16470.
+Brem,R.B.
+et al.
+(2005) Genetic interactions between polymorphisms that affect  Mazumder,R.
+et al.
+(2010) Spectral regularization algorithms for learning large  gene expression in yeast.
+Nature, 436, 701 703.  incomplete matrices.
+JMLR, 11, 2287 2322.
+Brem,Y.G.
+et al.
+(2003) Trans-acting regulatory variation in Saccharomyces cerevi-  Michaelson,J.
+et al.
+(2009) Detection and interpretation of expression quantitative  siae and the role of transcription factors.
+Nat.
+Genet., 35, 57 64.  trait loci (eQTL).
+Methods, 48, 265 276.
+Charles Boone,H.B.
+and Andrews,B.J.
+(2007) Exploring genetic interactions and  Musani,S.K.
+et al.
+(2007) Detection of gene x gene interactions in genome-wide  networks with yeast.
+Nat.
+Rev.
+Genet., 8, 437C449.
+association studies of human population data.
+Hum.
+Hered., 63, 67 84.
+Chen,X.
+et al.
+(2012) A two-graph guided multi-task lasso approach for eqtl map-  Obozinski,G.
+and Taskar,B.
+(2006) Multi-task feature selection.
+Technical report  ping.
+In AISTATS, pp.
+208 217.
+La Palma, Canary Islands.
+709.
+Statistics Department, University of California, Berkeley.
+Chung,F.R.K.
+(1997) Spectral graph theory (reprinted with corrections).
+In: CBMS: Conference Board of the Mathematical Sciences, Regional Conference Series.
+Vol.
+92, Published for the Conference Board of the Mathematical Sciences, Washington, DC.
+Pujana,M.A.
+et al.
+(2007) Network modeling links breast cancer susceptibility and  centrosome dysfunction.
+Nat.
+Genet., 39, 1338 1349.
+Tibshirani,R.
+(1996) Regression shrinkage and selection via the lasso.
+J. Royal.
+Statist.
+Soc.
+B, 58, 267 288.
+Ding,C.
+et al.
+(2006) Orthogonal nonnegative matrix t-factorizations for clustering.
+von Mering,C.
+et al.
+(2002) Comparative assessment of large-scale data sets of  In KDD, ACM, New York, pp.
+126 135.  protein-protein interactions.
+Nature, 417, 399 403.
+Ding,C.H.Q.
+et al.
+(2010) Convex and semi-nonnegative matrix factorizations.
+Yang,C.
+et al.
+(2013) Accounting for non-genetic factors by low-rank representation  IEEE Trans.
+Pattern Anal.
+Mach.
+Intell., 32, 45 55.  and sparse regression for eQTL mapping.
+Bioinformatics, 29, 1026 1034.  i148

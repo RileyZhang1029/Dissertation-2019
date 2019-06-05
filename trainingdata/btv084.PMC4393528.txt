@@ -1,0 +1,33 @@
+Bioinformatics, 31(8), 2015, 1340 doi: 10.1093/bioinformatics/btv084 Advance Access Publication Date: 24 March 2015 Erratum  Erratum  Design of shortest double-stranded DNA sequences covering all k-mers with applications to protein-binding microarrays and synthetic enhancers  Yaron Orenstein and Ron Shamir  doi:10.1093/bioinformatics/btt230 Bioinformatics (2013) 29(13), i71 i79  In the above paper, there were several mistakes due to copyediting error.
+In Theorem 1  if  should be replaced by  iff  and should read as follows: For odd k, an RC complete sequence s achieves the lower bound (Proposition 1) iff there exist two edge-disjoint paths with no repeating edges, corresponding to s and RC(s), that together cover all edges of the de Bruijn graph of order k  1.
+In Algorithm 1  although  should be replaced by  while , and  should read as follows:  1.
+Initially all edges are unmarked, F ¼ R ¼  ,  and A ¼ fug, an arbitrary vertex.
+2.
+While A 6¼   do F ¼ R ¼  .
+3.
+Pick any starting vertex v ¼ ½x1  .
+.
+.
+xk 1  from A.
+4.
+5.
+While there exists an unmarked edge e ¼ ðx1  .
+.
+.
+xkÞ  outgoing from v do  Append e to F. Prepend RC(e) to R. Mark e and RC(e).
+Set v ¼ ½x2  .
+.
+.
+xk   A ¼ A [ fvg.
+6.
+7.
+8.
+9.
+10.
+11.
+Merge the cycles in F to obtain a single forward path.
+Remove v from A.
+If F 6¼  , add F to F   add R to R   Do the same for R.  1340 VC The Author 2015.
+Published by Oxford University Press.
+This is an Open Access article distributed under the terms of the Creative Commons Attribution Non-Commercial License (http://creativecommons.org/licenses/by-nc/4.0/), which permits non-commercial re-use, distribution, and reproduction in any medium, provided the original work is properly cited.
+For commercial re-use, please contact journals.permissions@oup.com

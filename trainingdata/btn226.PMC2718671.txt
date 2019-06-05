@@ -1,0 +1,153 @@
+BIOINFORMATICS APPLICATIONS NOTE Vol.
+24 no.
+13 2008, pages 1538 1539  doi:10.1093/bioinformatics/btn226  Phylogenetics Malin: maximum likelihood analysis of intron evolution in eukaryotes Miklós Cs  urös1,2 1Department of Computer Science and Operations Research, University of Montréal, Montréal, Québec, Canada and 2Collegium Budapest Institute for Advanced Study, Budapest, Hungary Received on February 21, 2008  revised on April 14, 2008  accepted on May 6, 2008 Advance Access publication May 12, 2008 Associate Editor: Martin Bishop  ABSTRACT Summary: Malin is a software package for the analysis of eukaryotic gene structure evolution.
+It provides a graphical user interface for various tasks commonly used to infer the evolution of exon intron structure in protein-coding orthologs.
+Implemented tasks include the identiﬁcation of conserved homologous intron sites in protein alignments, as well as the estimation of ancestral intron content, lineage-speciﬁc intron losses and gains.
+Estimates are computed either with parsimony, or with a probabilistic model that incorporates rate variation across lineages and intron sites.
+Availability: Malin is available as a stand-alone Java application, as well as an application bundle for MacOS X, at the website http://www.iro.umontreal.ca/ csuros/introns/malin/.
+The software is distributed under a BSD-style license.
+Contact: csuros@iro.umontreal.ca  1 INTRODUCTION An idiosyncratic feature of eukaryotic gene organization is that the genomic sequences of protein-coding genes are frequently interrupted by non-coding sequences, called introns, which are excised (spliced) from the transcripts prior to translation.
+Fundamental constituents of the splicing machinery are present throughout main eukaryotic lineages (Collins and Penny, 2005).
+Intron-containing genes are spread across diverse eukaryotic phyla, and orthologous genes often have similar exon intron organiza- tion even at large evolutionary distances (Rogozin et al., 2003).
+Accordingly, it is fairly certain that splicing was already present in the last common ancestor of eukaryotes (Rodríguez-Trelles et al., 2006).
+Gene structures changed to different extents in eukaryotic lineages (Roy and Gilbert, 2006).
+that  evolution of  Whole-genome sequencing projects have made it possible scrutinize to perform large-scale phylogenetic analyses the exon intron organization.
+Following the pioneering study by Rogozin et al.
+(2003), numerous results have appeared (Carmel et al., 2005  Carmel et al., 2007  Cs urös, 2005  Cs urös et al., 2007, 2008  Nguyen et al., 2005  Nielsen et al., 2004  Roy and Gilbert, 2005  Roy and Penny, 2006  Stajich et al., 2007  Sullivan et al., 2006) inferring lineage- and gene-speciﬁc features of gene structure evolution, and often describing methodological novelties.
+This note aims to introduce Malin, a software package developed for the analysis of eukaryotic gene structure evolution.
+2 FEATURES Malin provides a graphical user interface for various tasks commonly used to infer the evolution of exon intron structure in multiple protein-coding ortholog sets (Fig.
+1) along a ﬁxed species phylogeny.
+The implemented tasks include the following:  (cid:127) Identiﬁcation of conserved homologous  splice sites  in  annotated protein sequence alignments.
+(cid:127) Computation of primary statistics about introns in homologous  sites ( shared introns ).
+(cid:127) Estimation of ancestral intron content, intron losses and gains  by Dollo parsimony.
+(cid:127) Estimation of intron loss and gain rates in a probabilistic model.
+(cid:127) Estimation of ancestral intron content, intron losses and gains  in a probabilistic model.
+(cid:127) Inference of histories at individual or multiple sites.
+(cid:127) Error estimation for rates and histories by bootstrap.
+Figure 1 illustrates the typical analysis pipeline for eukaryotic gene structure evolution (Rogozin et al., 2005).
+In order to infer if spliceosomal introns are in homologous positions, splice sites need to be projected onto coding sequences, and then homology is established in conserved regions of the protein alignments.
+An intron table is constructed from the projected intron annotations.
+The table is a binary table of intron presence and absence in homologous sites across the studied organisms: Malin can also cope with ambiguous characters.
+The patterns can be analyzed by Dollo parsimony (Farris, 1977) (assuming that intron gains and losses are rare events), or by probabilistic models of intron evolution.
+Malin works with the likelihood framework that I have elaborated (Cs urös, 2005  Cs urös et al., 2007, 2008).
+The corresponding probabilistic model has branch-speciﬁc intron gain and loss rates, as well as rates-across-sites variation.
+Malin uses a rates-across-sites Markov model for intron evolution, with branch-speciﬁc gain and loss rates.
+If no rate variation is assumed across the sites, then every branch has just a gain and loss rate, with corresponding gain and loss probabilities.
+Brieﬂy, an intron is lost on an edge of length t with probability λ+µ where λ and µ are the gain and loss rates  a new intron appears in a previously unoccupied site with probability λ+µ .
+The constant rate model (Cs urös et al., 2007) is completely speciﬁed by the branch-speciﬁc gain/loss rates, and   (λ+µ)t  (λ+µ)t  1 e 1 e  (cid:1)  (cid:2)  (cid:1)  (cid:2)  µ  λ    2008 The Author(s) This is an Open Access article distributed under the terms of the Creative Commons Attribution Non-Commercial License (http://creativecommons.org/licenses/by-nc/2.0/uk/) which permits unrestricted non-commercial use, distribution, and reproduction in any medium, provided the original work is properly cited.
+[23:20 18/6/03 Bioinformatics-btn226.tex]  Page: 1538  1538 1539   Malin  A  take complete  annotated genomes  B  select orthologous proteins  align orthologous protein  sequences   project intron positions  onto alignment  extract 0-1 data of intron  absence/presence  compute loss and gain rates  by Maximum Likelihood  perform analysis by parsimony  infer evolutionary  characteristics and events  Malin  Fig.
+1.
+(A) Typical analysis pipeline for intron evolution.
+Malin can perform the tasks downstream of ortholog identiﬁcation and alignment.
+(B) Alignment panel in Malin.
+The intron table will be constructed from a set of multiple alignments (corresponding to the rows of the table displayed in the middle on the top), based on conservation criteria speciﬁed by the user (through the form on the upper right).
+The bottom half of the panel plots an illustration for the selected alignment, showing alignment gaps and projected intron sites (colored tags).
+the probability with which intron sites are occupied at the root.
+The rate variation model (Cs urös et al., 2008) assumes that intron sites belong to discrete rate categories.
+Each site category is deﬁned by a pair of loss and gain rate factors (α,β), so that the loss rates µα and gain rates λβ apply on each edge with prototypical rates µ and λ. Malin optimizes rate factors, and can analyze the same dataset with different models simultaneously.
+Malin is written entirely in Java.
+It can be used on any computer platform with a Java Runtime Environment (implementing J2SE 1.5 or higher), including Microsoft Windows, MacOS X and Linux.
+In addition, Malin is also available as an integrated application on MacOS X.
+The software is distributed with test data and a detailed User s Guide.
+Input ﬁles follow commonly used formats: Newick format for the possibly multifurcating species phylogeny, Fasta format for alignments and the syntax used by Rogozin et al.
+(2003) for intron tables.
+Intron sites are speciﬁed in Fasta headers.
+Analysis results can be exported into tab-delimited text ﬁles.
+The software implements previously described computational innovations (Cs urös et al., 2007, 2008), including rate optimization, posterior predictions, fast evaluation of the likelihood function and estimation of statistical conﬁdence through bootstrapping.
+Malin provides a feature-rich graphical user interface for the analysis tasks.
+Figure 1 gives an example of an alignment panel, where, in order to build an intron table, the user selects the conservation criteria (such as the minimum number of gapless positions next to an intron site) for discerning homologous sites in a set of multiple alignments.
+Ideally, Malin will enable researchers to conduct phylogenetic gene structure analysis with the same ease that is currently available for molecular sequences.
+ACKNOWLEDGEMENTS I am grateful to Péter Cs urös for help with the software integration in Microsoft Windows.
+I am greatly indebted to Liran Carmel, Eugene Koonin, Jacek Majewski, Igor Rogozin and Scott Roy for helpful advice and discussions about intron evolution.
+Funding: This research project has been supported by a grant from the Natural Sciences and Engineering Research Council of Canada.
+Conﬂict of Interest: none declared.
+REFERENCES Carmel,L.
+et al.
+(2005) An expectation-maximization algorithm for analysis of evolution of exon-intron structure of eukaryotic genes.
+Lect.
+Notes Comput.
+Sci., 3678, 35 46.
+Carmel,L.
+et al.
+(2007) Three distinct modes of intron dynamics in the evolution of  eukaryotes.
+Genome Res., 17, 1034 1044.
+Collins,L.
+and Penny,D.
+(2005) Complex spliceosomal organization ancestral to extant  eukaryotes.
+Mol.
+Biol.
+Evol., 22, 1053 1066.
+Cs urös,M.
+(2005) Likely scenarios of intron evolution.
+Lect.
+Notes Comput.
+Sci., 3678,  47 60.
+Cs urös,M.
+et al.
+(2007) In search of lost introns.
+Bioinformatics, 23, i87 i96.
+Cs urös,M.
+et al.
+(2008) Extremely intron-rich genes in the alveolate ancestors inferred  with a ﬂexible maximum likelihood approach.
+Mol.
+Biol.
+Evol., 25, 903 911.
+Farris,J.S.
+(1977) Phylogenetic analysis under Dollo s law.
+Syst.
+Zool., 26, 77 88.
+Nguyen,H.D.
+et al.
+(2005) New maximum likelihood estimators for eukaryotic intron  evolution.
+PLoS Comput.
+Biol., 1, e79.
+Nielsen,C.B.
+et al.
+(2004) Patterns of intron gain and loss in fungi.
+PLoS Biol., 2, e422.
+Rodríguez-Trelles,F.
+et al.
+(2006) Origins and evolution of spliceosomal introns.
+Annu.
+Rev.
+Genet., 40, 47 76.
+Rogozin,I.B.
+et al.
+(2003) Remarkable interkingdom conservation of intron positions and massive, lineage-speciﬁc intron loss and gain in eukaryotic evolution.
+Curr.
+Biol., 13, 1512 1517.
+Rogozin,I.B.
+et al.
+(2005) Analysis of evolution of exon-intron structure of eukaryotic  genes.
+Brief.
+Bioinform., 6, 118 134.
+Roy,S.W.
+and Gilbert,W.
+(2005) Rates of intron loss and gain: implications for early  eukaryotic evolution.
+Proc.
+Natl Acad.
+Sci.
+USA, 102, 5773 5778.
+Roy,S.W.
+and Gilbert,W.
+(2006) The evolution of spliceosomal introns: patterns, puzzles  and progress.
+Nat.
+Rev.
+Genet., 7, 211 221.
+Roy,S.W.
+and Hartl,D.L.
+(2006) Very little intron loss/gain in plasmodium: intron  loss/gain mutation rates and intron number.
+Genome Res., 16, 750 756.
+Roy,S.W.
+and Penny,D.
+(2006) Large-scale intron conservation and order-of-magnitude variation in intron loss/gain rates in apicomplexan evolution.
+Genome Res., 16, 1270 1275.
+Stajich,J.E.
+et al.
+(2007) Comparative genomic analysis of fungal genomes reveals  intron-rich ancestors.
+Genome Biol., 8, R223.
+Sullivan,J.C.
+et al.
+(2006) A high percentage of introns in human genes were present early in animal evolution: evidence from the basal metazoan Nematostella vectensis.
+Genome Inform., 17, 217 229.
+1539  [23:20 18/6/03 Bioinformatics-btn226.tex]  Page: 1539  1538 1539

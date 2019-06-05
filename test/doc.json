@@ -1,0 +1,123 @@
+{"text": "Vol. 23 no. 12 2007, pages 1568\u20131570", "labels": [[0, 3, "PERSON"], [5, 7, "CARDINAL"], [12, 19, "DATE"]]}
+{"text": "ProServer: a simple, extensible Perl DAS server", "labels": [[32, 40, "ORG"]]}
+{"text": "Robert D. Finn, James W. Stalker, David K. Jackson, Eugene Kulesha,", "labels": [[0, 14, "PERSON"], [16, 32, "PERSON"], [34, 50, "PERSON"], [52, 66, "PERSON"]]}
+{"text": "Jody Clements and Roger Pettett", "labels": [[0, 13, "PERSON"], [18, 31, "PERSON"]]}
+{"text": "Wellcome Trust Sanger Institute, Wellcome Trust Geome Campus, Hinxton, Cambridge, CB10 1SA, UK", "labels": [[0, 31, "ORG"], [33, 60, "ORG"], [62, 69, "GPE"], [71, 80, "GPE"], [92, 94, "GPE"]]}
+{"text": "Advance Access publication January 18, 2007", "labels": [[27, 43, "DATE"]]}
+{"text": "ABSTRACT", "labels": [[0, 8, "ORG"]]}
+{"text": "protocols for the exchange mechanism must be developed. One", "labels": [[56, 59, "CARDINAL"]]}
+{"text": "Annotation System (DAS). For example, DAS has enabled small", "labels": [[38, 41, "ORG"]]}
+{"text": "experimental groups to integrate their data into the Ensembl genome", "labels": [[53, 60, "GPE"]]}
+{"text": "browser. We have developed ProServer, a simple, lightweight, Perl-", "labels": [[27, 36, "ORG"]]}
+{"text": "based DAS server that does not depend on a separate HTTP server.", "labels": [[6, 9, "ORG"], [52, 56, "ORG"]]}
+{"text": "The ProServer package is easily extensible, allowing data to be", "labels": [[4, 13, "ORG"]]}
+{"text": "Details on the system requirements and installation of ProServer can", "labels": [[55, 64, "GPE"]]}
+{"text": "1 INTRODUCTION", "labels": [[0, 1, "CARDINAL"]]}
+{"text": "the underlying database for Ensembl release 41 is over 700GB,", "labels": [[28, 35, "ORG"], [44, 46, "CARDINAL"], [50, 58, "CARDINAL"], [58, 60, "NORP"]]}
+{"text": "containing data on 25 different genomes,", "labels": [[19, 21, "CARDINAL"]]}
+{"text": "hundreds of tables. An alternative to duplication of databases", "labels": [[0, 8, "CARDINAL"]]}
+{"text": "be agreed. One such protocol for data exchange over a network", "labels": [[11, 14, "CARDINAL"]]}
+{"text": "is the Distributed Annotation System (DAS).", "labels": [[3, 36, "ORG"]]}
+{"text": "Briefly, the DAS protocol standardizes queries and responses", "labels": [[0, 7, "GPE"], [13, 16, "ORG"]]}
+{"text": "2001). In common with other Web Services, client requests are", "labels": [[0, 4, "DATE"], [28, 40, "ORG"]]}
+{"text": "made via HTTP to servers which process them and return results", "labels": [[9, 13, "ORG"]]}
+{"text": "encapsulated in XML. Since the original DAS specification was", "labels": [[16, 19, "ORG"]]}
+{"text": "developed, DAS has been used extensively for the annotation of", "labels": [[11, 14, "ORG"]]}
+{"text": "In addition, many extensions to the DAS protocol have been", "labels": [[36, 39, "ORG"]]}
+{"text": "proposed. Two of these extensions, developed over the past", "labels": [[10, 13, "CARDINAL"]]}
+{"text": "We have developed ProServer, a simple, user-friendly", "labels": [[18, 27, "ORG"]]}
+{"text": "2 PROSERVER", "labels": [[0, 1, "CARDINAL"]]}
+{"text": "ProServer has been available from the Wellcome Trust Sanger", "labels": [[0, 9, "ORG"]]}
+{"text": "Institute since 2003. We have recently added additional function-", "labels": [[16, 20, "DATE"]]}
+{"text": "2.1 Architecture and flexibility", "labels": [[0, 3, "CARDINAL"]]}
+{"text": "ProServer is a standalone, lightweight DAS server, written in", "labels": [[0, 9, "ORG"]]}
+{"text": "Perl and designed to have low system requirements. The", "labels": [[0, 4, "ORG"]]}
+{"text": "architecture of ProServer is represented in Figure 1. At the top", "labels": [[16, 25, "ORG"], [51, 52, "CARDINAL"]]}
+{"text": "settings for data sources provided by the server (Fig. 1).", "labels": [[50, 53, "PERSON"], [55, 56, "CARDINAL"]]}
+{"text": "The networking requirements of ProServer are handled by", "labels": [[31, 40, "ORG"]]}
+{"text": "the POE package (http://poe.perl.org/), which implements", "labels": [[4, 7, "ORG"]]}
+{"text": "a portable multitasking and networking framework for Perl.", "labels": [[53, 57, "ORG"]]}
+{"text": "one dedicated to a single underlying data store. Incoming", "labels": [[0, 3, "CARDINAL"]]}
+{"text": "and the conversion of queries into generic DAS response data", "labels": [[43, 46, "ORG"]]}
+{"text": "data acquisition (Fig. 1).", "labels": [[23, 24, "CARDINAL"]]}
+{"text": "necessary to implement a new transport helper (Fig. 1).", "labels": [[52, 53, "CARDINAL"]]}
+{"text": "However, ProServer comes bundled with helpers for some", "labels": [[9, 18, "ORG"]]}
+{"text": "common data stores, for example: flatfile, GFF. MySQL,", "labels": [[43, 46, "ORG"]]}
+{"text": "Oracle and SRS getz. These transport helpers are all simple,", "labels": [[0, 6, "ORG"], [11, 14, "ORG"]]}
+{"text": "\u00df 2007 The Author(s)", "labels": [[2, 6, "DATE"]]}
+{"text": "This is an Open Access article distributed under the terms of the Creative Commons Attribution Non-Commercial License (http://creativecommons.org/licenses/", "labels": [[11, 22, "ORG"], [62, 117, "LAW"]]}
+{"text": "\fA simple, extensible Perl DAS server", "labels": [[22, 30, "ORG"]]}
+{"text": "achievable regardless of the DAS server used.", "labels": [[29, 32, "ORG"]]}
+{"text": "The simplicity of ProServer means that it can be deployed", "labels": [[18, 27, "GPE"]]}
+{"text": "2.3 Examples", "labels": [[0, 3, "CARDINAL"]]}
+{"text": "ProServer was originally developed in conjunction with the", "labels": [[0, 9, "ORG"]]}
+{"text": "Ensembl project (Birney et al., 2006), to display features such as", "labels": [[17, 30, "PERSON"], [32, 36, "DATE"]]}
+{"text": "of ProServer, with only features and sequence capabilities,", "labels": [[3, 12, "ORG"]]}
+{"text": "This has enabled the Pfam database (Finn et al., 2006)", "labels": [[21, 25, "ORG"], [36, 47, "PERSON"], [49, 53, "DATE"]]}
+{"text": "Institute are already using ProServer for the exchange of", "labels": [[28, 37, "ORG"]]}
+{"text": "feature annotations: examples include Gene3D (Yeast et al.,", "labels": [[38, 58, "ORG"]]}
+{"text": "2006), CBS (O\u00b4 lason, 2005) and AnoEST (Kriventseva et al.,", "labels": [[0, 4, "DATE"], [7, 10, "ORG"], [22, 26, "DATE"]]}
+{"text": "2005).", "labels": [[0, 4, "DATE"]]}
+{"text": "3 CONCLUSIONS", "labels": [[0, 1, "CARDINAL"]]}
+{"text": "of ProServer means that even small groups can make their", "labels": [[3, 12, "ORG"]]}
+{"text": "data available via DAS, even if it is stored only as a flatfile,", "labels": [[19, 22, "ORG"]]}
+{"text": "For example, the Ensembl browser (Birney et al., 2006) allows", "labels": [[17, 24, "ORG"], [34, 47, "PERSON"], [49, 53, "DATE"]]}
+{"text": "are being displayed in a genomic context via the Ensembl", "labels": [[49, 56, "GPE"]]}
+{"text": "browser using ProServer, for example, the 1p36 microdeletion", "labels": [[14, 23, "ORG"]]}
+{"text": "A survey of the DAS registry (Prlic et al., 2006) (http://", "labels": [[16, 19, "ORG"], [30, 42, "PERSON"], [44, 48, "DATE"]]}
+{"text": "www.dasregistry.org/) demonstrated that 69 of", "labels": [[40, 42, "CARDINAL"]]}
+{"text": "the 103", "labels": [[4, 7, "CARDINAL"]]}
+{"text": "registered feature servers were using ProServer at the time of", "labels": [[38, 47, "ORG"]]}
+{"text": "writing. Thus, ProServer is already being widely used to provide", "labels": [[15, 24, "ORG"]]}
+{"text": "data via the DAS protocol. The recent extensions increase", "labels": [[13, 16, "ORG"]]}
+{"text": "the range of data types available via DAS, allowing the transfer", "labels": [[38, 41, "ORG"]]}
+{"text": "bring together different data types (Prlic A et al., 2005).", "labels": [[53, 57, "DATE"]]}
+{"text": "ProServer\u2019s minimal requirements and simplicity,", "labels": [[0, 9, "ORG"]]}
+{"text": "1569", "labels": [[0, 4, "DATE"]]}
+{"text": "Fig. 1. A schematic representation of the ProServer architecture.", "labels": [[5, 6, "CARDINAL"], [42, 51, "ORG"]]}
+{"text": "How are new data sources made available using ProServer?", "labels": [[46, 55, "ORG"]]}
+{"text": "handles the transformation of data to XML (Fig. 1). Finally,", "labels": [[38, 41, "ORG"], [43, 46, "PERSON"], [48, 49, "CARDINAL"]]}
+{"text": "practice usage) and scalability can be found in the ProServer", "labels": [[52, 61, "GPE"]]}
+{"text": "README file.", "labels": [[0, 6, "ORG"]]}
+{"text": "2.2 Other DAS servers", "labels": [[0, 3, "CARDINAL"]]}
+{"text": "Two alternative", "labels": [[0, 3, "CARDINAL"]]}
+{"text": "biodas.org/servers/LDAS.html). Dazzle is written in Java,", "labels": [[31, 37, "ORG"], [52, 56, "PERSON"]]}
+{"text": "whereas LDAS is written in Perl. Dazzle has comparable", "labels": [[8, 12, "ORG"], [27, 31, "ORG"], [33, 39, "ORG"]]}
+{"text": "functionality to ProServer, whereas LDAS does not have", "labels": [[17, 26, "GPE"], [36, 40, "ORG"]]}
+{"text": "require an available web server (e.g. Apache) and time-", "labels": [[38, 44, "PERSON"]]}
+{"text": "that ProServer", "labels": [[5, 14, "GPE"]]}
+{"text": "does not use a web server such as Apache, our experience", "labels": [[34, 40, "PRODUCT"]]}
+{"text": "Birney,E. et al. (2006) Ensembl 2006. Nucleic Acids Res., 34, D556\u2013D561.", "labels": [[0, 7, "ORG"], [7, 16, "PERSON"], [18, 22, "DATE"], [24, 36, "DATE"], [38, 45, "PERSON"], [58, 60, "DATE"], [62, 71, "GPE"]]}
+{"text": "Dowell,R.D.", "labels": [[0, 6, "GPE"], [7, 11, "GPE"]]}
+{"text": "(2001) The distributed annotation system. BMC", "labels": [[1, 5, "DATE"], [42, 45, "ORG"]]}
+{"text": "Bioinformatics, 2, 7.", "labels": [[16, 17, "CARDINAL"], [19, 20, "CARDINAL"]]}
+{"text": "Finn,R.D. et al. (2006) Pfam: clans, web tools and services. Nucleic Acids Res., 34,", "labels": [[0, 4, "PERSON"], [5, 16, "PERSON"], [18, 22, "DATE"], [61, 78, "PERSON"], [81, 83, "CARDINAL"]]}
+{"text": "Kriventseva,E.V. et al. (2005) AnoEST: Toward A. gambiae functional genomics.", "labels": [[0, 11, "GPE"], [12, 23, "PERSON"], [25, 29, "DATE"], [39, 48, "PERSON"]]}
+{"text": "Genome Res., 15, 893\u2013899.", "labels": [[0, 10, "PERSON"], [13, 15, "CARDINAL"], [17, 24, "CARDINAL"]]}
+{"text": "Prlic,A. et al. (2005) Adding some SPICE to DAS. Bioinformatics, 21(Suppl. 2),", "labels": [[6, 15, "PERSON"], [17, 21, "DATE"], [35, 40, "ORG"], [75, 76, "CARDINAL"]]}
+{"text": "Prlic,A. et al.", "labels": [[6, 14, "PERSON"]]}
+{"text": "Workshop, DILS", "labels": [[0, 8, "ORG"]]}
+{"text": "pp. 195\u2013203.", "labels": [[4, 11, "DATE"]]}
+{"text": "(2006) The Distributed Annotation System for integration", "labels": [[1, 5, "DATE"], [7, 40, "ORG"]]}
+{"text": "Springer, Berlin/Heidelberg,", "labels": [[0, 8, "ORG"], [10, 16, "GPE"]]}
+{"text": "In Leser U., Naumann F., Eckman B.", "labels": [[3, 11, "PERSON"], [13, 23, "PERSON"], [25, 35, "PERSON"]]}
+{"text": "2006.", "labels": [[0, 4, "DATE"]]}
+{"text": "Third", "labels": [[0, 5, "ORDINAL"]]}
+{"text": "O\u00b4 lason,P.I\u00b4 .", "labels": [[9, 12, "GPE"]]}
+{"text": "(2005)", "labels": [[1, 5, "DATE"]]}
+{"text": "through the Distributed Annotation System. Nucleic Acids Res., 33,", "labels": [[8, 41, "ORG"], [43, 61, "PERSON"], [63, 65, "CARDINAL"]]}
+{"text": "Yeats,C. et al.", "labels": [[6, 14, "PERSON"]]}
+{"text": "(2006) Gene3D: modelling protein structure,", "labels": [[1, 5, "DATE"]]}
+{"text": "evolution. Nucleic Acids Res., 34, D281\u2013D284.", "labels": [[11, 18, "PERSON"], [31, 33, "CARDINAL"], [35, 44, "PERSON"]]}
+{"text": "R.D. Finn et al.", "labels": [[0, 16, "PERSON"]]}
+{"text": "4 AVAILABILITY", "labels": [[0, 1, "CARDINAL"]]}
+{"text": "ProServer is available from http://www.sanger.ac.uk/proserver/", "labels": [[0, 9, "ORG"]]}
+{"text": "on Tru64, Linux and Mac OS X architectures running Perl", "labels": [[3, 8, "GPE"], [10, 15, "PERSON"], [20, 26, "ORG"], [51, 55, "ORG"]]}
+{"text": "5.6.1 and above. ProServer has also been run under Windows", "labels": [[17, 26, "ORG"], [51, 58, "ORG"]]}
+{"text": "using the Cygwin environment.", "labels": [[10, 16, "PERSON"]]}
+{"text": "The authors thank Andreas Kahari and Stefan Gra\u00a8 f", "labels": [[18, 32, "PERSON"], [37, 48, "PERSON"]]}
+{"text": "Wellcome Trust", "labels": [[0, 14, "ORG"]]}
+{"text": "(G0100305). Funding to pay the Open Access publication", "labels": [[31, 42, "ORG"]]}
+{"text": "charges was provided by The Wellcome Trust.", "labels": [[24, 42, "ORG"]]}
+{"text": "and a MRC (UK) E-science", "labels": [[6, 9, "ORG"], [11, 13, "GPE"]]}
+{"text": "1570", "labels": [[0, 4, "DATE"]]}

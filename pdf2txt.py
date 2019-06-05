@@ -13,6 +13,8 @@ from pdfminer.layout import LAParams
 from pdfminer.pdfpage import PDFPage
 from io import StringIO
 import os 
+from nltk.tokenize import sent_tokenize
+import re
 
 
 def convert_pdf_to_txt(path, pages=None):
@@ -20,26 +22,34 @@ def convert_pdf_to_txt(path, pages=None):
         pagenums = set()
     else:
         pagenums = set(pages)
-        
+      
     output = StringIO()
     manager = PDFResourceManager()
     converter = TextConverter(manager, output, laparams=LAParams())
     interpreter = PDFPageInterpreter(manager, converter)
-
     infile = open(path, 'rb')
-    try:
-        for page in PDFPage.get_pages(infile, pagenums):
-            interpreter.process_page(page)
-        infile.close()
-        converter.close()
-        text = output.getvalue()
-        output.close()
-        with open(path[:-3]+'txt', "w", encoding='utf-8') as f:
-#            print('openTxt:' + path[:-3]+'txt')
-            f.write(text.replace(u'\xa9', u'').replace(u'\xa0',u'').replace(u'\xad',u'').replace(u'\u037e',u''))
-    except Exception as e:
-        print("ERROR：" + path)
-        pass
+#    try:
+    for page in PDFPage.get_pages(infile, pagenums):
+        interpreter.process_page(page)
+    infile.close()
+    converter.close()
+    text = output.getvalue()
+    output.close()
+    for ch in text:
+        if not ch.isalnum() and ch not in "[.-\/()+$%^&*=,@#:_!']":
+            text = text.replace(ch,' ')
+            
+    with open(path[:-3]+'txt', "w", encoding='utf-8') as f:
+        sentences = sent_tokenize(text)
+        for s in sentences:
+            f.write(s.replace('\n',' ').strip())
+            f.write('\n')
+        
+#    except Exception as e:
+#        print("ERROR：" + path)
+#        pass
+
+        
 
 def traversal(rootdir):
     for parent, dirnames, filenames in os.walk(rootdir):
@@ -50,5 +60,10 @@ def traversal(rootdir):
                 # 原因是这里，把方块替换成''了，应该替换成空格。
 
 if __name__=='__main__':
-    rootdir = "C:/Users/Administrator/Documents/GitHub/Dissertation-2019/trainingdata1"
+    rootdir = os.getcwd() +"\\test"
     traversal(rootdir)
+        
+        
+        
+        
+        

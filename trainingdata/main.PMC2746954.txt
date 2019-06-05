@@ -1,0 +1,192 @@
+Application Note  Automated SNP Genotype Clustering Algorithm to Improve Data Completeness in High-Throughput SNP Genotyping Datasets from Custom Arrays  Edward M. Smith, Jack Littrell, and Michael Olivier* Human and Molecular Genetics Center, Medical College of Wisconsin, Milwaukee, WI 53226, USA.
+High-throughput SNP genotyping platforms use automated genotype calling algo- rithms to assign genotypes.
+While these algorithms work efficiently for individual platforms, they are not compatible with other platforms, and have individual biases that result in missed genotype calls.
+Here we present data on the use of a second complementary SNP genotype clustering algorithm.
+The algorithm was originally designed for individual fluorescent SNP genotyping assays, and has been opti- mized to permit the clustering of large datasets generated from custom-designed Affymetrix SNP panels.
+In an analysis of data from a 3K array genotyped on 1,560 samples, the additional analysis increased the overall number of genotypes by over 45,000, significantly improving the completeness of the experimental data.
+This analysis suggests that the use of multiple genotype calling algorithms may be ad- visable in high-throughput SNP genotyping experiments.
+The software is written in Perl and is available from the corresponding author.
+Key words: clustering, SNP genotyping, algorithm  Introduction  Single nucleotide polymorphisms (SNPs) are the most common form of genetic variation in the human genome, and are the marker of choice for disease association studies due to their prevalence and ease of genotyping.
+Large-scale SNP genotyping arrays are improving the speed and volume of genomic re- search.
+Whilst these techniques are highly accurate and efficient, there remains a desire to maximize the amount of data obtained.
+In recent years, a number of reports have described algorithms that can be used to replace or supplement Affymetrix genotype calling algorithms (1 6 ).
+How- ever, these algorithms are all designed to be used with data generated from genome-wide SNP arrays, and are not compatible with other genotyping platforms or formats.
+As specific chromosomal regions are iden- tified as being linked to a phenotype of interest, there is an increasing need to target high-density genotyp- ing to these loci.
+The Affymetrix custom-designed SNP panels based on molecular inversion probe tech- nology (7 , 8 ) allow for such an approach.
+One major difference in the output from this assay is that there  is only one chip feature per SNP rather than mul- tiple averaged sites as generated with the genome- wide arrays.
+Thus, it is difficult to assess the accu- racy and reliability of genotype calls from the anal- ysis software without additional experimental work, and some SNPs result in poor call rates in the au- tomated analysis although manual inspection of the data suggests clear distinction of three different geno- type clusters.
+For custom high-resolution SNP geno- typing, data completeness is essential, and a high per- centage of missed calls for an individual SNP or the complete lack of data for any SNP significantly im- pedes the subsequent analysis.
+To overcome this challenge in the automated data analysis and to improve overall data quality, an in- house clustering algorithm designed for analysis of single SNP assays was modified to analyze the data from genotyping 1,560 individuals of 261 families on an Affymetrix GeneChip custom 3K array.
+As shown below, the combined analysis using both the commer- cial algorithm and the custom supplementary cluster- ing algorithm (MCW CA) significantly improves the overall call rate, and  rescues  individual SNPs elim- inated in the initial analysis using the commercial al- gorithm alone.
+*Corresponding author.
+E-mail: molivier@mcw.edu This(cid:32) is(cid:32) an(cid:32) open(cid:32) access(cid:32) article(cid:32) under(cid:32) the(cid:32) CC(cid:32) BY(cid:32) license(cid:32) (http://creativecommons.org/licenses/by/4.0/).
+256  Geno.
+Prot.
+Bioinfo.
+Vol.
+5 No.
+3 4  2007   Smith et al.
+Results and Discussion  In total, 3,345 SNPs were genotyped using 1,560 sam- ples from the MRC-OB cohort using an Affymetrix GeneChip custom 3K array.
+Initially, data were ana- lyzed using the commercial analysis tools provided by Affymetrix.
+In this analysis, 99.6% of all SNPs suc- cessfully passed the quality control criteria.
+However, our subsequent analysis revealed that not all passed SNPs were informative.
+Based on the Affymetrix genotype calls, 41.8% (345/825) of SNPs assayed on Chromosome 3 were identified as monomorphic fol- lowing determination of allele frequencies (Table 1), supporting the anecdotal evidence that SNP failures are due to under-calling of heterozygotes.
+This per- centage was significantly reduced to 1.1% (9/825) when based on the MCW CA results, and it was possible to rescue 15 SNPs previously identified as monomorphic.
+Based on this analysis, the geno- type distribution was in Hardy-Weinberg equilibrium (HWE), and greater than 80% of the cohort were successfully genotyped.
+Further four SNPs on Chro- mosome 3, which were identified as polymorphic by the Affymetrix genotype calling algorithm but not in HWE, were also rescued (passed HWE and greater than 80% genotyped) by MCW CA (Table 1).
+In ad- dition, of the 250 SNPs that passed both forms of analysis, it was possible to improve the call rate of 148 (59.2%) SNPs using MCW CA.
+This supplemen- tary analysis resulted in a total of 29,683 additional genotypes identified on Chromosome 3.
+Corresponding values for the remaining chromo- somal regions investigated are presented in Table 1.
+Similar to the analysis described for Chromosome 3,  it was possible for MCW CA to rescue further five SNPs and increase the call rates for another 1,086 SNPs.
+In total it resulted in an extra 47,578 genotypes identified, an average of 30 genotypes per individual tested.
+This number of genotypes would correspond to an additional 15 SNP arrays worth of data.
+Overall, our analysis strongly suggests that it is highly beneficial to re-analyze high-throughput SNP genotyping data with more than one genotype call- ing algorithm.
+A significant number of additional genotype calls can be made, and more complete data are obtained, a result essential for fine-mapping stud- ies.
+While several algorithms have been developed to help in the analysis of genome-wide 100K and 500K SNP arrays, our algorithm is also suitable for use with custom 3K, 5K, or 10K arrays.
+Furthermore, a significant advantage of MCW CA over other clus- tering algorithms is the ability to set a user-defined confidence threshold.
+This allows users to select their own cut-off value depending on individual require- ments.
+Altering the threshold level will have an effect on both the number of genotypes per SNP and on the number of SNPs that remain in HWE.
+For example, on Chromosome 7, at a confidence level of 0%, 50%, 90%, and 95%, the number of SNPs with a call rate above 80% were 1,023, 1,020, 824, and 772, and the number of SNPs in HWE were 633, 633, 615, and 605, respectively.
+Thus, users can select and statistically define the confidence of genotype calls.
+If the sample set only includes unrelated individuals, the confidence level can be set conservatively to only include geno- types called with high accuracy and confidence.
+Al- ternatively, if family-based samples are used, an initial analysis with a lower confidence level followed by a  Table 1 Distribution of SNPs with call rates greater than 80% after clustering by the Af fymetrix and  MCW CA algorithms*  Chromosome (SNPs assayed)  3 (825)  7 (1,048)  12 (1,055)  14 (354)  Total  Algorithm  In  Not in Mono.
+Rescued Rescued mono.
+SNPs (new gt)  (new gt)  SNPs  HWE HWE  Improved call rate Total (extra gt) new gt  Affymetrix MCW CA Affymetrix MCW CA Affymetrix MCW CA Affymetrix MCW CA  465 215 980 581 1,024 600 344 211  15 87 43 104 12 114 8 47  345 9 25 2 19 2 2 1  4 (5,751)  15 (22,441)  148 (1,491)  29,683  2 (2,720)  1 (1,512)  458 (4,460)  8,692  2 (2,699)  0 (0)  0 (0)  0 (0)  470 (4,746)  7,445  158 (1,758)  1,758  47,578  *The table summarizes the additional genotypes obtained in a second analysis using the MCW CA algorithm.
+gt = genotype  Mono.
+= monomorphic.
+Geno.
+Prot.
+Bioinfo.
+Vol.
+5 No.
+3 4  2007  257   comprehensive analysis of Mendelian errors in indi- vidual families may result in a higher rate of genotype calls.
+Materials and Methods  Population and genotyping  The 1,560 individuals studied were a subset of the MRC-OB population recruited from the TOPS mem- bership as described previously (9 , 10 ).
+All individ- uals were genotyped on a 3K custom-designed SNP chip, with 3,345 SNPs distributed across 5 chromoso- mal regions: one on Chromosomes 3, 7, and 14, re- spectively, and two on Chromosome 12.
+The SNP selection strategies have been described previously (11 ).
+Briefly, for the regions on Chromosomes 3 and 14, SNPs were selected using a gene-centric approach with an emphasis on putative functional SNPs  those on Chromosome 7 were selected based on the linkage disequilibrium (LD) patterns of the CEPH population of the HapMap  and those on Chromosome 12 were located within known genes, based on LD patterns and putative functionality.
+Algorithm  The algorithm was initially described by Olivier et al (12 ).
+Briefly, each datapoint is assigned to one of four clusters: 1, 2, 3, or 4, representing no-target (negative) controls (NTCs), homozygotes one (XX), homozygotes two (YY), and heterozygotes (XY), re- spectively.
+Clusters are described by an ellipse whose major and minor axes are the standard deviations in the x and y directions of the component points, which are rotated so that their covariance is equal to zero.
+Fluoresence values are extracted from the MegAl- lele results for all samples and SNPs.
+Initially, fluorescence values for each SNP are scaled to be- tween 0.05 and 0.95, and four negative control values are appended to the data to provide a reference start point for the analysis.
+An ellipse containing the negative control data- points is determined, and the probability of other dat- apoints belonging to this cluster is calculated using an empirically determined cut-off value.
+The ellipse is then redefined to include any new points.
+The center of the genotype cluster locations is de- termined by a two-step process.
+Initially, a Cartesian coordinate system is overlaid on the data with its ori- gin at (0.55, 0.55).
+The center of each quadrant is  Additional Genotype Clustering to Improve Data  identified by averaging the component points.
+New coordinate systems are drawn in each quadrant with their origin at each quadrant s center.
+This process continues outward towards the upper left corner, up- per right, and lower right until one point remains in each quadrant.
+Secondly, circles are drawn around the extreme point(s).
+The average location of the points inside the circle is computed and the circle cen- ter moves to this position.
+This process repeats until the circle center moves negligibly.
+If either of the homozygote clusters are missing, the existing homozygote cluster center is mirrored to create the missing datapoint.
+If the heterozygote clus- ter is absent, the x axis coordinating from one ho- mozygote cluster and the y axis coordinating from the other are used to determine the cluster center.
+Cluster center locations are then separated by lines drawn through the NTC cluster center and ex- actly halfway between the identified cluster centers.
+All points above or to the left of the uppermost line are considered to be homozygote cluster one  the points between the lines are heterozygotes  and the points to the right or below the bottommost line are homozygote cluster two.
+Based on the determination of cluster centers and bisecting lines, ellipses are calculated for each cluster.
+The probability that an individual datapoint belongs to each cluster is calculated using the two-dimensional normal distribution function represented by the prob- ability ellipses.
+New ellipses are then created to reflect the new datapoints in the cluster, and this is repeated for three times.
+The p-value for a point belonging to a particular cluster is equal to the probability that it is in that cluster, which is divided by the summation of the individual probabilities of the point being in each of the four clusters.
+The results are output depending on the p-value selected by users, and points are assigned to one of the four regular clusters or are considered as a no call.
+Data analysis  Once genotypes were determined for all SNPs and in- dividuals at a confidence level of 99.0%, data accuracy was checked by ensuring that the allelic distribution for all loci does not significantly differ from HWE.
+As family-based samples were used, a modified allele fre- quency estimation method taking account of family relationships was employed (13 ).
+Predicted genotype frequencies were then compared with the observed val- ues and statistically significant (p   0.05) differences  258  Geno.
+Prot.
+Bioinfo.
+Vol.
+5 No.
+3 4  2007   Smith et al.
+were determined by a Chi-squared test.
+Only SNPs with a call rate greater than 80% were described, and the data below this threshold were classed as in- sufficiently informative.
+A Bonferroni correction was applied to the data to account for multiple testing.
+SNPs with predicted allele frequencies of 1.0 or 0.0 were classed as monomorphic.
+Acknowledgements  We thank Claire Beste, Regina Cole, Jeffrey Eckert, and Biljana Stojsavljevic for their assistance in pro- ducing the data used in this study.
+The data and analysis presented here were built on the development work for the genotype clustering algorithm by Jason von Bergen, Brian Gau, and Ronit Slyper at the Hu- man and Molecular Genetics Center of the Medical College of Wisconsin.
+This work was partly funded by the National Institutes of Health, USA (Grant No.
+1RO1HL74168).
+Authors  contributions  EMS supervised and coordinated the collection of the datasets, conducted data analysis, and prepared the manuscript.
+JL contributed to the data analysis and data management, and was responsible for modifying the code of the cluster algorithm.
+MO conceived the idea of using this approach, critically reviewed the data analysis, and assisted with manuscript prepa- ration.
+All authors read and approved the final manuscript.
+Competing interests  The authors have declared that no competing inter- ests exist.
+References  1.
+Liu, W.M., et al.
+2003.
+Algorithms for large-scale genotyping microarrays.
+Bioinformatics 19: 2397- 2403.
+2.
+Huentelman, M.J., et al.
+2005.
+SNiPer:  improved SNP genotype calling for Affymetrix 10K GeneChip microarray data.
+BMC Genomics 6: 149.
+3.
+Lamy, P., et al.
+2006.
+Genotyping and annotation of Affymetrix SNP arrays.
+Nucleic Acids Res.
+34: e100.
+4.
+Hua, J., et al.
+2007.
+SNiPer-HD: improved genotype calling accuracy by an expectation-maximization al- gorithm for high-density SNP arrays.
+Bioinformatics 23: 57-63.
+5.
+Rabbee, N. and Speed, T.P.
+2006.
+A genotype calling algorithm for Affymetrix SNP arrays.
+Bioinformatics 22: 7-12.
+6.
+Xiao, Y., et al.
+2007.
+A multi-array multi-SNP genotyping algorithm for Affymetrix SNP microar- rays.
+Bioinformatics 23: 1459-1467.
+7.
+Hardenbol, P., et al.
+2003.
+Multiplexed genotyping with sequence-tagged molecular inversion probes.
+Nat.
+Biotechnol.
+21: 673-678.
+8.
+Hardenbol, P., et al.
+2005.
+Highly multiplexed molec- ular inversion probe genotyping: over 10,000 targeted SNPs genotyped in a single tube assay.
+Genome Res.
+15: 269-275.
+9.
+Kissebah, A.H., et al.
+2000.
+Quantitative trait loci on chromosomes 3 and 17 influence phenotypes of the metabolic syndrome.
+Proc.
+Natl.
+Acad.
+Sci.
+USA 97: 14478-14483.
+10.
+Sonnenberg, G.E., et al.
+2004.
+Genetic determinants of obesity-related lipid traits.
+J. Lipid Res.
+45: 610- 615.
+11.
+Smith, E.M., et al.
+2006.
+Comparison of linkage dise- quilibrium patterns between the HapMap CEPH sam- ples and a family-based cohort of Northern European descent.
+Genomics 88: 407-414.
+12.
+Olivier, M., et al.
+2002.
+High-throughput genotyping of single nucleotide polymorphisms using new biplex invader technology.
+Nucleic Acids Res.
+30: e53.
+13.
+McPeek, M.S., et al.
+2004.
+Best linear unbiased allele- frequency estimation in complex pedigrees.
+Biomet- rics 60: 359-367.
+Geno.
+Prot.
+Bioinfo.
+Vol.
+5 No.
+3 4  2007  259

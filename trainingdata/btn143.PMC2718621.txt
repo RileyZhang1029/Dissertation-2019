@@ -1,0 +1,417 @@
+BIOINFORMATICS  Vol.
+24 ISMB 2008, pages i407 i413 doi:10.1093/bioinformatics/btn143  Reversible jump MCMC approach for peak identiﬁcation for stroke SELDI mass spectrometry using mixture model Yuan Wang1,2, Xiaobo Zhou1, , Honghui Wang3, King Li1, Lixiu Yao2 and Stephen T.C.
+Wong1 1Center for Biotechnology and Informatics (CBI), The Methodist Hospital Research Institute, and Department of Radiology, The Methodist Hospital, Weill Cornell Medical College, Houston, TX 77030, USA, 2School of Electronics, Information and Electrical Engineering, Shanghai Jiao Tong University, China and 3Critical Care Medicine Department, Clinical Center, National Institutes of Health, Bethesda, MD 20892, USA  ABSTRACT Mass spectrometry (MS) has shown great potential in detecting disease-related biomarkers for early diagnosis of stroke.
+To discover potential biomarkers from large volume of noisy MS data, peak detection must be performed ﬁrst.
+This article proposes a novel automatic peak detection method for the stroke MS data.
+In this method, a mixture model is proposed to model the spectrum.
+Bayesian approach is used to estimate parameters of the mixture model, and Markov chain Monte Carlo method is employed to perform Bayesian inference.
+By introducing a reversible jump method, we can automatically estimate the number of peaks in the model.
+Instead of separating peak detection into substeps, the proposed peak detection method can do baseline correction, denoising and peak identiﬁcation simultaneously.
+Therefore, it minimizes the risk of introducing irrecoverable bias and errors from each substep.
+In addition, this peak detection method does not require a manually selected denoising threshold.
+Experimental results on both simulated dataset and stroke MS dataset show that the proposed peak detection method not only has the ability to detect small signal-to-noise ratio peaks, but also greatly reduces false detection rate while maintaining the same sensitivity.
+Contact: XZhou@tmhs.org  1 INTRODUCTION Stroke is a type of cardiovascular disease which occurs when a blood vessel that carries oxygen and nutrients to the brain is either blocked by a clot (ischemia stroke) or bursts (hemorrhagic stroke).
+It is the third leading cause of death in the United States.
+About 700 000 Americans each year suffer a new or recurrent stroke.
+Numerous studies have shown that early detection of stroke increases treatment options and improves survival rates.
+Novel biomarkers of stroke can be discovered by comparing the differences in protein expression proﬁles between serum or tissue extract samples from stroke patients and normal is increasingly used to detect disease-related biomarkers from human plasma or serum for early diagnosis, prognosis and monitoring of disease progression or response to treatment (Issaq et al., 2002  Vorderwulbecke, et al., 2005).
+In surface-enhanced laser desorption and ionization (SELDI  Malyarenko et al., 2005), a biological sample is bound to a pre-coated surface on ProteinChip.
+The coating enables the ProteinChip surface to bind a particular class of proteins    individuals.
+Mass spectrometry (MS)  To whom correspondence should be addressed.
+based on their chemical properties.
+Some proteins in the sample bind to the surface, while others are removed by washing.
+After that, the samples are analyzed by laser desorption/ionization time-of-ﬂight MS to generate mass/charge proﬁles of the applied sample.
+MS data require complex pre-processing techniques before subsequent statistical data mining analyses can be carried out (Dijkstra et al., 2007).
+To extract features from the MS data, the ﬁrst step is peak detection.
+Peak detection is always performed by a series of substeps such as baseline removal, denoising and peak identiﬁcation (Baggerly et al., 2004  Fung and Enderwick, 2002  Yasui et al., 2003).
+Successful baseline removal is very challenging in MS data pre-processing.
+Once the baseline removal step is performed, it is impossible to recover from the false baseline correction result in the subsequent processing (Baggerly et al., 2004).
+Similarly, denoising step also leads to a one-way result in the whole preprocessing process.
+Once a peak is misjudged as noise and removed by denoising algorithm, it will never be found by the subsequent peak identiﬁcation.
+Therefore, a good MS data preprocessing method should be able to conduct baseline removal, denoising and peak detection in the same time to avoid generating errors and bias from each individual substep.
+Another critical step in peak detection is to successfully remove noise from spectrum.
+Normally, denoising is performed based on some denoising threshold (Coombes et al., 2005b  Tan et al., 2006).
+If the threshold is too high, some small peaks are erased along together with noise.
+And if the threshold is too low, noise may be still left in the denoised spectrum which is detected as false positive peaks in peak detection results.
+Unfortunately, there is no effective method to automatically choose a proper threshold for different spectra currently.
+If the denoising threshold is inappropriate, ﬁnal peak detection result may either have a high false positive rate or a low sensitivity.
+In order to avoid such a problem, a non- parameter denoising method should be developed in pre-processing MS data.
+There are several existing methods for peak detection.
+Some of them use deterministic method (Fung and Enderwick, 2002  Yasui et al., 2003) to locate peak region and identify peak from background noise.
+Some use wavelet-based transform such as using discrete wavelet transform to denoising the spectrum (Coombes et al., 2005b  Morris et al., 2005  Randolph and Yasui, 2006) or continuous wavelet-based pattern matching to detect peaks (Du et al., 2006).
+Also there are statistical and model-based methods (Dijkstra et al., 2006  Wang et al., 2006  Noy and Fasulo 2007).
+However, most of these peak detection algorithms identify    2008 The Author(s) This is an Open Access article distributed under the terms of the Creative Commons Attribution Non-Commercial License (http://creativecommons.org/licenses/by-nc/2.0/uk/) which permits unrestricted non-commercial use, distribution, and reproduction in any medium, provided the original work is properly cited.
+[15:22 26/6/03 Bioinformatics-btn143.tex]  Page: i407  i407 i413   Y.Wang et al.
+peaks based only on the peak amplitude, ignoring the additional information such as shape of the peaks.
+Additionally, all of these algorithms perform baseline removal, denoising and peak detection at different stages, which greatly increases the risk of introducing errors from each individual stage.
+And also some of these algorithms have the problem of having a large amount of false positives in their peak detection results because the manually assigned denoising parameter or signal-to-noise ratio (SNR) threshold is hard to optimize for different spectra.
+Here we introduce a novel mixture model for stroke MS spectrum data.
+Based on this model, we designed a non-parameter Bayesian approach to estimate parameters in the model.
+We believe that the peak detection result is inherently associated with different parameters in this model (peak signal parameters, baseline signal parameters and noise parameters).
+These parameters are estimated automatically from a reversible jump Markov chain Monte Carlo (MCMC) algorithm simultaneously.
+Therefore, our peak detection method not only eliminates the risk of introducing errors and bias from baseline correction and noise smoothing but also be able to perform non-parametric denoising to the raw spectrum data.
+Experimental results show that our method can clearly identify small intensity peaks from relatively large variance of noise while maintaining a low false detection rate (FDR).
+2 METHODS 2.1 Mixture model for SELDI spectrum A SELDI MS spectrum data contains a number of recorded mass to charge ratio (m/z) values and observed corresponding intensities.
+There are three parts of information in a normalized spectrum: peak information generated by biological sample, baseline information from matrix background noise (detected matrix molecules and fragments, dark current and detected air molecules) and random white noise from the MS instrument system.
+We model the whole MS spectrum as:  yi = K(cid:1)  k=1  (cid:2)  (cid:2)  (cid:3)+g  xi  (cid:3)+ni  fk  xi  i=1,2,...,N ,  (1)  where xi is the i-th m/z in the spectrum and yi is its corresponding output intensity.
+N is the length of spectrum with a total number of K peaks.
+f (xi) and g(xi) represent the peak information and baseline information of the spectrum, respectively.
+ni   N(0,σ 2) is the Gaussian random noise with zero-mean and standard deviation σ .
+fk(xi) is the k-th peak signal (Fig.
+1).
+Here, we use radial basis functions to model f (xi) and use a polynomial  Fig.
+1.
+Red curve indicates baseline of the spectrum g(xi), green lines indicate peak functions fk(xi), k=1,2,...,K. Each peak is determined by its location µk, amplitude Ak and shape ρk.
+i408  function for g(xi):  fk  (cid:2) (cid:3) g(xi)(cid:1) P(cid:1)  (cid:1) Ake  xi  p=0   ρk (xi µk )2  i=1,2,...,N   k=1,2,...,K,  Bpxp i  i=1,2,...,N ,  (2)  (3)  where µk denotes the location of the k-th peak, Ak denotes its amplitude and ρk determines shape of the peak.
+Bp is the coefﬁcients of polynomial function g(xi).
+Integrating Equation (2) and (3) into Equation (1), the whole SELDI MS spectrum can be interpreted as:  +ni  Bpxp i  i=1,2,...,N .
+(4)   ρk (xi µk )2 + P(cid:1)  yi = K(cid:1) k=1 Given  xi N i=1 and  yi N i=1,  p=0  Ake  the peak detection task of SELDI MS spectrum is to detect the number of peaks K and all the peak locations µk in the spectrum.
+Denote y(cid:1)[ y1 y2 ... yN ]T , n(cid:1)[ n1 n2 ... nN ]T , then Equation (4) can be rewritten as:  where α=[ B0 B1 ... BP  y=D(µ1:K ,ρ1:K ,x1:N )α1:K+2+n,  A1 ... AK ]T and 1 f (x1,µ1,ρ1)     f (x1,µK ,ρK ) 2 f (x2,µ1,ρ1)     f (x2,µK ,ρK )  1 x1     xP 1 x2     xP  .
+.
+.
+.
+.
+.
+.
+.
+.
+D=  (5)           .
+1 xN     xP  N f (xN ,µ1,ρ1)     f (xN ,µK ,ρK )  (cid:10)  α,µ,ρ,σ 2  the number K and the parameters θ K (cid:1)  Based on the SELDI MS spectrum data  (xi,yi) N i=1, we estimate number of peaks K and the corresponding parameters α1:K+2, µ1:K (cid:1) µ1,µ2,...,µK , ρ1:K (cid:1) ρ1,ρ2,...,ρK  and σ 2.
+(cid:11) 2.2 Bayesian approach and reversible jump MCMC We assume that are unknown.
+Given a set of observations O(cid:1) x1,...,xN ,y1,...,yN , our (cid:10) (cid:11) is to estimate K and θ K .
+Accurately estimating ρ1:K is not an goal = easy job.
+So we ﬁrst assume ρ1:K as a constant and θ K becomes θ(cid:3) α,µ,σ 2 .
+Following Andrieu et al.
+(2001), Bayesian inference is used K .
+Hyper-parameter  ,δ2  to estimate the unknown parameters K and θ(cid:3) + are introduced and presumed to be independent of each other.
+We R assume σ 2 have a prior distribution of 1/σ 2. δ2 follows inverse-gamma distribution, i.e.
+δ2 IG(2,10), and   follows gamma distribution, i.e.
+Ga(1/2,0).
+According to Bayes theorem, the joint posterior distribution can be formalized as:  p(K,α,µ,σ 2 x,y)  p(y K,α,µ,σ 2,x)p(K,α,µ,σ 2),  (6) where, p(y K,α,µ,σ 2,x) is the likelihood and p(K,α,µ,σ 2) is the prior distribution.
+The likelihood for mixture model (4) is:  K  (cid:12)  p(y K,θ(cid:3)  K ,x)=(2π σ 2)   N /2 exp  2σ 2 (y D α)   1  (cid:3)(cid:2)  (cid:3)(cid:13) y D α  The prior distribution p(K,α,µ,σ 2) is given by:  p(K,α,µ,σ 2)= p(α K,µ,σ 2)p(µ K,σ 2)p(K σ 2)p(σ 2)  = p(α K,σ 2)p(µ K)p(σ 2).
+.
+(7)  (8)  Given likelihood and prior distribution, the joint posterior distribution (6)  can be obtained as the following expression:  p    (cid:15)  (cid:14) k,α,µ,σ 2, ,δ2 x,y (cid:16) (cid:12)   1 (cid:12) 2σ 2   1 (cid:17)(cid:19) 2σ 2  (cid:18)(cid:18)(cid:18)2π σ 2  (cid:18)(cid:18)(cid:18) 1/2 (cid:12) (cid:13)(cid:16)   N /2 exp  (2π σ 2)  exp          1 σ 2  II (J,µ)  ζ J  (cid:2)  y D α  (cid:3)(cid:3)(cid:2) y D α (cid:13) α(cid:3)  1α (cid:20)  k /k!
+kmax k=0   k /k!
+,  (cid:3)(cid:13)(cid:17)  (9)  [15:22 26/6/03 Bioinformatics-btn143.tex]  Page: i408  i407 i413   it  is difﬁcult  where   1= δ 2D(cid:3)D and II =(k,µ) is the indicator function of the set   [1 if (k,µ)   , 0 otherwise].
+One might select the model order K by arg max p(K x,y) with K   0,1,...,Kmax  and also can perform parameter estimation by computing the conditional expectation E(θ K x,y) based on (10) shown subsequently.
+However, to obtain these quantities analytically, as it involves integrals of high-dimension of non-linear functions.
+Therefore, the reversible jump MCMC (rjMCMC) method was proposed to perform necessary Bayesian computation.
+The principle of MCMC is to draw random samples from an ergodic Markov chain (K (i),θ(cid:3)(i) k )i N whose equilibrium distribution is the target posterior distribution.
+The initial value of K is Kmax.
+The Markov chain generates T (cid:6)1 sampling points, asymptotically convergent to the posterior distribution.
+We discard the points resulted from the initial steps, which is so-called in-birth period, and keep the last P steps for the computation.
+Here we set T = 2000 and P = 1000.
+Given a test sample xN+1, yN+1 can be then evaluated by: ˆyN+1= ˆE (cid:15) = 1 P  (cid:2) yN+1 x1,x2,...,xN+1,y1,y2,...,yN P(cid:1) i=1  α K (i),θ (i),x1,x2,...,xN ,y1,y2,...,yN  µ(i),xN+1  (cid:14)  (cid:15)  (cid:14)  (cid:3)  D  E  .
+(10)  The reversible jump MCMC sampler is able to sample directly from the joint distribution and jump between subspaces of different dimensions.
+A general state space Metropolis Hasting (MH) algorithm is performed, in which candidates are proposed according to a set of proposal distributions.
+The candidates are randomly accepted according to an acceptance ratio that ensures reversibility and thus invariance of the Markov chain with respect to the posterior distribution.
+A big advantage of  reversible jump MCMC algorithm is that  it can change the dimension of search space by performing randomly birth/death/split/merge moves (Green, 1995).
+In our case, the number of mixtures (corresponding to the number of peaks) is unknown.
+By using rjMCMC sampler, it can be automatically determined by maximizing p(K x,y).
+The convergence of this rjMCMC approach has been proved in Andrieu et al.
+(2001).
+Although this method is computationally intensive, it provides a robust estimation of unknown true peak signal from noised data.
+Therefore, it could be able to detect peak accurately from MS data even with strong noise.
+2.3 Incorporating estimation of ρ Note that in the previous rjMCMC algorithm by Andrieu et al.
+(2001), the parameter ρ is treated as constant.
+However, it could cause a lot of false positives and false negatives in the peak detection result if we set the width of peak as a constant.
+In this study, instead of using a general ρ to describe shape character for all peaks, we estimate ρK for each individual peak.
+Once K and µ1:K is estimated, the number of peaks and their locations in the spectrum are known.
+Given K, µ, α, σ 2, x, y, the conditional posterior density function g(ρj) is given by: g(ρj)(cid:1) p(ρj K,α,µ,σ 2,x,y) µj+hj(cid:1)  (σ 2) i=µj hj     yi  K(cid:1)     p(ρj).
+1  (cid:3)2   P(cid:1)   hj exp       Bpxp i  xi µj  p=0   ρj  j=1  2σ 2  Aje  (cid:2)  (11)  Peak detection method for SELDI MS  The probability of accepting the sample is calculated by:  (cid:15) (cid:14) (cid:14) ρ  q ρt 1  j  (cid:15)  (cid:14) (cid:15) ρt 1 q(ρ  j )  j  j  r= g g  .
+(12)  After the number K and other parameters (µ1:K ,ρ1:K ,α1:K+2,σ 2) are obtained, we can get all peak information (peak numbers, peak locations and peak shapes) in the spectrum.
+Actually, real peak shape can be of different varieties.
+Using only one ﬁxed model [Equation (2)] is insufﬁcient to represent all kinds of possible peak signals.
+However, a combination of mixtures could represent all the different kinds of peaks.
+Dijkstra et al.
+(2006) claimed that all these small mixtures indicated real peaks.
+In this study, we still use traditional peak deﬁnition by searching the local maximum on  ρk (xi µk )2 .
+And peak intensity is deﬁned as estimated peak signal the distance between peak signal intensity and baseline information intensity at the local maximum.
+(cid:25) K k=1 Ake  Initialization  2.4 In processing the stroke SELDI MS data, we ﬁrst use some regular denoising techniques (for example, the wavelet transform-based denoising) to remove noise from the spectra and get roughly peak information (approximate peak numbers and approximate peak width) in the spectra.
+Then based on the 1 to 3000 and ρmax to estimation, we set peak shape sampling region ρmin 20 000.
+Detail sample region hj is set to 1% of corresponding m/z of µj, j=1,2,...,K (Normally, peak width is small in low m/z region and large in high m/z region).
+Kmax is set to twice the approximate peak numbers from previous estimation.
+µ1,µ2,...,µKmax are initialized from a uniform distribution between [min(x1:N ) max(x1:N )].
+Implementation  2.5 Due to computation limitation, it is very slow to estimate all the peak information from a whole spectrum by proposed algorithm.
+One possible solution is to ﬁrst focus on a small segment of the spectrum.
+In fact, our experiment result (Section 3.2) shows that noise is not evenly distributed within the whole spectrum.
+Noise variance tends to be high (a large σ ) in low m/z region and low (a small σ ) in high m/z region.
+Instead of performing denoising on the whole spectrum, region-based denoising may smooth the data more precisely.
+The whole algorithm of detecting peaks from raw SELDI MS data based on the mixture model of Equation (5) can be described in the following steps:  (1) Divide the whole spectrum into segments.2 (2) Initialization: i = 0  set K (0) as Kmax  sample (µ(0) 1:K (3) while i   T 3  their prior distributions.
+,ρ(0)  1:K ) according to  (cid:127) Random a decision and make move (birth/death/merge/split/ i.e.
+perform the 1:K are updated from the move  update/random walk) based on the decision, reversible jump process.
+K (i),µ(i) according to Equation (9).
+(cid:127) For each µ(i) j  update ρ(i)  , from its neighborhood [µ(i) j j using Equations (11) and (12).
+h(i)  j  +h(i)  j ], and  , µ(i) j  The prior distribution of ρj is set to be a uniform distribution between [ρmin ρmax].
+hj is set to be a very small distance, so the peak with location µj is the dominate contributor to the signal observed in [µj hj,µj+hj].
+In the t-th rjMCMC iteration, after obtaining µj, a new sample ρ  j from a proposal density function q(ρj) is proposed, then the sample s probability with respect to the proposal density and the targeting density g(ρj) are calculated.
+The proposal density function q(ρj) is given similarly as ρj s prior distribution.
+1 In our program, we ﬁrst convert m/z of the process spectrum to [0 1], so the random sampler can work at a proper data range.
+ρ is related to this transformation.
+2 The memory requirement of the rjMCMC algorithm is K N 2.
+K is the number of Gaussian mixtures (peaks) and N is the length of segment.
+3 T is the maximum length of Marko Chain.
+i409  [15:22 26/6/03 Bioinformatics-btn143.tex]  Page: i409  i407 i413   Y.Wang et al.
+1:K+2  (cid:127) Update α(i) (cid:127) i  i +1.
+end  ,σ 2(i) according to Equation (9).
+3 RESULTS We ﬁrst use simulated spectra generated from MS spectrum model in Equation (4) to test the performance of the proposed peak detection method in Section 2.
+We also use simulated spectra generated from Coombes et al.
+(2005a) to compare the performance between the wavelet-based method and our proposed method.
+Then we apply our peak detection method on stroke SELDI MS data.
+3.1 For simulation In order to test the performance of our peak detection method, we ﬁrst use the simulated spectra.
+The spectra were generated according to the SELDI data model described in Equation (4) and we adjusted the parameters properly to make the simulated data have the same characteristics as stoke SELDI MS data received from the experiment.
+Stroke data has several characteristics: peaks in the low m/z region tended to have a small peak width which looked sharp and peaks in the high m/z region tended to have a large peak width which looked broad  sometimes peaks were too close and together they combined to a wider peak  noise intensity was decreased while m/z was increasing and peak intensity generally followed a decreasing trend from low m/z to high m/z (Vestal and Juhasz, 1998).
+Based on the characteristics above, we generated two datasets of simulated spectrum.
+Each dataset had a total number of 100 simulated spectra.
+The real peak number was 35 in dataset A and was 50 in simulated dataset B.
+Peak location µ was randomly generated from 2000 to 12 000 Daltons (Da), with exponentially decreased probability of appearance.
+Peak area parameter ρ was restricted to [2000 20 000] in dataset A and [5000 30 000] in dataset B, both with an exponentially decreased tendency.
+Zero mean Gaussian noise was generated with a variance from 0.4 to 0.08 in dataset A and from 0.6 to 0.1 in dataset B.
+Peak intensity was randomly generated from 0.5 to 30, with 80% probability in [0.5 5] and 20% in [5 30].
+Figure 2 is one of the spectra from simulated dataset A.
+It is obvious that the wavelet-based peak detection method has many false detection results with confusing large noise into peaks, and it misses some small peaks like the one with 3913, 3962 and 7661 Da.
+In contrast, our peak detection method successfully detects all correct peaks with only one false result.
+And peak intensity is more precise as compared to the wavelet-based method.
+Detail of peak detection result from our proposed method and undecimated discrete wavelet transform (UDWT) method are shown in Table 1.
+Simulated dataset A has fewer peaks than dataset B, so the peak overlapping chance is relatively higher in the second dataset.
+Also, noise variance is higher in the second dataset, so it makes peaks in simulated dataset B more difﬁcult to be detected.
+From Table 1, we can see that both peak detection methods have a good sensitivity in the simulated dataset A.
+The performance of wavelet-based peak detection method highly relies on the cutoff wavelet coefﬁcient threshold, and it is very hard to balance between the sensitivity and FDR.
+Often, in order to be more sensitive, wavelet-based method has to suffer a large number of false positives in their detection result.
+However, our proposed method is able to achieve a good sensitivity while keeping the false detection at a very low rate.
+In dataset B, due  i410  (a)  (b)  (c)  Fig.
+2.
+(a) Raw spectrum.
+(b) Peak detection result by wavelet-based method (blue star) and our proposed method (red circle).
+Real peak is shown in blue spike.
+(c) Close look about the denoised spectrum by wavelet-based (green) and our proposed method (red), with circle point out detected peaks.
+Table 1.
+Result on simulated data  SNR  Sensitivity  FDR  Dataset A  Proposed method Proposed method UDWT (low threshold) UDWT (low threshold) UDWT (high threshold) UDWT (high threshold)  Dataset B  Proposed method Proposed method UDWT (low threshold) UDWT (low threshold) UDWT (high threshold) UDWT (high threshold)  0.3 0.6 1.5 3 1.5 3  0.5 1 4 10 4 10  0.909 0.894 0.868 0.805 0.822 0.782  0.881 0.839 0.731 0.693 0.689 0.659  0.047 0.028 0.262 0.145 0.129 0.077  0.079 0.064 0.542 0.375 0.154 0.120  Low threshold in UDWT is set to 4 and high threshold is set to 10.  to presence of strong noise, our peak detection method still maintains a good sensitivity and a relatively low FDR.
+Yet the performance of wavelet-based method drops greatly with lower sensitivity and signiﬁcantly increasing of FDR.
+Although we set the SNR much larger, FDR of the result is still beyond acceptable limits.
+We also test our proposed method on the simulated spectra from Coombes et al.
+(2005a).
+Figure 3 is a close look of one simulated spectrum with m/z from 8000 to 12 000 Da.
+Figure 3a and b are denoising results from the wavelet-based method with low wavelet coefﬁcient thresholds and high wavelet coefﬁcient thresholds, respectively.
+Clearly, a small threshold allows wavelet denoising to preserve more details from the raw spectrum, but it keeps many low frequency noises in the denoised result, which will turn into false-positive peaks in detection.
+Using a high threshold in wavelet denoising suppresses low frequency noise but it also suppresses peaks with small intensity that leads to a low sensitivity.
+Figure 3c is the denoising result from our proposed method.
+While maintaining the ability to detect small peaks, our algorithm successfully removes all kinds of noise.
+It can also be noticed that  [15:22 26/6/03 Bioinformatics-btn143.tex]  Page: i410  i407 i413   (a)  y t i s n e t n I  3  2  1  0 0.8  (b)  y t i s n e t n I  3  2  1  0 0.8  (c)  y t i s n e t n I  3  2  1  0 0.8  0.85  0.9  0.95  0.85  0.9  0.95  0.85  0.9  0.95  1 M/Z  1 M/Z  1 M/Z  1.05  1.1  1.15  1.05  1.1  1.15  1.05  1.1  1.15  1.2    104  1.2    104  1.2    104  Fig.
+3.
+(a) Result by the wavelet-based peak detection method with low threshold.
+(b) Result by the wavelet-based peak detection method with high threshold.
+(c) Result by our proposed method.
+100  y t i v i t i s n e S  10 1  10 2  Peak detection method for SELDI MS  Proposed Wavelet low threshold Wavelet high threshold  10 1 FDR  100  Fig.
+5.
+ROC curve on simulated dataset.
+Axis is log-transformed.
+(a)  3  y t i s n e n  t  I  2.5  2  1.5  1  0.5  (b)  2  1.5  1  0.5  (c)  1.5  1  0.5  0 8000  8100  8200  8300  0 9150  9200  9250  9300  0 9600  9650  9700  9750  9800  M/Z  (a)  (b)  (d)  3  y t i s n e n  t  I  2.5  2  1.5  1  0.5  (e)  2  1.5  1  0.5  (f)  1.5  1  0.5  0 8000  8100  8200  8300  0 9150  9200  9250  9300  M/Z  0 9600  9650  9700  9750  9800  Fig.
+4.
+(a c) Result by the wavelet-based peak detection method.
+Raw spectrum is shown in blue.
+Denoised spectrum is shown in red.
+(d f) Result by our proposed method.
+by using a hard threshold cutoff in the wavelet-based denoising, denoised peak signal tends to have a lower intensity than true peak signal.
+In contrast, by well modeling the MS spectrum, true peak shape and intensity are well preserved after denoising.
+A detail comparison of the denoising result from both wavelet-based method and our proposed method is shown in Figure 4.
+We can see that although being able to detect small peak signals, wavelet method also keep much high frequency noise in the denoised signal.
+Based on the simulation results, we can draw a receiver operating characteristic (ROC) curve of sensitivity versus FDR.
+From the ROC curve (Fig.
+5) we can see that both the wavelet-based method using a low threshold and our method could achieve a maximum sensitivity of nearly 95%, i.e.
+both methods have the potential ability to detect nearly all peaks.
+Because relatively small peaks will be smoothed in denoising, the wavelet-based method using a high threshold can only reach a maximum sensitivity of  80%, which means it could only detect 80% of the peaks in simulated spectra.
+We can also notice that by using an integrated peak detection method (performing baseline estimation, denoising and peak identiﬁcation together)  our algorithm can greatly reduce FDR while maintaining the same sensitivity.
+3.2 For stroke data We used high-throughput SELDI technique to screen 48 stroke patients and 32 healthy control patients to discover any potential  Fig.
+6.
+(a) Raw blank spectrum (blue) and baseline information estimated by our proposed peak identiﬁcation method (red).
+(b) Estimated noise variance.
+new biomarkers for the diagnosis of ischemic stroke.
+To increase the coverage of proteins in SELDI protein proﬁles, the blood samples were fractionated with HyperD Q (anion ion exchange) into six fractions.
+The protein proﬁles of fractions 1, 3, 4, 5 and 6 were acquired with two SELDI Chips: IMAC and CM10.
+One 96-well anion exchange resin plate was used to fractionate samples into six discrete fractions (pH 9 + ﬂow through, pH 7, pH 5, pH 4, pH 3 and organic wash) as previously described by Koopmann et al.
+(2004).
+Fractionation has been shown to greatly increase the number of proteins that can be resolved.
+ProteinChip arrays were analyzed utilizing a ProteinChip Reader, model PBSIIc (Ciphergen Biosystems Inc., Fremont, CA, USA).
+Protein spectra were externally calibrated using the All-in-One Protein Standard II (Ciphergen Biosystems Inc.) consisting of seven calibrants between 7 and 147 kDa.
+Data was collected between 0 and 200 kDa with the region between 2 and 20 kDa optimized.
+First we use blank samples without protein sample to test the ability of our algorithm to do baseline estimation and denoising.
+Figure 6 is the spectrum using ProteinChip CM10 washed by the ﬁrst fraction method.
+It can be seen that MS data  2000 Da is highly contaminated by irregular chemical noise and other noise from the system.
+So in our experiment, we only use data  2000 Da and discard the data at  2000 Da.
+Red line is the baseline information estimated by our method.
+Noise variance is shown below.
+It is clear that noise is not evenly distributed in the whole spectrum.
+Noise variance gradually decreases as m/z is increased.
+So denoising based on the whole spectrum is hardly able to correctly balance the false alarm result and low sensitivity.
+Therefore, subregion-based  i411  [15:22 26/6/03 Bioinformatics-btn143.tex]  Page: i411  i407 i413   Y.Wang et al.
+denoising that estimates noise more accurately is clearly of greater advantage.
+Using a blank spectrum, we can also ﬁnd that low-level polynomials ( 3) are enough to ﬁt baseline information.
+The ultimate goal of biomarker discovery is to identify the locations of peaks where peak intensities have strong contrast between individuals from the control group and the disease group.
+Unfortunately, we do not have the prior information on whether or not the detected peak is a real peak generated by the biological sample.
+In order to compare the performance of our peak detection method with others, we consider both possible peaks and high conﬁdence peaks manually selected by expert from the raw spectra as standard peaks for the evaluation.
+In the stroke MS data from the ﬁrst fractionated samples proﬁled on CM10 ProteinChip arrays, we identiﬁed total of 32 high-conﬁdence peaks and 198 possible peaks from 2000 to 100 000 Da in a total number of 80 spectra.
+Since the major task of an automatic peak detection method is to locate all high conﬁdent peaks and possible peaks in the spectrum while not introducing false results, we compared the FDR between our proposed method and the wavelet-based peak detection method at each different sensitivity level.
+Sensitivity of high conﬁdence peaks varied from 80% to 100% which stands for three conditions where 80/90/100% of manually identiﬁed high conﬁdence peaks are correctly identiﬁed by peak detection method.
+We also studied another three conditions where a peak detection method could identify 70/80/90% of manually identiﬁed possible peak locations.
+FDR is calculated by the proportion of false- positive results and total positive results.
+From Table 2, we can see that when identifying high conﬁdence peaks, both the wavelet- based and our proposed peak detection method have reasonable results if they only used to recognize 80% of high conﬁdence peaks, and both methods will tend to more false-positive results as criteria becomes more strict.
+When it is required to detect 100% of high conﬁdence peaks, wavelet-based method result in 22% FDR, which means 22% of their ﬁnal results were false results  while in the same circumstance  only 14% of the results from our proposed method were incorrect.
+According to previous experiences of biomarker identiﬁcation, high conﬁdence peaks are often insufﬁcient to differentiate a disease group from the control group.
+Peaks related to potential biomarkers are usually found in possible peak locations.
+When it is required to detect 90% of possible peaks from raw spectrum data, the wavelet-based method will result in 65% false positives, which suggests that each time wavelet-based method identiﬁes a correct peak, it will produce approximately two false alarm results (65%/(1 65%) 2).
+All of these false-positive results will put a huge burden on the following classiﬁers.
+By using an integrated processing and robust denoising techniques, our proposed peak detection method could greatly reduce the FDR while maintaining the same sensitivity.
+Figure 7 presents a close view of aligned spectra from control group with m/z range from 3300 to 4200 Da.
+In this region, some obvious peaks together with some irregularly appearing peaks are highly contaminated by noise.
+In order to ﬁnd reproducible peaks, we use the wavelet-based peak detection method and our proposed method to process the raw spectra and estimate the probability of whether a peak appears in each 5 Da.
+From the ﬁgure we can see that our proposed method works more effectively than wavelet-based method.
+The proposed method could clearly ﬁnd out the locations of highly reproducible peaks while suppressing the interference from noise.
+i412  Table 2.
+FDR on stroke data  Method  High conﬁdent peaks  Possible peaks  80%  90%  100% 70%  80%  90%  Wavelet-based method 4% Proposed method 0%  16% 9%  22% 39% 14% 19%  48% 27%  65% 38%  Comparison of FDR both from the wavelet-based and our proposed method at ﬁxed sensitivity.
+There are 32 high conﬁdent peaks and 198 possible peaks from 2000 to 10 000 Da in a total number of 80 spectra.
+(a)  (b)  Fig.
+7.
+(a) Raw MS data with simple baseline correction and alignment for better viewing.
+There are 32 spectra from control group.
+Each spectrum is from different person in control group.
+(b) Peak reproducibility estimation by the wavelet-based peak detection method (blue) and our proposed method (green) in this article.
+Figure 8 is a 3D plot of 48 spectra from the disease group with a m/z range from 7300 to 8000 Da.
+The spectra were already processed with simple baseline removal and alignment for better viewing.
+Manually, we identiﬁed ﬁve possible peak locations in this region (7345, 7472, 7650, 7773 and 7858 Da).
+Peak detection results both from the wavelet-based method and our proposed method are shown under the spectra.
+The wavelet denoising threshold is 10.
+SNR is set at 8 for wavelet based method and 4 for our proposed method.
+From the results, we can see that peak detection results by our method are highly consistent through all spectra.
+All possible peaks have been successfully detected with only a small number of false-positive peaks in the ﬁnal result.
+Yet, peak detection results from wavelet- based method are more  noisy .
+For small intensity peaks as located in 7345 and 7472 Da, real peaks are more likely smoothed by wavelet denoising, whereas for small intensity peaks as located in 7650, 7773 and 7858 Da, some large noise are still left in the denoised spectra and become false positive in the ﬁnal detection result.
+4 CONCLUSION Accurate peak detection from SELDI MS spectra is the most crucial part in SELDI-based biomarker identiﬁcation.
+By proposing a novel mixture model, we can interpret the spectrum data more appropriately.
+We use a Bayesian approach to estimate parameters from the proposed mixture model, and use MCMC to perform Bayesian inference.
+By introducing a reversible jump method, we can automatically estimate the number of mixtures in the model.
+Compared to previous method, our method does not need to separate peak detection into substeps  therefore, minimizing the  [15:22 26/6/03 Bioinformatics-btn143.tex]  Page: i412  i407 i413   (a)  (b)     .
+o N m u r t c e p S     .
+o N m u r t c e p S  48 45 41 37 33 29 25 21 17 13 9 5 1 7300  48 45 41 37 33 29 25 21 17 13 9 5 1 7300  7400  7500  7600  7700  7800  7900  8000  M/Z  7400  7500  7600  7700  7800  7900  8000  M/Z  Fig.
+8.
+(a) Raw data with simple baseline removal and alignment for better viewing.
+There are 48 spectra from disease group.
+Each spectrum is from a different person in the disease group.
+X-axis denotes m/z for each spectrum, and Z-axis denotes intensity.
+Y-axis denotes spectrum index.
+(b) Peak detection result by the wavelet-based method (blue) and our method (red).
+risk of introducing errors while processing.
+Moreover, instead of requiring a manually selected denoising threshold, our method can automatically differentiate peak signal and noise signal without a preset parameter.
+Experiment results both on simulated spectra and stroke dataset show that our proposed peak detection method can greatly reduce FDR at the same sensitivity level.
+ACKNOWLEDGEMENTS The authors would like to acknowledge the excellent collaboration with their collaborators in NIH.
+Funding: X. Zhou would like to thank the support from the Methodist Hospital Research Institute Scholarship Award.
+Conﬂict of Interest: none declared.
+Peak detection method for SELDI MS  REFERENCES Aebersold,R.
+and Mann,M.
+(2003) Mass spectrometry-based proteomics.
+Nature, 422,  198 207.
+Andrieu,C.
+et al.
+(2001) Robust full Bayesian learning for radial basis networks.
+Neural  Comput., 13, 2359 2407.
+Baggerly,K.
+et al.
+(2003) A comprehensive approach to the analysis of matrix assisted laser desorption/ionization-time of ﬂight proteomics spectra from serum samples.
+Proteomics, 3, 1667 1672.
+Baggerly,K.A.
+et al.
+(2004) Reproducibility of SELDI-TOF protein patterns in serum:  comparing data sets from different experiments.
+Bioinformatics, 20, 777 785.
+Coombes,K.R.
+et al.
+(2005a) Understanding the characteristics of mass spectrometry  data through the use of simulation.
+Cancer Inform., 1, 41 52.
+Coombes,K.R.
+et al.
+(2005b) Improved peak detection and quantiﬁcation of mass spectrometry data acquired from surface-enhanced laser desorption and ionization by denoising spectra with the undecimated discrete wavelet transform.
+Proteomics, 5, 4107 4117.
+Dijkstra,M.
+et al.
+(2006) Peak quantiﬁcation in surface-enhanced laser desorption/  ionization by using mixture models.
+Proteomics, 6, 5106 5116.
+Dijkstra,M.
+et al.
+(2007) SELDI-TOF mass spectra: a view on sources of variation.
+J. Chromatogr.
+B, 847, 12 23.
+Du,P.
+et al.
+(2006) Improved peak detection in mass spectrum by incorporating transform-based pattern matching.
+Bioinformatics, 22,  continuous wavelet 2059 2065.
+Fung,E.T.
+and Enderwick,C.
+(2002) ProteinChip clinical proteomics: computational  challenges and solutions.
+BioTechniques, 81(Suppl.
+34), 40 41.
+Green,P.J.
+(1995) Reversible jump Markov chain Monte Carlo computation and  Bayesian model determination.
+Biometrika, 82, 711 732.
+Hilario,M.
+et al.
+(2006) Processing and classiﬁcation of protein mass spectra.
+Mass  Spectrom.
+Rev., 25, 409 449.
+Issaq,H.J.
+et al.
+(2002) The SELDI-TOF MS approach to proteomics: protein proﬁling  and biomarker identiﬁcation.
+Biochem.
+Biophys.
+Res.
+Commun., 292, 587 592.
+Koopmann,J.
+et al.
+(2004) Serum diagnosis of pancreatic adenocarcinoma using surface- enhanced laser desorption and ionization mass spectrometry.
+Clin.
+Cancer Res., 10, 860 868.
+Malyarenko,D.I.
+et al.
+(2005) Enhancement of sensitivity and resolution of surface- enhanced laser desorption/ionization time-of-ﬂight mass spectrometric records for serum peptides using time series analysis techniques.
+Clin.
+Chem., 51, 65 74.
+Morris,J.
+et al.
+(2005) Feature extraction and quantiﬁcation for mass spectrometry in biomedical applications using the mean spectrum.
+Bioinformatics, 21, 1764 1775.
+Noy,K.
+and Fasulo,D.
+(2007) Improved model-based, platform-independent feature  extraction for mass spectrometry.
+Bioinformatics, 23, 2528 2535.
+Randolph,T.W.
+and Yasui,Y.
+(2006) Multiscale processing of mass spectrometry data.
+Biometrics, 62, 589 597.
+Sorace,J.M.
+and Zhan,M.
+(2003) A data review and re-assessment of ovarian cancer  serum proteomic proﬁling.
+BMC Bioinform., 4, 24.
+Tan,C.S.
+et al.
+(2006) Finding regions of signiﬁcance in SELDI measurements for  identifying protein biomarkers.
+Bioinformatics, 22, 1515 1523.
+Vestal,M.
+and Juhasz,P.
+(1998) Resolution and mass accuracy in matrix-assisted laser  desorption ionization- time-of-ﬂight.
+J.
+Am.
+Soc.
+Mass Spectrom., 9, 892 911.
+Vorderwulbecke,S.
+et al.
+(2005) Protein quantiﬁcation by SELDI-TOF-MS-based  ProteinChip system.
+Nat.
+Methods, 2, 393 395.
+Wang,X.
+et al.
+(2006) Feature extraction in the analysis of proteomic mass spectra.
+Proteomics, 6, 2095 2100.
+Yasui,Y.
+et al.
+(2003) An automated peak identiﬁcation/calibration procedure for high- dimensional protein measures from mass spectrometers.
+J. Biomed.
+Biotechnol., 4, 242 248.
+[15:22 26/6/03 Bioinformatics-btn143.tex]  Page: i413  i407 i413  i413

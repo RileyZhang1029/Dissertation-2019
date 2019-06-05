@@ -1,0 +1,304 @@
+BIOINFORMATICS ORIGINAL PAPER Vol.
+25 no.
+8 2009, pages 1012 1018  doi:10.1093/bioinformatics/btn645  Gene expression Predicting the binding preference of transcription factors to individual DNA k-mers Trevis M. Alleyne1, Lourdes Peña-Castillo2, Gwenael Badis2, Shaheynoor Talukder1, Michael F. Berger3,4, Andrew R. Gehrke3, Anthony A. Philippakis3,4,5, Martha L. Bulyk3,4,5,6, Quaid D. Morris1,2 and Timothy R. Hughes1,2,  1Department of Molecular Genetics, 2Banting and Best Department of Medical Research, University of Toronto, Toronto, ON M5S 3E1, Canada, 3Division of Genetics, Department of Medicine, Brigham and Women s Hospital and Harvard Medical School, Boston, MA 02115, 4Committee on Higher Degrees in Biophysics, Harvard University, Cambridge, MA 02138, 5Harvard/MIT Division of Health Sciences and Technology (HST), Harvard Medical School, Boston, MA 02115 and 6Department of Pathology, Brigham and Women s Hospital and Harvard Medical School, Boston, MA 02115, USA Received on August 10, 2008  revised on November 16, 2008  accepted on December 11, 2008 Advance Access publication December 16, 2008 Associate Editor: David Rocke  ABSTRACT Motivation: Recognition of speciﬁc DNA sequences is a central mechanism by which transcription factors (TFs) control gene expression.
+Many TF-binding preferences, however, are unknown or poorly characterized, in part due to the difﬁculty associated with determining their speciﬁcity experimentally, and an incomplete understanding of the mechanisms governing sequence speciﬁcity.
+New techniques that estimate the afﬁnity of TFs to all possible k-mers provide a new opportunity to study DNA protein interaction mechanisms, and may facilitate inference of binding preferences for members of a given TF family when such information is available for other family members.
+Results: We employed a new dataset consisting of the relative preferences of mouse homeodomains for all eight-base DNA sequences in order to ask how well we can predict the binding proﬁles of homeodomains when only their protein sequences are given.
+We evaluated a panel of standard statistical inference techniques, as well as variations of the protein features considered.
+Nearest neighbour among functionally important residues emerged among the most effective methods.
+Our results underscore the complexity of TF DNA recognition, and suggest a rational approach for future analyses of TF families.
+Contact: t.hughes@utorotno.ca Supplementary information: Supplementary data are available at Bioinformatics online.
+1 INTRODUCTION transcription factors (TFs) can be grouped into families Most of shared conserved DNA-binding structures that are usually identiﬁed by common ancestry inferred from sequence homology (Papavassiliou, 1995).
+Despite the sequence conservation within TF families, individual proteins within the same DNA-binding domain (DBD) family can have radically different DNA-binding    To whom correspondence should be addressed.
+Several  high-throughput,  speciﬁcities (Ekker et al., 1994).
+Since the preferred binding sequences within a family can often be changed by mutating only a single DNA-contacting amino acid residue (Damante et al., 1996), it has been proposed that a recognition code might exist in which afﬁnity to each base in a TF binding site is governed by either additive or combinatorial rules that pair the identities of amino acids at DNA-contacting positions with relative preferences for each of the four DNA bases at each position of the binding site.
+Conﬂicting with this view, however, are observations that changes in DBD sequence can alter the arrangement of DNA-contacting residues in ways that seem to be inconsistent with a simple recognition code (Miller et al., 2003  Pabo and Nekludova, 2000).
+In addition, study of the DNA-binding speciﬁcities of TFs typically employs a position weight matrix (PWM) (Stormo, 2000), and the assumptions of PWMs, such as independence of base positions, do not ﬁt all of the biochemical data (Benos et al., 2002).
+unbiased  semi-quantitative methods for the assessment of TF sequence preferences have been developed, including protein-binding microarrays (PBM) (Mukherjee et al., 2004), DNA immunoprecipitation microarrays (DIP-chip) (Liu et al., 2005), and cognate site identiﬁer (CSI) microarrays (Warren et al., 2006).
+The datasets associated with these methods provide an opportunity to examine protein DNA interactions at previously unprecedented resolution and scale.
+Here, we present an evaluation of how well a panel of inference algorithms can predict TF DNA-binding speciﬁcity data derived from PBM experiments, in an effort to gain deeper insight into the mechanisms governing the speciﬁcity of protein DNA interactions, and also to identify a means to project binding preferences to proteins without known binding preferences.
+We focus on the homeodomain family, because it is large and diverse, and the vast majority of homeodomain-containing proteins have only a single homeodomain.
+Homeodomains are also one of the most well-studied DBDs, both structurally and biochemically, such that the DNA-contacting residues are known (Kissinger et al., 1990) and several residues that can alter sequence speciﬁcity have been  and    2008 The Author(s) This is an Open Access article distributed under the terms of the Creative Commons Attribution Non-Commercial License (http://creativecommons.org/licenses/ by-nc/2.0/uk/) which permits unrestricted non-commercial use, distribution, and reproduction in any medium, provided the original work is properly cited.
+[18:05 30/3/2009 Bioinformatics-btn645.tex]  Page: 1012  1012 1018   Table 1.
+List of 75 mouse homeodomains unique at 15 AA positions that contact DNA  Alx3 Bapx1 Barhl1 Barx1 Bsx Cdx1 Cphx Crx Cutl1 Dbx1 Dlx1  Dobox4 Dobox5 Duxl Emx2 En1 Esx1 Evx1 Gsc Gsh2 Hdx Hlx1  Hlxb9 Hmbox1 Hmx1 Hmx2 Homez Hoxa1 Hoxa10 Hoxa13 Hoxa2 Hoxa6 Hoxb13  Hoxc12 Hoxc8 Ipf1 Irx2 Irx3 Isl2 Isx Lbx2 Lhx1 Lhx2 Lhx3  Lhx6 Meis1 Meox1 Msx1 Nkx1-1 Nkx2-2 Nkx6-1 Obox1 Obox6 Og2x Otp  Pax4 Pax6 Pax7 Pbx1 Pitx1 Pknox1 Pou1f1 Pou2f1 Pou4f3 Pou6f1 Rhox11  Rhox6 Six1 Six3 Six4 Tcf1 Tcf2 Tgif1 Tgif2 Tlx2  identiﬁed (Ades and Sauer, 1994  Ekker et al., 1994  Hanes and Brent, 1989).
+We ﬁnd that a nearest neighbour (NN) approach using TF protein sequences is at least as effective as more sophisticated techniques.
+This ﬁnding has implications for the mechanics of DNA-binding, and for future study of TF DNA interactions.
+2 METHODS 2.1 Dataset The Z-score transformed relative signal intensities for 168 homeodomains across all 32 896 8mer DNA sequences were obtained using PBMs (Berger et al., 2008).
+Given that methods that overﬁt the data may give good results in a leave-one-out cross-validation scheme if a high portion of the data has at least one nearly identical example, we reduced the dataset to 75 homeodomains unique at the 15 amino acid positions described as making contact with DNA in the engrailed crystal structure (Table 1).
+A multiple sequence alignment of the 75 homeodomains was obtained by downloading the primary homeodomain family alignment from Pfam-A (Bateman et al., 2004) (Accession number PF00046) and extracting the pertinent sequences.
+From the resulting sequence alignment, three subset sequence alignments were derived for purposes of feature selection: all 57 residues of the Pfam alignment (positions 2 58 of the engrailed homeodomain), 15 residues described by Kissinger et al.
+(1990) as making direct contact with DNA in the engrailed homeodomain crystal structure (positions 3, 5, 6, 25, 31, 44, 46, 47, 48, 50, 51, 53, 54, 55 and 57), and six residues described as determinants of sequence speciﬁcity in the literature (Ekker et al., 1994  Laughon, 1991) (positions 3, 6, 7, 47, 50 and 54).
+2.1.1 Numerical encoding All implementations of the compared methods, except NN, required numerical inputs.
+We converted the 6-, 15- and 57-position sequence alignments to numerical encodings representing amino acid sequences of length l as binary vectors of length l  20 digits, i.e.
+the 20 different amino acids were encoded as orthogonal 20 digit vectors and an amino acid sequence was represented by concatenating the binary vectors corresponding to residues at each position.
+Gaps were encoded as a vector of 20 zeros.
+Insertions were not considered in this analysis.
+2.2 Machine learning algorithms Let x1,x2 ,..., xn be the set of m-residue sequence alignments from the dataset described above, where m = 6, 15 or 57, and for a given 8mer out of the t total exemplar 8mers, let yi be the Z-scores for the i-th protein with respect to that 8mer.
+We deﬁned the problem of predicting homeodomain Z-scores for a particular 8mer as the estimation of the function f : x  R trained using the n data pairs (x1, y1),...,(xn, yn)  χ   R, such that f (xi) is approximately equal to yi and f correctly generalizes to most unseen examples  therefore  Prediction of TF-binding preference  the problem of predicting homeodomain 8mer Z-score proﬁles across all 8mers was deﬁned as predicting all t such functions.
+In this case, x was the set of sequences  A, R, N, D, C, E, Q, G, H, I, L, K, M, F, P, S, T, W, Y, V,   m, where     represents a sequence alignment gap.
+We formalized both deﬁnitions as multiple regression problems in which the xi were considered as n observations on m predictor variables and the yi were considered as n observations on a response variable, and accordingly, compared a number of regression techniques from machine learning and statistics (outlined below) for the purpose of quantitatively modelling the relationships between these variables.
+2.2.1 Nearest Neighbour Assume that x is the length m amino acid sequence alignment of an unseen protein.
+In order to predict the 8mer proﬁle (cid:2) n of of x, our implementation of the NN algorithm calculates a vector (cid:2) ni represents the distance d(xi, x) between distances, where each element protein x and xi (i  1,...,n ).
+We deﬁned the distance between two proteins as the proportion of non-identities across all m positions.
+We also tested distances based on the PAM250 matrix, but the results were inferior (Berger (cid:2) et al., 2008).
+Using n , the algorithm then ﬁnds the NNs of x by computing the set  xi d(xi,x)=min( n ) .
+Finally, for all t 8mers, the algorithm calculates the Z-score of each 8mer as the mean of the Z-scores for that 8mer across all of the NNs.
+(cid:2)  regression We used the R randomForest 2.2.2 Random forests package, which serves as an interface to the original random forests (available at (RF) Fortran code developed by Breiman and Cutler http://www.stat.berkeley.edu/ breiman/RandomForests).
+To predict the 8mer proﬁle of an unseen protein x, we generated t RF, by using the set of n observations on m predictors xi, the response variable y for a given 8mer, and default parameters.
+We then used this collection of RF to predict the Z-scores across all 8mers for the sequence x.
+2.2.3 Support vector regression We used the LIBSVM package developed by Chih-Chung Chang and Chih-Jen Lin (available at http://www.csie.ntu.edu.tw/ cjlin/libsvm/) to construct SVMs for every exemplar 8mer.
+For each 8mer, three SVMs were constructed, each using a different kernel: the linear kernel (SVM_L), (cid:5)(cid:4)  (cid:1)  (cid:5)(cid:2)=(cid:3)  k  x, x  x, x  the polynomial kernel (SVM_P), (cid:1)  k  x, x  (cid:5)(cid:2)=(cid:3)  (cid:5)(cid:4)d ,  x, x  or the radial basis function kernel (SVM_R),  (cid:1)  (cid:5)  (cid:5)(cid:2)=exp   γ  (cid:6)(cid:6) x x  (cid:5)(cid:6)(cid:6) 2  (cid:7)  ,  k  are alignment encodings, and   x, x  x, x where d   N,γ   0, x and x (cid:5) (cid:5)   refers to the inner product.
+All parameters were left at default setting with the following exceptions.
+For SVM_L, we tried all parameter pairs [ε, C] = ε, C 0.1  ε   4.8,2  15   C   23 , where ε is the epsilon-SVM precision parameter, which was varied in steps of 0.8, and C is the SVM error penalty parameter.
+For SVM_P, we tried all parameter pairs [d,C] =  d,C 1  d   6,2  15   C   23 , where d was varied in steps of 1.
+For SVM_R, we tried all parameter pairs [γ ,C] = γ ,C 2  15   C   23 , where γ was varied by a factor of 22.
+In all cases, C was varied by a factor of 22 and the best parameter pair was chosen using 5-fold cross-validation.
+15   γ   23,2  2.2.4 Principal components regression As the encoding strategy that we used produces a much larger number of variables relative to the number of samples (rank deﬁciency) as well as a large number of correlated variables (multicollinearity), both of which are problematic for linear regression, we used principal components regression (PCR) to simultaneously reduce the dimensionality of the encodings and remove the correlation between  1013  [18:05 30/3/2009 Bioinformatics-btn645.tex]  Page: 1013  1012 1018   T.M.Alleyne et al.
+variables.
+PCR was carried out by ﬁrst applying principal components analysis to the encodings.
+The number of principal components retained p was selected using parallel analysis (PA) with 1000 shufﬂes, which is essentially a permutation test that asks whether the N-th principal component explains more of the variance than the N-th principal component would in a permuted version of the same data [reviewed in reference Franklin et al.
+(1995)].
+On the basis of PA, we retained 6, 12 and 19 principal components for the 6-, 15- and 57-position alignments, respectively.
+For each 8mer, we then built a regression model using an approach similar to 5-fold cross-validation, described as follows:  (1) randomly partition the sample set into ﬁve subsamples  (2) retain one subsample as the validation set and aggregate the remaining k = 4 subsamples into a matrix of training data, tij(i  1,...,k , j   1,...,p ) so that the intercept in the regression model will always be estimated by  y (Montgomery and Runger, 2007)   (3) centre and transform the training data into a new set of variables as   xij = tij  tj(cid:8)  Sij  where, Sij =(cid:9) k i=1  (cid:1)  tij  tj  (cid:2)2.
+(4) compute the ordinary least squares coefﬁcients for the transformed training data and calculate the mean squared error (MSE) of the coefﬁcients using the validation set   (5) go back to Step 2 until all subsamples have been used as the validation  set and retain the coefﬁcients with the lowest MSE   (6) repeat Steps 1 5 three times.
+3 RESULTS 3.1 Comparison of linear and non-linear inference  methods  We attempted to learn the Z-score transformed signal intensities for mouse homeodomain DBDs for all 32 896 non-redundant eight- base DNA sequences using PBM experiments (Berger et al., 2008).
+We learned the Z-scores rather than PWMs because Z-scores reﬂect binding afﬁnity (Berger et al., 2006), whereas PWMs often fail to capture detailed binding activity (Benos et al., 2002  Chen et al., 2007) and cannot be aligned with conﬁdence for many homeodomains (Berger et al., 2008), complicating direct comparisons.
+To avoid overﬁtting, we considered a 75- homeodomain subset in which each protein is unique at the 15 amino acid positions described as making contact with DNA in the engrailed crystal structure (Kissinger et al., 1990) (Table 1), as we have previously shown that a perfect match at all 15 amino acids yields data comparable to experimental replicates of a single homeodomain (Berger et al., 2008).
+All original datasets can be downloaded from http://hugheslab.ccbr.utoronto.ca/supplementary- data/proﬁle_prediction/.
+and Supplementary Material  We assessed the performance of a panel of inference algorithms by a leave-one-out cross-validation approach, in which each of the 75 homeodomains was held out from the training set in turn and the remaining proteins were used as training data to predict the Z-score proﬁle of the held-out protein, given its amino acid sequence.
+We used regression to create linear models via PCR and linear kernel support vector regression (SVM_L).
+To create models in which interactions between TF sequence features can be captured, reﬂecting  combinatorial recognition codes  (Damante et al., 1996), we also used support vector regression with a polynomial kernel  1014  (SVM_P), or radial basis function kernel (SVM_R), RF (Breiman, 2001) and a NN approach in which the proﬁle of a held-out protein was predicted as the averaged proﬁles of its nearest (fewest mismatches) sequence neighbour(s) in the training set.
+With the exception of the NN method, amino acid sequences of length l were numerically represented as binary vectors of length l  20 digits, i.e.
+the 20 different amino acids were encoded as orthogonal 20 digit vectors and each protein sequence was represented by concatenating the binary vectors corresponding to residues at each position.
+In each of these analyses we also considered three sets of features: (i) the full 57 amino acid homeodomain (omitting insertions), (ii) the subset of 15 amino acids that contact the DNA in the engrailed structure (positions 3, 5, 6, 25, 31, 44, 46, 47, 48, 50, 51, 53, 54, 55 and 57) (Kissinger et al., 1990) and (iii) six amino acids that have been demonstrated to inﬂuence binding preferences (positions 3, 6, 7, 47, 50 and 54) (Ekker et al., 1994  Laughon, 1991) (referred to as 6AA, 15AA and 57AA).
+We did not consider de novo feature selection as part of our training process because feature selection consumes statistical (i.e.
+training) power, and arbitrary feature selection is nondeterministic polynomial-time hard (NP) in the general case (Garey and Johnson, 1979).
+In Section 3.3, we present evidence that residues scored highest by the RF importance score may be less predictive than literature-derived feature sets.
+3.2 Assessing the performance of inference methods The cross-validation results were assessed using three measures: (i) the number of top-100 8mers in common, (ii) Spearman correlation over all 8mers and (iii) overall RMSE (root mean squared error) values between the predicted and the actual Z-score proﬁles over all 8mers.
+As a summary statistic, we also counted the number of proteins with a top-100 overlap  50.
+As a background control, we calculated the difference between the median of each metric and the median of the performance of all predicted versus all actual proﬁles, since all homeodomain-binding proﬁles correlate to a degree.
+Results are tallied in Table 2, which is sorted from best to worst median rank across all of the criteria.
+Included in Table 2 is the agreement between 19 experimental replicates as a reference for the reproducibility of the assay itself (Berger et al., 2008).
+In these replicates, 19 different homeodomains were each analyzed in duplicate, and the numbers reported refer to 19 pairwise comparisons.
+Since the set of replicates contains some homeodomains not found in the 75 that we analyzed, however, the performance values cannot be directly compared with those of the predictions.
+Three major conclusions can be drawn from this analysis.
+First, results of all algorithms are clearly distinct from random (Table 2, columns 5, 9 and 12).
+Second, the 15AA and 6AA subsets appear to provide a superior training set relative to the 57AA set.
+Third, presumably due to the importance of non-linear interactions between amino acid positions in deﬁning DNA-binding speciﬁcity, methods that can capture interactions and non-linearities have a clear advantage: there is almost always at least one variant of each non- linear method, i.e.
+NN, RF and SVM_R, that outperforms every linear method we employed.
+NN (Fig.
+1, right panel), in particular, has a signiﬁcantly higher mean top-100 overlap than PCR [95% conﬁdence interval (CI) for difference, 3.92 109  Kruskal Wallis test].
+Moreover, NN often shows the greatest difference from random, and has the fewest predicted proﬁles with a top-100  [18:05 30/3/2009 Bioinformatics-btn645.tex]  Page: 1014  1012 1018   Table 2.
+Leave-one-out cross-validation measures for 8mer Z-score proﬁle prediction algorithms on 32 896 8mers for 75 homeodomains  Prediction of TF-binding preference  Top100-overlap (predicted versus real)  Median   Approach   Residues   replicates   NN  NN  NN  NN  NN   SVM_R   RF  RF   SVM_R  SVM_L  SVM_R  SVM_L  SVM_L   PCR  PCR   SVM_P   RF   SVM_P  SVM_P   PCR   N/A  15AA  6AA  57AA  top6  top15  6AA  15AA  6AA  57AA  15AA  15AA  57AA  6AA  6AA  15AA  15AA  57AA  6AA  57AA  57AA   86  66 66 69 66 69 63 65 63 60 62 63 67 62 63 63 48 55 49 48 60  Top100- overlap (control)   No.
+of proteins  with top-100  overlap  50   80  61 60 62 58 63 46 57 54 41 55 50 53 52 54 55 18 37 16 5 51  0  18 18 18 16 19 23 24 25 28 28 21 23 28 25 29 39 28 38 39 32  RMSE (predicted   versus real)   Mean 0.58  0.76 0.77 0.82 0.76 0.80 0.70 0.71 0.72 0.73 0.73 0.71 0.73 0.73 0.82 0.77 0.76 0.75 0.76 0.79 0.79  Median 0.63  0.72 0.68 0.75 0.72 0.75 0.66 0.69 0.71 0.69 0.68 0.66 0.70 0.68 0.75 0.72 0.71 0.73 0.70 0.72 0.77  RMSE  (control)   Spearman (pre- dicted versus real)   Spearman   (control)   Median rank  (Mean rank)    0.49   0.36  0.38  0.36  0.35  0.34  0.26  0.25  0.25  0.20  0.30  0.28  0.22  0.28  0.30  0.28  0.17  0.16  0.17  0.12  0.19  Median 0.83  0.80 0.82 0.79 0.81 0.80 0.83 0.83 0.83 0.84 0.82 0.82 0.83 0.82 0.79 0.80 0.83 0.84 0.83 0.84 0.81  Mean  0.84  0.77 0.78 0.76 0.78 0.77 0.81 0.81 0.81 0.81 0.79 0.80 0.79 0.80 0.75 0.77 0.81 0.81 0.81 0.80 0.77  0.16  0.14 0.14 0.13 0.13 0.13 0.09 0.12 0.12 0.08 0.10 0.09 0.09 0.10 0.12 0.11 0.08 0.08 0.07 0.06 0.09  N/A   3.00 (7.20)  3.50 (6.00)  3.50 (9.00)  5.00 (7.00)  5.00 (8.70)  5.50 (6.50)  6.00 (6.00)  7.00 (7.70)  7.50 (9.70)  8.00 (9.00)  8.50 (7.40)  8.50 (8.70)  9.50 (8.40)  10.0 (11.9)  11.0 (11.0)  11.0 (12.10)  12.0 (10.70)  12.0 (12.6)  15.0 (14.2)  15.5 (14.3)   Mean  82.84  58.60 58.65 58.07 58.68 57.00 55.99 55.85 55.17 51.51 52.40 55.28 55.32 54.51 54.05 53.45 41.11 51.53 41.65 38.91 48.48  Algorithms are sorted in descending order of median rank across all columns, where ties are resolved using mean rank.
+The ﬁrst row shows the agreement between 19 experimental replicates and their corresponding true Z-score proﬁles as measured using PBM.
+Columns labelled  predicted versus real  show the mean or median performance between each predicted proﬁle and its true, measured Z-score proﬁle.
+Columns labelled  control  show the difference between the median predicted versus real performance and the median of the performance between all pairs of predicted and actual proﬁles.
+Cells in a given column are coloured according to their position in the range of that column.
+Rows labelled top6 and top15 represent the result obtained if we use the 6 and 15 most important amino acid positions according to the RF importance score on the 57AA set.
+Fig.
+1.
+2D clustergram of Z-scores for 2042 8mers and 75 mouse homeodomains, as observed in either real PBM data (left) or NN predictions (right), with some of the established classes of homeodomains labelled.
+NN predictions were made using 6AA positions and leave-one-out cross-validation.
+The 2042 8mers were selected because they comprise the top 100 8mers by Z-score over the DBDs shown.
+overlap  50.
+In three instances (Evx1, Irx2, and Lhx1), the 15AA NN-predicted Z-score proﬁles exhibit Spearman correlation, top- 100 overlap, or RMSE values that exceed those of the experimental replicates for these proteins.
+Therefore, it appears that predicted Z- score proﬁles can, in speciﬁc cases, rival experimental replicates in reproducing the Z-score proﬁle of a given homeodomain.
+Figure 2 shows scatter plots of the Z-scores for Evx1, Irx2 and Lhx1, as compared with predicted and replicate Z-scores.
+3.3 De novo feature selection The feature sets we used were chosen on the basis of biochemical and genetic experiments to ask whether the use of this prior data to select features reduces generalization error.
+It is also of interest  whether automated feature selection identiﬁes the same residues, and whether automatically selected features perform better than those selected using evidence from laboratory studies.
+Towards this end, we examined the  node purity  importance scores output by RF run with the full 57AA set.
+We summarized the importance per residue for each by considering the median importance score for the 2585 8mers reported by Berger et al.
+(2008) to be bound in at least one experiment using the E  0.45 criterion, reasoning that RF may be learning primarily noise for the remaining 8mers.
+A very similar set of importance scores emerged from each of the 75-rounds of cross-validation (Fig.
+3).
+Considering the median importance score over all homeodomains over all 2585 residues as a feature prioritization measure, we obtained the ranking of residues shown in Figure 3.
+The top 15AA emerging from this analysis are  1015  [18:05 30/3/2009 Bioinformatics-btn645.tex]  Page: 1015  1012 1018   T.M.Alleyne et al.
+Fig.
+2.
+Comparison of the accuracy of NN predictions versus experimental replicates.
+Scatterplots show the measured Z-scores for all 32 896 non- redundant eight-base DNA sequences from one PBM versus a second PBM for the same DBD (top) or versus the Z-score predicted using NN (6AA variant  bottom).
+Median performance metrics are given.
+Evx1 has a single NN (Hoxa2)  Irx2 has a single NN (Irx3)  Lhx1 has two NN (Alx3 and Lhx3).
+(in descending order) 50, 6, 46, 54, 7, 56, 14, 28, 4, 19, 43, 22, 29, 36, 37.
+These residues include only four among our 6AA set (6, 7, 50, 54) and four among our 15AA set (6, 46, 50, 54).
+Thus, de novo feature selection identiﬁes some, but not all, of the same residues as laboratory studies.
+We found that the top-6 and top-15 residues selected by the RF importance score did not perform as well in NN (our best performing method) as did the original 6AA and 15AA sets (Table 2).
+A possible explanation is that de novo feature selection is identifying residues that correlate with binding speciﬁcity, but without being causative  for example, residues that participate in functions of the homeodomains besides DNA binding, those that are shared due to common evolutionary descent, and/or those that co-vary due to structural constraints (Clarke, 1995).
+From these results, and the fact that the 6AA and 15AA sets generally provide better features (Table 2), we propose that use of experimental evidence in the feature selection step can augment training power, by incorporating external information.
+3.4 Association between prediction difﬁculty and  number of sequence mismatches  In general, the 8mer proﬁles that are difﬁcult for one algorithm to predict are those that are difﬁcult for other algorithms as well.
+Figure 4 compares the top-100 overlap for all 75 homeodomains for all prediction methods, using the 15AA feature set.
+The colours of the points reﬂect the NN distance.
+There is a clear relationship between the 15AA distance and the top-100 overlap, with the 10 proteins with the greatest distance consistently having overlaps  50, indicating that for all methods the difﬁculty of learning the 8mer proﬁle for a speciﬁc experiment is related to whether there is a similar example in the training set.
+This trend also holds for other feature sets, and likely explains the success of NN, which does not incorporate any information from more distant proﬁles.
+1016  Fig.
+3.
+Node purity importance scores for 57 homeodomain amino acid positions for 75 rounds of leave-one-out cross-validation, sorted by median value (purple).
+results show that  4 DISCUSSION Our the full DNA-binding speciﬁcity of uncharacterized TFs to individual k-mers can be predicted on the basis of similarity in protein sequence alone, given the sequence speciﬁcity of closely related members of the same TF family, and (preferably) knowledge of the DNA-contacting residues.
+Our results are likely to underestimate real-world accuracy because we only evaluated homeodomains that are unique at 15 DNA- contacting amino acids.
+The efﬁcacy of NN makes predicting binding preferences simple to implement and consistent with intuition: it is typically assumed that similarity among functional residues reﬂects similar protein activity.
+At least one previous study applied a NN strategy to the inference of PWMs (Qian et al., 2007), but our NN implementation is more straightforward and provides relative afﬁnity estimates for individual sequences: in contrast, the approach described by Qian et al.
+predicts the consensus motifs of TF binding sites from the TRANSFAC database using the InterPro annotations of the TF of interest and its target genes as training data.
+Our results are consistent with the  combinatorial code  model of TF binding (Damante et al., 1996  Suzuki and Yagi, 1994   [18:05 30/3/2009 Bioinformatics-btn645.tex]  Page: 1016  1012 1018   Prediction of TF-binding preference  selection is done separately at each LOO iteration, and/or if it is done in conjunction with feature selection based on experiments.
+Due to the large number of permutations, we did not explore such variations in this study, nor did we test every possible variation of the techniques represented.
+For example, it has been reported that pruned decision trees usually perform better than unpruned trees  this was not an option in the RF implementation that we used but would be worth examining.
+It may also be beneﬁcial in the future to take advantage of similarity among k-mers.
+In all of the analyses presented here, each k-mer is treated as a separate learning problem  however, there are relationships among the k-mers in both sequence and afﬁnity for individual proteins.
+Exploration of these variations could shed light on the biology of DNA binding in addition to improving prediction results.
+We note, however, that there are also beneﬁts associated with use of simple inference methods, such as NN.
+While performing as well as other methods, NN is computationally much less intensive than any other method we tested  in our algorithm, NN is determined based on protein sequence alone, so the time complexity of this part of the algorithm does not depend upon the number of k-mers.
+Also, the success of NN on the full set of k-mer afﬁnities suggests that our NN approach would also work well when the binding preferences of each TF were represented differently, e.g.
+as a PWM.
+Another question is whether better results could be obtained using a training set that more completely samples possible homeodomain amino acid combinations.
+With regard to sampling depth in the training set, the argument may be academic: the large number of possible combinations would be impractical to survey in the laboratory, and also appears to be sparsely populated in nature (data not shown) (Berger et al., 2008).
+A more extensive PBM-based survey of the binding preferences of naturally occurring unique combinations among DNA-contacting residues might be the next step towards both theoretical and practical aims.
+Such a survey would also help to clarify the functional evolution of the distinct homeodomain subclasses.
+One interpretation of the success of NN  coupled with the fact that all algorithms suffer considerably when there is no similar homeodomain in the training set to serve as an example is that homeodomain groups [described in Banerjee- Basu and Baxevanis (2001), although the groups we obtained are not always identical] each have distinct DNA-binding modes that cannot be inferred from examples in other groups.
+Consistent with this notion, there is a strong correspondence between 8mer binding proﬁles and sequence groups obtained by ClustalW (data not shown).
+In fact, we cannot rule out that RF and/or SVM_R are acting in essence as a more sophisticated version of NN, by learning group memberships.
+We have attempted to improve upon our current results using unsupervised sequence clustering approaches, but have not yet been able to improve upon the NN results (data not shown).
+One explanation for this outcome may be that there are no ideal natural subdivisions within these groups  instead, there is variation on a theme within each group, and the variation in amino acid sequence bears a relationship to that seen in the 8mer binding proﬁles.
+If this is the case, then even better inference results might be obtained from a two-stage process in which group assignment is separated from k-mer proﬁle prediction within a group.
+Finally, our preliminary results (data not shown) suggest that NN will be similarly applicable to other DBD classes.
+Extension of the work presented here should allow future experimental studies of binding speciﬁcity to focus on proteins most likely to possess new  1017  Fig.
+4.
+Association between top-100 overlap scores for pairs of 8mer proﬁle inference methods.
+Scatterplots show the top-100 overlap values for 75 homeodomains when Z-score proﬁles are predicted using one inference method versus another method for the same proteins.
+All axes range from 0 to 100.
+The names on the diagonal label the axes.
+Predictions are made using the 15 homeodomain DNA-contacting residues.
+Homeodomains are coloured according to whether they have (cid:1)5 (red), 3 4 (blue) or 1 2 (green) mismatches to their nearest sequence neighbour.
+Suzuki et al., 1995).
+In this model, the relative preference of a TF to individual bases in a given DNA sequence is determined by the aggregate identities of a subset of key amino acid residues.
+In our regime, this model would translate into interaction terms among amino acid residues.
+Indeed, in our analysis, methods capable of modelling interactions between amino acid positions, such as NN and RF, appear to be best suited to predicting sequence preferences for TFs, or at least for homeodomains.
+The fact that linear regression is one of the least effective methods among those tested further supports the importance of interaction terms  preferences to individual DNA sequences apparently cannot be taken as a linear combination of the contributions of each amino acid residue.
+In addition, the observation that incorporation of the full set of homeodomain residues adversely affects all success measures that were employed here, even using NN (which would not be subject to overﬁtting), is consistent with a model in which the remainder of the domain structure primarily plays a role as a scaffold, at least with regard to DNA binding.
+This is because such a role would provide ﬂexibility in residue identities without impacting DNA sequence speciﬁcity.
+An important question is whether the outcome of our comparisons would be different with different feature sets, and whether our results could be improved with more sophisticated approaches.
+With regard to feature sets, even in a circular regime (selecting amino acids using the same data used to test them) we found no feature sets that offered a substantial improvement over the 6AA and 15AA sets (Fig.
+3, Table 2 and data not shown), suggesting that a single DNA protein co-crystal structure constitutes a powerful feature selection step, perhaps because it provides information that is not available to the algorithms used here.
+Nonetheless, it is possible that addition of an automated feature selection step might be advantageous, particularly if it is incorporated into the cross-validation regime, i.e.
+if the feature  [18:05 30/3/2009 Bioinformatics-btn645.tex]  Page: 1017  1012 1018   T.M.Alleyne et al.
+DNA-binding activities, and will facilitate more accurate inference of DNA-binding data among proteins with related sequences.
+ACKNOWLEDGEMENTS We are grateful to Harm van Bakel and Jeff Liu for maintenance of computational infrastructure.
+We thank Gary Bader and Alan Davidson for helpful discussions.
+Funding: T.M.A.
+was supported by an Ontario Graduate Scholarship and funding from Howard Hughes Medical Institute (HHMI) to T.R.H.
+Generation of the experimental data analyzed was supported by grants to T.R.H.
+and M.L.B.
+from CIHR, Genome Canada through the Ontario Genomics Institute, the Ontario Research Fund and National Institutes of Health (NIH)/National Human Genome Research Institute (NHGRI).
+Conﬂict of Interest: none declared.
+REFERENCES Ades,S.E.
+and Sauer,R.T.
+(1994) Differential DNA-binding speciﬁcity of the engrailed  homeodomain: the role of residue 50.
+Biochemistry, 33, 9187 9194.
+Banerjee-Basu,S.
+and Baxevanis,A.D.
+(2001) Molecular evolution of the homeodomain  family of transcription factors.
+Nucleic Acids Res., 29, 3258 3269.
+Damante,G.
+et al.
+(1996) A molecular code dictates sequence-speciﬁc DNA recognition  by homeodomains.
+EMBO J., 15, 4992 5000.
+Ekker,S.C.
+et al.
+(1994) The degree of variation in DNA sequence recognition among  four Drosophila homeotic proteins.
+EMBO J., 13, 3551 3560.
+Franklin,S.B.
+et al.
+(1995) Parallel analysis: a method for determining signiﬁcant  principal components.
+J. Veg.
+Sci., 6, 99 106.
+Garey,M.R.
+and Johnson,D.S.
+(1979) Computers and intractability : a guide to the  theory of NP-completeness.
+W. H. Freeman, New York.
+Hanes,S.D.
+and Brent,R.
+(1989) DNA speciﬁcity of the bicoid activator protein is determined by homeodomain recognition helix residue 9.
+Cell, 57, 1275 1283.
+Kissinger,C.R.
+et al.
+(1990) Crystal structure of an engrailed homeodomain-DNA complex at 2.8 A resolution: a framework for understanding homeodomain-DNA interactions.
+Cell, 63, 579 590.
+Laughon,A.
+(1991) DNA binding speciﬁcity of homeodomains.
+Biochemistry, 30,  11357 11367.
+Liu,X.
+et al.
+(2005) DIP-chip: rapid and accurate determination of DNA-binding  speciﬁcity.
+Genome Res., 15, 421 427.
+Miller,M.
+et al.
+(2003) Structural basis for DNA recognition by the basic region leucine zipper transcription factor CCAAT/enhancer-binding protein alpha.
+J. Biol.
+Chem., 278, 15178 15184.
+Montgomery,D.C.
+and Runger,G.C.
+(2007) Applied Statistics and Probability for  Engineers.
+Wiley, Hoboken, NJ.
+Mukherjee,S.
+et al.
+(2004) Rapid analysis of the DNA-binding speciﬁcities of  transcription factors with DNA microarrays.
+Nat.
+Genet., 36, 1331 1339.
+Pabo,C.O.
+and Nekludova,L.
+(2000) Geometric analysis and comparison of protein- DNA interfaces: why is there no simple code for recognition  J. Mol.
+Biol., 301, 597 624.
+Bateman,A.
+et al.
+(2004) The Pfam protein families database.
+Nucleic Acids Res., 32,  Papavassiliou,A.G.
+(1995) Transcription factors: structure, function, and implication in  D138 D141.
+Benos,P.V.
+et al.
+(2002) Additivity in protein-DNA interactions: how good an  approximation is it  Nucleic Acids Res., 30, 4442 4451.
+Berger,M.F.
+et al.
+(2008) Variation in homeodomain DNA binding revealed by  high-resolution analysis of sequence preferences.
+Cell, 133, 1266 1276.
+Berger,M.F.
+et al.
+(2006) Compact, universal DNA microarrays to comprehensively determine transcription-factor binding site speciﬁcities.
+Nat.
+Biotechnol., 24, 1429 1435.
+Breiman,L.
+(2001) Random forests.
+Mach.
+Learn., 45, 5 32.
+Chen,X.
+et al.
+(2007) RankMotif++: a motif-search algorithm that accounts for relative  ranks of K-mers in binding transcription factors.
+Bioinformatics, 23, i72 i79.
+malignant growth.
+Anticancer Res., 15, 891 894.
+Qian,Z.
+et al.
+(2007) An approach to predict transcription factor DNA binding site speciﬁcity based upon gene and transcription factor functional categorization.
+Bioinformatics, 23, 2449 2454.
+Stormo,G.D.
+(2000) DNA binding sites: representation and discovery.
+Bioinformatics,  16, 16 23.
+Suzuki,M.
+et al.
+(1995) DNA recognition code of transcription factors.
+Protein Eng., 8,  319 328.
+Suzuki,M.
+and Yagi,N.
+(1994) DNA recognition code of transcription factors in the helix-turn helix, probe helix, hormone receptor, and zinc ﬁnger families.
+Proc.
+Natl Acad.
+Sci.
+USA, 91, 12357 12361.
+Clarke,N.D.
+(1995) Covariation of residues in the homeodomain sequence family.
+Warren,C.L.
+et al.
+(2006) Deﬁning the sequence-recognition proﬁle of DNA-binding  Protein Sci., 4, 2269 2278.  molecules.
+Proc.
+Natl Acad.
+Sci.
+USA, 103, 867 872.
+1018  [18:05 30/3/2009 Bioinformatics-btn645.tex]  Page: 1018  1012 1018
