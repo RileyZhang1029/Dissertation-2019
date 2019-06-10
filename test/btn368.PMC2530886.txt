@@ -1,0 +1,63 @@
+BIOINFORMATICS APPLICATIONS NOTE Vol.24 no.18 2008, pages 2112 2114 doi:10.1093/bioinformatics/btn368 Systems biology VistaClara: an expression browser plug-in for Cytoscape Robert Kincaid1, , Allan Kuchinsky1 and Michael Creech2 1Agilent Laboratories, 5301 Stevens Creek Blvd., Santa Clara, CA 95051 and 2Blue Oak Software, 1734 Austin Ave., Los Altos, CA 94024, USA Received and revised on May 20, 2008 accepted on July 14, 2008 Advance Access publication August 4, 2008 Associate Editor: Trey Ideker ABSTRACT Summary: VistaClara is a plug-in for Cytoscape which provides a more ﬂexible means to visualize gene and protein expression within a network context.
+An extended attribute browser is provided in the form of a graphical and interactive permutation matrix that resembles the heat map displays popular in gene-expression analysis.
+This extended browser permits a variety of display options and interactions not currently available in Cytoscape. Availability: http://chianti.ucsd.edu/cyto_web/plugins/index.php Contact: robert_kincaid@agilent.com 1 INTRODUCTION Cytoscape (Shannon et al., 2003) is a freely available open source platform for the analysis of biological networks which is widely used by system biologists.
+Cytoscape provides facilities for incorporating node and edge attributes and mapping such data onto the network via visual encodings (color, shape, etc.). For protein- or gene- expression studies, the expression data for a given condition or treatment would correspond to a single attribute measured across a number of biomolecules. More speciﬁcally, this would typically correspond to a single micorarray experiment, or possibly a single mass spectrometry run.
+The default capabilities of Cytoscape are essentially limited to mapping only a single such experimental condition at a time (Cline et al., 2007). VistaClara was originally written as a stand-alone tool for interactively analyzing gene expression data from multiple experimental conditions.
+We soon realized VistaClara s usefulness as an expression browser for network analysis and prototyped a number of useful coordinated interactions between the tabular style of VistaClara and biological networks using our own proprietary network analysis tools.
+This investigation (Vailaya et al., 2005) led to a natural desire to extend Cytoscape with the same functionality.
+Hence, we have re-implemented and extended VistaClara as an attribute browser plug-in for Cytoscape (Fig. 1). 2 IMPLEMENTATION The design of VistaClara is based on an approach informed by research in information visualization.
+In this article, we describe brieﬂy the main features of the software.
+The reader can refer to the paper describing the original stand-alone version (Kincaid, 2004) for additional details.
+To whom correspondence should be addressed.
+2.1 Permutation matrix with overview VistaClara starts with the traditional heat map visualization commonly used to display gene expression data, and extends this to a fully interactive permutation matrix supporting column and row rearrangement as described by Bertin (Bertin, 1981). Since sorting by a single row or column is often ineffective for analyzing expression data, VistaClara also allows sorting rows using measures of similarity between entire rows of expression data.
+A given row of interest is chosen, and the remaining rows are ordered by similarity (Euclidean or Pearson) to the chosen row.
+Similarity sorts can be performed almost as quickly as a standard sort, thereby retaining the beneﬁts of a highly interactive row permutation operation while revealing more signiﬁcant correlations.
+While heat map views are commonly used to view ratio-based expression data as a graphical matrix, there is good evidence that for small differences color intensity is difﬁcult to visually resolve.
+Bertin and others have advocated size as a preferred, more visually comparable representation.
+We optionally replace the typical heat map rectangles with ﬁlled circles (called ink blobs ), whose diameters are in proportion to the represented values.
+If the diameter goes beyond a critical threshold, the cell in which the circle appears is ﬁlled. This change in shape is an additional highly visible cue that the data has exceeded this threshold.
+Fig.1.
+Cytoscape 2.6 showing the location and appearance of the VistaClara panel.
+Here, the table view shows a heat map display.
+2008 The Author(s) This is an Open Access article distributed under the terms of the Creative Commons Attribution Non-Commercial License (http://creativecommons.org/licenses/by-nc/2.0/uk/) which permits unrestricted non-commercial use, distribution, and reproduction in any medium, provided the original work is properly cited.
+VistaClara Fig.2.
+The main components of the VistaClara panel.
+(A) The main tool bar.
+(B) The graphical table view (in ink-blob mode). (C) Condensed heat map view of the entire data set.
+(D) A cursor showing the scroll position of the table view.
+Here, ink blobs become rectangular at 4-fold changes in gene expression.
+VistaClara also provides an overview display of the entire data set in the form of a dynamic heat map (Fig. 2C). As rows and columns are rearranged, the overview is updated to reﬂect the change and any emerging correlations that might be visible beyond the tabular view.
+The overview can also be used to navigate to regions of interest by simply clicking on the appropriate location in the overview.
+A cursor (Fig. 2D) shows the user the portion of the full data set currently visible in the table view (Fig. 2B). 2.2 Coordintated network interactions Integrating VistaClara directly into Cytoscape enables several useful coordinated interactions: Mapping of experimental conditions is easily managed by simply clicking on the appropriate table column header to select that column for network node coloring.
+For studying the dynamics of a system, the user can click the play button to automatically select each condition in succession for network node coloring.
+For time series experiments this permits the creation of an animated view of the network as it changes over time.
+Forward and reverse buttons allow user control for replaying speciﬁc conditions of interest.
+A mode is provided where selections are linked between the table and network views.
+This permits coordinated navigation.
+Selecting a single node in the network scrolls the table to reveal the corresponding row in the table.
+Selecting a cell in the table zooms into the neighborhood of the corresponding node in the network.
+Multiple selections are also supported in either view with full coordination between views.
+2.3 Heat strips VistaClara also provides a feature to view all expression data simultaneously as described previously in a study of coronary atherosclerosis (King et al., 2005). Each node is shown with an accompanying glyph in the form of a bar graph which depicts all expression values for that node.
+Redundant heat map coloring is used to reinforce both the heat map scheme as well as the interpretation of the bar graph.
+We call these glyphs heat strips, referring to their Fig.3.
+Heat strips display bar-graphs of all expression data for each node.
+Temporal patterns in time series data are readily apparent.
+encoding relationship to heat maps.
+Figure 3 shows a display of cell cycle data (de Lichtenberg et al., 2005 Spellman et al., 1998). For these particular nodes, the sinusoidal behavior of the gene expression through two phases of cell cycle is quite obvious.
+3 INSTALLATION The current version of the VistaClara plug-in (Version 1.0) requires Cytoscape 2.6 and is freely available from the Cytoscape website or through the built-in Cytoscape plug-in manager.
+After installation, plug-in speciﬁc online help is accessible at run time and includes a short tutorial about data syncing as well as more detail about general usage.
+The help button is the yellow question mark seen in the toolbar (Fig. 2A). Conﬂict of Interest: none declared.
+REFERENCES Bertin,J. (1981) Graphics and Graphic Information-Processing.
+de Gruyter, Berlin, New York. Cline,M.S. et al. (2007) Integration of biological networks and gene expression data using Cytoscape. Nat. Protoc., 2, 2366 2382.
+2113  R.Kincaid et al. de Lichtenberg,U. et al. (2005) Dynamic complex formation during the yeast cell cycle.
+Shannon,P. et al. (2003) Cytoscape: a software environment for integrated models of Science, 307, 724 727. biomolecular interaction networks.
+Genome Res., 13, 2498 2504.
+Kincaid,R. (2004) VistaClara: an interactive visualization for exploratory analysis of DNA microarrays. In Proceedings of the 2004 ACM Symposium on Applied Computing, pp.
+167 174.
+ACM, Nicosia, Cyprus. Spellman,P.T. et al. (1998) Comprehensive identiﬁcation of cell cycle-regulated genes of the yeast Saccharomyces cerevisiae by microarray hybridization.
+Mol. Biol.
+Cell, 9, 3273 3297.
+King,J.Y. et al. (2005) Pathway analysis of coronary atherosclerosis.
+Physiol. Genomics, Vailaya,A. et al. (2005) An architecture for biological information extraction and 23, 103 118. representation.
+Bioinformatics, 21, 430 438.
+2114

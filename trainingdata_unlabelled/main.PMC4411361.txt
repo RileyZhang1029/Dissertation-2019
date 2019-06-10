@@ -1,0 +1,125 @@
+Genomics Proteomics Bioinformatics 12 (2014) 105 109 Genomics Proteomics Bioinformatics www.elsevier.com/locate/gpb www.sciencedirect.com APPLICATION NOTE PrimerSeq: Design and Visualization of RT-PCR Primers for Alternative Splicing Using RNA-seq Data Collin Tokheim #, Juw Won Park, Yi Xing * Department of Microbiology, Immunology, and Molecular Genetics, University of California, Los Angeles, Los Angeles, CA 90095, USA Received 19 March 2014 revised 4 April 2014 accepted 8 April 2014 Available online 18 April 2014 Handled by Jun Yu KEYWORDS Alternative splicing RNA-seq Primer design Transcriptome Visualization Abstract The vast majority of multi-exon genes in higher eukaryotes are alternatively spliced and changes in alternative splicing (AS) can impact gene function or cause disease.
+High-throughput RNA sequencing (RNA-seq) has become a powerful technology for transcriptome-wide analysis of AS, but RT-PCR still remains the gold-standard approach for quantifying and validating exon splicing levels.
+We have developed PrimerSeq, a user-friendly software for systematic design and visualization of RT-PCR primers using RNA-seq data.
+PrimerSeq incorporates user-provided tran- scriptome proﬁles (i.e., RNA-seq data) in the design process, and is particularly useful for large- scale quantitative analysis of AS events discovered from RNA-seq experiments.
+PrimerSeq features a graphical user interface (GUI) that displays the RNA-seq data juxtaposed with the expected RT-PCR results.
+To enable primer design and visualization on user-provided RNA-seq data and transcript annotations, we have developed PrimerSeq as a stand-alone software that runs on local computers.
+PrimerSeq is freely available for Windows and Mac OS X along with source code at http://primerseq.sourceforge.net/. With the growing popularity of RNA-seq for transcriptome stud- ies, we expect PrimerSeq to help bridge the gap between high-throughput RNA-seq discovery of AS events and molecular analysis of candidate events by RT-PCR. * Corresponding author.
+E-mail: yxing@ucla.edu (Xing Y). # Present address: Department of Biomedical Engineering, Johns Hopkins University, Baltimore, MD 21218, USA. Peer review under responsibility of Beijing Institute of Genomics, Chinese Academy of Sciences and Genetics Society of China.
+Production and hosting by Elsevier Introduction Alternative splicing (AS) is a prevalent mechanism of gene reg- ulation in higher eukaryotes [1]. AS plays an important role in both normal biological processes [2] and disease [3]. In recent years, high-throughput RNA sequencing (RNA-seq) has become a powerful and popular technology for global analysis of AS [4]. From the massive amount of RNA-seq reads, one can discover novel splicing events, quantify the usage level of 1672-0229/$ - see front matter ª 2014 Beijing Institute of Genomics, Chinese Academy of Sciences and Genetics Society of China.
+Production and hosting by Elsevier B.V. All rights reserved.
+http://dx.doi.org/10.1016/j.gpb.2014.04.001  106 Genomics Proteomics Bioinformatics 12 (2014) 105 109 alternatively spliced exons in any RNA sample of interest, and identify genome-wide changes in AS between different biolog- ical states.
+However, RT-PCR is still regarded as the most reli- able and standard approach to quantify and validate exon splicing levels [5]. In fact, researchers customarily perform RT-PCR validation of AS events discovered from RNA-seq data prior to downstream functional studies.
+access by a wide range of users.
+It utilizes user-provided RNA-seq data to deﬁne splicing patterns, estimate exon inclu- sion levels (PSI, or w), select suitable regions for placement of RT-PCR primers and visualize RNA-seq data along with high- lighting expected RT-PCR results.
+Users can conveniently compare the graphical output of PrimerSeq to their RT-PCR experimental result.
+A widely used measure of AS is the percent-spliced-in (PSI, or w) metric, which measures the percent inclusion level of an alternatively spliced exon (or splice site) in the ﬁnal mRNA products [4]. In an RNA-seq project, the PSI value of an AS event can be ﬁrst estimated from RNA-seq data using software like mixture-of-isoforms (MISO) [4] or multivariate analysis of transcript splicing (MATS) [6] and then validated indepen- dently by RT-PCR. However, the design of RT-PCR primers for AS analysis is typically a time-consuming step that requires tedious manual operations.
+Software that allow input of a tem- plate sequence for primer design like Primer3 [7] and associ- ated interfaces Primer3Web, Primer3Plus and BatchPrimer3 [8] can theoretically design primers for any AS event of inter- est.
+However, to the user to manually extract sequences for primer design, which is time-consuming and error-prone.
+This is particularly challenging for RNA-seq projects, where researchers may need to validate tens or even hundreds of AS events identiﬁed from the transcriptome-wide AS analysis (for example, see [9,10]). Consequently validation of AS from big RNA-seq data has become a major bottleneck between high-throughput discovery of AS events and in-depth analysis of molecular function and regulation.
+is left it Methods PrimerSeq workﬂow and algorithm PrimerSeq designs RT-PCR primers for AS analysis.
+The design process can incorporate the transcriptome proﬁles of the samples of interest through user-provided RNA-seq data ﬁles, or only utilize pre-deﬁned gene and transcript annota- tions. As shown in the ﬂow diagram (Figure 1), the input to PrimerSeq includes a genome sequence ﬁle (FASTA), a gene and transcript annotation ﬁle (GTF), mapped RNA-seq reads (BAM, recommended but optional) and a list of exon coordi- nates representing the events of interest.
+Visualizing read den- sity also requires a BigWig ﬁle, although this visualization step is optional.
+For each AS event, PrimerSeq attempts to place a pair of forward and reverse PCR primers on suitable ﬂanking exons.
+Such ﬂanking exons can be speciﬁed by users in the input.
+Alternatively, PrimerSeq can automatically choose It should also be noted that the repertoire of expressed genes and mRNA isoforms is dynamically regulated, while current tools and databases for RT-PCR primer design use static (pre-deﬁned) gene and transcript annotations and do not incor- porate transcriptome proﬁles for the speciﬁc sample(s) of inter- est.
+Primer databases like GETPrime [11], RTPrimerDB [12], PrimerBank [13] and qPrimerDepot [14] only contain primers for a restricted set of species and are built on pre-deﬁned gene annotations.
+Most primer design tools (e.g., PerlPrimer [15] and QuantPrime [16]) or primer databases (mentioned above) focus on gene expression and occasionally transcript expression rather than AS events.
+In general, there is a lack of primer design tools or databases for AS analysis, with a few exceptions being GETPrime (gene and transcript speciﬁc) [11] and RASE (alternative splicing) [17]. RASE is the method most speciﬁcally designed for AS analysis, but its web interface only works with human genes and requires time-consuming manual input of sequences.
+It should also be noted that RNA-seq is a ﬂexible technology, which can be applied to any organism of interest.
+In fact, researchers have used RNA-seq to study AS in a wide variety of organisms such as honey bee [18], silkworm [19], Plasmodium falciparum [20] and frog [21]. Additionally, compu- tational tools such as Cufﬂinks [22] and Scripture [23] can be used to construct transcript annotations de novo from RNA- seq data aligned to the genome.
+Therefore, an ideal primer design tool for AS analysis should have the ﬂexibility to work with user-provided RNA-seq data on a diverse range of organ- isms, instead of being restricted to a small set of species and pre- deﬁned transcript annotations.
+Here we present PrimerSeq, a user-friendly stand-alone software for systematic design and visualization of RT-PCR primers for AS analysis.
+PrimerSeq has a graphical user inter- face (GUI) and  one-click  type installation for convenient Figure 1 The ﬂow diagram of PrimerSeq PrimerSeq ﬂow diagram designates inputs as blue, computations as green and decisions as orange.
+If ﬂanking exons are speciﬁed by the user, PrimerSeq will immediately design primers.
+If not speciﬁed, PrimerSeq will ﬁrst identify the alternative splicing module (ASM) containing the target exon and then iteratively search for the closest ﬂanking exons above a user-deﬁned PSI (w) cutoff.
+Results are subsequently visualized through plotting the RNA-seq data juxtaposed with the expected RT-PCR results, which include estimated w values for the target exon.
+Visualizing read density, an optional feature, requires a BigWig ﬁle. PSI stands for percent-spliced-in.
+Tokheim C et al  PrimerSeq: RT-PCR Primer Design Using RNA-seq Data 107 appropriate ﬂanking exons by ﬁnding the nearest suitable ﬂanking exons whose inclusion levels (PSI) are above a user- deﬁned threshold (95% by default), a procedure that typically ﬁnds constitutive exons.
+PrimerSeq then runs Primer3 [7] to perform primer design on the selected ﬂanking exons.
+Through conﬁguration options, users can fully customize the parame- ters for primer design, such as the size range of the PCR products.
+As part of the primer design procedure, PrimerSeq utilizes the biconnected components algorithm [24] as a generalized deﬁnition of AS events called alternative splicing modules (ASMs). Conceptually, if we consider the transcript structure of an alternatively spliced gene as a directed acyclic graph (i.e.,  splice graph  [25,26]), each ASM represents a subset of the splice graph, where the transcripts diverge from a single point and then converge back to a single point.
+In the case of a simple exon skipping (ES) event, the ASM includes two splice forms corresponding to the exon inclusion and skipping iso- forms.
+To understand this, it is clear for an ES event that an upstream constitutive exon is used by both isoforms before the skipped exon of interest.
+Similarly, a downstream constitu- tive exon is also utilized for both the skipping and inclusion isoforms. The two isoforms differ by whether the middle exon is utilized (included) or skipped.
+Therefore a simple ES event ﬁts our deﬁnition of an ASM, because an ES event has two paths that start from a common origin of the upstream consti- tutive exon and reconvene at the downstream constitutive exon.
+However, an ASM could contain more than two splice forms if multiple alternative splicing events are coupled.
+Using this generalized deﬁnition of AS, PrimerSeq can design primers for all types of AS events, such as exon skipping, alternative splice sites and mutually exclusive exons.
+For a more techni- cally detailed description, please see the technical manual at http://primerseq.sourceforge.net/technical_manual.pdf. Ideally, primers should be placed on constitutive exons ﬂank- ing an ASM, so the RT-PCR analysis can obtain the PSI mea- surements for all splice forms within the ASM. If users do not specify ﬂanking exons, PrimerSeq uses RNA-seq read counts to estimate relative isoform abundance using an expectation maximization (EM) algorithm [27] (also see the technical man- ual of PrimerSeq at http://primerseq.sourceforge.net/techni- cal_manual.pdf), then places primers on ﬂanking exons with constitutive splicing, or at minimum exons with high inclusion levels (PSI  95% by default). Regardless of whether ﬂanking exons are speciﬁed by the user or selected by PrimerSeq, the abundance estimates from the EM algorithm are used to calcu- late PSI estimates for the target AS exon.
+Such estimates will be used for predicting the relative ratios of the RT-PCR prod- ucts in the subsequent visualization step.
+Novel isoforms supported by RNA-seq reads can option- ally be considered in the design process.
+If this option is enabled (disabled by default), our current algorithm adds novel exon-exon junctions detected from the RNA-seq data to the supplied transcript annotations.
+For a more reﬁned con- trol of novel isoforms, or for organisms with poor transcript annotations, users are suggested to perform novel transcript assembly using tools like Cufﬂinks [22] and then load the resulting gene and transcript annotations into PrimerSeq. (GTF) Following primer design, PrimerSeq visualizes RNA-seq data along the expected RT-PCR results.
+Speciﬁcally, PrimerSeq can automatically generate ﬁgures that display the expected sizes and relative ratios of the RT-PCR products, together with the RNA-seq read density proﬁle along the tran- scripts.
+Displaying the read density plot requires a BigWig ﬁle. The entire AS module will be displayed, if ﬂanking exons are selected by PrimerSeq, i.e., not speciﬁed by the user.
+PrimerSeq can display ﬁgures within the GUI and save the results as a sta- tic web page (HTML). Additionally, PrimerSeq provides links to UCSC In-Silico PCR [28] for users to inspect potential off- target ampliﬁcations. Implementation and availability PrimerSeq is mainly written in Python using the wxPython library (http://wxpython.org/) to create a GUI. The identiﬁca- tion of AS events using the biconnected components algorithm was performed using the NetworkX library [29] in Python.
+The Java libraries SAM-JDK v1.77 (http://picard.sourceforge.net/) and BigWig API r39 (revision 39, https://code.google.com/p bigwig/) were used to enhance the performance of handling RNA-seq data and read density ﬁles, respectively.
+PrimerSeq uses standard ﬁle formats for gene and transcript annotations (GTF), RNA-seq data (SAM/BAM), genome sequence (FAS- TA) and read density (BigWig). BAM, FASTA and BigWig ﬁles are indexed, which provides signiﬁcant speed improve- ments for handling large datasets. Primer3 v2.3.4 [7] is used to perform primer design after the appropriate exonic sequences are retrieved from the FASTA ﬁle. The stand-alone PrimerSeq software is free and open to all users and there is no login requirement to download the software.
+PrimerSeq is available as a Windows installer and a Mac OS X binary on SourceForge at http://primerseq. sourceforge.net/. Source code for PrimerSeq is hosted on GitHub https://github.com/ctokheim/PrimerSeq. The technical manual of PrimerSeq which includes a detailed description of nomenclature and algorithms can be found at http://primerseq.sourceforge.net/technical_manual.pdf. User tutorials can also be found on the PrimerSeq website at http://primerseq.sf.net/getting_started.html and http:/ primerseq.sf.net/user_tutorial.html. at RT-PCR validation of PrimerSeq design Total RNA samples from human heart and testes were pur- chased from Applied Biosystems (Foster City, CA, USA) and Clontech (Mountain View, CA, USA), respectively.
+RT- PCR was carried out and 5% TBE-PAGE gel was used for resolving PCR products as described before [30]. Results As an example, we compared the splicing proﬁles of human heart and testes using RNA-seq data from the Illumina Human Body Map 2.0 Project (NCBI GEO Accession No.GSE30611). From the top 100 differential AS events detected by MATS (version 3.0.6.beta) [6], ﬁve were chosen at random for primer design by PrimerSeq and the efﬁcacy of the primers was evalu- ated by RT-PCR experiments (see Table S1 for details regard- ing the RT-PCR primers). All ﬁve AS events had successful primer design as evidenced by target ampliﬁcation during RT-PCR. Figure 2 illustrates the AS event in the gene TJP1 encoding tight junction protein 1.
+The PSI estimates matched  Genomics Proteomics Bioinformatics 12 (2014) 105 109 108 A s t n u o c  d a e r  q e s - A N R 442 331 221 110 TJP1 - heart Chr15: 30,010,469                        30,012,912 Primers 82.5% 366 bp 17.5% 126 bp s t n u o c  d a e r  q e s - A N R 532 399 266 133 TJP1 - testes Chr15: 30,010,469                        30,012,912 Primers 54.5% 126 bp 45.5% 366 bp B TJP1 Chr15:30,011,980 30,012,220 Testes Heart  78 52 (%)   Figure 2 Example result from PrimerSeq Example automatically generated ﬁgures (A) for a selected AS event in the TJP1 gene and corresponding RT-PCR results (B) with the w values displayed.
+The RNA-seq data are from heart and testes in the Illumina Human Body Map 2.0 project [Gene Expression Omnibus (GEO) Accession No.GSE30611]. TJP1, tight junction protein 1 Chr, chromosome.
+well between RNA-seq (Figure 2A) and RT-PCR (Figure 2B). In another gene, HNRPLL encoding heterogeneous nuclear ribonucleoprotein L-like, the RNA-seq data suggested a novel isoform and this was conﬁrmed by RT-PCR (Figure S1). In all ﬁve events, the RT-PCR primers successfully ampliﬁed the target regions and the sizes of PCR products were consistent with the design results from PrimerSeq (Figure 1 and Figures S1 4). Discussion To the best of our knowledge, PrimerSeq is the only software that incorporates RNA-seq data in the design and visualiza- tion of RT-PCR primers for AS analysis.
+This has several advantages.
+By incorporating RNA-seq data, we ensure that the primers will be placed on ﬂanking exons with constitutive splicing (or at minimum, high inclusion levels of close to 100%) in the sample(s) of interest.
+Second, we produce ﬁgures based on the RNA-seq data to illustrate the expected results of the RT-PCR experiments (Figure 2), so that researchers can easily compare the RT-PCR results to RNA-seq predictions.
+In addition, novel isoforms not present in the transcript annotations can be identiﬁed and visualized before performing RT-PCR (Figure S1). We have chosen to develop PrimerSeq as a stand-alone soft- ware that runs on local computers, as opposed to a web-based tool.
+This is important given the typical size of RNA-seq data ﬁles and the goal of working with a diverse range of organisms.
+For example, the RNA-seq BAM ﬁles of human heart and tes- tes in the Illumina Body Map 2.0 dataset [Gene Expression Omnibus (GEO) Accession No.GSE30611] are 3.5 GB and 2.7 GB, respectively.
+Due to computational costs and network speeds, it is impractical to process and manipulate such big RNA-seq data ﬁles through typical web-based tools.
+By imple- menting PrimerSeq as a stand-alone software, we have the ﬂex- ibility to utilize any user-provided RNA-seq data and transcript annotations.
+For organisms with poor transcript annotations, we suggest researchers to use de novo RNA-seq transcript assembly tools, such as Cufﬂinks [22] and Scripture [23], to generate transcript annotations from their RNA-seq data, which can then be loaded into PrimerSeq for primer design.
+With the growing popularity of RNA-seq for transcrip- tome studies, we expect PrimerSeq to help bridge the gap between high-throughput RNA-seq discovery of AS events and molecular validation of candidate events by RT-PCR. Authors contributions YX and CT conceived the idea of PrimerSeq. CT implemented PrimerSeq as a software package.
+JWP helped with implemen- tation of RNA-seq data handling and alternative splicing anal- ysis. CT and YX wrote the manuscript.
+All authors had ﬁnal approval of the manuscript.
+Competing interests The authors declare no competing ﬁnancial interests.
+Acknowledgements This work was supported by the National Institutes of Health of USA (Grant No.R01GM088342) awarded to YX. We thank Zhixiang Lu for testing PrimerSeq and performing RT-PCR experiments.
+Supplementary material Supplementary data associated with this article can be found, in the online version, at http://dx.doi.org/10.1016/j.gpb.2014. 04.001.
+References [1] Nilsen TW, Graveley BR. Expansion of the eukaryotic proteome by alternative splicing.
+Nature 2010 463:457 63.
+[2] Kalsotra A, Cooper TA.
+Functional consequences of develop- splicing.
+Nat Rev Genet regulated alternative mentally 2011 12:715 29.
+Tokheim C et al  PrimerSeq: RT-PCR Primer Design Using RNA-seq Data 109 [3] Wang GS, Cooper TA.
+Splicing in disease: disruption of the splicing code and the decoding machinery.
+Nat Rev Genet 2007 8:749 61.
+[17] Brosseau JP, Lucier JF, Lapointe E, Durand M, Gendron D, Gervais-Bird J, et al. High-throughput quantiﬁcation of splicing isoforms. RNA 2010 16:442 9.
+[4] Katz Y, Wang ET, Airoldi EM, Burge CB. Analysis and design of RNA sequencing experiments for identifying isoform regulation.
+Nat Methods 2010 7:1009 15.
+[5] Venables JP, Klinck R, Koh C, Gervais-Bird J, Bramard A, Inkel L, et al. Cancer-associated regulation of alternative splicing.
+Nat Struct Mol Biol 2009 16:670 6.
+[6] Shen S, Park JW, Huang J, Dittmar KA, Lu ZX, Zhou Q, et al. MATS: a Bayesian framework for ﬂexible detection of differential alternative splicing from RNA-Seq data.
+Nucleic Acids Res 2012 40:e61. [7] Untergasser A, Cutcutache I, Koressaar T, Ye J, Faircloth BC, Remm M, et al. Primer3 new capabilities and interfaces.
+Nucleic Acids Res 2012 40:e115. [8] You FM, Huo N, Gu YQ, Luo MC, Ma Y, Hane D, et al. BatchPrimer3: a high throughput web application for PCR and sequencing primer design.
+BMC Bioinformatics 2008 9:253. [9] Dittmar KA, Jiang P, Park JW, Amirikian K, Wan J, Shen S, et al. Genome-wide determination of a broad ESRP-regulated posttranscriptional network by high-throughput sequencing.
+Mol Cell Biol 2012 32:1468 82.
+[10] Shen S, Lin L, Cai JJ, Jiang P, Kenkel EJ, Stroik MR, et al. Widespread establishment and regulatory impact of Alu exons in human genes.
+Proc Natl Acad Sci U S A 2011 108:2837 42.
+[11] Gubelmann C, Gattiker A, Massouras A, Hens K, David F, Decouttere F, et al. GETPrime: a gene- or transcript-speciﬁc primer database for quantitative real-time PCR. Database 2011 2011:bar040. [12] Lefever S, Vandesompele J, Speleman F, Pattyn F. RTPrimerDB: the portal for real-time PCR primers and probes.
+Nucleic Acids Res 2009 37:D942 5.
+[13] Wang X, Spandidos A, Wang H, Seed B. PrimerBank: a PCR primer database for quantitative gene expression analysis, 2012 update.
+Nucleic Acids Res 2012 40:D1144 9.
+[14] Cui W, Taub DD, Gardner K. QPrimerDepot: a primer database PCR. Nucleic Acids Res quantitative time real for 2007 35:D805 9.
+[15] Marshall OJ. PerlPrimer: cross-platform, graphical primer design for standard, bisulphite and real-time PCR. Bioinformatics 2004 20:2471 2.
+[16] Arvidsson S, Kwasniewski M, Riano-Pachon DM, Mueller- Roeber B. QuantPrime  a ﬂexible tool for reliable high- throughput primer design for quantitative PCR. BMC Bioinfor- matics 2008 9:465. [18] Li-Byarlay H, Li Y, Stroud H, Feng S, Newman TC, Kaneda M, et al. RNA interference knockdown of DNA methyl-transferase 3 affects gene alternative splicing in the honey bee.
+Proc Natl Acad Sci U S A 2013 110:12750 5.
+[19] Shao W, Zhao QY, Wang XY, Xu XY, Tang Q, Li M, et al. Alternative splicing and trans-splicing events revealed by analysis of the Bombyx mori transcriptome. RNA 2012 18:1395 407.
+[20] Sorber K, Dimon MT, DeRisi JL. RNA-Seq analysis of splicing in Plasmodium falciparum uncovers new splice junctions, alterna- tive splicing and splicing of antisense transcripts.
+Nucleic Acids Res 2011 39:3820 35.
+[21] Amin NM, Tandon P, Osborne Nishimura E, Conlon FL.
+RNA- seq in the tetraploid Xenopus laevis enables genome-wide insight in a classic developmental biology model organism.
+Methods 2014 66:398 409.
+[22] Trapnell C, Williams BA, Pertea G, Mortazavi A, Kwan G, van Baren MJ, et al. Transcript assembly and quantiﬁcation by RNA- Seq reveals unannotated transcripts and isoform switching during cell differentiation.
+Nat Biotechnol 2010 28:511 5.
+[23] Guttman M, Garber M, Levin JZ, Donaghey J, Robinson J, Adiconis X, et al. Ab initio reconstruction of cell type-speciﬁc transcriptomes in mouse reveals the conserved multi-exonic structure of lincRNAs. Nat Biotechnol 2010 28:503 10.
+[24] Sacomoto GA, Kielbassa J, Chikhi R, Uricaru R, Antoniou P, Sagot MF, et al. KISSPLICE: de-novo calling alternative splicing events from RNA-seq data.
+BMC Bioinformatics 2012 13:S5. [25] Xing Y, Resch A, Lee C. The multiassembly problem: recon- structing multiple transcript isoforms from EST fragment mix- tures. Genome Res 2004 14:426 41.
+[26] Heber S, Alekseyev M, Sze SH, Tang H, Pevzner PA. Splicing graphs and EST assembly problem.
+Bioinformatics 2002 18:S181 8.
+[27] Xing Y, Yu T, Wu YN, Roy M, Kim J, Lee C. An expectation- maximization algorithm for probabilistic reconstructions of full- length isoforms from splice graphs.
+Nucleic Acids Res 2006 34:3150 60.
+[28] Kuhn RM, Haussler D, Kent WJ. The UCSC genome browser and associated tools.
+Brief Bioinform 2013 14:144 61.
+[29] Hagberg AA, Schult DA, Swart PJ. Exploring network structure, dynamics, and function using networkX. In: Proceedings of the 7th Python in science conference 2008. p. 11 5.
+[30] Lin L, Shen S, Tye A, Cai JJ, Jiang P, Davidson BL, et al. Diverse splicing patterns of exonized Alu elements in human tissues.
+PLoS Genet 2008 4:e1000225. 

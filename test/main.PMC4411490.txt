@@ -1,0 +1,274 @@
+Genomics Proteomics Bioinformatics 12 (2014) 255 265 H O S T E D  BY Genomics Proteomics Bioinformatics www.elsevier.com/locate/gpb www.sciencedirect.com PROTOCOL Systematic Characterization of Cell Cycle Phase-dependent Protein Dynamics and Pathway Activities by High-content Microscopy-assisted Cell Cycle Phenotyping Christopher Bruhn 1, , Torsten Kroll 1, Zhao-Qi Wang 1,2,* 1 Leibniz Institute for Age Research  Fritz Lipmann Institute (FLI), 07745 Jena, Germany 2 Faculty of Biology and Pharmacy, Friedrich Schiller University of Jena, 07745 Jena, Germany Received 2 October 2014 accepted 7 October 2014 Available online 29 November 2014 Handled by Yun-Gui Yang KEYWORDS hiMAC Non-invasive cell cycle assay Cell cycle proﬁling DNA damage markers Imaging Abstract Cell cycle progression is coordinated with metabolism, signaling and other complex cel- lular functions.
+The investigation of cellular processes in a cell cycle stage-dependent manner is often the subject of modern molecular and cell biological research.
+Cell cycle synchronization and immunostaining of cell cycle markers facilitate such analysis, but are limited in use due to unphysiological experimental stress, cell type dependence and often low ﬂexibility. Here, we describe high-content microscopy-assisted cell cycle phenotyping (hiMAC), which integrates high-resolution cell cycle proﬁling of asynchronous cell populations with immunoﬂuorescence microscopy.
+hiMAC is compatible with cell types from any species and allows for statistically pow- erful, unbiased, simultaneous analysis of protein interactions, modiﬁcations and subcellular locali- zation at all cell cycle stages within a single sample.
+For illustration, we provide a hiMAC analysis pipeline tailored to study DNA damage response and genomic instability using a 3 4-day protocol, which can be adjusted to any other cell cycle stage-dependent analysis.
+Introduction * Corresponding author.
+E-mail: zqwang@ﬂi-leibniz.de (Wang ZQ). Current address: IFOM  FIRC Institute of Molecular Oncology, 20139 Milan, Italy. Peer review under responsibility of Beijing Institute of Genomics, Chinese Academy of Sciences and Genetics Society of China.
+Progression through the cell cycle is tightly coordinated by molecular pathways, which sense intra- and extracellular signals and orchestrate vital cellular functions with DNA replication and cell division [1]. This integrated signaling network differentially regulates activity of essential cellular processes such as DNA damage responses, transcription, http://dx.doi.org/10.1016/j.gpb.2014.10.004 1672-0229 ª 2014 The Authors.
+Production and hosting by Elsevier B.V. on behalf of Beijing Institute of Genomics, Chinese Academy of Sciences and Genetics Society of China.
+This is an open access article under the CC BY-NC-ND license (http://creativecommons.org/licenses/by-nc-nd/3.0/). 256 Genomics Proteomics Bioinformatics 12 (2014) 255 265 protein biosynthesis, energy metabolism and organelle func- tions throughout the cell cycle [2 5]. Synchronization protocols are often used to investigate cell cycle-dependent biological processes in mammalian cells in a given experimental setting however, these are problematic because they load experimental stresses.
+Immunoﬂuorescence (IF) imaging facilitates cell cycle staging and cell phenotyping, but a combination of both strongly restricts analysis ﬂexibility due to the limitations of ﬂuorescence channels and antibodies, which precludes powerful applications such as cell cycle-based colocalization analysis.
+Live cell imaging of ﬂuorophore-tagged cell cycle markers has been used to monitor cell cycle progression in unsynchronized cell populations, but it requires stable protein overexpression and is limited in the use of additional markers.
+In order to overcome these challenges, we developed hiMAC, which integrates two-color (DAPI/EdU) cell cycle proﬁling and the analysis of complex cell phenotypes in a sin- gle high-content microscopy pipeline.
+hiMAC provides an unbiased method for cell cycle stage-dependent analysis of pro- tein localization, interactions, structural features and pathway activities with a high statistical power, which ultimately pro- vide cell cycle-based ﬁngerprints for many biological processes accessible by IF imaging.
+Overview of hiMAC The hiMAC methodology enables the analysis of localization and modiﬁcation dynamics of multiple proteins simultaneously in all cell cycle phases of non-synchronized cells.
+It consists of the integrated analysis of the cell cycle and any cell features of interest by high-content ﬂuorescence microscopy.
+It can pro- cess a large number of samples, which is necessary for setups with multiple treatment conditions and time points.
+High-res- olution cell cycle information is derived from DNA content (DAPI) and replication status (e.g., incorporation of thymi- dine analog EdU), which confers species-independence and maximum ﬂexibility in the choice of proteins to analyze.
+Figure 1 illustrates the hiMAC workﬂow. A detailed step- by-step description is provided in the  Procedure  section.
+Figure 2 exempliﬁes the hiMAC procedure for the co-local- ization analysis of two DNA damage markers, recombination marker Rad51 and general DNA damage marker cH2AX, throughout the cell cycle in mouse embryonic ﬁbroblasts (MEFs). DNA lesions were induced by deletion of the DNA damage response gene Nbs1 as veriﬁed by the immunoblotting (Figure 2A). The hiMAC protocol begins with pulse labeling of cells with EdU, followed by ﬁxation and permeabilization (Figure 1). A click reaction is performed to label S-phase cells [6], and proteins of interest and DNA are labeled with immu- nostaining and DAPI, respectively.
+Images are recorded by automated microscopy (Figure 2B) and analyzed in a custom- ized CellProﬁler [7] pipeline to measure intensities of DAPI (DNA content and condensation) and of EdU (replication sta- tus) in individual nuclei, and to identify the pattern of objects of interest, such as proteins, organelles and micronuclei (Fig- ure 2C). Finally, a cell cycle proﬁle is constructed, cell cycle phases are gated (Figure 2D and E), and the objects of interest are analyzed for all individual cell cycle phases (G1, early/mid/ late S and G2/M) (Figure 2F). While hiMAC can be used to study cell cycle-dependent phenomena in general, here we speciﬁcally provide a pipeline Steps 1 7: Cell treatment (EdU pulse, fixation) Steps 8 23: Sample preparation (click reaction, immunostaining, DAPI) Steps 24 31: Image acquisition Steps 32 37: Image analysis (object recognition, densitometry) Steps 38 40: Data analysis in  hiMAC template (cell cycle profiling, phenotyping) hiMAC workﬂow Figure 1 The general experimental steps of the hiMAC procedure is outlined, see detailed stepwise description in the  Procedure  section.
+to analyze the cell cycle phase-dependent localization of any two proteins and their interaction within the nucleus.
+We suc- cessfully applied this pipeline to analyze the dynamic localiza- tion of DNA damage response proteins (53BP1, Rad51, cH2AX, etc.) throughout the cell cycle [8]. Experimental design Several parameters should be considered in the hiMAC proto- col according to the experimental purpose.
+EdU pulse labeling is compatible with many cell treatments.
+However, EdU fails to label S-phase cells under conditions that block DNA synthe- sis (e.g., by hydroxyurea) the EdU pulse thus needs to be applied before such a treatment.
+It is recommended to include one sample of asynchronous untreated cells as undisturbed cell cycle control in every experiment.
+Positive and negative con- trol samples should be included for each post-translational modiﬁcation to assess maximum signal induction.
+When quan- tifying the level and localization of an ectopically expressed protein, appropriate controls such as non-functional or non- degradable isoforms of the same protein, or a different protein with the same tag and similar localization should be included.
+The cell ﬁxation and immunostaining methods for high anti- body speciﬁcity need to be optimized before high-throughput analysis [9]. siRNA knock-down of the protein epitope of interest is a good control for antibody speciﬁcity. While non- confocal microscopy is sufﬁcient for hiMAC cell cycle proﬁl- ing, confocal image acquisition may be of greater advantage for the resolution of ﬁne structures of interest (nuclear foci, mitochondria, etc.). Results Cell cycle proﬁling Cell cycle proﬁling of an asynchronous population of MEF cells yielded cell cycle proﬁles with clear separation of G1, S and G2/M populations (Figure 2E, left panel). We next vali- dated the stringency of cell cycle gating (Figure 3). Cell cycle analysis of MEFs during serum starvation and release showed the expected outcome, namely efﬁcient G0/G1 arrest ( 93%),  Bruhn C et al / High-content Microscopy-assisted Cell Cycle Phenotyping  hiMAC 257 A  B  C  D  Nbs1F/F CreER+ - 9  6  Nbs1F/F CreER- - 9  6  Nbs1 β-Tubulin DAPI EdU γH2AX Rad51 #3 #1 #2 #4 DAPI γH2AX Rad51 Cell No.1 No.2 No.3 No.4  DAPI sum EdU DAPI mean Low 2.5 Low 4.4 Low 3.8 3.7 Low + - - -  γH2AX foci 6 12 13 16 Rad51 foci 4 3 3 6  Colocali zed foci 2 3 3 6  No.of MN 1 0 2 0  EdU-  G1/S/G2/M EdUsum EdU+  No.of  γH2AX+ MN 0 0 1 0   3N DNA G1/G2/M DAPIsum  3N DNA  2 2/3N DNA S  DAPIsum  3 1/3N DNA Others Early S  Mid S  Late S  G1 Low G2/M DAPImean High Early G2 Late G2/M  E  m u s U d E   Mid Late Early S  G2/M G1 2N 4N DAPI sum n a e m  I P A D F  Late G2/M G1 S G2/M 2N 4N DAPI sum Illustration of individual steps of hiMAC Figure 2 A.
+Western blot analysis of cell lysates from inducible Nbs1-null mouse embryonic ﬁbroblast (MEF) cells (Nbs1F/F CreER+) that were treated with 1 lM 4-hydroxytamoxifen (4-OHT) for 3 days to induce disruption of the Nbs1 gene.
+Cells were harvested after 3 or 6 days of recovery, i.e., 6 or 9 days post 4-OHT treatment (DPO). Controls are untreated inducible MEFs and congenic MEFs without expression of CreER. B.
+Example images of Nbs1-deleted cells at 6 DPO as shown in panel A that were stained with cH2AX and Rad51 antibodies, EdU and DAPI. Images were recorded by a Pathway 435 Bioimager (BD) with a 20  objective.
+C. Scheme of CellProﬁler output table.
+The number in the  Cell  column refers to the respective nuclei as shown in panel B. D. Scheme of cell cycle proﬁling based on DAPI sum (DNA content), EdU sum (replication status) and DAPI mean (DNA condensation). E. Scatter plot of EdU sum vs. DAPI sum with gating of G1, early/mid/late S and G2/M cells was shown on the left, whereas scatter plot of DAPI mean vs. DAPI sum with gating of the late G2/M population (dashed frame, 4 N DNA content, EdU- and high DNA condensation) was shown on the right.
+F. Cell cycle phase-dependent colocalization of cH2AX and Rad51 foci in cells as shown in panel B. MN, micronuclei. Scale bars, 4 lM. followed by sequential passage of cells through early/mid/late S phase into G2/M phase (Figure 3A). In asynchronous MEF cells, the use of the S-phase population (EdU+) as a reference for cells with low DNA condensation allowed separation of G2/M cells (4 N, EdU ) into early G2 and late G2/M cells on the basis of mean DAPI intensity by hiMAC (Figure 3B and C). Co-staining with mitosis marker phospho-histone H3 (S28) (p-H3) showed that indeed most late G2/M nuclei were p-H3 positive (Figure 3B, 84%), demonstrating that DNA condensation within the G2/M population can be used as mar- ker for late G2/M phases.
+Altogether, hiMAC facilitates gating of G1, early/mid/late S and early G2, as well as late G2/M populations.
+Application of hiMAC to different cell cycle phase-dependent analyses We have used hiMAC in three major applications, namely, the cell cycle phase-dependent analysis of DNA damage sources, pathway activities within subcellular organelles and colocaliza- tion pattern.
+258 Genomics Proteomics Bioinformatics 12 (2014) 255 265 A  Serum starvation Release 22 h 28 h B  DAPI EdU G1 S G2/M 4  3  2  1  0  n a e m  I P A D 0  m u s U d E  93% DAPI sum 10 20 DAPI sum C  100 m u s  3 H - p 10 1  0.1 G1 S G2/M Threshold S  Low High 0 1 2 3 4 5 DNA condensation (DAPI mean) 100 10 1  0.1 G2/M Low High 84% 16% 0 1 2 3 4 5 DNA condensation (DAPI mean) Figure 3 Validation of cell cycle parameters generated by hiMAC A. Validation of DAPI and EdU total intensities as measures of DNA content and DNA synthesis.
+MEF cells were pulse labeled with EdU during serum starvation or 22 h and 28 h after release, stained with DAPI and EdU and analyzed by hiMAC. The upper panel shows representative images.
+The lower panel shows cell cycle proﬁles. The DAPI intensity of the G1 population at 28 h after release was used as reference for DNA content.
+Note that DAPI and EdU labeling allows to monitor the progression of released cells through S phase.
+B. and C. Validation of DNA condensation as mitosis marker.
+Asynchronous MEF cells were pulse labeled with EdU, stained with DAPI, EdU and a phospho-histone H3 (S28) (p-H3) antibody as mitosis marker and analyzed by hiMAC. S cells (red dots) were used as internal reference with low DNA condensation to set a DAPI mean threshold for the classiﬁcation of G2/M cells (green dots) as either early G2 (low DNA condensation) or late G2/M (high DNA condensation) cells (B). p-H3 vs. DAPI mean scatter plots conﬁrm that high DNA condensation in G2/M correlates well with p-H3 (right panel), whereas S cells have low DNA condensation and are p-H3 negative (left panel) (C). Scale bars, 10 lM. Investigation of the cell cycle dependence of pathway activities For this application, a microscopy-based readout for pathway activity is integrated into the hiMAC procedure.
+Such readout typically relies on the immunostaining of either reaction prod- ucts or pathway components to reveal their subcellular locali- zation or modiﬁcation. We used his application to demonstrate the activation of speciﬁc DNA damage responses in G2-phase cells after the deletion of Nbs1 [8]. This application can also be used to measure cell cycle phase-dependent pathway activities under unperturbed conditions or in response to experimental treatments (genotoxic agents, inhibitors, gene deletions, etc.). As an example shown in Figure 4, we investigated the kinetics of cH2AX foci as a general DNA damage marker in the response of wild-type MEFs to DNA polymerase inhibitor, aphidicolin (Aph), at 200 nM, a concentration that permits replication at a reduced rate (Figure 4A). As expected, hiMAC analysis revealed accumulation of S-phase cells (Figure 4B), reduction of EdU incorporation (Figure 4C) and induction of cH2AX foci in early/mid/late S phase (Figure 4D F), sug- gesting that DNA damage was highly speciﬁc to S phase and associated with impaired DNA replication.
+Investigation of the origin and fate of subcellular structures In this application, a hiMAC time course is recorded after a speciﬁc treatment, such as chemical inhibitor treatment, gene deletion or knock-down by siRNA. hiMAC maps the cell cycle phase in which the structure of interest ﬁrst appears.
+Analysis of the following time points then traces the structural changes during cell cycle progression.
+We have used this application to reveal the origin and progression of endogenous DNA dam- ages and micronuclei (MN) in Nbs1-deleted cells [8]. For exam- ple, we assessed replication and homologous recombination activity in MN in Nbs1-deleted MEF cells [10] by quantifying EdU incorporation in all MN and Rad51 localization to dam- aged (cH2AX+) MN, respectively.
+As expected, replication occurred in MN in early/mid/late S phase but not in G1 or G2/M phases (Figure 5A and C). However, Rad51 signal appeared in damaged MN in late S phase and was maintained in G2/M phase (Figure 5B and C). These observations indicate a separation of replication and homologous recombination activity in MN, which has been similarly described for the main nucleus [11]. Investigation of the interaction of macromolecules in a cell cycle- dependent manner This application integrates e.g., immunostaining of two pro- teins in the hiMAC procedure to determine their interaction or relationship in any cell cycle phase.
+This application enabled us to follow the colocalization dynamics of DNA damage response proteins [8]. As an example, we analyzed the impact of decreased homologous recombination efﬁciency of Nbs1- deleted MEFs [10] on colocalization of Rad51 and cH2AX throughout the unperturbed cell cycle.
+Nbs1 deletion reduced spontaneous colocalization of Rad51 and cH2AX throughout S phase, but caused persistence of Rad51-cH2AX double posi- tive foci indicating that homologous recombination activity is associated with unresolved replica- tion damages in G2 phase [8]. in G2/M (Figure 6), The ﬁrst two types of analysis can easily be applied to a deﬁned cell sub-population, e.g., cells co-transfected with a ﬂuorescence marker or a cell type expressing a speciﬁc lineage marker.
+Combination with genetic modiﬁcation and small molecule inhibitors renders hiMAC a powerful approach to obtain functional data.
+hiMAC can be applied to virtually any proliferating adherent cells, which can incorporate the rep- lication marker EdU into newly-synthesized DNA. Discussion We showed that hiMAC is a powerful method to study cell cycle phase-dependent cellular processes with high statistical  Bruhn C et al / High-content Microscopy-assisted Cell Cycle Phenotyping  hiMAC 259 Untr Aph m u s U d E   G1 S G2/M DAPI sum G1 Early S Mid Late G2 A  D  Untr Aph DAPI EdU γH2AX B  E  100 s l l e C %   75 50 25 0  s u e l c u n  r e p  i c o f  X A 2 H γ 20 15 10 5  0  *** ** Untr Aph ** Untr Aph G1 S G2/M 50 40 30 20 10 0  C  s l l   e c S n   i  m u s U d E   F  G1 S G2 s u e l c u n  r e p  i c o f  X A 2 H γ 25 20 15 10 5 0  *** Untr Aph *  *  ** Untr Aph Early S Mid S Late S hiMAC mapping of primary DNA damage exempliﬁed by aphidicolin Figure 4 MEF cells untreated (Untr) or treated with 200 lM aphidicolin (Aph) for 12 h were stained with EdU, DAPI and cH2AX antibody.
+A. hiMAC cell cycle proﬁles. B.
+Cell cycle distribution.
+C. EdU signal intensities in S phase as a measure of DNA synthesis rate.
+D. Representative images of cells in indicated cell cycle phases.
+Quantiﬁcation of cH2AX foci as a general marker of DNA damage is shown for cells in panel D in different cell cycle phases E. and different steps of S phase F. Signiﬁcant difference in Aph-treated cells was indicated with asterisk, compared to the untreated cells in respective cell cycle phases (*, P  0.05 **, P  0.01 ***, P  0.001). P values were generated by Student s t-test (B and C) within the hiMAC analysis template, or by Kruskal Wallis test with Mann Whitney test (E and F) by export of analysis results to GraphPad Prism software.
+Scale bars, 4 lM. power.
+Here, we discuss the advantages and drawbacks of hiMAC in comparison with potential alternative techniques, and point out the experimental limitations of this method.
+Comparison with other methods The use of visually assessable cell cycle stage markers for IF microscopy is an alternative for the cell cycle proﬁling step of hiMAC [12]. These markers include thymidine analog incorporation during replication (BrdU, EdU) and replica- tion-associated proteins such as proliferating nuclear cell anti- gen (PCNA) and replication protein A (RPA) for S phase, cyclin B and kinetochore-associated proteins like centromere protein F (CENP-F) for G2 phase, and histone modiﬁcations like phospho-histone H3(pH3) for M phase.
+However, cell cycle staging by this approach depends on a combination of antibodies, which therefore restricts species compatibility and often leads to cross reactions with the antibodies that are used G1 Early G1 Early S Mid S Mid Late G2 Late G2 A  DAPI EdU  B  EdU  DAPI γH2AX Rad51  C  s l l e c + N M  l l a   n i  N M + r e k r a M %   *** ** EdU Rad51 / γH2AX 50 40 30 20 10 0 S  hiMAC analysis of replication and recombination in micronuclei Figure 5 MEF cells with inducible deletion of Nbs1 (5 DPO) were stained with cH2AX and Rad51 antibodies, EdU and DAPI. A.
+Representative images of EdU signal in micronuclei (MN). Arrowheads indicate EdU+ MN. B.
+Representative images of cH2AX and Rad51 signals in MN. Arrowheads indicate cH2AX-positive MN. C. Quantiﬁcation of EdU incorporation as a measure of DNA synthesis and colocalization of Rad51 and cH2AX foci as a measure of recombination activity within MN for indicated cell cycle phases.
+Note that replication occurs in MN throughout S phase, whereas Rad51 accumulates in cH2AX-positive MN toward late S and G2/M phase.
+Signiﬁcant difference in Nbs1-del cells was indicated with asterisk, compared to Ctrl cells in respective cell cycle phases (**, P  0.01 ***, P  0.001). P values were generated by Student s t-test within the hiMAC analysis template.
+Scale bars, 4 lM. 260 Genomics Proteomics Bioinformatics 12 (2014) 255 265 A  EdU DAPI γH2AX Rad51 EdU DAPI γH2AX Rad51 G1 Early S Mid Late G2 B  Ctrl Nbs1-del    f o n o i t a z i l a c o o c  i c o F %   l 1 5 d a R o t    X A 2 H γ 35 30 25 20 15 10 5 0  *** *  S  Ctrl Nbs1-del ** hiMAC analysis of protein colocalization into DNA damage foci Figure 6 MEF cells without (Ctrl) or with (Nbs1-del) induced deletion of Nbs1 (6 DPO) were stained with cH2AX and Rad51 antibodies, EdU and DAPI. A.
+Representative images of Ctrl and Nbs1-del cells in indicated cell cycle phases.
+B. Quantiﬁcation of colocalization of cH2AX foci to Rad51 foci in cells from A. Signiﬁcant difference in Nbs1-del cells was indicated with asterisk, compared to Ctrl cells in respective cell cycle phases (*, P  0.05 **, P  0.01 ***, P  0.001). P values were generated by Student s t-test within the hiMAC analysis template.
+Scale bars, 4 lM. for the phenotype readout.
+In addition, cell cycle staging by IF microscopy of visually-assessable markers requires four chan- nels (e.g., DAPI/RPA/CENP-F/pH3) in contrast to two chan- nels by hiMAC. This renders inclusion of complex analysis parameters such as protein interactions almost impossible technically.
+In cell hiMAC, comparison with synchronization approaches also allow cell cycle stage-speciﬁc biochemical analyses [13]. An efﬁcient synchronization-release experiment circumvents the use of cell cycle markers and thus increases ﬂexibility of imaging analysis.
+The disadvantages of such approaches are the high cell type dependence of synchroniza- tion efﬁciency and population homogeneity after release [13]. The population impurity caused by de-synchronization must be taken into account in the interpretation of results.
+hiMAC avoids resulting artifacts by allowing analysis of a stringently- deﬁned cell cycle stage.
+Importantly, most synchronization protocols rely on either chemical drugs that target cell cycle regulators or the withdrawal of nutrients from the culture, all of which causes unphysiological challenges for cells and may therefore generate artifacts, particularly when analyzing processes related to cell cycle progression.
+Such stresses include replication fork damage by thymidine block and genomic instability by spindle poisoning.
+Data obtained from a single synchronization method can thus be strongly inﬂuenced by recovery from cell synchronization, which is circumvented in hiMAC by analysis of non-synchronized cells [14]. DAPI/EdU ﬂow cytometry [15] is a good alternative to hiMAC for cell cycle proﬁling and can be combined with the measurement of whole-cell ﬂuorescence intensities however, it lacks the spatial resolution required for the analysis of sub- cellular structures.
+Microscopic analysis of cells immobilized after sorting by ﬂow cytometry, imaging ﬂow cytometry [16], and combination of ﬂow cytometry with cell fractionation [17] are potential alternatives to hiMAC in particular for sim- ple readouts such as overall protein levels.
+The major beneﬁt of these approaches when compared with hiMAC is the high throughput achieved by integrating ﬂow cytometry. However, these methods require detachment of adherent cells from the culture vessel, which often triggers stress responses and alteration of cell morphology and eventually precludes cell treatments with short kinetics.
+hiMAC is, in comparison, a rel- atively non-invasive approach.
+Overall, hiMAC allows quantitative, statistically-powerful analysis of cell cycle phase-dependent cellular properties under physiological conditions in a large number of samples in a high-throughput format.
+Limitations and other considerations Since hiMAC is a microscopy-based approach, it suffers the same limitations as immunoﬂuorescence microscopy in gen- eral, including a dependence on suitable antibodies and spatial resolution.
+hiMAC analysis is most efﬁcient when images are acquired with a high-content analysis microscope, which facilitates com- parable exposure times between images, low sample bleaching and low hands-on time.
+For a small number of samples, our pipeline is compatible with manual image acquisition, but con- stant exposure durations in all channels are absolutely required for the generation of high-quality data.
+The distinction between G0/G1 (2 N) and G2 (4 N) cells by hiMAC is based on DNA content.
+Some treatments can induce G0/G1 cells with 4 N chromosomes, e.g., as a consequence of endoreduplication or defective chromosome separation during mitosis.
+Combination of hiMAC with immunostaining of a G2-phase marker (CENP-F or cyclin B) can be used in a pilot experiment to assess the relevance of this potential artifact.
+Conventional copper-catalyzed click chemistry quenches expressed ﬂuorophores such as GFP. However, it is possible to restore the ﬂuorescence by using an antibody directed against GFP. It is conceivable that novel click chemistry approaches to preserve GFP ﬂuorescence will circumvent this technical issue.
+In summary, we demonstrated that hiMAC is a versatile method to study DNA damage sources, pathway activities within subcellular organelles and protein colocalization patterns in a cell cycle phase-dependent manner.
+Its statistical power and high-throughput compatibility render hiMAC a  Bruhn C et al / High-content Microscopy-assisted Cell Cycle Phenotyping  hiMAC 261 useful approach for imaging analysis.
+It is conceivable that hiMAC will be applied for genome-wide screenings to identify factors involved in cell cycle phase-dependent processes.
+Materials Reagents  DMEM (Life Technologies, cat.
+No.42430-082)  Fetal calf serum (FCS Lonza, cat.
+No.DE14-802F)  L-glutamine (Life Technologies, cat.
+No.25030-024)  Sodium pyruvate (Life Technologies, cat.
+No.11360-039)  Penicillin streptomycin (Life Technologies, cat.
+No.15140- 122)  EdU (Life Technologies, cat.
+No.E10187)  10  PBS, pH 7.2 (Gibco, cat.
+No.70013)  Formaldehyde solution (37% (wt/vol) Sigma, cat.
+No.F1635) !CAUTION Formaldehyde is very toxic if inhaled, ingested or absorbed through the skin.
+Triton X-100 (Sigma, cat.
+No.T8787) !CAUTION Hazard- ous in case of eye contact, ingestion or inhalation.
+Na3N (Sigma Aldrich, cat.
+No.S2002) !CAUTION It is fatal if swallowed and contact with acids liberates very toxic gas.
+TRIS (Roth, cat.
+No.AE15.3)  NaCl (Sigma, cat.
+No.S9888)  BSA (Sigma Aldrich, cat.
+No.A2153)  Normal goat serum (ImmunoBioScience, cat.
+No.IHR- 8136)  Anti-cH2AX antibody (Millipore, cat.
+No.05-636)  Anti-Rad51 antibody (Millipore, cat.
+No.PC130)  Anti-GFP antibody (Life Technologies, cat.
+No.A21311)  Anti-rabbit IgG-Cy3 (Sigma, cat.
+No.C2306)  Anti-mouse IgG-FITC (Sigma, cat.
+No.F2883)  Alexa Fluor 647 azide (Life Technologies, cat.
+No.A10277)  (+) Sodium L-ascorbate (Sigma, cat.
+No.A4034)  Copper (II) sulfate pentahydrate (Sigma Aldrich, cat.
+No.209198) !CAUTION It is toxic if swallowed and causes skin and eye irritation.
+DAPI (Life Technologies, D1306)  Plastic parafﬁn ﬁlm (Sigma Aldrich, cat.
+No.P7793) Equipment  Imaging plates, 96-well (BD Biosciences, cat.
+No.353219)  Biological safety cabinet  Cell culture incubator  BioTek MicroFlo Select Dispenser (Fisher Scientiﬁc) or a similar cell dispenser  Pathway 435 Bioimager (BD Biosciences) or a similar high- content analysis microscope  PC with Windows and MS EXCEL 2007 2013 Reagent setup Cell culture medium: Supplement DMEM with 10% FCS, 2 mM L-glutamine, 1 mM sodium pyruvate, 100 units/ml peni- cillin and 100 lg/ml streptomycin store at 4 C for up to 1 week.
+EdU labeling medium: Supplement cell culture medium with 8 lM EdU. Freshly prepare and store this solution for several hours at 4 C. 1  PBS Prepare 1  PBS from 10  PBS stock by diluting 1:10 with water store at room temperature (RT) for up to 1 year.
+Triton X-100: Prepare a 10% (vol/vol) Triton X-100 stock in water store at RT.
+Fixation/permeabilization solution: Freshly dilute 37% (wt/ vol) formaldehyde 1:10 with 1  PBS and add Triton X-100 to a ﬁnal concentration of 0.1% (vol/vol) keep this reagent at RT.
+Storage buffer: Prepare 0.1% (wt/vol) Na3N in 1  PBS  store at 4 C for several months.
+10  TBS: Dissolve 24 g TRIS and 88 g NaCl in water, adjust the pH value to 7.4 and ﬁll up water to 1 l store at RT.
+BSA: Prepare a 5% (wt/vol) BSA in 1  PBS store aliquots at 20 C. Blocking solution: Mix 610 ll water with 100 ll 10  TBS, 200 ll BSA stock solution, 50 ll goat serum and 40 ll 10% Triton X-100.
+Freshly prepare and store this solution at 4 C for several days.
+Primary antibody solution: Dilute primary antibodies (anti- cH2AX, anti-Rad51) at 1:200 in blocking solution.
+Freshly prepare and store the solution on ice.
+Secondary antibody solution: Dilute secondary antibodies (anti-rabbit IgG-Cy3, anti-mouse IgG-FITC) at 1:200 in blocking solution.
+Freshly prepare and store the solution on ice protected from light.
+water store aliquots at 20 C. DAPI stock solution: Prepare a 1 lg/ml DAPI solution in DAPI staining solution: Dilute DAPI stock solution 1:1000 with 1  PBS. Freshly prepare and store this solution on ice.
+Alexa Fluor 647 azide stock solution: Prepare a 1 mM Alexa Fluor 647 azide solution in DMSO store aliquots at 20 C. Sodium L-ascorbate: Freshly prepare 10 mM (+) sodium L-ascorbate in water, store on ice and avoid exposure to air.
+CuSO4: Prepare 100 mM CuSO4 in water store at RT for several months.
+Click reaction cocktail: Mix 878 ll 1  PBS with 2 ll Alexa Fluor 647 azide stock solution and 100 ll sodium L-ascorbate stock solution, add 20 ll CuSO4 stock solution.
+Freshly pre- pare this solution.
+Equipment setup CellProﬁler: Download and install CellProﬁler software ver- sion 2.1.0 or higher [7] (http://www.cellproﬁler.org/) on your computer.
+Download and extract the Files S1  CellProﬁler File and Folder Nomenclature guide , S2  hiMAC positive control images  and S3  CellProﬁler hiMAC pipelines.
+Copy the extracted CellProﬁler pipeline ﬁles (from File S3) to the default output folder of your CellProﬁler software.
+Generate the subfolder  nControlnWell A01n  within the default input folder of your CellProﬁler software and copy the extracted positive control images (from File S2) into this subfolder. hiMAC analysis template: Download and extract the Files S4  hiMAC_analysis_ﬁle_1.0  and S5  Example CellProﬁler output.
+Open the extracted hiMAC analysis ﬁle in MS EXCEL 2007 2013 and activate dynamic content ( Macros ). You may import the example CellProﬁler output ﬁle from File S5 to test the template.
+262 Procedure Genomics Proteomics Bioinformatics 12 (2014) 255 265 This procedure describes the handling of cells on thin-bottom 96-well dishes.
+For the use of 12 mm diameter coverslips, scale up the culture volumes proportionally to the corresponding culture vessel, but use the indicated volumes for blocking solu- tion, antibody solution, click reaction cocktail and DAPI staining solution.
+Embed coverslips in DAPI-free mounting medium before microscopy.
+While any adherent cell type can be used, we describe a protocol optimized for the analysis of Rad51 and cH2AX foci during cell cycle progression in MEFs with the inducible deletion of Nbs1 as presented in Figure 2.
+Cell culture preparation (TIMING: 1 3 d) 1.
+Passage cells 1 3 d before EdU incubation to achieve a con- ﬂuence of 30% 75% on the day of the EdU pulse.
+Use a cell dispenser for 96-well dishes to ensure homogeneous cell seeding.
+Seed triplicate wells for each sample to rule out staining artifacts.
+CRITICAL STEP Low cell densities affect autofocus qual- ity during image acquisition and increase acquisition time.
+High cell densities affect cell cycle distribution.
+EdU pulse labeling, ﬁxation and permeabilization (TIMING: 1 h and 15 min) 2.
+Prepare EdU labeling medium and equilibrate it at 37 C. 3.
+Remove part of the cell culture medium from the experi- mental dishes.
+Leave 100 ll per well.
+4.
+Add 100 ll of warm EdU-containing medium into each well, mix carefully and return the dishes to the incubator for 30 min.
+Avoid cooling of medium and samples.
+5.
+Aspirate off the medium and rinse cells once with 1  PBS. 6.
+Fix the cells in 100 ll of ﬁxation/permeabilization solution for 20 min at RT.
+CRITICAL STEP Cell ﬁxation and permeabilization must be optimized for each primary antibody.
+7.
+Wash the cells 3 times with 1  PBS for 5 min each.
+PAUSE POINT Samples can be sealed with plastic parafﬁn ﬁlm and kept in storage buffer at 4 C for several weeks.
+Sample staining (TIMING: 14 18 h) 8.
+Completely aspirate off the PBS and add 30 ll of block- ing solution per well.
+CRITICAL STEP Blocking solution composition and antibody incubation conditions must be optimized for each primary antibody.
+Incubate samples for 30 min at RT.
+9.
+10.
+Completely aspirate off the blocking solution and add 30 ll of primary antibody solution per well.
+Incubate samples overnight at 4 C. 11.
+12.
+Wash the cells 3 times with 1  PBS for 5 min.
+Handle samples in the dark from the next step.
+13.
+Completely aspirate off the PBS and add 30 ll of second- ary antibody solution per well.
+Incubate the samples for 1 h at RT.
+14.
+15.
+Wash the cells 2 times with 1  PBS for 5 min.
+16.
+Prepare the click reaction cocktail.
+17.
+Completely aspirate off the PBS and add 35 ll of click reaction cocktail per well.
+Incubate samples for 60 min at RT.
+18.
+19.
+Wash the cells once with 1  PBS for 5 min.
+20.
+Prepare DAPI staining solution.
+21.
+Aspirate off the PBS completely and add 100 ll of DAPI staining solution per well.
+Incubate samples for 15 min at RT.
+22.
+23.
+Wash the cells twice with 1  PBS for 5 min each.
+PAUSE POINT Samples can be sealed with plastic par- afﬁn ﬁlm and kept in storage buffer at 4 C in the dark for several weeks.
+Microscopy setup (TIMING: 1 h) 24.
+Select any microscope for automated image acquisi- tion. CRITICAL STEP Confocal microscopy facilitates the resolution of small, non-planar structures such as pro- tein foci and may thus strongly improve automated object recognition and reliable quantiﬁcation. Use non-confocal ﬂuorescence microscopy instead of con- focal microscopy if possible (e.g., for pure cell cycle proﬁling) as confocal imaging strongly increases acqui- sition durations. Homogeneous illumination of the optical ﬁeld is crucial.
+25.
+Select an objective with a suitable magniﬁcation to resolve the desired structural information (10  for cell cycle proﬁling 20  for large nuclear foci and 40  for small nuclear foci). 26.
+Optimize the exposure time for each channel to obtain high signal intensities while avoiding signal saturation.
+CRITICAL STEP Clearly positive cells from the sample with the strongest staining must be used for exposure time optimization to avoid signal saturation.
+These are mitotic cells for the DAPI channel and mid-to-late S-phase cells for the EdU channel from an untreated asynchronous cell population.
+TROUBLESHOOTING 27.
+Optimize the optical auto-focus function for the DAPI channel, starting from 5 focusing steps with a step dis- tance of 1 lM. TROUBLESHOOTING 28.
+Determine the z offset of each channel, which is the dis- tance between a perfectly-focused image of the respec- tive channel and the z position of the DAPI channel obtained by auto-focusing.
+29.
+Optional: Optimize the settings for all confocal channels (number of z-stacks, distance between z-stacks) for high- est detail resolution, starting from 4 stacks with a stack thickness of 1 lM. 30.
+Set up an image acquisition assay: In each optical ﬁeld, auto-focus on the DAPI channel and record all channels, taking into account the z offsets determined above.
+Record at least 1000 nuclei per sample.
+Bruhn C et al / High-content Microscopy-assisted Cell Cycle Phenotyping  hiMAC 263 CRITICAL STEP The number of recorded determines the statistical signiﬁcance of your results.
+Increase cells accordingly when analyzing speciﬁc, such as late-G2/M cells.
+small cell populations the amount of cells in the user manual (File S1) to import and analyze data.
+TROUBLESHOOTING 40.
+For manual data analysis, refer to the documentation of the technical background of the hiMAC analysis ﬁle (File S1). Image acquisition [TIMING: 15 min 4 h for 6 wells (2 samples in triplicates), depending on magniﬁcation, duration of exposure and confocal vs. non-confocal] Troubleshooting 31.
+Run the image acquisition assay.
+Setup of the image analysis pipeline (TIMING: 2 h) 32.
+Copy image sets into the CellProﬁler default input folder as described in the CellProﬁler File and Folder Nomen- clature guide (File S1  hiMAC manuals.zip ). 33.
+Select a positive control image set from your image acquisition, which contains all features to be analyzed (or the example image set in File S2). 34.
+Open the CellProﬁler software.
+35.
+Open a CellProﬁler pipeline (File S3) according to the desired type of analysis as summarized in Table 1.
+36.
+Using the positive control image set from step 33, opti- mize parameters in the CellProﬁler pipeline by following the optimization guideline (File S1). TROUBLESHOOTING High quality image acquisition is essential for the generation of hiMAC proﬁles. Potential problem sources during image acquisition are sub-optimal auto-focusing, deﬁnition of incor- rect distances between focus planes of the selected color channels, inhomogeneous illumination of the optical ﬁeld, overexposure, and insufﬁcient compensation of the chromatic aberration between different color channels by the micro- scope hardware, which may lead to a small distortion of images in different color channels.
+To ensure optimal image quality, we advise to prepare samples in thin-bottom 96-well dishes instead of coverslips, carefully optimize the autofocus function, measure the distance between optimal focus planes of different channels, and determine the dynamic range of exposure durations for several samples.
+Distortion of images recorded in different color channels can be compensated for by including additional modules in the CellProﬁler analysis pipeline.
+Detailed troubleshooting advice can be found in Table 2.
+Image analysis (TIMING: 30 min 1 h for 100 image sets) Timing 37.
+Run the optimized CellProﬁler pipeline on all acquired images.
+Data analysis (TIMING: 1 2 h) 38.
+Move all CellProﬁler output ﬁles and the hiMAC anal- ysis ﬁle (File S4) into a new analysis folder.
+39.
+Open the hiMAC analysis ﬁle and follow either the short instructions in the ﬁle or the detailed instructions Step 1, cell culture preparation: 1 3 d Steps 2 7, EdU pulse labeling, ﬁxation and permeabiliza- tion: 1 h and 15 min Steps 8 23, sample staining: 14 18 h Steps 24 30, microscopy setup: 1 h Step 31, image acquisition: 15 min 4 h for 6 wells Steps 32 36, setup of the image analysis pipeline: 2 h Step 37, image analysis: 30 min 1 h for 100 image sets Steps 38 40, data analysis: 1 2 h Table 1 Summary of hiMAC CellProﬁler analysis pipelines No.of colors No.of foci types MN analyzed CellProﬁler pipeline ﬁle name 4 4 4 4 4 4 3 3 3 3 2 2 2 2 1 1 - - 1 1 - - - - +  +  +  +  +  +  CP_hiMAC_pipeline_complete.cppipe CP_hiMAC_pipeline_4-colors_2-foci-types_no-MN.cppipe CP_hiMAC_pipeline_4-colors_1-foci-type_MN.cppipe CP_hiMAC_pipeline_4-colors_1-foci-type_no-MN.cppipe CP_hiMAC_pipeline_4-colors_no-foci_MN.cppipe CP_hiMAC_pipeline_4-colors_no-foci_no-MN.cppipe CP_hiMAC_pipeline_3-colors_1-foci-type_MN.cppipe CP_hiMAC_pipeline_3 colors_1-foci-type_no-MN.cppipe CP_hiMAC_pipeline_3-colors_no-foci_MN.cppipe CP_hiMAC_pipeline_3-colors_no-foci_no-MN.cppipe CP_hiMAC_pipeline_2-colors_MN.cppipe CP_hiMAC_pipeline_2-colors_no-MN.cppipe Note: The names of the supplied CellProﬁler pipelines for speciﬁc analysis purposes are listed.
+The choice of the pipeline ﬁle depends on the number of ﬂuorescence channels, the number of different foci types and whether micronuclei (MN) are analyzed (+) or not ( ). 264 Genomics Proteomics Bioinformatics 12 (2014) 255 265 Table 2 Troubleshooting table Step Problem Reason Solution 26 27 36 39 GFP signal is lost Click reaction bleaches GFP DAPI auto-focus is not stable Images from a speciﬁc channel appear unfocused Images from diﬀerent color channels appear shifted Mounting medium may cause a fuzzy DAPI staining aﬀecting the contrast of nuclear edges The focusing plane is incorrect Components in the light path cause a systematic XY shift (e.g., for confocal vs. non-confocal images) Images from diﬀerent color channels appear scaled/distorted The chromatic aberration is insuﬃciently compensated for by the microscope hardware Buttons in the hiMAC analysis ﬁle to not work Insuﬃcient separation of G1/S/G2 populations in the cell cycle diagrams of the hiMAC analysis ﬁle Insuﬃcient separation of early G2 and late G2/M phases Macros are inactivated Signal variation between images or uneven illumination of the optical ﬁeld cause imprecise measurement of DAPI and EdU intensities The DAPI channel was saturated during image acquisition Apply an anti-GFP antibody in Step 10 to detect GFP protein Prepare your samples on 96-well dishes instead of coverslips test another ﬂuorescence channel for auto-focusing Optimize the z oﬀset in Step 28 Call the service for microscope calibration implement a compensatory XY shift in the image acquisition procedure in Step 30 include a  crop  module in the CellProﬁler pipeline in Step 36 for each channel and compensate for the XY shift by diﬀerent cropping positions Include  resize  and  crop  modules in the CellProﬁler pipeline in Step 36 for each channel and compensate by enlarging images of the high wavelength channels (e.g., red, far red) and cropping to the original size to achieve optimal overlay with the DAPI channel Enable dynamic content/macros when opening the analysis ﬁle Apply normalization in the hiMAC template for compensation use the illumination correction function in the CellProﬁler pipeline Optimize DAPI exposure time for mitotic cells in Step 26 Authors contributions Z-QW conceived and supervised the project.
+CB developed the protocol, pipelines and analysis ﬁles. TK tested and modiﬁed the pipelines and analysis ﬁles. CB and Z-QW wrote the man- uscript. All authors read and approved the ﬁnal manuscript.
+Competing interests The authors declare no competing ﬁnancial interests.
+Acknowledgements We thank SJ Smith for reading and editing the manuscript and members of Z-QW s laboratory for helpful discussion.
+CB was supported by a fellowship from the Studienstiftung des Deuts- chen Volkes of Germany. This work was supported in part by the Deutsche Forschungsgemeinschaft (DFG Grant Nos.
+WA2627/1-1 and WA2627/5-1) of Germany. Supplementary material Supplementary material associated with this article can be found, in the online version, at http://dx.doi.org/10.1016/ j.gpb.2014.10.004. References [2] Antico Arciuch VG, Elguero ME, Poderoso JJ, Carreras MC. Mitochondrial regulation of cell cycle and proliferation.
+Antioxid Redox Signal 2012 16:1150 80.
+[3] Branzei D, Foiani M. Regulation of DNA repair throughout the cell cycle.
+Nat Rev Mol Cell Biol 2008 9:297 308.
+[4] Cai L, Tu BP. Driving the cell cycle through metabolism.
+Annu Rev Cell Dev Biol 2012 28:59 87.
+[5] David M, Petit D, Bertoglio J.
+Cell cycle regulation of Rho signaling pathways.
+Cell Cycle 2012 11:3003 10.
+[6] Moses JE, Moorhouse AD.
+The growing applications of click chemistry.
+Chem Soc Rev 2007 36:1249 62.
+[7] Kamentsky L, Jones TR, Fraser A, Bray MA, Logan DJ, Madden KL, et al. Improved structure, function and compatibility for Cell Proﬁler: modular high-throughput image analysis software.
+Bio- informatics 2011 27:1179 80.
+[8] Bruhn C, Zhou ZW, Ai H, Wang ZQ. The essential function of the MRN complex in the resolution of endogenous replication intermediates.
+Cell Rep 2014 6:182 95.
+[9] Bennett BT, Bewersdorf J, Knight KL.
+Immunoﬂuorescence imaging of DNA damage response proteins: optimizing protocols for super-resolution microscopy.
+Methods 2009 48:63 71.
+[10] Yang YG, Saidi A, Frappart PO, Min W, Barrucand C, Dumon- Jones V, et al. Conditional deletion of Nbs1 in murine cells reveals its role in branching repair pathways of DNA double- strand breaks.
+EMBO J 2006 25:5527 38.
+[11] Su X, Bernal JA, Venkitaraman AR. Cell-cycle coordination between DNA replication and recombination revealed by a vertebrate N-end rule degron-Rad51. Nat Struct Mol Biol 2008 15:1049 58.
+[12] Kurzawa L, Morris MC. Cell-cycle markers and biosensors.
+Chembiochem 2010 11:1037 47.
+[13] Banfalvi G. Overview of cell synchronization.
+Methods Mol Biol 2011 761:1 23.
+[1] Malumbres M, Barbacid M. Cell cycle, CDKs and cancer: a [14] Cooper S. Rethinking synchronization of mammalian cells for cell changing paradigm.
+Nat Rev Cancer 2009 9:153 66. cycle analysis.
+Cell Mol Life Sci 2003 60:1099 106.
+Bruhn C et al / High-content Microscopy-assisted Cell Cycle Phenotyping  hiMAC 265 [15] Cecchini MJ, Amiri M, Dick FA.
+Analysis of cell cycle position in mammalian cells.
+J Vis Exp 2012. http://dx.doi.org/10.3791/3491. [16] Calvert ME, Lannigan JA, Pemberton LF. Optimization of yeast cell cycle analysis and morphological characterization by multi- spectral imaging ﬂow cytometry. Cytometry A 2008 73: 825 33.
+[17] Rosner M, Schipany K, Hengstschlager M. Merging high-quality biochemical fractionation with a reﬁned ﬂow cytometry approach to monitor nucleocytoplasmic protein expression throughout the unperturbed mammalian cell 2013 8: 602 26. cycle.
+Nat Protoc 

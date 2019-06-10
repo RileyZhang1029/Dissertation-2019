@@ -1,0 +1,284 @@
+BIOINFORMATICS Vol.25 ISMB 2009, pages i365 i373 doi:10.1093/bioinformatics/btp212 A partition function algorithm for interacting nucleic acid strands Hamidreza Chitsaz1, , Raheleh Salari1, , S. Cenk Sahinalp1, and Rolf Backofen2, 1Lab for Computational Biology, School of Computing Science, Simon Fraser University, Burnaby, BC, Canada and 2Department of Bioinformatics, Institute of Computer Science, Albert-Ludwigs-Universität, Freiburg, Germany ABSTRACT Recent interests, such as RNA interference and antisense RNA regulation, strongly motivate the problem of predicting whether two nucleic acid strands interact.
+Motivation: Regulatory non-coding RNAs (ncRNAs) such as microRNAs play an important role in gene regulation.
+Studies on both prokaryotic and eukaryotic cells show that such ncRNAs usually bind to their target mRNA to regulate the translation of corresponding genes.
+The speciﬁcity of these interactions depends on the stability of intermolecular and intramolecular base pairing.
+While methods like deep sequencing allow to discover an ever increasing set of ncRNAs, there are no high-throughput methods available to detect their associated targets.
+Hence, there is an increasing need for precise computational target prediction.
+In order to predict base- pairing probability of any two bases in interacting nucleic acids, it is necessary to compute the interaction partition function over the whole ensemble.
+The partition function is a scalar value from which various thermodynamic quantities can be derived.
+For example, the equilibrium concentration of each complex nucleic acid species and also the melting temperature of interacting nucleic acids can be calculated based on the partition function of the complex.
+Results: We present a model for analyzing the thermodynamics of two interacting nucleic acid strands considering the most general type of interactions studied in the literature.
+We also present a corresponding dynamic programming algorithm that computes the partition function over (almost) all physically possible joint secondary structures formed by two interacting nucleic acids in O(n6) time.
+We verify the predictive power of our algorithm by computing (i) the melting temperature for interacting RNA pairs studied in the literature and (ii) the equilibrium concentration for several variants of the OxyS fhlA complex.
+In both experiments, our algorithm shows high accuracy and outperforms competitors.
+Availability: Software http://compbio.cs.sfu.ca/taverna/pirna/ Contact: cenk@cs.sfu.ca backofen@informatik.uni-freiburg.de Supplementary information: Supplementary data are avaliable at Bioinformatics online.
+and web available server at is 1 INTRODUCTION Starting with the discovery of microRNAs (miRNAs) and the advent of genome-wide transcriptomics, it has become clear that RNA plays a large variety of important roles in living organisms  To whom correspondence should be addressed.
+The authors wish it to be known that in their opinion, the ﬁrst two authors should be regarded as joint First Authors.
+that extend far beyond being a mere intermediate in protein biosynthesis (Storz, 2002). Several of these non-coding RNAs (ncRNAs) regulate gene expression post-transcriptionally through base pairing (and establishing a joint structure) with a target mRNA, as per the eukaryotic miRNAs and small interfering RNAs (siRNAs) (Bartel, 2004 Hannon, 2002 Zamore and Haley, 2005), antisense RNAs (Brantl, 2002 Wagner and Flardh, 2002) or bacterial small regulatory RNAs (sRNAs) (Gottesman, 2005). In addition to such endogenous regulatory ncRNAs, antisense oligonucleotides have been used as exogenous inhibitors of gene expression antisense technology is now commonly used as a research tool as well as for therapeutic purposes.
+Furthermore, synthetic nucleic acids systems have been engineered to self- assemble into complex structures performing various dynamic mechanical motions (Seeman, 2005 Seeman and Lukeman, 2005 Simmel and Dittmer, 2005 Venkataraman et al., 2007 Yin et al., 2008). Despite all the above advances, computational methods for predicting ncRNA target mRNA interactions suffer from a low speciﬁcity (see below for an overview) this is possibly due to two technical reasons.
+First, several of these methods consider restricted versions of the problem (e.g. simpliﬁed energy functions or restricted types of interactions) this is mostly for computational reasons.
+Second, a quantitative analysis of binding thermodynamics between oligonucleotides and target RNAs is often lacking.
+To determine the binding effectiveness, an accurate analysis of the thermodynamics of two interacting nucleic acid strands is necessary.
+In this article, we aim to compute how likely two RNA or DNA strands are to interact, and to predict base-pairing probability of any two bases which we then use to quantitatively measure the strength, probability and stability of the joint structure established by the interacting strands (Mathews, 2004). To correctly calculate those probabilities, it is necessary to compute the partition function over the whole ensemble of possible individual and joint secondary structures.
+The partition function is a scalar value from which various thermodynamic quantities can be derived (Landau and Lifshitz, 1969). For instance, one can compute the equilibrium concentration of each complex nucleic acid species from their partition functions.
+Also, the partition function can be used to predict the melting temperature of interacting nucleic acids.
+Although algorithms for predicting the most likely (the lowest total free energy) joint structure that can be formed by two interacting RNA strands are available [see, for example, Alkan et al. (2006)], previous little work has been done for computing the partition function of interacting RNA strands.
+It is important to note that designing an algorithm to compute the partition function is more challenging than that to predict the minimum free energy  2009 The Author(s) This is an Open Access article distributed under the terms of the Creative Commons Attribution Non-Commercial License (http://creativecommons.org/licenses/ by-nc/2.0/uk/) which permits unrestricted non-commercial use, distribution, and reproduction in any medium, provided the original work is properly cited.
+[10:03 15/5/2009 Bioinformatics-btp212.tex] Page: i365 i365 i373  H.Chitsaz et al. secondary structure: a partition function algorithm should guarantee that every joint structure is considered exactly once.
+In this article, we present an O(n6) time algorithm to compute the partition function over the type of interactions that Alkan et al. (2006) considered.1 We extend the standard energy model for a single RNA model to an energy model for the joint secondary structure of interacting strands by considering new types of (joint) structural components.
+We verify our algorithm (and the associated software we developed) by computing the melting temperature for RNA pairs available (Diamond et al., 2001 Mathews and Turner, 2002 Xia et al., 1998) and the equilibrium concentration for OxyS fhlA complexes for wild-type fhlA and four other mutants reported in the literature (Argaman and Altuvia, 2000). In both experiments, our algorithm shows high accuracy and outperforms existing alternatives.
+1.1 Related work During the last few decades, several computational methods emerged to study the secondary structure thermodynamics of a single nucleic acid strand.
+Nearest neighbor thermodynamic model has become the standard energy model for a nucleic acid secondary structure (Mathews et al., 1999). The standard energy model is based on the assumption that stacking base pairs and loop entropies contribute additively to the free energy of a nucleic acid secondary structure.
+More recently, the standard energy model has been extended for pseudoknots (Cao and Chen, 2006 Dirks and Pierce, 2003). Based on additivity of the energy, efﬁcient dynamic programming algorithms for predicting the minimum free energy secondary structure (Nussinov et al., 1978 Rivas and Eddy, 1999 Waterman and Smith, 1978 Zuker and Stiegler, 1981) and computing the partition function of a single strand (Dirks and Pierce, 2003 McCaskill, 1990) have been developed.
+Some previous attempts to analyze the thermodynamics of multiple interacting strands concatenate input sequences in some order and consider them as a single strand.
+For example, pairfold (Andronescu et al., 2005) and RNAcofold from Vienna package (Bernhart et al., 2006) concatenate the two input sequences into a single strand and predict its minimum free-energy structure.
+Dirks et al. (2007) present a method, as a part of NUPack, that concatenates the input sequences in some order, carefully considering symmetry and sequence multiplicities, and computes the partition function for the whole ensemble of complex species.
+However, concatenating the sequences is not accurate at all as even if pseudoknots are considered, some useful interactions are excluded while many physically impossible interactions are included (e.g. physically impossible crossing interactions). Alternatively, several methods avoid internal base-pairing in either strand, and compute the minimum free energy secondary structure for their hybridization under this constraint [RNAhybrid (Rehmsmeier et al., 2004), UNAFold (Dimitrov and Zuker, 2004 Markham and Zuker, 2008), and RNAduplex from Vienna package (Bernhart et al., 2006)]. These approaches naturally work only for simple cases involving typically very short strands.
+A third set of methods predict the secondary structure of each individual RNA independently, and predict the (most likely) 1Which is, to our knowledge, the most general type of interactions considered in the literature.
+i366 hybridization between the unpaired regions of the two molecules.
+More sophisticated alternatives view interaction as a multi-step process (Busch et al., 2008 Mückstein et al., 2006 Walton et al., 2002): (i) unfolding of the two molecules to expose bases needed for hybridization, (ii) the hybridization at the binding site and (iii) restructuring of the complex to a new minimum free-energy conformation.
+In addition to the above approaches, a number of studies aimed to compute the minimum total energy joint structure between two interacting strands under energy models with growing complexity.
+For instance, Pervouchine devised a dynamic programming algorithm to maximize the number of base pairs among interacting strands (Pervouchine, 2004). A follow-up work by Kato et al. (2009) proposed a grammar-based approach to RNA RNA interaction prediction.
+More generally, Alkan et al. (2006) studied the joint secondary structure prediction problem under three different models: (i) base pair counting, (ii) stacked pair energy model and (iii) loop energy model.
+Alkan et al. (2006) proved that the general RNA RNA interaction prediction under all three energy models is an NP-hard problem.
+Therefore, they suggested some natural constraints on the topology of possible joint secondary structures that are satisﬁed by all examples of complex RNA RNA interactions in the literature.
+The resulting algorithms compute the minimum free energy secondary structure among all possible joint secondary structures that do not contain (internal) pseudoknots, crossing interactions (i.e. external pseudoknots) and zigzags (see Section 2.1 for the exact deﬁnition). (cid:3) (cid:3) (cid:3) to 3 (cid:3) 5 with S in 3 2 METHODS 2.1 Preliminaries Throughout this article, we denote the two nucleic acid strands by R and S. Strand R is indexed from 1 to LR, and S is indexed from 1 to LS both in (cid:3) direction.
+Note that the two strands interact in opposite directions, 5 (cid:3) 3 e.g. R in 5 direction.
+Each nucleotide is paired with at most one nucleotide in the same or the other strand.
+We refer to the i-th nucleotide in R and S by iR and iS, respectively.
+The subsequence from the i-th nucleotide to the j-th nucleotide in a strand is denoted by [i,j]. An intramolecular base pair between the nucleotides i and j in a strand is called an arc and denoted by a bullet i j.
+An intermolecular base pair between the nucleotides iR and iS is called a bond and denoted by a circle iR iS.
+An arc iR jR covers a bond lR kS if iR  lR  jR. We call iR jR an interaction arc if there is a bond lR kS covered by iR jR. A kissing arc is an interaction arc that directly covers a bond.
+More precisely, we call iR jR a kissing arc if it covers a bond lR kS such that if i j (cid:3) R covers the same bond lR kS, then i R. A subsequence [iR,jR] contains a direct (cid:3) bond, lR kS, if iR lR jR and no arc within [iR,jR] covers lR kS.
+Assuming iR  jR, two bonds iR iS and jR jS are called crossing bonds if iS  jS. An interaction arc iR jR in a strand subsumes a subsequence [iS ,jS] in the other strand if for all bonds lR kS, if iS  kS  jS then iR  lR  jR. Two interaction arcs are equivalent if they subsume one another.
+Two interaction arcs iR jR and iS jS are part of a zigzag, if neither iR jR subsumes [iS ,jS] nor iS jS subsumes [iR,jR]. iR and jR j (cid:3) R (cid:3) R In this article, we assume there are no pseudoknots in individual secondary structures of R and S, and also there are no crossing bonds and zigzags between R and S. Interaction energy model 2.2 An unpseudoknotted secondary structure s of a single nucleic acid, in the standard energy model (Mathews et al., 1999), is decomposed into loops, [10:03 15/5/2009 Bioinformatics-btp212.tex] Page: i366 i365 i373  piRNA b 3 b 3 b 2 b 2 R S Fig.3.
+A kissing loop in R that interacts with the other strand S. In this case, the free energy of the kissing loop is Gkissing=4β2+2β3. (2) (3) component is called a kissing loop.
+The energy associated with a kissing loop is given by Gkissing Uk ,Bk = β2Uk+β3Bk , in which Bk is the number of loops and Uk the number of unpaired bases in the kissing loop (Fig. 3). Note that in our model we use different β1 and σ values for a hybrid component covered by a kissing loop.
+(cid:129) Inter-hybrid: Ginter-hybrid is the energy of an intermolecular loop bounded by two bonds belonging to two consecutive hybrid components.
+Bases in either sequence facing this kind of loop might be the end points of only arcs and not bonds.
+We call such a component inter-hybrid loop.
+In this work, the energy contribution of an inter-hybrid loop is assumed to be 0.
+Interaction partition function 2.3 The partition function is a weighted sum over the set of all possible secondary structures S Q(T)=(cid:2) s S e  Gs/RT where R is the universal gas constant and T is the temperature.
+Efﬁcient algorithms for computing the partition function for a single strand have been given.
+McCaskill (1990), gave the ﬁrst partition function algorithm for a single unpseudoknotted nucleic acid strand and Dirks and Pierce (2003) gave a partition function algorithm for a single strand allowing pseudoknots. However, computing the partition function for multiple interacting strands has not been properly addressed.
+In previous attempts, multiple strands are concatenated in some order and partition function for the resulting single strand is computed (Bernhart et al., 2006 Dimitrov and Zuker, 2004 Dirks et al., 2007). That approach is not accurate as even if pseudoknots are considered, some useful interactions are excluded while many physically impossible interactions are included (e.g. physically impossible crossing interactions). On the other hand, considering all possible secondary structures makes the problem NP-hard (Alkan et al., 2006). Therefore, we only consider those secondary structures that do not contain pseudoknots, crossing bonds and zigzags.
+Interaction partition function (IPF) problem Given a pair of nucleic acid strands R and S, and a temperature T, compute the partition function, QI (T), over SI the set of all possible single or duplex secondary structures that do not contain pseudoknots, crossing bonds and zigzags.
+Input: nucleic acid strands R and S. Output: QI (T)= (cid:2) s SI  Gs/RT. e We give a recursive algorithm, called Partition function for InteRacting Nucleic Acids (piRNA), for the IPF problem.
+In all of our recursions, the considered cases are disjoint.
+This fact shows that every possible secondary structure is reached by exactly one trajectory in the recursion process.
+Our algorithm guarantees to consider all possible secondary structures exactly i367 Fig.1.
+Interaction components of OxyS fhlA pair presented in Argaman and Altuvia (2000). R S b 1 s t e m 1 b u g e l s t e m 2 i n t e r n a l s t e m 3  s Fig.2.
+A hybrid component between the two strands whose free energy is Ghybrid= β1+σ (Gstem1 +Gbulge+Gstem2 +Ginternal+Gstem3 ). and a free energy is associated with every loop in s. The total free energy Gs is the sum of loop free energies.
+The standard model consists of the following loop types: (i) hairpin, (ii) interior, which can be stack, bulge or internal loop and (iii) multiloop whose energies are denoted by Ghairpin, Ginterior and Gmulti, respectively.
+In an interaction, secondary structure of two strands under our assumptions (remember we do not allow pseudoknots, crossing bonds and zigzags in this work), new kinds of components can appear.
+We extend the standard energy model by deﬁning those new kinds of interaction components.
+Similar to the standard case, an interaction secondary structure s can be decomposed into intramolecular loops and the new interaction components such that the total free energy Gs is sum of the free energies of loops and interaction components.
+Figure 1 shows the decomposition of OxyS fhlA pair secondary structure into the interaction components (Argaman and Altuvia, 2000). These components and their free energy contributions are (cid:129) Hybrid: Ghybrid ki   ki S R is the free energy of a joint secondary structure ,i=1,...,m, with no consisting of a series of bonds, ki R intramolecular base pairing or branching.
+We call such a component hybrid.
+We deﬁne the energy associated with a hybrid component by  ki S m 1(cid:2) i=1  = β1+σ Ghybrid ki ki Ginterior ,ki+1 S S R R , ,ki+1 ki R ,ki S (1) in which β1 is the penalty for the formation of the hybrid, and σ 1 is the ratio of the free energy of intermolecular to that of intramolecular interior loops [as suggested by Alkan et al. (2006)] (Fig. 2). Note that with β1=0,σ =1, Ghybrid is identical to the energy proposed by RNAhybrid, ﬁrst introduced by Rehmsmeier et al. (2004), which considers only one hybrid component for mRNA/target duplexes and does not allow any intramolecular structure.
+(cid:129) Kissing: Gkissing Uk ,Bk is the energy of an intramolecular loop (hairpin, interior or multiloop) that makes interaction with the other strand.
+Such [10:03 15/5/2009 Bioinformatics-btp212.tex] Page: i367 i365 i373  H.Chitsaz et al. i i i j = i j i b k1 k2 j b bz j j = i j i b k1 k2 j i b k1 k2 bz j = i b k1 k2 j Fig.4.
+McCaskill s algorithm: recursion for Qi,j, the partition function for the subsequence [i,j]. Above, Qb is the partition function for the subsequence [i,j] assuming i and j are base paired, and Qbz i,j is the partition function for the subsequence [i,j] assuming there is at least one arc in the region.
+i,j once.
+Since our algorithm covers so many cases, we do not include all the details here.
+A comprehensive description of our algorithm is available in our Supplementary Material.
+We present our algorithm using recursion diagrams (Dirks and Pierce, 2003 Rivas and Eddy, 1999). Our algorithm computes two types of recursive quantities: (i) the partition function of a subsequence [i,j] in one strand, and (ii) the joint partition function of subsequences [iR,jR] and [iS ,jS]. A region is the domain over which a partition function is computed.
+Terminal bases are the boundaries of a region.
+For the ﬁrst type, region is [i,j] with i and j terminal bases.
+For the second type, region is [iR,jR] [iS ,jS] with iR, jR, iS and jS terminal bases.
+The length pair of region [iR,jR] [iS ,jS] is (lR= jR iR+1,lS = jS iS+1). Our algorithm starts with (lR=1,lS =1) and considers all length pairs incrementally up to (lR= LR,lS = LS). For a ﬁxed length pair (lR,lS), recursive quantities for all the regions [iR,iR+lR 1] [iS ,iS+lS 1] are computed.
+For computing the partition function of a subsequence in one strand we use McCaskill s (1990) algorithm.
+McCaskill s algorithm is shown in Figure 4, in which Qi,j is the partition function for the subsequence [i,j]. Throughout this article, a horizontal line indicates the phosphate backbone, a solid curved line indicates an arc and a dashed curved line encloses a region and denotes its two terminal bases that may be paired or unpaired.
+Letter(s) within a region specify a recursive quantity.
+White regions are recursed over and blue regions indicate those portions of the secondary structure that are ﬁxed at the current recursion level and contribute their energy to the partition function as deﬁned by the energy model.
+Green and red regions have the same recursion cases as the corresponding white regions, except that for the green regions multiloop energy and for red regions kissing loop energy is applied, i.e. the corresponding penalties for each unpaired base and base pair should be applied.
+In Figure 4, the ﬁrst case of Qi,j corresponds to an empty structure (that constitutes no base pairs) whose free energy is assumed to be 0, thus its /RT =1. In the other case, contribution to the partition function is e there exists at least one arc and the leftmost one is k1 k2. It contributes Qb Qk2+1,j to the partition function, therefore,  Gempty i,j k1,k2 Qi,j =1+ (cid:2) i k1 k2 j Qb k1,k2 Qk2+1,j. (4) The second line shows the cases of Qb i,j which is the partition function for the subsequence [i,j] assuming i and j are base paired.
+The arc i j can close different substructures: hairpin, interior or multiloop. The energy contribution of each substructure is calculated based on the standard thermodynamics energy model.
+The third line shows cases of Qbz i,j which is the partition function for the subsequence [i,j] assuming the region constitutes at least one arc.
+A region tagged by bz and colored by green is contained in a multiloop and the penalty of multiloop should be applied to it.
+Explicit equations for Qb i,j are given in the Supplementary Material.
+i,j and Qbz iR jS I jR iS = k1 Ib k2 k1 Ia k2 Fig.5.
+Cases of the interaction partition function QI. The ﬁrst case constitutes no bonds.
+In the second case, the leftmost bond is a direct bond on both subsequences. In the third case, the leftmost bond is covered by an interaction arc in at least one subsequence. iR,jR,iS ,jS = Ihh iR jS Ib jR iS = Ih k1 k2 Ih k1 k2 k1 Ia k2 k1 bz Ih k2 k1 Ib k2 k1 Ih bz k2 k1 Ib k2 = Ihb iR,jR,iS ,jS assuming iR jS is a bond.
+We show a version Fig.6.
+Recursion for QIb of the recursion that contains two split points in each sequence for simplicity reasons.
+However, this would increase the complexity and can easily be resolved by introducing two additional matrices QIhh and QIhb for the region [iR,k1] [k2,jS] as indicated by the arrows (see Supplementary Material for a full deﬁnition). iR,jR,iS ,jS In the following, we present all cases of QI which is the interaction partition function for the region[iR,jR] [iS ,jS]. A solid vertical line indicates a bond, a dashed vertical line denotes two terminal bases of a region which may be base paired or unpaired and a dotted vertical line denotes two terminal bases of a region which are assumed to be unpaired.
+For the interaction partition functions, gray regions indicate a reference to the partition functions for the single sequences.
+Figure 5 shows the cases of QI : (i) there is no bond between the two subsequences, (ii) the leftmost bond is a direct bond in both subsequences and (iii) the leftmost bond is covered by an arc in at least one subsequence. Therefore, QI iR,jR,iS ,jS =QiR,jR QiS ,jS + (cid:2) QiR,k1 1Qk2+1,jS QIb k1,jR,iS ,k2 QiR,k1 1Qk2+1,jS QIa k1,jR,iS ,k2 , (5) iR k1 jR iS k2 jS + (cid:2) iR k1 jR iS k2 jS k1,jR,iS ,k2 in which QIb is the interaction partition function for the region [k1,jR] [iS ,k2] assuming k1 k2 is a bond, and QIa is the interaction partition function for the region [k1,jR] [iS ,k2] assuming that the leftmost bond in the region is covered by an arc in at least one subsequence. Figures 6 and 8 show the recursion for QIb and QIa where b stands for bond and a stands for arc.
+k1,jR,iS ,k2 i368 [10:03 15/5/2009 Bioinformatics-btp212.tex] Page: i368 i365 i373  iR jS Ih jR iS = k1 k2 Ih Fig.7.
+Cases of QIh hybrid component.
+iR,jR,iS ,jS the interaction partition function for a single iR jS Ia jR iS = Is k1 I k2 k1 Is I Ie k2 k1 I k2 Fig.8.
+Cases of QIa the end point of an interaction arc.
+iR,jR,iS ,jS , for which we assume at least one of iR and jS is piRNA iR jS Ie jR iS = Ism k2 k1 k2 gm k1 Isk gk Fig.9.
+Cases of QIe interaction arcs.
+iR,jR,iS ,jS , for which iR jR and iS jS are equivalent gk ed gm ed i i j j = i d e = i d e g d e g d e j k2 j k2 j j i i k1 k1 iR,jR,iS ,jS Figure 6 shows the recursion for QIb , the interaction partition function for the region [iR,jR] [iS ,jS] assuming iR jS is a bond.
+Since we have a β1 penalty for each hybrid component, the recursion for QIb has to determine whether the region contains one or several hybrid components.
+In all cases, QIh contains the full hybrid component containing the bond iR jS (see Fig.7 for QIh recursion). The ﬁrst possibility reﬂects the case where we have only one hybrid component.
+In the other cases, we have always at least two hybrid components.
+The subsequent intermolecular bond starts a new hybrid component iff (i) it is not direct in at least one subsequence, i.e. it is covered by an arc in the associated regions (Case 2 of the QIb recursion), or (ii) there is at least one arc between the two successive intermolecular bonds (Cases 3 and 4 of the QIb recursion). Using the additional matrices QIhh and QIhb, we get QIb iR,jR,iS ,jS =QIhh + (cid:2) iR,jR,iS ,jS iR k1 jR iS k2 jS + (cid:2) iR k1 jR iS k2 jS QIhb iR,k1,k2,jS QIb k1,jR,iS ,k2 QIhh iR,k1,k2,jS QIa k1,jR,iS ,k2. (6) Figure 8 shows the cases of QIa Figure 7 shows the cases of QIh: (i) there is no bond other than iR jS and iS jR in the region, and (ii) there exist more bonds between iR jS and iS jR, the leftmost of which is k1 k2. for which at least one of iR and jS is the end point of an interaction arc: (i) iR k1 subsumes [k2,jS] and k2 is not base paired with jS, (ii) k2 jS subsumes [iR,k1] and iR is not base paired with k1 and (iii) iR k1 and k2 jS are equivalent.
+If just one of iR and jS is the end point of an interaction arc while the other one is the end point of a bond, then the interaction arc subsumes the other subsequence. If both iR and jS are end points of interaction arcs, then one of the arcs subsumes the other one or they are equivalent.
+Therefore, iR,jR,iS ,jS QIa iR,jR,iS ,jS iR,k1,k2,jS QI QIs k1+1,jR,iS ,k2 1 = (cid:2) iR k1 jR iS k2 jS + (cid:2) iR k1 jR iS k2 jS + (cid:2) iR k1 jR iS k2 jS (cid:3) QIs iR,k1,k2,jS QI k1+1,jR,iS ,k2 1 (7) QIe iR,k1,k2,jS QI k1+1,jR,iS ,k2 1 , in which QIs assuming iR k1 is an interaction arc that subsumes [k2,jS], QIs the symmetric counterpart of QIs and QIe is the interaction partition function of [iR,k1] [k2,jS] is is the interaction partition (cid:3) iR,k1,k2,jS iR,k1,k2,jS iR,k1,k2,jS i,d,e,j and Qgm i,d,e,j, the partition functions for [i,j] Fig.10.
+Recursion for Qgk excluding the gap [d,e], assuming i and j are base paired.
+The gap in Qgk is assumed to contain a direct bond hence the red color, and the gap in Qgm is assumed to contain multiple interaction arcs hence the green color.
+In both cases, i  k1 d and e k2  j. function of [iR,k1] [k2,jS] assuming iR k1 and k2 jS are equivalent interaction arcs.
+For QIe, it does not make any difference which one of the covering arcs, iR jR and iS jS, is extracted ﬁrst. We ﬁrst extract the covering arc from S (Fig. 9). Extracting the covering arc, the remaining subsequence of S contains either at least one direct bond, in which case kissing loop penalty should be applied, or multiple interaction arcs, in which case multiloop penalty should be applied.
+Hence, Figure 9 is appropriately colored by green and red to remind the type of penalty.
+i,d,e,j are the partition functions for [i,j] excluding the gap [d,e] assuming i and j are base paired.
+For Qgk, the gap is assumed to contain a direct bond, and for Qgm the gap is assumed to contain multiple interaction arcs (Fig. 10). The only difference between Qgk and Qgm is in the penalty type.
+For both Qgk and Qgm, there are two cases: (i) there is no more spanning interaction arc in the region, and (ii) there is at least another innermost spanning interaction arc k1 k2. In both groups, there could be some additional intramolecular structure in the region.
+The quantity Qg is the partition function for the subsequence [i,j] excluding the gap [k1,k2] assuming i j and k1 k2. The gap partition function Qg is similar to Qg in Dirks Pierce s (2003) algorithm.
+See our Supplementary Material for the details of Qgk, Qgm and Qg. i,d,e,j and Qgm Note that Qgk i,k1,k2,j The union of the cases of QIsk and QIsm comprises the cases of QIs. Similar to the cases of QIe, we extract the covering arc from QIsk and QIsm to obtain QImm, QImk, QIkm and QIkk, where k stands for kissing (or equivalently containing a direct bond) and m for multiple interaction arcs.
+Note that all four terminal bases of the region of these four quantities are paired, i.e. each terminal base is either the end point of a bond or of an interaction arc.
+These four quantities have complicated cases.
+Due to lack of space, we explain them in our Supplementary Material.
+3 EXPERIMENTS Here, we report our implementation of the algorithm and two types of experiments we performed to test the predictive power of our algorithm: (1) Predicting the melting temperature of RNA duplexes is an important application of the partition function for interacting nucleic acid pairs (Dimitrov and Zuker, 2004) our ﬁrst i369 [10:03 15/5/2009 Bioinformatics-btp212.tex] Page: i369 i365 i373  H.Chitsaz et al. experiment tests how accurately our algorithm predicts the melting temperature of RNA pairs collected from several sources in the literature with respect to the accuracy of available alternatives, RNAcofold from Vienna package v1.7.2 (Bernhart et al., 2006) and UNAFold v3.6 which is a new version of former mfold (Markham and Zuker, 2008). We remind the reader that RNAcofold concatenates the two RNA strands and computes the partition function for the resulting single strand.
+Therefore, it does not consider many cases that our algorithm considers.
+UNAFold v3.6, on the other hand, simpliﬁes the problem by forbidding intramolecular base pairing.
+It computes the partition function of the two strands over just hybridization structures.
+As can be expected, our algorithm consistently outperforms the alternatives in all three datasets. (2) A novel experiment (which, to our knowledge has not been performed successfully by any other program to date) uses our algorithm to predict the equilibrium concentration of an RNA RNA complex, in particular the OxyS fhlA interaction (Argaman and Altuvia, 2000).2 We successfully predicted the equilibrium concentrations for OxyS with wild-type fhlA and four other fhlA mutants.
+Note that the parameters used by our program in the above experiments have been manually optimized as computational learning methods for ﬁne tuning the parameters require prohibitive computational resources.
+It may be possible to improve the accuracy of our program through a better selection of parameters.
+Implementation 3.1 We remind the reader that the time and space complexity of our algorithm are O(n6) and O(n4), respectively here n=max(LR,LS) is the maximum length of the two input strands.
+We implemented our algorithm in C++, and used the energy functions and energy parameters of UNAFold v3.6 for a single strand (Markham and Zuker, 2008). The parameters used by our program for our own interaction energy model are given in the next section.
+As per Section 2.2, we use a different β1 penalty and σ for a hybrid component that is covered by a kissing loop.
+The parameters for a hybrid component that is not covered by a kissing loop is denoted by β(cid:3) 1 and σ(cid:3). We add an Adenine-Uracil base pair (AU) penalty to the energy of a hybrid component per each terminal AU base pair this penalty is motivated by Xia et al. (1998). Similar to RNAhybrid, the interior loops in a hybrid component are restricted to a constant maximum length, in either sequence, which is set to 15 in this work.
+Since our algorithm considers many more possible secondary structures in comparison to alternative methods, our program has a higher running time.
+Fortunately, our algorithm can be easily parallelized as the dynamic programming tables computed by 2Equilibrium concentrations of another complex formed by CopA/I CopT is also available in the literature (Hjalt and Wagner, 1995), however the interaction has tertiary structural componets, i.e. a very long pair of kissing hairpins forming a helix, anti-helix pair with a long gap in between.
+Alkan et al. (2006) were able to establish the most likely joint structure between this RNA pair only through postprocessing. This complex requires some additional constraints on the lengths of interacting loops that are not incorporated into our model due to additional computational complexity they would impose.
+i370 our program on subsequence pairs depend only on their (proper) subregions. We parallelized our program using OpenMP 3.0.
+Our experiments were performed on a large-scale shared memory parallel platform with 64 PPC 1.9 GHz processors with 256 GB RAM.
+We ran our program for strands of length between 5 nt to 120 nt. The running time of our program for short strands ( 20 nt) was  1 m for longer strands ( 120 nt) it was 10 h. 3.2 Datasets The ﬁrst dataset that we used for predicting melting temperature contains all nine different RNA pairs reported in Table 3 of Xia et al. (1998). It contains almost complementary 5- to 7- nt RNA pairs that were designed to optimize the thermodynamic parameters for  terminal base pairs.
+Their melting temperatures vary from 29.8 C to 53.7 C.   The second dataset that we used for computing melting temperature contains all 12 different RNA pairs reported in Table 1 of Diamond et al. (2001). These RNA pairs are designed to optimize the thermodynamic parameters for three-way multi loops.
+In each pair of this dataset, the ﬁrst RNA has 20 nt and the second one has 10 nt. The experimental melting temperatures were determined from heat absorbance measurements by two different methods that are explained as Method 3 and Method 4 in Puglisi and Tinoco (1989). Although these pairs are very similar, the average difference of the two methods for this dataset is 2.49 C. This suggests that there may exist RNA pairs with exceptional features in this set.
+The third dataset that we used for computing melting temperature contains all 62 different RNA pairs reported in Tables 3 and 4 of Mathews and Turner (2002). These pairs are designed to optimize the thermodynamic parameters for three- and four-way multi loops.
+In each pair of this dataset, the ﬁrst RNA has 22 40 nt and the second one has 10 14 nt. Again, the experimental melting temperatures were determined by two different methods.
+This dataset is large enough with longer sequences, and the average difference of the two methods for this dataset is 0.7 C, smaller than that for the second dataset. Moreover, the variance and maximum of the difference is smaller than those of the second dataset. Overall, this dataset is more reliable than the previous one.
+These three datasets are all we were able to collect from the literature.
+3.3 Melting temperature As mentioned before, predicting the melting temperature of RNA duplexes is one of the most important applications of the partition function for interacting nucleic acid pairs (Dimitrov and Zuker, 2004). Table 1 shows the melting temperatures computed by our program, RNAcofold, and UNAFold v3.6 for the ﬁrst dataset. In this set, the strands are short, and as we expected, our algorithm is highly accurate with only 1.48 C absolute difference from experimental values on average.
+It can be seen that RNAcofold and UNAFold perform relatively poorly, and their predicted melting temperatures differ from the experimental values by about 9 C on average.
+Table 2 shows the melting temperatures predicted by the three programs for the second dataset. Each pair is referred to by an identiﬁer (A,B,...,L). Please refer to our Supplementary Material or Diamond et al. (2001) to see the exact sequences of each pair.
+As mentioned before, the experimental melting temperatures were determined from heat absorbance measurements by two different [10:03 15/5/2009 Bioinformatics-btp212.tex] Page: i370 i365 i373  Table 1.
+Experimental and predicted melting temperatures for the ﬁrst dataset [see Section 3.2 and Xia et al. (1998)] Table 3.
+Experimental and predicted melting temperatures for the set of RNA pairs reported in Mathews and Turner (2002) Pairs Experiment piRNA RNAcofold UNAFold Pairs Experiment piRNA RNAcofold UNAFold piRNA ACGCA/UGCGU GCACG/CGUGC AGCGA/UCGCU GCUCG/CGAGC ACUGUCA/UGACAGU GUCACUG/CAGUGAC AGUCUGA/UCAGACU GACUCAG/CUGAGUC GAGUGAG/CUCACUC Avg.
+error Spearman rank corr.
+29.8 37.5 30.2 37.2 48.2 51.1 45.7 52 53.7 29.41 36.07 30.38 36.88 44.91 49.4 45.47 49.96 49.97 1.48 0.97 42.64 46.61 42.68 47.75 56.8 58.44 56.4 59.11 59.07 9.35 0.97 46.14 43.91 45.15 44.71 57.59 55.91 56.68 56.25 56.00 8.55 0.57 All values, except Spearman s rank correlation, are in degree centigrade.
+Bold entries are the most accurate predictions.
+In other words, they have the least difference from experimental measurements.
+Table 2.
+Experimental and predicted melting temperatures for the set of RNA pairs reported in Diamond et al. (2001) Pairs Experiment piRNA RNAcofold UNAFold A B C D E F G H I J K L Avg.
+difference Spearman rank corr.
+Tl 28.7 19 33.6 33.9 23 34.9 32.4 16.1 29 32.3 23.4 33.5 Tc 30.3 20.5 33.6 36 24.4 36.9 33.6 18.9 32.3 37.1 30.7 35.4 Tl 2.49 0.87 32.44 31.55 32.94 32.43 31.66 33.28 32.76 36.41 32.32 37.01 31.45 32.61 50.99 52.55 53.11 51.02 52.48 54.7 49.76 57.92 50.99 56.92 49.36 50.51 21.52 33.22 39.77 26.85 32.22 39.91 64.27 29.76 29.18 28.8 26.18 28.01 Tl 5.53 0.36 Tc Tl 4.19 24.21 0.45 0.05 Tc 21.72 0 Tl 8.86 0.16 Tc 9.38 0.03 Each pair is referred to by an identiﬁer (A,B,...,L). Please refer to our Supplementary Material or Diamond et al. (2001) to see the exact sequences of each pair.
+All values, except Spearman s rank correlation, are in degree centigrade.
+Bold entries are the most accurate predictions.
+In other words, they have the least difference from experimental measurements.
+methods which are explained as Method 3 and Method 4 in Puglisi and Tinoco (1989). We refer to the melting temperature values computed by Method 3 and Method 4 by Tc and Tl, respectively.
+RNAcofold accuracy obviously dropped in this case, whereas UNAFold accuracy did not change much in comparison to the results for the ﬁrst dataset. The accuracy of our method has also dropped a bit, which may be because of some RNA pairs with exceptional features.
+Table 3 presents the melting temperatures predicted by the three programs for the third dataset. As you can see, our program has high accuracy and performs signiﬁcantly better than RNAcofold and UNAFold for this dataset. As we argued before, the third dataset is the largest and the most reliable of the three datasets. It is important to note that RNAcofold and UNAFold both perform poorly either in this case or the two previous cases.
+Therefore, neither RNAcofold nor UNAFold is as reliable as our program for melting temperature prediction.
+Tl Tc 45.4 51.8 55.9 58.4 57.3 56.7 51.2 55.2 56.1 56.1 54.8 55.3 55.1 57 55.6 55 55.3 54.1 56.6 58.7 58 56.5 57.2 57.9 56 58.7 59.7 58.6 57 57.5 50.4 54.3 56.6 57.6 57.9 58.6 51.6 55.6 56.7 56.8 57 56.8 64.8 58.8 55.6 55.4 53.9 57.3 59.7 55.4 55.2 55.2 55 58.1 59.3 57.5 57.9 58.9 57.3 54.4 55 55.3 G-GC-G/C-C G-GC-G/CaC G-GC-G/Ca2C G-GC-G/Ca3C G-GC-G/CauaC G-GC-G/Ca4C GaGC-G/C-C GaGC-G/CaC GaGC-G/Ca2C GaGC-G/Ca3C GaGC-G/CauaC GaGC-G/Ca4C Ga2GC-G/C-C Ga2GC-G/CaC Ga2GC-G/Ca2C Ga2GC-G/Ca3C Ga2GC-G/CauaC Ga2GC-G/Ca4C Ga2GCaG/C-C Ga2GCaG/CaC Ga2GCaG/Ca2C Ga2GCaG/Ca3C Ga2GCaG/CauaC Ga2GCaG/Ca4C Ga2GCa2G/C-C Ga2GCa2G/CaC Ga2GCa2G/Ca2C Ga2GCa2G/Ca3C Ga2GCa2G/CauaC Ga2GCa2G/Ca4C G-UA-G/C-C G-UA-G/CaC G-UA-G/Ca2C G-UA-G/Ca3C G-UA-G/CauaC G-UA-G/Ca4C GaUA-G/C-C GaUA-G/CaC GaUA-G/Ca2C GaUA-G/Ca3C GaUA-G/CauaC GaUA-G/Ca4C G-CG-GC-G/C-C G-CG-GC-G/CaC G-CG-GC-G/Ca2C G-CG-GC-G/Ca3C G-CG-GC-G/Ca4C GaCG-GC-G/C-C GaCG-GC-G/CaC GaCG-GC-G/Ca2C GaCG-GC-G/Ca3C GaCG-GC-G/CauaC GaCG-GC-G/Ca4C GaCG-GCaG/C-C GaCG-GCaG/CaC GaCG-GCaG/Ca2C GaCG-GCaG/Ca3C GaCG-GCaG/CauaC GaCG-GCaG/Ca4C Ga2CGa2GCa2G/C-C Ga2CGa2GCa2G/CaC Ga2CGa2GCa2G/Ca2C Avg.
+difference Spearman rank corr.
+46 52.2 56 57.3 56.9 57.1 49.3 54.7 55.6 54.9 54.3 54.8 52.9 56.4 55.4 54.7 54.5 53.9 56.6 58.9 58.8 57.5 56.9 57.9 56.9 59.1 59.6 58.7 57.3 58.1 50.8 55.8 57.8 58.5 58.7 58.5 51.8 55.7 57.4 56.9 57.1 56.8 65.2 60.4 56.4 55.3 53 58.7 61.2 57.2 56.5 55.8 55.3 58.8 59.7 59.4 58.2 58.3 58.1 55.5 56.6 57.2 Tl 0.7 0.92 56.81 56.84 56.86 56.85 56.84 56.85 56.94 56.96 56.98 56.97 56.98 56.98 57 57.03 57.05 57.03 57.3 57.05 57.18 57.18 57.2 57.15 57.48 57.17 57.19 57.2 57.19 57.16 57.74 57.18 56.82 57.88 57.89 57.88 57.87 57.88 56.96 57.01 57.04 57 56.99 57.01 57.24 57.22 57.35 57.32 57.19 57.2 57.21 57.19 57.11 57.09 57.14 56.9 56.99 56.89 56.95 56.93 56.84 57.12 57.04 57.12 37 37 37 37 37 37 37.1 41 41 41 37.06 37 50.17 48.01 41.84 41.84 52.17 48.01 47.01 44.1 44.1 44.1 43 44.1 37.17 44.1 44.1 44.1 37 44.1 46.26 61.42 61.42 61.42 61.41 61.43 49.18 37.07 50.31 44.17 37.07 50.31 37 37 37 37 37 37 37 37 37 37 37 37 37 37 37 37 37 47.17 44.01 51.31 Tl 1.87 0.25 Tl Tc Tc 1.95 14.41 0.35 0.04 0.04 14.27 21.4 27.15 27.12 25.73 24.35 25.06 21.25 21.44 21.46 21.44 21.47 21.39 36.04 36.8 36.91 36.19 36.74 34.22 36.01 36.81 36.13 36.96 35.92 34.66 36.14 36.94 36.22 35.89 35.03 34.93 21.53 34.47 41.68 40.84 40.96 40.64 21.42 30.98 31.46 29.91 29.98 29.29 21.38 21.44 21.38 21.56 21.38 21.71 21.76 21.45 21.42 21.38 21.47 21.54 21.76 63.08 21.44 21.53 21.46 67.28 67.23 66.09 Tl 26.5 0.2 Tc 26.56 0.28 Each pair is referred to by an identiﬁer. Please refer to our Supplementary Material or Mathews and Turner (2002) to see the exact sequences of each pair.
+All values, except Spearman s rank correlation, are in degree centigrade.
+Bold entries are the most accurate predictions.
+In other words, they have the least difference from experimental measurements.
+i371 [10:03 15/5/2009 Bioinformatics-btp212.tex] Page: i371 i365 i373  H.Chitsaz et al. 100  80  60  40  20 ] % l [  x e p m o c  n i  S y x O  0  0 ] % l [  x e p m o c  n i  S y x O  100  80  60  40  20  0 fhlAG38C G39C Our Algorithm Experiment  0  150 300 450 600 750 900 fhlAG38C G39C Concentration [nM] ] % l [  x e p m o c  n i  S y x O  100  80  60  40  20  0 fhlAG37C G38C Our Algorithm Experiment  0  200  400  600  800 1000 fhlAG37C G38C Concentration [nM] wild type fhlA Our Algorithm Experiment  400  200 fhlA Concentration [nM]  600  800 1000 ] % l [  x e p m o c  n i  S y x O  100  80  60  40  20  0 fhlAC13G Our Algorithm Experiment  0 100 200 300 400 500 600 700 fhlAC13G Concentration [nM] ] % l [  x e p m o c  n i  S y x O  100  80  60  40  20  0  0 fhlAA8G Our Algorithm Experiment  200  100 fhlAA8G Concentration [nM]  300  400 Fig.11.
+Experimental and computational determination of equilibrium constants for pairs of OxyS with wild-type and mutated fhlA. Horizontal axis denotes the initial concentration of fhlA, and the vertical axis denotes the percentage of OxyS in OxyS fhlA complex.
+Initial concentration of OxyS was 2 10 9 M (Argaman and Altuvia, 2000). Both RNAcofold and UNAFold predict that the percentage of OxyS in complex is approximately 0 for the considered fhlA concentrations.
+The running time of our program for the ﬁrst dataset was about a few seconds, for the second dataset about 10 min and for the third dataset 72 h on a Linux PC with Pentium-D 3.6 GHz CPU and 4 GB of RAM.
+Note that we did not use any learning methods for tuning our six interaction energy parameters because of the running time of our program.
+Our interaction energy parameters in melting temperature experiments are β1=5.1,β2= β2=0.1,σ =0.92,β(cid:3) = 4.1 and σ(cid:3)=0.95, which were manually optimized using only the ﬁrst data set.
+The second and the third datasets were used as test sets.
+1 3.4 Equilibrium concentration Our second set of experiments, to the best of our knowledge, have not been successfully performed by the use of any available program to date.
+Here we predict the equilibrium concentrations for OxyS with wild-type fhlA and four other fhlA mutants.
+OxyS is a small untranslated RNA (109 nt) that is induced in response to oxidative stress in Echerichia coli. It acts as a regulator affecting the expression of multiple genes.
+In particular, OxyS represses the translation of fhlA, a transcriptional activator for formate metabolism, by binding to it.
+Argaman and Altuvia (2000) carried out a series of experiments to measure equilibrium dissociation constants for OxyS with wild-type fhlA and its mutants.
+To measure the equilibrium dissociation constants, they measured the concentration of OxyS fhlA complex for a ﬁxed initial OxyS concentration (2 nM) and various initial concentrations of fhlA. Their plots are reported in Figure 8 and Table 2 of Argaman and Altuvia (2000). Those plots can be predicted from the partition functions for OxyS, fhlA, OxyS OxyS, fhlA fhlA and OxyS-fhlA. To validate our algorithm, we computed these partition functions using our program, and predicted the equilibrium concentrations of OxyS fhlA complex.
+Our results are compatible with experimental measurements, as we had expected.
+Figure 11 shows the experimental measurements and our results.
+Interestingly, our algorithm predicted the equilibrium concentration of OxyS fhlA complex quite accurately for the wild-type fhlA and all of its mutants.
+We also experimented with RNAcofold and UNAFold in this case.
+Both RNAcofold and UNAFold predict that the percentage of OxyS in complex is approximately i372 0 in all ﬁve cases for the considered fhlA concentrations.
+This is probably not very surprising as correctly predicting the equilibrium concentrations is a very difﬁcult task and is highly sensitive to the accuracy of the partition functions.
+We describe below how to compute the concentrations from partition functions, and why it is difﬁcult to correctly predict those equilibrium concentrations.
+Given two nucleic acid strands R and S, we can compute the equilibrium concentrations of R, S, RR, SS and RS species, denoted by NR, NS, NRR, NSS and NRS, respectively, from their partition functions (Dimitrov and Zuker, 2004). In the equilibrium, the free energy of a closed system at constant temperature, volume and pressure tends toward a minimum (Landau and Lifshitz, 1969). Equilibrium concentrations are computed from the chemical equilibrium constants KR = QI RR Q2 R KS= QI SS Q2 S KRS= QI , = NRR N2 R = NSS N2 S = NRS NRNS , , RS QRQS 2NRR NR = N0 (8) S R  2NSS NS, in under the constraint NRS= N0 which N0 are the initial concentrations of single strands.
+We noticed that QR and QS computed by the three programs are very close because they use the same algorithm for a single strand (i.e. McCaskill s algorithm). Therefore based on (8), a method can compute equilibrium concentrations correctly only if it computes each individual QI accurately.
+As one can observe in Figure 11, our program has been able to predict OxyS fhlA complex concentrations accurately, thus we can conclude that our program computes all QI accurately.
+As mentioned above, the parameters used by our program on this dataset have been manually optimized.
+Our energy parameters in this experiment are β1=6.6, β2= β2=0.1, σ =0.9, β(cid:3) =4.5 and σ(cid:3)=0.9. 1 [10:03 15/5/2009 Bioinformatics-btp212.tex] Page: i372 i365 i373  4 CONCLUSION AND FUTURE WORK In this article, we present piRNA, an efﬁcient algorithm to compute a partition function of two interacting nucleic acid strands.
+Our algorithm considers almost all physically possible secondary structures that do not contain pseudoknots, crossing interactions and zigzag s. In order to specify the free energy of a joint structure established by interacting strands, we extend the standard nearest neighbor single-strand thermodynamic energy model to an energy model for two interacting strands by introducing three new components: (i) hybrid component, (ii) kissing loop and (iii) inter- hybrid loops that are modiﬁed versions of hybridization, multi loop and pseudoknot energy models.
+We veriﬁed our algorithm by computing the melting temperature for RNA pairs available in the literature and the equilibrium concentration for OxyS-fhlA complex.
+In both experiments our algorithm provides high accuracy and outperforms available alternatives.
+We computed the melting temperature for RNA pairs in (Diamond et al., 2001 Mathews and Turner, 2002 Xia et al., 1998) (Tables 1 3). On average, the predicted melting temperature by our program is 2 C different from experimental values.
+Our program is 10 C more accurate than the alternatives, RNAcofold and UNAFold, on average.
+It is important to note that RNAcofold and UNAFold both perform poorly in at least one of the three datasets, while our program is consistently accurate across all three datasets. Therefore, neither RNAcofold nor UNAFold is as reliable as our program for melting temperature prediction.
+In addition, our algorithm is able to compute the OxyS fhlA complex equilibrium concentrations for wild-type and mutated fhlA accurately.
+Both RNAcofold and UNAFold predict those equilibrium concentrations to be approximately 0, which does not even roughly follow the experimental measurements.
+Although our algorithm is fairly efﬁcient, improving the generality and complexity of our algorithm will be one of our priorities in the near future.
+In particular, we aim to explore whether it is possible to cover more general interactions without increasing the computational complexity of the algorithm.
+Funding: Bioinformatics for Combating Infectious Diseases (BCID) initiative (to H.C.). MITACS Research Grant (to R.S.). Michael Smith Foundation for Health Research Career Award (to S.C.S.). German Research Foundation (DFG grant BA 2168/2-1 SPP 1258), and from the German Federal Ministry of Education and Research (BMBF grant 0313921 FRISYS) (to R.B.). Conﬂict of Interest: none declared.
+REFERENCES Alkan,C. et al. (2006) RNA-RNA interaction prediction and antisense RNA target search.
+J. Comput. Biol., 13, 267 282. piRNA Busch,A. et al. (2008) IntaRNA: efﬁcient prediction of bacterial sRNA targets incorporating target site accessibility and seed regions.
+Bioinformatics, 24, 2849 2856.
+Cao,S. and Chen,S. (2006) Predicting RNA pseudoknot folding thermodynamics.
+Nucleic Acids Res., 34, 2634 2652.
+Diamond,J. et al. (2001) Thermodynamics of three-way multibranch loops in RNA. Biochemistry, 40, 6971 6981.
+Dimitrov,R.A. and Zuker,M. (2004) Prediction of hybridization and melting for double- stranded nucleic acids.
+Biophys. J., 87, 215 226.
+Dirks,R.M. et al. (2007) Thermodynamic analysis of interacting nucleic acid strands.
+SIAM Review, 49, 65 88.
+Dirks,R.M. and Pierce,N.A. (2003) A partition function algorithm for nucleic acid secondary structure including pseudoknots. J. Comput. Chem., 24, 1664 1677.
+Gottesman,S. (2005) Micros for microbes: non-coding regulatory RNAs in bacteria.
+Trends Genet., 21, 399 404.
+Hannon,G.J. (2002) RNA interference.
+Nature, 418, 244 251.
+Hjalt,T. and Wagner,E. (1995) Bulged-out nucleotides in an antisense RNA are required for rapid target RNA binding in vitro and inhibition in vivo. Nucleic Acids Res., 23, 580 587.
+Kato,Y. et al. (2009) A grammatical approach to RNA-RNA interaction prediction.
+Pattern Recognit., 42, 531 538.
+Landau,L.D. and Lifshitz,E.M. (1969) Statistical Physics.
+Pergamon, Oxford, UK. Markham,N. and Zuker,M. (2008) UNAFold: software for nucleic acid folding and hybridization.
+Methods Mol. Biol., 453, 3 31.
+Mathews,D. (2004) Using an RNA secondary structure partition function to determine conﬁdence in base pairs predicted by free energy minimization.
+RNA, 10, 1178 1190.
+Mathews,D. et al. (1999) Expanded sequence dependence of thermodynamic parameters improves prediction of RNA secondary structure.
+J. Mol. Biol., 288, 911 940.
+Mathews,D. and Turner,D. (2002) Experimentally derived nearest-neighbor parameters for the stability of RNA three- and four-way multibranch loops.
+Biochemistry, 41, 869 880.
+McCaskill,J. (1990) The equilibrium partition function and base pair binding probabilities for RNA secondary structure.
+Biopolymers, 29, 1105 1119.
+Mückstein,U. et al. (2006) Thermodynamics of RNA-RNA binding.
+Bioinformatics, 22, 1177 1182.
+Nussinov,R. et al. (1978) Algorithms for loop matchings. SIAM J. Appl. Math., 35, 68 82.
+Pervouchine,D. (2004) IRIS: intermolecular RNA interaction search.
+Genome Inform., 15, 92 101.
+Puglisi,J. and Tinoco,I. (1989) Absorbance melting curves of RNA. Meth.
+Enzymol., 180, 304 325.
+Rehmsmeier,M. et al. (2004) Fast and effective prediction of microRNA/target duplexes.
+RNA, 10, 1507 1517.
+Rivas,E. and Eddy,S. (1999) A dynamic programming algorithm for RNA structure prediction including pseudoknots. J. Mol. Biol., 285, 2053 2068.
+Seeman,N. (2005) From genes to machines: DNA nanomechanical devices.
+Trends Biochem. Sci., 30, 119 125.
+Seeman,N.C. and Lukeman,P.S. (2005) Nucleic acid nanostructures: bottom-up control of geometry on the nanoscale. Rep. Prog. Phys., 68, 237 270.
+Simmel,F. and Dittmer,W. (2005) DNA nanodevices. Small, 1, 284 299.
+Storz,G. (2002) An expanding universe of noncoding RNAs. Science, 296, 1260 1263.
+Venkataraman,S. et al. (2007) An autonomous polymerization motor powered by DNA hybridization.
+Nat. Nanotechnol., 2, 490 494.
+Wagner,E. and Flardh,K. (2002) Antisense RNAs everywhere Trends Genet., 18, 223 226.
+Walton,S. et al. (2002) Thermodynamic and kinetic characterization of antisense J., 82, structured mRNA. Biophys. oligodeoxynucleotide binding to a 366 377.
+Waterman,M.S. and Smith,T.F. (1978) RNA secondary structure: A complete Andronescu,M. et al. (2005) Secondary structure prediction of interacting RNA mathematical analysis.
+Math.
+Biosc., 42, 257 266. molecules.
+J. Mol. Biol., 345, 987 1001.
+Argaman,L. and Altuvia,S. (2000) fhlA repression by OxyS RNA: kissing complex formation at two sites results in a stable antisense-target RNA complex.
+J. Mol. Biol., 300, 1101 1112.
+Bartel,B.P. (2004) MicroRNAs: genomics, biogenesis, mechanism, and function.
+Cell, 116, 281 297.
+Xia,T. et al. (1998) Thermodynamic parameters for an expanded nearest-neighbor model for formation of RNA duplexes with Watson-Crick base pairs.
+Biochemistry, 37, 14719 14735.
+Yin,P. et al. 824 826.
+(2008) Programming DNA tube circumferences.
+Science, 321, Zamore,P.D. and Haley,B. (2005) Ribo-gnome: the big world of small RNAs. Science, Bernhart,S. et al. (2006) Partition function and base pairing probabilities of RNA 309, 1519 1524. heterodimers. Algorithms Mol. Biol., 1, 3.
+Brantl,S. (2002) Antisense-RNA regulation and RNA interference.
+Bioch. Biophys. Acta, 1575, 15 25.
+Zuker,M. and Stiegler,P. (1981) Optimal computer folding of large RNA sequences using thermodynamics and auxiliary information.
+Nucleic Acids Res., 9, 133 148. i373 [10:03 15/5/2009 Bioinformatics-btp212.tex] Page: i373 i365 i373 

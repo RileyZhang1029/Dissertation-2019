@@ -7,9 +7,9 @@ Created on Tue May 28 16:31:55 2019
 
 import os
 n = 0
-for root, dirs, files in os.walk("C:/Users/Administrator/Documents/GitHub/Dissertation-2019/trainingdata"):
+for root, dirs, files in os.walk("/home/riley/Documents/fromGit/Dissertation-2019/trainingdata_backup"):
     for name in files:
         if(name.endswith(".txt")):
             n += 1
-            print(n)
             os.remove(os.path.join(root, name))
+print(n)
