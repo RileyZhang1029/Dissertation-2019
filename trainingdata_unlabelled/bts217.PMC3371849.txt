@@ -134,7 +134,7 @@ A naive approach enumerating all possible block orderings would result in a runt
 For example, 15 blocks result in about 1012 different arrangements that have to be evaluated.
 Finally, our third approach allows users to interactively change the arrangement of the blocks after visual inspection.
 All three strategies can be used in combination.
-2.4 Linked visualizations GenomeRing is integrated into our visual analytics platform Mayday (Battke et al., 2010) as a visualization which can display data from multiple per- species data sets.
+2.4 Linked visualizations GenomeRing is integrated into our visual analytics platform Mayday (Battke et al., 2010) as a visualization which can display data from multiple per-species data sets.
 Using Mayday s facilities for data and meta-information i10 management, we can for example add information about gene expression in the GenomeRing visualization.
 For instance, genes that have been found to be coregulated (using statistical methods) can be mapped to the SuperGenome blocks to allow users to quickly identify genomic colocation. Another interesting application is to map differentially expressed genes to the SuperGenome and then to ﬁnd out whether some of these map to regions of interest , such as pathogenicity islands.
 Within Mayday, all visualizations are implemented as linked views.
@@ -148,7 +148,7 @@ These are regions in a genome which are usually acquired as a result of horizont
 They are of great interest because they often contain genes encoding proteins related to pathogenicity or drug resistance.
 To demonstrate the ability of our concept to identify such regions, we applied it to an alignment of four Campylobacter jejuni strains (RM1221, NCTC11168, 81-176, 81116). Campylobacter jejuni is a Gram-negative microaerophilic bacterium, which is one of the major causes of gastroenteritis (Snelling et al., 2005). For the SuperGenome generation, the minimal block size was set to 10 kb. This resulted in a SuperGenome consisting of 14 blocks, which we visualized with GenomeRing (Fig. 3). The majority of the blocks contain all four strains.
 There are four large insertion blocks for C. jejuni RM1221, which are apparent at ﬁrst glance.
-They correspond to genomic islands, which are referred to as C. jejuni- integrated elements (CJIEs) (Fouts et al., 2005 Parker et al., 2006). CJIE1, which is also known as CMLP1, is a Campylobacter Mu- like phage.
+They correspond to genomic islands, which are referred to as C. jejuni-integrated elements (CJIEs) (Fouts et al., 2005 Parker et al., 2006). CJIE1, which is also known as CMLP1, is a Campylobacter Mu-like phage.
 CJIE3 is a putative integrated plasmid while CJIE2 and CJIE4 also contain phage-related proteins.
 This example nicely shows our visualization concept.
 While a linear viewer deﬁnes blocks as a collinear alignment, we add blocks also for insertions and deletions so that organisms that contain or lack the respective regions in the alignment can be quickly visually identiﬁed. 3.2 Environment-speciﬁc gene expression in Helicobacter pylori The integration of GenomeRing with Mayday allows for linking the view to other visualizers.
@@ -159,7 +159,7 @@ GenomeRing visualization of an alignment of four C. jejuni strains (RM1221, NCTC
 For this view, the minimal block length was set to 10 kb. None of the genomes contains an inversion, thus the reverse ring is empty We demonstrate this for an alignment of three Helicobacter pylori strains (26695, J99, P12) and gene expression data for H. pylori 26695.
 Helicobacter pylori is a Gram-negative, microaerophilic bacterium that populates the human stomach causing gastritis and even gastric cancer (Cover and Blaser, 2009). Because of its role as a major human pathogen, genetic factors responsible for its pathogenicity are of great interest.
 Sharma et al. (2010) published a comprehensive transcriptomic study of H. pylori strain 26695 under various experimental conditions.
-The organism was grown to mid- logarithmic phase (ML), under acid stress (AS) as well as in contact with responsive gastric epithelial cells (AG) and non-responsive liver cells (HU). In addition, the transcriptome was measured when the organism was grown in cell culture medium (PL). When applying the SuperGenome construction to the alignment of the three H. pylori strains, we set the threshold for the minimal block size to 50 kb, which only preserves very large events.
+The organism was grown to mid-logarithmic phase (ML), under acid stress (AS) as well as in contact with responsive gastric epithelial cells (AG) and non-responsive liver cells (HU). In addition, the transcriptome was measured when the organism was grown in cell culture medium (PL). When applying the SuperGenome construction to the alignment of the three H. pylori strains, we set the threshold for the minimal block size to 50 kb, which only preserves very large events.
 This results in a SuperGenome consisting of eight blocks, of which two represent inversions between strain 26695 and J99/P12 (Fig. 4). We integrated the expression data of the study by Sharma et al. (2010) into GenomeRing as follows: After loading the expression data into Mayday we performed a z-score normalization and a k-means clustering.
 By this, we were able to identify groups of genes that are differentially regulated under speciﬁc experimental conditions.
 We selected two large expression proﬁle clusters of which one contains genes which are upregulated during acid stress (AS) and another one which contains genes upregulated when the organism is in contact with liver cells (HU). Using different colors, Fig.4.
@@ -186,7 +186,7 @@ Starting with GenomeRing at a global overview level, which shows structural diff
 Our SuperGenome method computes a consistent coordinate system for a multiple genome alignment.
 As the SuperGenome mapping is performed on single nucleotide level, high-resolution expression height graphs resulting from RNAseq or tiling array experiments can also be investigated within a common coordinate system, which is especially useful for comparative analyses.
 The comparison of gene expression, for example, is possible even if an ortholog mapping between the organisms is not available.
-In addition, the SuperGenome allows for the inspection of conserved i12 intergenic regions, e.g. to discover yet unknown coding or non- coding transcripts.
+In addition, the SuperGenome allows for the inspection of conserved i12 intergenic regions, e.g. to discover yet unknown coding or non-coding transcripts.
 Genomic annotations can also be mapped into the SuperGenome enabling users to compare the gene content of a region between several organisms independently from the location of that region in the respective genomes.
 Even if translocations and inversions occur, the regions still map to the same coordinates in the SuperGenome. The SuperGenome is complemented by GenomeRing to visualize completely aligned genomes within a common coordinate system to get a quick and broad overview of the structural differences between these genomes.
 Thus for each region that appears in one of the aligned genomes, it is immediately apparent which of the other genomes also contain or lack that region.
@@ -243,7 +243,7 @@ Clearly, every visual approach has its limitations due to the limited resolution
 We have conducted preliminary tests that show that visualization of more than 10 genomes is, in most cases, infeasible.
 Likewise, large numbers of long-range events such as translocated inversions result in increasingly complex visualizations.
 GenomeRing is not designed to visualize hundreds of genomes, blocks or events.
-In our view, the challenge of adequately visualizing such very large alignments, or alignments with a large divergence between species lies not in ﬁnding a visualization that shows every detail at maximum resolution, but rather in appropriate summarization and a (semi- automatic) focusing on the important events.
+In our view, the challenge of adequately visualizing such very large alignments, or alignments with a large divergence between species lies not in ﬁnding a visualization that shows every detail at maximum resolution, but rather in appropriate summarization and a (semi-automatic) focusing on the important events.
 5 CONCLUSION GenomeRing is a highly interactive tool for multiple alignment visualization based on SuperGenome coordinates.
 The concept of the SuperGenome together with GenomeRing provides a quick and broad overview through the display of genomic events from completely aligned genomes and allows for a detailed analysis i14 of speciﬁc genes through the linkage of GenomeRing to several other visualizations incorporated into Mayday, such as Mayday s genome browser.
 These aspects and the applicability of GenomeRing to other ﬁelds of research make it a highly usable visualization strategy complementing already existing visualization techniques.

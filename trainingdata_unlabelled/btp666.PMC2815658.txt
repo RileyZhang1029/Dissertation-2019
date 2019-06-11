@@ -1,7 +1,7 @@
 Copyedited by: PSB MANUSCRIPT CATEGORY: APPLICATIONS NOTE BIOINFORMATICS APPLICATIONS NOTE Vol.26 no.3 2010, pages 401 402 doi:10.1093/bioinformatics/btp666 Sequence analysis Tablet next generation sequence assembly visualization Iain Milne1, Micha Bayer1, Linda Cardle1, Paul Shaw1, Gordon Stephen1, Frank Wright2 and David Marshall1, 1Genetics Programme and 2Biomathematics and Statistics Scotland, Scottish Crop Research Institute, Invergowrie, Dundee, DD2 5DA, UK Received on September 11, 2009 revised on November 9, 2009 accepted on November 30, 2009 Advance Access publication December 4, 2009 Associate Editor: Joaquin Dopazo ABSTRACT Summary: Tablet is a lightweight, high-performance graphical viewer for next-generation sequence assemblies and alignments.
-Supporting a range of input assembly formats, Tablet provides high- quality visualizations showing data in packed or stacked views, allowing instant access and navigation to any region of interest, and whole contig overviews and data summaries.
-Tablet is both multi- core aware and memory efﬁcient, allowing it to handle assemblies containing millions of reads, even on a 32-bit desktop machine.
-Availability: Tablet is freely available for Microsoft Windows, Apple Mac OS X, Linux and Solaris. Fully bundled installers can be downloaded from http://bioinf.scri.ac.uk/tablet in 32- and 64-bit versions.
+Supporting a range of input assembly formats, Tablet provides high-quality visualizations showing data in packed or stacked views, allowing instant access and navigation to any region of interest, and whole contig overviews and data summaries.
+Tablet is both multi-core aware and memory efﬁcient, allowing it to handle assemblies containing millions of reads, even on a 32-bit desktop machine.
+Availability: Tablet is freely available for Microsoft Windows, Apple Mac OS X, Linux and Solaris. Fully bundled installers can be downloaded from http://bioinf.scri.ac.uk/tablet in 32-and 64-bit versions.
 Contact: tablet@scri.ac.uk 1 INTRODUCTION The advent of next-generation sequencing (NGS) technologies such as Roche 454 (Margulies et al., 2005) and Illumina Solexa (http://www.illumina.com/sequencing) has brought about a need for fast, efﬁcient and user-friendly tools for analyzing the outcome of sequencing runs.
 This includes visualization software for viewing the resultant assemblies or alignments, for example, Consed (Gordon et al., 1998), Hawkeye (Schatz et al., 2007), EagleView (Huang and Marth, 2008), MapView (Bao et al., 2009), SAMtools tview (Li et al., 2009) and Maqview (http://maq.sourceforge.net/maqview.shtml). All assembly visualization packages face the following challenges when dealing with NGS data: processing a very large number of reads, providing high-quality rendering and navigation of assembled reads, and supporting a widening range of assembly formats.
 Additionally, as analysis and interpretation of the data moves from large-genome centers to smaller laboratories, there is an increasing need for biologist-friendly software that has an intuitive user interface, is available for a range of common desktop platforms and has no complicated installation dependencies.
@@ -17,7 +17,7 @@ A sortable list, containing all available contigs shows contig lengths as well a
 An overview window located above the consensus can display either a scaled-to-ﬁt summary of all the reads in a contig, or a coverage graph which shows the read coverage along the entire length of the contig independent of the current zoom level.
 Navigation within a contig is catered for in several ways.
 First, the current view point is controlled by manipulating the scroll bars to move in either direction around the display or by dragging with the mouse directly on the canvas itself.
-We also provide a page-at- a-time navigation option that will move the view left or right by the number of bases that are currently visible.
+We also provide a page-at-a-time navigation option that will move the view left or right by the number of bases that are currently visible.
 High-speed navigation to any area of the view is also available by clicking and dragging on the overview window, which always displays a bounding rectangle representing the portion of the overall data currently visible within the main display.
 Protein translations are optionally provided for all six reading frames of the consensus sequence.
 Annotation features such as SNPs and indels can either be imported with the assembly ﬁle itself or separately in GFF3 format, and are then listed on a separate tab attached to the contig list.
@@ -28,7 +28,7 @@ This is an Open Access article distributed under the terms of the Creative Commo
 Tablet will display its name, start and end positions (optionally with unpadded consensus values), the sequence length, whether it is complemented or not, and also provide a scaled-to-ﬁt graphical representation of the bases within the read.
 All of the raw data can be copied to the clipboard at any time.
 3 IMPLEMENTATION AND PERFORMANCE Tablet is written in Java and is compatible with any Java-enabled system with a runtime level of 1.6.
-We provide installable versions that include everything required to run the application, including a suitable Java runtime. The installers are available for Windows, Mac OS X, Linux and Solaris, in both 32- and 64-bit versions.
+We provide installable versions that include everything required to run the application, including a suitable Java runtime. The installers are available for Windows, Mac OS X, Linux and Solaris, in both 32-and 64-bit versions.
 Once installed and running, Tablet will also monitor our server for new versions and will prompt, download and update quickly and easily whenever a new release is available, along with redirecting the user to a web page describing the new features that have been added.
 A prime requisite during development of Tablet has been computing efﬁciency and speed.
 The two main approaches to handling assembly data in viewers are either memory-based, where all the data are loaded into memory, or disk-cached, where the data reside on disk with only the currently visible segment of the dataset held in memory.
@@ -50,7 +50,7 @@ Funding: Scottish Government the Scottish Funding Council and Scottish Enterpris
 (RERAD, Programme 1)  Conﬂict of Interest: none declared.
 REFERENCES Bao,H. et al. (2009) MapView: visualization of short reads alignment on a desktop computer, Bioinformatics, 25, 1554 1555.
 Gordon,D. et al. (1998) Consed: a graphical tool for sequence ﬁnishing. Genome Res., 8, 195 202.
-Huang,W. and Marth,G. (2008) EagleView: a genome assembly viewer for next- generation sequencing technologies.
+Huang,W. and Marth,G. (2008) EagleView: a genome assembly viewer for next-generation sequencing technologies.
 Genome Res., 18, 1538 1543.
 Li,H. et al. (2009) The Sequence Alignment/Map format and SAMTools. Bioinformatics, 25, 2078 2079.
 Margulies,M. et al. (2005) Genome sequencing in microfabricated high-density picolitre reactors.

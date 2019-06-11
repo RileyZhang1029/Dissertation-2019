@@ -3,7 +3,7 @@ To overcome this, we developed CRONOS, a cross-reference server that contains en
 Sequence similarity analysis of the mapped entries shows that the cross-references are highly accurate.
 In total, up to 18 different identiﬁer types can be used for identiﬁcation of cross-references.
 The quality of the mapping could be improved substantially by exclusion of ambiguous gene and protein names which were manually validated.
-Organism- speciﬁc lists of ambiguous terms, which are valuable for a variety of bioinformatics applications like text mining are available for download.
+Organism-speciﬁc lists of ambiguous terms, which are valuable for a variety of bioinformatics applications like text mining are available for download.
 Availability: CRONOS is freely available to non-commercial users at http://mips.gsf.de/genre/proj/cronos/index.html, web services are available at http://mips.gsf.de/CronosWSService/CronosWS wsdl. Contact: brigitte.waegele@helmholtz-muenchen.de Supplementary information: Supplementary data are available at Bioinformatics online.
 The online Supplementary Material contains all ﬁgures and tables referenced by this article.
 1 INTRODUCTION In the past, gene names and protein names were assigned by scientists working on their favourite molecules.
@@ -53,7 +53,7 @@ However, gene names with less than four letters can be queried, e.g. a search fo
 2.3 Validation of the mapping To provide a measure for the reliability of the mapping procedure, entry pairs from UniProt and translated coding sequences from RefSeq are aligned.
 The alignment is performed with JAligner (http://jaligner.sourceforge.net). The percent identity is calculated as number of matches divided by the length of the longer sequence.
 Since sequence similarity tends to be very low if TrEMBL entries are referenced to RefSeq, the underlying alignment can be displayed.
-142 3 RESULTS AND DISCUSSION Here, we present a fast and accurate resource for mapping of cross- references from major databases.
+142 3 RESULTS AND DISCUSSION Here, we present a fast and accurate resource for mapping of cross-references from major databases.
 Currently, CRONOS contains entries from ﬁve mammalian organisms.
 Model organisms like Saccharomyces cerevisiae and Drosophila melanogaster will follow soon.
 With UniProt, RefSeq and Ensembl, we include data from three of the most frequently used data resources for gene and protein sequences.
@@ -65,7 +65,7 @@ The alignment can be visualized via hyperlink.
 Examination of the complete dataset for H.sapiens revealed the high quality of the mapping.
 For 85% of all Swiss-Prot-RefSeq protein pairs, the sequence identity is higher than 90% (see Figure 1 and Supplementary Material S3). Since 20% of bona ﬁde mappings are in the range between 95% and 99% sequence identity, CRONOS reveals more comprehensive results compared with tools which are restricted to 100% identity.
 There are two kinds of gene names not suitable for mapping.
-Gene names with less than four characters are considerably error-prone, e.g. up to 20% of all gene names with less than four letters from data- bases were shown to be ambiguous (Supplementary Material S2). Another source of errors are gene names which were historically assigned to different genes, e.g. MDR1, which was used for an ABC transporter (now ABCB1) and a TBC1 domain family gene (TBC1D9). The consequences of such multiple assignments are erroneous mapping results.
+Gene names with less than four characters are considerably error-prone, e.g. up to 20% of all gene names with less than four letters from data-bases were shown to be ambiguous (Supplementary Material S2). Another source of errors are gene names which were historically assigned to different genes, e.g. MDR1, which was used for an ABC transporter (now ABCB1) and a TBC1 domain family gene (TBC1D9). The consequences of such multiple assignments are erroneous mapping results.
 To avoid mapping errors, we created lists with ambiguous gene names.
 These lists were manually revised and contain approximately 1900 terms for H.sapiens. Analysis of Fig.1.
 Quality of the mapping with and without ambiguous gene names and protein names.

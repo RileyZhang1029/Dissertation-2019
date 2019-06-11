@@ -79,13 +79,13 @@ Once a query is submitted, the engine generates arguments that support and attac
 Output is the arguments, their status and the relationships between them.
 In terms of status, the engine records whether or not an argument is true (w.r.t current knowledge) and for relationships the engine provides a list of which arguments attack which other arguments.
 This information can be presented visually, in a graph, or in textual form.
-ASPIC s argumentation engine can be used via a supplied Graphical User Interface (GUI), or programmatically through a JAVA Application Programming Interface (API). The engine has a ﬁxed knowledge syntax, so an argument must conform to the Conclusion Premise 1 Premise 3 Rule: Premise 1 - Premise 3 Premise 2 Rule 1: Conclusion - Premise 1 & Premise 2 Fig.1.
+ASPIC s argumentation engine can be used via a supplied Graphical User Interface (GUI), or programmatically through a JAVA Application Programming Interface (API). The engine has a ﬁxed knowledge syntax, so an argument must conform to the Conclusion Premise 1 Premise 3 Rule: Premise 1-Premise 3 Premise 2 Rule 1: Conclusion-Premise 1 & Premise 2 Fig.1.
 Arguments in ASPIC are stored in a tree structure.
 The earlier argument has the conclusion Outcome and three contributing subarguments. Rule 1 provides the inference rule used to reach the conclusion.
 This inference rule states that Outcome is true if both Premise 1 and Premise 2 are true.
 Premise 2 is known to be true.
 Premise 1 is the conclusion of another argument, and is only true when Premise 3 is true.
-[ID_1] Conclusion - Premise 1 & Premise 2 To undercut this rule: ID_1 - Premise 3 & Premise 4 Fig.2.
+[ID_1] Conclusion-Premise 1 & Premise 2 To undercut this rule: ID_1-Premise 3 & Premise 4 Fig.2.
 Undercutting an argument in ASPIC.
 The ﬁrst rule states that Conclusion is true when Premise 1 and Premise 2 are both true.
 This rule is assigned the name ID_1. The second rule states that when Premise 3 and Premise 4 are both true, the rule called ID_1 cannot be applied.
@@ -103,7 +103,7 @@ The domain s state will change continually as new experiments are submitted to E
 However, the knowledge of how to interpret that experimental data changes far less often.
 Therefore, it is safe to gather expert knowledge in advance and store it for use later.
 Due to the high rate of change, the experimental knowledge must be obtained when it is to be used.
-This on-demand creation of knowledge is achieved by pulling data through EMAGE s SOAP- based web service and subsequently converting it.
+This on-demand creation of knowledge is achieved by pulling data through EMAGE s SOAP-based web service and subsequently converting it.
 Knowledge can be strict or defeasible. Strict knowledge is deﬁnitely true, e.g. London is the capital of the UK. Defeasible knowledge may be true, but an element of doubt remains, e.g. it is raining, therefore I will get wet.
 Associating knowledge with a real number between 0 and 1 indicates the user s degree of belief in an item of knowledge.
 If no degree of belief is speciﬁed, the piece of knowledge is assumed to be strict (have conﬁdence equal to 1). This conﬁdence score is how ASPIC assigns a strength to an argument: the higher the score the stronger the argument.
@@ -125,7 +125,7 @@ All the knowledge needed to create a formal logic inference rule is documented i
 For example, when an EMAGE curator evaluates an experiment, they record their conﬁdence in the experiment as a score between 0 and 3, with 3 indicating a high level of conﬁdence. The curator s conﬁdence is made public because a high-quality experiment is more likely to produce a correct result than an experiment the curator has less conﬁdence in.
 Intuitively, it can be suggested that if the curator has high conﬁdence in the experiment, the user can have high conﬁdence in the result of the experiment.
 This would lead to something like the following schema based on Walton s schema for an Expert (Walton, 1996a): EMAGE is a leading resource on mouse in-situ gene expression EMAGE has C confidence in experiment E suggesting gene G is expressed in structure S Therefore we may be C confident that G is expressed in S Assuming that anyone who uses the system automatically accepts the initial premise that EMAGE is an expert resource, it is possible to simplify the above schema and represent it in a PROLOG-like Table 1.
-Some of the rules deﬁned by the EMAGE curator Towards the use of argumentation in bioinformatics syntax (with capital letters indicating variables that unify and lower case letters indicating constants), so the basic rule is: expressed(Gene, Structure) - experiment(Id, Gene, Structure, expressed), confidence(Id, Confidence). The problem with this rule is that the conﬁdence EMAGE has in the experiment is not passed to ASPIC.
+Some of the rules deﬁned by the EMAGE curator Towards the use of argumentation in bioinformatics syntax (with capital letters indicating variables that unify and lower case letters indicating constants), so the basic rule is: expressed(Gene, Structure)-experiment(Id, Gene, Structure, expressed), confidence(Id, Confidence). The problem with this rule is that the conﬁdence EMAGE has in the experiment is not passed to ASPIC.
 There should be a direct link between EMAGE s conﬁdence and the strength of the argument therefore, it is necessary to add a degree of belief.
 In the instance of EMAGE having high conﬁdence the argument should be strong and thus have a high degree of belief, for example 0.8.
 This can be set when passing the inference rule to ASPIC using its JAVA API. A selection of further rules can be seen in Table 1.
@@ -270,7 +270,7 @@ The evaluation showed that the basic concept was correct: arguments could be use
 However, it also stressed the importance of presenting the arguments in an appropriate manner, and here further work must be undertaken.
 This is not the only work needed, in particular an effort must be made to extend the system so that it can create arguments based on the data held in another developmental mouse gene expression database, GXD. Only then it will be possible to make an accurate assessment of the full worth of argumentation in a bioinformatics setting.
 i311 [19:57 18/6/03 Bioinformatics-btn157.tex] Page: i311 i304 i312  K.McLeod and A.Burger ACKNOWLEDGEMENT This work could not have been completed without the support of the EMAGE curation team.
-Funding: Funding by the EU projects Sealife (FP6-2006-IST- 027269) and REWERSE (FP6-2006-IST- 506779) is acknowledged.
+Funding: Funding by the EU projects Sealife (FP6-2006-IST-027269) and REWERSE (FP6-2006-IST-506779) is acknowledged.
 Conﬂict of Interest: none declared.
 REFERENCES ASPIC.
 (2004) Theoretical framework for argumentation, deliverable d2.1. Baldock,R. and Davidson,D. (2008) In Anatomy Ontologies for Bioinformatics: Principles and Practise. The Edinburgh Mouse Atlas.

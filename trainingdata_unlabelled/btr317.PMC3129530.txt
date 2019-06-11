@@ -42,9 +42,9 @@ Two examples illustrate SVA s utility: To illustrate the simple annotation featu
 Genetic mutations in the Factor VIII gene are known to cause Hemophilia A therefore, it is possible to use this disease as a positive control.
 We annotated 10 case and 10 control genomes and found that the gene with the most cases harboring a rare mutation was Factor VIII (F8) (Pelak et al., 2010). Sequence Variant Analyzer An SVA genome browser view of one of the identiﬁed indels is shown in Figure 1.
 (2) Metachondromatosis (MC) is an autosomal dominant condition affecting bone growth.
-Our center performed a whole-genome sequencing of one MC patient, following a linkage analysis that implicated six candidate regions spanning a total of 42 MB. We took a three-step strategy: we ﬁrst applied SVA s genomic region ﬁlter we next applied SVA s novelty ﬁlters to identify variants that were absent in dbSNP and absent in all eight control genomes and ﬁnally, we applied SVA s functional ﬁlters to identify protein- truncating variants.
+Our center performed a whole-genome sequencing of one MC patient, following a linkage analysis that implicated six candidate regions spanning a total of 42 MB. We took a three-step strategy: we ﬁrst applied SVA s genomic region ﬁlter we next applied SVA s novelty ﬁlters to identify variants that were absent in dbSNP and absent in all eight control genomes and ﬁnally, we applied SVA s functional ﬁlters to identify protein-truncating variants.
 These ﬁltering steps quickly identify an 11-bp frameshifting deletion on the PTPN11 gene as the cause, which was validated in a separate family (Sobreira et al., 2010). We note that for these simple cases no association tests are required (beyond rarity or absence in controls), whereas in the case of complex traits SVA would normally be used alongside a program like ATAV to facilitate the consideration of variants that are both annotated as functional and that show some degree of statistical association with trait values.
-4 CONCLUSIONS AND DISCUSSION The overriding philosophy of SVA is that the interpretation of whole- genome sequence data beneﬁts from simultaneous consideration of multiple lines of evidence, in particular bioinformatic annotation of variant function and statistical genetic association with trait values.
+4 CONCLUSIONS AND DISCUSSION The overriding philosophy of SVA is that the interpretation of whole-genome sequence data beneﬁts from simultaneous consideration of multiple lines of evidence, in particular bioinformatic annotation of variant function and statistical genetic association with trait values.
 We note this philosophy contrasts with what emerged as best practice for GWAS in which all variants were implicitly considered equally likely a priori to show association with traits (McCarthy et al., 2008). While there are several genome browser and annotation programs available today that are suitable for different needs (Fiume et al., 2010 Robinson et al., 2011 Wang et al., 2010 SeattleSeq: http://gvs.gs.washington.edu/SeattleSeqAnnotation/), we are unaware of any that performs the integrated features of SVA including: variant annotation and ﬁltering by function and/or calling QC, visualization in a built-in browser and convenient export of user selected variants for statistical association testing.
 These features allow users to interact directly with the full set of data that are relevant to making a judgment about which variants show the strongest combined evidence of inﬂuencing the trait of interest.
 We also note that the SVA framework is fully generalizable, and over time we expect a number of new annotation features to be incorporated which will take advantage of knowledge of the functional regions of the human genome emerging from the ENCODE project (Birney et al., 2007) and related activities.
@@ -53,14 +53,14 @@ Future development plans include developing versions of SVA in highly used model
 Funding: The Bill & Melinda Gates Foundation (grant 157412) Institute of Allergy and Infectious Diseases Center National for HIV/AIDS Vaccine (grant AI067854) National Institute of Neurological Disorders and Stroke (grant RC2NS070344) National Institute of Mental Health (grant RC2MH089915). Immunology Conﬂict of Interest: none declared.
 REFERENCES Ashburner,M. et al. (2000) Gene ontology: tool for the uniﬁcation of biology.
 The Gene Ontology Consortium, Nat. Genet., 25, 25 29.
-1999 [10:29 21/6/2011 Bioinformatics-btr317.tex] Page: 1999 1998 2000  D.Ge et al. Bentley,D.R. et al. (2008) Accurate whole human genome sequencing using reversible Li,H. and Durbin,R. (2009) Fast and accurate short read alignment with Burrows- terminator chemistry.
+1999 [10:29 21/6/2011 Bioinformatics-btr317.tex] Page: 1999 1998 2000  D.Ge et al. Bentley,D.R. et al. (2008) Accurate whole human genome sequencing using reversible Li,H. and Durbin,R. (2009) Fast and accurate short read alignment with Burrows-terminator chemistry.
 Nature, 456, 53 59.
 Wheeler transform.
 Bioinformatics, 25, 1754 1760.
 Birney,E. et al. (2007) Identiﬁcation and analysis of functional elements in 1% of the Li,H. et al. (2009) The sequence alignment/map format and SAMtools. Bioinformatics, human genome by the ENCODE pilot project.
 Nature, 447, 799 816.
 25, 2078 2079.
-Chen,K. et al. (2009) BreakDancer: an algorithm for high-resolution mapping of Lupski,J.R. et al. (2010) Whole-genome sequencing in a patient with Charcot-Marie- genomic structural variation.
+Chen,K. et al. (2009) BreakDancer: an algorithm for high-resolution mapping of Lupski,J.R. et al. (2010) Whole-genome sequencing in a patient with Charcot-Marie-genomic structural variation.
 Nat. Methods, 6, 677 681.
 Tooth neuropathy. New England J.Med., 362, 1181 1191.
 Choi,M. et al. (2009) Genetic diagnosis by whole exome capture and massively parallel McCarthy,M. et al. (2008) Genome-wide association studies for complex traits: DNA sequencing.
@@ -77,7 +77,7 @@ PLoS Bioinformatics, 26, 1938 1944.
 Genet., 6, e1001111. Flicek,P. et al. (2010) Ensembl s 10th year.
 Nucleic Acids Res., 38, D557 D562. Frazer,K.A. et al. (2007) A second generation human haplotype map of over 3.1 million SNPs. Nature, 449, 851 861.
 Pruitt,K.D. et al. (2007) NCBI reference sequences (RefSeq): a curated non-redundant sequence database of genomes, transcripts and proteins.
-Nucleic Acids Res., 35, D61 D65. Ge,D. et al. (2008) WGAViewer: software for genomic annotation of whole genome Roach,J.C. et al. (2010) Analysis of genetic inheritance in a family quartet by whole- association studies.
+Nucleic Acids Res., 35, D61 D65. Ge,D. et al. (2008) WGAViewer: software for genomic annotation of whole genome Roach,J.C. et al. (2010) Analysis of genetic inheritance in a family quartet by whole-association studies.
 Genome Res., 18, 640 643. genome sequencing, Science, 328, 636 639.
 Hormozdiari,F. et al. (2009) Combinatorial algorithms for structural variation detection in high-throughput sequenced genomes.
 Genome Res., 19, 1270 1278.
@@ -86,7 +86,7 @@ Nat. Genet., 36, 949 951.
 Robinson,J.T. et al. (2011) Integrative genomics viewer.
 Nat. Biotechnol., 29, 24 26.
 Sobreira,N.L.M. et al. (2010) Whole-genome sequencing of a single proband together with linkage analysis identiﬁes a Mendelian disease gene.
-PLoS Genet., 6, e1000991. Kanehisa,M. et al. (2010) KEGG for representation and analysis of molecular networks Wang,K. et al. (2010) ANNOVAR: functional annotation of genetic variants from high- involving diseases and drugs.
+PLoS Genet., 6, e1000991. Kanehisa,M. et al. (2010) KEGG for representation and analysis of molecular networks Wang,K. et al. (2010) ANNOVAR: functional annotation of genetic variants from high-involving diseases and drugs.
 Nucleic Acids Res., 38, D355 D360. throughput sequencing data.
 Nucleic Acids Res., 38, e164. Langmead, B. et al. (2009) Ultrafast and memory-efﬁcient alignment of short DNA sequences to the human genome.
 Genome Biol., 10, R25. 2000 [10:29 21/6/2011 Bioinformatics-btr317.tex] Page: 2000 1998 2000

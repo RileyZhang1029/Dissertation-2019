@@ -10,7 +10,7 @@ from a failure to completely remove all rRNA prior to translating the putative r
 The rRNA operons in Bacteria and Archaea are not known to contain expressed protein coding regions that at the same time code for rRNA and therefore, annotations of proteins in rRNA coding regions should be presumed to be misannotations (Aziz et al., 2008). Metagenomic sequence data generated to asses the metabolic potential of a community will also be affected by false positive matches of rRNA sequences when querying a protein database.
 Therefore, transcript analysis should only proceed after it has been veriﬁed that all rRNA-like sequences have been found and removed from the dataset to allow accurate identiﬁcation of the transcribed functional content.
 The high-throughput nature of community sequencing efforts necessitates better tools for the automated preprocessing of sequence datasets. and to perform identiﬁcation, Here, we describe an application able to provide graphical guidance classiﬁcation and removal of rRNA-like sequences on metatranscriptomic data.
-The application incorporates a modiﬁed version of the BWA- SW program (http://bioinformatics.oxfordjournals.org/citmgr gca =bioinfo 26/5/589), and is publicly available through a user-friendly web interface and as stand-alone version.
+The application incorporates a modiﬁed version of the BWA-SW program (http://bioinformatics.oxfordjournals.org/citmgr gca =bioinfo 26/5/589), and is publicly available through a user-friendly web interface and as stand-alone version.
 The web interface allows online analysis using rRNA sequences from public databases and provides data export for subsequent analysis.
 Implementation and computational platform 2 METHODS 2.1 The riboPicker application was implemented as stand-alone and web-based version in Perl. The web application is currently running on a web server with Ubuntu Linux using an Apache HTTP server to support the web services.
 The alignments are computed on a connected computing cluster with 10 working nodes (each with 8 CPUs and 16 GB RAM) running the Oracle Grid Engine version 6.2.
@@ -61,11 +61,11 @@ Gardner,P.P. et al. (2011) Rfam: Wikipedia, clans and the decimal release.
 Nucleic Acids Res., 39, D141 D145. [13:50 31/12/2011 Bioinformatics-btr669.tex] Page: 434 433 435  He,S. et al. (2010) Validation of two ribosomal RNA removal methods for microbial Sayers,E.W. et al. (2011) Database resources of the National Center for Biotechnology metatranscriptomics. Nat. Methods, 7, 807 812.
 Information.
 Nucleic Acids Res., 39, D38 D51. Huang,Y. et al. (2009) Identiﬁcation of ribosomal RNA genes in metagenomic Schmieder,R. and Edwards,R. (2011) Quality control and preprocessing of metagenomic fragments.
-Bioinformatics, 25, 1338 1340. datasets. Bioinformatics, 27, 863 864. rRNA sequence removal Li,H. and Durbin, R. (2010) Fast and accurate long-read alignment with Burrows- wheeler transform.
+Bioinformatics, 25, 1338 1340. datasets. Bioinformatics, 27, 863 864. rRNA sequence removal Li,H. and Durbin, R. (2010) Fast and accurate long-read alignment with Burrows-wheeler transform.
 Bioinformatics., 26, 589 595.
 Lee,J.-H. et al. (2011) rRNASelector: a computer program for selecting ribosomal RNA encoding sequences from metagenomic and metatranscriptomic shotgun libraries.
 J.Microbiol., 49, 689 691.
-Meyer,F. et al. - a public resource the automatic phylogenetic and functional analysis of metagenomes. (2008) The metagenomics RAST server for BMC Bioinformatics, 9, 386.
+Meyer,F. et al. -a public resource the automatic phylogenetic and functional analysis of metagenomes. (2008) The metagenomics RAST server for BMC Bioinformatics, 9, 386.
 Stewart,F.J. et al. (2010) Development and quantitative analyses of a universal rRNA-subtraction protocol for microbial metatranscriptomics. ISME J., 4, 896 907.
 The NIH HMP Working Group et al. (2009) The NIH Human Microbiome Project.
 Genome Res., 19, 2317 2323.

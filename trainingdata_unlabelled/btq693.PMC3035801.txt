@@ -64,9 +64,9 @@ A particular use case is the design of meta-analysis studies based on genome-wid
 We give two examples on how SAIL can be used in this context.
 Example 1.
 Meta-analysis of genome-wide association studies for glucose levels in plasma.
-A consortium wants to conduct a meta-analysis of genome- wide association studies for fasting plasma glucose levels.
+A consortium wants to conduct a meta-analysis of genome-wide association studies for fasting plasma glucose levels.
 It is of importance to know diabetes status for the study, and age, gender and BMI are to be used as study covariates. For the study design, an estimate is sought for how many samples can be included in the study, and from which cohorts.
-In the SAIL report constructor a query is constructed by selecting the parameters of interest, and adding them one by one to the query: glucose concentration (GLU), diabetes status (DB), age (AGE), gender (SEX) and BMI (BMI). We add the requirement for genome- wide genotyping data (GW_GT) and retrieve a report with detailed information about the availability in each collection for samples supporting the query (Supplementary Figure S1). The report tells us that 12 487 samples in three different cohorts may be eligible for the study.
+In the SAIL report constructor a query is constructed by selecting the parameters of interest, and adding them one by one to the query: glucose concentration (GLU), diabetes status (DB), age (AGE), gender (SEX) and BMI (BMI). We add the requirement for genome-wide genotyping data (GW_GT) and retrieve a report with detailed information about the availability in each collection for samples supporting the query (Supplementary Figure S1). The report tells us that 12 487 samples in three different cohorts may be eligible for the study.
 A further query restricted to these cohorts show the exact genome-wide genotyping arrays these samples have been measured on, and whether or not genome-wide imputed genotypes are available (Supplementary Figure S2). Based on the results from SAIL, it is now easy to contact the administrators of the different cohorts to ask for speciﬁc information and coordinate the sharing of data for the meta-analysis.
 Example 2.
 Metabolic Syndrome.
@@ -82,7 +82,7 @@ The largest of the four SAIL instances which are currently run for various proje
 Technically SAIL software can scale to any number of cohorts though the system may slow down as more cohorts are added.
 According to our current assessment, on the existing hardware (Intel Xeon 2.66 GHz, 4 GB RAM) the system can scale up to millions of samples.
 ACKNOWLEDGEMENTS We would like to thank members of the ENGAGE consortium for their support and feedback, as well as the data providers, especially HUNT Biobank for the largest dataset deposited in SAIL and for the valuable discussions and continuous support.
-Funding: Functional Genomics budget of the European Molecular Biology Laboratory and the ENGAGE grant HEALTH-F4-2007- 201413 of the FP7 programme by the European Commission.
+Funding: Functional Genomics budget of the European Molecular Biology Laboratory and the ENGAGE grant HEALTH-F4-2007-201413 of the FP7 programme by the European Commission.
 Conﬂict of Interest: none declared.
 REFERENCES Fortier,I. et al. (2010) Quality, quantity and harmony: the DataSHaPER approach to integrating data across bioclinical studies.
 Int.

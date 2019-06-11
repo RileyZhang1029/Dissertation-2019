@@ -15,11 +15,11 @@ In addition, some of these plugins were not tailored for large networks.
 For example, NeMo failed when executing on the same MiMI network on a 2.67 GHz Intel Core i7 machine.
 So far, no plugin offers a comprehensive collection of highly efﬁcient community detection algorithms, which could profoundly improve cluster analysis if added to Cytoscape. The increasing size and complexity of networks also bring signiﬁcant challenges to visualization.
 Generating a layout on such a network not only consumes considerable time and computational resources, but also rarely produces any informative outcome.
-A typical case is a massive hairball as a result of applying force- based layout to a large network ( 500 nodes) with many edges (Merico et al., 2009). Visual separation of clusters in a network can be improved by overlaying community structure on a graphic layout addressing speciﬁc topology.
+A typical case is a massive hairball as a result of applying force-based layout to a large network ( 500 nodes) with many edges (Merico et al., 2009). Visual separation of clusters in a network can be improved by overlaying community structure on a graphic layout addressing speciﬁc topology.
 We therefore developed this Cytoscape GLay plugin to make commonly used community structure detection algorithms available.
 GLay also provides layout algorithms optimized for large networks.
 GLay not only supplements existing clustering functions, but also provides structured and informative visualization for more efﬁcient exploration and analysis of large biological networks.
-2 IMPLEMENTATION The core of GLay was developed as a Cytoscape plugin with high- performance community analysis and graph layout functions ported from igraph C library (Csardi and Nepusz, 2006). The bridging is built via Java native access (JNA, https://jna.dev.java.net) interface.
+2 IMPLEMENTATION The core of GLay was developed as a Cytoscape plugin with high-performance community analysis and graph layout functions ported from igraph C library (Csardi and Nepusz, 2006). The bridging is built via Java native access (JNA, https://jna.dev.java.net) interface.
 The functions ported from igraph C library are currently only compiled under Windows 32/64 bit platform but will be extended to other platforms in the near future.
 Before performing any community analysis, GLay automatically transforms the input network into a simpliﬁed model, with edge directionality, duplication and self-looping removed.
 Such a network standardization step will make the resultant community structures from different community structure detection algorithms comparable as well as improving performance.
@@ -38,7 +38,7 @@ For example, the fast greedy algorithm may produce communities with skewed commu
 Table 2 lists GLay layout algorithms.
 These algorithms are able to efﬁciently layout very large networks or generate hierarchical trees.
 A key advantage of GLay layout is that it allows the layout calculations of various algorithms to initiate from the current network layout state.
-This adds signiﬁcant ﬂexibility since it enables the user to progressively improve the layout by either ﬁne- tuning parameters or using different layout algorithms together.
+This adds signiﬁcant ﬂexibility since it enables the user to progressively improve the layout by either ﬁne-tuning parameters or using different layout algorithms together.
 For example, for a very large network, the user may specify a small number of iterations to obtain a draft layout, and then gradually reﬁne the layout by adding more iterations or tuning the parameters.
 Once done, the user may superimpose the community structure on the layout to investigate network topology.
 For more information, please refer to the plugin homepage and igraph library documentation (Csardi and Nepusz, 2006). 3 RESULTS AND CONCLUSION We have tested GLay on datasets of various size and structure.
@@ -59,7 +59,7 @@ Figure 2 shows a side-by-side comparison of MCODE at default parameters and GLay
 It can be seen that by using the default parameters, MCODE produces much smaller clusters than GLay, leaving majority of the nodes unclustered. Therefore, GLay outperforms [11:15 23/11/2010 Bioinformatics-btq596.tex] Page: 3136 3135 3137  Fig.2.
 Comparison between clusters produced by MCODE with default parameters (left) and GLay using fast-greedy algorithm (right) on Cytoscape bundled galFiltered (Ideker et al., 2001) dataset. The node color is determined by the corresponding cluster membership.
 Left: MCODE clusters.
-The un- clustered genes are hidden.
+The un-clustered genes are hidden.
 Right: GLay fast-greedy clusters.
 (A) A MCODE cluster, in which four out of ﬁve genes are associated with MAPK pathway.
 The corresponding cluster in GLay contains 25 genes, including more genes in MAPK pathway, cell cycle and ion binding.
@@ -86,7 +86,7 @@ Phys.
 Rev.
 E, 70, 066111.
 Csardi,G. and Nepusz,T. 1695. network project.org/web/packages/igraph/citation.html. research.
-(2006) The igraph software package for complex http://cran.r- InterJournal, Available at Dennis,G. Jr et al. (2003) DAVID: Database for Annotation, Visualization, and Integrated Discovery.
+(2006) The igraph software package for complex http://cran.r-InterJournal, Available at Dennis,G. Jr et al. (2003) DAVID: Database for Annotation, Visualization, and Integrated Discovery.
 Genome Biol., 4, P3. Fruchterman,T.M.J. and Reingold,E.M. (1991) Graph drawing by force-directed placement.
 Softw. Pract. Exp., 21, 1129 1164.
 Ideker,T. et al. (2001) Integrated genomic and proteomic analyses of a systematically perturbed metabolic network.

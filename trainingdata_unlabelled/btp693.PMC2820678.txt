@@ -35,7 +35,7 @@ More information about the HMM and emission distributions is given in the supple
 The parameters of the model are learned for each chromosome in the input data set by Viterbi training for both the transition probabilities and emission distribution parameters (Durbin et al., 1998). After the model parameters have been determined, the sequence of states is computed by a ﬁnal application of the Viterbi algorithm.
 The output of the Viterbi algorithm is processed to extract contiguous regions of gain or loss.
 The minimum threshold for detection is the input window size, typically one kilobase. There is a ﬁnal optional ﬁltering step to remove calls below a minimum size threshold.
-3 RESULTS We tested our model on Illumina short read sequence data from chromosome 17 for the A/J and CAST/EiJ strains of mouse that were sequenced to 22- and 34-fold, respectively (ERA accession number ERA000077). The data sets were generated using 36-bp paired-end reads of 200-bp insert libraries.
+3 RESULTS We tested our model on Illumina short read sequence data from chromosome 17 for the A/J and CAST/EiJ strains of mouse that were sequenced to 22-and 34-fold, respectively (ERA accession number ERA000077). The data sets were generated using 36-bp paired-end reads of 200-bp insert libraries.
 For this experiment, we set a minimum call size threshold of 10 kb (see Supplementary Data). We evaluated our calls against a collection of previously published aCGH copy number variation data (Cahan et al., 2009 Cutler et al., 2007 Henrichsen et al., 2009 She et al., 2008). 566 Our algorithm called 22 copy number gains (1.38 Mb of sequence) and 21 losses (0.49 Mb) for the A/J data set (see Fig.1 and Supplementary Fig.6 for example regions). The gain regions overlap 38% of the regions identiﬁed by aCGH (36% by sequence, 1.1 Mb). Seventy-seven percent of the gains cnD found were previously seen by aCGH. For CAST/EiJ, 45 gains (2.44 Mb of sequence) and 30 losses (1.16 Mb) were called.
 The gain regions overlap 76% of the gains called by aCGH (79% by sequence, 1.3 Mb). Thirty-six percent of the gains found by cnD were previously seen in the array CGH data set.
 This ﬁgure is much lower than that of A/J due to the fact that the CAST/EiJ strain was not used in the highest coverage aCGH study (Cahan et al., 2009). In both strains the regions of copy number loss called by our algorithm and aCGH differed widely (11% concordance by region for A/J and 32% for CAST/EiJ) owing to the relative difﬁculty of calling CNV losses compared to gains.
@@ -59,7 +59,7 @@ Li,H. et al. (2008) Mapping short DNA sequencing reads and calling variants usin
 Genome Res., 18, 1851 1858.
 Lu,X.Y. et al. (2008) Genomic imbalances in neonates with birth defects: high detection rates by using chromosomal microarray analysis.
 Pediatrics, 122, 1310 1318.
-Moon,H.J. et al. (2006) Identiﬁcation of DNA copy-number aberrations by array- comparative genomic hybridization in patients with schizophrenia.
+Moon,H.J. et al. (2006) Identiﬁcation of DNA copy-number aberrations by array-comparative genomic hybridization in patients with schizophrenia.
 Biochem. Biophys. Res.
 Commun., 344, 531 539.
 [11:16 25/1/2010 Bioinformatics-btp693.tex] Page: 566 565 567  Mouse Genome Sequencing Consortium, Waterston,R.H. et al. (2002) Initial sequencing Scherer,S.W. et al. (2007) Challenges and standards in integrating surveys of structural and comparative analysis of the mouse genome.

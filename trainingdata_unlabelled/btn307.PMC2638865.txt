@@ -4,7 +4,7 @@ Results: We discuss the algorithms and compound mining utilities provided by the
 It also offers a wide range of visualization functions for compound clusters and chemical structures.
 The package is well integrated with the online ChemMine environment and allows bidirectional communications between the two services.
 Availability: ChemmineR is freely available as an R package from the ChemMine project site: http://bioweb.ucr.edu/ChemMineV2 chemminer Contact: thomas.girke@ucr.edu 1 INTRODUCTION High-throughput screens (HTS) of small molecules for drug discovery and chemical genomics have evolved into routine technologies for analyzing protein functions and cellular networks on a systems biology level.
-At the same time, millions of drug- like molecule structures have become freely available to the public, mainly through online compound database projects, such as PubChem, ChemBank, Zinc, ChemMine, ChemDB and others (Chen et al., 2005 Girke et al., 2005 Irwin and Shoichet, 2005 Seiler et al., 2008). To search and analyze the vast amounts of available compound and screening information, and to assemble diverse screening libraries, efﬁcient compound analysis tools are a critical enabling resource.
+At the same time, millions of drug-like molecule structures have become freely available to the public, mainly through online compound database projects, such as PubChem, ChemBank, Zinc, ChemMine, ChemDB and others (Chen et al., 2005 Girke et al., 2005 Irwin and Shoichet, 2005 Seiler et al., 2008). To search and analyze the vast amounts of available compound and screening information, and to assemble diverse screening libraries, efﬁcient compound analysis tools are a critical enabling resource.
 Unfortunately, most of the available software in this area is only commercially available, and open-source approaches are still the exception (e.g. OpenBabel, JOELib, Guha et al., 2006). The long-term goal of the ChemmineR project is to narrow this resource gap by providing free access to a ﬂexible and expandable open-source framework for the analysis of small molecule data from chemical genomics, agrochemical and drug discovery screens.
 To whom correspondence should be addressed.
 2 APPROACH 2.1 Overview The development of compound analysis software for the statistical environment and programming language R has many obvious advantages (R Development Core Team, 2008). To name just a few: (1) R is one of the most widely used data mining environments used in bioinformatics. (2) The software and its associated packages are available for all common operating systems.
@@ -34,7 +34,7 @@ Structure-based clustering is required for many analysis steps of compound libra
 The algorithm uses single-linkage clustering to join compounds into similarity groups, where every member in a cluster shares with at least one another member a similarity value above a user-speciﬁed threshold.
 The algorithm is optimized for speed and memory efﬁciency by avoiding the calculation of an all-against-all distance matrix.
 This is achieved by calculating on-the-ﬂy only the distance values that are required in each clustering step.
-Because an optimum similarity threshold is often unknown, a series of binning clustering result can be calculated simultaneously for several user- speciﬁed thresholds.
+Because an optimum similarity threshold is often unknown, a series of binning clustering result can be calculated simultaneously for several user-speciﬁed thresholds.
 Cluster results for several thresholds can be calculated almost with the same speed as for a single threshold by issuing multiple clustering processes simultaneously, but calculating the required distances only once.
 If desired by the user, then the binning clustering function can generate an all-against-all distance matrix for clustering compound sets with many other classiﬁcation algorithms available in R, such as hierarchical clustering or K-means.
 In addition, ChemmineR provides an interactive wrapper function for multidimensional scaling (MDS) clustering.
@@ -51,7 +51,7 @@ Inf.
 Comput. Sci., 25, 64 73.
 Chen,J. et al. (2005) ChemDB: a public database of small molecules and related chemoinformatics resources.
 Bioinformatics, 21, 4133 4139.
-Chen,X. and Reynolds,C. (2002) Performance of similarity measures in 2D fragment- based similarity searching: comparison of structural descriptors and similarity coefﬁcients. J. Chem.
+Chen,X. and Reynolds,C. (2002) Performance of similarity measures in 2D fragment-based similarity searching: comparison of structural descriptors and similarity coefﬁcients. J. Chem.
 Inf.
 Comput. Sci., 42, 1407 1414.
 Gedeck,P. et al. (2006) QSAR how good is it in practice Comparison of descriptor sets on an unbiased cross section of corporate data sets.

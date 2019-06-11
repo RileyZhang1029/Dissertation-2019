@@ -1,14 +1,14 @@
 BIOINFORMATICS APPLICATIONS NOTE Vol.27 no.7 2011, pages 1032 1033 doi:10.1093/bioinformatics/btr042 Data and text mining GeneTUKit: a software for document-level gene normalization Minlie Huang , Jingchen Liu and Xiaoyan Zhu Advance Access publication February 8, 2011 Department of Computer Science and Technology, Tsinghua University, Beijing, China Associate Editor: Jonathan Wren document-level.
 The goal of this software is not to normalize every mention correctly, but to suggest a list of normalized genes given a target document, to assist human annotators.
 Most previous systems are normalizing genes at mention-level and only local context surrounding a mention (e.g. the sentence where the mention was recognized) were employed.
-However, due to the high ambiguity of gene names, it may be insufﬁcient to use only local context: inter- sentential or document-level context can be helpful in this task.
+However, due to the high ambiguity of gene names, it may be insufﬁcient to use only local context: inter-sentential or document-level context can be helpful in this task.
 Second, the software is designed for simultaneously normalizing genes of many different species for full-text articles.
 It is not limited to any speciﬁc organism, but rather deals with all species present in a gene database (Entrez Gene in this article). 2 METHODS AND SYSTEM The workﬂow of our software is shown in Figure 1.
 The software has four main modules.
 The ﬁrst module is for gene mention recognition, the second one for gene ID candidate generation and the third one for gene ID disambiguation.
 In the fourth module, the software generates conﬁdence scores for each gene ID, where the conﬁdence score indicates the strength of the association between a gene ID and the document.
 We have used three methods for recognizing gene mentions in the ﬁrst module.
-The ﬁrst method is a conditional random ﬁeld-based approach, which was trained on the training dataset of BioCreAtIvE II Gene Mention Recognition Task (Smith et al., 2008). The second method is a dictionary- based recognition approach where the dictionary was compiled from Entrez Gene.
+The ﬁrst method is a conditional random ﬁeld-based approach, which was trained on the training dataset of BioCreAtIvE II Gene Mention Recognition Task (Smith et al., 2008). The second method is a dictionary-based recognition approach where the dictionary was compiled from Entrez Gene.
 The third method is ABNER (Settles, 2005), an open source named entity recognition system for biomedical literature.
 The input text is processed by these methods separately, and the resulting mentions are maintained if a mention is recognized by at least two methods.
 If two mentions are similar but have different boundaries, the overlapping part is taken as the ﬁnal mention.
@@ -59,8 +59,8 @@ The features were constructed as follows:  The best value of features used in th
 For the edit distance features, best means minimal  for the ranking score feature, best means maximal.
 The total number of gene mentions associated with the ID.
 The highest rank of the ID among all the mentions associating with the ID.
-3 RESULTS We evaluated the system on the BioCreAtIvE III GN corpus (Lu and Wilbur, 2010) in terms of Threshold Average Precision (TAP- k, k=5,10,20, respectively) (Carroll et al., 2010). For training, we used the 32 articles with gold-standard human annotation.
-For testing, the ﬁrst dataset has 50 articles, each of which has gold- standard annotation, and the second one has 507 articles whose ground truth was inferred from 37 team submissions (referred GeneTUKit Table 1.
+3 RESULTS We evaluated the system on the BioCreAtIvE III GN corpus (Lu and Wilbur, 2010) in terms of Threshold Average Precision (TAP-k, k=5,10,20, respectively) (Carroll et al., 2010). For training, we used the 32 articles with gold-standard human annotation.
+For testing, the ﬁrst dataset has 50 articles, each of which has gold-standard annotation, and the second one has 507 articles whose ground truth was inferred from 37 team submissions (referred GeneTUKit Table 1.
 The evaluation results on the BioCreAtIvE III GN corpus Measures 50 articles (gold standard) 507 articles (silver standard) 0.2973 (4/37) 0.3125 (4/37) 0.3248 (4/37) TAP-5 TAP-10 TAP-20 Average precision of TOP k recommendations k=5 k=10 k=20 0.4880 0.4340 0.3231 0.4086 (7/37) 0.4511 (4/37) 0.4648 (1/37) 0.5764 0.4993 0.3984 The number in the bracket is the rank of our score among the 37 submissions.
 as silver standard). The 507 articles also include the 50 articles from the ﬁrst dataset. The results presented in Table 1 show the ofﬁcial evaluation results from BioCreAtIvE III.
 We have also tested the performance in terms of average precision.

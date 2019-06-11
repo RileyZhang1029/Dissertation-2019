@@ -10,9 +10,9 @@ All of the data derived from the pipeline are provided in the AS-ALPS database (
 AS-EAST determines whether the transcript encodes a novel AS isoform and annotates such functional sites in the AS isoform as residues interacting with other molecules.
 We provide an example: AS-EAST predicts that a novel AS isoform of mitogen-activated protein kinase 1 (MAPK1) in human skeletal muscle inhibits the signaling pathway by removing residues that interact with ATP and substrate proteins.
 Input data 2 OVERVIEW OF AS-EAST 2.1 To detect and annotate AS events in a user-submitted transcript (termed query transcript ), AS-EAST accepts a FASTA-formatted transcript sequence.
-A novel pattern of splicing detected with RNA- Seq or exon junction microarray often determines whether a certain exon in a known transcript model is skipped.
+A novel pattern of splicing detected with RNA-Seq or exon junction microarray often determines whether a certain exon in a known transcript model is skipped.
 AS-EAST has a user interface for generating an exon-skipped transcript sequence from the known transcript sequences stored in AS-ALPS.
-For example, RNA-Seq data (Wang et al., 2008) shows that the fourth exon of the MAPK1 transcript tends to be skipped in human skeletal muscle (Fig. 1a). This splicing pattern is novel because no fourth exon- skipped transcript is found in RefSeq or Ensembl transcript datasets stored in AS-ALPS.
+For example, RNA-Seq data (Wang et al., 2008) shows that the fourth exon of the MAPK1 transcript tends to be skipped in human skeletal muscle (Fig. 1a). This splicing pattern is novel because no fourth exon-skipped transcript is found in RefSeq or Ensembl transcript datasets stored in AS-ALPS.
 Users can build a fourth exon-skipped transcript sequence by checking the checkbox of exon 4 and selecting the Generate button.
 Then, the transcript sequence excluding the fourth exon is shown in FASTA format.
 2.2 AS region detection First, a genome contig sequence aligned to the query transcript sequence with the largest value of both length coverage and sequence identity is selected using MEGABLAST (Altschul et al., 1997). An alignment of the query transcript and the contig sequence is performed using SPLIGN (Kapustin et al., 2008). AS-EAST searches the AS-ALPS database for transcripts mapped on the same region of the contig as the query transcript.
@@ -45,7 +45,7 @@ Gene, 380, 63 71.
 Zdobnov,E.M. and Apweiler,R. (2001) InterProScan an integration platform for the signature-recognition methods in InterPro. Bioinformatics, 17, 847 848.
 2077 Fig.1.
 (a) User interface for generating query transcript data.
-As a reference of exon-skipped transcript sequence generation, the mapping results of RNA- Seq data from Wang et al. (2008) are shown at the top of the schematic ﬁgure in the human dataset. Mapping of the RNA-Seq data was performed using the TopHat program (Trapnell et al., 2009) with default parameters.
+As a reference of exon-skipped transcript sequence generation, the mapping results of RNA-Seq data from Wang et al. (2008) are shown at the top of the schematic ﬁgure in the human dataset. Mapping of the RNA-Seq data was performed using the TopHat program (Trapnell et al., 2009) with default parameters.
 (b) Interaction residues obtained from 3D structure information assigned to a reference isoform. The deletion-type AS region is shown in red.
 Interaction residues are denoted with arrowheads in the schematic view and stick models in the 3D structure view.
 The ligand is shown in a space-ﬁlling model.
@@ -53,5 +53,5 @@ The 3D structure is shown with Jmol (http://www.jmol.org/) with the users chosen
 From the AS CDSs, AS-EAST identiﬁes amino acid sequence regions changed through AS, termed AS regions.
 An amino acid sequence encoded by a deletion AS CDS whose length is a multiple of 3 is identiﬁed as a deletion-type AS region.
 In addition, an amino acid sequence encoded by an insertion AS CDS whose length is a multiple of 3 is identiﬁed as an insertion-type AS region.
-When the length of an AS CDS is not a multiple of 3 and the reading (cid:3) frame of the 3 -ﬂanking CDS is shifted, the amino acid sequence encoded by the AS CDS and the 3 -ﬂanking CDS is identiﬁed as a substitution-type AS region.
+When the length of an AS CDS is not a multiple of 3 and the reading (cid:3) frame of the 3-ﬂanking CDS is shifted, the amino acid sequence encoded by the AS CDS and the 3-ﬂanking CDS is identiﬁed as a substitution-type AS region.
 (cid:3) [12:11 20/7/2012 Bioinformatics-bts320.tex] Page: 2077 2076 2077

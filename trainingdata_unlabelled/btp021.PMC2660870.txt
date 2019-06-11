@@ -46,7 +46,7 @@ If only p-values are provided, then QVALITY must estimate the null scores themse
 it The input data are pooled together and binned into 500 equally sized bins.
 The fraction of null scores is calculated for each bin separately.
 A set of 2D spline knots are constructed from the median scores of the bins and the fractions of null scores.
-Thereafter, an interpolating natural cubic spline (Green and Silverman, 1994) is ﬁtted to the spline knots with an iteratively reweighted least squares technique, and the roughness penalty is set to minimize cross- validation error using golden section search.
+Thereafter, an interpolating natural cubic spline (Green and Silverman, 1994) is ﬁtted to the spline knots with an iteratively reweighted least squares technique, and the roughness penalty is set to minimize cross-validation error using golden section search.
 Our approach is similar to that of Efron et al. (2001) and is described in more detail in Käll et al. (2008). 965  L.Käll et al. Computing q-values and PEPs for 70 000 scores and the same number of null scores takes 3 s on a 2.33 GHz Intel Xeon processor.
 The computation time and memory usage scales linearly with the size of the input.
 Funding: This work was funded by NIH awards R01 EB007057 and P41 RR11823. Conﬂict of Interest: none declared.

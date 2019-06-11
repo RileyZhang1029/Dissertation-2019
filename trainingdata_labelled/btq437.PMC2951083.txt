@@ -10,11 +10,11 @@ However, depending on the level of represented detail the steadily increasing co
 therein) provided an efﬁcient implementation especially in three dimensions.
 Here we present an adaptable software tool (named CellSys) that implements a class of lattice-free agent-based models permitting realistic simulations of tissue growth and organization processes of common experimental settings in vitro, as the growth dynamics in monolayer cultures and multi-cellular spheroids (Drasdo and   To whom correspondence should be addressed.
 Hoehme, 2005). It has further recently been used to model liver regeneration (Hoehme et al., 2007, 2010). Therein, the simulation results from CellSys have been directly and quantitatively compared to experimental data, using the same analysis methods for both.
-CellSys can be used to predict the experiments that are most informative to identify possible mechanisms on the cell and sub- cell scale to explain a certain multi-cellular phenomenon.
+CellSys can be used to predict the experiments that are most informative to identify possible mechanisms on the cell and sub-cell scale to explain a certain multi-cellular phenomenon.
 It also has proved useful to guide the development of continuous models where cells are not resolved individually but are represented by locally averaged quantities: Comparing both model types permits identiﬁcation of terms and parameters (Byrne and Drasdo, 2009). 2 SIMULATION MODEL Each individual cell is modeled by an isotropic, elastic and adhesive sphere capable of migration, growth and division.
 Cell cell and cell matrix interaction are mimicked by the experimentally validated (Chu et al., 2005) Johnson Kendall Roberts (JKR) model that summarizes deformation, compression and adhesion forces, and displays hysteresis if cells move close to or away from one another.
 Model cells are parameterized by the Young modulus, the Poisson ratio, the density of membrane receptors responsible for cell cell and cell substrate adhesion and by its (intrinsic) radius.
-Proliferating cells double volume and deform into dumb- bells after a given number of time steps before splitting into two daughter cells.
+Proliferating cells double volume and deform into dumb-bells after a given number of time steps before splitting into two daughter cells.
 By assuming that inertia terms can be neglected, cell migration is modeled by an (Langevin-) equation of motion for each cell center summarizing all JKR-forces on that cell, the friction-forces with substrate or extracellular matrix as well as with other cells (parameterized by friction coefﬁcients), and optionally a random force term.
 The latter mimics cell micro-motility and is quantiﬁed by the cell diffusion constant.
 We solve the equation for diffusion and consumption of nutrients, growth factors, etc.
@@ -37,7 +37,7 @@ For a more detailed introduction refer to the Supplementary Material.
 4 SUMMARY/OUTLOOK CellSys offers a robust and efﬁcient implementation of a lattice-free individual-cell-based model that is parameterized by experimentally measurable quantities.
 The current version allows the in silico simulation and analysis of widespread experimental settings in 2D and 3D such as monolayer cultures and multi-cellular tumor spheroids.
 Speciﬁc cell lines and culturing settings can be mimicked by changing parameters accordingly.
-The results of model simulations can be visualized by a wide variety of virtual stainings and are quantiﬁed by many observables. The modular, object-oriented structure of the software permits extensions like the modeling of the surrounding tissue or vascular networks that will be made available in future versions of CellSys. Funding: German Federal Ministry of Education and Research [HepatoSys 0313081F, LungSys 0315415F and VirtualLiver 0315735, in part] European Union [CancerSys HEALTH-F4-2008- 223188, Passport: 223894, in part]. Conﬂict of Interest: none declared.
+The results of model simulations can be visualized by a wide variety of virtual stainings and are quantiﬁed by many observables. The modular, object-oriented structure of the software permits extensions like the modeling of the surrounding tissue or vascular networks that will be made available in future versions of CellSys. Funding: German Federal Ministry of Education and Research [HepatoSys 0313081F, LungSys 0315415F and VirtualLiver 0315735, in part] European Union [CancerSys HEALTH-F4-2008-223188, Passport: 223894, in part]. Conﬂict of Interest: none declared.
 REFERENCES Anderson,A.R.A. et al. (2007) Single-Cell-Based Models in Biology and Medicine.
 Basel: Birkhäuser. Byrne,H. and Drasdo,D. (2009) Individual-based and continuum models of growing cell populations: a comparison.
 J.Math.
@@ -59,7 +59,7 @@ Interact., 168, 74 93.
 Hoehme,S. et al. (2010) Prediction and validation of cell alignment along microvessels as order principle to restore tissue architecture in liver regeneration.
 Proc. Natl Acad. Sci.USA, 107, 10371 10376.
 Missal,K. Ramis-Conde,I. et al. (2006) Gene network inference from incomplete expression data: transcriptional control of hematopoietic commitment.
-Bioinformatics, 22, 731 738. the E-cadherin-beta- catenin pathway in cancer cell invasion: a multiscale approach.
+Bioinformatics, 22, 731 738. the E-cadherin-beta-catenin pathway in cancer cell invasion: a multiscale approach.
 Biophys. J., 95, 155 165.
 (2008) Modeling the inﬂuence of Ramis-Conde,I. et al. (2009) Multi-scale modelling of cancer cell intravasation: the role of cadherins in metastasis.
 Phys Biol., 6, 16008.

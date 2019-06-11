@@ -13,7 +13,7 @@ This information is not currently available from experiments.
 Structures obtained by X-ray crystallography or nuclear magnetic resonance (NMR) spectroscopy do not reﬂect the protein s native lipid bilayer environment.
 There are several sequence-based methods to predict the position of transmembrane (TM) helices (e.g. TMHMM, Krogh et al., 2001) and β-barrels (e.g. HMM-B2TMR, Martelli et al., 2002). For reviews see Cuthbertson et al. (2005) and Bagos et al. (2005). The boundaries of putative TM helices or sheets tend to be predicted   To whom correspondence should be addressed.
 inaccurately and vary between different prediction methods.
-Half- helices, which span only a part of the membrane, are also hard to predict with existing tools.
+Half-helices, which span only a part of the membrane, are also hard to predict with existing tools.
 More importantly, all the above methods use a simple two-state membrane model (in membrane/not in membrane), occasionally with the addition of an uncertainty margin around the prediction.
 None of the available tools provides a detailed prediction of each residue s position within the lipid bilayer, or its contacts with the different regions of the membrane lipids.
 There are some structure-based methods, which predict a protein s position within the membrane.
@@ -41,7 +41,7 @@ Therefore, we can only annotate those residues that are aligned to a CGDB protei
 In the future, an additional structure prediction step will be implemented, such that we will be able to annotate every residue of a sequence-only input, as well as give back its proposed structure.
 VISUALIZATION 3 We visualize the predicted membrane insertion of the input protein using (i) a colour-annotated sequence alignment and/or (ii) a coloured 3D structure as shown in Figure 1.
 The sequence-based visualization is always provided, whereas the coloured structure output is currently restricted to the case where the input itself was a structure.
-4 ACCURACY iMembrane s accuracy was tested using a leave-one-out cross- validation on the CGDB data.
+4 ACCURACY iMembrane s accuracy was tested using a leave-one-out cross-validation on the CGDB data.
 The prediction results for each hit were compared to the original annotation generated directly from the corresponding MD simulation result in the CGDB. A Q3 score was calculated, representing the fraction of annotated residues assigned to the correct annotation (T, H or N see Fig.1). In addition, a Q2 score was calculated by merging the two types of membrane layers (T and H). iMembrane Fig.1.
 The structure of PDB entry 2JAF before (left) and after (right) annotation with iMembrane. Shades show the membrane layers.
 Top to bottom: non-membrane (dark blue), polar head group layer (white), lipid tail layer (dark red), polar head group layer (white) and non-membrane (dark blue). Independent of the input type (structure or sequence), a sequence identity of 35% tends to result in a Q3 accuracy 70% and a Q2 accuracy of 90% and above in the membrane layer prediction.

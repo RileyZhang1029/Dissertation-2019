@@ -45,7 +45,7 @@ Of the many outliers outside of the artefacts, some may still be excluded in our
 All strips on this array have technical replicates, and for this example BASH reduces the squared differences between the twin strips, summed over bead types with a RefSeq match, by 36%. 3 DISCUSSION BASH can be applied in a number of ways: as part of an automated preprocessing pipeline, to process arrays with apparent spatial artefacts, or merely to identify suspect arrays.
 BASH may require 2922 some initial tuning when dealing with a new technology or new laboratory, but has many adjustable parameters for doing so.
 There is scope for future improvement of BASH, such as incorporating transformations other than log2, or explicitly incorporating prior beliefs about the locations, sizes and shapes of defects.
-Additionally, questions such as what is the best way to identify defects on two- colour Illumina platforms  remain to be answered, although BASH allows for ﬂexibility in this regard.
+Additionally, questions such as what is the best way to identify defects on two-colour Illumina platforms  remain to be answered, although BASH allows for ﬂexibility in this regard.
 Spatial defects in Illumina arrays have not been widely reported because the majority of Illumina data are examined only at the summary level.
 Our example shows the value of doing more than just accepting Illumina s outliers and provides an additional incentive to work at the bead level, which brings with it many additional beneﬁts. BASH requires at least a list of bead locations, identities and intensities, and users may have to adjust their scanner settings to obtain this information.
 BASH does not need to be perfect to be useful.

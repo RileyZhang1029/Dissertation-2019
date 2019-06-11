@@ -1,7 +1,7 @@
 BIOINFORMATICS APPLICATIONS NOTE Vol.27 no.15 2011, pages 2159 2160 doi:10.1093/bioinformatics/btr325 Sequence analysis SEAL: a distributed short read mapping and duplicate removal tool Luca Pireddu , Simone Leo and Gianluigi Zanetti Advance Access publication June 22, 2011 CRS4, Polaris, Ed.
 1, I-09010 Pula, Italy Associate Editor: Alex Bateman ABSTRACT Summary: SEAL is a scalable tool for short read pair mapping and duplicate removal.
 It computes mappings that are consistent with those produced by BWA and removes duplicates according to the same criteria employed by Picard MarkDuplicates. On a 16-node Hadoop cluster, it is capable of processing about 13 GB per hour in map+rmdup mode, while reaching a throughput of 19 GB per hour in mapping-only mode.
-Availability: SEAL seal.sourceforge.net/. Contact: luca.pireddu@crs4.it http://biodoop- available online at is Received on March 7, 2011 revised on May 9, 2011 accepted on May 26, 2011 1 INTRODUCTION Deep sequencing experiments read billions of short fragments of DNA, and their throughput is steadily increasing (Metzker, 2010). These reads need to be post-processed after sequencing to prepare the data for further analysis, which implies that the computational steps need to scale their throughput to follow the trend in sequencing technology.
+Availability: SEAL seal.sourceforge.net/. Contact: luca.pireddu@crs4.it http://biodoop-available online at is Received on March 7, 2011 revised on May 9, 2011 accepted on May 26, 2011 1 INTRODUCTION Deep sequencing experiments read billions of short fragments of DNA, and their throughput is steadily increasing (Metzker, 2010). These reads need to be post-processed after sequencing to prepare the data for further analysis, which implies that the computational steps need to scale their throughput to follow the trend in sequencing technology.
 Such high data rates imply the need for a distributed architecture that can scale with the number of computational nodes.
 Typical post-processing steps include sequence alignment, which is a fundamental step in nearly all applications of deep sequencing technologies, and duplicate read removal, which is a major concern for Illumina sequencing (Kozarewa et al., 2009). The pressure for better and faster tools has recently given rise to the development of new alignment algorithms that outperform traditional ones in terms of both speed and accuracy (Li and Homer, 2010). Distributed alignment tools have also been created, with Crossbow (Langmead et al., 2009a) as one of the most prominent examples.
 However, Crossbow is based on Bowtie (Langmead et al., 2009b), and thus does not currently support gapped alignment, an important feature for many applications (Li and Homer, 2010). In this work we describe SEAL, a new distributed alignment tool that combines BWA (Li and Durbin, 2009) with duplicate read detection and removal.
@@ -76,9 +76,9 @@ Langmead,B. et al. (2009b) Ultrafast and memory-efﬁcient alignment of short DN
 Genome Biol., 10, 25.
 Leo,S. and Zanetti,G. (2010) Pydoop: a Python MapReduce and HDFS API for Hadoop. In Proceedings of the 19th ACM International Symposium on High Performance Distributed Computing, ACM, New York, NY, USA, pp.
 819 825.
-Li,H. and Durbin,R. (2009) Fast and accurate short read alignment with Burrows- Wheeler transform.
+Li,H. and Durbin,R. (2009) Fast and accurate short read alignment with Burrows-Wheeler transform.
 Bioinformatics, 25, 1754 1760.
-Li,H. and Homer,N. (2010) A survey of sequence alignment algorithms for next- generation sequencing.
+Li,H. and Homer,N. (2010) A survey of sequence alignment algorithms for next-generation sequencing.
 Brief.
 Bioinformatics, 11, 473 483.
 Li,H. et al. (2009) The sequence alignment/map (SAM) format and SAMtools. Bioinformatics, 25, 2078 2079.

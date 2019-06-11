@@ -1,4 +1,4 @@
-BIOINFORMATICS Vol.25 ISMB 2009, pages i119 i127 doi:10.1093/bioinformatics/btp206 Clustered alignments of gene-expression time series data Adam A. Smith1,2, , Aaron Vollrath3, Christopher A. Bradﬁeld3 and Mark Craven1,2, 1Department of Biostatistics & Medical Informatics, 2Department of Computer Sciences and 3Department of Oncology, University of Wisconsin, Madison, USA ABSTRACT Motivation: Characterizing and comparing temporal gene- expression responses is an important computational task for answering a variety of questions in biological studies.
+BIOINFORMATICS Vol.25 ISMB 2009, pages i119 i127 doi:10.1093/bioinformatics/btp206 Clustered alignments of gene-expression time series data Adam A. Smith1,2, , Aaron Vollrath3, Christopher A. Bradﬁeld3 and Mark Craven1,2, 1Department of Biostatistics & Medical Informatics, 2Department of Computer Sciences and 3Department of Oncology, University of Wisconsin, Madison, USA ABSTRACT Motivation: Characterizing and comparing temporal gene-expression responses is an important computational task for answering a variety of questions in biological studies.
 Algorithms for aligning time series represent a valuable approach for such analyses.
 However, previous approaches to aligning gene-expression time series have assumed that all genes should share the same alignment.
 Our work is motivated by the need for methods that identify sets of genes that differ in similar ways between two time series, even when their expression proﬁles are quite different.
@@ -45,8 +45,8 @@ The alignment in Figure 2 also illustrates the concept of shorting.
 Here, Time Series A seems to have advanced more quickly than Time Series B, which has not started to increase at the end.
 An alignment path that represents shorting ends in the top row or the right column of the alignment space diagram, but not in the top-right cell.
 Note that we do not allow an alignment to short both series all of one or the other must be mapped to some point in its mate.
-In previous work (Smith et al., 2008), we described a novel multi- segment alignment method and empirically demonstrated that it classiﬁes and aligns our toxicogenomics data better than several competing methods, including dynamic time warping, several parametric methods (such as linear alignment) and another multi- segment method called correlation-optimized warping, or COW (Nielsen et al., 1998). Parametric methods, which constrain the warping path to a simple functional form, often are not expressive enough to capture the most appropriate warping.
-In contrast, dynamic time warping can often be too expressive, ﬁnding high- scoring alignments of unrelated series.
+In previous work (Smith et al., 2008), we described a novel multi-segment alignment method and empirically demonstrated that it classiﬁes and aligns our toxicogenomics data better than several competing methods, including dynamic time warping, several parametric methods (such as linear alignment) and another multi-segment method called correlation-optimized warping, or COW (Nielsen et al., 1998). Parametric methods, which constrain the warping path to a simple functional form, often are not expressive enough to capture the most appropriate warping.
+In contrast, dynamic time warping can often be too expressive, ﬁnding high-scoring alignments of unrelated series.
 A multi-segment method provides a balance between these two methods.
 The accuracy advantage of our previous multi-segment method over COW was slight.
 COW is a global alignment method that cannot short.
@@ -54,7 +54,7 @@ On closer inspection, we found that our method discovered more accurate alignmen
 Here, we present a modiﬁed version of COW that allows shorted alignments.
 We call the method SCOW, for shorting COW.
 Our algorithm for computing clustered alignments uses SCOW as its base alignment method.
-i120 Aach and Church (2001) were the ﬁrst to apply the method of dynamic time warping (Sakoe and Chiba, 1978) to gene-expression proﬁles, and other groups have followed with this warping method (Criel and Tsiporkova, 2006 Liu and Müller, 2003) and others (Bar- Joseph et al., 2003). Importantly, they have all done their warping on all genes together, whereas we compute clustered alignments.
+i120 Aach and Church (2001) were the ﬁrst to apply the method of dynamic time warping (Sakoe and Chiba, 1978) to gene-expression proﬁles, and other groups have followed with this warping method (Criel and Tsiporkova, 2006 Liu and Müller, 2003) and others (Bar-Joseph et al., 2003). Importantly, they have all done their warping on all genes together, whereas we compute clustered alignments.
 Also, our approach differs in that it compute multi-segment alignments and considers local alignments via shorting.
 Other studies have investigated clustering gene-expression time series (Bar-Joseph et al., 2003 Eisen et al., 1998 Leng and Müller, 2006 Liu and Müller, 2003). The important differences between these approaches and ours are 2-fold: the goals of the clustering process and the notion of similarity used.
 Whereas these previous methods have focused on identifying clusters of genes that have similar expression proﬁles, our approach, in contrast, is focused on identifying clusters in which the genes have similar warpings. The genes in one of our clusters may have very different expression proﬁles, but they are similar in how they should be warped across the two time series being compared.
@@ -201,7 +201,7 @@ We also run the experiment with k=1600, which warps every gene separately.
 The results for queries containing three or more observations are shown in Figure 5.
 These results show the value of the clustered alignment approach with this dataset. The accuracy of the alignments [10:00 15/5/2009 Bioinformatics-btp206.tex] Page: i124 i119 i127  increases as k increases, until about k=4. After this point, there is a slight degradation in accuracy.
 For almost all values of k tested, however, the treatment and the 24 h alignment accuracies are greater with the clustered alignment method than with ordinary SCOW.
-the With queries containing fewer than three observations, clustered alignment method actually results in somewhat less accurate alignments than the non-clustered method (i.e. ordinary SCOW). These results can be explained by a bias-variance trade- off (Geman et al., 1992). The gene-expression data we use (like most expression time series) is sparse in time, and prone to noise (because of both technical limitations and biological variability among the animals). The sparsity and noise mean that it is difﬁcult to compute accurate single-gene alignments.
+the With queries containing fewer than three observations, clustered alignment method actually results in somewhat less accurate alignments than the non-clustered method (i.e. ordinary SCOW). These results can be explained by a bias-variance trade-off (Geman et al., 1992). The gene-expression data we use (like most expression time series) is sparse in time, and prone to noise (because of both technical limitations and biological variability among the animals). The sparsity and noise mean that it is difﬁcult to compute accurate single-gene alignments.
 Aggregating genes into clusters has a regularization effect as this alignment error is averaged out (Bar-Joseph et al., 2003). The more genes there are in a cluster, the greater the regularization effect.
 Thus we want to ﬁnd the ideal trade-off between the high-bias approach of few clusters (or one cluster, in the limit), and the high-variance approach of many clusters.
 The variance component of the error is more signiﬁcant in the case when the queries are short.
@@ -235,16 +235,16 @@ In panel D, the genes appear to be acting more quickly in the knockout mice, whi
 It should also be noted that often the genes within a cluster have very different expression proﬁles. Consider panel D, in which the proﬁles for the three genes are all quite different, but the mapping between control and knockout is similar.
 This effect illustrates the advantage of clustering alignments in contrast to clustering the expression proﬁles directly.
 4 CONCLUSION Alignment algorithms provide a valuable approach for gaining biological understanding from gene-expression time series.
-A variety of methods have been employed for such analyses, including dynamic time warping, linear alignment algorithms and multi- segment alignment methods.
+A variety of methods have been employed for such analyses, including dynamic time warping, linear alignment algorithms and multi-segment alignment methods.
 We have presented new methods which advance the state of the art in two ways.
 Most importantly, we have developed an algorithm which is able to compute clustered alignments.
 This algorithm relaxes the assumption, common to previous work in expression time-series alignment, that all genes should be warped in the same way.
 Instead, our method identiﬁes sets of genes that share a common alignment.
 It does this by simultaneously clustering genes and computing a shared alignment for the genes in each cluster.
-The second contribution introduced here is a new multi- segment alignment method, called SCOW, that features the ability to calculate shorted alignments, a correlation-based scoring function, and an efﬁcient dynamic programming algorithm for computing alignments.
+The second contribution introduced here is a new multi-segment alignment method, called SCOW, that features the ability to calculate shorted alignments, a correlation-based scoring function, and an efﬁcient dynamic programming algorithm for computing alignments.
 The results of our empirical evaluation indicate that both the clustered alignment approach and SCOW improve the accuracy of alignments computed with sparse time series from a toxicogenomics dataset. Additionally, we applied our clustered alignment approach to a dataset involving a conditional Mop3 knockout in mouse liver.
 This analysis illustrates the power of the clustered alignment approach to ﬁnd sets of genes that share similar temporal distortions.
-Funding: National ES012752) National LM07050) National CA014520 and T32-CA009135). Institutes of Health/NIEHS (grant R01- Institutes of Health/NLM (grant R01- (grants P30- Institutes of Health/NCI i125 [10:00 15/5/2009 Bioinformatics-btp206.tex] Page: i125 i119 i127  A.A.Smith et al. Fig.6.
+Funding: National ES012752) National LM07050) National CA014520 and T32-CA009135). Institutes of Health/NIEHS (grant R01-Institutes of Health/NLM (grant R01-(grants P30-Institutes of Health/NCI i125 [10:00 15/5/2009 Bioinformatics-btp206.tex] Page: i125 i119 i127  A.A.Smith et al. Fig.6.
 Alignment clusters found by our method for the Mop3-knockout circadian data.
 Each panel shows the top three genes for a different cluster.
 The white alignment paths represent the consensus alignment for all the genes, while the black paths represent the cluster-speciﬁc alignments.

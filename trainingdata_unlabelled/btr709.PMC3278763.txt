@@ -1,4 +1,4 @@
-BIOINFORMATICS ORIGINAL PAPER Vol.28 no.4 2012, pages 573 580 doi:10.1093/bioinformatics/btr709 Data and text mining Robust rank aggregation for gene list integration and meta-analysis Raivo Kolde1,2, Sven Laur1, Priit Adler1,3 and Jaak Vilo1,2, 1Institute of Computer Science, University of Tartu, Liivi 2- 314, 50409 Tartu, 2Quretec, Ülikooli 6a, 51003 Tartu and 3Institute of Molecular and Cell Biology, University of Tartu, Riia 23, 51010 Tartu, Estonia Associate Editor: Jonathan Wren Advance Access publication January 12, 2012 ABSTRACT Motivation: The continued progress in developing technological platforms, availability of many published experimental datasets, as well as different statistical methods to analyze those data have allowed approaching the same research question using various methods simultaneously.
+BIOINFORMATICS ORIGINAL PAPER Vol.28 no.4 2012, pages 573 580 doi:10.1093/bioinformatics/btr709 Data and text mining Robust rank aggregation for gene list integration and meta-analysis Raivo Kolde1,2, Sven Laur1, Priit Adler1,3 and Jaak Vilo1,2, 1Institute of Computer Science, University of Tartu, Liivi 2-314, 50409 Tartu, 2Quretec, Ülikooli 6a, 51003 Tartu and 3Institute of Molecular and Cell Biology, University of Tartu, Riia 23, 51010 Tartu, Estonia Associate Editor: Jonathan Wren Advance Access publication January 12, 2012 ABSTRACT Motivation: The continued progress in developing technological platforms, availability of many published experimental datasets, as well as different statistical methods to analyze those data have allowed approaching the same research question using various methods simultaneously.
 To get the best out of all these alternatives, we need to integrate their results in an unbiased manner.
 Prioritized gene lists are a common result presentation method in genomic data analysis applications.
 Thus, the rank aggregation methods can become a useful and general solution for the integration task.
@@ -9,7 +9,7 @@ The underlying probabilistic model makes the algorithm parameter free and robust
 Signiﬁcance scores also provide a rigorous way to keep only the statistically relevant genes in the ﬁnal list.
 These properties make our approach robust and compelling for many settings.
 Availability: All the methods are implemented as a GNU R package ROBUSTRANKAGGREG, freely available at the Comprehensive R Archive Network http://cran.r-project.org/. Contact: vilo@ut.ee Supplementary information Supplementary data are available at Bioinformatics online.
-Received on April 23, 2011 revised on November 28, 2011 accepted on December 21, 2011 1 INTRODUCTION Data integration plays an important role in the analysis of high- throughput data.
+Received on April 23, 2011 revised on November 28, 2011 accepted on December 21, 2011 1 INTRODUCTION Data integration plays an important role in the analysis of high-throughput data.
 As the outputs of individual experiments can be rather noisy, it is essential to look for ﬁndings that are supported by several pieces of evidence to increase the signal and lessen the fraction of false positive ﬁndings. The structure of the data and speciﬁc research questions largely dictate the methods used in integration.
 Still, some very general techniques for aggregation of genomic data have been proposed such as the Bayesian networks (Troyanskaya et al., 2003) and the Kernel methods (Bie et al., 2007). In this work, we limit ourselves to the situation where all the data sources are represented as prioritized lists of genes.
 This is   To whom correspondence should be addressed.
@@ -56,9 +56,9 @@ However, maximal coherence with all preferences is not always the best aggregati
 Some ranking algorithms resolve this issue assuming that we can estimate correctness probability for each rank or preference list see, for example Li et al. (2011). For most biological studies, this type of extra information is not available.
 Also, each ranking is most probably informative only on a subset of relevant genes, since it reﬂects only one aspect of the underlying biological question.
 Therefore, is not reasonable to view an entire ranking as informative or non-informative but rather make a distinction at the gene level.
-This can be achieved via ﬁxing a null model, which describes distribution of ranks when all studies produce irrelevant results, and estimate statistical signiﬁcance. it 574 The simplest possible null model assumes that all studies are non- informative and produce randomly ordered gene lists.
+This can be achieved via ﬁxing a null model, which describes distribution of ranks when all studies produce irrelevant results, and estimate statistical signiﬁcance. it 574 The simplest possible null model assumes that all studies are non-informative and produce randomly ordered gene lists.
 When genes are ranked based solely on measurement data, the null model is equivalent to a permutation test, where measurements in each study are randomly relabeled before the analysis step.
-2.1 Scoring rank vectors using order statistics In most cases, we are interested in ﬁnding genes that are ranked highly in many preference lists ignoring a (small) fraction of non- informative studies.
+2.1 Scoring rank vectors using order statistics In most cases, we are interested in ﬁnding genes that are ranked highly in many preference lists ignoring a (small) fraction of non-informative studies.
 Thus, we can assume that all informative normalized ranks come from a distribution, which is strongly skewed toward zero and our task is to detect these distributions.
 For any normalized rank vector r, let r(1),...,r(n) be a reordering of r such that r(1)... r(n). Then we can ask how probable it is to obtain ˆr(k) r(k) when the rank vector ˆr is generated by the null model, i.e. all ranks ˆrj are sampled from uniform distribution.
 Let βk,n(r) denote the probability that ˆr(k) r(k). Then under the null model the probability that the order statistic ˆr(k) is smaller or equal to x can be expressed as a binomial probability βk,n(x):= n(cid:2) (cid:3) (cid:4) n (cid:3) x(cid:3)(1 x)n (cid:3) , (cid:3)=k (1) since at least k normalized rankings must be in the range [0,x]. Alternatively, βk,n(x) can be expressed through a beta distribution, as ˆr(k) is the order statistic of n independent random variables uniformly distributed over the range [0,1]. Since the number of informative ranks is not known, we deﬁne the ﬁnal score for the rank vector r as the minimum of P-values ρ(r)= min k=1,...,n βk,n(r) (2) and order all rank vectors according to their ρ scores.
@@ -216,7 +216,7 @@ Since the formulas 578 used in the original article are computationally very dem
 The response of the chemical stimulus gene list was downloaded as a GO slim category from Saccharomyces Genome Database (Hong et al., 2008) and cell cycle genes from a review by de Lichtenberg et al. (2005). 4.3 Stem cell study using MEM A gold standard for transcription factor targets were obtained from the study by Chen et al. (2008). The article deﬁned an association score between each gene and a transcription factor that varied from 0 to 1.
 As scores showed a clear bimodal distribution, we considered all genes with a score 0.6 to be targets of the corresponding transcription factor.
 In the MEM webtool (http://biit.cs.ut.ee/mem), we selected 12 datasets on mouse Affymetrix platform 430 2.0.
-Since the ChIP- seq study was performed on mouse embryonic stem (ES) cells, we selected only the datasets that mentioned ES cell in their description.
+Since the ChIP-seq study was performed on mouse embryonic stem (ES) cells, we selected only the datasets that mentioned ES cell in their description.
 The list of datasets is available in the Supplementary Material.
 We queried each of the transcription factors, for which we had binding information, separately.
 The MEM webtool performed a similarity search on each dataset using correlation distance between the transcription factor and other genes.
@@ -224,7 +224,7 @@ The resulting lists of correlated genes were used in aggregation and assessing t
 For example, meta-analysis of gene expression data has been successfully used for studying cancer and its subtyping (Rhodes et al., 2002 Wirapati et al., 2008). There are two general strategies for meta-analysis.
 The ﬁrst involves rigorous normalization, integration and analysis of the raw expression datasets. In general, this is the preferred type however, it might not be always practical.
 The main problem is the availability of the data.
-Many older publications do not have the data uploaded to public repositories, such as ArrayExpress (Parkinson et al., 2009) or GEO (Barrett et al., 2009). Even from the data that is available in these repositories, about two-thirds might be unusable for meta- analysis due to poor quality or missing raw ﬁles (Larsson and Sandberg, 2006). Another problem is caused by the usage of different microarray platforms.
+Many older publications do not have the data uploaded to public repositories, such as ArrayExpress (Parkinson et al., 2009) or GEO (Barrett et al., 2009). Even from the data that is available in these repositories, about two-thirds might be unusable for meta-analysis due to poor quality or missing raw ﬁles (Larsson and Sandberg, 2006). Another problem is caused by the usage of different microarray platforms.
 Each platform uses different technology to measure the expression and features its own set of probes and [15:15 9/2/2012 Bioinformatics-btr709.tex] Page: 578 573 580  genes.
 Therefore, proper integration of gene expression values over platforms is very difﬁcult, although, doable in special cases.
 The second option is to merge only the published results.
@@ -256,7 +256,7 @@ The aggregated ranking displays stronger signal than most of the inputs lists.
 Even if some of the inputs may perform well individually, we are in practice often better off by taking into account all the possible information rather than trying to guess the most informative source.
 All the methods described here have been implemented and are available in additional GNU R package RobustRankAggreg. ACKNOWLEDGEMENT R.K. acknowledges the Tiger University Program of the Estonian Information Technology Foundation.
 Funding: Tiger University Program of the Estonian Information Technology Foundation.
-EU FP6 and FP7 projects ENFIN (LSHG-CT- 2005-518254) ESNATS (HEALTH-F5-2008-201619) European Regional Development Fund through the Estonian Centre of Excellence in Computer Science project and Estonian Science Foundation (ETF7437, CIESCI). Conﬂict of Interest: none declared.
+EU FP6 and FP7 projects ENFIN (LSHG-CT-2005-518254) ESNATS (HEALTH-F5-2008-201619) European Regional Development Fund through the Estonian Centre of Excellence in Computer Science project and Estonian Science Foundation (ETF7437, CIESCI). Conﬂict of Interest: none declared.
 REFERENCES Adler,P. et al. (2009) Mining for coexpression across hundreds of datasets using novel rank aggregation and visualization methods.
 Genome Biol., 10, R139. Aerts,S. et al. (2006) Gene prioritization through genomic data fusion.
 Nat. Biotechnol. 24, 537 544.
@@ -296,7 +296,7 @@ PLoS One, 5, e9466. Parkinson,H. et al. (2009) Arrayexpress update from an archi
 Nucleic Acids Res., 37, D868 D872. 579 [15:15 9/2/2012 Bioinformatics-btr709.tex] Page: 579 573 580  R.Kolde et al. Pihur,V. et al. (2007) Weighted rank aggregation of cluster validation measures: a monte Stuart,J.M. et al. (2003) A gene-coexpression network for global discovery of conserved carlo cross-entropy approach.
 Bioinformatics, 23, 1607 1615. genetic modules.
 Science, 302, 249 255.
-Pihur,V. et al. (2008) Finding common genes in multiple cancer types through meta- analysis of microarray experiments: a rank aggregation approach.
+Pihur,V. et al. (2008) Finding common genes in multiple cancer types through meta-analysis of microarray experiments: a rank aggregation approach.
 Genomics, 92, 400 403.
 Reimand,J. et al. (2007) g:Proﬁler a web-based toolset for functional proﬁling of gene lists from large-scale experiments.
 Nucleic Acids Res., 35, W193 W200. Reimand,J. et al. (2010) Comprehensive reanalysis of transcription factor knockout expression data in Saccharomyces cerevisiae reveals many new targets.

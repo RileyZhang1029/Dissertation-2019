@@ -7,7 +7,7 @@ General solutions to the literature search problem are difficult because biomedi
 Relevance feedback is a well-established technique to improve performance in information retrieval (Rocchio, 1971 Salton, 1971 Salton and Buckley, 1990). Feedback may be acquired explicitly by asking users to rate retrieval results.
 However, many users find this task burdensome.
 Even for widely deployed search engines such as Excite, where relevance feedback is available and effective, it is rarely used (Spink et al., 2000). An alternative is to acquire feedback implicitly by observing user behavior (Kelly and Teevan, 2003). MiSearch is an adaptive literature search tool using implicit relevance feedback that helps users rapidly find PubMed citations relevant to their specific interests.
-MiSearch auto- matically saves information on citations a reader has viewed during search and browsing, and uses this information to build a statistical profile describing the readers choices.
+MiSearch auto-matically saves information on citations a reader has viewed during search and browsing, and uses this information to build a statistical profile describing the readers choices.
 This profile is used to rank the results of future searches, placing those articles that this reader is most likely to view at the top of the list.
 In effect, MiSearch is using query expansion with probabilistic weighting of terms derived from the implicitly *To whom correspondence should be addressed.
 defined relevant document set.
@@ -24,7 +24,7 @@ MiSearch adaptive pubMed search tool A positive score indicates that a citation 
 Implementation 2.2 MiSearch is implemented in two components, a PHP script running on an Apache web server that generates forms, dispatches search requests to NCBI Entrez and communicates with a local citation datbase, and a relational database server that stores both the PubMed corpus and user search histories.
 Ranking is implemented as an SQL stored procedure.
 Users can label profiles with a string and can define several different profiles for different search tasks.
-3 RESULTS Figure 1 illustrates the effect of adaptive re-ranking of citation searches based on a profile created from the publication of one author (AWL). Dr Lee s research focuses on signal transduc- tion downstream of the CSF-1 receptor (CSF1R). Using a profile based on viewing Dr Lee s publications (top panel), MiSearch ranks two of Dr Lee s publications and a third recent and highly relevant publication at the highest relevance in a PubMed search for CSF1R. In contrast, without adaptive ranking (lower panel), the publications are ranked in reverse chronological order with only one moderately relevant pub- lication highly ranked and that citation is in a journal that Dr Lee does not frequently read.
+3 RESULTS Figure 1 illustrates the effect of adaptive re-ranking of citation searches based on a profile created from the publication of one author (AWL). Dr Lee s research focuses on signal transduc-tion downstream of the CSF-1 receptor (CSF1R). Using a profile based on viewing Dr Lee s publications (top panel), MiSearch ranks two of Dr Lee s publications and a third recent and highly relevant publication at the highest relevance in a PubMed search for CSF1R. In contrast, without adaptive ranking (lower panel), the publications are ranked in reverse chronological order with only one moderately relevant pub-lication highly ranked and that citation is in a journal that Dr Lee does not frequently read.
 Because MiSearch ranks citations using a statistical profile, the user does not need to explicitly specify the ranking criteria.
 MiSearch thus complements Boolean search strategies.
 In Boolean searches, a relevant article may be missed if the user specifies an overly restrictive Boolean filter and the citation uses a synonym for a term not specified in the search query.
@@ -70,7 +70,7 @@ Rocchio,J.J.J. (1971) Relevance feedback in information retrieval.
 In The Smart System-experiments in Automatic Document Processing.
 Prentice Hall Inc., Englewood Cliffs, NJ, pp.
 313 323.
-Salton,G. (1971) Relevance feedback and the optimization of retrieval effective- ness. In The Smart System-experiments in Automatic Document Processing.
+Salton,G. (1971) Relevance feedback and the optimization of retrieval effective-ness. In The Smart System-experiments in Automatic Document Processing.
 Prentice-Hall Inc., Englewocd Cliffs, NJ, pp.
 324 336.
 Salton,G. and Buckley,C. (1990) Improving retrieval performance by relevance feedback.
@@ -82,12 +82,12 @@ Internet Res.
 Electr. Networking Appl. Policy, 10, 317 328.
 D.J.States et al. progressively improves the ranking of the test citations.
 In Supplementary Data, we compare the performance of MiSearch to relevance feedback using the Entrez related articles /feature. The improved results in cross validation demonstrate that users are consistent in the articles that they select for viewing and that these selections are an effective implicit relevance feedback yielding improved biomedical literature search performance.
-source of 4 DISCUSSION Automated collection of implicit relevant feedback information gathered using a click-through mechanism improve biblio- graphic search performance.
+source of 4 DISCUSSION Automated collection of implicit relevant feedback information gathered using a click-through mechanism improve biblio-graphic search performance.
 Users find this interface intuitive and easy to use.
 Relevance feedback is applied by simply rerunning a query periodically during normal browsing.
 We find that response time is a critical factor in user acceptance of a relevance feedback system.
 While more sophisticated algorithms for classification and ranking based on relevance feedback have been proposed, the likelihood ratios used in MiSearch are effective and easily implemented within an RDBMS. This avoids the need to move large data sets in and out of the database server and improves user response time.
-We encountered a number of in implementing MiSearch. Optimizing the performance of the relevance feed- back system to work with small numbers of events is important.
+We encountered a number of in implementing MiSearch. Optimizing the performance of the relevance feed-back system to work with small numbers of events is important.
 In a typical biomedical literature search task, users often view fewer than a dozen articles.
 issues Many author names are not unique.
 In the MiSearch formulation, such author names are not resolved, but are expected to occur with higher frequency in the reference corpus and thus provide less information in ranking articles.

@@ -6,7 +6,7 @@ However, the recent advances in DNA sequencing technologies (Shendure et al., 20
 For example, HTS has been used to study transmission using a large number of isolates of a methicillin-resistant Staphylococcus aureus (MRSA) on both the global and local scale (Harris et al., 2010). It has also been used to show that homologous recombination has led to serotype switching and vaccine escape in a study of 240 isolates of Streptococcus pneumoniae PMEN1 (Croucher et al., 2011). HTS has made it possible to explore population genetic variation among human populations (1000 Genomes Project, Altshuler et al., 2010). We are now increasingly using it to enhance our understanding of how genetic differences affect health and disease (Metzker, 2010). The aim of projects, such as the UK10K (http://www.uk10k.org), is to construct detailed catalogues of genome variations and identify many more low-frequency variants that may be associated with susceptibility to disease and response to pathogens, drugs and vaccines.
 These applications of HTS require the identiﬁcation of  To whom correspondence should be addressed.
 single nucleotide polymorphisms (SNPs) as well as insertions and deletions.
-In addition to indels, HTS can be used to identify large structural variants, such as large insertions, deletions, inversions and duplications. Structural variations are also likely to make an important contribution to diversity and disease susceptibility (Walters et al., 2010). The study of functional genomics and quantitative gene expression studies has greatly beneﬁted from RNA-seq experiments, which have reﬁned our understanding of expression and signiﬁcantly improved annotation (Bruno, et al., 2010, Croucher and Thomson, 2010, Daines et al., 2011, Lu et al., 2010, Mortazavi et al., 2008). The sheer size of the datasets from HTS experiments requires tools to visualize, analyse, summarize and interpret these large- scale datasets. Many new algorithms and tools have been developed to efﬁciently process and analyse the data such as those designed to assemble sequences into a consensus, e.g. Velvet (Zerbino and Birney, 2008), ABySS (Simpson et al., 2009), map or align short reads against a reference sequence e.g. TopHat (Trapnell et al., 2009), BowTie (Langmead et al., 2009), BWA (Li and Durbin, 2009) or those designed to identify sequence variations e.g. SAMtools, GATK (DePristo et al., 2011). However an inspection, review and interpretation of the output by an experienced and knowledgeable person is essential to understand the genomic context of these datasets and can be critical to make connections between sequence variation and biological phenomena.
+In addition to indels, HTS can be used to identify large structural variants, such as large insertions, deletions, inversions and duplications. Structural variations are also likely to make an important contribution to diversity and disease susceptibility (Walters et al., 2010). The study of functional genomics and quantitative gene expression studies has greatly beneﬁted from RNA-seq experiments, which have reﬁned our understanding of expression and signiﬁcantly improved annotation (Bruno, et al., 2010, Croucher and Thomson, 2010, Daines et al., 2011, Lu et al., 2010, Mortazavi et al., 2008). The sheer size of the datasets from HTS experiments requires tools to visualize, analyse, summarize and interpret these large-scale datasets. Many new algorithms and tools have been developed to efﬁciently process and analyse the data such as those designed to assemble sequences into a consensus, e.g. Velvet (Zerbino and Birney, 2008), ABySS (Simpson et al., 2009), map or align short reads against a reference sequence e.g. TopHat (Trapnell et al., 2009), BowTie (Langmead et al., 2009), BWA (Li and Durbin, 2009) or those designed to identify sequence variations e.g. SAMtools, GATK (DePristo et al., 2011). However an inspection, review and interpretation of the output by an experienced and knowledgeable person is essential to understand the genomic context of these datasets and can be critical to make connections between sequence variation and biological phenomena.
 This of course complements computational approaches, because a visual examination of the results and underlying data is often the next step in order to conﬁrm a prediction, or assess the potential functional effects in a sequence-based experiment.
 A number of new software applications have been developed for browsing, visualizing and interpreting large-scale sequencing datasets. Several of these have been designed speciﬁcally for the visualization of genome sequence assemblies, including EagleView (Huang and Marth, 2008), HawkEye (Schatz et al., 2007) and Tablet (Milne et al., 2010). Other tools, such as LookSeq (Manske and Kwiatkowski, 2009) and BamView (Carver et al., 2010) have been developed speciﬁcally to visualize short-read alignment data.
 LookSeq is a JavaScript-based web application that displays data stored in BAM ﬁles. BamView is an interactive Java application that can visualize large numbers of read alignments stored in BAM ﬁles. However, often researchers need to visualize these read alignments in the context of genome annotation.
@@ -97,7 +97,7 @@ In the example, a cluster of reads with no mapped mate, shown in orange below th
 By selecting the option to show read orientation, it can be seen that the unmapped reads point towards the insertion location.
 2.4 Transcriptomics HTS technologies have also revolutionized transcriptomic analyses.
 High-throughput technologies can be used to sequence cDNA to provide information about the RNA content of a cell.
-Artemis allows RNAseq data to be viewed in the context of the genome annotation, providing useful guidance for correcting gene boundaries, splice- sites, or for identifying the location of non-coding RNA sequences.
+Artemis allows RNAseq data to be viewed in the context of the genome annotation, providing useful guidance for correcting gene boundaries, splice-sites, or for identifying the location of non-coding RNA sequences.
 RNAseq data also provide valuable information about relative gene expression levels.
 Figure 5 shows RNAseq data from seven time points during the lifecycle of Plasmodium falciparum can be visualized simultaneously using the user graph heatmap view (Otto et al., 2010b). Artemis can also report RPKM values or the number of reads mapping against each gene.
 3 IMPLEMENTATION AND PERFORMANCE Artemis is implemented in Java and packaged for ease of installation on all major platforms (Windows, MacOSX and UNIX). It runs as a stand-alone application and requires a Java Runtime Environment (JRE) of at least 1.6.
@@ -127,19 +127,19 @@ ACKNOWLEDGEMENTS We thank Kim Wong at the WTSI for providing feedback on the Mou
 REFERENCES Altshuler,D. et al. (2010) A map of human genome variation from population-scale sequencing.
 Nature, 467, 1061 1073.
 Anders,S. and Huber,W. (2010) Differential expression analysis for sequence count data.
-Genome Biol., 11, R106. Artemis Huang,W. and Marth,G.T. (2008) EagleView: a genome assembly viewer for next- generation sequencing technologies.
+Genome Biol., 11, R106. Artemis Huang,W. and Marth,G.T. (2008) EagleView: a genome assembly viewer for next-generation sequencing technologies.
 Genome Res., 18, 1538 1543.
 Keane,T.M. et al. (2011) Mouse genomic variation and its effect on phenotypes and gene regulation.
 Nature, 477, 289 294.
 Langmead,B. et al. (2009) Ultrafast and memory-efﬁcient alignment of short DNA sequences to the human genome.
 Genome Biol., 10, R25. Li,H. (2011) Tabix: fast retrieval of sequence features from generic TAB-delimited ﬁles. Bioinformatics, 27, 718 719.
-Li,H. and Durbin,R. (2009) Fast and accurate short read alignment with Burrows- Wheeler transform.
+Li,H. and Durbin,R. (2009) Fast and accurate short read alignment with Burrows-Wheeler transform.
 Bioinformatics, 25, 1754 1760.
 Li,H. et al. (2009) The Sequence Alignment/Map format and SAMtools. Bioinformatics, 25, 2078 2079.
 Lu,T. et al. (2010) Function annotation of the rice transcriptome at single-nucleotide resolution by RNA-seq. Genome Res., 20, 1238 1249.
 Manske,H.M. and Kwiatkowski,D.P. (2009) LookSeq: a browser-based viewer for deep sequencing data.
 Genome Res., 19, 2125 2132.
-Metzker,M.L. (2010) Sequencing technologies - the next generation.
+Metzker,M.L. (2010) Sequencing technologies-the next generation.
 Nat. Rev.
 Genet., 11, 31 46.
 Milne,I. et al. (2010) Tablet next generation sequence assembly visualization.
@@ -156,7 +156,7 @@ Pain,A. et al. (2008) The genome of the simian and human malaria parasite Plasmo
 Carver,T. et al. (2010) BamView: viewing mapped read alignment data in the context Parkhill,J. et al. (2001) Complete genome sequence of a multiple drug resistant of the reference sequence.
 Bioinformatics, 26, 676 677.
 Salmonella enterica serovar Typhi CT18. Nature, 413, 848 852.
-Croucher,N.J. and Thomson,N.R. (2010) Studying bacterial transcriptomes using RNA- Peacock,C.S. et al. (2007) Comparative genomic analysis of three Leishmania species seq.
+Croucher,N.J. and Thomson,N.R. (2010) Studying bacterial transcriptomes using RNA-Peacock,C.S. et al. (2007) Comparative genomic analysis of three Leishmania species seq.
 Curr. Opin. Microbiol, 13, 619 624.
 Croucher,N.J. et al. (2011) Rapid pneumococcal evolution in response to clinical interventions.
 Science, 331, 430 434. that cause diverse human disease.

@@ -25,7 +25,7 @@ In the MJP simulations, each thread carries out different numbers of simulation 
 Published by Oxford University Press.
 This is an Open Access article distributed under the terms of the Creative Commons Attribution Non-Commercial License (http://creativecommons.org/licenses by-nc/2.5), which permits unrestricted non-commercial use, distribution, and reproduction in any medium, provided the original work is properly cited.
 [10:32 19/2/2011 Bioinformatics-btr015.tex] Page: 874 874 876  cuda-sim using ﬁxed parameters, we drew parameters from uniform random distributions in the interval between 0 and 2.
-The CPU versions of the Gillespie and Euler Maruyama algorithms were written in C++ and compiled with GCC using the -O3 optimization ﬂag. For the LSODA algorithm comparisons, the CPU implementation in the SciPy Python module was used.
+The CPU versions of the Gillespie and Euler Maruyama algorithms were written in C++ and compiled with GCC using the-O3 optimization ﬂag. For the LSODA algorithm comparisons, the CPU implementation in the SciPy Python module was used.
 The testing was done on an Intel Core i7-975 Extreme Edition Processor 3.33 GHz machine with 12 GB of RAM and one Tesla C2050 GPU. All points are averages over three runs.
 Since the CPU runtimes scale linearly, the total CPU time for large numbers of simulations can be extrapolated using a linear model.
 For the LSODA, the Euler Maruyama and the Gillespie algorithm, speed-ups of 47-fold, 367-fold and 12-fold are attained, respectively, for large numbers of simulations.
@@ -58,7 +58,7 @@ Vol.1.
 Amsterdam, North-Holland, pp.
 55-64.
 Kirk,D.B. and Hwu,W.W. (2010) Programming Massively Parallel Processors.
-Morgan Kaufmann, Burlington. Klöckner,A. et al. (2009) PyCUDA: GPU run-time code generation for high- performance computing.
+Morgan Kaufmann, Burlington. Klöckner,A. et al. (2009) PyCUDA: GPU run-time code generation for high-performance computing.
 arXiv:0911.3456 Kloeden,P.E. and Platen,E. (1999) Numerical Solution of Stochastic Differential Equations.
 Springer, Berlin and Heidelberg. Matsumoto,M. and Nishimura,T. (1998) Mersenne twister: a 623-dimensionally equidistributed uniform pseudo-random number generator.
 ACM Trans.

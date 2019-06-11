@@ -11,7 +11,7 @@ to recording DAS services) actively monitors the behaviour and status of its con
 Though tools exist to test the validity or presence of web service interfaces (e.g. www.soapui.org), these are unable to determine whether or not a the logic of service is functioning.
 It is still commonplace, therefore, to ﬁnd services that are broken or no longer maintained.
 The EMBRACE Network of Excellence has produced a web service registry that attempts to tackle these problems.
-Inspired by the project s own need to collect and advertise the growing number of databases and tools developed by project partners, and by the need within the consortium to share experiences about the provision and use of web services, the registry allows users to register, annotate, monitor and search for services, and acts as a web2.0 -style community server, putting users and providers in touch with one another.
+Inspired by the project s own need to collect and advertise the growing number of databases and tools developed by project partners, and by the need within the consortium to share experiences about the provision and use of web services, the registry allows users to register, annotate, monitor and search for services, and acts as a web2.0-style community server, putting users and providers in touch with one another.
 Unlike passive mechanisms for recording the existence of web services, this registry actively monitors the registration and ongoing behaviour of a service, giving providers and consumers up-to-date status notiﬁcations by email or via Twitter (www.twitter.com), if a service is behaving unexpectedly.
 The existence of a formal registration mechanism raises the question of what exactly constitutes a web service, and debates on this matter continue in the bioinformatics community and beyond (Stockinger et al., 2008). The approach of the this project, embodied in its registry, is to recommend a set of industry-standard technologies deﬁned by the Web Service Interoperability organization and to provide tools that help developers move towards adopting these, while at the same time recognizing that a wide variety of other approaches exist for pragmatic or historical reasons.
 The registry therefore allows all manner of services to be added, and aims to provide documentation and support for users wishing to bring their services in line with standard practices.
@@ -22,17 +22,17 @@ Even with today s comparatively reliable  2009 The Author(s) This is an Open Acc
 [15:53 14/7/2009 Bioinformatics-btp329.tex] Page: 2090 2090 2091  Active registry for bioinformatics web services Table 1.
 Service status icons and their meanings Green: the service is working correctly according to all known tests it should be safe to use this service now.
 Amber: the service is experiencing problems it may respond, but you should treat any results you get back with caution.
-Red: the service is badly broken it is very unli- kely that you will be able to use this service until the problem is repaired.
-Blue: the service status is unknown, typically because the service provider has not registered sufﬁcient infor- mation for regular tests to be carried out.
+Red: the service is badly broken it is very unli-kely that you will be able to use this service until the problem is repaired.
+Blue: the service status is unknown, typically because the service provider has not registered sufﬁcient infor-mation for regular tests to be carried out.
 Fig.1.
 The architecture of the EMBRACE registry.
 network connectivity, the heterogeneous nature of the back-end infrastructure that drives most bioinformatics web services means that occasional interruptions to services are inevitable.
 Determining reliably whether a service is working correctly at any given moment has been a real problem.
 The EMBRACE registry addresses this problem by combining automated monitoring mechanisms with high-level application-speciﬁc tests deposited by the service providers.
-The results from these tests are used to generate easy-to- read reports about the availability and reliability of a service over time.
+The results from these tests are used to generate easy-to-read reports about the availability and reliability of a service over time.
 The registry itself is programmatically accessible as a web service, allowing other tools to automatically register and modify services and tests, as well as querying content.
 the rest of Figure 1 shows the registry s architecture.
-The Drupal community server (www.drupal.org) acts both as a readily customizable web2.0- style foundation for the registry (including user registration and management, forums, blogs, tagging, rating and search facilities), and as a content management framework.
+The Drupal community server (www.drupal.org) acts both as a readily customizable web2.0-style foundation for the registry (including user registration and management, forums, blogs, tagging, rating and search facilities), and as a content management framework.
 Custom Drupal modules provide web service-speciﬁc functionality, with MySQL acting as a back-end database server.
 A separate Python harness, executing in an isolated virtual machine to limit damage caused by rogue code, executes whatever tests exist for a particular service and reports their status to the database.
 Some of the reasons for service failure are impossible to differentiate from one another from a client s point of view, and simply result in the service being unavailable.

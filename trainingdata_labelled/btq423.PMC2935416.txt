@@ -12,7 +12,7 @@ The same biological concept is represented using independently developed in-sili
 To whom correspondence should be addressed.
 Fig.1.
 Dataﬂow for PathwayAccess plugins.
-PathwayAccess plugins use respective APIs to communicate with different pathway databases and integrate data in CellDesigner. As indicated by arrows, depending on functionality supported by the datasource, dataﬂow is uni- or bi-directional.
+PathwayAccess plugins use respective APIs to communicate with different pathway databases and integrate data in CellDesigner. As indicated by arrows, depending on functionality supported by the datasource, dataﬂow is uni-or bi-directional.
 2 FUNCTIONALITY PathwayAccess plugins directly interact with pathway databases so that the user can download one or more pathways to a CellDesigner model and upload (or commit) a CellDesigner model to a database.
 Figure 1 shows a dataﬂow diagram for typical use of the PathwayAccess plugins.
 The PathwayAccess plugin framework confers three major beneﬁts, depending on whether individual database APIs support data retrieval and modiﬁcation. First, the plugins make pathways stored in remote databases available to the powerful modeling and simulation functionality already provided by CellDesigner. Second, SBGN implemented by CellDesigner provides a standard representation for biologists to curate pathway databases the user can create a pathway model and commit it to the database of his choice.

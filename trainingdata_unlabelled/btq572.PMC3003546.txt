@@ -31,7 +31,7 @@ For sequence comparison the Smith Waterman (Smith and Waterman, 1981), Needleman
 Support for structure comparisons includes the new implementations of CE and FATCAT and links to some of the most prominent external protein structure alignment services: the original FATCAT server (Ye and Godzik, 2004), Mammoth (Ortiz et al., 2002), TM-align (Zhang and Skolnick, 2005) and Topmatch, (Sippl and Wiederstein, 2008), (Sippl, 2008). Other available structure alignment software can be found at Wikipedia http://en.wikipedia.org/wiki/Structural_alignment_software All alignments that are run using jCE and jFATCAT are calculated server-side on the ﬂy and cached for future retrieval using XML ﬁles. If the alignment is requested again later, it can be instantly returned by reading the XML ﬁle. A web user interface provides access to the alignment results.
 Alternatively, a Java Web Start client application, based on Jmol (2010), and BioJava (Holland et al., 2008), provides a novel 3D visualization tool that allows the investigation of sequence structure relationships between two aligned proteins.
 See Figure 1 for an example alignment.
-Systematic structure alignments across the PDB Sequence data- base searches are a frequently used tool to identify closely related proteins within a database.
+Systematic structure alignments across the PDB Sequence data-base searches are a frequently used tool to identify closely related proteins within a database.
 However, with decreasing sequence similarity relationships between proteins become harder to detect.
 In order to enable identiﬁcation of relationships across the PDB, even if sequence similarity is low, we are providing systematic and precomputed alignments.
 The procedure providing pre-computed structure comparisons across the PDB is split into two steps.
@@ -43,7 +43,7 @@ Within clusters, sequences are ranked by experimental method, resolution and rel
 While the RCSB PDB website provides sequence comparisons for various levels of sequence identity within a cluster, structural comparisons are only provided based on clusters with 40% sequence identity, currently approximately 16 000 representative protein chains.
 Second, the rigid version of jFATCAT is used to calculate all-against-all 3D structure comparisons across all representative protein chains.
 This requires a signiﬁcant amount of CPU time.
-Spec- iﬁcally, a client-server architecture has been developed that allows the user to easily run a large number of jobs in parallel (for details see http://www.renci.org/publications/techreports/TR-09-03.pdf). A total of 122 million alignments were calculated on the Open Science Grid, taking approximately 102 000 CPU hours.
+Spec-iﬁcally, a client-server architecture has been developed that allows the user to easily run a large number of jobs in parallel (for details see http://www.renci.org/publications/techreports/TR-09-03.pdf). A total of 122 million alignments were calculated on the Open Science Grid, taking approximately 102 000 CPU hours.
 Another 18 million alignments were calculated on the San Diego Supercomputing 2984 Fig.1.
 A new user interface for jCE and jFATCAT structure alignments allows the investigation of sequence and 3D structure relationships.
 Here, the alignment of two kinases, the Hepatocyte growth factor receptor PDB ID 3A4P and the Proto-Oncogene Tyrosine-Protein Kinase Receptor RET PDB ID 2X2K. If the structures contain ligands they are also superimposed and displayed.
@@ -55,7 +55,7 @@ At present, an average weekly update requires the calculation of about 1 million
 3 DISCUSSION The RCSB PDB website now provides a state of the art protein comparison tool that can be used as a web service and for local access.
 Further, pre-calculated all-against-all comparisons of sequences and 3D protein structures, respectively, are provided on a weekly basis.
 Currently, the calculations are done on a whole-chain basis.
-We are working on another set of comparisons using domain- based comparisons of all chains with an enhanced version of jCE that includes handling of circular permutations.
+We are working on another set of comparisons using domain-based comparisons of all chains with an enhanced version of jCE that includes handling of circular permutations.
 An alternative is to use TOPS++FATCAT (Veeramalai et al., 2008), which provides a 10-fold speed up as compared to FATCAT. The domain assignment problem is non-trivial, and for newly released protein structures [16:02 3/11/2010 Bioinformatics-btq572.tex] Page: 2984 2983 2985  results are not immediately available from classiﬁcations like SCOP (Andreeva et al., 2008), or CATH (Cuff et al., 2009). Hence, we are investigating whether consensus based approaches like pDomains, (Alden et al., 2010), can guide which domain assignments to use for the automated calculations.
 Funding: The RCSB PDB is managed by two members of the RCSB: Rutgers and UCSD, and is funded by National Science Foundation (NSF), National Institute of General Medical Sciences, Department of Energy (DOE), National Library of Medicine, National Cancer Institute, National Institute of Neurological Disorders and Stroke and National Institute of Diabetes and Digestive and Kidney Diseases.
 The RCSB PDB is a member of the wwPDB. This work was supported by the RCSB PDB grant NSF DBI 0829586.
@@ -91,6 +91,6 @@ BMC Bioinformatics, 9, 358.
 (last accessed Ye,Y. and Godzik,A. (2003) Flexible structure alignment by chaining aligned fragment pairs allowing twists.
 Bioinformatics, 19(Suppl. 2), II246 II255. Andreeva,A. et al. (2008) Data growth and its impact on the SCOP database: new Ye,Y. and Godzik,A. (2004) FATCAT: a web server for ﬂexible structure comparison developments.
 Nucleic Acids Res., 36, D419 D425. and structure similarity searching.
-Nucleic Acids Res., 32, W582 W585. Andreeva,A. et al. (2006) SISYPHUS structural alignments for proteins with non- Zhang,Y. and Skolnick,J. (2005) TM-align: a protein structure alignment algorithm trivial relationships.
+Nucleic Acids Res., 32, W582 W585. Andreeva,A. et al. (2006) SISYPHUS structural alignments for proteins with non-Zhang,Y. and Skolnick,J. (2005) TM-align: a protein structure alignment algorithm trivial relationships.
 Nucleic Acids Res., 35, D253 D259. based on the TM-score. Nucleic Acids Res., 33, 2302 2309.
 [16:02 3/11/2010 Bioinformatics-btq572.tex] Page: 2985 2983 2985 2985

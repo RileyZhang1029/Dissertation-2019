@@ -1,7 +1,7 @@
 Copyedited by: TRJ MANUSCRIPT CATEGORY: ORIGINAL PAPER BIOINFORMATICS ORIGINAL PAPER Vol.28 no.8 2012, pages 1143 1150 doi:10.1093/bioinformatics/bts104 Advance Access publication March 5, 2012 Data and text mining WHIDE a web tool for visual data mining colocation patterns in multivariate bioimages Jan Kölling1, Daniel Langenkämper1, Sylvie Abouna2, Michael Khan2 and Tim W. Nattkemper1, 1Biodata Mining Group, Faculty of Technology, Bielefeld University, PO Box D-33501, Bielefeld, Germany and 2School of Life Sciences, University of Warwick, Gibbet Hill Road, Coventry CV4 7AL, UK Associate Editor: Jonathan Wren ABSTRACT Motivation: Bioimaging techniques rapidly develop toward higher resolution and dimension.
 The increase in dimension is achieved by different techniques such as multitag ﬂuorescence imaging, Matrix Assisted Laser Desorption  Ionization (MALDI) imaging or Raman imaging, which record for each pixel an N-dimensional intensity array, representing local abundances of molecules, residues or interaction patterns.
 The analysis of such multivariate bioimages (MBIs) calls for new approaches to support users in the analysis of both feature domains: space (i.e. sample morphology) and molecular colocation or interaction.
-In this article, we present our approach WHIDE (Web- based Hyperbolic Image Data Explorer) that combines principles from computational learning, dimension reduction and visualization in a free web application.
+In this article, we present our approach WHIDE (Web-based Hyperbolic Image Data Explorer) that combines principles from computational learning, dimension reduction and visualization in a free web application.
 Results: We applied WHIDE to a set of MBI recorded using the multitag ﬂuorescence imaging Toponome Imaging System.
 The MBI show ﬁeld of view in tissue sections from a colon cancer study and we compare tissue from normal/healthy colon with tissue classiﬁed as tumor.
 Our results show, that WHIDE efﬁciently reduces the complexity of the data by mapping each of the pixels to a cluster, referred to as Molecular Co-Expression Phenotypes and provides a structural basis for a sophisticated multimodal visualization, which combines topology preserving pseudocoloring with information visualization.
@@ -31,7 +31,7 @@ Although the concept of binary CMPs has the advantage of a fundamental reduction
 It is quite time consuming and requires a high level of expertise to set reasonable thresholds.
 Slight modiﬁcations of the threshold can lead to different CMP lists, potentially affecting the interpretation of the data.
 Furthermore, thresholding discards information inherent in the data, so analyzing non-binarized gray value images may be better suited to track protein locations in the cell (Friedenberger et al., 2007). However, the CMP concept has successfully been applied in several studies (Bhattacharya et al., 2010 Bonnekoh et al., 2006 Eyerich et al., 2009 Ruetze et al., 2010), for example revealing proteins controlling the molecular networks of tumor cell lines, or ﬁnding CMPs to distinguish between healthy patients, patients with psoriasis and patients with atopic dermatitis.
-But even regardless of the aforementioned thresholding issue, we believe that the CMP- based visualization concept should be reconsidered as follows.
+But even regardless of the aforementioned thresholding issue, we believe that the CMP-based visualization concept should be reconsidered as follows.
 From a visualization point of view, mapping the CMP to random colors follows the idea to treat CMP as nominal variables.
 On the one hand, this perspective on a colocation pattern is well motivated since similar patterns (CMPs) can constitute different functions (similarity may be quantiﬁed using the Hamming distance for binary patterns). But on the other hand, one should also bear in mind that similar patterns may also belong to the same functional group or to the same hierarchically organized network.
 Another drawback of using random colors for CMPs is that the morphological structure in a 1144 random color map can be hard to interpret since the colorful map can overburden the cognitive skills of a user.
@@ -115,7 +115,7 @@ This is achived by executing most of the application s computation, presentation
 Furthermore, Flex offers a good selection of predeﬁned but extensible user interface components, e.g. the CIPRA glyph is build upon the standard charting components.
 WHIDE has only a short inital communication phase with the server-side of the BioIMAX platform to retrieve the necessary H2SOM mappings as well as image data.
 All H2SOM mapping data is transfered in a compressed and space optimized ﬁle in JSON3 format for fast transfer and parsing.
-After that the tool needs no further server connections and runs solely on the client- side.
+After that the tool needs no further server connections and runs solely on the client-side.
 Depending on the number of rings in the H2SOM result and the amount of concurrently viewed TIS images the tool may take a while to construct all data structures needed for fast data look-up and interface manipulation.
 This approach is necessary because all available data are needed right from the start to enable the user to switch rapidly between a coarse overview and focus of arbitrary details.
 Computation of interaction relevant data on the server-side would result in high client server trafﬁc and notable delays in the visualization, hampering the desired free and continuous exploration.
@@ -200,7 +200,7 @@ Knowl. Disc., 1, 2 13.
 Lamping,J. et al. (1995) A focus+content technique based on hyperbolic geometry for viewing large hierarchies.
 In Proceedings of the ACM SIGCHI Conference on Human Factors in Computing Systems, ACM, New York, USA, pp.
 401 408.
-Langenkämper,D. et al. (2011) Tical - a web-tool for multivariate image clustering and data topology preserving visualization.
+Langenkämper,D. et al. (2011) Tical-a web-tool for multivariate image clustering and data topology preserving visualization.
 In Workshop on Microscopic Image Analysis with Applications in Biology (MIAAB), Heidelberg, Germany. LeBlanc,J. et al. (1990) Exploring n-dimensional databases.
 In VIS 90 Proceedings of the 1st conference on Visualization, 90 IEEE Computer Society Press Los Alamitos, CA, USA, pp.
 230 237.

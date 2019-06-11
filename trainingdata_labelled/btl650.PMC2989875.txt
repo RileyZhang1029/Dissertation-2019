@@ -1,7 +1,7 @@
 BIOINFORMATICS APPLICATIONS NOTE doi:10.1093/bioinformatics/btl650 Vol.23 no.12 2007, pages 1568 1570 Databases and ontologies ProServer: a simple, extensible Perl DAS server Robert D. Finn, James W. Stalker, David K. Jackson, Eugene Kulesha, Jody Clements and Roger Pettett Wellcome Trust Sanger Institute, Wellcome Trust Geome Campus, Hinxton, Cambridge, CB10 1SA, UK   Advance Access publication January 18, 2007 Associate Editor: Alfonso Valencia ABSTRACT Summary: The increasing size and complexity of biological databases has led to a growing trend to federate rather than duplicate them.
 In order to share data between federated databases, protocols for the exchange mechanism must be developed.
 One such data exchange protocol that is widely used is the Distributed Annotation System (DAS). For example, DAS has enabled small experimental groups to integrate their data into the Ensembl genome browser.
-We have developed ProServer, a simple, lightweight, Perl- based DAS server that does not depend on a separate HTTP server.
+We have developed ProServer, a simple, lightweight, Perl-based DAS server that does not depend on a separate HTTP server.
 The ProServer package is easily extensible, allowing data to be served from almost any underlying data model.
 Recent additions to the DAS protocol have enabled both structure and alignment (sequence and structural) data to be exchanged.
 ProServer allows both of these data types to be served.
@@ -18,11 +18,11 @@ Two of these extensions, developed over the past year, allow the exchange of seq
 These extensions enable annotations to be integrated across DNA, protein sequence and protein structure.
 We have developed ProServer, a simple, user-friendly package for making data available using the DAS protocol.
 2 PROSERVER ProServer has been available from the Wellcome Trust Sanger Institute since 2003.
-We have recently added additional function- ality and documentation to improve usability and robustness.
+We have recently added additional function-ality and documentation to improve usability and robustness.
 2.1 Architecture and flexibility ProServer is a standalone, lightweight DAS server, written in Perl and designed to have low system requirements.
 The architecture of ProServer is represented in Figure 1.
 At the top level, there is a daemon executable which acts as a broker between requests and the code that will handle them.
-The server is configured using a.ini -format configuration file holding settings for data sources provided by the server (Fig. 1). The networking requirements of ProServer are handled by the POE package (http://poe.perl.org/), which implements a portable multitasking and networking framework for Perl. The server sits upon a number of source adaptors with each one dedicated to a single underlying data store.
+The server is configured using a.ini-format configuration file holding settings for data sources provided by the server (Fig. 1). The networking requirements of ProServer are handled by the POE package (http://poe.perl.org/), which implements a portable multitasking and networking framework for Perl. The server sits upon a number of source adaptors with each one dedicated to a single underlying data store.
 Incoming queries are passed from the daemon to the appropriate source adaptor. The source adaptors handle access to the data store and the conversion of queries into generic DAS response data structures.
 Linking source adaptors to their data stores are generic transport helpers which are responsible for handling data acquisition (Fig. 1). Depending on the format of any new data set, it may be necessary to implement a new transport helper (Fig. 1). However, ProServer comes bundled with helpers for some common data stores, for example: flatfile, GFF. MySQL, Oracle and SRS getz. These transport helpers are all simple, command-line or socket-handling modules.
 ß 2007 The Author(s) This is an Open Access article distributed under the terms of the Creative Commons Attribution Non-Commercial License (http://creativecommons.org/licenses by-nc/2.0/uk/) which permits unrestricted non-commercial use, distribution, and reproduction in any medium, provided the original work is properly cited.
@@ -47,7 +47,7 @@ A schematic representation of the ProServer architecture.
 All such source adaptors inherit and extend generic functionality, namely the data retrieval methods that are applicable for the new data set (e.g. transparently handles the transformation of data to XML (Fig. 1). Finally, the details of the new source adaptor are entered into the ProServer configuration file.
 sequence). The superclass features or Specific details regarding installation, security (and best practice usage) and scalability can be found in the ProServer README file.
 2.2 Other DAS servers for systems creating DAS servers are Two alternative Dazzle (http://www.derkholm.net/thomas/dazzle/) and the Lightweight Distributed Annotation Server (LDAS, http:/ biodas.org/servers/LDAS.html). Dazzle is written in Java, whereas LDAS is written in Perl. Dazzle has comparable functionality to ProServer, whereas LDAS does not have alignment or structure capabilities.
-Both of these alternatives require an available web server (e.g. Apache) and time- consuming configuration.
+Both of these alternatives require an available web server (e.g. Apache) and time-consuming configuration.
 Despite the fact that ProServer does not use a web server such as Apache, our experience indicates that the main bottleneck is input output rather than  REFERENCES Birney,E. et al. (2006) Ensembl 2006.
 Nucleic Acids Res., 34, D556 D561. Dowell,R.D. (2001) The distributed annotation system.
 BMC al. et Bioinformatics, 2, 7.
@@ -68,121 +68,3 @@ ACKNOWLEDGMENTS for The authors thank Andreas Kahari and Stefan Gra f funded by 
 This work was Wellcome Trust grant (G0100305). Funding to pay the Open Access publication charges was provided by The Wellcome Trust.
 and a MRC (UK) E-science Conflict of Interest: none declared.
 1570
-{"label":"SOFTWARE","pattern":[{"lower":"Python"}]}
-{"label":"SOFTWARE","pattern":[{"lower":"R"}]}
-{"label":"SOFTWARE","pattern":[{"lower":"Java"}]}
-{"label":"SOFTWARE","pattern":[{"lower":"R"}]}
-{"label":"SOFTWARE","pattern":[{"lower":"Python"}]}
-{"label":"SOFTWARE","pattern":[{"lower":"Java"}]}
-{"label":"SOFTWARE","pattern":[{"lower":"java"}]}
-{"label":"SOFTWARE","pattern":[{"lower":"python"}]}
-{"label":"SOFTWARE","pattern":[{"lower":"perl"}]}
-{"label":"SOFTWARE","pattern":[{"lower":"php"}]}
-{"label":"SOFTWARE","pattern":[{"lower":"javascript"}]}
-{"label":"SOFTWARE","pattern":[{"lower":"linux"}]}
-{"label":"SOFTWARE","pattern":[{"lower":"r"}]}
-{"label":"SOFTWARE","pattern":[{"lower":"mysql"}]}
-{"label":"SOFTWARE","pattern":[{"lower":"sql"}]}
-{"label":"SOFTWARE","pattern":[{"lower":"js"}]}
-{"label":"SOFTWARE","pattern":[{"lower":"apache"}]}
-{"label":"SOFTWARE","pattern":[{"lower":"xml"}]}
-{"label":"SOFTWARE","pattern":[{"lower":"vb"}]}
-{"label":"SOFTWARE","pattern":[{"lower":"unix"}]}
-{"label":"SOFTWARE","pattern":[{"lower":"ruby"}]}
-{"label":"SOFTWARE","pattern":[{"lower":"sh"}]}
-{"label":"SOFTWARE","pattern":[{"lower":"css"}]}
-{"label":"SOFTWARE","pattern":[{"lower":"matlab"}]}
-{"label":"SOFTWARE","pattern":[{"lower":"ubuntu"}]}
-{"label":"SOFTWARE","pattern":[{"lower":"dll"}]}
-{"label":"SOFTWARE","pattern":[{"lower":"tomcat"}]}
-{"label":"SOFTWARE","pattern":[{"lower":"netbeans"}]}
-{"label":"SOFTWARE","pattern":[{"lower":"osx"}]}
-{"label":"SOFTWARE","pattern":[{"lower":"android"}]}
-{"label":"SOFTWARE","pattern":[{"lower":"oracle"}]}
-{"label":"SOFTWARE","pattern":[{"lower":"tcl"}]}
-{"label":"SOFTWARE","pattern":[{"lower":"firefox"}]}
-{"label":"SOFTWARE","pattern":[{"lower":"lua"}]}
-{"label":"SOFTWARE","pattern":[{"lower":"ant"}]}
-{"label":"SOFTWARE","pattern":[{"lower":"debian"}]}
-{"label":"SOFTWARE","pattern":[{"lower":"applet"}]}
-{"label":"SOFTWARE","pattern":[{"lower":"jquery"}]}
-{"label":"SOFTWARE","pattern":[{"lower":"gnu"}]}
-{"label":"SOFTWARE","pattern":[{"lower":"scripting"}]}
-{"label":"SOFTWARE","pattern":[{"lower":"delphi"}]}
-{"label":"SOFTWARE","pattern":[{"lower":"ssh"}]}
-{"label":"SOFTWARE","pattern":[{"lower":"lisp"}]}
-{"label":"SOFTWARE","pattern":[{"lower":"solaris"}]}
-{"label":"SOFTWARE","pattern":[{"lower":"t"}]}
-{"label":"SOFTWARE","pattern":[{"lower":"pascal"}]}
-{"label":"SOFTWARE","pattern":[{"lower":"haskell"}]}
-{"label":"SOFTWARE","pattern":[{"lower":"vbscript"}]}
-{"label":"SOFTWARE","pattern":[{"lower":"gtk"}]}
-{"label":"SOFTWARE","pattern":[{"lower":"windows"}]}
-{"label":"SOFTWARE","pattern":[{"lower":"jdk"}]}
-{"label":"SOFTWARE","pattern":[{"lower":"sed"}]}
-{"label":"SOFTWARE","pattern":[{"lower":"joomla"}]}
-{"label":"SOFTWARE","pattern":[{"lower":"darwin"}]}
-{"label":"SOFTWARE","pattern":[{"lower":"vlc"}]}
-{"label":"SOFTWARE","pattern":[{"lower":"cvs"}]}
-{"label":"SOFTWARE","pattern":[{"lower":"gcc"}]}
-{"label":"SOFTWARE","pattern":[{"lower":"gimp"}]}
-{"label":"SOFTWARE","pattern":[{"lower":"wordpress"}]}
-{"label":"SOFTWARE","pattern":[{"lower":"asm"}]}
-{"label":"SOFTWARE","pattern":[{"lower":"smarty"}]}
-{"label":"SOFTWARE","pattern":[{"lower":"z"}]}
-{"label":"SOFTWARE","pattern":[{"lower":"wget"}]}
-{"label":"SOFTWARE","pattern":[{"lower":"ds"}]}
-{"label":"SOFTWARE","pattern":[{"lower":"joe"}]}
-{"label":"SOFTWARE","pattern":[{"lower":"vista"}]}
-{"label":"SOFTWARE","pattern":[{"lower":"jython"}]}
-{"label":"SOFTWARE","pattern":[{"lower":"gwt"}]}
-{"label":"SOFTWARE","pattern":[{"lower":"cygwin"}]}
-{"label":"SOFTWARE","pattern":[{"lower":"vnc"}]}
-{"label":"SOFTWARE","pattern":[{"lower":"ffmpeg"}]}
-{"label":"SOFTWARE","pattern":[{"lower":"func"}]}
-{"label":"SOFTWARE","pattern":[{"lower":"freebsd"}]}
-{"label":"SOFTWARE","pattern":[{"lower":"gdb"}]}
-{"label":"SOFTWARE","pattern":[{"lower":"yum"}]}
-{"label":"SOFTWARE","pattern":[{"lower":"groovy"}]}
-{"label":"SOFTWARE","pattern":[{"lower":"skype"}]}
-{"label":"SOFTWARE","pattern":[{"lower":"james"}]}
-{"label":"SOFTWARE","pattern":[{"lower":"ejb"}]}
-{"label":"SOFTWARE","pattern":[{"lower":"autocad"}]}
-{"label":"SOFTWARE","pattern":[{"lower":"clojure"}]}
-{"label":"SOFTWARE","pattern":[{"lower":"awt"}]}
-{"label":"SOFTWARE","pattern":[{"lower":"pacman"}]}
-{"label":"SOFTWARE","pattern":[{"lower":"wx"}]}
-{"label":"SOFTWARE","pattern":[{"lower":"sharepoint"}]}
-{"label":"SOFTWARE","pattern":[{"lower":"sas"}]}
-{"label":"SOFTWARE","pattern":[{"lower":"mongodb"}]}
-{"label":"SOFTWARE","pattern":[{"lower":"websphere"}]}
-{"label":"SOFTWARE","pattern":[{"lower":"xcode"}]}
-{"label":"SOFTWARE","pattern":[{"lower":"jruby"}]}
-{"label":"SOFTWARE","pattern":[{"lower":"javac"}]}
-{"label":"SOFTWARE","pattern":[{"lower":"dotnet"}]}
-{"label":"SOFTWARE","pattern":[{"lower":"facebook"}]}
-{"label":"SOFTWARE","pattern":[{"lower":"anaconda"}]}
-{"label":"SOFTWARE","pattern":[{"lower":"eric"}]}
-{"label":"SOFTWARE","pattern":[{"lower":"hudson"}]}
-{"label":"SOFTWARE","pattern":[{"lower":"adobe"}]}
-{"label":"SOFTWARE","pattern":[{"lower":"itunes"}]}
-{"label":"SOFTWARE","pattern":[{"lower":"telnet"}]}
-{"label":"SOFTWARE","pattern":[{"lower":"github"}]}
-{"label":"SOFTWARE","pattern":[{"lower":"javadoc"}]}
-{"label":"SOFTWARE","pattern":[{"lower":"powershell"}]}
-{"label":"SOFTWARE","pattern":[{"lower":"bittorrent"}]}
-{"label":"SOFTWARE","pattern":[{"lower":"odbc"}]}
-{"label":"SOFTWARE","pattern":[{"lower":"mediawiki"}]}
-{"label":"SOFTWARE","pattern":[{"lower":"glassfish"}]}
-{"label":"SOFTWARE","pattern":[{"lower":"openssl"}]}
-{"label":"SOFTWARE","pattern":[{"lower":"suse"}]}
-{"label":"SOFTWARE","pattern":[{"lower":"silverlight"}]}
-{"label":"SOFTWARE","pattern":[{"lower":"calculator"}]}
-{"label":"SOFTWARE","pattern":[{"lower":"d"}]}
-{"label":"SOFTWARE","pattern":[{"lower":"verbose"}]}
-{"label":"SOFTWARE","pattern":[{"lower":"combobox"}]}
-{"label":"SOFTWARE","pattern":[{"lower":"winamp"}]}
-{"label":"SOFTWARE","pattern":[{"lower":"tetris"}]}
-{"label":"SOFTWARE","pattern":[{"lower":"extjs"}]}
-{"label":"SOFTWARE","pattern":[{"lower":"xampp"}]}
-{"label":"SOFTWARE","pattern":[{"lower":"thunderbird"}]}

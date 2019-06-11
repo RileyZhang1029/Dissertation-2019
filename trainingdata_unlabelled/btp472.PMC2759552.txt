@@ -4,7 +4,7 @@ tool implemented in Java that supports real-time zooming and panning through a g
 Availability: The application and source code are available from http://igb.bioviz.org and http://genoviz.sourceforge.net. Contact: aloraine@uncc.edu 1 INTRODUCTION Effective use of data from genome-scale assays requires ﬂexible, highly interactive visualization software.
 To achieve maximum ﬂexibility, genome visualization software should support rapid navigation through multiple zooming scales and across large regions of genomic sequence.
 Such tools should also enable users to display their data alongside canonical gene annotations, EST alignments and reference datasets harvested from the public domain.
-Web- based tools, because of their typically tight integration with back- end databases, often make it easy to display one s own data alongside reference datasets, but few match the interactivity and ﬂexibility of desktop software.
+Web-based tools, because of their typically tight integration with back-end databases, often make it easy to display one s own data alongside reference datasets, but few match the interactivity and ﬂexibility of desktop software.
 The Integrated Genome Browser (IGB, pronounced ig-bee) aims to provide the best of both worlds, providing a highly interactive and user-friendly interface, while at the same time offering users the ability to load data from remote databases via web services middleware. 2 IMPLEMENTATION The IGB is implemented in Java and runs on any computer platform that supports Java version 1.6 or higher.
 To whom correspondence should be addressed.
 3 PROGRAM OVERVIEW The IGB implements a ﬂexible, highly interactive desktop software environment for viewing genome-scale datasets. IGB is the ﬂagship product of the open source Genoviz project, which develops visualization software for bioinformatics and genomics.
@@ -32,7 +32,7 @@ Helt,G.A. et al. (1998) BioViews: Java-based tools for genomic data visualizatio
 Genome Res., 8, 291 305.
 Helt,G.A. et al. (2009) Genoviz Software Development Kit: Java toolkit for building genomics visualization applications.
 BMC Bioinformatics, 10, 266.
-[Epub ahead of print, doi:10.1186/1471-2105-10-266] Jenkinson,A.M. et al. (2008) Integrating biological data - the Distributed Annotation System.
+[Epub ahead of print, doi:10.1186/1471-2105-10-266] Jenkinson,A.M. et al. (2008) Integrating biological data-the Distributed Annotation System.
 BMC Bioinformatics, 9 (Suppl. 8), S3. Kim,J. et al. (2008) An extended transcriptional network for pluripotency of embryonic stem cells.
 Cell, 132, 1049 1061.
 Lang,G.I. et al. (2009) The cost of gene expression underlies a ﬁtness trade-off in yeast.
@@ -44,7 +44,7 @@ BMC Bioinformatics, 3, 19.
 Morohashi,K. and Grotewold,E. (2009) A systems approach reveals regulatory circuitry for Arabidopsis trichome initiation by the GL3 and GL1 selectors.
 PLoS Genet., 5, e1000396. Weber,A.P. et al. (2007) Sampling the Arabidopsis transcriptome with massively parallel pyrosequencing. Plant Physiol., 144, 32 42.
 Xing,Y. et al. (2006) Probe selection and expression index computation of Affymetrix Exon Arrays.
-PLoS ONE, 1, e88. Yagi,S. et al. (2008) DNA methylation proﬁle of tissue-dependent and differentially methylated regions (T-DMRs) in mouse promoter regions demonstrating tissue- speciﬁc gene expression.
+PLoS ONE, 1, e88. Yagi,S. et al. (2008) DNA methylation proﬁle of tissue-dependent and differentially methylated regions (T-DMRs) in mouse promoter regions demonstrating tissue-speciﬁc gene expression.
 Genome Res., 18, 1969 1978.
 Yamada,K. et al. (2003) Empirical analysis of transcriptional activity in the Arabidopsis genome.
 Science, 302, 842 846.
@@ -60,7 +60,7 @@ IGB supports multiple ﬁle formats, including BED and PSL formats developed by 
 IGB informatics harmonizes with UCSC tools users can populate a Quickload server using data from the UCSC Table Browser.
 When users load a new dataset or open a ﬁle, the new data appear in labeled tracks.
 Users can click-drag track labels to move tracks to new locations.
-Right- or control-clicking a track label activates a popup menu with multiple options.
+Right-or control-clicking a track label activates a popup menu with multiple options.
 One option (Make Annotation Depth Graph) creates a new genome graph summarizing the number of annotations covering each base position, which users can save to a ﬁle (Fig. 1). IGB supports dynamic zooming and panning through a genome, allowing users to navigate easily through a genome at multiple scales.
 Zooming focuses on the user s last click, indicated by a vertical stripe in the display.
 During zooming, the zoom stripe remains stationary as ﬂanking regions expand or contract in an animated fashion as users operate the zoom controls.

@@ -6,7 +6,7 @@ Created on Mon Mar 25 23:48:37 2019
 """
 import os
 import spacy
-nlp = spacy.load('en')                       # load model with shortcut link "en"(just change here after training a new category)
+nlp = spacy.load('/home/riley/Documents/Prodigy/softwares-model')                       # load model with shortcut link "en"(just change here after training a new category)
 
 
         
@@ -17,11 +17,8 @@ def NER(doc):
 
 
 if __name__ == '__main__':
-#    parse()
-#    posTag(doc)
-#    NER(doc)
     
-    folder_out = os.getcwd() + "\\trainingdata1"
+    folder_out = os.getcwd() + "/testdata"
     files = os.listdir(folder_out)
     txtFiles = [f for f in files if f.endswith(".txt")]
     print(len(txtFiles))
@@ -33,7 +30,9 @@ if __name__ == '__main__':
         document = open(txtFile, "r", encoding='utf-8').read()
         doc = nlp(document)
         for ent in doc.ents:
-            print(ent.text, ent.start_char, ent.end_char, ent.label_)
+            if (ent.label_ == "SOFTWARE"):
+                print(ent.text)
+            # print(ent.text, ent.start_char, ent.end_char, ent.label_)
         
 
 

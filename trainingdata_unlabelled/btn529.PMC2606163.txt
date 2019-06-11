@@ -21,12 +21,12 @@ Artemis and ACT use the iBatis Data Mapper framework (http://ibatis.apache.org) 
 For each of the tables in the Chado schema that are used, an XML descriptor ﬁle is used to deﬁne the mapping.
 This has the advantage of simplifying the Artemis code by separating it from the SQL and it also means that there is complete control over the SQL queries, without modiﬁcation of the Artemis code.
 An alpha-version of the software presented here was robustly tested during a week-long Plasmodium falciparum (malaria) re-annotation workshop in October 2007.
-Fixes, additional func- tionality and further optimizations stemming from this were then included in the new releases of Artemis v.10 and ACT v.7. 2 IMPLEMENTATION 2.1 Artemis and ACT reading and writing in database mode Artemis and ACT can be launched in database mode from a web launch or from the command line.
-Connection to the database is established via Java Database Connectivity (JDBC) and by specifying the database location and the JDBC driver, for example: art -Dchado= hostname:port/databaseName userName \ -Djdbc.drivers=org.postgresql.Driver -Dibatis  2008 The Author(s) This is an Open Access article distributed under the terms of the Creative Commons Attribution Non-Commercial License (http://creativecommons.org/licenses by-nc/2.0/uk/) which permits unrestricted non-commercial use, distribution, and reproduction in any medium, provided the original work is properly cited.
+Fixes, additional func-tionality and further optimizations stemming from this were then included in the new releases of Artemis v.10 and ACT v.7. 2 IMPLEMENTATION 2.1 Artemis and ACT reading and writing in database mode Artemis and ACT can be launched in database mode from a web launch or from the command line.
+Connection to the database is established via Java Database Connectivity (JDBC) and by specifying the database location and the JDBC driver, for example: art-Dchado= hostname:port/databaseName userName \-Djdbc.drivers=org.postgresql.Driver-Dibatis  2008 The Author(s) This is an Open Access article distributed under the terms of the Creative Commons Attribution Non-Commercial License (http://creativecommons.org/licenses by-nc/2.0/uk/) which permits unrestricted non-commercial use, distribution, and reproduction in any medium, provided the original work is properly cited.
 Artemis and ACT Fig.1.
 Download statistics for Artemis and ACT for each year from 2001 2007.
 This prompts for a password for the given username.
-For a read- only database the ﬂag Dread_only will suppress the password prompt.
+For a read-only database the ﬂag Dread_only will suppress the password prompt.
 On successfully logging in a database and ﬁle manager window opens showing an expandable organism tree (Fig. 2). Double clicking on the sequence names opens them in Artemis. ACT currently still works with comparison ﬂat ﬁles but the sequences themselves can be dragged from the database manager into the ACT ﬁle requestor. It is possible to store comparative regions in Chado so that ACT could in the future read this information from the database as well.
 All of the sequence and annotations are read from the database when the interface is opened.
 The exceptions to this are the cluster and orthologue and paralogue data that are read lazily that is that they are only fully read in from the database when they are viewed in the Gene Builder.
@@ -48,7 +48,7 @@ A gene is created by highlighting a base range and selecting, from the Create me
 The basic constituent features are created i.e. gene, transcript, CDS and polypeptide. Artemis joins exon features from the underlying database that are part of the same transcript and represents them as a CDS feature, which is shown on the reading frame lines in its main display.
 For clarity, the polypeptide and transcript features are hidden in the feature display window and appear greyed out in the 2673  T.Carver et al. Fig.3.
 Snapshot of Artemis in database mode displaying chromosome 1 of P. falciparum. The sequence and feature displays are identical to the standard Artemis. There is a Commit button at the top right of the interface for writing back to the database.
-The top feature display panel shows a zoomed- out representation of the region.
+The top feature display panel shows a zoomed-out representation of the region.
 Below this is a zoomed-in view showing the nucleotide level with the six frames of translation.
 The lower panel shows a scrollable list of the features.
 These panels are all linked, so that if a feature is selected by double clicking on it the other windows scroll to the feature.
@@ -94,7 +94,7 @@ In the scrollable view, the sections have hide ( ) and show (+) buttons and empt
 It is often desirable for data from previous annotation versions to still be available, therefore in this section of the Gene Builder there is a checkbox to mark features and entire gene models as obsolete.
 This hides them from view in the main Artemis window, but they are still available from the feature list at the bottom.
 (2) Core: the core annotation contains any annotation that does not ﬁt into the other sections.
-For example, free- text comments and cross-links to the scientiﬁc literature.
+For example, free-text comments and cross-links to the scientiﬁc literature.
 Hyperlinks are provided for databases (e.g. UniProt, EMBL, PubMed and others deﬁned in the options ﬁle) that open up a local browser.
 (3) Controlled vocabulary (CV): the CV module in the schema is concerned with controlled vocabularies or ontologies. Artemis uses biological ontologies to allow very precise and expressive annotation.
 A form is provided for adding and deleting Gene Ontology (GO http://www.geneontology.org/) descriptions, product, Riley class and other controlled annotations, which are stored in the CV tables.

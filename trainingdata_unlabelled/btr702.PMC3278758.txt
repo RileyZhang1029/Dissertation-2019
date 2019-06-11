@@ -24,7 +24,7 @@ For user queries, PubMed IDs are ﬁrst retrieved through online PubMed services
 PPI conﬁdence scores are calculated for retrieved articles, and articles are re-ranked based on scores.
 For protein name queries, this process does not guarantee highly ranked articles that contain query-speciﬁc PPIs. However, it is still likely to have useful PPI information related to protein queries.
 The prediction module learns and classiﬁes PubMed articles (Kim and Wilbur, 2011). To effectively capture PPI patterns from biomedical literature, our approach utilizes both word and syntactic features in a machine learning framework.
-Dependency parsing, gene mention tagging and term- based features are utilized along with a Huber classiﬁer. Since PIE the search is designed to provide only compact, but necessary features for PPI article search, its use is very straightforward, especially for PubMed users.
+Dependency parsing, gene mention tagging and term-based features are utilized along with a Huber classiﬁer. Since PIE the search is designed to provide only compact, but necessary features for PPI article search, its use is very straightforward, especially for PubMed users.
 It accepts PubMed input formats including All Fields, Author, Journal, MeSH Terms, Publication Date, Title and Title/Abstract with Boolean operations (AND, OR and NOT). However, the output is the list of articles prioritized by PPI conﬁdence scores.
 Search results can be sorted by either PPI scores or dates.
 With the date sorting, only articles with PPI scores  0.1 will appear.
@@ -63,7 +63,7 @@ A tutorial of how to use PIE the search can be found at the homepage.
 4 CONCLUSION PIE the search is a web service designed for searching PPI articles from PubMed, which employs word and syntactic features in a machine learning framework.
 Compared to previous PPI article classiﬁcation approaches, this method actively utilizes syntactic information.
 The Priority Model (Tanabe and Wilbur, 2006) and Huber classiﬁers are also a distinctive choice for effectively handling PubMed data.
-PIE the search is already practical as a ranking system since it provides high classiﬁcation performance at top- ranked articles.
+PIE the search is already practical as a ranking system since it provides high classiﬁcation performance at top-ranked articles.
 The web service is freely accessible and the local PubMed database in PIE is being updated monthly.
 ACKNOWLEDGEMENTS The authors would like to thank all the participants for their contribution to the manual evaluation.
 The authors also would like to thank Natalie Xie for valuable comments on web implementation of the system.

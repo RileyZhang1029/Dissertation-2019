@@ -1,5 +1,5 @@
 BIOINFORMATICS APPLICATIONS NOTE Vol.27 no.22 2011, pages 3211 3213 doi:10.1093/bioinformatics/btr543 Advance Access publication October 7, 2011 Systems biology Visual DSD: a design and analysis tool for DNA strand displacement systems Matthew R. Lakin1, Simon Youssef2, Filippo Polo1, Stephen Emmott1 and Andrew Phillips1, 1Biological Computation Group, Microsoft Research, Cambridge CB3 0FB, UK and 2Department für Physik, Ludwig-Maximilians-Universität, Geschwister-Scholl-Platz 1, D-80539 München, Germany Associate Editor: Martin Bishop It interface.
-is an implementation of ABSTRACT Summary: The Visual DSD (DNA Strand Displacement) tool allows rapid prototyping and analysis of computational devices implemented using DNA strand displacement, in a convenient web- based graphical the DSD programming language and compiler described by Lakin et al. (2011) with additional features such as support for polymers of unbounded length.
+is an implementation of ABSTRACT Summary: The Visual DSD (DNA Strand Displacement) tool allows rapid prototyping and analysis of computational devices implemented using DNA strand displacement, in a convenient web-based graphical the DSD programming language and compiler described by Lakin et al. (2011) with additional features such as support for polymers of unbounded length.
 It also supports stochastic and deterministic simulation, construction of continuous-time Markov chains and various export formats which allow models to be analysed using third-party tools.
 Availability: Visual DSD is available as a web-based Silverlight application for most major browsers on Windows and Mac OS X at http://research.microsoft.com/dna. It can be installed locally for ofﬂine use.
 Command-line versions for Windows, Mac OS X and Linux are also available from the web page.
@@ -23,7 +23,7 @@ The tool includes a variety of example programs and an integrated tutorial.
 A manual is available on the web page that contains a formal deﬁnition of the syntax.
 2.2 Compilation, simulation and analysis Visual DSD implements the compilation scheme outlined in Lakin et al. (2011), with an extension to support reactions which form DNA polymers.
 The user interface offers a selection of semantic rules, which formalize the possible interactions between the DNA species with varying levels of detail.
-This provides a great deal of ﬂexibility. Visual DSD includes a stochastic simulator that uses the Gillespie algorithm (Gillespie, 1977) to generate trajectories when the entire chemical reaction network has been pre-computed. There is also a deterministic simulator that uses the Runge- Kutta-Fehlberg method (Fehlberg, 1969) to solve an ordinary differential equation model.
+This provides a great deal of ﬂexibility. Visual DSD includes a stochastic simulator that uses the Gillespie algorithm (Gillespie, 1977) to generate trajectories when the entire chemical reaction network has been pre-computed. There is also a deterministic simulator that uses the Runge-Kutta-Fehlberg method (Fehlberg, 1969) to solve an ordinary differential equation model.
 For systems where the chemical reaction network is very large (or inﬁnite, in the case of polymer systems), there is a just-in-time compiler which allows the reaction network to be computed incrementally as needed during a stochastic simulation (Paulevé et al., 2010). This can produce signiﬁcant performance gains in certain situations.
 The tool can also construct and visualize the continuous-time Markov chain of a (sufﬁciently small) system, which is particularly useful for low-level debugging of individual circuit components.
 The Author(s) 2011.
@@ -81,6 +81,6 @@ In Sakakibara,Y. and Mi,Y. (eds) Proceedings of DNA 16, vol.6518 of Lecture Note
 123 140.
 Seelig,G. et al. 1585 1588.
 (2006) Enzyme-free nucleic acid logic circuits.
-Science, 314, Zhang,D.Y. and Seelig,G. (2011) Dynamic DNA nanotechnology using strand- displacement reactions.
+Science, 314, Zhang,D.Y. and Seelig,G. (2011) Dynamic DNA nanotechnology using strand-displacement reactions.
 Nat. Chem., 3, 103 113.
 Visual DSD [17:32 22/10/2011 Bioinformatics-btr543.tex] Page: 3213 3211 3213 3213

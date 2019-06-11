@@ -15,11 +15,11 @@ These microbial species-level pangenome arrays overcome the limited variability 
 Several genotype-calling algorithms (Hua et al., 2007 Plagnol et al., 2007 Teo et al., 2007 Xiao et al., 2007) have been proposed for the interpretation of these data.
 However, these algorithms are mainly suited for detecting SNPs or other genomic variations between closely related organisms.
 The biological interpretation of pangenome microarrays in terms of the presence and absence of genetic functionalities in strains with unknown sequences poses a problem, because the probes target different homologous genes with various degrees of sequence similarity.
-To solve this problem, we have devised the genotype- calling algorithm PanCGH that combines orthology (Fitch, 1970) information about genes with species-level pangenome array data to determine the presence or absence of orthologous genes in bacterial strains.
+To solve this problem, we have devised the genotype-calling algorithm PanCGH that combines orthology (Fitch, 1970) information about genes with species-level pangenome array data to determine the presence or absence of orthologous genes in bacterial strains.
 In this study, we test and apply PanCGH to CGH data of 39 Lactococcus lactis strains to investigate their genotypic variation.
 To our knowledge, PanCGH is the ﬁrst algorithm addressing the problem of deducing gene content from data obtained with CGH microarrays that target the pangenome of a group of relatively diverse microorganisms.
 2009 The Author(s) This is an Open Access article distributed under the terms of the Creative Commons Attribution Non-Commercial License (http://creativecommons.org/licenses by-nc/2.0/uk/) which permits unrestricted non-commercial use, distribution, and reproduction in any medium, provided the original work is properly cited.
-J.R.Bayjanov et al. 2 METHODS 2.1 DNA preparation DNA was prepared from L. lactis strains (Supplementary Table 1) using the QiaAmp DNA Mini Kit (Qiagen GmbH, Hilden, Germany) according to the manufacturer s protocol for the isolation of genomic DNA from Gram- positive bacteria.
+J.R.Bayjanov et al. 2 METHODS 2.1 DNA preparation DNA was prepared from L. lactis strains (Supplementary Table 1) using the QiaAmp DNA Mini Kit (Qiagen GmbH, Hilden, Germany) according to the manufacturer s protocol for the isolation of genomic DNA from Gram-positive bacteria.
 2.2 Microarray design and hybridization data acquisition All genomic, plasmid and single gene or operon DNA sequences (1988 sequences in July 2005, constituting 10.7 Mb) of L. lactis were collected from the NCBI CoreNucleotide database and were deposited in a local database.
 This included complete genome sequences of L. lactis strain IL1403 (2.35 Mb, accession number AE005176) and fragments of the genome of strain SK11 (2.43 Mb, Genbank record GI:62464763). Additionally, draft genome sequences consisting of 547 contigs (2.3 Mb) of L. lactis ssp. lactis strain KF147 (NIZOB2230) and 961 contigs (2.6 Mb) of L. lactis ssp. lactis KF282 (NIZOB2244W) were added to this database.
 Redundant stretches of DNA were removed from the database, where a stretch of DNA was deﬁned as redundant if it differed from another piece of DNA by at most 2 nt over a window of 100 nt. For the remaining non-redundant 7 Mb of DNA, a 32-mer tiling design was deﬁned by starting an oligomer approximately every 19 nt, resulting in a total of 386 298 probes.
@@ -57,13 +57,13 @@ The most similar reference ortholog is found in strainY. (See the results sectio
 The mode over the signals sk of a set of ordered pairs (pk, sk) pk  PY  is calculated as follows.
 (1) Deﬁne nY as the number of probes in the set PY. (2) If nY  10 then the mode is undeﬁned: mode = NA. (3) Else, bin the signals log(sk) into B = round (log2 (nY +1)) equal sized intervals on the logarithmic scale.
 Calculate the frequencies fj j  1,  , B  as the number of signals log(sk) in each bin and deﬁne mode as the mean of lower and upper limits of the bin with the highest associated frequency.
-In the case study of L. lactis CGH arrays, the majority of genes in the false- positive group had 10 matching probes.
+In the case study of L. lactis CGH arrays, the majority of genes in the false-positive group had 10 matching probes.
 Therefore, a minimum of 10 probes was required.
 This is not a strict requirement, and it might differ, depending on the probe size and the size of genes.
 The binning procedure in Step 3 of the calculation of the mode is recommended by Sturges (1926). 2.5 Deﬁning orthologous groups of L. lactis genes In order to predict orthology among genes, the genome sequence of three fully sequenced public L. lactis strains (ssp. lactis IL1403, ssp. cremoris SK11 and ssp. cremoris MG1363, accession numbers AE005176, CP000425 and AM406671, respectively) and incomplete genome sequences of two L. lactis strains (ssp. lactis KF147, ssp. lactis KF282) isolated from plants PanCGH: a genotype-calling algorithm were used (Siezen et al., 2008). The orthology prediction program InParanoid (Remm et al., 2001) was run with default settings to ﬁnd orthologous genes among the three completely sequenced genomes.
 All possible pairwise comparisons between the three genomes were performed.
 In cases where inconsistencies regarding bidirectionality of the ortholog relation were found between the pairwise InParanoid predictions, genes were regarded as not being orthologous and each treated as single genes in an orthologous group of size 1.
-As incomplete genomes are not suited for bidirectional best- BLAST analyses like InParanoid, the genes of the two incomplete genomes were added by performing a pairwise BLAST analysis of the genes from the incomplete genomes against the three complete genomes.
+As incomplete genomes are not suited for bidirectional best-BLAST analyses like InParanoid, the genes of the two incomplete genomes were added by performing a pairwise BLAST analysis of the genes from the incomplete genomes against the three complete genomes.
 If a gene in the incomplete genome had a best-BLAST hit with a member of one of the ortholog groups derived from the completely sequenced genomes, this gene was added to that ortholog group.
 In cases where best-BLAST hits referred to different ortholog groups, the gene was assigned to a new ortholog group, unless the difference in E-value of the BLAST searches was larger than 10.
 In those cases, the gene was added to the ortholog group of the gene 10 with the hit having the lowest E-value.
@@ -113,7 +113,7 @@ The remaining false-positive calls concerned mainly transporters and transposase
 In order to avoid the errors originating from inconsistencies in ORF-calling and annotation, the same ORF-calling algorithm and deﬁnitions should be applied to all reference genomes.
 The orthology grouping can also be improved by including additional sources of information PanCGH: a genotype-calling algorithm Table 2.
 Functional categories in ortholog groups with frequent false calls in test strain L. lactis MG1363 Functional category False-positivea (%) False-negativea (%) Hypothetical genes Transposases Related to transporters 49.9 29.2 5.3 60 0 7.2 aAs a percentage of the total number of false cells.
-from e.g. phylogenetic trees and 3D structures (Francke et al., 2008 Golding and Dean, 1998). In summary, we have developed a novel genotype-calling algorithm PanCGH for the biological interpretation of species- level pangenome CGH arrays.
+from e.g. phylogenetic trees and 3D structures (Francke et al., 2008 Golding and Dean, 1998). In summary, we have developed a novel genotype-calling algorithm PanCGH for the biological interpretation of species-level pangenome CGH arrays.
 In contrast to conventional CGH arrays, these pangenome arrays allow the comparison of strains that are relatively diverse in terms of genome sequence.
 Information obtained from sequenced reference strains was incorporated to compare strains not only by signal intensities of individual probes, but also at the level of the inferred genotype, or more speciﬁcally, the presence and absence of members of ortholog groups.
 The results show that our genotype-calling algorithm predicts a genotype with high accuracy from a species-level pangenome CGH array data, which enables the extraction of relevant biological information for unsequenced strains.
@@ -138,7 +138,7 @@ Evol., 15, 355 369.
 Hanley,J.A. and McNeil,B.J. (1982) The meaning and use of the area under a receiver operating characteristic (ROC) curve.
 Radiology, 143, 29 36.
 Hastie,T. et al. (2001) The Elements of Statistical Learning.
-Springer, New York. Hua,J. et al. (2007) SNiPer-HD: improved genotype calling accuracy by an expectation- maximization algorithm for high-density SNP arrays.
+Springer, New York. Hua,J. et al. (2007) SNiPer-HD: improved genotype calling accuracy by an expectation-maximization algorithm for high-density SNP arrays.
 Bioinformatics, 23, 57 63.
 313  J.R.Bayjanov et al. Inazawa,J. et al. (2004) Comparative genomic hybridization (CGH)-arrays pave the way for identiﬁcation of novel cancer-related genes.
 Cancer Sci., 95, 559 563.

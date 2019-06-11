@@ -1,5 +1,5 @@
 BIOINFORMATICS APPLICATIONS NOTE Vol.26 no.9 2010, pages 1273 1275 doi:10.1093/bioinformatics/btq109 Databases and ontologies TiSGeD: a database for tissue-speciﬁc genes Sheng-Jian Xiao1, Chi Zhang1, Quan Zou1 and Zhi-Liang Ji1,2, 1Key Laboratory for Cell Biology and Tumor Cell Engineering, the Ministry of Education of China, School of Life Sciences and 2The Key Laboratory for Chemical Biology of Fujian Province, School of Chemistry and Chemical Engineering, Xiamen University, Xiamen 361005, Fujian, P. R. China Associate Editor: Jonathan Wren Advance Access publication March 11, 2010 ABSTRACT Summary: The tissue-speciﬁc genes are a group of genes whose function and expression are preferred in one or several tissues/cell types.
-Identiﬁcation of these genes helps better understanding of tissue gene relationship, etiology and discovery of novel tissue- speciﬁc drug targets.
+Identiﬁcation of these genes helps better understanding of tissue gene relationship, etiology and discovery of novel tissue-speciﬁc drug targets.
 In this study, a statistical method is introduced to detect tissue-speciﬁc genes from more than 123 125 gene expression proﬁles over 107 human tissues, 67 mouse tissues and 30 rat tissues.
 As a result, a novel subject-specialized repository, namely the tissue-speciﬁc genes database (TiSGeD), is developed to represent the analyzed results.
 Auxiliary information of tissue-speciﬁc genes was also collected from biomedical literatures. Availability: http://bioinf.xmu.edu.cn/databases/TiSGeD/index.html Contact: appo@bioinf.xmu.edu.cn zhiliang.ji@gmail.com Received on December 3, 2009 revised on February 18, 2010 accepted on March 7, 2010 1 INTRODUCTION The spatial and temporal variation in gene expression carries crucial information of what the gene does (Bassett et al., 1999). Thanks to the emergence of high-throughput technologies like microarray, the expressions of thousands of genes in multiple tissues can be now monitored simultaneously.
@@ -12,7 +12,7 @@ Many of these databases enable users to visualize and statistically analyze gene
 the detection of non-trivial patterns (Liu et al., 2008). In this study, we introduce a novel subject-specialized database, namely the tissue-speciﬁc genes database (TiSGeD), which particularly provides information of tissue-speciﬁc genes derived from literature and data mining of gene expression proﬁles. 2 THE DATA The microarray datasets and their latest gene chip annotation ﬁles were derived from public microarray repositories GNF BioGPS, NCBI GEO and EBI ArrayExpress. In current version of database, eight high-quality datasets were chosen with criteria of: (i) proper normalization of proﬁles by MAS or GCRMA methods, (ii) large tissue scales, and (iii) enough ﬂuctuation of gene expressions over multiple tissues.
 These criteria ensure the datasets reliable, useful and representative.
 Removing those incomplete or defective proﬁles, the TiSGeD release 1.0 currently compiled more than 123 125 distinct gene expression proﬁles over 107 human tissues, 67 mouse tissues and 30 rat tissues.
-In addition to microarray data, tissue- speciﬁc genes were also manually collected by keyword search of NCBI biomedical literature database PubMed. 3 THE METHOD Strictly, the tissue-speciﬁc gene is deﬁned as gene whose function and expression is restricted to a particular tissue or cell type.
+In addition to microarray data, tissue-speciﬁc genes were also manually collected by keyword search of NCBI biomedical literature database PubMed. 3 THE METHOD Strictly, the tissue-speciﬁc gene is deﬁned as gene whose function and expression is restricted to a particular tissue or cell type.
 However, in many cases, the speciﬁcity concept is broadened to tissue selectivity that gene expression is enriched in one or several tissues/cell types (Shuang et al., 2006). In TiSGeD, we presented genes of both strictly speciﬁc and highly selective in tissues.
 Brieﬂy, the tissue-speciﬁc gene is detected by solving a linear algebra problem of scalar projection in this study.
 First, transform each expression proﬁle of gene x into a vector Xp: Xp = (x1,x2,x3,... ,xi,... ,xn) (1) is the where n is the number of tissues in the proﬁle and xi gene expression level in tissue i.
@@ -37,7 +37,7 @@ Clicking on the gene symbol or tissue name will ﬁnally lead to the detailed in
 The literature records are always given regardless of the threshold SPM value.
 For the user who has no speciﬁc searching intention, a foolproof quick search method is available for ﬂexible access of database by just providing a keyword or keyword combination.
 TiSGeD also offers an alternative browse method for direct retrieval of tissue-speciﬁc genes.
-User is allowed to query the tissue- speciﬁc genes by species and tissues/cell types.
+User is allowed to query the tissue-speciﬁc genes by species and tissues/cell types.
 Data of three species (human, mouse and rat) are now available for browsing.
 Every tissue in these three species was non-redundantly assigned into branches of the physiological organ hierarchy trees and arranged in alphabet order.
 All cell types were put under an isolated branch of Cells.
@@ -55,7 +55,7 @@ In the last section of Homologenes, the TiSGeD lists the homologous genes in hum
 Currently, total of 6782 distinct tissue speciﬁcally expressed genes (SPM  0.9) were identiﬁed via SPM analysis of microarray data, including 2032 human genes, 4229 mouse genes and 521 rat genes.
 Identiﬁcation of these tissue-speciﬁc genes facilitates our better understanding of gene function.
 For example, the myosin light chain 3 (Myl3) gene was reported to function in cardiac muscle contraction and may play a role in cardiomyopathy.
-This gene is detected consistently as highly heart-speciﬁc gene in human, mouse and rat (SPM = 1.00, 0.99 and 0.97, respectively) in TiSGeD. Villin- 1 is the Ca2+ -regulated actin-binding protein and major component of microvilli of intestinal epithelial cells and kidney proximal tubule cells.
+This gene is detected consistently as highly heart-speciﬁc gene in human, mouse and rat (SPM = 1.00, 0.99 and 0.97, respectively) in TiSGeD. Villin-1 is the Ca2+-regulated actin-binding protein and major component of microvilli of intestinal epithelial cells and kidney proximal tubule cells.
 In TiSGeD, gene of Villin-1 (Vil1) is found highly speciﬁc in small intestine (much more than in large intestine and kidney) of mouse, selective in liver (especially in HepG2 cell lines) and kidney of human and non-selective in tissues of rat.
 The different tissue speciﬁcity of Vil1 in animal models suggests that this gene may play various physiological roles.
 5 DATABASE COMPARISON AND UPDATE According to our survey, most microarray databases, e.g. GEO, ArrayExpress Altas and BioGPS, do not provide similar information as TiSGeD does.
@@ -68,7 +68,7 @@ The literature data, however, will be updated yearly.
 A statistical parameter SPM is introduced as a sensitive indicator in quantitative estimation of gene spatial expression patterns.
 This simple idea is also promising on the identiﬁcation of time-speciﬁc/selective genes during development when high-quality microarray datasets are available in the future.
 However, the SPM value does not reﬂect the real expression level of a gene since all proﬁles are transformed and projected into a linear region of 0 1.0.
-This weakness may be made up by introducing another statistical [13:06 13/4/2010 Bioinformatics-btq109.tex] Page: 1274 1273 1275  TiSGeD parameter to indicate the relative expression level of a gene against all genes in a dataset. Besides, sometimes the assignment of tissue- speciﬁc genes is inconsistent.
+This weakness may be made up by introducing another statistical [13:06 13/4/2010 Bioinformatics-btq109.tex] Page: 1274 1273 1275  TiSGeD parameter to indicate the relative expression level of a gene against all genes in a dataset. Besides, sometimes the assignment of tissue-speciﬁc genes is inconsistent.
 This is mainly caused by the instability of microarray technology in detecting genes at a low level.
 The different tissue scales between experiments are also responsible for the inconsistence. Therefore, introduction of a scoring system to evaluate the detection of tissue-speciﬁc genes is also desired in the future.
 Furthermore, SAGE is another high-throughput technology that is popularly used in accurate measurement of gene expressions.

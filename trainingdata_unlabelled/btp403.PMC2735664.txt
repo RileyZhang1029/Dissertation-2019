@@ -12,9 +12,9 @@ Then individual SNPs may be genotyped by performing a stringent alignment of the
 To whom correspondence should be addressed.
 To support this sort of genotyping analysis, we developed SNP-o-matic as a fast way of mapping short sequence reads to a reference genome with a list of putative variable positions that are speciﬁed at the outset.
 The default settings are highly stringent, returning only those sequence reads that align perfectly with the reference genome after allowing for the putative variable positions.
-An important feature of SNP-o-matic, which allows the rapid processing of large volumes of sequencing data, is that the reference genome sequence is ﬁrst indexed (on the ﬂy or by using a pre- computed index from disk), and then each sequence read or read pair is examined one at a time.
+An important feature of SNP-o-matic, which allows the rapid processing of large volumes of sequencing data, is that the reference genome sequence is ﬁrst indexed (on the ﬂy or by using a pre-computed index from disk), and then each sequence read or read pair is examined one at a time.
 This avoids having to build and store an index of the reads saving both compute cycles and memory.
-Indexing of the reference genome is done in memory on the ﬂy from a generic FASTA ﬁle. A list of putative SNPs, if supplied, is integrated into the reference before indexing, and all permutations of this SNP- containing sequence are indexed.
+Indexing of the reference genome is done in memory on the ﬂy from a generic FASTA ﬁle. A list of putative SNPs, if supplied, is integrated into the reference before indexing, and all permutations of this SNP-containing sequence are indexed.
 Indexing the 25 Mb P. falciparum genome (without SNPs) takes about 30 s on a single CPU core and occupies 1 GB of memory.
 A memory-saving option can reduce both memory and indexing time signiﬁcantly at the expense of a longer mapping phase.
 The index can be stored in a ﬁle for future use, further reducing the time required for this step, or to facilitate the analysis for larger genomes (Supplementary Material). Reads are supplied in either FASTA or FASTQ (http:/ maq.sourceforge.net/fastq.shtml) format read pairs can be in either single or split ﬁles. In performance tests, mapping 10-million 37 base paired reads against the P. falciparum genome takes 70 s on a single CPU core, not counting the indexing.
@@ -42,7 +42,7 @@ Mapping/alignment output is supplied for (cid:127) pileup, (cid:127) coverage (b
 SNP-o-matic can generate an output ﬁle showing each instance where a mapped read covers a putative SNP. Each output line contains the read name, allele position on the reference, reference and observed allele, quality score of the allele base, average and minimum quality of both the entire read as well as the ﬁve bases on either side of the allele-calling base, and auxiliary data.
 This data can be further quality ﬁltered, and used to generate a list of non-reference majority alleles.
 Other outputs include observed fragment size distribution, insertion/deletion predictions and inversion detection.
-These can also be determined by alternative algorithms from the afore- mentioned mapping/alignment outputs.
+These can also be determined by alternative algorithms from the afore-mentioned mapping/alignment outputs.
 SNP-o-matic is written in C++  C (for performance optimization). Compilation with the Intel icpc compiler has shown signiﬁcant runtime improvements over g++. We carried out a number of performance tests which are described in the Supplementary Material and brieﬂy summarized below.
 The initial tests were based on an artiﬁcial dataset consisting of a SNP-o-matic 1mbp reference genome whose AT content (80%) is similar to the P. falciparum genome, and a duplicate genome with randomly introduced SNPs and indels. Solexa read pairs (2 37 bases) with random errors (one in ﬁve reads) were generated from the altered genome.
 SNP-o-matic correctly genotyped the SNPs when they were given as a putative SNP list.

@@ -25,8 +25,8 @@ This is an Open Access article distributed under the terms of the Creative Commo
 [12:16 12/5/2010 Bioinformatics-btq221.tex] Page: i374 i374 i381  PathText: a text mining integrator Fig.1.
 PathText system architecture.
 2 OVERALL ARCHITECTURE OF PATHTEXT PathText provides a user friendly interface by which one can freely move from pathways to relevant articles, or to parts of full papers annotated by biologists during the model construction phase.
-A detailed illustration of the user interface is provided on the PathText website (http://www.pathtext.org). The central component of PathText is the Integrator, which coordinates interaction between (i) Payao pathway visualizations, (ii) TM systems, (iii) manual annotations and (iv) the PathText results GUI (see Fig.1). 2.1 Payao pathway visualizations Users of the PathText system access pathway model visualizations through the Payao Web 2.0 (Matsuoka et al., 2008) community- based collaborative web-service platform for modeling biological networks, a framework designed to enable a community to work on models concurrently.
-Payao reads the models in SBML (Systems Biology Markup Language, http://sbml.org) format, displays them with CellDesigner (http://celldesigner.org), a process diagram editor (http://celldesigner.org) which complies with the process description notation deﬁned by SBGN (Systems Biology Graphical Notation, http://sbgn.org) language, and provides an interface for model enrichment (adding tags and comments to models) for the access- controlled community members (see Fig.2). 2.2 TM systems The PathText Integrator reads information from a pathway model ﬁle in SBML and SBGN, and generates queries for TM systems tailored to the speciﬁc requirements of each.
+A detailed illustration of the user interface is provided on the PathText website (http://www.pathtext.org). The central component of PathText is the Integrator, which coordinates interaction between (i) Payao pathway visualizations, (ii) TM systems, (iii) manual annotations and (iv) the PathText results GUI (see Fig.1). 2.1 Payao pathway visualizations Users of the PathText system access pathway model visualizations through the Payao Web 2.0 (Matsuoka et al., 2008) community-based collaborative web-service platform for modeling biological networks, a framework designed to enable a community to work on models concurrently.
+Payao reads the models in SBML (Systems Biology Markup Language, http://sbml.org) format, displays them with CellDesigner (http://celldesigner.org), a process diagram editor (http://celldesigner.org) which complies with the process description notation deﬁned by SBGN (Systems Biology Graphical Notation, http://sbgn.org) language, and provides an interface for model enrichment (adding tags and comments to models) for the access-controlled community members (see Fig.2). 2.2 TM systems The PathText Integrator reads information from a pathway model ﬁle in SBML and SBGN, and generates queries for TM systems tailored to the speciﬁc requirements of each.
 These queries are sent to each of the TM systems through a web service and results from each are stored in the repository of the PathText Integrator.
 2.3 Manual annotations PathText includes tools to assist biologists in creating manual annotations linking speciﬁc sections of original publications with nodes in a pathway model.
 These links are also stored in the repository of the PathText Integrator.
@@ -115,7 +115,7 @@ The query in the ERA is shown in Figure 6.
 MEDIE accepts a search query through a WEB-API, in addition to an interactive search UI. The API takes a tuple of subject, verb, object as the input, which describes a biological event/relation, such as p53, activate, beta-4 , and returns a set of articles in which the event/relation is mentioned.
 The tuple is internally translated to an ERA query, using the same gene/protein dictionary and event expression dictionary used in the above-mentioned NLP modules.
 For example, the tuple p53, activate, beta-4 is translated to the following region-algebra query shown in Figure 7.
-The WEB- API thus hides irrelevant details of the backend database from the viewpoint of the users, such as the annotation schemes used in the NLP modules or the dictionary used in developing it.
+The WEB-API thus hides irrelevant details of the backend database from the viewpoint of the users, such as the annotation schemes used in the NLP modules or the dictionary used in developing it.
 A speciﬁcation on the meta-data part such as journal titles can be expressed as additional ﬁelds to the subject-verb-object tuple.
 4.2 KLEIO KLEIO (http://www.nactem.ac.uk/software/kleio/) (Nobata et al., 2008) uses the results of named entity recognition to provide a range of semantic search functions.
 A standard indexing tool, Lucene, is used to generate an index over the terms for proteins, genes, metabolites and medical terms that have been recognized.
@@ -225,7 +225,7 @@ Hucka,M. et al. (2003) The systems biology markup language (SBML): a medium for 
 Bioinformatics, 19, 524 531.
 Kell,D.B. (2006) Systems biology, metabolic modelling and metabolomics in drug discovery and development.
 Drug Discovery Today, 11, 1085 1092.
-Kell,D.B. and Oliver,S.G. (2004) Here is the evidence, now what is the hypothesis The complementary roles of inductive and hypothesis-driven science in the post- genomic era.
+Kell,D.B. and Oliver,S.G. (2004) Here is the evidence, now what is the hypothesis The complementary roles of inductive and hypothesis-driven science in the post-genomic era.
 Bioessays, 26, 99 105.
 Kim,J.D. et al. (2008) Corpus annotation for mining biomedical events from literature.
 BMC Bioinfomatics, 9,10.
@@ -253,7 +253,7 @@ Linguistics, 34, 35 80.
 Chicago Press, Chicago. Miyao,Y. et al. (2006) Semantic retrieval for the accurate identiﬁcation of relational Sorokin,A. et al. (2006) The pathway editor: a tool for managing complex biological concepts in massive textbases. COLING-ACL-2006. networks.
 IBM J. Res.
 Develop., 50, 561 573.
-Miyao,Y. et al. (2009) Evaluating contributions of natural language parsers to protein- Splendiani,A. (2008) RDFScape: semantic web meets systems biology.
+Miyao,Y. et al. (2009) Evaluating contributions of natural language parsers to protein-Splendiani,A. (2008) RDFScape: semantic web meets systems biology.
 BMC protein interaction extraction.
 Bioinformatics, 25, 394 400.
 Bioinformatics, 9(Suppl. 4), S6. Nikitin,A. et al. (2003) Pathway studio the analysis and navigation of molecular Tsuruoka,Y. et al. (2008) FACTA: a text search engine for ﬁnding associated biomedical networks.

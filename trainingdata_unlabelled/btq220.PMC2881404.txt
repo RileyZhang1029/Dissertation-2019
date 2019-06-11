@@ -6,7 +6,7 @@ Methods: We developed two approaches to the problem, both based on identifying t
 One is a basis pursuit method (which is based on a linear mixture model), and the other is based on latent Dirichlet allocation (LDA). For testing both approaches, we used images previously acquired for testing supervised unmixing methods.
 These images were of cells labeled with various combinations of two organelle-speciﬁc probes that had the same ﬂuorescent properties to simulate mixed patterns of subcellular location.
 Results: We achieved 0.80 and 0.91 correlation between estimated and underlying fractions of the two probes (fundamental patterns) with basis pursuit and LDA approaches, respectively, indicating that our methods can unmix the complex subcellular distribution with reasonably high accuracy.
-Availability: http://murphylab.web.cmu.edu/software Contact: murphy@cmu.edu 1 INTRODUCTION To investigate the subcellular localization of proteins at a proteome- wide scale, we need to be able to characterize all observed patterns.
+Availability: http://murphylab.web.cmu.edu/software Contact: murphy@cmu.edu 1 INTRODUCTION To investigate the subcellular localization of proteins at a proteome-wide scale, we need to be able to characterize all observed patterns.
 Identiﬁcation of subcellular localization patterns from ﬂuorescence images using supervised machine learning methods has become an established method, with excellent results in its ﬁeld of application.
 To whom correspondence should be addressed.
 The authors wish it to be known that, in their opinion, the ﬁrst two authors should be regarded as joint First Authors.
@@ -22,7 +22,7 @@ In one large-scale study of the yeast proteome, a third of proteins were annotat
 We have previously presented some methods that address this pattern unmixing problem in a supervised setting: given images of fundamental patterns (e.g. nuclear and endoplasmic reticulum in the above example) and mixed images, map mixed images into a set of coefﬁcients, one for each fundamental pattern (Peng et al., 2010 Zhao et al., 2005). These methods were observed to perform well on both synthetic and real data in recovering the underlying mixture coefﬁcients (which had been kept hidden from the algorithm). However, the supervised approach still requires the researcher to specify the fundamental patterns of which other patterns are composed.
 For example, for the quantitative analysis of translocation experiments as a function of time or drug concentration, the extreme points could be easily identiﬁed as the patterns of interest.
 However, they are still inapplicable to proteome-wide studies where it would be a difﬁcult (and perhaps impossible) task to identify all fundamental patterns that are present.
-We note that the set of fundamental patterns that can be identiﬁed depends both on the speciﬁc cell type and the technology used for imaging, high- resolution confocal microscopes being able to distinguish patterns that lower resolution systems cannot.
+We note that the set of fundamental patterns that can be identiﬁed depends both on the speciﬁc cell type and the technology used for imaging, high-resolution confocal microscopes being able to distinguish patterns that lower resolution systems cannot.
 Therefore, it is necessary to tackle the unsupervised pattern unmixing problem: given a large collection of images, where none has been tagged as being a representative of a fundamental pattern, map all images into a set of mixture coefﬁcients automatically derived from the data.
 The Author(s) 2010.
 Published by Oxford University Press.
@@ -138,7 +138,7 @@ J. Mach.
 Learn.
 Res., 3, 993 1022.
 Chen,S.-C. et al. (2007) Automated image analysis of protein localization in budding yeast.
-Bioinformatics, 23, i66 i71. Coelho,L.P. et al. (2009) Nuclear segmentation in microscope cell images: a hand- segmented dataset and comparison of algorithms.
+Bioinformatics, 23, i66 i71. Coelho,L.P. et al. (2009) Nuclear segmentation in microscope cell images: a hand-segmented dataset and comparison of algorithms.
 In Proceedings of the 2009 IEEE International Symposium on Biomedical Imaging.
 IEEE, Piscataway, NJ, USA, pp.
 518 521.

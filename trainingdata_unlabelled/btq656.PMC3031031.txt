@@ -3,7 +3,7 @@ Current fast and memory-saving short-read mappers could give us a quick view of 
 Availability and Implementation: The software is freely available at: http://abmapper.sourceforge.net/. The software is written in C++ and PERL. It runs on all major platforms and operating systems including Windows, Mac OS X and LINUX. Contact: tf.chan@cuhk.edu.hk Supplementary information: Supplementary data are available at Bioinformatics online.
 Received on July 19, 2010 revised on November 18, 2010 accepted on November 23, 2010 1 INTRODUCTION The advent of RNA-seq technology has dramatically transformed transcriptomics within just a few years (Wang et al., 2009). The next-generation sequencing platform can generate far more data per experiment than traditional sequencing technology.
 Millions of short, sometimes paired-end reads have brought about new challenges: to map them back onto the genome for determining gene expression level and for detecting splicing events.
-Two groups, Li et al. and Langmead et al. have developed short- read alignment tools based on the Burrow Wheeler transformation algorithm (Burrows and Wheeler, 1994), which runs fast and with low memory requirement (Langmead et al., 2009 Li and Durbin, 2009). A major drawback of these fast aligners is that they require reads to map to contiguous genomic sequence, and thus are not appropriate for reads spanning splice junctions.
+Two groups, Li et al. and Langmead et al. have developed short-read alignment tools based on the Burrow Wheeler transformation algorithm (Burrows and Wheeler, 1994), which runs fast and with low memory requirement (Langmead et al., 2009 Li and Durbin, 2009). A major drawback of these fast aligners is that they require reads to map to contiguous genomic sequence, and thus are not appropriate for reads spanning splice junctions.
 SplitSeek (Ameur et al., 2010), TopHat (Trapnell et al., 2009) and SpliceMap (Au et al., 2010) are three widely known software packages written  To whom correspondence should be addressed.
 The authors wish it to be known that, in their opinion, the ﬁrst two authors should be regarded as joint First Authors.
 to make up for the lack of ability of these short-read aligners for splice site identiﬁcation. However, these tools have to rely on output from existing aligners: TopHat requires bowtie SpliceMap requires ELAND or bowtie and SplitSeek depends on the SOLiD Whole Transcriptome analysis pipeline and is therefore restricted only to SOLiD dataset. In this work, we present ABMapper, which has been developed as a stand-alone tool for ab initio mapping of sequencing reads that span across splicing junctions or reads that have multiple putative locations within the genome.
@@ -52,7 +52,7 @@ Burrows,M. and Wheeler,D.J. (1994) A block-sorting lossless data compression alg
 Technical Report 124, Digital Equipment Corporation.
 Palo Alto, CA.
 Langmead,B. et al. (2009) Ultrafast and memory-efﬁcient alignment of short DNA sequences to the human genome.
-Genome Biol., 10, R25. Li,H. and Durbin,R. (2009) Fast and accurate short read alignment with Burrows- Wheeler transform.
+Genome Biol., 10, R25. Li,H. and Durbin,R. (2009) Fast and accurate short read alignment with Burrows-Wheeler transform.
 Bioinformatics, 25, 1754 1760.
 Trapnell,C. et al. (2009) TopHat: discovering splice junctions with RNA-Seq. Bioinformatics, 25, 1105 1111.
 Wang, Z. et al. (2009) RNA-Seq: a revolutionary tool for transcriptomics. Nat. Rev.

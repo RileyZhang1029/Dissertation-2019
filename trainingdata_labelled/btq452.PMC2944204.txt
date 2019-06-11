@@ -9,7 +9,7 @@ Through interactive analysis pipelines, researchers are able to rapidly investig
 Complementing already available standalone tools (Chen et al., 2009 Ge et al., 2008), a database-centric architecture enables Genevar to perform complex queries on-the-ﬂy and does not have a high memory requirement for prior reading in large-scale datasets. Furthermore, exploiting the convenience of web-based (Wang et al., 2003 Zou et al., 2007) and web-launch (Mueller et al., 2005) tools, a Java interface was developed that connects to both database and web services.
 The main advantage of this system design is that users can switch between public services and local data on the same interface.
 Default services at the Sanger Institute currently contain gene expression proﬁling and genotypic data from the following two datasets: lymphoblastoid cell lines from eight HapMap3 populations (824 individuals, unpublished data) and three cell types derived from umbilical cords of 75 Geneva GenCord individuals (Dimas et al., 2009). 2 FEATURES Genevar has two main functionalities in cis-eQTL analysis: (i) identifying eQTLs in genes of interest, and (ii) observing SNP gene associations surrounding SNPs of interest (Fig. 1). Additional features include SNP probe association plots and external links to three major genome browsers.
-Either cis- or trans- eQTLs can be plotted in the SNP probe association plot module.
+Either cis-or trans-eQTLs can be plotted in the SNP probe association plot module.
 Mapping results are listed in tree nodes in a structural manner, and information can be saved as PNG diagrams or exported as tab-delimited lists for further use in presentations or publications.
 Genevar is compatible with PLINK (Purcell et al., 2007) genotype data formats and any tab-delimited expression/genotyping ﬁle in our format.
 After uploading datasets onto the database, Genevar presents expression proﬁling data and individual genotypes in two cataloged management panels.
@@ -19,7 +19,7 @@ Published by Oxford University Press.
 This is an Open Access article distributed under the terms of the Creative Commons Attribution Non-Commercial License (http://creativecommons.org/licenses by-nc/2.5), which permits unrestricted non-commercial use, distribution, and reproduction in any medium, provided the original work is properly cited.
 [13:57 28/8/2010 Bioinformatics-btq452.tex] Page: 2474 2474 2476  A B Genevar Fig.1.
 Results of Genevar: a scatter plot represents observed eQTLs in a 2 Mb window centering the GBP3 locus in HapMap3 CHB (A), and a line chart illustrates observed SNP gene associations in a 2 Mb region surrounding rs13277113 SNP in eight HapMap3 populations (B). the signiﬁcance of Spearman s rank correlation coefﬁcient is performed to estimate the strength of relationship between alleles and gene expression intensities, linear regression is also used to model the relationship between the two variables.
-To test the relationship, a t-statistic is employed with n 2 degrees of freedom for both correlation and regression analysis (Stranger et al., 2007b). The software allows the user to adjust the window size centering on the gene/SNP of interest (e.g. 2 Mb) and user- deﬁned P-value threshold (e.g. P 0.001) for the featured cis-eQTL analysis.
+To test the relationship, a t-statistic is employed with n 2 degrees of freedom for both correlation and regression analysis (Stranger et al., 2007b). The software allows the user to adjust the window size centering on the gene/SNP of interest (e.g. 2 Mb) and user-deﬁned P-value threshold (e.g. P 0.001) for the featured cis-eQTL analysis.
 Alternatively, non-parametric permutation P-values are also provided in the subsequent association plot module to further evaluate the signiﬁcance of nominal P-values.
 In order to construct a distribution of the test statistic, under the null hypothesis of no SNP probe associations, expression intensities are randomly re-assigned to individuals genotypes, then correlation coefﬁcient and statistical signiﬁcance are re-computed for the relabeled traits, and this procedure is repeated 10 000 times (Stranger et al., 2005). We recommend users to launch Genevar via Java Web Start from our homepage for the most up-to-date version.
 After launching, Genevar is initially in web services mode connecting to the Sanger Institute.
@@ -38,7 +38,7 @@ Association results are visualized in genomic views by JFreeChart library (http:
 We also thank Richard 2475 [13:57 28/8/2010 Bioinformatics-btq452.tex] Page: 2475 2474 2476  T.-P.Yang et al. Jeffs, James Smith, Paul Bevan (Sanger Webteam) and Andrew Bryant (Database Team) for helpful support on this project.
 Funding: Wellcome Trust and Louis-Jeantet Foundation.
 Conﬂict of Interest: none declared.
-REFERENCES Chen,W. et al. (2009) GWAS GUI: graphical browser for the results of whole- genome association studies with high-dimensional phenotypes. Bioinformatics, 25, 284 285.
+REFERENCES Chen,W. et al. (2009) GWAS GUI: graphical browser for the results of whole-genome association studies with high-dimensional phenotypes. Bioinformatics, 25, 284 285.
 Dimas,A.S. et al. (2009) Common regulatory variation impacts gene expression in a cell type-dependent manner.
 Science, 325, 1246 1250.
 Dixon,A.L. et al. (2007) A genome-wide association study of global gene expression.
@@ -54,7 +54,7 @@ Nature, 464, 773 777.
 Mueller,M. et al. (2005) eQTL Explorer: integrated mining of combined genetic linkage and expression experiments.
 Bioinformatics, 22, 509 511.
 Nica,A.C. et al. (2010) Candidate causal regulatory effects by integration of expression QTLs with complex trait genetic associations.
-PLoS Genet., 6, e1000895. Purcell,S. et al. (2007) PLINK: a tool set for whole-genome association and population- based linkage analyses.
+PLoS Genet., 6, e1000895. Purcell,S. et al. (2007) PLINK: a tool set for whole-genome association and population-based linkage analyses.
 Am.J. Hum.
 Genet., 81, 559 575.
 Stranger,B.E. et al. (2005) Genome-wide associations of gene expression variation in humans.
@@ -64,6 +64,6 @@ Nat. Genet., 38, 1217 1224.
 Wang,J. et al. (2003) WebQTL: web-based complex trait analysis.
 Neuroinformatics, 1, 299 308.
 Zeller,T. et al. (2010) Genetics and beyond the transcriptome of human monocytes and disease susceptibility.
-PLoS One, 5, e10693. Zou,W. et al. (2007) eQTL Viewer: visualizing how sequence variation affects genome- wide transcription.
+PLoS One, 5, e10693. Zou,W. et al. (2007) eQTL Viewer: visualizing how sequence variation affects genome-wide transcription.
 BMC Bioinformatics, 8, 7 11.
 2476 [13:57 28/8/2010 Bioinformatics-btq452.tex] Page: 2476 2474 2476

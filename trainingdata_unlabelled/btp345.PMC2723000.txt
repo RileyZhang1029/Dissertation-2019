@@ -1,5 +1,5 @@
 BIOINFORMATICS APPLICATIONS NOTE Vol.25 no.16 2009, pages 2085 2087 doi:10.1093/bioinformatics/btp345 Data and text mining PINE-SPARKY: graphical interface for evaluating automated probabilistic peak assignments in protein NMR spectroscopy Woonghee Lee1, , William M. Westler1, Arash Bahrami1, Hamid R. Eghbalnia2 and John L. Markley1, 1National Magnetic Resonance Facility at Madison and Biochemistry Department, University of Wisconsin-Madison, Madison, WI 53706 and 2Department of Molecular and Cellular Physiology, University of Cincinnati, Cincinnati, OH 45267, USA Received on April 10, 2009 revised and accepted on May 29, 2009 Advance Access publication June 3, 2009 Associate Editor: Burkhard Rost ABSTRACT Summary: PINE-SPARKY supports the rapid, user-friendly and efﬁcient visualization of probabilistic assignments of NMR chemical shifts to speciﬁc atoms in the covalent structure of a protein in the context of experimental NMR spectra.
-PINE-SPARKY is based on the very popular SPARKY package for visualizing multidimensional NMR spectra (T. D. Goddard and D. G. Kneller, SPARKY 3, University of California, San Francisco). PINE-SPARKY consists of a converter (PINE2SPARKY), which takes the output from an automated PINE- NMR analysis and transforms it into SPARKY input, plus a number of SPARKY extensions.
+PINE-SPARKY is based on the very popular SPARKY package for visualizing multidimensional NMR spectra (T. D. Goddard and D. G. Kneller, SPARKY 3, University of California, San Francisco). PINE-SPARKY consists of a converter (PINE2SPARKY), which takes the output from an automated PINE-NMR analysis and transforms it into SPARKY input, plus a number of SPARKY extensions.
 Assignments and their probabilities obtained in the PINE-NMR step are visualized as labels in SPARKY s spectrum view.
 Three SPARKY extensions (PINE Assigner, PINE Graph Assigner, and Assign the Best by PINE) serve to manipulate the labels that signify the assignments and their probabilities.
 PINE Assigner lists all possible assignments for a peak selected in the dialog box and enables the user to choose among these.
@@ -15,7 +15,7 @@ The PINE-SPARKY software package described here provides a graphical interface f
 The software enables the expert to inject additional knowledge into the assignment process in an efﬁcient and straightforward manner.
 The functionality of PINE-SPARKY is different from the SPARKY spin graphs extension, which shows connectivities between assigned peaks, but will not handle PINE-NMR results.
 2 IMPLEMENTATION We selected SPARKY as the viewing and veriﬁcation tool, because currently it is the most popular NMR visualization and assignment program according to software citations in BMRB (Ulrich et al., 2007). Another beneﬁt is that SPARKY enables programmers to utilize its internal classes to write Python extensions.
-PINE- SPARKY consists of two parts: (i) PINE2SPARKY, which converts PINE-NMR assignments and their associated probabilities to SPARKY inputs and (ii) PINE.
+PINE-SPARKY consists of two parts: (i) PINE2SPARKY, which converts PINE-NMR assignments and their associated probabilities to SPARKY inputs and (ii) PINE.
 SPARKY extensions, which support intuitive interfaces that enable various visualization and assignment tasks.
 PINE2SPARKY converter: Multiple assignments and their probabilities (output from PINE-NMR) are converted into labeled objects, and these objects are incorporated into SPARKY save ﬁles by the PINE2SPARKY converter (Fig. 1A). After the user chooses which assignment is correct, the incorrect labels can be removed.
 Colors of the labels are associated with the level probability.
@@ -35,7 +35,7 @@ Each button is labeled with its function (Update, Assign, Best probability, Unas
 When the user chooses a residue from the protein sequence, the graphical window displays all the atoms in that residue as well as the atoms in the residues sequentially to either side.
 Atoms with assignments are color coded (yellow for 1H, red for 13C, blue for 15N) gray denotes atoms that PINE-NMR was unable to assign.
 Chemical shifts and their standard deviations associated with the assignments are displayed below and to the right of each assigned atom.
-When the user clicks on an individual atom and a spectrum, PINE Graph Assigner displays a ranked list of PINE- derived assignment connectivities to that atom from that spectrum.
+When the user clicks on an individual atom and a spectrum, PINE Graph Assigner displays a ranked list of PINE-derived assignment connectivities to that atom from that spectrum.
 By going to the spectrum view, the user sees a list of available peak labels associated with the chosen atom.
 One can assign or unassign peaks with a few mouse clicks.
 The list of spectra includes only those currently loaded into PINE-SPARKY.
@@ -62,8 +62,8 @@ Cornilescu,G. et al. (1999) Protein backbone angle restraints from searching a d
 Delaglio,F. et al. (1995) NMRPipe: a multidimensional spectral processing system based on UNIX pipes.
 J. Biomol. NMR, 6, 277 293.
 Güntert,P. (2004) Automated NMR structure calculation with CYANA. Methods Mol. Biol., 278, 353 378.
-Herrmann,T. et al. (2002) Protein NMR structure determination with automated NOE- identiﬁcation in the NOESY spectra using the new software ATNOS. J. Biomol. NMR, 24, 171 189.
-Pervushin,K. et al. (1997) Attenuated T2 relaxation by mutual cancellation of dipole- dipole coupling and chemical shift anisotropy indicates an avenue to NMR structures of very large biological macromolecules in solution.
+Herrmann,T. et al. (2002) Protein NMR structure determination with automated NOE-identiﬁcation in the NOESY spectra using the new software ATNOS. J. Biomol. NMR, 24, 171 189.
+Pervushin,K. et al. (1997) Attenuated T2 relaxation by mutual cancellation of dipole-dipole coupling and chemical shift anisotropy indicates an avenue to NMR structures of very large biological macromolecules in solution.
 Proc. Natl Acad. Sci.USA, 94, 12366 12371.
 Ulrich,E. et al. (2007) BioMagResBank. Nucleic Acids Res., 36, D402 D408 Wüthrich,K. (1990) Protein structure determination in solution by NMR spectroscopy.
 J. Biol.

@@ -22,7 +22,7 @@ This is an Open Access article distributed under the terms of the Creative Commo
 [14:44 29/9/2010 Bioinformatics-btq481.tex] Page: 2626 2626 2628  Processing and visualization of molecular entities often requires ﬁltering by certain selection criteria.
 These selections are implemented as so-called EntityViews, containing subsets of atoms, residues, chains and bonds of the respective EntityHandle chosen using selection statements (queries). The EntityView class shares a common interface with the EntityHandle class it points to, and hence they can be used interchangeably.
 This handle/view concept pertains to the full structural hierarchy, i.e. residue views will only contain the atoms that were part of the selection, etc.
-The query language supports sophisticated selection criteria (for example, distance- based selection, Boolean operators, selections based on user-deﬁned properties, and so on). In order to infer connectivity and topology when reading molecular coordinate ﬁles, we make use of the chemical components dictionary which is part of the ofﬁcial PDB distribution (Berman et al., 2003). Thus, detailed information is available on any of the chemical components, allowing the framework to ensure correct connectivity and topology during the load process and issue appropriate warnings.
+The query language supports sophisticated selection criteria (for example, distance-based selection, Boolean operators, selections based on user-deﬁned properties, and so on). In order to infer connectivity and topology when reading molecular coordinate ﬁles, we make use of the chemical components dictionary which is part of the ofﬁcial PDB distribution (Berman et al., 2003). Thus, detailed information is available on any of the chemical components, allowing the framework to ensure correct connectivity and topology during the load process and issue appropriate warnings.
 The connectivity step is extensible and its behavior can be adapted by overloading functions.
 Additionally, a heuristic method is available as a fallback for loading unknown residues or to handle non-standard residue and atom names.
 3 APPLICATION EXAMPLE Most users will interact with OpenStructure using Python.
@@ -59,7 +59,7 @@ Acta Crystallogr. D. Biol.
 Crystallogr., 66, 486 501.
 Eswar,N. et al. (2008) Protein structure modeling with MODELLER. Methods Mol. Biol., 426, 145 159.
 Grunberg,R. et al. (2007) Biskit a software platform for structural bioinformatics. Bioinformatics, 23, 769 770.
-Guex,N. et al. (2009) Automated comparative protein structure modeling with SWISS- MODEL and Swiss-PdbViewer: a historical perspective.
+Guex,N. et al. (2009) Automated comparative protein structure modeling with SWISS-MODEL and Swiss-PdbViewer: a historical perspective.
 Electrophoresis, 30 (Suppl. 1), S162 S173. Hinsen,K. (2000) The molecular modeling toolkit: a new approach to molecular simulations.
 J. Comput. Chem., 21, 79 85.
 2627 [14:44 29/9/2010 Bioinformatics-btq481.tex] Page: 2627 2626 2628  M.Biasini et al. Humphrey,W. et al. (1996) VMD: visual molecular dynamics.

@@ -16,7 +16,7 @@ This sequence encodes the necessary genetic features required for a designed cir
 Appropriate restriction sites can then be added, a cloning vector selected and the entire sequence synthesized or cloned, as appropriate.
 In practice, the situation is far more complex, and for large models is time consuming and difﬁcult to complete by hand.
 A typical computational model will contain numerous species or components that do not have a physical representation at the DNA sequence level.
-Examples include entities representing proteins, protein and RNA degradation, information ﬂow, environmental inputs and chassis- related factors.
+Examples include entities representing proteins, protein and RNA degradation, information ﬂow, environmental inputs and chassis-related factors.
 In this article, we refer to model components representing biological parts with a DNA sequence as DNA-based parts.
 It is not always immediately obvious which entities in the model map directly to the genes and sequence features necessary to encode the system represented by the model.
 The fact that the mapping between component abstractions and sequence-based features is not necessarily one-to-one adds additional complexity.
@@ -25,7 +25,7 @@ As models for computationally designed systems increase in size and complexity, 
 Published by Oxford University Press.
 This is an Open Access article distributed under the terms of the Creative Commons Attribution Non-Commercial License (http://creativecommons.org/licenses by-nc/2.5), which permits unrestricted non-commercial use, distribution, and reproduction in any medium, provided the original work is properly cited.
 [13:11 17/3/2011 Bioinformatics-btr048.tex] Page: 973 973 979  G.Misirli et al. necessary to encode a system designed as an in silico model becomes highly desirable, if not essential.
-However, carrying out the model- to-sequence conversion process automatically is even more difﬁcult than manual conversion.
+However, carrying out the model-to-sequence conversion process automatically is even more difﬁcult than manual conversion.
 The move from an abstract concept such as pSpac promoter or gfp_CDS to a sequence of nucleotide bases involves accessing and integrating theoretical and practical domain knowledge that must be captured and made available in a computationally amenable format.
 This mapping is not one-to-one.
 A single model component may represent a whole set of biological concepts (e.g. there are numerous processes involved in protein degradation, which is generally modelled as a single entity), while one biological process may require multiple model components (protein production involves transcription, translation and mRNA degradation components). The need for expert domain knowledge to elucidate this mapping constrains the size, complexity and novelty of the systems that can be developed.
@@ -46,7 +46,7 @@ SVPs are virtual representations of components with clear biological counterpart
 SBML was the ﬁrst widely used machine-readable format for representing models, and offers a common intermediate format for models developed using different approaches and software.
 CellML has been under development since 2000 and also aims to store and facilitate the exchange of computer-based mathematical models (Lloyd et al., 2008). Recently, a CellML repository has been created to provide a repository of SVPs for the composition of synthetic biology models (Cooling et al., 2010). CellML has a modular structure, in which equations and their variables are encapsulated inside components, while SBML uses explicit model elements to describe the reactions, their inputs, modiﬁers and outputs.
 Both of these modelling formalisms are encoded in XML. They have different strengths and weaknesses, making them complementary rather than competitive for synthetic biology.
-Both are popular enough that we consider it essential to provide model- to-sequence conversion for both formalisms, despite their somewhat different approaches to modelling systems of ordinary differential equations (ODEs). 1.2 Annotation of synthetic biology models Perhaps the greatest challenge in automating the process of converting a dynamic model to the speciﬁcation for a synthesizable DNA sequence is the availability of informative model metadata.
+Both are popular enough that we consider it essential to provide model-to-sequence conversion for both formalisms, despite their somewhat different approaches to modelling systems of ordinary differential equations (ODEs). 1.2 Annotation of synthetic biology models Perhaps the greatest challenge in automating the process of converting a dynamic model to the speciﬁcation for a synthesizable DNA sequence is the availability of informative model metadata.
 To automate the model-to-sequence conversion process, information about entities and relationships must be represented in the model in a computationally amenable format.
 Wherever possible this metadata should draw on existing standards, such as those laid down by the W3C, and employ deﬁned terms that are backed by an ontology.
 For CellML and SBML models, appropriate metadata must be added both to the species or components and to their relationships.
@@ -62,12 +62,12 @@ The addition of these annotations, while necessary to facilitate the automation 
 These speciﬁc annotations and the issues they address are discussed below.
 2.1 Genomic context Both cis and trans relationships are an inherent part of any synthetic biology model.
 Ultimately, genetic features must be ordered and represented at a physical level in a DNA sequence of a genetic element (chromosome, plasmid, etc.). It is therefore necessary to consider the nature of the interactions between the elements in a model since the type of relationship may constrain the ordering of the physical representations of the model components.
-For example, cis interactions must be distinguished from non- cis since cis interactions require sequence-based features to be co-localized on a nucleotide sequence.
+For example, cis interactions must be distinguished from non-cis since cis interactions require sequence-based features to be co-localized on a nucleotide sequence.
 The direction of a cis interaction between entities in a model can be used to derive ordering information, for example, specifying that a promoter should be placed upstream of a coding sequence.
 Conversely, some non-cis elements represent macromolecules or cellular components that operate in trans, and are not directly relevant to DNA sequence feature organization.
 A model also contains abstract elements, and connections between those elements, that allow the model to operate mathematically.
 These elements do not directly represent physical biological entities and are therefore neither cis nor trans in their behaviour. In our annotation approach, SVPs contain a term indicating whether they are physical parts (possess a DNA sequence). Interactions between two physical parts are considered to be cis interactions.
-2.2 Shims A major confounding factor in both automated and manual model-to- sequence conversion is the need for the insertion of spacer DNA between components.
+2.2 Shims A major confounding factor in both automated and manual model-to-sequence conversion is the need for the insertion of spacer DNA between components.
 Spacers may be necessary for biophysical reasons, for example to permit space for protein complexes to bind to the DNA. In this respect, they perform the same function as shims in automotive engineering.
 The Compact Oxford English Dictionary deﬁnes a shim as a washer or thin strip of material used to align parts, make them ﬁt or reduce wear  a deﬁnition which appears entirely appropriate to spacer DNA in a biological construct.
 We therefore introduce the term shim as a spacer component for the assembly of genetic constructs for synthetic biology.
@@ -99,7 +99,7 @@ Components which do not have an incoming edge from any other component are candi
 975 [13:11 17/3/2011 Bioinformatics-btr048.tex] Page: 975 973 979  G.Misirli et al. Fig.1.
 Flow of information through the model at both the DNA and RNA/protein level in parallel.
 To produce a linear DNA sequence speciﬁcation, models are ﬁrst turned into tree-like structures.
-This conversion is achieved by removing non- sequence-based components and any interactions forming loops that make it difﬁcult to disentangle the ﬂow of information through the system.
+This conversion is achieved by removing non-sequence-based components and any interactions forming loops that make it difﬁcult to disentangle the ﬂow of information through the system.
 The analysis of information ﬂow through the model is relatively straightforward for CellML, in which the representation of components as nodes and interactions as edges is inherent.
 SBML, however, is more challenging, and the model requires the following preprocessing:  Assignment rules, rate rules, species and reactions are represented as nodes.
 If one assignment rule is used in another assignment rule, an edge is created between them.
@@ -117,7 +117,7 @@ The model-to-sequence converter algorithm involves the following steps, starting
 (9) Concatenate the sequences of the transcriptional units to form a linear DNA structure.
 The algorithm uses the models built with SVPs to track the activity at the DNA level (PoPS) and at the RNA/protein level (RiPS) in parallel.
 In these models, PoPS are converted into RiPS through mRNA molecules (Fig. 1). 976 Table 1.
-Annotations required for DNA-based parts for the model-to- sequence conversion process Attribute Mandatory  VisualName IsDNABased Type Sequence SequenceURI IsDNABasedPartTemplate IsTemplate No Yes If IsDNABased is TRUE If IsDNABased is TRUE and SequenceURI is empty If IsDNABased is TRUE and Sequence is empty Yes No Implementation 3 RESULTS 3.1 The model-to-sequence conversion algorithm has been implemented as an application called MoSeC. MoSeC is written in Java, and so will run on any platform.
+Annotations required for DNA-based parts for the model-to-sequence conversion process Attribute Mandatory  VisualName IsDNABased Type Sequence SequenceURI IsDNABasedPartTemplate IsTemplate No Yes If IsDNABased is TRUE If IsDNABased is TRUE and SequenceURI is empty If IsDNABased is TRUE and Sequence is empty Yes No Implementation 3 RESULTS 3.1 The model-to-sequence conversion algorithm has been implemented as an application called MoSeC. MoSeC is written in Java, and so will run on any platform.
 MoSeC produces EMBL-Genbank formatted DNA sequences from both CellML and SBML models marked up with RDF according to the guidelines outlined above.
 MoSeC works optimally with models composed from sets of virtual parts in CellML or SBML in the format described by Cooling et al. (2010). A standard set of annotations is required for our SVP annotation approach (Table 1). The VisualName attribute holds the name that is used when the model is visualized in MoSeC. If this attribute is not present, the name assigned within the XML ﬁle is used.
 The IsDNABased attribute establishes whether an SVP is a physical part that is, whether it has an associated DNA sequence.
@@ -130,15 +130,15 @@ A step-by-step guide to the annotation of virtual parts and the automatic model-
 3.2 Application We applied our approach to the derivation of a DNA sequence for the subtilin receiver model described in detail by Cooling et al. (2010). The subtilin receiver model was built from annotated SVPs, assembled into a model and then used to generate a DNA sequence.
 The model was based upon that used to design a subtilin receiver device Biobrick by the 2008 Newcastle University iGEM team (part No.BBa_K104001) (Fig. 2). The device encodes a construct which responds to the lantibiotic subtilin by producing green ﬂuorescent protein (GFP). The speciﬁcation for the virtual parts used in the model was derived from the subtilin sensing and regulatory system [13:11 17/3/2011 Bioinformatics-btr048.tex] Page: 976 973 979  Model annotation for synthetic biology Fig.2.
 The ﬁnal subtilin receiver device BioBrick. from Bacillus subtilis strain ATCC 6633, which uses subtilin for quorum sensing.
-This construct contains a promoter that transcribes an operon containing the CDS for spaR and spaK that encode the response regulator and sensor kinase, respectively, of the subtilin two- component system.
+This construct contains a promoter that transcribes an operon containing the CDS for spaR and spaK that encode the response regulator and sensor kinase, respectively, of the subtilin two-component system.
 The SpaR regulated promoter, PspaS, is included downstream of the operon separated by a transcription terminator.
 Upon sensing the subtilin signal peptide, the SpaK subtilin sensor activates the SpaR regulatory protein by phosphorylation.
 The activated SpaR can then activate the PspaS promoter.
-The subtilin receiver BioBrick was modelled in CellML Versions 1 and 1.1 and SBML Version 2 (Fig. 3). We annotated the virtual parts used to build this model according to the approach described above and used the model-to-sequence algorithm to automatically derive a DNA sequence speciﬁcation. The essential steps of the model-to- sequence conversion algorithm are illustrated, using this model, in Figure 4.
+The subtilin receiver BioBrick was modelled in CellML Versions 1 and 1.1 and SBML Version 2 (Fig. 3). We annotated the virtual parts used to build this model according to the approach described above and used the model-to-sequence algorithm to automatically derive a DNA sequence speciﬁcation. The essential steps of the model-to-sequence conversion algorithm are illustrated, using this model, in Figure 4.
 The annotated SVPs, the complete model and the output of the model-to-sequence conversion process are available in the Supplementary Material accompanying this article.
 The nucleotide sequence produced from this model is currently being biologically validated.
 4 DISCUSSION Many tools have already been developed to aid biologists with the manual design, simulation and construction of synthetic biological systems (Chandran et al., 2009 Rodrigo et al., 2007a, b). These tools are useful when the system under design is limited in size and the user possesses enough knowledge about the system to provide initial insights into the formulation of a preliminary design.
-However, manual, visually guided assembly of representations of sequence- based parts is unlikely to be scalable for large-scale computational design, especially where the detailed structure of the system to be designed is poorly understood.
+However, manual, visually guided assembly of representations of sequence-based parts is unlikely to be scalable for large-scale computational design, especially where the detailed structure of the system to be designed is poorly understood.
 approaches, on evolutionary computation (EC), are particularly promising for automating large-scale biological system design.
 Evolutionary algorithms were developed for applications in complex problem domains where the desired behaviour of the system is known, but the details of the system itself may be poorly understood.
 As such, it can produce novel, non-intuitive circuits (Macia and Sole, 2009). Indeed, there is increasing evidence that complex systems constructed manually are less robust than those constructed using an evolutionary approach (Yan et al., 2010). Computational particularly based those In order to have a completely automated circuit design process models must be constructed, their behaviour assessed via simulation, modiﬁed if necessary and then converted to a DNA sequence speciﬁcation without the need for human intervention.
@@ -150,16 +150,16 @@ The model-to-sequence converter algorithm applied to the subtilin receiver devic
 The virtual parts used to build this model were annotated according to the approach outlined above, facilitating its automatic conversion into a DNA sequence speciﬁcation. the complexities of mapping DNA-based parts to the models that encode them.
 Once a system has been successfully designed and simulated, the next logical step is to test the design by implementing it in the target chassis or organism.
 The nucleic acid sequences required to encode the system in vivo must be speciﬁed and ordered to give the correct genomic context, a process that is guided by information in the model.
-In other words, the model representing the system must be interpreted to identify the nucleic acid molecules necessary to implement the system in vitro or in vivo. two types of information must be present In order to automatically specify the genetic system at a in sequence level, the model: information specifying the nucleic acid sequences necessary to encode the system at a genetic level and connectivity information that allows the correct ordering and spacing of sequences of genetic parts to be interpreted to ensure the correct cis- based interactions between these genetic parts.
+In other words, the model representing the system must be interpreted to identify the nucleic acid molecules necessary to implement the system in vitro or in vivo. two types of information must be present In order to automatically specify the genetic system at a in sequence level, the model: information specifying the nucleic acid sequences necessary to encode the system at a genetic level and connectivity information that allows the correct ordering and spacing of sequences of genetic parts to be interpreted to ensure the correct cis-based interactions between these genetic parts.
 Currently, dynamic models generated for systems or synthetic biology in SBML and CellML, are not usually annotated with this information.
 In this article, we have described an approach to SBML and CellML model annotation that allows the information to automatically specify genetic systems at the nucleotide sequence level to be derived.
 CellML and SBML have proven pedigrees in systems biology, and many complete models of synthetic systems already exist.
-It is possible to manually add the annotations necessary for the model- to-sequence conversion process after model composition.
+It is possible to manually add the annotations necessary for the model-to-sequence conversion process after model composition.
 However, our annotation system has been designed with a bottom-up model assembly process in mind.
 By marking up the virtual parts prior to model composition, composite models may be directly converted to nucleotide sequences with no further manual intervention.
 It is our intention to provide repositories of SVPs already marked up using the MoSeC speciﬁcation as a standard, to support design tools that operate in a bottom up fashion.
 978 [13:11 17/3/2011 Bioinformatics-btr048.tex] Page: 978 973 979  Typically, the annotation of virtual parts is done manually by reference to bioinformatics databases.
-Although this is a time- consuming step, the fact that SVPs are, by deﬁnition, re-usable (and CellML has templates that can be used to instantiate SVPs) mean that it is a once-off investment for each part.
+Although this is a time-consuming step, the fact that SVPs are, by deﬁnition, re-usable (and CellML has templates that can be used to instantiate SVPs) mean that it is a once-off investment for each part.
 The practical requirements for annotation reinforces the beneﬁts of using modular parts, rather than annotation of entire models, and of maintaining repositories of already-annotated SVPs. However, in the future it may be possible to automate the annotation process itself through data integration strategies that combine information from remote data sources, such as genome or transcription factor databases, with experimentally derived information about a particular part (Lister et al., 2009). The MoSeC system as described is rich enough to produce the speciﬁcations for complete sequences suitable for synthesis.
 However, there are further improvements that could be incorporated into the model-to-sequence conversion process.
 We do not currently include information about the physical location of the ﬁnal sequence in the genome of the intended chassis organism.
@@ -185,7 +185,7 @@ Endler,L. et al. (2009) Designing and encoding models for synthetic biology.
 J. R. Soc.
 Interface, 6(Suppl. 4), S405 S417. Goldbeter,A. (2002) Computational approaches to cellular rhythms.
 Nature, 420, 238 245.
-Grosschedl,R. and Birnstiel,M.L. (1980) Spacer DNA sequences upstream of the T-A-T- A-A-A-T-A sequence are essential for promotion of H2A histone gene transcription in vivo. Proc. Natl Acad. Sci.USA, 77, 7102 7106.
+Grosschedl,R. and Birnstiel,M.L. (1980) Spacer DNA sequences upstream of the T-A-T-A-A-A-T-A sequence are essential for promotion of H2A histone gene transcription in vivo. Proc. Natl Acad. Sci.USA, 77, 7102 7106.
 Hasty,J. et al. (2002) Synthetic gene network for entraining and amplifying cellular oscillations.
 Phys.
 Rev.

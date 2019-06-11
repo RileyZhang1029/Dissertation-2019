@@ -17,7 +17,7 @@ To whom correspondence should be addressed.
 The authors wish it to be known that, in their opinion, the ﬁrst two authors should be regarded as joint First Authors.
 A well-known algorithm for searching multiple strings was introduced by Aho and Corasick in 1975.
 Although this approach has previously been implemented to search for restriction enzyme sites (Mount and Conrad, 1986 Smith, 1988), a comprehensive implementation for searches with mismatches and gaps is not available to our knowledge.
-We developed PatMaN (Pattern Matching in Nucleotide databases), a tool for performing exhaustive searches to identify all occurences of a large number of short sequences within a genome- sized database.
+We developed PatMaN (Pattern Matching in Nucleotide databases), a tool for performing exhaustive searches to identify all occurences of a large number of short sequences within a genome-sized database.
 The program reads sequences in FastA format and reports all hits within the given edit-distance cutoff (i.e. total number of gaps and mismatches). We demonstrate the program s functionality by aligning Affymetrix HGU95-A microarray probes to the chimpanzee genome.
 2 METHODS 2.1 Usage The program accepts several parameters to specify a search.
 The user can specify both the maximum number of gaps and the total number of edits (gaps+mismatches) allowed in any reported match.
@@ -50,7 +50,7 @@ The time efﬁciency of the search algorithm is linear in the size of the target
 For each additional edit operation, an exponentially increasing number of partial matches must be considered, since neighboring mismatched nodes and all possible gapped alignments are searched along with the perfect matching path through the tree.
 However, if only perfect matches are searched, the algorithm acts like the Aho Corasick algorithm, and search time depends solely on the length of the target sequence.
 Time constraints therefore mean that PatMaN is only suitable for searching short sequences with a limited number of edit operations.
-3 RESULTS We used PatMaN to match 201 807 Affymetrix HGU95-A micro- array 25mer probes to the chimpanzee genome (panTro2). The parameters chosen for this evaluation allowed up to one mismatch, Dataset Edits Gaps Run time Hits HGU95-A probesa HGU95-A probesa HGU95-A probesa HGU95-A probesa Bonobo Solexa GAII datab 0 1 1 2 2 0 0 1 1 2 0m13.31s 1m51.87s 3m36.92s 1h21m59s 12h58m50s 93 225 327 028 496 296 1 843 008 14.3 109 aBenchmarking was performed on a 2.2 GHz workstation.
+3 RESULTS We used PatMaN to match 201 807 Affymetrix HGU95-A micro-array 25mer probes to the chimpanzee genome (panTro2). The parameters chosen for this evaluation allowed up to one mismatch, Dataset Edits Gaps Run time Hits HGU95-A probesa HGU95-A probesa HGU95-A probesa HGU95-A probesa Bonobo Solexa GAII datab 0 1 1 2 2 0 0 1 1 2 0m13.31s 1m51.87s 3m36.92s 1h21m59s 12h58m50s 93 225 327 028 496 296 1 843 008 14.3 109 aBenchmarking was performed on a 2.2 GHz workstation.
 Independently of the chosen parameters 260 MB RAM were used.
 bBenchmarking was performed on a 1.8 GHz workstation and 8.6 GB of RAM was used during execution.
 The dataset contains 2.8 million reads of 38 bp length of genomic sequence from a Bonobo individual sequenced on the Solexa GAII platform.
