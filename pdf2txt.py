@@ -60,31 +60,31 @@ def convert_pdf_to_txt(path, pages=None):
         for ch in text:
             if not ch.isalnum() and ch not in "[.-\/()+$%^&*=,@#:_!']":
                 text = text.replace(ch,' ')
-        text.split('REFERENCES')
-        print(text[0])
+        # text = text[:(text.find('REFERENCES'))]
+        print(text)
 
-    #     with open(path[:-3]+'txt', "w", encoding='utf-8') as f:
-    #         sentences = sent_tokenize(text)
-    #         for s in sentences:
-    #             s = s.replace('  ',' ').replace(' .','.').strip()
-    #             list_s = s.strip('.').strip('/').split()
-    #             lastword = list_s[-1].lower()
-    #             usCHECK = enchant.Dict("en_US")
-    #             list_con = ["vol", "no", "fig", "sci", "j", "am", "stat"]
-    #             # flag = True
-    #             s = s.replace("/ ", " ").replace(" -","-").replace("- ","-").replace(" ,",",").replace(" .",".")
-    #             if lastword in list_con:
-    #                 f.write(s)
-    #             else:
-    #                 try:
-    #                     if usCHECK.check(lastword):
-    #                         f.write(s + '\n')
-    #                     else:
-    #                         f.write(s + ' ')
-    #                 except ValueError:
-    #                     print("ERROR：" + s)
-    #                     f.write(s + '\n')
-    #                     pass
+        with open(path[:-3]+'txt', "w", encoding='utf-8') as f:
+            sentences = sent_tokenize(text)
+            for s in sentences:
+                s = s.replace('  ',' ').replace(' .','.').strip()
+                list_s = s.strip('.').strip('/').split()
+                lastword = list_s[-1].lower()
+                usCHECK = enchant.Dict("en_US")
+                list_con = ["vol", "no", "fig", "sci", "j", "am", "stat"]
+                # flag = True
+                s = s.replace("/ ", " ").replace(" -","-").replace("- ","-").replace(" ,",",").replace(" .",".")
+                if lastword in list_con:
+                    f.write(s)
+                else:
+                    try:
+                        if usCHECK.check(lastword):
+                            f.write(s + '\n')
+                        else:
+                            f.write(s + ' ')
+                    except ValueError:
+                        print("ERROR：" + s)
+                        f.write(s + '\n')
+                        pass
     #
     except Exception as e:
         print("ERROR：" + path)

@@ -1,66 +1,109 @@
-import sys
-import importlib
-importlib.reload(sys)
-import codecs
+# -*- coding: utf-8 -*-
+"""
+Created on Tue May 28 16:03:35 2019
 
-from pdfminer.pdfparser import PDFParser,PDFDocument
+@author: Administrator
+"""
+# need uninstall pdfminer3k and install pdfminer.six
+
+# encoding: utf-8
+
 from pdfminer.pdfinterp import PDFResourceManager, PDFPageInterpreter
-from pdfminer.converter import PDFPageAggregator
-from pdfminer.layout import LTTextBoxHorizontal,LAParams
-from pdfminer.pdfinterp import PDFTextExtractionNotAllowed
-import spacy
-nlp = spacy.load('en')                       # load model with shortcut link "en"
-#nlp = spacy.load('en_core_web_sm')           # load model package "en_core_web_sm"
-#nlp = spacy.load('/path/to/en_core_web_sm')  # load package from a directory
+from pdfminer.converter import TextConverter
+from pdfminer.layout import LAParams
+from pdfminer.pdfpage import PDFPage
+from io import StringIO
+import os
+from nltk.tokenize import sent_tokenize
+import re
+import enchant
 
-'''
- Read a pdf file and save it into a txt file.
-'''
-path = r'journal1.pdf'
-def parse():
-    fp = open(path, 'rb') 
-    praser = PDFParser(fp)
-    doc = PDFDocument()
-    praser.set_document(doc)
-    doc.set_parser(praser)
 
-    doc.initialize()
+def word_check(s):
+    list_s = s.strip('.').strip('/').split()
+    lastword = list_s[-1].lower()
+    list_con = ["vol", "no", "fig"]
+    flag = True
+    for con in list_con:
+        if lastword == con:
+            flag = False
+            print(s)
+            break
+        else:
+            try:
+                usCHECK = enchant.Dict("en_US")
+                flag = usCHECK.check(lastword)
+            except ValueError:
+                print("ERROR：" + s)
+                pass
+    return flag
 
-    if not doc.is_extractable:
-        raise PDFTextExtractionNotAllowed
+
+def convert_pdf_to_txt(path, pages=None):
+    if not pages:
+        pagenums = set()
     else:
-        rsrcmgr = PDFResourceManager()
-        laparams = LAParams()
-        device = PDFPageAggregator(rsrcmgr, laparams=laparams)
-        interpreter = PDFPageInterpreter(rsrcmgr, device)
+        pagenums = set(pages)
 
-        for page in doc.get_pages(): 
+    output = StringIO()
+    manager = PDFResourceManager()
+    converter = TextConverter(manager, output, laparams=LAParams())
+    interpreter = PDFPageInterpreter(manager, converter)
+    infile = open(path, 'rb')
+    try:
+        for page in PDFPage.get_pages(infile, pagenums):
             interpreter.process_page(page)
-            layout = device.get_result()
-            for x in layout:
-                if (isinstance(x, LTTextBoxHorizontal)):
-                    with open('journal2.txt', 'a', encoding='utf-8') as f:
-                        results = x.get_text()
-#                        print(results)
-                        f.write(results + '\n')
+        infile.close()
+        converter.close()
+        text = output.getvalue()
+        output.close()
+        # for ch in text:
+        #     if not ch.isalnum() and ch not in "[.-\/()+$%^&*=,@#:_!']":
+        #         text = text.replace(ch, ' ')
+        # text = text[:(text.find('REFERENCES'))]
+        # print(text)
 
-#posTag
-def posTag(doc):                        
-    for token in doc:
-        print(token.text, token.lemma_, token.pos_, token.tag_, token.dep_,token.shape_, token.is_alpha, token.is_stop)
-        
-        
-#NER
-def NER(doc):          
-    for ent in doc.ents:
-        print(ent.text, ent.start_char, ent.end_char, ent.label_)        
+        with open(path[:-3] + 'txt', "w", encoding='utf-8') as f:
+            f.write(text)
+            # sentences = sent_tokenize(text)
+            # for s in sentences:
+            #     s = s.replace('  ', ' ').replace(' .', '.').strip()
+            #     list_s = s.strip('.').strip('/').split()
+            #     lastword = list_s[-1].lower()
+            #     usCHECK = enchant.Dict("en_US")
+            #     list_con = ["vol", "no", "fig", "sci", "j", "am", "stat"]
+            #     # flag = True
+            #     s = s.replace("/ ", " ").replace(" -", "-").replace("- ", "-").replace(" ,", ",").replace(" .", ".")
+            #     if lastword in list_con:
+            #         f.write(s)
+            #     else:
+            #         try:
+            #             if usCHECK.check(lastword):
+            #                 f.write(s + '\n')
+            #             else:
+            #                 f.write(s + ' ')
+            #         except ValueError:
+            #             print("ERROR：" + s)
+            #             f.write(s + '\n')
+            #             pass
+    #
+    except Exception as e:
+        print("ERROR：" + path)
+        # os.remove(os.path.join(path))
+        # os.remove(os.path.join(path.replace("pdf", "txt")))
+        pass
+
+
+def traversal(rootdir):
+    for parent, dirnames, filenames in os.walk(rootdir):
+        for filename in filenames:
+            filenamefull = os.path.join(parent, filename)
+            if filenamefull.endswith('pdf') or filenamefull.endswith('PDF'):
+                convert_pdf_to_txt(filenamefull)
 
 
 if __name__ == '__main__':
-    
-    parse()
-    document = codecs.open('journal1.txt', encoding='utf-8', errors='replace').read()
-    doc = nlp(document)
-    print(len(document))
-    posTag(doc)
-    NER(doc)
+    rootdir = os.getcwd() + "/test"
+    traversal(rootdir)
+
+
