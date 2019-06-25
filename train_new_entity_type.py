@@ -135,4 +135,5 @@ def train_spacy():
 
 
 train_spacy()
+#Save the trained model using nlp.to_disk   https://spacy.io/usage/training#ner
 # convert_dataturks_to_spacy("/home/riley/Documents/Prodigy/st_ner.jsonl")

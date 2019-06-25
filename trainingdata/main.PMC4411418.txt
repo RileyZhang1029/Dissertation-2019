@@ -1,0 +1,72 @@
+Abstract Nucleosome positioning is critical for gene expression and of major biological interest.
+The high cost of experimentally mapping nucleosomal arrangement signifies the need for computational approaches to predict nucleosome positions at high resolution.
+Here, we present a web-based application to fulfill this need by implementing two models, YR and W/S schemes, for the translational and rotational positioning of nucleosomes, respectively.
+Our methods are based on sequence-dependent anisotropic bending that dictates how DNA is wrapped around a histone octamer.
+This application allows users to specify a number of options such as schemes and param-eters for threading calculation and provides multiple layout formats.
+The nuMap is implemented in Java/Perl/MySQL and is freely available for public use at http://numap.rit.edu.
+The user manual, implementation notes, description of the methodology and examples are available at the site.
+Introduction The basic repeating unit of eukaryotic chromatin is the nucleo-some, which contains a 145147 bp DNA fragment wound around a histone core.
+The positioning of nucleosomes on a DNA fragment is critical for gene expression [1].
+Along with other factors such as DNA methylation and histone modifications, DNA sequence is one of the most important fac-tors guiding nucleosome positioning in vitro and in vivo [2].
+Accu-rate determination of nucleosome positions is extremely important to study gene regulatory mechanisms.
+Unfortunately, micrococcal nuclease, which is commonly used for mapping nucleosomepositions experimentally, exhibits highAT-specificity [3,4] and lacks the resolution to identify exact nucleosome posi-tions, especially for nucleosomes with the GC-rich boundaries [5].
+Therefore, prediction of nucleosome positioning on genomic sequence at high resolution is of great biological interest.
+Nucleosome positioning is usually characterized by two parameters: rotational positioning, which describes the side of the DNA helix that faces the histones, and translational nces and 250 Genomics Proteomics Bioinformatics 12 (2014) 249253 positioning, which determines the nucleosome midpoint (or dyad) with regard to the DNA sequence [6].
+We have devel-oped two simple models, the YR scheme [7] and W/S scheme [8], for the prediction of translational and rotational position-ing of nucleosomes, respectively.
+Both methods successfully predict 80% of nucleosome positions in vitro with 2-bp pre-cision (see Supplementary materials at http://numap.rit.edu/ app/dna/suppMaterial.xhtml).
+Here, we present a web-based application that implements both models for prediction of nucleosome positioning patterns.
+Methods Both YR and W/S schemes are based on the sequence-depen-dent DNA anisotropy [9,10], which dictates how DNA is wrapped around a histone octamer.
+One of the best established sequence patterns consistent with this anisotropy is the periodic occurrence of AT-containing dinucleotides (WW) and GC-con-taining dinucleotides (SS) in the nucleosomal locations where DNA is bent in the minor and major grooves, respectively [11].
+The minor and major groove bending sites are defined by the base-pair step Roll values observed in nucleosome crys-tal structures, in which a DNA fragment of 147 bp or 146 bp in length is co-crystallized with histones [12].
+Based on the Roll values, 14 minor-groove DNA bending sites and 12 major-groove DNA bending sites were selected from the 147-bp or 146-bp nucleosomal DNA template; each site is 4 bp in length (see the Methods section on the server website for details).
+The W/S scheme implements the aforementioned periodic WW and SS patterns.
+The W/S score SW/S(n) of the threaded sequence with the center at position n can be calculated as SW=Sn X14 minor site 1 CWW X12 major site 1 CSS X14 minor site 1 CSS X12 major site 1 CWW 1 where CWW and CSS are the total occurrences of WW and SS dinucleotides at a given minor-groove or major-groove DNA bending site.
+In addition to the WW and SS motifs, the YR scheme incorporates GC, pyrimidinepurine (YR), YYRR and RYRY motifs to take into account their anisotropic bending into DNA grooves (see Methods at the site for details).
+The YR score S(n) of the threaded sequence with the center at position n can be calculated as Sn X28 pattern 1 wx X12 or 14 site1 Cx !
+2 where Cx is the occurrence of a designated motif x at a given site and wx is the weight of the motif at this site.
+A total of 28 DNA sequence patterns are used in the YR scheme [7].
+If a motif occurs at the site where DNA is severely bent, its occurrence is given a higher weight than at other sites (see Methods section on the website for details).
+Implementation The nuMapweb application takes aDNA sequence as input and returns both numeric scores and corresponding profiles.
+We use the model-view-controller (MVC) design, in which the commu-nication between the client and the database is mediated by the web application server (Figure 1).
+The server is implemented using a combination of extensible hypertext markup language pages (XHTML), and JavaServer Faces (JSF) as a rich compo-nent-based user interface.Nucleosome positioning scores can be computed by the YR and W/S schemes implemented at the backend of the server as Perl scripts.
+An open-source reporting engine, JasperReports library, is used with the combination of Java codes for reporting the results in graphical output in multi-ple formats including PDF, Excel andCSV (see Implementation Notes at the server site for details).
+Prediction options and features Figure 2 shows the general layout for nuMap user interface.
+The user can select from four different output layouts.
+The Single Layout is used to generate single graph for each of the input sequences, whereas the Superimpose Layout overlays more than one graph, if multiple sequences are used as input.
+The Average Layout (Asymmetric) is used to cal-culate the average scores for multiple sequences, while the Average Layout (Symmetric) produces a symmetrical graph by generating the reverse complement of all the input sequences and then calculating the average scores at each base pair position.
+The setting panel allows the user to choose from two prediction schemes, YR and W/S.
+By default, a chosen scheme will calculate a score for the first nucleosome starting at the position 1 of the input sequence, and assign that score to the dyad position 74.
+The user can also give a specific value to the start of the input sequence (if not 1) by changing the value in the Starting Position box.
+The Weight Set option is specific to the YR scheme, the user can choose from three different sets used initially to establish this scheme with each set evaluating the occurrence of specific pattern at specific site differently (see Table SIII in [7]).
+The nuMap provides numerous reporting formats such as PDF (Figure 3), Word and Excel.
+Moreover, the server offers many features that allow the user to interact with output data in different ways such as zooming in a large graph, which is useful to investigate a certain range of values, and exploring dynamic data features, which show the corresponding score/base pair position when a user places the mouse over any point in the graph (Figure 4).
+Future developments Other models [13,14] work well in predicting nucleosome occupancy in vivo by introducing a position-independent com-ponent, PL, to represent sequences that are generally favored or disfavored regardless of their position within the nucleo-some (most notably, poly(dA:dT) tracts, which are strongly disfavored by nucleosomes) [14].
+Detailed comparisons in prediction accuracy between these models and ours have been made and will be published separately.
+The incorporation of this component into the YR or W/S scheme has a potential to improve both the rotational and translational positioning predictions of nucleosomes in vivo.
+Various models have been developed for nucleosome positioning predictions [1519] and for gene regulatory Figure 1 System infrastructure of the nuMap server The MVC model describes an application in terms of three different design modules, the Model, the View and the Controller.
+The Model describes how the application represents the data model, including data files and a database management system (e.g., MySQL).
+The View describes what the user interface looks like and how the information is displayed at the user end (e.g., XHTML).
+The Controller part represents how the user interface is managed and controlled by the application code.
+MVC, model-view-controller.
+Figure 2 A screen shot of the nuMap server interface Alharbi BA et al/ nuMap: A Web Server for Nucleosome Positioning Prediction 251 Figure 3 Example of nuMap output in PDF format A sample out of the nuMap server is shown.
+The Information Panel is shown on the top, containing job-related information such as sequence name and user-selected options including prediction scheme, sequence, its length and composition.
+A profile of the nucleosome positioning score of the 601 sequence, in this case, predicted by the W/S scheme is shown underneath.
+The physical meaning of the score is straightforward the lower the DNA deformation energy for particular sequence motifs placed at the sites of DNA distortion, the higher the score.
+The score is calculated for each 147-bp window and is assigned to the center position of a given window.
+The actual score at each position is given in a tabular form.
+Figure 4 A screen shot of nuMap output of superimposing profiles for two sequences A screen shot of the nuMap output for two sequences superimposed together is shown.
+The score value on a particular position can be shown on the screen by mouse.
+In this case, a mouse hovering over position 94 shows the score, 47, at this position.
+This example illustrates dynamic data features of the server.
+The YR (pyrimidinepurine) scheme was used to calculate the scores.
+The physical meaning of the scores is given in the legend in Figure 3.
+252 Genomics Proteomics Bioinformatics 12 (2014) 249253 analysis [20,21].
+Nonetheless, one has to browse through dif-ferent servers, which often have different formats and repre-sentations, making the comparison of the results extremely difficult.
+We will overcome this obstacle by reprogramming these methods, incorporating them into the nuMap server and presenting the results in the same format.
+Comparison of all the methods in this way will allow detailed analyses of the strengths and weaknesses of each approach, facilitat-Alharbi BA et al/ nuMap: A Web Server for Nucleosome Positioning Prediction 253 ing our understanding of the biophysical principles of nucle-osome positioning.
+Authors contributions BAA and THA developed the server, performed the analyses and drafted the paper.
+NLF set up the server.
+VBZ and FC contributed to data analysis and paper writing.
+All authors read and approved the final manuscript.
+Competing interests The authors declare that they have no competing interests.
+Acknowledgements This study was supported by the scholarship of the King Abdullah International Medical Research Center (KAIMRC) in Saudi Arabia to BA, the start-up fund, Faculty of Develop-ment (FEAD) fund and Deans Research Initiation Grant (D-RIG) fund of Rochester Institute of Technology in the USA awarded to FC and the Intramural Research Program of National Cancer Institute, NIH of the USA to VBZ.

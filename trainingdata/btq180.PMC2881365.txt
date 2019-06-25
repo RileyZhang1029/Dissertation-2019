@@ -1,0 +1,72 @@
+ABSTRACT Motivation: There has recently been a notable shift in biomedical information extraction (IE) from relation models toward the more expressive event model, facilitated by the maturation of basic tools for biomedical text analysis and the availability of manually annotated resources.
+The event model allows detailed representation of complex natural language statements and can support a number of advanced text mining applications ranging from semantic search to pathway extraction.
+A recent collaborative evaluation demonstrated the potential of event extraction systems, yet there have so far been no studies of the generalization ability of the systems nor the feasibility of large-scale extraction.
+Results: This study considers event-based IE at PubMed scale.
+We introduce a system combining publicly available, state-of-the-art methods for domain parsing, named entity recognition and event extraction, and test the system on a representative 1% sample of all PubMed citations.
+We present the first evaluation of the generalization performance of event extraction systems to this scale and show that despite its computational complexity, event extraction from the entire PubMed is feasible.
+We further illustrate the value of the extraction approach through a number of analyses of the extracted information.
+Availability: The event detection system and extracted data are open source licensed and available at http://bionlp.utu.fi/.
+Contact: jari.bjorne@utu.fi 1 INTRODUCTION In response to the explosive growth of biomedical scientific literature, there has recently been significant interest in the development of automatic methods for analyzing domain texts (Chapman and Cohen, 2009).
+In the previous decade of work on automatic information extraction (IE) from biomedical publications, efforts have focused in particular on the basic task of recognizing entity mentions in text, such as gene, protein or disease names (Kim et al., 2004; Smith et al., 2008; Yeh et al., 2005) and on the extraction of simple relations of these entities, such as statements of protein protein interactions (PPI; Krallinger et al., 2008; Ndellec, 2005).
+State-of-the-art IE methods frequently rely on a detailed analysis of sentence structure (parsing) (Airola et al., 2008; Miwa et al., 2009), and several studies have addressed the development and adaptation of parsing methods to biomedical domain texts (Hara et al., 2007; Lease and Charniak, 2005; McClosky, 2009; Rimell and Clark, 2009).
+The research focus on biomedical text analysis has brought forth notable advances in many areas.
+Automatic protein and gene Named Entity Recognition (NER) with performance exceeding 90% To whom correspondence should be addressed.
+F-score1 was demonstrated to be feasible in the recent BioCreative community evaluation (Smith et al., 2008).
+Similarly, significant improvement has been made in PPI extraction (Airola et al., 2008; Chowdhary et al., 2009; Miwa et al., 2009) and there is an active collaboration between database curators and method developers to integrate PPI methods into curation pipelines (Chatr-aryamontri et al., 2008).
+Finally, methods for a variety of biomedical text processing tasks ranging from sentence splitting (Tomanek et al., 2007) to full parsing (McClosky, 2009) have been introduced with performance approaching or matching the performance of similar methods on general English texts.
+Building on such text analysis methods, several IE systems and services have been created for retrieving interaction information from PubMed (http://www.pubmed.com).
+Varying levels of parsing and other NLP methods have been used to detect biological entities of interest and their relationships.
+Most previous efforts have focused on pairwise PPI, with extracted pairs often represented as merged interaction networks.
+The MEDIE and InfoPubmed systems (Ohta et al., 2006) offer access to deep syntactic analysis and entity relation extraction results from the entire PubMed through subject-verb-object search patterns.
+The Chilibot system looks for pairwise relationships based on co-occurrence and uses the presence of interaction keywords to type them (Chen and Sharp, 2004).
+The TextMed system, based on the LYDIA project (Lloyd et al., 2005), uses shallow parsing and co-occurrence information to generate pairwise entity relationship networks from PubMed citations.
+The Ali Baba system likewise visualizes relationships from PubMed abstracts as graphs (Palaga et al., 2009).
+IHOP hyperlinks PubMed abstracts together through shared protein and gene mentions (Hoffmann and Valencia, 2004).
+Finally, GoPubMed uses Gene Ontology (http://www.geneontology.org/) and medical subject headings (MeSH) (http://www.nlm.nih.gov/mesh/) to provide a knowledge-based search for relevant citations (Doms and Schroeder, 2005).
+Supported in part by the maturation of basic technologies for biomedical text analysis and the availability of richly annotated text corpora (Kim et al., 2008; Pyysalo et al., 2007), there has recently been notable movement in the biomedical IE community toward more detailed and expressive representations of extracted information.
+In particular, event representations that can capture different types of associations of arbitrary numbers of entities and events in varying roles have been applied as an alternative to the simple relation representation.
+While the applicability of the results produced by IE methods employing relation representations is closely tied to the specific relation type targeted (i.e.
+PPI or genedisease), event representations have wider potential in supporting applications ranging from PPI to semantic search and 1F-score is the harmonic mean of (p)recision and (r)ecall, i.e.
+F = 2prp+r .
+The Author(s) 2010.
+Published by Oxford University Press.
+This is an Open Access article distributed under the terms of the Creative Commons Attribution Non-Commercial License (http://creativecommons.org/licenses/ by-nc/2.5), which permits unrestricted non-commercial use, distribution, and reproduction in any medium, provided the original work is properly cited.
+[12:17 12/5/2010 Bioinformatics-btq180.tex] Page: i383 i382i390 PubMed event extraction pathway extraction (Kim et al., 2009).
+Showing wide interest in the approach, 24 teams participated in the first community-wide competitive evaluation of event extraction methods, the BioNLP09 Shared Task on Event Extraction (http://www-tsujii.is.s.u-tokyo.ac.jp/GENIA/SharedTask/; Kim et al., 2009).
+The number is comparable to the 26 teams participating in the PPI task of the established BioCreative II community evaluation (Krallinger et al., 2008).
+In this study, building on the best performing system in the BioNLP09 shared task (Bjrne et al., 2009) and J.Bjrne et al.
+(submitted for publication) which remains competitive with even the most recent advances (Miwa et al., 2010), we join together state-of-the-art methods for biomedical text parsing, protein/gene name recognition and IE into a unified system capable of event extraction from unannotated text.
+We apply this system to a random 1% sample of citations from the PubMed literature database, providing the first estimate of the results of event extraction from the entire PubMed data.
+We further analyze the performance of the key components of the system, thus providing the first evaluation of the ability of state-of-the-art event extraction systems to generalize to PubMed scale.
+2 SYSTEM AND METHODS The event extraction system presented in this article follows the model of the BioNLP09 Shared Task on event extraction in its representation of extracted information.
+The BioNLP09 Shared Task was the first large-scale evaluation of biomedical event detection systems (Kim et al., 2009).
+The task introduced an event representation and extraction task based on the GENIA event corpus annotation (Kim et al., 2008).
+The primary extraction targets in the defined task are nine fundamental biomolecular event types (Table 1) and the participants in these events.
+In this article, the term event refers to events as defined by the Shared Task annotation scheme.
+Several aspects of the event representation differentiate the event extraction task from the body of domain IE studies targeting, e.g.
+PPI and genedisease relations, including previous domain shared tasks (Krallinger et al., 2008; Ndellec, 2005).
+While domain IE has largely focused on a relation model representing extracted information as entity pairs, the event model allows for a more expressive way of capturing statement semantics.
+Events can have an arbitrary number of participants whose roles in the Table 1.
+Targeted event types with brief example statements expressing an event of each type Event type Example Gene expression 5-LOX is expressed in leukocytes Transcription promoter associated with IL-4 gene transcription Localization phosphorylation and nuclear translocation of STAT6 Protein catabolism I kappa B-alpha proteolysis by phosphorylation.
+Phosphorylation BCL-2 was phosphorylated at the G(2)/M phase Binding Bcl-w forms complexes with Bax and Bak Regulation c-Met expression is regulated by Mitf Positive regulation IL-12 induced STAT4 binding Negative regulation DN-Rac suppressed NFAT activation In the examples, the word or words marked as triggering the presence of the event are shown in italics and event participants underlined.
+The event types are grouped by event participants, with the first five types taking one theme, binding events multiple themes and the regulation types theme and cause participants.
+event (e.g.
+theme or cause) are specified, making it possible to capture n-ary associations and statements where some participants occur in varying roles or are only occasionally mentioned.
+Further, events are modeled as primary objects of annotation and bound to specific statements in text (triggers), allowing events to participate in other events and facilitating further analysis such as the identification of events stated in a negated or speculative context.
+Finally, events following the Shared Task model are given GENIA Event ontology types drawn from the community-standard Gene Ontology, giving each event well-defined semantics.
+Using events to represent information contained in natural language sentences, for the first time it is now possible to accurately describe in a formal fashion the multitude of different biological phenomena depicted in research articles.
+In the rest of this section, we describe the steps of the event extraction pipeline (Fig.1).
+2.1 Named entity recognition NER is a fundamental requirement for IE: the analysis of IE systems normally takes the form of associations between references to entities, and most applications require the references to be sufficiently specific to identify particular real-world entities, i.e.
+entity names.
+Consequently, NER is a well-studied subtask in IE.
+Also in the biomedical domain NER has been A B C D E Fig.1.
+Event extraction.
+A multiphased system is used to generate an event graph, a formal representation for the semantic content of the sentence.
+Before event detection, sentences are parsed (A) to generate a suitable syntactic graph to be used in detecting semantic relationships.
+Event detection starts with identification of named entities (B) with BANNER (parses are not used at this step).
+Once named entities have been identified, the trigger detector (C) uses them and the parse for predicting triggers, words which define potential events.
+The edge detector (D) predicts relationship edges (event arguments) between triggers and named entities.
+Finally, the resulting semantic graph is divided into individual events by (E) duplicating trigger nodes and regrouping argument edges.
+i383 [12:17 12/5/2010 Bioinformatics-btq180.tex] Page: i384 i382i390 J.Bjrne et al.
+Table 2.
+NER system performance System Corpus F-score

@@ -1,0 +1,236 @@
+Abstract The asparagine-X-serine/threonine (NXS/T) motif, where X is any amino acid except proline, is the consensus motif for N-linked glycosylation.
+Significant numbers of high-resolution crystal structures of glycosylated proteins allow us to carry out structural analysis of the N-linked glycosylation sites (NGS).
+Our analysis shows that there is enough structural information from diverse glycoproteins to allow the development of rules which can be used to predict NGS.
+A Python-based tool was developed to investigate asparagines implicated in N-glycosylation in five species: Homo sapiens, Mus musculus, Drosophila melanogaster, Arabidopsis thaliana and Saccharo-myces cerevisiae.
+Our analysis shows that 78% of all asparagines of NXS/T motif involved in N-gly-cosylation are localized in the loop/turn conformation in the human proteome.
+Similar distribution was revealed for all the other species examined.
+Comparative analysis of the occurrence of NXS/T motifs not known to be glycosylated and their reverse sequence (S/TXN) shows a similar distribu-tion across the secondary structural elements, indicating that the NXS/T motif in itself is not bio-logically relevant.
+Based on our analysis, we have defined rules to determine NGS.
+Using machine learning methods based on these rules we can predict with 93% accuracy if a particular site will be glycosylated.
+If structural information is not available the tool uses structural prediction results resulting in 74% accuracy.
+The tool was used to identify glycosylation sites in 108 human proteins with structures and 2247 proteins without structures that have acquired NXS/T site/s due to mder R).
+eijing Institute of Genomics, tics Society of China.
+g by Elsevier jing Institute of Genomics, Chinese Academy of Sciences and Genetics Society of China.
+Production and hosting mailto:mazumder@gwu.eduLam PVN et al/ N-linked Glycosylation Sites 97 non-synonymous variation.
+The tool, Structure Feature Analysis Tool (SFAT), is freely available to the public at http://hive.biochemistry.gwu.edu/tools/sfat.
+Introduction Co-and post-translational modifications (PTMs) modify the function of proteins by the addition of specific chemical groups that affect their thermodynamic, kinetic and structural proper-ties.
+Glycosylation, one of the many types of PTMs, contrib-utes to the diversification of proteins by the addition of structurally-diverse oligosaccharides.
+This modification is widespread and involved in a wide variety of biochemical and cellular processes including protein folding, maintenance of cell structure, receptor-ligand interaction, cell signaling and cell-cell recognition [13].
+The function of glycosylation in health and disease attracts significant attention with recent reports on the effects of non-synonymous variations on glyco-sylation [4], study of glycosylation in cellular pathophysiology [5], pharmacological significance of glycosylation in therapeu-tic proteins [6], the significance of glycosylation in the develop-ment of biopharmaceuticals [7] and carbohydrate-based vaccines [8].
+N-linked glycosylation (NGS) occurs as a post-transla-tional modification and a co-translational process through which carbohydrates (glycans) are added to an asparagine (N) at the consensus motif asparagine-X-serine/threonine (NXS/T) in which X is any amino acid except proline [9].
+There are reports of other NGS motifs such as asparagine-X-cysteine (NXC), but their frequency of occurrence is extre-mely low [10,11].
+The attachment of the glycan is assisted by a hydrogen bond between the b-amide of asparagine as the hydrogen bond donor and the oxygen of threonine (serine) [12].
+This process is catalyzed by the enzymatic action of N-glycosyltransferases which attach glycan to the unfolded pro-tein during protein synthesis [1].
+It has been suggested that NGS may contribute to the correct folding of proteins; exper-imental evidence shows that interactions between the sugars and the amino acids in the native state stabilizes the folding of glycoproteins [13].
+It has been concluded that the primary structure of the NXS/T tri-peptide is necessary, but not suffi-cient, for glycosylation [10].
+The most probable explanation for this observation is that in addition to other factors such as the localization of the protein, the adoption of an appropri-ate conformation and solvent accessibility of this tri-peptide is required for the glycosylation reaction [14,15].
+Studies by Beeley [16] and later by Bause et al.
+[17] demon-strated a statistical probability for glycosylated asparagine res-idues to be located within a turn/loop conformation.
+Availability of complete genomes, sensitive mass spectrometric tools, and bioinformatic methods has resulted in recent confir-mation of these findings in many eukaryotes [10,11].
+The authors show that eukaryotic N-glycoproteins have invariant sequence recognition patterns, structural constraints and sub-cellular localization.
+Their analysis suggests that a large num-ber of N-glycoproteins evolved after the split between fungi, plants and animals to support organismal development, body growth and organ formation specific to the corresponding clade [11].
+It has been shown by Park and Zhang [18] in a comparative genomic study involving higher eukaryotes that the glycosylated asparagines evolve more slowly than the non-glycosylated counterparts in the same set of proteins.
+The authors conclude that the solvent-accessible asparagines are most likely to be glycosylated and of biological importance [18].
+A continued improvement of rule-based filters that pre-dict occupancy of the large number of N-glycosylation sequons is therefore important.
+In this study, we performed a comprehensive structural analysis of potential N-linked glycosylation sites in Homo sapi-ens (human), Mus musculus (mouse), Saccharomyces cerevisiae (yeast), Drosophila melanogaster (fly) and Arabidopsis thaliana (plant) to refine the structural constrains of N-glycosylation with the aim to formulate basic rules improving prediction accuracy.
+We then used these rules to predict N-glycosylation of NXS/T sequons created in the human genome by non-syn-onymous single nucleotide variation (nsSNV).
+These rules were incorporated into an N-linked glycosylation prediction tool: Sequence Structure Feature Analysis Tool (SFAT).
+Our analysis shows that current structural information is sufficient to develop such rules that are applicable to the entire prote-ome.
+Such analyses can be used to prioritize targets for further validation in the laboratory.
+Results and discussion Structural analysis of annotated and unannotated NXS/T motif The occurrence of the N-linked glycosylation sequence motif is not sufficient to determine if a particular site will get glycosyl-ated.
+To better understand and describe the sequence and structural parameters that allow a specific site to be glycosyl-ated, and to see if these can be applied across evolutionarily distant organisms, we have performed a comprehensive analy-sis of the five following eukaryotic proteomes: human, mouse, fly, plant and yeast.
+Table 1 provides details of the data sets used in this study.
+Distribution of protein secondary structure elements in eukaryotes To understand the distribution of NGSs (annotated in Uni-ProtKB/Swiss/Prot) and unannotated NXS/T motifs, we have determined the distribution ofa-helix, b-sheet and loop/turn ele-ments in all the non-redundant protein structures.
+The percent-age of amino acids in these structural elements was calculated for individual proteins and the percentage of a-helix, b-sheet and loop/turn conformations for the all the proteins with struc-tureswas then calculated.
+The results show that the distributions of the three structural elements in all five species are very similar with a-helix being the highest and b-Sheet the lowest secondary structure conformation (Figure 1A).
+More specifically, the fre-quency of a-helix, b-sheet and loop/turn conformation varies in the organisms studied, which is 3847%, 2128% and 3133%, respectively.
+If asparagine is distributed evenly among all secondary structure elements, then one should expect to ob-serve similar frequencies of occurrences of the amino acid in the three secondary structure elements.
+But this is not true as can be seen from the next analysis results.
+Table 1 Structure datasets used in this study Organism Available structuresa No.
+of annotated NXS/T sites No.
+of unannotated NXS/T sites No.
+of N sites Total length Sheet total length Helix total length Loop/turn total length Human 3094 2284 3779 30,762 1,627,531 377,793 713,587 536,151 Mouse 644 453 739 5984 91,718 31,568 24,182 35,968 Fly 103 42 103 1029 37,216 12,622 16,435 37,216 Plant 179 33 223 1834 136,158 30,062 62,978 43,118 Yeast 756 10 1163 16,745 191,581 41,428 87,412 62,741 Note: aStructures that have at least one asparagine in their sequence.
+A A sp ar ag in e di st ri bu ti on (% ) B D is tr ib ut io n of s ec on da ry s tr uc tu re ( % ) P < 0.0001 0 10 20 30 40 50 60 70 80 90 100 Human Mouse Fly Plant Yeast-Helix-Sheet Loop/turn 0 10 20 30 40 50 60 70 80 90 100 Human Mouse Fly Plant Yeast-Helix-Sheet Loop/turn Figure 1 The distribution of secondary structure elements and asparagine A.
+Distribution of secondary structural elements in proteins of human, mouse, fly, plant and yeast.
+B.
+Distribution of asparagine in secondary structural elements in proteins of human, mouse, fly, plant and yeast proteins.
+P values are calculated with v2 test by comparing the occurrence of asparagine in secondary structural elements to the overall distribution of a-helix, b-sheet and turns/loops in all available structures in the species of interest.
+98 Genomics Proteomics Bioinformatics 11 (2013) 96104 Distribution of asparagines in protein secondary structural elements It has been shown that NGS are more prevalent in turns [14,16].
+This observation would not have functional implica-tions if the abundance of asparagines (N) in turns is similar to the abundance of NGS sites in turns.
+There are 30,762 N-containing sites in 3094 proteins with crystallographic PDB structures for the human proteome; 5984 sites in 644 proteins for mouse, 1029 sites in 103 proteins for fly; 1834 sites in 179 proteins for plant and 16,745 sites in 756 proteins for yeast.
+Figure 1B shows that asparagines are located preferentially in the loop/turn conformation with a frequency of 4450%.
+Compared to the results shown in Figure 1A, the percentage of asparagines found in a-helix appears to be close to the ex-pected (40.20% vs. 42.10%).
+However, the percentage of asparagines is higher in turns/loops and lower in b-sheets than expected.
+These results prompted us to examine whether the distribution of potential NGS (annotated in UniProtKB/ Swiss/Prot) and unannotated NXS/T sites follows the same pattern.
+Distribution of unannotated NXS/T motif in protein secondary structure elements All UniProtKB/Swiss-Prot records are manually curated.
+Even the prediction results of every protein are manually checked before they are entered into the database.
+Therefore, annota-tions available from UniProtKB records are considered gold standard in terms of functional annotation.
+It is expected that unannotated NXS/T motifs not known to carry a glycan (and therefore functionally comparable to any N), should reflect the overall distribution of asparagines.
+If we consider proteins with crystallographic structures, there are 3779 unannotated NXS/T motifs in human proteins, 739 sites for mouse, 1163 sites for yeast, 103 sites for fly and 223 sites for plant.
+Accord-ing to Figure 2A, the percentage of asparagines in the unanno-tated NXS/T motif is slightly higher than that of all asparagines (Figure 1B) in a turn conformation.
+It is possible that this is a function of the tripeptide property.
+We therefore wanted to see if the distribution of annotated NXS/T motifs is significantly different than that of the unannotated NXS/T motifs.
+Distribution of annotated NXS/T motif in protein secondary structure elements There are 2284 annotated NXS/T sites in 592 proteins which have PDB structures in the human dataset.
+Among these, 1779 sites are in turn (78%), 222 sites in the a-helix (9.7%) and 283 sites in the b-sheet (12.3%) (Figure 2B).
+This distribu-tion, based on analysis of the entire set of available structures, is consistent with recent results in the mouse showing 75% of NGSs in turns and 15% in b-sheets [10].
+The same tendency is observed in our analysis for mouse, fly, plant and yeast.
+In all A D is tr ib ut io n of u na nn ot at ed N X S/ T m ot if s (% ) D is tr ib ut io n of a nn ot at ed N X S/ T m ot if s (% ) B P < 0.0001P < 0.0001 0 10 20 30 40 50 60 70 80 90 100 Human Mouse Fly Plant Yeast-Helix-Sheet Loop/turn 0 10 20 30 40 50 60 70 80 90 100 Human Mouse Fly Plant Yeast-Helix-Sheet Loop/turn Figure 2 The distribution of asparagine in unannotated and annotated NXS/T motifs A.
+Distribution of unannotated NXS/T motifs in secondary structural elements.
+P values are calculated with v2 test by comparing the occurrence of asparagine in unannotated NXS/T motif to the distribution of all asparagines.
+B.
+Distribution of annotated NXS/T motifs in secondary structural elements.
+P values are calculated with v2 test by comparing the occurrence of asparagine in annotated NXS/T motif to the distribution of asparagines in unannotated NXS/T motifs.
+A B D is tr ib ut io n of A sn in h um an ( % ) D is tr ib ut io n of A sn in m ou se (% ) 0 10 20 30 40 50 60 70 80 90 100 Annotated N-glycosylation Unannotated with motif NXS/T All N-Helix-Sheet Loop/turn 0 10 20 30 40 50 60 70 80 90 100 Annotated N-glycosylation Unannotated with motif NXS/T All N-Helix-Sheet Loop/turn Figure 3 Distribution of asparagines in human and mouse proteins A.
+Distribution of asparagines in human proteins.
+B.
+Distribution of asparagines in mouse proteins.
+Lam PVN et al/ N-linked Glycosylation Sites 99 the species the percentages of asparagine that are part of the annotated motif is higher in loops/turns.
+The distribution of annotated NXS/T sites is significantly different from the distri-bution of the unannotated NXS/T in all the species.
+Represen-tative data were shown for human and mouse in Figure 3 (P < 0.0001).
+Our results in mouse show a noticeable difference of the distribution of NXS/T sites in loops/turns (60% for annotated and 51% for unannotated), compared to the analysis of Zie-linska et al.
+(75% and 71%, respectively) [10].
+This is poten-tially due to the fact that we have analyzed a larger set of structures.
+The occurrence of Asn-sequons in this type of sec-ondary structure is favored for three reasons: (i) loops/turns represent spatial arrangements of the peptide chain which fa-vor the hydrogen-bonded contact between the beta-amide of asparagines and the hydroxyl group of carbohydrates; (ii) turns constitute privileged conformations which guarantee accessibility of the sugar-acceptor sites due to their general location at the surface of proteins and (iii) these sites could be evolutionary selected because of functional importance.
+Quantification and functional analysis of N-glycosylation sites in human and mouse proteome UniProtKB contains 15,828 sites for the entire human prote-ome where the sequon NXS/T is annotated as the N-linked glycosylation site.
+Among them, 15,168 sites are found in se-creted and membrane proteins and 747 sites in cytoplasm and nucleus proteins (there are cases where the same protein can be found in two different places).
+Thus, when comparing annotated NXS/T motifs found in the human proteome, approximately 96% of sites were found in secreted and mem-brane proteins and only 4.7% sites in cytoplasm, nucleus proteins.
+For mouse, 95% of the proteins with annotated NXS/T motifs are secreted and membrane proteins, while only 3.8% are cytoplasm and nucleus proteins (in this case some proteins do not have location information).
+In large-scale analysis of NGS sites, it was found that none of the identified glycoproteins are located in the mitochondria, cytosol or nucleus [11].
+Kung et al.
+[19] had identified mitochondrial glycoproteins using protein microarrays and it is possible that 100 Genomics Proteomics Bioinformatics 11 (2013) 96104 they are either errors in the curated data or mitochondrial gly-coproteins could not be captured because of the experimental protocols used.
+It is also possible that some proteins could be present in more than one compartment at different time points, which might explain the differences in the results in Uni-ProtKB and the aforementioned studies.
+Looking at the pro-portion of NXS/T sites that are annotated and the total number of NXS/T sites in the human proteome, the UniProt data suggest that only 27% of all NXS/T sites are N-glycosyl-ated.
+Among secreted and membrane proteins, the number increases to 53% of all NXS/T sites (Table 2).
+When compar-ing annotated NXS/T motifs to total NXS/T motifs for mouse, we find 21% of NXS/T motifs is annotated, which is lower than 27% for the human proteome, and this number increases to 36% if only secreted and membrane proteins are considered.
+This could be due to the fact that not all of mouse proteome has been manually curated by UniProtKB/Swiss-Prot curators and extreme caution is employed by Uni-ProtKB/Swiss-Prot curators to ensure close to zero false posi-tives.
+For cytoplasm/nucleus/mitochondria proteins, the numbers are similar for human and mouse (Table 2).
+These findings show that there exist a very high number of NXS/T motifs in the proteome, but less than one third of them have so far have been documented as glycosylated for both hu-man and mouse.
+A higher percentage of annotated NXS/T motifs are present in secreted and membrane proteins than cytoplasm and nucleus proteins, which is consistent with previously reported preferential N-glycosylation of proteins in the secretory pathways [10].
+Comparison of the NXS/T and the reverse S/TXN site in the human proteome, which is not expected to carry glycans, reveals 58,781 NXS/T sites and 50,577 S/TXN sites (P = 0.9) (for additional details please see Table S1).
+Similar distribution is observed in the mouse proteome (data not shown).
+Additionally, for the human pro-teome we noticed that there are 28,527 and 22,568 NXS/T sites in secreted and membrane proteins and in cytoplasmic and nu-clear proteins, respectively, which is significantly different (P < 0.0001).
+However, the number of the reverse motifs (S/ TXN) in secreted and membrane proteins and in cytoplasmic and nuclear proteins is comparable, which is 21,213 and 21,375, respectively.
+It is important to note that similar results were obtained in terms of the relative cellular distribution of NXS/T and S/TXN sites, if only the proteins with PDB struc-tural information were considered (Table S1), which strongly supports the inclusion of just protein sequences with structural information for the type of analysis performed in this study.
+Non-synonymous single nucleotide variation and polymorphic glycoproteins The structural analysis shows that NGS are over-represented on the surface of proteins.
+We find that 91% of the annotated sites in humans and 93% in mouse are solvent-accessible, compared to 67% and 70% of the unannotated sites.
+We used Table 2 Subcellular distribution of annotated NXS/T motifs in human Species Entire proteome (%) Secreted/m Human 27 53 Mouse 21 36 Note: Percentage of annotated NXS/T motifs against all NXS/T motifs in informatic tools to extract information on polymorphic N-gly-cosylation variants from the UniProtKB/Swiss-Prot database and dbSNP [20].
+Previously we have shown using pathway and function enrichment analysis that a significant number of proteins that gain or lose the glycosylation motif are in-volved in kinase activity, immune response and blood coagula-tion [4].
+However, it remains to be investigated whether a polymorphic site can indeed be glycosylated when there is gain of the NGS motif.
+Our current analysis shows that of the 20,238 proteins in the complete human proteome (based on UniProtKB/Swiss-Prot), 3328 proteins contain polymorphic sites that create or abolish existing glycosylation sites (Fig-ure 4).
+We employed machine learning techniques based on the rules developed from this study to examine the proteins that have crystallographic structure information available at NGS.
+As a result, we identified 108 out of 221 polymorphic proteins with structures (Table S2), which have one or more gain of glycosylation that are expected to have some impact on protein function.
+Based on UniProtKB/Swiss-Prot and Gene Ontology (GO) analysis, several of these proteins are in-volved in blood coagulation, cell adhesion, host-pathogen interaction, immunity and transport (Table S3).
+The major molecular functions represented are hydrolases, receptors and transferases.
+Out of 2299 proteins that do not have struc-tures, 2247 proteins are predicted to be glycosylated at the gain of glycosylation site by the SFAT tool (total NXS/T sites: 12,623; sites predicted as yes: 11,651 and sites predicted as no: 972).
+Based on GO analysis using Panther tools [21], the over-represented GO biological processes in this dataset in-clude immune response, response to stimulus, signaling and blood coagulation, which agrees with the our results obtained previously [4].
+N-linked glycosylation prediction tool The analysis that we have performed here represents an effi-cient way to explore the glycosylation potential of protein if the structure is known.
+We have also extended the tool to work on proteins without structure, albeit with lower accuracy: 74% without structure compared to 93% with structure.
+It is ex-pected that within the next decade, majority of proteins with NGS will have their structures solved, or it will be possible to generate high-quality homology models for these proteins based on related protein structures.
+To provide easy compari-son of these structures and sequences we have web-enabled our tools developed for this study.
+The tool can perform the fol-lowing tasks: (i) predict N-linked glycosylation sites, (ii) deter-mine the secondary structural elements of any site of interest (such as active site, metal binding site, N-linked glycosylation site or any other sited based on user-defined motif) and (iii) map UniProtKB and PDB sequence features.
+The tool, Struc-ture Feature Analysis Tool (SFAT), is expected to be useful for and mouse proteome embrane (%) Cytoplasm/nucleus/mitochondria (%) 3 2.6 respective categories is shown.
+20,238 human proteins 787,106 polymorphic sites 3328 N-linked glycosylation polymorphic proteins 1060 loss of N-linked glycosylation (LOG) sites 12,623 gain of N-linked glycosylation (GOG) sites 11,651 sites predicted by SFAT to be true GOG Figure 4 Identification of N-linked glycosylation (NLG) sites using SFAT Lam PVN et al/ N-linked Glycosylation Sites 101 researchers interested in site-specific quantitative structural analysis.
+Figure 5 shows a snapshot of the SFAT interface.
+Prediction of N-linked glycosylation sites The prediction is performed using the following four basic rules: (i) presence of Endoplasmic Reticulum targeting se-quence; (ii) not nuclear, mitochondrial or cytoplasmic; (iii) present in a loop or turn and (iv) exposed.
+Data for the first two rules are extracted from the UniProtKB flat file.
+The third piece of information is extracted from the PDB file and the rel-ative solvent accessibility is obtained from Define Secondary Structure of Proteins (DSSP) database [22].
+When structure is not available, the last two pieces of information is predicted.
+We identified 96 new (currently not annotated in UniProt) NGS in the human proteome that matches all four rules (3.6% of the total unannotated NXS/T sites).
+Instead of using a set of strict rules for prediction which can potentially lead to large numbers of false negatives, we implemented these rules into a machine learning framework for better prediction accu-racy.
+Using this approach our cross validation prediction mod-el showed the overall accuracy of 93%, and the precision for true positive of 90% for proteins with structures.
+The accuracy Figure 5 Home page for N-linked glycosylation prediction tool SFAT User can either predict N-linked glycosylation sites, find the distributio and PDB sequence features.
+and precision is 74% and 70%, respectively, when the tool is applied to proteins without structures.
+The model was then used to predict NGS in the polymorphic glycoproteins.
+The re-sults showed that for the gain of N-glycosylation, around 40% are predicted to be glycosylated.
+There are several other NGS prediction tools currently available.
+However, none of them use a rule-based method that is dependent on structural information.
+EnsembleGly [23], a sequence-based method using ensembles of support vec-tor machine classifiers, has 94% accuracy; NetNGlyc (http://www.cbs.dtu.dk/services/NetNGlyc/) uses artificial neural net-works that examine the sequence context of Asn-X-Ser/Thr sequons with an overall accuracy of 76%.
+In addition, GPP [24] uses the random forest algorithm and pairwise patterns to predict glycosylation sites with an accuracy of 90.8% for Ser sites, 92.0% for Thr sites and 92.8% for Asn sites.
+It is important to note here that the authors used their own training and test datasets to determine the accuracy of their tools.
+A di-rect comparison between different tools is thus difficult be-cause the tools were developed and tested on different training and test datasets.
+Furthermore, the definition of neg-ative NGS is an open discussion, because it is difficult to prove definitively that a particular residue is not glycosylated under any conditions, although experiments can verify that a partic-ular residue can be glycosylated.
+Determining the secondary structure elements of any amino acid site Knowledge of the distribution of a specific motif in the second-ary structure elements can be useful to predict the functional relevance.
+To facilitate studies similar to the one described here, we implement within SFAT an option that can provide a distribution report of any motif of interest.
+The input file is the UniProtKB flat file.
+The tool gives the user multiple op-tions about different feature information in UniProtKB such as: N-linked glycosylation, active site or metal-binding site.
+Alternatively, the user can define their motif of interest.
+Instructions for how to determine the correct pattern can be found in the Help document.
+The results are given in a down-loadable table.
+A pie chart and plot graph are generated to illustrate the obtained results.
+Mapping of UniProtKB and PDB features Sequences from PDB and UniProt may not be identical (PDB sequences can be shorter or longer compared to the n of a motif in secondary structural elements or map UniProtKB 102 Genomics Proteomics Bioinformatics 11 (2013) 96104 UniProtKB sequence).
+Therefore, it is important to align them to explore the different feature annotations that are available on the sequence from UniProt or PDB.
+Often this task is done manually and can lead to errors.
+We have implemented a sim-ple alignment tool and the features are extracted from Uni-ProtKB flat files and PDB records and the user can easily identify the features of interest in the amino acid sequence.
+This tool was used in this study to further analyze the poly-morphic glycosylation sites.
+Conclusion Comparative structural study of asparagines in human, mouse, fly, plant and yeast showed that a high percentage of aspara-gines in NXS/T motifs implicated in N-glycosylation are local-ized within a turn/loop and are solvent-exposed at the protein surface.
+The N-glycosylated proteins are typically not cytoplasmic, nuclear or mitochondrial.
+We have incorporated these observations into an N-glycosylation prediction tool which combines structure-and sequence-based rules that sig-nificantly improve sequence-based prediction methods.
+The tool was used to predict glycosylation sites of a set of polymor-phic human proteins.
+Materials and methods By annotated glycosylation sites, we mean NXS/T sites that are indicated as the N-linked glycosylation site in Uni-ProtKB/Swiss-Prot [25] protein record, while unannotated gly-cosylation sites include all other NXS/T sites.
+We consider these annotated glycosylation sites as potential NGS, as they have been manually curated by UniProtKB/Swiss-Prot cura-tors based on experimental evidence, similarity to experimen-tally-validated NGS in homologous proteins and/or in-depth sequence and functional analysis.
+UniProtKB/Swiss-Prot hu-man proteome is considered the gold standard set of manu-ally-curated human proteins and in our opinion provides the best positive and negative datasets, since UniProtKB/Swiss-Prot curators have manually curated all entries for the human proteome.
+All predictions are checked manually by curators to ascertain if there are any homologous sites in related proteins.
+Predictions that are dubious are not included in the sequence feature annotation.
+Datasets All data were collected from UniProtKB and Protein Data Bank (PDB) [26].
+For the human proteome, the complete pro-teome available from UniProtKB/Swiss-Prot was used.
+For mouse, the file rp-seqs-15.fasta.gz from http://pir.george-town.edu/rps/data/current/15/ was downloaded and parsed to obtain the complete proteome.
+This was done because the complete proteome of mouse from UniProtKB has several po-tential splice variants as separate entries.
+All other proteomes were obtained from UniProtKB using the complete proteome keyword tag.
+The access dates for all data retrievals are be-tween 15th February and 15th June, 2012.
+Experimentally-val-idated datasets were obtained from UniProtKB and supplementary materials in Zielinska et al.
+[10,11].
+Data analysis Python scripts were used to extract information from Uni-ProtKB flat file feature (FT) lines, cross-reference (DR) lines for PDB database and sequence (SQ) lines.
+Information was also extracted from the PDB files in order to get secondary structure information.
+For annotated N-linked glycosylation sites, all UniProt FT lines annotated as N-linked whether confirmed, potential or by similarity were retained.
+The positions of these sites were retrieved and the correspond-ing sequences were checked for the NXS/T motif.
+PDB IDs were extracted from UniProtKB flat files.
+As there can be more than one PDB file mapped to any UniProtKB protein, the PDB structure which meets the following criteria was selected: the structure was determined by x-ray diffraction, highest res-olution, and the site of interest is contained within the solved structure.
+Once selected, PDB files were downloaded from PDB and the positions aligned to the PDB sequence and the secondary structure was determined based on the secondary structure assignment in the PDB file.
+Relative solvent accessibility was calculated using the infor-mation in DSSP database [22].
+Based on the value of the rela-tive accessible surface area (ASA), the residues were grouped as buried (0.00.25) or exposed (0.251.0).
+The choice of the threshold was based on previous studies [10,18,27].
+For ma-chine learning using classification and regression tree (CART), we allow CART to automatically select the relative ASA based on the test set.
+MUSCLE was used to perform pairwise align-ment to map UniProtKB protein sequences to PDB [28].
+Pre-diction of the N-terminal targeting sequences was performed using Predotar [29].
+Subcellular location analysis is performed based on UniProtKB keywords.
+For sequences that do not have structural information, secondary structure and surface accessibility of the individual amino acid was predicted using NetSurfp [30].
+P value was calculated using a binomial statistic based on methodology described earlier [31,32].
+P value of 0.05 or less was considered significant.
+Identification of polymorphic glycosylation sites Gain of glycosylation sites were identified by using variation data from UniProtKB FT lines and dbSNP [20,33].
+Entries were first mapped to UniProtKB accessions using the ID map-ping service [34] followed by sequence mapping.
+This resulted in a table with UniProtKB accession numbers and position of variation, the variation and the data source (Table S2).
+Machine learning using CART This method consists of creating a model that predicts the va-lue or a class for a predictive variable based on several input variables.
+The algorithms of this decision tree usually work top-down by choosing a variable at each step that is the next best variable to use in splitting the set of items.
+Best is de-fined by how well the variable splits the set into homogeneous subsets that have the same value of the predictive variable [35].
+As the number of unannotated sites is higher than that of the annotated sites in our analysis of the human proteome (2:3 ra-tio), the training dataset for our prediction model contains 200 experimentally-validated sites (noted as positive) and 300 unannotated sites (noted as negative).
+Training classifiers are Lam PVN et al/ N-linked Glycosylation Sites 103 challenging because the positive and negative datasets are unbalanced with more negative sites than positive sites, which can result in poor classification of the minority class (in this case positive sites).
+One solution is to change the distribution of major and minor classes during training by randomly select-ing a subset of the training data.
+However, this approach does not then take into consideration all available information in the real dataset.
+Therefore, we chose our training dataset to contain original data in a ratio that reflects the natural dataset.
+First, a set of patterns is generated from the training data for each of the glycosylation sites and then used to generate a value for each instance.
+Multiple runs are performed with each instance collecting weights to determine the positive or negative NGS class.
+Each of the runs used dataset comprising randomly chosen positive and negative instances from the cross validation fold.
+The accuracy of the prediction was eval-uated by cross validation (described below).
+The variables that describe the dataset are selected based on the rules derived from this study: (i) ER targeting sequence (ii) sub-cel-lular location, (iii) secondary structure and (iv) exposed/buried.
+To build the classificationmodel, the function rpart in statistical lan-guage R was used.
+Twenty-fold internal cross validation was per-formed to validate the training dataset as described previously [24].
+More specifically, the dataset was partitioned randomly into 20 sections and the training procedure was carried out using 19 of these while the 20th section provides a test dataset.
+This was re-peated20 timesoneachoccasionwithadifferent sectionof thedata acting as the test set.
+The evaluation of the model is based on the number of true positives (TP), false positives (FP), true negatives (TN), false negatives (FN).
+The model was then used to predict NGS in the test dataset.
+Authors contributions RM conceived, designed and coordinated the study and devel-oped a general outline for the algorithm.
+PL developed the spe-cific algorithm, was responsible for software design and implementation and drafted the manuscript.
+TN participated in the design and evaluation of the tool interface.
+KK gener-ated the variation data.
+RG tested the tool and helped design the study.
+VSN and VSK performed the statistical analysis.
+All authors read and approved the final manuscript.
+Competing interests We declare that we have no competing interests.
+Acknowledgements We want to thank Hayley Hamilton of the George Washing-ton University and Nagarajan Pattabiraman of MolBox LLC for critical reading of the manuscript and providing use-ful comments.
+All computations were performed at High-per-formance Integrated Virtual Environment (HIVE) located at The George Washington University and co-developed by Drs.
+Raja Mazumder and Vahan Simonyan.
+Support for this work came from the George Washington University funds to RM.
+RGs participation is supported by RO1 CA135069 and U01 CA168926.
+This project is also supported in part by an appointment to the Research Participation Program at the Center for Biologics Evaluation and Research administered by the Oak Ridge Institute for Science and Education through an interagency agreement between the U.S. Department of Energy and the U.S. Food and Drug Administration.
+Supplementary material Supplementary data associated with this article can be found, in the online version, at http://dx.doi.org/10.1016/ j.gpb.
+2012.11.003.

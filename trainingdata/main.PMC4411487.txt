@@ -1,0 +1,89 @@
+Abstract With the development of high-resolution and high-throughput mass spectrometry (MS) technology, a large quantum of proteomic data is continually being generated.
+Collecting and shar-ing these data are a challenge that requires immense and sustained human effort.
+In this report, we provide a classification of important web resources for MS-based proteomics and present rating of these web resources, based on whether raw data are stored, whether data submission is supported, and whether data analysis pipelines are provided.
+These web resources are important for biologists involved in proteomics research.
+Introduction The advancement of tandem mass spectrometry (MS) has made it possible to identify hundreds of thousands of proteins in MS-based experiments [1].
+With the development of a wide range of methods for spectrometry and data analysis, MS-based proteomics has gained popularity in biomedical research.
+The vastly-expanding research using tandem MS technology is continually generating large amounts of proteomics data.
+Collecting these datasets is undoubtedly becoming crucial to the research community.
+Proteomics data repository contains a proteome with high coverage and suffi-cient data content for statistical analysis, and provides exten-sive observational data for genome annotation projects as well.
+However, maintaining such data repository is challenging due to the diversity and quantum of data as well as varying needs of different users.
+In this report, we describe web data repositories for MS-based proteomics and rate them based on their score against parameters such as storage of raw data, data submission support, and provision of data analysis pipe-lines.
+The main features of these resources are shown in Table 1.
+Based on their focus areas within proteomic research, we classified these resources into 3 categories: general proteomics data repositories, quantitative proteomics data repositories, and proteomics data repositories focusing on protein post-translational modifications (PTMs).
+nces and Chen T et al/ Web Resources for Proteomics 37 General proteomics data repositories Proteomics IDEntifications database The Proteomics IDEntifications (PRIDE) database created by the European Bioinformatics Institute (EBI) is a web resource that collects MS-based proteomics data.
+By the end of 2014, PRIDE accumulated data for 41,835 proteins, 269,806 unique peptides, and about 101 million spectra [2].
+PRIDE is one of the most popular proteomic data repositories that have played an important role in the nascent Human Proteome Project (HPP) [3].
+PeptideAtlas PeptideAtlas is a database that stores various formats of out-put files and metadata from MS-based experiments [1], it also allows users to submit raw data.
+These raw data are periodi-cally analyzed for identification and statistical analysis purposes.
+The results are made available back to the research-ers by web-based presentation systems.
+PeptideAtlas can help plan targeted proteomics experiments, improve genome annotation, and support data mining projects [1].
+Human Proteinpedia Human Proteinpedia is a resource to integrate, store, and share proteomic data [4].
+It is a platform for collecting human pro-teomic data using a distributed annotation system, which allows the research community to contribute protein annota-tions.
+By the end of 2014, Human Proteinpedia has covered 15,231 proteins, 1,960,352 peptides, and about 5 million spec-tra [2].
+It also provides a panorama of the human proteome.
+iProX iProX is an integrated proteome resources center based in China, which is built to support the worldwide sharing of proteomics data.
+Currently, iProX comprises an experiment data submission system and a proteome database.
+The iProX submission system is a public platform that was set up follow-ing the data-sharing policy of the ProteomeXchange consor-tium.
+Raw data and standardized meta-data from proteomics experiments can be collected and shared by using controlled vocabularies to describe the Minimum Information About a Proteomics Experiment (MIAPE).
+Registered users can choose to submit their proteomics datasets to iProX via public or pri-vate modes.
+Datasets submitted via the public mode are openly accessible, whereas private datasets can only be accessed by the authorized users.
+On the other hand, the iProX proteomics database was developed as a structured storage platform for data deposited in the system.
+iProX facilitates data analysis and sharing.
+Up till now, it has covered 46 projects, 190 subprojects, and 6441 data files.
+Tranche Tranche is a data repository targeting storage and sharing of information for proteomics researchers.
+It supports re-use and dissemination of both data and software.
+To reduce data 38 Genomics Proteomics Bioinformatics 13 (2015) 3639 redundancy and achieve load balancing, it adopts peer-to-peer networking.
+It also uses a clientserver model to ensure authentication and reliability.
+A client tool is required to upload and download datasets.
+It has several important features including pre-publication encryption, data pedigree, data integrity, immutability, and versioning.
+Tranche provides interfaces for PRIDE, Human Proteinpedia, and PeptideAtlas to store and disseminate large MS-based data files [5].
+Global Proteome Machine Database The Global Proteome Machine Database (GPMDB) is a resource for collecting diverse tandem mass spectra.
+It also includes peptide and protein identifications that are important for further MS computational research [6].
+GPMDB provides a pipeline for reprocessing raw data submitted by users or imported from other repositories, thus generating XML files that store information about peptide and protein identifica-tion.
+Specifically, identified proteins are organized into separate spreadsheets for each chromosome and mitochondrial DNA.
+By the end of 2014, GPMDB data spans 136,373 proteins, 1,786,698 peptides, and 1020 million spectra [2].
+GPMDB has played an important role in the Chromosome-Centric Human Proteome (C-HPP) Project.
+Model Organism Protein Expression Database The Model Organism Protein Expression Database (MOPED) is a proteomics repository that integrates protein expression information from MS-based proteomics experiments on human specimens and that from model organisms [7].
+It also provides new estimates of protein abundance and concentra-tion, and statistical summaries from experiments.
+Several search and visualization tools are available.
+By the end of 2014, MOPED has developed into a repository containing 17,141 proteins, 250,000 unique peptides, and approximately 15 million spectra [2], providing researchers with information on complex biological processes and thus supporting biomedi-cal discovery.
+Yale Protein Expression Database The Yale Protein Expression Database (YPED) [8] is an inte-grated bioinformatics suite and database for proteomics research, which was significantly improved from the first version released in 2007 [9].
+YPED supports many kinds of data including those from multiple MS instruments, different search engines, and labeled or label-free quantification.
+YPED is a web-accessible and user-friendly resource, designed to meet data management, archival, and analysis needs of high-throughput MS-based proteomics research.
+Quantitative proteomics data repositories PaxDb PaxDb is a meta-database integrating whole-organism data and tissue-resolved data at absolute protein abundance levels for various model organisms.
+It imports quantitative proteomics data sets exclusively from published experiments and from primary proteomics data resources such as PRIDE and PeptideAtlas, and then analyzes the actual spectral count [10].
+By the end of 2014, it included 10,482 proteins; 143,456 peptides, and about 24 million spectra [2].
+The launch of PaxDb brings together disparate aspects of biology for high-throughput analysis and supports global comparative analysis across different organism groups.
+Proteomics data repositories focusing on protein PTMs Phospho.ELM Recent advances in MS techniques have enabled more efficient detection of phosphorylated proteins [9].
+The Phospho.ELM is a web-based resource aimed at storing phosphorylation data imported from research papers and phosphoproteomic MS analyses.
+MS experiments are run on human/mouse cell lines/ tissues.
+Phospho.ELM is used by laboratory scientists and computational biologists to develop public repositories [11].
+To date, this web resource covers 42,914 instances, 299 kinases, 3657 references, 11,224 sequences, and 8698 substrates.
+PhosphoSitePlus PhosphoSitePlus (PSP) is a comprehensive and manually-cu-rated resource designed to collect the structure and function of PTMs, primarily of human and mouse origin.
+PSP supports two kinds of data, including the modified amino acid and sur-rounding sequences as well as upstream and downstream inter-actions with regard to functional regions of the protein [12].
+The majority of PTM sites in PSP were detected using MS. PSP is useful to life scientists and biomedical researchers.
+Currently, PSP spans 50,636 proteins, 1,933,888 MS peptides, 438,576 high-throughput MS sites, 20,262 low-throughput sites, and 18,374 curated papers.
+dbPTM dbPTM is a resource which collects data on experimentally-validated protein PTMs.
+This resource imports PTM sites from public resources such as SwissProt, Phospho.ELM, and O-GLYCBASE [13].
+It also extracts identified peptides with PTMs from research papers.
+dbPTM is an important resource for researchers working on substrate specificity of PTM sites [14].
+To date, dbPTM has covered 153,113 phosphorylation experimental sites, 23,673 ubiquitylation experimental sites, 10,385 acetylation experimental sites, 15,678 N-linked glycosy-lation experimental sites, and 3711 O-linked glycosylation experimental sites.
+Phosphorylation site database The phosphorylation site database (PHOSIDA) is a database with a collection of a large number of high-confidence phos-phorylation sites.
+MS-based proteomics is used to identify these sites in various species [15].
+To date, the database covers 80,062 N-glycosylated, phosphorylated, or acetylated sites.
+Stringent quality criteria based on a very low false positive rate are used to obtain these sites from high-resolution MS data Chen T et al/ Web Resources for Proteomics 39 [16].
+PHOSIDA contains PTM sites from human as well as other species, including bacteria.
+Concluding remarks In this report, we have covered some important proteomics data repositories that are useful for the research community.
+These resources not only provide raw data and identification results, but also support prospective, high-throughput pro-teomics research.
+In addition, they also act as data providers for large-scale genome annotation efforts.
+In the years to come, sharing data and metadata between repositories will become more important.
+Thus, proteomics repositories need to focus on developing an integrated approach to data accessibility between repositories.
+On the other hand, with the advent of new instruments, new sample preparation tech-niques, and new data analysis methods, new forms of data will be continuously generated.
+The amount of data in the repos-itories to be shared at present is just a small fraction of the actually-generated proteomics data that will eventually become available.
+In order to attract more researchers to sub-mit data, the resources will have to standardize the process and simplify the interface for data submission.
+Competing interests The authors declared that there are no competing interests.
+Acknowledgements This research was supported by the Ministry of Science and Technology of China (Grant Nos.
+2013CB910801, 2012AA020201, 2012AA020409, and 2014DFB30010), the National Natural Science Foundation of China (Grant Nos.
+21105121, 21475150, and 61303073) and Beijing Municipal Natural Science Foundation of China (Grant No.
+5122013).

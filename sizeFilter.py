@@ -4,13 +4,9 @@ Created on Sat May 25 19:21:03 2019
 
 @author: Administrator
 """
-
-
 import os
 import re
 
-sum = 0
-n_all = 0
 n = 0
 x = 0
 
@@ -37,7 +33,8 @@ for txtFile in txtFiles:
                 count += eachLetterCount
 
 
-    if textsize >=11 and count <= 900:
+
+    if textsize >=10 and count <= 900:
         x += 1
     else:
         os.remove(os.path.join(folder_out, txtFile))
