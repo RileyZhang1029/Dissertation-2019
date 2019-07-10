@@ -6,25 +6,31 @@ Created on Sat May 25 19:21:03 2019
 """
 
  
-import os 
+import os
+import random
 
 n = 0
-folder_out = os.getcwd() + "/testdata"
+folder_out = os.getcwd() + "/trainingdata"
 files = os.listdir(folder_out)
 txtFiles = [f for f in files if f.endswith(".txt")]
-with open("fileMerged_test.txt", 'w', encoding = "utf8") as f:
+with open("/home/riley/Documents/fromGit/Dissertation-2019/Prodigy/fileMerged_200.txt", 'w', encoding = "utf8") as f:
     os.chdir(folder_out)
 
-    for txtFile in txtFiles:
-        n += 1
+    random.shuffle(txtFiles)
+    print(len(txtFiles))
+
+    for i in range(200):
+        # print(txtFiles[i])
         try:
-            for line in open(txtFile, encoding = 'utf8'):
+            for line in open(txtFiles[i], encoding = 'utf8'):
                 f.writelines(line)
+
         except UnicodeDecodeError:
-            print("error:" + txtFile)
+            print("error:" + txtFiles[i])
             pass
-        if n >= 10:
-            break
+
+  
+
 
   
 
