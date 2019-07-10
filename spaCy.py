@@ -12,7 +12,7 @@ def NER(model, folder_out):
     nlp = spacy.load(model)
     files = os.listdir(folder_out)
     txtFiles = [f for f in files if f.endswith(".txt")]
-    print(len(txtFiles))
+    print("Number of the textfile is: ", len(txtFiles))
     wordlist_all = []
     n = 0
     #    with open("C:/Users/Administrator/Documents/GitHub/Dissertation-2019/pdf_articles/docCleaned.txt", 'w', encoding = "utf8") as f:
@@ -54,15 +54,20 @@ def readHow():
     return sorted(howlist)
 
 
-def accuracy(list1, list2):
+
+
+def precision(list1, list2):
+    list1 = [i.lower() for i in list1]
+    list2 = [i.lower() for i in list2]
     tplist = [i for i in list1 if i in list2]
-    accuracy = len(tplist)/len(list1)
-    return accuracy
+    print(tplist)
+    precision = len(tplist)/len(list1)
+    return precision
 
 
 if __name__ == '__main__':
     
-    model = '/home/riley/Documents/Prodigy/softwares-models'
+    model = '/home/riley/Documents/fromGit/Dissertation-2019/Prodigy/software-model-100'
     folder_out = os.getcwd() + "/testdata"
     word_list_sorted = NER(model, folder_out)
     print(word_list_sorted)
@@ -70,8 +75,11 @@ if __name__ == '__main__':
     howlist = readHow()
     print(howlist)
 
-    accuracy = accuracy(howlist, word_list_sorted)
-    print(accuracy)
+    precision = precision(howlist, word_list_sorted)
+    print("The precision of the model is: ", precision)
+
+
+
 
 
 
