@@ -1,0 +1,76 @@
+Derivation of the chemical potential
+	After including the distribution of nonspecific interactions, Eq. (2a) becomes
+                                     (S1)
+for a protein with,  because it interacts nonspecifically with all kinds of proteins. To study the sequestration of proteins to nonspecific interaction, we define
+.                                             (S2)
+For instance, indicates that due to nonspecific interactions the protein spends about 10 times longer looking for a specific partner. Let us ignore the specific interactions for the moment and consider it later, then Eq. (S1) can be written as
+.                (S3)
+Define chemical potential  by
+,                         (S4)
+then we have
+,                                                 (S5)
+or in other words . Proteins with  spend most of their time in the monomeric (unbound) form, while those with  are mostly bound in nonspecific pairs. The chemical potential  is the collective property of all proteins in a given intra-cellular compartment under given conditions. According to Eq. (S5), the fraction  of proteins of type i tied up in nonspecific complexes is described by the Fermi-Dirac distribution. After plugging the Eq. (S5) into the Eq. (S4) one obtains a self-consistency condition defining the value:
+.                                    (S6)
+Although this equation cannot be solved analytically, the successive iterations quickly converge to a unique numerical solution for .  We define  as the effective fraction of proteins in the system that could participate in nonspecific interactions, and use  for calculation. As will be discussed below, more reasonable choices of  result in an insignificant change.
+Specific interactions involving sticky proteins must be stronger
+	Specific interactions should be strong enough to ensure that the concentration of a specific complex remains dominant. This requirement imposes additional constraints on sticky proteins with . The specific binding interactions ii’ typically involve proteins with similar concentrations or . To find the upper bound on the specific binding energy  of such interactions we combine the Eqs. (2b) and (S5) to get
+                                     (S7a)
+.                           (S7b)
+and find the solution
+                        (S8)
+The weakest specific interaction is therefore a function of shown in Fig. S1. This result has several clear implications. First of all, when nonspecific bindings are negligible for proteins with , the specific interaction must be stronger than , otherwise most proteins would be in monomeric form instead of forming specific complexes.  For proteins with , on the other hand, the specific bindings have to be stronger in order to compete with nonspecific bindings. At low  the maximum specific interaction approaches , because single proteins scale as  in Eq. (S7b), and Eq. (S7a) gives .
+correlation is negligibly weak
+	In Eq. (11) we implicitly assume the absence of correlation between the physical properties of a protein, i.e. its surface hydrophobicity  and its concentration Ci.  Without this assumption the Eq. (11)  becomes
+.       (S9)
+Empirically we find the Ci-Ei correlation (or rather Ci-Pi correlation, where Pi is the fraction of hydrophobic AA on protein’s surface) to be statistically significant (P-value ~1e-3) yet rather weak: the Spearman rank correlation or Pearson linear correlation between ln(Ci/C0) and Pi are both around 0.13-0.14 (Fig. S2). The concentration data are taken from Refs. (Belle et al., 2006; Ghaemmaghami et al., 2003). The data on surface hydrophobicity come from Ref. (Deeds et al., 2006), which quantified the Pi for some of the yeast proteins (the ones with known or homologous structure) used in the Uetz and Ito high-throughput Y2H experiments (Ito et al., 2001; Uetz et al., 2000). Since throughout this study we assume that  linearly scales with the fraction of hydrophobic proteins Pi,
+,                                                    (S10)
+we can use the  values in the place of  to study the correlation. The solid line shows the best fit to linear relationship between  and Pi
+                                      (S11)
+There are 588 proteins in the overlap between the concentration data and the surface hydrophobicity data. These data points are representative in the distributions of concentration and hydrophobicity, except an extremely high data point with Pi=0.625, which is expected to be rare: >6 standard deviations of the nearly Gaussian Pi  distribution. The possible reason of this abnormally large Pi value is that it might interact with several proteins simultaneously. 
+	We study the effect of the correlation on the upper limit of protein diversity m using these data. We try the calculation by plugging the empirically detected correlation (Eq. (S11)) into the Eq. (S9) and find the resulting  is only slightly different from the result in the absence of correlation. 
+Enhanced nonspecific interactions due to specific complexes
+	In Eq. (S6)  is the effective fraction of proteins in the system that could participate in nonspecific interactions. We have , because we assumed above that proteins in specific complexes cannot participate in nonspecific interactions. But in fact proteins may have more than one “surface side” (Kim et al., 2006) , and could use other, usually less hydrophobic surface sides for nonspecific interactions.
+	Let us evaluate this effect of enhanced nonspecific PPIs due to specific
+complexes. By comparing the histogram of Es and  in Fig. 4, we find that the concentrations of about half of all proteins are below the median specific binding constant Ks. Therefore the fraction of proteins not in specific complexes is not very small. We estimate that about 10-40% of proteins are not in specific complexes, and including the contribution of proteins in specific complexes could be between 0.3 and 0.7 in the cytoplasm. In what follows we assume it to be above 25%.
+	In Fig. S3 we calculate the average ratio [iR]/[i] for all proteins in the system, defined in Eq. (12), as a function of . While the ratio decreases as  becomes smaller, the qualitative result that 15--25% of all proteins are wasted is still true for .
+	We assume that the  values for all the m types of proteins have the Gaussian distribution in Eq. (6). The lowest among the m>>1 random variables,  follows the extreme value distribution, and its typical value is determined by the
+.                                               (S12)
+In other words there is one among  m>>1 random numbers with value   . Thus the Eq. (S12) provides an estimate of  of the protein with highest surface hydrophobicity. For this protein we also calculated the ratio [iR]/[i] as a function of . This result is shown in Fig. S4. The ratio goes down from ~60 to ~26 when  changes from 1 to 0.3. This does not change our qualitative observation that an unlimited increase in the overall protein concentration  could result in a significant negative impact on temporal efficiency of all biochemical processes in the cell.
+
+
+References
+
+Belle, A., Tanay, A., Bitincka, L., Shamir, R., and O'Shea, E.K. (2006) Quantification of protein half-lives in the budding yeast proteome. Proc Natl Acad Sci U S A 103: 13004-13009.
+Deeds, E.J., Ashenberg, O., and Shakhnovich, E.I. (2006) A simple physical model for scaling in protein-protein interaction networks. Proc Natl Acad Sci U S A 103: 311-316.
+Ghaemmaghami, S., Huh, W.K., Bower, K., Howson, R.W., Belle, A., Dephoure, N., O'Shea, E.K., and Weissman, J.S. (2003) Global analysis of protein expression in yeast. Nature 425: 737-741.
+Ito, T., Chiba, T., Ozawa, R., Yoshida, M., Hattori, M., and Sakaki, Y. (2001) A comprehensive two-hybrid analysis to explore the yeast protein interactome. Proc Natl Acad Sci U S A 98: 4569-4574.
+Kim, P.M., Lu, L.J., Xia, Y., and Gerstein, M.B. (2006) Relating three-dimensional structures to protein networks provides evolutionary insights. Science 314: 1938-1941.
+Kumar, M.D., and Gromiha, M.M. (2006) PINT: Protein-protein Interactions Thermodynamic Database. Nucleic Acids Res 34: D195-198.
+Uetz, P., Giot, L., Cagney, G., Mansfield, T.A., Judson, R.S., Knight, J.R., Lockshon, D., Narayan, V., Srinivasan, M., Pochart, P., Qureshi-Emili, A., Li, Y., Godwin, B., Conover, D., Kalbfleisch, T., Vijayadamodar, G., Yang, M., Johnston, M., Fields, S., and Rothberg, J.M. (2000) A comprehensive analysis of protein-protein interactions in Saccharomyces cerevisiae. Nature 403: 623-627.
+
+
+
+
+
+
+
+
+
+Figure Legends
+Figure S1.  The maximum specific binding energy Es depends on the protein’s concentration  as well as its propensity Ei toward forming nonspecific interactions. For proteins in the green region one could guarantee that more than half of their concentration is tied up in specific interactions: .
+Figure S2. The scatter plot of the logarithm of protein concentrations Ci  vs the fraction Pi  of hydrophobic surface residues. Points correspond to 588 individual types of yeast proteins for which both parameters are known. The median value of ln Ci slightly decreases as Pi increases, and the solid line shows the best linear fit:   (Eq. (S11)). The correlation is statistically significant (P-value<1e-3) yet weak.
+Figure S3  The average value of the ratio [iR]/([i]+ [iR]) as a function of  the fraction (see the text for definitions).
+Figure S4  The highest value of the ratio [iR]/[i] as a function of .
+
+Table S1 The data on specific binding energies curated from the PINT database (Kumar and Gromiha, 2006) to include a single binding energy per each pair of interacting wild type proteins.
+Figure S1
+
+
+Figure S2
+
+Figure S3
+
+Figure S4
+
+
+
