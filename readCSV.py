@@ -1,58 +1,44 @@
-# -*- coding: utf-8 -*-
-"""
-Created on Mon Mar 25 23:48:37 2019
-
-@author: Administrator
-"""
-import os
-import spacy
 import csv
+import os
+import re
+
+csvFile = open("results_each_article.csv", "r")
+reader = csv.reader(csvFile)
+articleList = []
+articleDict = {}
+st_men_all = []
+
+for item in reader:
+    if reader.line_num == 1:
+        continue
+    articleList.append(item[0])
+    st_men_all.append(item[2])
+    articleDict.setdefault(item[0].lstrip("bioj:a"), []).append(item[2])
+csvFile.close()
+
+print("Howison length", len(set(articleList)))
+
+print(len(st_men_all))
+st_men_all = sorted(set(st_men_all))
+print(len(st_men_all))
+print(articleDict)
 
 
-def readHow():
-    howlist = []
-    with open('/home/riley/Documents/Github/Dissertation-2019/Howsresults.txt', "r", encoding='utf-8') as f:
-        lines = f.readlines()
-        for line in lines:
-            howlist.append(line.strip())
-    return sorted(howlist)
-
-
-
-def NER(folder_out):
-    files = os.listdir(folder_out)
-    txtFiles = [f for f in files if f.endswith(".txt")]
-    howlist = readHow()
-    wordlist = []
-    with open('cor_results.txt', "w", encoding='utf-8') as f:
-        for txtFile in txtFiles:
-            os.chdir(folder_out)
+folder_out = os.getcwd() + "/test"
+files = os.listdir(folder_out)
+txtFiles = [f for f in files if f.endswith(".txt")]
+txtFiles_nosupple = [f for f in txtFiles if "Supplemen" not in f]
+print("Text length", len(set(txtFiles_nosupple)))
+os.chdir(folder_out)
+for key, value in articleDict.items():
+    for txtFile in txtFiles:
+        flag = True
+        if key == txtFile.strip(".txt"):
             document = open(txtFile, "r", encoding='utf-8').read()
-            for word in howlist:
-                if document.find(word) != -1:
-                    wordlist.append(word)
-                    f.write(word + ": " + txtFile + "\n")
-    print(len(set(wordlist)))
-
-if __name__ == '__main__':
-
-    folder_out = os.getcwd() + "/test"
-    NER(folder_out)
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+            for v in value:
+                if not document.lower().find(v.lower()):
+                    flag = False
+            print(txtFile, flag)
 
 
 

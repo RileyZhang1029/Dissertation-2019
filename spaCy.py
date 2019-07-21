@@ -10,22 +10,23 @@ import csv
 
 
 def readCSV():
-    csvFile = open("results_each_article.csv", "r")
+    csvFile = open("/home/riley/Documents/Github/Dissertation-2019/results_each_article.csv", "r")
     reader = csv.reader(csvFile)
     articleList = []
     articleDict = {}
+    st_men_all = []
 
     for item in reader:
         if reader.line_num == 1:
             continue
         articleList.append(item[0])
+        st_men_all.append(item[2])
         articleDict.setdefault(item[0].lstrip("bioj:a"), []).append(item[2])
     csvFile.close()
 
-    for k, v in articleDict.items():
-        articleDict[k] = sorted(set(v))
+    st_men_all = sorted(set(st_men_all))
 
-    return articleDict
+    return (articleDict, st_men_all)
 
 
 def NER(model, folder_out):
@@ -38,7 +39,8 @@ def NER(model, folder_out):
     print(len(txtFiles_nosupple))
     wordlist_all = []
     n = 0
-    articleDict = readCSV()
+    articleDict = readCSV()[0]
+
     with open('NER_results.txt', "w", encoding='utf-8') as f:
         for txt_nosupple in txtFiles_nosupple:
             f.write(txt_nosupple.rstrip(".txt") + ":\n")
@@ -88,29 +90,44 @@ def readHow():
 
 
 
-def precision(list1, list2):
+def PRF(list1, list2):
     list1 = [i.lower() for i in list1]
     list2 = [i.lower() for i in list2]
     tplist = [i for i in list1 if i in list2]
+    tplist = sorted(set(tplist))
     print("Common software mentions: ", tplist)
     print("Number of common software mentions: ", len(tplist))
     precision = len(tplist)/len(list2)
+    recall = len(tplist)/len(list1)
+    fscore = 2*precision*recall/(precision+recall)
 
-    return precision
+    return [precision,recall,fscore]
 
 
 if __name__ == '__main__':
 
-    model = '/home/riley/Documents/Github/Dissertation-2019/Prodigy/software-model'
+    model = '/home/riley/Documents/Github/models/software-model-395'
     folder_out = os.getcwd() + "/test"
     word_list_sorted = NER(model, folder_out)
     print(word_list_sorted)
 
     howlist = readHow()
-    print(howlist)
+    # print(howlist)
 
-    precision = precision(howlist, word_list_sorted)
+    st_men_all = readCSV()[1]
+    print(st_men_all)
+
+    PRF = PRF(st_men_all, word_list_sorted)
+    precision = PRF[0]
     print("The precision of the model is: ", precision)
+
+    recall = PRF[1]
+    print("The recall of the model is: ", recall)
+
+    fscore = PRF[2]
+    print("The fscore of the model is: ", fscore)
+
+
 
 
 
