@@ -1,0 +1,236 @@
+Abstract Myeloid leukemias are highly diverse diseases and have been shown to be associated with microRNA (miRNA) expression aberrations.
+The present study involved an in-depth miRNome analysis of two human acute myeloid leukemia (AML) cell lines, HL-60 and THP-1, and one human chronic myeloid leukemia (CML) cell line, K562, via massively parallel signature sequencing.
+mRNA expression profiles of these cell lines that were established previously in our lab facilitated an integrative analysis of miRNA and mRNA expression patterns.
+miRNA expression profiling followed by differential expression analysis and target prediction suggested numerous miRNA signatures in AML and CML cell lines.
+Some miRNAs may act as either tumor suppressors or oncomiRs in AML and CML by targeting key genes in AML and CML pathways.
+Expression patterns of cell type-specific miRNAs could partially reflect the characteristics of K562, HL-60 and THP-1 cell lines, such as actin filament-based processes, responsiveness to stimulus and phagocytic activity.
+miRNAs may also regulate myeloid differentiation, since they usually suppress differentiation regulators.
+Our study provides a resource to further investigate the employment of miRNAs in human leukemia subtyping, leukemogenesis and myeloid development.
+In addition, the distinctive miRNA signatures may be potential candidates for the clinical diagnosis, prognosis and treatment of myeloid leukemias.
+Introduction Myeloid development is an important component of hematopoiesis, which involves a step-wise progression characterized by sequential regulator expression [1].
+Mutation or dysregulation of those regulators may result in a failure to induce differentiation during myeloid development, thereby leading to myeloid leukemias.
+Myeloid leukemias, including acute hosting 80 Genomics Proteomics Bioinformatics 12 (2014) 7991 myeloid leukemia (AML) and chronic myeloid leukemia (CML), are clonal bone marrow diseases characterized by the pathological proliferation of abnormal white blood cells.
+A large number of studies have addressed myeloid leukemia classification, diagnosis, pathogenesis and therapy, and have investigated chromosomal abnormalities, gene mutations and epigenetic alterations such as DNA methylation and histone modifications [2].
+Leukemia cell lines, such as the CML cell line K562 [3], the acute promyelocytic leukemia (APL) cell line HL-60 [4] and the acute monocytic leukemia (AMoL) cell line THP-1 [5], have been widely used in AML and CML studies, owing to their distinct genetic backgrounds, abundant epigenetic data available and readily-identifiable biological functions.
+The past decade witnessed an explosion of knowledge regarding microRNAs (miRNAs) and their roles in both normal physiological and disease contexts.
+miRNAs are small non-coding RNAs 1925 nucleotides in length, which can inhibit the translation or induce the degradation of mRNA, usually by binding to the 30-untranslated regions (UTRs) of target mRNAs [6].
+Since their initial observation, 1871 precursors and 2794 mature human miRNAs have been registered in miRBase (GRCh37.p5, v20) [7].
+miRNA expression profiling is gaining popularity because miRNA signatures have been associated with the diagnosis and prognosis of diseases such as leukemias [8,9].
+Notably, stable miRNAs have been reproducibly identified in serum or plasma, and the unique expression patterns of serum or plasma miRNAs can be used as biomarkers for various diseases [10,11].
+miRNAs have been profiled using real-time quantitative PCR (RT-qPCR), highthroughput microarray and sequencing technologies [12].
+Given its increasing availability and decreasing costs, highthroughput sequencing has emerged as an attractive approach for global miRNA analysis that provides advantages over the other two aforementioned technologies.
+These include a high accuracy in distinguishing miRNAs with very similar sequences and isomiRs, a high sensitivity for detecting novel low-abundance miRNAs, and a wide expression range for analyzing the expression of all annotated miRNAs [13,14].
+Accumulating evidence indicates that miRNAs play crucial roles in myeloid development and leukemogenesis.
+For example, the hematopoietic lineage-specific miR-223 enhances retinoic acid-induced granulocyte differentiation by targeting NFIA encoding nuclear factor I/A [15] but inhibits erythroid differentiation by downregulating LMO2 encoding LIM domain only 2 [16].
+In addition, the miR-17-92 cluster has been characterized as an oncomiR in B-cell lymphomas [17].
+Conversely, miR-29b was shown to function as a tumor suppressor in AML by targeting several DNA methyltransferases, and the ectopic expression of miR-29b was shown to induce the reexpression of tumor suppressor genes [18].
+Large-scale miRNA expression profiling has been used to analyze the roles of miRNAs in the context of imatinib treatment of CML [19] or the distinction between cytogenetic and molecular AML subtypes [20,21].
+We previously examined K562, HL-60 and THP-1 cell lines using mRNA transcriptomic analysis and revealed the differences in pathways between CML and AML, the unique functional characteristics of myeloid cells and the distinct gene expression patterns throughout myeloid development [22].
+In this study, deep sequencing was used to distinguish AMLs and CMLs by comparing the miRNomes between the AML lines HL-60 and THP-1 and the CML line K562 and to elucidate the differences in miRNA expression at various differentiation stages.
+We also revealed functional miRNAs that either targeted AML and CML pathways, induced unique functional characteristics in myeloid cells or regulated myeloid development.
+The miRNA signatures identified in our study provide a resource for clinical applications of miRNAs in the context of myeloid leukemias.
+Results Small RNA expression profiling in myeloid leukemia cell lines We applied massively parallel sequencing for an in-depth analysis of the miRNomes of three myeloid leukemia cell lines including K562 (CML), HL-60 (APL) and THP-1 (AMoL).
+Small RNA (sRNA) fractions isolated from each sample were size-selected using electrophoresis and sequenced on the Illumina GA IIx platform.
+The generated sRNA sequencing data were then analyzed using the deep-sequencing sRNA analysis pipeline (DSAP) web server [23].
+As shown in Table 1, 2226 million high-quality raw reads were generated from the three samples, and the reliability of each sample exceeded 99.8%.
+The miRNA reads represented approximately 54% and 58% of the total reads in HL-60 and THP-1, respectively, suggesting that miRNAs are the predominant sRNA species in these cell lines.
+However, only approximately 14% of the total reads in K562 were derived from miRNAs, a finding that was also noted in a previous study [24].
+Further, 474, 455 and 413 miRNAs in K562, HL-60 and THP-1 cell lines were matched in miRBase (Version 16 on the DSAP server), respectively.
+A total of 621 known miRNAs were detected in at least one of the three sequenced samples.
+miRNA expression patterns The absolute read counts were transformed into transcript abundances by normalizing the read counts of each miRNA using the cloning frequency (CF) in each library [14].
+To test the reliability of miRNA sequencing, we compared the CF values from sequencing with the expression intensities obtained from the RT-qPCR analysis of 7 different miRNAs including let-7i, miR-10a, miR-143, miR-148a, miR-16, miR-17 and miR-181a.
+Our results showed that the two sets of miRNA expression agreed with each other well (Figure 1A; R2 = 0.6579, P = 8.7 107), thus suggesting that the CF can be used as an abundance indicator.
+In addition, the results also confirmed the integrity and relevance of the samples used in this study.
+A wide range of expression (CF values 0.0000135) was observed in the sequencing data (Figure 1B).
+The majority of the miRNAs were expressed at low levels; approximately 16%32%of the miRNAs in each sample exhibited a low abundance (CF< 0.0001).
+However, expression of a few miRNAs accounted for the majority of the total expression.
+For example, expression of 12 highly-expressed miRNAs accounted for 90% of the total expression in K562, whereas 90% of the total expression in HL-60 and THP-1 was attributed to the expression of 25 and 17 highly-expressed miRNAs, respectively (Figure 1C).
+Overall, 33 miRNAs were highly expressed in at least one of the three leukemia cell lines (Table S1).
+Table 1 Small RNA transcriptome mapping summary K562 HL-60 THP-1 No.
+of total reads 26,035,998 25,923,770 22,060,786 Percentage of reliable reads (%) 99.88 99.86 99.99 No.
+of total reads matched to Rfam 12,205,116 3,578,408 1,436,685 No.
+of matched crank in Rfam 799 685 552 No.
+of total reads matched to miRBase 2,696,327 9,767,200 8,609,820 Percentage of total reads matched to miRBase (%)* 14.09 53.82 57.85 No.
+of matched miRNAs in miRBase 474 455 413 No.
+of matched miRNAs in miRBase (CF P 0.1%) 238 197 160 No.
+of predicted novel miRNAs 409 894 1159 No.
+of novel miRNAs (Expr.
+P 100) 78 76 75 Note: Rfam is a transcribed sequence library of non-coding RNAs and the version 9.1 was used; miRBase is a miRNA sequence database and version 16 was used.
+* indicates the proportion of total reads of known miRNAs in that of total small RNAs.
+CF stands for clone frequency and Expr indicates the expression value of miRNAs generated from miRDeep*.
+C 10 20 30 40 50 60 70 80 90 100 0 20 40 60 80 100 120 90% Number of top expressed miRNAs C um ul at iv e pe rc en ta ge (% )  K562 HL-60 THP-1 0 50 100 150 200 <4 4~3 3~2 2~1 1~0 0~1 1~2 N um be r of m iR N As Cloning frequency (log10) A B R = 0.7082 P = 8.7 x 10-7-6-3 0 3 6-20-15-10-5 Expression intensity by qRT-PCR (log2) C lo ni ng fr eq ue nc y (lo g 2 ) K562 HL-60 THP-1 Figure 1 miRNA expression patterns in the three cell lines A.
+Correlation between RT-qPCR and small RNA-seq (sRNA-seq) for selected miRNAs in HL-60, K562 and THP1 cells lines.
+The selected miRNAs include hsa-let-7i, hsa-miR-10a, hsa-miR-143, hsa-miR-148a, hsa-miR-16, hsa-miR-17 and hsa-miR-181a.
+The X-axis and Y-axis represents the log transformed average of 2DCt and the log transformed cloning frequency (CF), respectively.
+B.
+The distribution of miRNA expression levels with respect to the number of miRNAs.
+C. Cumulative miRNA expression percentages.
+Xiong Q et al/ miRNomes of AML and CML Cell Lines 81 Among them, miR-191 and miR-25 were highly expressed in all three cell lines and their expression was upregulated relative to that in normal cells [24].
+These data indicated that these miRNAs may share a common role in leukemogenesis or leukemic progression.
+miR-191 and miR-25 displayed elevated expression and functioned as oncogenes in AML and several solid cancers [8,20,2427].
+Eight miRNAs, including miR-486-5p, miR-146b-5p, miR-127-3p, miR-20a, miR-21*, miR-10a, miR-22 and miR-30e, were highly expressed only in K562, whereas 6 members of the let-7 family (let-7f, let-7a, let-7g, let-7d, let-7b and let-7i) and 9 other miRNAs (miR-103-as, miR-222, miR-181a, miR-221, miR-320a, miR-140-3p, miR-185, miR-423-5p and miR-29a) were highly expressed in both AML cell lines.
+Besides miR-185 and miR-29a in HL-60, the remaining 13 miRNAs that were highly expressed in both AML cell lines had also been previously reported as high-abundance miRNAs in HL-60 and THP-1 [20].
+Interestingly, 18 of the high-abundance miRNAs in the AML lines were identified in the AML miRNA network [28].
+THP-1 K562 HL-60 110 6 9 35 25 27 95 Figure 2 Distribution of miRNAs expressed (CF P 0.1%) in the three cell lines The overlapping regions show the numbers of miRNAs expressed in two or three cell lines.
+82 Genomics Proteomics Bioinformatics 12 (2014) 7991 Since numerous low-abundance miRNAs were observed in these samples, we decided to primarily focus on miRNAs with CFs of >0.1%.
+Using this cutoff, >99.9% of all miRNA reads from each sample were included for a further analysis.
+A total of 307 miRNAs had a CF of >0.1% in at least one cell line, of which 238, 197 and 160 miRNAs were expressed in K562, HL-60 and THP-1, respectively (Figure 2).
+The identification of novel miRNAs is a unique advantage of high-throughput sequencing.
+We predicted novel miRNAs using miRDeep*, an improved miRDeep pipeline [29].
+A total of 409, 894 and 1159 novel miRNAs were predicted in the three samples, of which only 19.1% (K562), 8.5% (HL-60) and 6.5% (THP-1) had expression levels >0.001.
+Notably, several novel miRNAs were predicted with a high level of confidence (miRDeep* score of >10) in the three cell lines (Table 2), some of which were highly expressed and may be potential candidates for future analyses.
+These results suggest that high-throughput sRNA sequencing is a good approach for the detection of low-abundance miRNAs and novel miRNAs due to the wide detection range.
+Distinctive miRNA signatures in myeloid cells A total of 110 miRNAs were expressed in all three cell lines, whereas 95, 25 and 9 miRNAs were uniquely expressed in K562, HL-60 and THP-1, respectively (Figure 2).
+We initially analyzed these uniquely-expressed miRNAs to identify the cell type-related miRNAs.
+The 95 K562-specific miRNAs included three highlyexpressed miRNAs (miR-486-5p, miR-127-3p and miR-10a) in K562 as well as several erythropoiesis-related miRNAs such Table 2 Novel miRNAs with miRDeep* score >10 in all three myeloi Cell line Score Expression of miRNA Locus of miR K562 2739.64 2819 Chr12: 1045 2640.97 2819 Chr6: 16582 65.81 119 Chr2: 15508 65.63 119 Chr1: 17431 65.09 119 Chr12: 1057 26.82 193 Chr6: 38533 HL-60 9118.02 1,8023 Chr6: 38533 286.2 275 Chr3: 15090 257.36 275 Chr10: 3279 184.65 273 Chr8: 32114 91.16 152 Chr16: 2421 THP-1 979.41 1863 Chr6: 10690 Note: Score was generated using miRDeep*, which indicates the confidenc as miR-451, miR-144, miR-376a and miR-126/126* [3033].
+The putative target genes of these K562-specific miRNAs were predicted using miRecords [34] and filtered to only include mRNAs upregulated in both HL-60 and THP-1 according to our previous mRNA-seq data [22].
+Functional enrichment analysis revealed that the targets were significantly involved in leukocyte activation, actin filament-based processes and programmed cell death (see Figure S1A for the miRNAs and targets involved in these processes).
+miR-486-5p and miR127-3p were expressed at extremely high levels in K562 cells.
+The former participated in leukocyte activation and programmed cell death by targeting FOXP1 encoding forkhead box P1 and UNC5C encoding unc-5 homolog C, and the latter functions to regulate genes involved in apoptosis.
+Among the HL-60-specific miRNAs, the high expression of miR-124 and miR-326 had been previously confirmed in AML samples [35,36], and the targets of miR-124, miR-324-3p, miR326 and miR-573 mainly participate in biological processes such as response to stimulus, regulation of endocytosis and regulation of cellular component biogenesis (Figure S1B).
+These functions are closely related to the phagocytic activity and response to chemotactic stimuli of HL-60 cells [37].
+miR-124 may be a potential regulator of the endocytosis function of HL-60 acting through its validated target LDLRAP1 encoding low density lipoprotein receptor adaptor protein 1 [38] and putative target EPN2 encoding epsin 2. miR-503 has been experimentally validated to target CCND1 encoding cyclin D1 [39], which is involved in responses to inorganic substances.
+miR-573 targeted 5 genes, 4 of which are involved in responses to inorganic substances, suggesting its potential role as a regulator of HL-60 cell responsiveness.
+THP-1-specific-miRNAs were expressed at low levels.
+The targets of four THP-1-specific miRNAs, miR-455, miR-2195p, miR-449a and miR-455-5p, were enriched in the functions of mesodermal development, intracellular receptor-mediated signaling pathways, negative cell growth regulation and positive apoptosis regulation (Figure S1C).
+These four miRNAs were also responsible for the phagocytic activity of THP-1 cells [5].
+In addition, monocytes have been reported to play important roles in development and homeostasis, partially by removing apoptotic cells and scavenging toxic compounds [40].
+In particular, miR-219-5p and miR-449a may target 56 genes associated with these functions.
+In summary, these uniquelyexpressed miRNAs are cell function-related and may reflect the unique characteristics of the corresponding cell lines.
+d leukemia cell lines NA Sequence of miRNA 19004104519108 (+) AUACCACCCUGAACGCGCCCGAU 3048165823145 (+) AUACCACCCUGAACGCGCCCGAU 8243155088322 (+) AAAAACUGUGAUUACUUUUGCA 7410174317489 (+) AAAAACUGUGAUUACUUUUGCA 21687105721766 (+) AAAAACUGUGAUUACUUUUGCA 74638533837 (+) UUCUCACUACUGCACUUGACUA 74738533838 (+) UUCUCACUACUGCACUUGACUA 5876150905984 (+) GUCUACGGCCAUACCACCCUGAA 63328075 () GUCUACGGCCAUACCACCCUGAA 00232114095 (+) GUCUACGGCCAUACCACCCUGAA 445924214541 (+) CUGCAGACUCGACCUCCCAGGC 2693106902809 (+) CUCCCACUGCUUCACUUGACUA e of the novel miRNA prediction.
+Xiong Q et al/ miRNomes of AML and CML Cell Lines 83 Differentially-expressed miRNAs between CML and AML cell lines The three representative cell lines were derived from patients with myeloid leukemia and thus can reflect clinical features of myeloid leukemia to some extent.
+To study the underlying patterns of miRNA expression and the relationship between the samples, we applied a hierarchical clustering method that incorporated all 307 miRNAs.
+This analysis showed that the expression patterns of HL-60 and THP-1 miRNAs were more similar to each other than to those of K562 miRNAs (Figure 3A), which may be attributed to the fact that K562 is a CML cell line whereas HL-60 and THP-1 are AML cell lines.
+We also analyzed the differentially-expressed miRNAs on the basis of statistical analyses and fold changes described in the Materials and methods section.
+A pair-wise comparison of miRNA expression revealed larger differences between K562 and HL-60 or THP-1 than between HL-60 and THP-1 (Figure 3B).
+Therefore, there is an evident difference in miRNA profiles between the CML cell line (K562) and the AML cell lines (HL-60 and THP-1).
+Expression of 126 miRNAs including 93 K562-specific ones was upregulated in the CML line, whereas expression of 83 miRNAs was upregulated in both AML cell lines (Figure 3C).
+Previous studies have comprehensively shown the relevance of miRNAs with respect to cytogenetic alterations in AML cell lines [20,21]; therefore, we did not intend to address this topic in HL-60 and THP-1.
+CML is characterized by the Philadelphia chromosome (Ph) [3], which results from the reciprocal translocation of chromosomes 9 and 22 [t(9;22)(q34;q11)] and leads to the formation of the BCR-ABL1 oncoprotein [41].
+During the blast crisis phase, CML is also associated with the expression of the AML-1/ K 56 2 TH P1 1 0 0.5 1 Row ZScore Color key H L60 A Figure 3 Differences in miRNA expression between acute and chronic A. Hierarchical clustering of miRNA expression profiles for myeloid leu the myeloid leukemia cell lines.
+C. Differences in miRNA expression numbers of differentially-expressed miRNAs in the HL-60 and THP-1 EVI-1 and NUP98/HOXA9 fusion proteins resulting from t(3;21)(q26;q22) and t(7;11)(p15;p15) translocations, respectively [3,42].
+Notably, miR-126, which is mapped to 9q34, was uniquely expressed in K562 cells.
+Expression of the miR-301b-130b cluster transcribed from 22q11 and miR-148a and miR-196b transcribed from 7p15 was upregulated in K562 cells; in contrast, expression of miR-199b-3p transcribed from 9q34 and miR-185 transcribed from 22q11 was downregulated in K562 cells.
+The genomic locations and expression patterns of these miRNAs suggested their potential roles in CML.
+In K562, the upregulated miRNAs included four members of the polycistronic miR-17-92 cluster that may be involved in CML pathogenesis [43].
+miR-10a, miR-125, miR-151, miR199a-5p, miR-96, miR-451, miR-183, miR-134, miR-126, miR-144 and miR-224 have been detected in CML patients [44,45].
+In AML lines, the upregulated miRNAs included 6 members of the let-7 family, 3 miR-181s and 21 miRNAs that have been previously described in AML miRNA expression profiles or networks [28,35].
+Pathway analysis (Table 3) revealed that the targets of upregulated miRNAs in K562 were enriched in processes upregulated in AML cells (enriched from upregulated genes in AML vs. CML), such as chemokine signaling pathway, adipocytokine signaling pathway, neurotrophin signaling pathway and acute myeloid leukemia pathway; conversely, the targets of the upregulated miRNAs in AML lines were enriched in CML-upregulated processes (enriched from upregulated genes in CML vs. AML), such as adherens junction, TGF-b signaling pathway, p53 signaling pathway.
+Most of these function-enriched miRNAs were also upregulated in HL-60 or K562 cells compared with normal cells [24].
+Moreover, 6 let-7 family members were the most upregulated miRNAs in AML cell lines.
+Jak-STAT signaling pathway activation was reportedly upregulated in CML [22], Upregulated K562 > HL-60 K562 < HL-60 K562 > THP-1 K562 < THP-1 HL-60 > THP-1 HL-60 < THP-1 132 124 161 97 119 37 No.
+of miRNAs Downregulated 41 83 14 6 126 35 HL-60 vs. K562 THP-1 vs. K562 B C myeloid leukemia cell lines kemia cell lines.
+B. Pair-wise comparison of miRNA expression in between the chronic and acute myeloid leukemia cell lines.
+The cell lines compared with the K562 cell line are shown.
+Table 3 Pathway analysis of miRNAs up-regulated in CML or AML Pathway No.
+P value Targets of CML up-regulated miRNAs Adipocytokine signaling pathway 11 0.000591 Chemokine signaling pathway 19 0.00127 Neurotrophin signaling pathway 14 0.002837 Notch signaling pathway 8 0.003989 Pathways in cancer 25 0.008548 Axon guidance 13 0.010503 Toll-like receptor signaling pathway 11 0.012503 Acute myeloid leukemia 8 0.012698 Apoptosis 10 0.013341 Dorso-ventral axis formation 5 0.022053 Regulation of actin cytoskeleton 17 0.025238 Small cell lung cancer 9 0.029938 PPAR signaling pathway 8 0.030441 Leukocyte transendothelial migration 11 0.033357 Pancreatic cancer 8 0.037258 Chronic myeloid leukemia 8 0.045012 B cell receptor signaling pathway 8 0.045012 Adherens junction 8 0.050719 Natural killer cell mediated cytotoxicity 11 0.065819 Focal adhesion 14 0.099884 Targets of AML up-regulated miRNAs Adherens junction 18 5.57E06 Pathways in cancer 38 5.08E04 TGF-beta signaling pathway 15 0.001227 T cell receptor signaling pathway 17 0.001405 Regulation of actin cytoskeleton 25 0.00566 Colorectal cancer 13 0.007274 Acute myeloid leukemia 10 0.011324 Tight junction 17 0.012104 Prostate cancer 12 0.027433 p53 signaling pathway 10 0.029809 SNARE interactions in vesicular transport 7 0.033378 Wnt signaling pathway 17 0.033709 Melanoma 10 0.038073 Pancreatic cancer 10 0.041144 Endometrial cancer 8 0.04834 Bladder cancer 7 0.051188 VEGF signaling pathway 10 0.051347 Chronic myeloid leukemia 10 0.051347 ErbB signaling pathway 11 0.052902 Cell cycle 14 0.059231 Renal cell carcinoma 9 0.080632 MAPK signaling pathway 24 0.094287 84 Genomics Proteomics Bioinformatics 12 (2014) 7991 and let-7 family members may act as tumor suppressors in CML by targeting the Jak-STAT signaling pathway and PIM oncogenes encoding proviral integration site to induce CML cell apoptosis.
+Expression of miR-337-3p, miR-625, miR-218, miR-27b and miR-411, which target oncogenes PML encoding promyelocytic leukemia, RARA encoding retinoic acid receptor, alpha and FLT3 encoding FMS-related tyrosine kinase 3, was downregulated in AML cell lines (Table 4 and FigureS2), suggesting that these may act as tumor suppressors in AML.
+However, these miRNAs could not inhibit leukemogenesis because of their downregulated expression levels in AML cells.
+miR-130b, miR-145, miR-19a, miR-20a, miR-301a and b, miR-370, miR-411, miR-454, miR-485-3p, miR-486-5p, miR-125b and miR-625 were upregulated in the CML line and may act as oncomiRs by suppressing CTBPs encoding C-terminal binding proteins and the tumor suppressors INK4a/ARF (CDKN2A) encoding cyclin-dependent kinase inhibitor 2A.
+miR-125b is a validated oncomiR that induces myeloid leukemias in mice, and its targets include ARF [58].
+miR-625 may function similarly as miR-125b; however, few studies on its role in leukemia have been reported, given its relatively low expression in leukemia cell lines.
+miR-107, miR-128, miR-15a, miR-188-5p, miR-193a3p, let-7a, let-7b, let-7d, let-7f, let-7g, let-7i, miR-339-5p, miR-29a, miR-29b and miR-29c may suppress CML via CRKL encoding v-crk avian sarcoma virus CT10 oncogene homolog-like, BCL2L1 encoding BCL2-like 1 and MDM2 encoding murine double minute 2 (Table 4 and Figure S2).
+Our previous transcriptome analysis demonstrated that activity of the PI3K/Akt signaling pathway was upregulated in AML [22].
+In addition, PIK3CD encoding phosphatidylinositol-4,5-bisphosphate 3-kinase, catalytic subunit delta was suppressed by miR-199a-5p, miR-30a [59] and miR-30e in our study.
+The expression patterns of PIK3CD and MDM2 Table 4 Functional annotation of miRNAs in acute and chronic myeloid leukemia pathways Pathway Target gene miRNA Acute myeloid leukemia KRAS let-7a, miR-155, miR-181a, b, d, miR193a-3p LEF1 miR-193a-3p MAPK1 miR-106b, miR-140-3p, miR-181a, b, d, miR-320a, miR-330-3p NRAS let-7a, b, d, f, g, i PIM1 let-7d, miR-107, miR-15a, miR-24, miR-331-3p, miR-33a, b PIM2 miR-24, miR-339-5p STAT3 let-7a, b, d, f, g, i, miR-106b STAT5A miR-222 [46] STAT5B let-7i, miR-23a TCF7 miR-193a-3p, miR-24 CCNA1 miR-30a, e FLT3 miR-411 PML miR-337-3p, miR-625 RARA miR-218, miR-27b, miR-625 Chronic myeloid leukemia AKT3 miR-125a-5p, miR-125b, miR-195, miR-20a, miR-22 CDKN2A miR-10b [47], miR-125b [48], miR-625 CTBP1 miR-485-3p CTBP2 miR-486-5p IKBKB miR-195, miR-199a-5p [49], miR-214, miR-218 [50], miR-377, miR-409-3p, miR-494 NFKB1 miR-146a[51], miR-323-3p, miR-625 TGFBR2 miR-130b, miR-145, miR-19a, miR20a [52], miR-21 [53], miR-301a, b, miR-370 [54], miR-411, miR-454 BCL2L1 let-7a, b, d, f, g, I [55] CRKL miR-107, miR-128, miR-15a [56], miR188-5p, miR-193a-3p MDM2 miR-25 [57], miR-32 [57], miR-339-5p TGFB2 miR-29a, b, c Note:KRAS, Kirsten rat sarcoma viral oncogene homolog; LEF1, lymphoid enhancer-binding factor 1; MAPK1, mitogen-activated protein kinase 1; NRAS, neuroblastoma RAS viral (v-ras) oncogene homolog; PIM1, pim-1 oncogene; PIM2, pim-2 oncogene; STAT, signal transducer and activator of transcription; TCF7, transcription factor 7 (T-cell specific, HMG-box); CCNA1, cyclin A1; FLT3, FMS-related tyrosine kinase 3; PML, promyelocytic leukemia; RARA, retinoic acid receptor; AKT3, v-akt murine thymoma viral oncogene homolog 3; CDKN2A, cyclindependent kinase inhibitor 2A; CTBP1, C-terminal binding protein 1; CTBP2, C-terminal binding protein 2; IKBKB, inhibitor of kappa light polypeptide gene enhancer in B-cells, kinase beta; NFKB1, nuclear factor of kappa light polypeptide gene enhancer in B-cells 1; TGFBR2, transforming growth factor, beta receptor II (70/80 kDa); BCL2L1, BCL2-like 1; CRKL, v-crk avian sarcoma virus CT10 oncogene homolog-like; MDM2, murine double minute 2; TGFB2, transforming growth factor, beta 2.
+Xiong Q et al/ miRNomes of AML and CML Cell Lines 85 were validated via RT-qPCR, which demonstrated expression of these genes corresponded well with that of the targeting miRNAs (Figure S3).
+In summary, these differentially-expressed miRNAs were leukemia-related and could be used as references for distinguishing AML and CML.
+Dynamic miRNA expression at different stages of myeloid development K562 expresses a normal erythrocyte surface glycoprotein pattern [60] and has been characterized as a multipotent hematopoietic cell [61] that can spontaneously differentiate into early progenitors of erythroid, monocyte/macrophage and megakaryocytic lineages [62].
+The promyeloblast HL-60 is a myeloid precursor that can be induced in vitro to differentiate into a number of different cell types, including granulocytes, monocytes, macrophage-like cells and eosinophils [37,63].
+Previous studies [64] and the differential potentials of K562, HL-60 and THP-1 indicate that these cell lines represent three stages of myeloid differentiation.
+This differentiation tendency was evident from the hierarchical clustering via miRNA frequencies (Table 5).
+To further investigate whether specific miRNAs can regulate myeloid development and cell differentiation, we examined the miRNA expression patterns in these three myeloid cell lines and evaluated the relevance of their targets with respect to myeloid cell differentiation (GO: 0030099) and its child terms.
+Two comparisons were made in our dataset: K562 vs. HL-60 and HL-60 vs. THP-1.
+In the K562 vs. HL-60 comparison, the downregulated miRNAs in K562 (let-7 family and miR-17) primarily targeted genes related to erythrocyte differentiation (JAK2 encoding Janus kinase 2, GATA2 encoding GATA binding protein 2 and TAL1 encoding T-cell acute lymphocytic leukemia 1) (Table 5), whereas those downregulated in HL-60, such as miR-27b and miR-214, primarily targeted genes related to myeloid cell differentiation (e.g., PML and JAG1 Table 5 Function annotation of miRNAs at different developmental stages Note: Genes participating in differentiation are indicated in orange and genes in green are regulators of differentiation.
+Genes in red and blue are positive and negative regulators of differentiation, respectively.
+ATPIF1, ATPase inhibitory factor 1; CASP3, caspase 3, apoptosis-related cysteine peptidase; DYRK3, dual-specificity tyrosine-(Y)-phosphorylation regulated kinase 3; JAK2, Janus kinase 2; KIT, v-kit Hardy-Zuckerman 4 feline sarcoma viral oncogene homolog; SMAD5, SMAD family member 5; CDK6, cyclin-dependent kinase 6; ACVR1B, activin A receptor, type IB; ACVR2A, activin A receptor, type IB; FOXO3, forkhead box O3; GATA2, GATA binding protein 2; TAL1, T-cell acute lymphocytic leukemia 1; KLF13, Kruppel-like factor 13; PML, promyelocytic leukemia; PRKX, protein kinase, X-linked; SNRK, SNF related kinase; FAS, Fas cell surface death receptor; JAG1, jagged 1; HOXB8, homeobox B8; MEIS2, Meis homeobox 2; JUN, jun proto-oncogene; HOXA7, homeobox A7.
+86 Genomics Proteomics Bioinformatics 12 (2014) 7991 encoding jagged 1) (Table 5).
+Expression of some miRNAs identified in this study, such as miR-185, miR-107, miR-10a and miR-128, had been reported to be down-regulated during the induced erythroid differentiation of K562 cells [65].
+In particular, expression of the erythroid differentiation-related miRNAs miR-155, miR-221, miR-222 and miR-24 was down regulated in K562 cells, whereas expression of their validated targets SMAD5, FOXO3 encoding forkhead box O3, KIT and ACVR1B encoding activin A receptor, type IB was upregulated [6670].
+Caspase-3 (CASP3), which participates in erythroid differentiation [71], is a validated target of let-7a and miR-30d [72,73].
+miR-24 was shown to inhibit erythropoiesis by targeting the human activin type I receptor ALK4 encoding activin A receptor, type IB [70].
+FAS encoding Fas cell surface death receptor is a target of miR-146a [74], and JAG1 is a target of miR-143, miR-145, miR-21 and miR-34a [75,76]; their expression levels during myeloid cell differentiation exhibit opposing patterns.
+This finding demonstrated the dual nature of K562 cells as erythrocytes and multipotent hematopoietic cells.
+With respect to HL-60 and THP-1, the validated target JUN encoding jun proto-oncogene of THP-1downregulated miRNAs miR-15a and miR-16 [77] positively regulated monocyte differentiation, whereas the targetHOXA7 of THP-1-upregulated miRNAs miR-196a and miR-196b [78] negatively regulated monocyte differentiation (Table 5).
+These results suggest that miRNAs are important regulators of myeloid differentiation and that their expression levels tend to decrease during myeloid development to allow the expression of differentiation-promoting genes.
+Discussion In this study, we analyzed the differential miRNA expression patterns in three human myeloid leukemia cell lines using high-throughput parallel sequencing.
+Our effort to understand the miRNomes of these three cell lines has provided several interesting observations, including the identification of differentially-expressed miRNAs that represent different myeloid cell types, distinguish CML from AML cell lines and regulate myeloid differentiation.
+mRNA expression profiling facilitates miRNA functional annotation In this study, integrative analyses of miRNA and mRNA expression profiles in the same cell lines allow the functional definitions of miRNAs and their putative targets in leukemogenesis and myeloid differentiation.
+This represents an advantage of our work over previous studies [14,24].
+To reduce the false positive rates, we used miRecords [34] to predict the targets of miRNAs by applying at least four widely-used tools as well as validated targets identified during literature curation.
+Strictly assigned anti-correlations of miRNA and Xiong Q et al/ miRNomes of AML and CML Cell Lines 87 target expression also reduced the false positive rate.
+In brief, every list of miRNAs and mRNAs was determined from the intersections of two sets of pair-wise comparisons (e.g., Figure 3C) that incorporated the expression data from all three cell lines.
+GO-based biological functional enrichment and KEGG pathway analysis of the extracted targets facilitated the identification of putative miRNA functions.
+In summary, the approach applied in this study should be of value for future studies on the functions of miRNAs [79].
+Certainly, large-scale investigations of miRNAtarget binding via Argonaute CLIP-Seq in corresponding cell lines would improve prediction reliability [80], and traditional techniques such as overexpression, reporter assays and site mutation may be needed in future to verify some of the critical miRNAtarget relationships.
+miRNA signatures of distinct myeloid cells We identified distinctive miRNAs and targets across all three myeloid cell lines.
+K562 expresses a normal erythrocyte surface glycoprotein pattern [60] that relies on actin filament-based processes.
+We observed that several K562-specific miRNAs such as miR-10a, miR-144 and miR-411 participate in this process by targeting actins, myosins and EPB41 encoding erythrocyte membrane protein band 4.1.
+HL-60 cells exhibit phagocytic activity and response to chemotactic stimuli [37].
+Accordingly, the targets of HL-60-specific miRNAs are involved in endocytosis and response to stimuli and thus exactly match the physiological characteristics of this cell line.
+The apoptosis-promoting and cell growth-arresting activities of two THP-1-unique miRNAs (miR-219-5p and miR-449a) have been investigated [81,82]; the present study predicted several genes as targets of these two miRNAs, possibly shedding light on the mechanisms by which these miRNAs regulate apoptosis and cell growth and thus contribute to the pathogenesis of THP-1 [5].
+In summary, cell-specific miRNAs harbor unique functions and reflect the unique characteristics of the corresponding cell lines.
+Differentially-expressed miRNAs between AML and CML cell lines The diagnostic and prognostic significances of miRNAs have been demonstrated in leukemias [911,20,21,35].
+Many of the potential targets of miRNAs downregulated in K562 were enriched in CML pathogenesis-related pathways, while the potential targets of miRNAs downregulated in AML cell lines were enriched in AML-related pathways (Table 3).
+Furthermore, miRNAs could act as tumor suppressors or oncomiRs through targeting oncogenes or tumor suppressors in AML or CML pathways (Figure S2).
+Members of the let-7 family reportedly act as tumor suppressors in several cancers and leukemias [83,84].
+In this study, let-7 family members represented the most upregulated miRNAs in the AML lines, and they suppressed the Jak-STAT signaling pathway and PIM oncogenes to induce apoptosis.
+Other miRNAs, including miR-411, miR-337-3p, miR-625, miR-218 and miR-27b, may act as tumor suppressors in AML as well.
+In the CML pathway, miR-125b and miR-625 functioned as oncomiRs by targeting the tumor suppressors INK4a/ARF (CDKN2A) (Figure S2).
+Therefore, we can conclude that some of the differentially-expressed miRNAs between the AML and CML lines may distinguish these two myeloid leukemia types and act as diagnostic and prognostic biomarkers.
+miRNAs involved in myeloid differentiation Our study provided a list of miRNAs that targeted genes involved in erythroid differentiation (TAL1, JAK2 and GATA2), myeloid cell differentiation (PML, JAG1 and FAS) and monocyte differentiation (JUN).
+In general, upregulated miRNAs tend to inhibit the differentiation of corresponding cell lines, whereas downregulated miRNAs support differentiation.
+miRNAs that control myeloid cell differentiation are largely unknown, and our results can thus provide some information in this regard.
+For example, miR-34a was shown to target JAG1 in carcinomas [85] and expression of JAG1 was correlated with myeloid cell differentiation.
+miR-196a [86] has been shown to target HOXA7 encoding homeobox A7, whereas miR-15a and miR-16 [77] have been shown to target JUN; we therefore associated their roles with monocyte differentiation.
+Taken together, our findings strongly suggest that an understanding of the molecular biology of myeloid leukemias will require consideration of both miRNomes and mRNA transcriptomes.
+Using this integrated approach, our data from the three representative cell lines may contribute to subsequent investigations of specific miRNAs in leukemia subtyping, leukemogenesis and myeloid differentiation using a limited number of samples.
+However, the small number of cell lines and the lack of patient samples limited the scientific significance of our study.
+In future, more leukemia cell lines and patient samples will be included in miRNA profiling analyses in order to further explore the clinical significance of these miRNAs.
+Nonetheless, our results can serve as a reference for future laboratory and clinical studies of myeloid leukemia miRNAs.
+Our future interests include the functional annotation of novel miRNAs and experimental validation of the predicted miRNAs functions in myeloid leukemia.
+With validated functions, some of the miRNAs may serve as candidates for the clinical diagnosis, prognosis and treatment of myeloid leukemias.
+Materials and methods sRNA library construction and sequencing Cell culture and total RNA extraction were performed as described previously [22].
+RNAs from each sample were run on denaturing polyacrylamide gels to obtain RNAs of approximately 1830 nucleotides.
+These RNAs were then ligated to sequencing adaptors on both ends and were reversely transcribed using a sRNA sample prep kit (Illumina, San Diego, CA, USA).
+miRNA sequencing was conducted using the Illumina Genome Analyzer IIx (GA IIx) platform.
+Data processing and differential expression analysis Sequencing reads were pre-processed prior to reference mapping.
+We used Perl scripts to clip 30-adaptor and 50-adaptor contaminations and further removed poly (A)-containing or 88 Genomics Proteomics Bioinformatics 12 (2014) 7991 low-quality reads.
+The filtered reads were further clustered and uploaded to DSAP [23], an automated web service that provides analytical solutions for sRNA sequencing data.
+The numbers of reads mapped to individual miRNAs were further normalized to the CF, which indicates the individual miRNA abundance relative to the entire miRNA library [14].
+Novel miRNAs were predicted using miRDeep* [29].
+The sequencing read data were uploaded to the Gene Expression Omnibus (GEO; accession No.
+GSE48059).
+The location of the miRNAs was downloaded from BioMart track (GRch37.p10 assembly) at the Ensembl Genome Browser [87] (http://asia.ensembl.org/ biomart/martview).
+The raw miRNome data from normal peripheral blood cells, K562 cells and HL-60 cells, which have been generated by Vaz et al.[24], were downloaded and analyzed as a reference to our data.
+Differentially-expressed miRNAs between the samples were identified according to the following two criteria: P 6 0.001 and fold change of P2.
+These were determined using DEGseq [88], an R software package.
+We defined leukemia-associated and differentiation-associated miRNAs from the intersections of two sets of pair-wise comparisons.
+In brief, AML-upregulated miRNAs were those that were upregulated in both HL-60 and THP-1 compared with K562, and UD miRNAs were upregulated in HL-60 compared with both K562 and THP-1 (U indicates miRNAs that were upregulated in HL-60 relative to K562 and D indicates miRNAs that were downregulated in THP-1 relative to HL-60).
+mRNA-seq data of these cell lines generated previously in our lab are available in the NCBI GEO data repository (accession No.
+GSE39374 and GSE46164) and were analyzed similarly.
+RT-qPCR Stem-loop RT-qPCR was performed to evaluate miRNA expression.
+In brief, residual DNA was removed from the total RNA using the TURBO DNA-free Kit (Ambion, AM1907, CA, USA) and a poly (A) tail with ATP was added using poly (A) polymerase (New England Biolabs).
+Poly (A)-tailed RNA was reversely transcribed with the QmiR-RT primer using the RevertAid First Strand cDNA Synthesis Kit (Thermo Scientific, K1622, MD, USA) according to the manufacturers instructions.
+RT-qPCR was performed using Maxima SYBR Green/ROX qPCR Master Mixes (2 ) (Fermentas, K0223, MD, USA) and the CFX96 Real-Time PCR Detection System (Bio-Rad).
+Primer pairs comprised a QmiR-specific reverse primer and miRNA-specific forward primers (sequences were downloaded from miRBase).
+The data were analyzed using the 2DDCt method, and miRNA transcript levels were calculated relative to that of human RNU6-2.
+RTqPCR for mRNA was performed as described previously [22].
+miRNA target prediction The targets of differentially-expressed miRNAs were screened according to the following criteria: (a) presence in the validated target list (last updated on April 27, 2013) or prediction by at least four of the target prediction tools integrated by miRecords [34] and (b) anti-correlation in the expression pattern between miRNA and mRNA after intersecting the two sets of pair-wise comparisons [22].
+Functional annotation, pathway analysis and network construction The gene ontology annotation and KEGG pathways of the miRNA targets were assigned using DAVID bioinformatics resources [89].
+The genes associated with myeloid cell differentiation (GO: 0030099) and child terms were downloaded from the AmiGO browser [90].
+The networks were presented using Cytoscape software [91].
+Authors contributions QX performed RT-qPCR, prepared the figures, interpreted the results and drafted the manuscript.
+YY and SW analyzed the sRNA sequencing data.
+HWand JY performed high-throughput small RNA sequencing.
+JL performed statistical analysis.
+YL, YY, KC and XR cultured the cells and extracted total RNA.
+HS and XF designed the research, edited and revised the manuscript.
+All authors read and approved the final manuscript.
+Competing interests The authors declare no competing financial interests.
+Acknowledgements This research was supported by the Strategic Priority Research Program of the Chinese Academy of Sciences, Stem Cell and Regenerative Medicine Research (Grant No.
+XDA01040405), National Programs for High Technology Research and Development (863 Projects, Grant No.
+2012AA022502) and National Key Scientific Instrument and Equipment Development Projects of China (Grant No.
+2011YQ03013404) awarded to XF.
+Supplementary material Supplementary data associated with this article can be found, in the online version, at http://dx.doi.org/10.1016/j.gpb.2014.
+02.001.

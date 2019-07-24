@@ -1,0 +1,218 @@
+ABSTRACT Motivation: Secondary structure prediction of RNA sequences is an important problem.
+There have been progresses in this area, but the accuracy of prediction from an RNA sequence is still limited.
+In many cases, however, homologous RNA sequences are available with the target RNA sequence whose secondary structure is to be predicted.
+Results: In this article, we propose a new method for secondary structure predictions of individual RNA sequences by taking the information of their homologous sequences into account without assuming the common secondary structure of the entire sequences.
+The proposed method is based on posterior decoding techniques, which consider all the suboptimal secondary structures of the target and homologous sequences and all the suboptimal alignments between the target sequence and each of the homologous sequences.
+In our computational experiments, the proposed method provides better predictions than those performed only on the basis of the formation of individual RNA sequences and those performed by using methods for predicting the common secondary structure of the homologous sequences.
+Remarkably, we found that the common secondary predictions sometimes give worse predictions for the secondary structure of a target sequence than the predictions from the individual target sequence, while the proposed method always gives good predictions for the secondary structure of target sequences in all tested cases.
+Availability: Supporting information and software are available online at: http://www.ncrna.org/software/centroidfold/ismb2009/.
+Contact: hamada-michiaki@aist.go.jp Supplementary information: Supplementary data are available at Bioinformatics online.
+1 INTRODUCTION Secondary structure prediction of RNA sequences is one of the most important fundamental problems in biological sequence information analysis.
+The importance of accurate predictions has increased due to the recent findings in functional non-coding RNAs.
+Although a number of algorithms and tools have been developed for this problem (e.g.Andronescu et al., 2007; Do et al., 2006a; Hamada et al., 2008; Hofacker et al., 1994; Parisien and Major, 2008), their accuracies are limited.
+In real cases, however, it is expected To whom correspondence should be addressed.
+that the accuracies can be improved by taking into account the information of RNA sequences that are homologous to the target RNA sequence whose secondary structure is to be predicted.
+There have been proposed several methods with this respect (e.g.Hamada et al., 2006; Hofacker et al., 2002; Kiryu et al., 2007b).
+The problem targeted by this article is defined as follows.
+Problem 1.
+Given a single RNA sequence x and a set of its homologous sequences D, predict a secondary structure of x using the information of D. It is assumed that x and each sequence x in D share a common secondary structure, and the secondary structure of x is predicted by combining information present in D. This problem can be solved by mapping the predicted common structure of the entire sequences to the target sequence as follows: (i) compute a multiple alignment A for the set of sequences D{x} (e.g.Do et al., 2005, 2008; Tabei et al., 2008), (ii) predict a common secondary structure of A (e.g.Bernhart et al., 2008; Hamada et al., 2008; Seemann et al., 2008) and (iii) predict a secondary structure of x by mapping the predicted common secondary structure to the target RNAsequence x.
+The obtained secondary structures are more reliable in general than the predictions only from individual sequences.
+There are problems in the above approach, however, because the secondary structures of individual sequences are not exactly the same as the common secondary structure and the quality of the multiple alignment strongly influences the performance of the prediction.
+In this article, we propose a novel estimator for Problem 1 which yields a direct prediction of the secondary structure of x by combining the information of the homologous sequences D without assuming the multiple alignment or the common structure of the entire sequences (Fig.1).
+The proposed method models the probabilistic distribution of the pairwise common structure between the target RNA sequence and each homologous sequence, and maximizes the expected accuracy of the prediction of the target RNA sequence under the combined probabilistic distribution.
+The expectation is calculated under all the suboptimal secondary structures of the target sequence and under all the suboptimal pairwise alignments of the target sequence and its homologous sequences using posterior decoding method, which is based on a posteriori probabilities such as base-pairing probabilities of RNA or match probabilities of alignment and has been successfully applied in bioinformatics (Bradley et al., 2008; Carvalho and Lawrence, 2009 The Author(s) This is an Open Access article distributed under the terms of the Creative Commons Attribution Non-Commercial License (http://creativecommons.org/licenses/ by-nc/2.0/uk/) which permits unrestricted non-commercial use, distribution, and reproduction in any medium, provided the original work is properly cited.
+[10:12 15/5/2009 Bioinformatics-btp228.tex] Page: i331 i330i338 RNA secondary structure predictions x D A fixed multiple alignment and its common secondary structure of {x} D Secondary structure of x M1 M2/M3 Proposed method All suboptimal secondary structures of target and homologous sequences All suboptimal pairwise alignments of target and each of homologous sequencesNo use of D target homologous Fig.1.
+A schematic diagram of our proposed method and other existing methods (M1, M2, M3) for Problem 1.
+See Section 3.2 for precise descriptions of M1, M2 and M3.
+2008; Ding et al., 2005; Fariselli et al., 2005; Holmes and Durbin, 1998; Lunter et al., 2008; Miyazawa, 1995; Paten et al., 2009; Wong et al., 2008).
+In secondary structure prediction of RNA, posterior decoding methods are used in the maximum expected accuracy (MEA) estimator of CONTRAfold (Do et al., 2006a), the centroid estimator (Carvalho and Lawrence, 2008; Ding et al., 2005) and the-centroid estimator of CentroidFold (Hamada et al., 2008).
+We demonstrate that the prediction accuracy of the proposed method outperforms that of conventional secondary structure prediction methods.
+2 METHODS 2.1 Discrete spaces and probability distributions In this article, the following discrete spaces and probability distributions on those spaces play important roles in order to define proposed estimators.
+2.1.1 A space of secondary structures: S(x) A secondary structure of an RNA sequence x is represented as an upper triangular binary matrix ={ij}i<j , where the (i,j) element ij of the matrix is equal to 1 if xi and xj form a base pair and to 0 if xi and xj do not form a base pair (Fig.2).
+A consistent secondary structure represented by should satisfy the following constraints: (i) i<j ij + j<iji 1 for any j (each position in a sequence is allowed to form a base pair with one other base at most), and (ii) ij +kl 1 for any i<k < j< l (the formation of any two base pairs which results in a pseudo-knot is not allowed).
+We denote with S(x) the space of all secondary structures of an RNA sequence x.
+Note that to predict the secondary structure of x is equivalent to predicting a point in S(x).
+We obtain a probability distribution p(s)(|x) on S(x) by using the McCaskill model (McCaskill, 1990), the CONTRAfold model (Do et al., 2006a), the Simfold model (Andronescu et al., 2007) and the SCFG model (Dowell and Eddy, 2004).
+By using the distributions, a base-pairing probability p(s,x)ij , which is the probability with which xi and xj form a base pair, is computed as p(s,x)ij =p(s)(ij =1|x)= S(x) I(ij =1)p(s)( |x), where I() is the indicator function, which takes a value of 1 or 0 depending on whether the condition constituting its argument is true or false.
+We refer to {p(s,x)ij }i<j as a base pairing probability matrix, which can be computed by using the inside outside algorithm (e.g.McCaskill, 1990), whose time complexity is O(|x|3) where |x| is the length of x.
+1 2 3 4 5 6 7 8 9 10 13 12 11 14 1 2 3 4 5 6 7 8 9 10 11 12 13 14 1 2 3 4 5 6 7 8 9 10 11 12 13 14 Fig.2.
+Representation of a secondary structure of an RNA sequence.
+Fig.3.
+Representation of a pairwise alignment of two RNA sequences.
+2.1.2 A space of pairwise alignments: A(x,x) Similarly to the secondary structure of an RNA sequence, a pairwise alignment of two sequences x and x (e.g.DNA sequences, RNA sequences or amino acid sequences) is represented as a binary matrix ={ik}i,k , where ik =1 if xi is aligned with xk and ik =0 if xi is not aligned with xk (Fig.3).
+A consistent alignment represented by should satisfy the following constraints: (i) k ik 1 for any i, (ii) iik 1 for any k, (iii) ik +jl 1 for any i< j and l<k.
+In this article, the space of all pairwise alignments of x and x is denoted by A(x,x).
+We can obtain the probability distribution p(a)( |x,x) on A(x,x) by using the PHMM model (Durbin et al., 1998), the Miyazawa model (Miyazawa, 1995), the ProbAlign model (Roshan and Livesay, 2006), the CONTRAlign model (Do et al., 2006b).
+By using the distributions, the alignment match probability p(a,x,x ) ik , which is the probability that xi is aligned with x k , is computed as p(a,x,x ) ik =p(a)(ik =1|x,x)= A(x,x) I(ik =1)p( |x,x).
+We refer to {p(a,x,x)ik }i,k as an alignment match probability matrix, which can be computed by using the forwardbackward algorithm (Durbin et al., 1998), whose time complexity is O(|x||x|).
+Moreover, the joint probability p(a,x,x)ik,jl , which is the probability that xi is aligned with xk and xj is aligned with x l , is also computed as p(a,x,x ) ik,jl =p(a)(ik =1,jl =1|x,x)= A(x,x) I(ik = 1)I(jl =1)p(a)( |x,x).
+Note that {p(a,x,x ) ik,jl }i<j,k<l can be computed by using a variant of the forwardbackward algorithm whose time complexity is equal to O(|x|2|x|2).
+2.1.3 A space of structural pairwise alignments of RNA sequences: SA(x,x) A structural alignment (e.g.Kiryu et al., 2007a; Sankoff, 1985) of two RNA sequences x and x is represented as ={ (p)ijkl}i<j,k<l { (l)uv }u,v where (p)ijkl =1 if a base pair (xi,xj) in x is aligned with a base pair (xk,xl) in x and (l)uv =1 if xu in a loop region of x is aligned with xv in a loop region of x (Fig.4).
+In accordance with a consistent structural alignment, each element in cannot take an arbitrary value in {0,1}, where satisfies several conditions.
+Moreover, a space of structural alignments of two RNA sequences x and x is denoted as SA(x,x).
+We obtain a probability distribution p(sa)( |x,x) by the pair SCFG model, the Sankoff model (Sankoff, 1985).
+We also denote a probability that a base pair (xi,xj) in x is aligned with a base pair (xk,x l) in x as p(sa,p,x,x ) ijkl =p(sa)( (p)ijkl =1|x,x).
+Note that {p(sa,p,x,x ) ijkl }i<j,k<l can be i331 [10:12 15/5/2009 Bioinformatics-btp228.tex] Page: i332 i330i338 M.Hamada et al.Fig.4.
+Representation of a structural alignment of two RNA sequences.
+computed by using a variant of the insideoutside algorithm of the Sankoff model (Sankoff, 1985), whose time complexity is O(|x|3|x|3).
+2.2 Designing estimators for Problem 1 Most of the existing decoding methods are regarded as the following estimators (e.g.Carvalho and Lawrence, 2008; Hamada et al., 2008): if Y is a space from which we would like to obtain a prediction, referred to as a predictive space, is a space which is referred to as a parameter space and is potentially different from the predictive space, p( |d) is a probability distribution on the parameter space given a dataset d, and G(,y) is a gain function between and Y , then an estimator on the predictive space is defined as y=arg max yY E |d [G(,y)]=arg max yY  G(,y)p( |d) (1) (cf.
+Ding et al., 2005; Do et al., 2006a; Hamada et al., 2008; Kiryu et al., 2007b).
+Here, we can design a superior estimator by defining the gain function and the parameter space appropriately.
+For example, (Hamada et al., 2008) have proposed an estimator which maximizes the expectation 1TP+ 2TN 3FN 4FN (n >0, n=1,2,3,4) with respect to a probability distribution on S(x), and confirmed that their estimators are superior to the MEA estimator used in CONTRAfold (Do et al., 2006a).
+Regarding Problem 1, we would like to predict the secondary structure of x so that the predictive space Y is S(x).
+Therefore, it is necessary to define the parameter space and the probability distribution p( |x) on the parameter space.
+In the following sections, we introduce several estimators: an estimator with less heuristics, and its approximations with some heuristics.
+2.2.1 Estimator 1 Our assumption in Problem 1 is that x and every x D share a common secondary structure.
+The common secondary structure is naturally represented as a structural alignment of x and x (See Section 2.1.3).
+Therefore, we set the parameter space as (1) =xDSA(x,x) and the probability distribution on (1) as p(1)( |x,D)=xD p(sa)( xx |x,x) for =xD xx xDSA(x,x), where xx is a structural alignment of x and x (i.e.xx SA(x,x)).
+Moreover, the gain function is defined by G(1)(,y)= i<j G(1)ij (,yij) G(1)ij (,yij)= I(yij =1) 1|D| xD k<l I( xx ijkl =1) +I(yij =0) ( 1 1|D| xD k<l I( xx ijkl =1) ) for a prediction yS(x), where |D| denotes with the number of sequences in D and >0 is a parameter which adjusts the Sensitivity and the positive predictive values (PPV) (see Section 3 for definition) of a predicted secondary structure.
+In this gain function, 1|D| xD k<l I( xx ijkl =1) is equal to the averaged number of a pair (xi,xj) which forms a base pair in the set of structural alignments { xx }xD and 1 1|D| xD k<l I( xx ijkl =1) is equal to the averaged number of a pair (xi,xj) which does not form a base pair in the set.
+Hence, the more base pairs (xi,xj) there exist in the set of structural alignments, the more gain in the gain function is given for the prediction yij =1.
+Then, we define the estimator which maximizes the expectation of the gain function G(1)(,y) on the probability distribution p(1)( |x,D) as y=arg max yS(x) (1) G(1)(,y)p(1)( |x,D).
+(2) It is clear that the estimator is equivalent to the-centroid estimator (Hamada et al., 2008) on S(x) when the probability distribution is defined by p( |x,D)= 1|D| xD  1( ) p(sa)( |x,x), where is the natural map from a structural alignment  SA(x,x) to the secondary structure S(x).
+The optimal secondary structure is computed by a Nussinov-type dynamic programming (Nussinov et al., 1978) as follows: Mi,j =max  Mi+1,j Mi,j1 Mi+1,j1 +( +1)p(1)ij 1 maxk [ Mi,k +Mk+1,j ] (3) where p(1)ij = 1|D| xD k<l p (sa,p,x,x) ijkl.
+As described in Section 2.1.3, the time complexity to obtain { p(sa,p,x,x ) ijkl } i<j,k<l is O(|x|3|x|3), so it requires O (|D||x|3 maxxD |x|3) time for computing {p(1)ij }i<j.
+O(|x|3) time is required for the dynamic programming (3) in the case of {p(1)ij }i<j.
+Therefore, the total time complexity is O (|D||x|3 maxxD |x|3).
+This computational cost is too large to implement a practical application, so we approximate the estimator in the following sections.
+2.2.2 Estimator 2 Since SA(x,x) and a probability distribution on the space require huge computational cost as noted in the previous section, we replace the parameter space (1) and the gain function G(1)(,y) by their approximations with some heuristics.
+The parameter space is approximated by the factorization of (1) such as (2) =S(x)xD [A(x,x)S(x)] and the corresponding probability distribution on (2) is defined as p(2) ( |x,D )=p(s)( x |x) xD [ p(a) ( xx |x,x ) p(s) ( x |x )] , for = x xD[ xx x ](2), where x S(x), xx A(x,x) and x S(x).
+We also consider two kinds of approximations ofk<l I( xxijkl =1) in the gain function G(1)(,y) as follows: k<l I( xx ijkl =1) I( xij =1)+(1) k<l I( xx ik =1)I( xx jl =1)I( x kl =1) and k<l I( xx ijkl =1) k<l I( xij =1)I( xx ik =1)I( xx jl =1)I( x kl =1), where [0,1] is a weight parameter between the target sequence x and x D. An intuitive description of the difference in the two approximations is shown in Figure 5.
+The new gain functions are represented as G(2,1)(,y)= i<j G(2,1)ij (,yij) G(2,1)ij (,yij)= I(yij =1) { I( xij =1) + 1|D| xD k<l I( xx ik =1)I( xx jl =1)I( x kl =1) } +I(yij =0) { 1I( xij =1) 1|D| xD k<l I( xx ik =1)I( xx jl =1)I( x kl =1) } and G(2,2)(,y)= i<j G(2,2)ij (,yij) G(2,2)ij (,yij)= I(yij =1) 1|D| xD k<l I( xij =1)I( xx ik =1)I( xx jl =1)I( x kl =1) +I(yij =0) ( 1 1|D| xD k<l I( xij =1)I( xx ik =1)I( xx jl =1)I( x kl =1) ) , respectively.
+Then, we introduce two estimators in order to maximize the expectation of G(2,1)(,y) or G(2,2)(,y) under the probability distribution i332 [10:12 15/5/2009 Bioinformatics-btp228.tex] Page: i333 i330i338 RNA secondary structure predictions p(2)( |x,D).
+We can obtain the secondary structure of each estimator by replacing p(1)ij with p(2,1)ij =p(s,x)ij + 1 |D| xD k<l p(a,x,x ) ik,jl p (s,x) kl and p(2,2)ij = 1 |D| p (s,x) ij xD k<l p(a,x,x ) ik,jl p (s,x) kl in Equation (3), respectively.
+We refer to these two estimators as appro2-1 and appro2-2, respectively.
+As described in Section 2.1.2, time complexity for computing {p(a,x,x)iu,jv } is O(|x|2|x|2), and the cost is O (|D||x|2 maxxD |x|2) for obtaining {p(2,1)ij }i<j or {p(2,2)ij }i<j.
+This computational cost is still too large for calculating secondary structures whose length is more than several hundred bases.
+Therefore, we approximate this estimator in an attempt to reduce the computational cost.
+2.2.3 Estimator 3 (proposed estimator) By approximating p(a,x,x ) ik,jl to p(a,x,x ) ik p (a,x,x) jl , we replace p (2,1) ij and p (2,2) ij in the previous section by p(3,1)ij =p(s,x)ij + 1 |D| xD k<l p(a,x,x ) ik p (a,x,x) jl p (s,x) kl and p(3,2)ij = 1 |D| p (s,x) ij xD k<l p(a,x,x ) ik p (a,x,x) jl p (s,x) kl , respectively.
+Note that p(3,1)ij and p (3,2) ij take a value between 0 and 1, although they are not probabilities (more precisely, {p(3,1)ij }i<j cannot be obtained by any probability distribution on S(x)).
+We refer to these two estimators as appro3-1 and appro3-2, respectively.
+If =1/(|D|+1), {p(3,1)ij }i<j is the same as a probabilistic consistency transformation of the base pairing probability matrix in Kiryu et al.(2007a).
+Even if we employ these approximations, the time complexity to obtain {p(3,1)ij }i<j or {p(3,2)ij }i<j still remains O (|D||x|2 maxxD |x|2).
+However, since the number of base pairs (xk,x l) in x where p(s,x ) kl > for a threshold is regarded as O(c|x|) for a constant c, {p(3,1)ij }i<j and {p(3,2)ij }i<j can be computed by O ( c|D||x|2 maxxD |x| ) only if we sum through the base pairs (xk,x l) where p(s,x ) kl > in the equation p (3,1) ij and p (3,2) ij.
+By definition, we see that the proposed estimators consider all suboptimal secondary structures of the x i j k l xx  x i j x i j k l xx 1 1 0 0 1 G(2 ,2) (, y)G(2 ,2) (, y)G(2 ,1) (, y)G(2 ,1) (, y) Fig.5.
+The difference between two gain functions G(2,1)(,y) and G(2,2)(,y).
+Each row indicates a configuration of on the target sequence x and each homologous sequence x, and its positive contributions to the gain functions for yij =1.
+For example, the middle row means that the configuration of xij =0 and xx ik = x kl = xx jl =1 have a positive (1) contribution for yij =1 in the gain function G(2,1), while have no contribution in the gain function G(2,2).
+target RNA sequence (and its homologous sequences) and all suboptimal pairwise alignments between the target sequence and each of homologous sequences.
+The proposed estimators have three parameters, , and : the parameter of the estimator appro3-1 represents the weight of the target sequence relative to its homologous sequences; is the parameter that strikes the balance between the sensitivity and specificity of the predictions; and represents the probability cutoff that influences the speed and accuracy of the algorithm.
+In Section 3.3, we confirm the relation between these parameters and prediction performance, and decide to set =1/(1+|D|) and =0.01 as default parameters.
+3 EXPERIMENTS We conducted all experiments in this section on our linux cluster machines, each of which has 2 GHz CPU of AMD Opteron(tm) Processor 246 and 4 GB memory.
+The accuracy of predicted secondary structures was evaluated through the following standard evaluation measures: Sensitivity=TP/(TP+FN) and PPV=TP/(TP+FP), where TP is the number of correctly predicted base pairs, FN is the number of base pairs in the reference structure that were not predicted and FP is the number of incorrectly predicted base-pairs.
+In all the figures described below, we plot the curve at {2k :5k 10,k Z}{6} for the proposed estimators, the averaged-centroid estimators and the-centroid estimators (Hamada et al., 2008), which are implemented in the CentroidFold software.
+3.1 Dataset We used three datasets in our experiments.
+A summary of our datasets is described in Table 1.
+3.1.1 The dataset1 We created a dataset called dataset1 by utilizing the dataset in Kiryu et al.(2007b) which contains 85 reference alignments of 10 sequences taken from 17 RNA families in the Rfam database (Griffiths-Jones et al., 2005) as follows: we selected each RNA sequence in each alignment in the Kiryus dataset as a target sequence x and the other sequences in the alignment as homologous sequences D. The reference structure of the target sequence x is given by mapping the consensus structure in the alignment to the target sequence.
+As a result, we obtained 850 test data, each of which contains a target sequence and nine homologous sequences.
+Note that the dataset in Kiryu et al.(2007b) contained only the manually curated seed alignments with the consensus structures published in literature.
+3.1.2 The dataset2 and dataset3 We created dataset called dataset2 and dataset3 from the RNA STRAND database Table 1.
+Summary of dataset used in our experiments dataset1 dataset2 dataset3 #data 850 1547 215 #homo.seqs |D| 9 220 220 Length of seqs 48389 50500 5001500 Source Kiryu et al.(2007b) Andronescu et al.(2008) Andronescu et al.(2008) #data means the number of test data which contains a target sequence and several homologous sequences.
+#hom.seq means the number of homologous sequence included in each test data.
+See Section 3.1 for details of each dataset.
+i333 [10:12 15/5/2009 Bioinformatics-btp228.tex] Page: i334 i330i338 M.Hamada et al.(Andronescu et al., 2008), which contains manually curated RNA secondary structures of any type and organism.
+We selected reference secondary structures of target sequences out of 3704 nonredundant entries in the database, which satisfy all of the following conditions: (i) containing one molecule, (ii) not containing any ambiguous characters (i.e.any characters excluding A, U, G, C and T) (iii) not included in the family type Other *, Synthetic RNA and Unknown and (iv) whose length is more than 50 (500) nt and less than or equal to 500 (1500) nt for the dataset2 (the dataset3, respectively).
+We also created homologous sequences D of the target sequence by randomly selecting 220 sequences in the same family of the target sequence.
+As a result, the numbers of test data in the dataset2 and the dataset3 are 1547 and 215, respectively.
+3.2 Compared methods In the following sections, we compared the proposed method with three types of methods (Fig.1) for Problem 1 as follows.
+Note that the default parameters were used in each tool unless the parameters were specified.
+(M1) Predict a secondary structure of a target RNA sequence x without using homologous sequence information.
+In this method, we used the tools of secondary structure prediction from an individual RNA sequence: RNAfold version 1.8.1 (Hofacker et al., 1994), SimFold in MultiRNAFold1.11 with the ISMB 2007 best parameters (Andronescu et al., 2007) and CentroidFold version 0.0.4 (Hamada et al., 2008) with the CONTRAfold model (Do et al., 2006a), which is theoretically and experimentally superior to CONTRAfold itself.
+(M2) Align {x}D and predict a common secondary structure of the predicted multiple alignment, and then mapped the common secondary structure to the target sequence x.
+In this method, we used the tools of the multiple alignment of RNA sequences: ProbCons (RNA) (Do et al., 2005), RAF v1.00 (Do et al., 2008), MXSCARNA version 2 (Tabei et al., 2008) and the tools of the common secondary structure prediction from multiple alignments of RNA sequences: PETfold v1.0 (Seemann et al., 2008), RNAalifold version 1.8.1 (Bernhart et al., 2008) which was recently updated, and CentroidFold version 0.0.4 (Hamada et al., 2008) with the CONTRAfold model which implemented the averaged-centroid estimators.
+(M3) Simultaneously align and fold {x}D, and map the common secondary structure on the structural multiple alignment to the target sequence x.
+We used RAF v1.00 (Do et al., 2008) in this method.
+Note that this method can calculate the most likely structural alignment and its common secondary structure, sacrificing extremely huge computational time compared with M1, M2 and the proposed method.
+3.3 Comparison within proposed methods In this section, we mainly evaluated the performance of the proposed estimators with the various probabilistic models of p(s) and p(a), and the various parameters in the proposed method.
+We used the probability distribution p(s)() on S(x) for an RNA sequence x in the McCaskill model (McCaskill, 1990) and the CONTRAfold model (Do et al., 2006a), and also used the probability distribution p(a)() on A(x,x) for two RNA sequences x and x in the ProbCons model (Do et al., 2005) and the ProbAlign model (Roshan and Livesay, 2006).
+Note that the fixed alignment is not required in the proposed method, while the method (M2) requires fixed alignments.
+First, we aimed at determining the influence of the parameters (which is used only in appro3-1) and in the proposed estimators on the dataset1.
+Figure 6a and Supplementary Figure S1 show the results of various parameter when we set =0.
+These show the suitability of parameter in the appro3-1 for around 0.1, which is equal to =1/(|D|+1) where |D|=9 in this experiment since each test data in dataset1 contains nine homologous sequences.
+This suggests that the same weight between the target RNA sequence x and each sequence in D provided good prediction performance, and (a) (b) Fig.6.
+Performance of the different parameters for appro3-1.
+(a) We tested various values of for =0.
+(b) We tested various values of for =1/(|D|+1)=0.1.
+In both figures, we used p(a) in the ProbCons model and p(s) in the CONTRAfold model.
+The performance of the other combinations of probability distributions is shown in the Supplementary Material (Figs S1S3).
+i334 [10:12 15/5/2009 Bioinformatics-btp228.tex] Page: i335 i330i338 RNA secondary structure predictions it seems to be a natural result.
+We also investigated the influence of the parameter described in Section 2.2.3.
+As shown in the Figure 6b (also see Supplementary Figs S2 and S3) in the case that < 0.01, the performance is almost the same as that of =0.
+On the other hand, the total calculation times of the proposed estimator =0.01 are much faster than that of =0 (Table 2).
+Therefore, we decided to use =1/(|D|+1)=0.1 and =0.01 in next experiments.
+Second, we conducted an experiment for comparing appro31 and appro3-2 as described in Section 2.2.3.
+As shown in Figure 7a, appro3-1 outperformed appro3-2 under the same conditions (i.e.probability distributions p(a) and p(s)).
+We can observe that the best combination of the proposed estimators and the probability distributions is appro3-1 with the CONTRAfold model and the ProbCons model.
+Moreover, in order to examine the difference in performance of appro2-1 as described in Section 2.2.2 and appro3-1 as described in Section 2.2.3, we implemented the variant of the forwardbackward algorithm for computing Table 2.
+Total calculation time in seconds (predicting secondary structures for 17 values of 850 RNA sequences) of the estimator appro3-1 for each and each combination of the probability distributions pa-ct pa-mc pc-ct pc-mc 0 276 869 290 579 274 758 290 174 0.0001 16 471 5107 16 393 5009 0.001 7962 3202 7897 3124 0.01 3836 2130 3781 2065 0.1 2552 1600 2502 1541 We set =1/(|D|+1)=0.1 in this experiment.
+x-y means appro3-1 with x of p(a) and y of p(s).
+pa, pc, mc and ct denote the ProbAlign model (Roshan and Livesay, 2006), the ProbCons model (Do et al., 2005), the McCaskill model (McCaskill, 1990) and the CONTRAfold model (Do et al., 2006a), respectively.
+{p(a,x,x)ik,jl }i<j,k<l in the ProbCons model (Do et al., 2005).
+Figure 7b shows that appro3-1 provided almost the same performance as appro2-1, indicating that the approximation used in Section 2.2.3 does not influence the performance at all.
+3.4 Comparison with the other methods In this section, we compared the proposed estimator with the other existing methods described in Section 3.2.
+For our method, we chose appro3-1 with the CONTRAfold model and the ProbCons model for =1/(1+|D|) and =0.01 (|D| is the number of homologous sequences), which achieved the best performance in the above experiments in several combinations of estimators, p(s) and p(a).
+This combination is denoted with the proposed method below.
+First, we conducted an experiment on the dataset1 (see Section 3.1.1), which was also used in the previous section, and the result is shown in Figure S4 in the Supplementary Material.
+This result shows that the proposed method is better or comparable performance compared with the method (M1), (M2) and (M3).
+In this experiment, however, someone may be concerned about the over-fitting of the parameters and in the proposed method (although the used parameters are very natural) because we determined the parameters on the dataset1 or simplification of the dataset1.
+Hence, we also conducted other experiments on the dataset2 and the dataset3.
+Figure 8 shows the result of the experiment on the dataset2.
+Remarkably, the approaches of the common secondary structure predictions (M2) with ProbCons and MXSCARNA alignments gave worse performance than the single secondary structure predictions (M1).
+This shows that quality of alignment strongly influences the performance of the prediction in the method (M2).
+We think that this is because alignment errors influence the performance and common secondary structures are not always good for a predicted secondary structure of the target (a) (b) Fig.7.
+(a) The comparison of appro3-1 and appro3-2 for various combinations of p(s) and p(a).
+(b) The comparison of appro2-1 and appro3-1 in the ProbCons model (Do et al., 2005).
+Proposed-A-B (C) means the proposed estimator C (appro3-1, appro3-2, appro2-1 and appro2-2) with the model A [the McCaskill (McCaskill, 1990) model or the CONTRAfold model (Do et al., 2006a); this is a probability distribution on S(x)] and the model B [the ProbCons model (Do et al., 2005) or the ProbAlign model (Roshan and Livesay, 2006); this is a probability distribution on A(x,x)].
+i335 [10:12 15/5/2009 Bioinformatics-btp228.tex] Page: i336 i330i338 M.Hamada et al.0.2 0.4 0.6 0.8 1.0 0.
+0 0.
+2 0.
+4 0.
+6 0.
+8 PPV S en si tiv ity proposed centroid(M1) simfold(M1) rnafold(M1) mxscarnacentroid(M2) mxscarnaalifold(M2) mxscarnapetfold(M2) probconscentroid(M2) probconsalifold(M2) probconspetfold(M2) rafcentroid(M2) rafpetfold(M2) rafalifold(M2) raf(M3) Fig.8.
+The result on the dataset2 (see Section 3.1.2).
+Proposed means the appro3-1 with the CONTRAfold model and the ProbCons model of =1/(1+|D|) and =0.01.
+X-Y (M2) means the method that predicts a common secondary structure by X after aligning {x}D by Y, and then maps the common secondary structure to the target sequence x. raf (M3) means the method that simultaneously aligns and folds {x}D by using RAF (Do et al., 2008), and then maps the common secondary structure to the target sequence x. centroid indicates the-centroid estimators (Hamada et al., 2008) for the method (M1) and the averaged-centroid estimators (Hamada et al., 2008) for the method (M2), respectively.
+alifold means RNAalifold (Bernhart et al., 2008).
+sequence.
+Note that the dataset2 contains a number of sequences in the family such as Signal Recognition Particle RNA (SRP RNA), Transfer Messenger RNA (tmRNA) and RNaseP RNA, which contain diverse sequences from a number of organisms (Andronescu et al., 2008).
+We also conducted an experiment on the dataset3 (See Section 3.1.2), which contains longer RNA sequences than the dataset2.
+Due to the computational cost, we conducted the experiment for the proposed method, the methods (M1) and (M2) with ProbCons (Do et al., 2005).
+The result shown in Figure 9 indicates that the proposed method outperforms the other methods such as probcons-centroid (common secondary structure prediction after aligning target and homologous sequences), simfold (secondary structure prediction from target sequences) and so forth.
+Table 3 also shows that the proposed method can predict secondary structures within practical calculation time even for long sequences.
+The experiments on the dataset1 and the dataset2 demonstrate that the methods using RAF (Do et al., 2008) are comparable with the proposed method, but these are obviously much slower than the proposed method (Table 3).
+It should be also emphasized that the proposed method is much better than probcons-centroid [that predicts a common secondary structure by using averaged-centroid estimators (Hamada et al., 2008) after aligning the target sequence and homologous sequences by ProbCons (Do et al., 2005)], although these two methods employ the similar features (that is, both methods use base-pairing probabilities of the target sequence and homologous sequences given by the CONTRAfold model).
+The proposed method uses 0.2 0.4 0.6 0.8 1.0 0.
+0 0.
+2 0.
+4 0.
+6 0.
+8 PPV S en si tiv ity proposed centroid (M1) simfold (M1) rnafold (M1) probconscentroid (M2) probconsalifold (M2) probconspetfold (M2) Fig.9.
+The result on the dataset3 (Section 3.1.2).
+See also the caption of Figure 8. alignment probabilities between the target sequence and each homologous sequence given by the ProbCons model, whereas probcons-centroid use the fixed alignment given by ProbCons.
+i336 [10:12 15/5/2009 Bioinformatics-btp228.tex] Page: i337 i330i338 RNA secondary structure predictions Table 3.
+Total calculation time in seconds for each dataset and each prediction method Methods dataset1 dataset2 dataset3 proposed 3781 42767 299941 centroid (M1) 339 2712 26832 rnafold (M1) 97 291 648 simfold (M1) 228 1522 5264 mxscarna-centroid (M2) 12033 170428 mxscarna-alifold (M2) 9845 137373 mxscarna-petfold (M2) 15062 206548 probcons-centroid (M2) 3097 35359 219538 probcons-alifold (M2) 1001 8069 33012 probcons-petfold (M2) 7455 93128 402333 raf-centroid (M2) 68684 10523753 raf-alifold (M2) 66370 10494276 raf-petfold (M2) 71818 10570216 raf (M3) 66180 10493751 Fig.10.
+An example of predicted secondary structures of tRNA (ID:SPR_00633) in the RNA STRAND database (Andronescu et al., 2008).
+We used eight homologous sequences containing four unusual tRNA sequences (SPR_00397,00629,00832,00938) whose secondary structures lack the D-domain stemloop.
+Figure 10 and Supplementary Figure S5 show a typical example which supports the advantage of the proposed method.
+We used a tRNA sequence (SPR_00633) as the target sequence, and eight homologous sequences containing four unusual tRNAs (SPR_00397,00629,00832,00938), whose secondary structures lack the D-domain stemloop, in the RNA STRAND database (Andronescu et al., 2008).
+These sequences are so remote that no alignment tools could produce an accurate multiple alignment of them for predicting a common secondary structure.
+This seems to lead to the insufficient prediction of the methods (M2) and (M3).
+The method (M1) also failed in predicting a secondary structure of the target sequence, whereas the proposed method could successfully predict a secondary structure of the target sequence.
+This result suggests that the information of the homologous sequences can improve the quality of the secondary structure prediction even if several remote homologs are included.
+4 DISCUSSION AND CONCLUSIONS In this article, we designed a novel estimator for Problem 1, based on the posterior decoding techniques.
+The proposed method considers all the suboptimal alignments between the target sequence and its homologous sequence, and all the suboptimal secondary structures of the target sequence and homologous sequences.
+This is one of the advantage of the proposed method, while common secondary structure predictions after aligning the target and homologous sequences [the method (M2)] consider the only optimal alignment.
+The proposed method also solves Problem 1 directly, while (M2) and (M3) are indirect methods for the problem, because they predict common secondary structures instead of secondary structures of the target sequence.
+In the computational experiments, we confirmed that the proposed method achieved better prediction accuracy and more efficient computational time than the other methods.
+Remark that a similar idea described in Section 2 leads to an estimator on the alignment problem, which relates to the probabilistic consistency transformation (PCT) (Do et al., 2005).
+The proposed method can be regarded as a variant of the PCT, which transforms base-pairing probabilities of each homologous sequence into those of the target sequence through alignment match probabilities between the target sequence and the homologous sequence.
+RAF (Do et al., 2008) and the proposed method employ the same strategy that a probability distribution of structural pairwise alignment p(sa) is factorized into that of secondary structures p(s) and that of pairwise alignments p(a).
+RAF uses p(s) and p(a) for composing a scoring function of structural alignments and for reducing the search space of the Sankoff-style dynamic programming algorithm.
+Although this makes RAF to be one of the most efficient tools among several implementations of the Sankoff algorithm, RAF is still much slower than the different approaches such as (M1) and (M2) as shown in Section 3.4.
+The proposed method also uses p(s) and p(a) for composing the efficient scoring (gain) function of predicting secondary structures of target sequences by combining the information of homologous sequences, and succeeds in both keeping the quality of secondary structure predictions and reducing the computational time compared with RAF, despite the use of the same information as RAF.
+In this article, we considered global pairwise alignments for computing p(a).
+Alternatively, we can employ the local alignment models, instead of the global alignment models, which may enable to incorporate the partial homology information such as domain motifs of functional RNAs in order to further improve the secondary structure prediction of target sequences.
+ACKNOWLEDGEMENTS The authors thank L. E. Carvalho and C. E. Lawrence for valuable comments.
+The authors are also grateful to our colleagues at the Computational Biology Research Center (CBRC) for fruitful discussions.
+i337 [10:12 15/5/2009 Bioinformatics-btp228.tex] Page: i338 i330i338 M.Hamada et al.Funding: This work was partially supported by the Functional RNA Project funded by the New Energy and Industrial Technology Development Organization (NEDO) of Japan and a Grant-in-Aid for Scientific Research on Priority Areas Comparative Genomics from the Ministry of Education, Culture, Sports, Science and Technology of Japan.
+Conflict of Interest: none declared.

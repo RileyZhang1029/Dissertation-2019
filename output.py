@@ -9,10 +9,33 @@ import csv
 
 csvFile = open("results_each_article.csv", "r", encoding = "utf8")
 reader = csv.reader(csvFile)
+wordList = []
 
-with open("output.txt", 'w', encoding = "utf8") as f:
+with open("/home/riley/Documents/Github/Dissertation-2019/Prodigy/output.txt", 'w', encoding = "utf8") as f:
     for item in reader:
         if reader.line_num == 1:
             continue
-        f.write(item[3].replace("\n", " "))
-        f.write("\n")
+        if item[2].lower().replace(" ", "") in item[3].lower().replace(" ", ""):
+            wordList.append(item[2])
+            f.write(item[3].replace("\n", " "))
+            f.write("\n")
+
+
+with open("/home/riley/Documents/Github/Dissertation-2019/Prodigy/output_word.jsonl", 'w', encoding = "utf8") as j:
+    for w in wordList:
+        # j.write("{\"label\":\"SOFTWARE\",\"pattern\":[{\"lower\":\"")
+        j.write(w)
+        # j.write("\"}]}")
+        j.write("\n")
+
+
+
+
+
+
+
+
+
+
+
+csvFile.close()

@@ -1,0 +1,339 @@
+ABSTRACT Motivation: Modern machine learning methods based on matrix decomposition techniques, like independent component analysis (ICA) or non-negative matrix factorization (NMF), provide new and efficient analysis tools which are currently explored to analyze gene expression profiles.
+These exploratory feature extraction techniques yield expression modes (ICA) or metagenes (NMF).
+These extracted features are considered indicative of underlying regulatory processes.
+They can as well be applied to the classification of gene expression datasets by grouping samples into different categories for diagnostic purposes or group genes into functional categories for further investigation of related metabolic pathways and regulatory networks.
+Results: In this study we focus on unsupervised matrix factorization techniques and apply ICA and sparse NMF to microarray datasets.
+The latter monitor the gene expression levels of human peripheral blood cells during differentiation from monocytes to macrophages.
+We show that these tools are able to identify relevant signatures in the deduced component matrices and extract informative sets of marker genes from these gene expression profiles.
+The methods rely on the joint discriminative power of a set of marker genes rather than on single marker genes.
+With these sets of marker genes, corroborated by leave-one-out or random forest cross-validation, the datasets could easily be classified into related diagnostic categories.
+The latter correspond to either monocytes versus macrophages or healthy vs Niemann Pick C disease patients.
+Supplementary information: Supplementary data are available at Bioinformatics online.
+Contact: elmar.lang@biologie.uni-regensburg.de 1 INTRODUCTION Modern signal processing and machine learning techniques provide appropriate tools to analyze high-throughput datasets like microarrays.
+Despite the fact that many problems still remain to be solved (Dougherty and Datta, 2005; Dougherty et al., 2005; To whom correspondence should be addressed.
+Quackenbush, 2001), some consensus is slowly reached as to how data should be analyzed properly (Allison et al., 2006).
+Raw gene expression level measurements need sophisticated preprocessing (Wu and Irizarry, 2007) encompassing background correction, summarization, normalization (Baldi and Hatfield, 2002; Hochreiter et al., 2006) and missing value imputation (Troyanskaya et al., 2001), which is often done using software available from the chip producer (Affymetrix, 2002).
+After preprocessing, normalized gene expression levels can be analyzed using feature extraction (Guyon and Elisseeff, 2003) and classification (Dudoit et al., 2002) methods.
+Any statistical analysis of gene expression probe level data, however, has to face the large N , small M problem setting, where N denotes the number of genes (= features, variables, parameters) and M denotes the number of samples (= experiments, environments, tissues).
+Also overfitting has to be avoided to construct a classifier with a good generalization ability (Spang et al., 2002).
+Any robust classifier needs a sampleper-feature (SpF) ratio of 5-to 10-fold, while with usual microarray probe level measurements the SpF amounts to 1/501/200 roughly.
+Hence a substantial reduction of the feature space dimensionality via gene or feature selection is often the only way out of this SpF dilemma.
+Traditionally two strategies exist to analyze such sets of gene expression signatures: Supervised approaches and Unsupervised approaches.
+Supervised approaches afford prior knowledge such as class labels, clinical outcomes, prior densities, etc.
+and a truly representative set of training data.
+They are generally used for classification of malignancies within a discriminant analysis.
+Unsupervised approaches explore correlations in the highdimensional data space and find appropriate transformations to identify relevant subspaces and group observations accordingly.
+However, such approaches often need additional constraints to yield unique answers but they allow for the detection of new, yet unknown classes (Saidi et al., 2004).
+For a detailed account of the relevant literature see the extended Introduction in the accompanying Supplementary Material.
+There is a recent interest in applying exploratory matrix factorization (MF) techniques, like principal component analysis (PCA), independent component analysis (ICA) or non-negative 2008 The Author(s) This is an Open Access article distributed under the terms of the Creative Commons Attribution Non-Commercial License (http://creativecommons.org/licenses/by-nc/2.0/uk/) which permits unrestricted non-commercial use, distribution, and reproduction in any medium, provided the original work is properly cited.
+file:elmar.
+{penalty 0}lang@biologie.
+{penalty 0}uni-regensburg.
+{penalty 0}de[11:37 17/7/03 Bioinformatics-btn245.tex] Page: 1689 16881697 Matrix Factorization matrix factorization (NMF), to gene expression level measurements with microarrays (Liebermeister, 2002).
+In this study we propose to include diagnostic knowledge and explore the potential of matrix decomposition techniques to identify and extract marker genes from microarray data sets and classify these datasets according to the diagnostic classes they represent.
+Note that the feature extraction process via exploratory matrix decomposition techniques is unsupervised, but the identification of the most relevant features follows the supervision of diagnostic information available.
+Preliminary work along these lines has been presented recently at a conference (Schachtner et al., 2007a).
+Corresponding supervised feature extraction and classification techniques like support vector machines (SVM) have been applied to the same dataset and are discussed in short as well.
+For a more detailed discussion of these supervised techniques, though applied to different datasets, see (Schachtner et al., 2007b).
+2 THE MONOCYTEMACROPHAGE DATASET For our analysis we combined the gene-chip results from three different experimental settings to the monocytemacrophage (MoMa) dataset (Lutter et al., 2008).
+In each experiment human peripheral blood monocytes were isolated from healthy donors (Experiment 1 and 2) and from donors with Niemann Pick type C disease (Experiment 3).
+Monocytes were differentiated to macrophages for 4 days in the presence of M-CSF (50 ng/ml, R&D Systems).
+Differentiation was confirmed by phase contrast microscopy.
+Gene-expression profiles were determined using Affymetrix HG-U133A (Experiment 1 and 2) and HG-U133plus2.0 (Experiment 3) Gene Chips covering 22 215 probe sets and about 18 400 transcripts (HG-U133A).
+Probe sets only covered by HG-U133plus2.0 array were excluded from further analysis.
+In Experiment 1 pooled RNA was used for hybridization, while in Experiment 2 and 3 RNA from single donors were used.
+The final dataset consisted of seven monocyte and seven macrophage expression profiles and contained 22 215 probe sets.
+After filtering out probe sets which had at least one absent call, 5969 probe sets remained for further analysis.
+Exp.
+17 refer to monocytes and Exp.
+814 to macrophages.
+Exp.
+14 and 811 stem from healthy subjects, the rest from diseased subjects.
+3 METHODS The data are traditionally represented as a N M-dimensional data matrix X whose M columns represent gene expression signatures (GES) of N genes during M experiments or environmental conditions while the N rows represent gene expression profiles (GEP) of each of the N genes across all M experimental conditions.
+Column vectors are denoted as, for example, xm, while row vectors are denoted as xn in the following.
+The index m is always signifying an environmental condition in the following whereas the index n always refers to a certain gene.
+3.1 Gene selection schemes A general problem with microarray datasets is the problem of overfitting which arises whenever the number N of parameters (genes) is large compared to the number M of samples (experimental conditions).
+One way around this problem is to preselect a reduced number of genes which are ranked according to some scoring scheme.
+The data matrix X contains in its columns the GESs observed during M experimental conditions.
+Out of these, K genes and their corresponding class label were preselected from the training dataset, using different selection methods and scoring schemes, to result in a (K +1)M-dimensional data matrix whose column vectors served as input to the Lagrangian SVM (LSVM) classifier which thus operated in a (K +1)-dimensional subspace of the N-dimensional gene space.
+3.1.1 Random gene picking First and simplest, random gene picking was used to preselect K-tuples of genes whose gene expression profiles were used to train the LSVM classifier.
+If the resulting decision hyperplane correctly classified the training set, a leave-one-out (LOO) cross-validation was applied to estimate the classification error.
+With the current dataset single marker genes could always be identified which could classify the dataset according to the classification task considered, be it monocyte versus macrophage or healthy versus NPC disease.
+Thus the algorithm was used with k =1 only.
+3.1.2 Score-based gene selection Thereby the following scoring criteria are considered: 1.
+FCh: A simple and often used score is the Fold Change (FCh).
+2. w-score: In Golub et al.(1999), an empirical w-score was proposed.
+This score has been criticized, however, to yield incorrect units in the related discriminant function (Dudoit et al., 2002).
+3.
+T-score: In Liu et al.(2005) a score based on a likelihood ratio of in class and between class variances was suggested.
+4. c-score: Galton (1888, 1889) proposed a statistical correlation score nowadays known as Pearson correlation (Pearson, 1901), which can be used to measure the similarity between the n-th GEP xn of the data matrix and a design vector d reflecting the diagnostic knowledge available from the experimental design.
+5.
+SAM: The significance analysis of microarrays (SAM) represents a variance stabilized version of a t-test (Tusher et al., 2001).
+The gene selection can now proceed by choosing either a fixed number of genes with the highest scores or by defining a threshold and selecting all genes with scores above this threshold.
+Here a set of 50 genes is selected always.
+3.1.3 SVM-based gene selection A gene selection method different from the selection schemes discussed above can be derived from the SVM directly (Barnhill et al., 2002).
+A SVM estimates an optimal hyperplane, which is characterized by a vector w normal to the hyperplane, separating the dataset into appropriate subspaces.
+Gene expression signatures xm, representing the expression levels of all genes in gene space, can be projected onto these normal vectors via dot products.
+Hence the components of w indicate the importance of a gene for the classification task.
+Genes which have small components only in w can be removed as their associated unit vectors almost lie parallel to the hyperplane, hence they are orthogonal to the direction of optimal class discrimination, represented by w, and will not contribute to the classification.
+Note that all these scores are based on the discriminative power of single gene statistics.
+Thus they ignore the joint discriminative power of a group of genes where each single gene might exhibit a low individual score.
+This is clearly a deficit of these gene selection schemes.
+3.2 Feature generation and selection schemes MF techniques like ICA or NMF seem promising in generating features suitable for diagnostic classification purposes.
+A key feature of ICA as well as NMF is the ability to identify patterns that together explain the observed GESs as a linear combination of expression modes (ICA) or metagenes (NMF), respectively.
+Hence they overcome the limitations inherent to single gene statistics as discussed earlier.
+In the following we will discuss these feature generation techniques in their application to microarray datasets.
+For feature selection we consider a modified Pearson score where we replace the observed GEPs xn of the data matrix by corresponding component profiles obtained from the feature generation step by applying matrix decomposition techniques to the data matrix.
+Note that while the feature 1689 [11:37 17/7/03 Bioinformatics-btn245.tex] Page: 1690 16881697 R.Schachtner et al.generation techniques are completely unsupervised, the subsequent feature selection and classification affords the inclusion of diagnostic knowledge through a corresponding design vector di for class i and renders the methods semi-supervised instead.
+3.2.1 Data representation and preprocessing The gene expression levels are represented by an (N M) data matrix X=[x1 xM ] with each column xm representing the expression levels of all genes in one of the M experiments or environmental conditions.
+With NMF, a decomposition is then sought according to X=WH which is not unique, of course, and needs further specification.
+The columns of W are called metagenes.
+They represent the GESs combined together according to the weights contained in the rows of H which are called meta-experiments.
+Note that the data matrix is non-square with N 103M which renders a transposition of the data matrix necessary when techniques like ICA are applied.
+Hence ICA follows the data model: XT =AS where the columns of matrix A represent the basis vectors of a new representation which is obtained by grouping together the observed GEPs according to the weights contained in the rows of S which are called expression modes.
+Note that the latter are constrained to be as statistically independent as possible.
+Accordingly, the columns of matrix A may be named feature profiles.
+Further, each row am contains the weights to combine the independent expression modes to the observed GESs.
+The raw expression data have been normalized per chip.
+As normalization and summarization tool MAS 5.0 has been applied by the medical doctors who owned and produced the datasets.
+The raw datasets have never been available to us for alternative preprocessing.
+Hence, more advanced preprocessing tools like RMA (Bolstad et al., 2003; Irrizarry et al., 2003), GCRMA (Wu et al., 2004), FARMS (Hochreiter et al., 2006; Talloen et al., 2007) or DFW (Chen et al., 2007) could not be applied and, in part, have not been available yet at the time the data were produced and processed.
+3.2.2 ICAAnalysis The M N data matrix XT was used as input to the JADE algorithm (Cardoso and Souloumiac, 1993, 1996) which is a nearly exact algebraic algorithm focusing on the 4th order cumulant of the distribution of expression levels within the expression modes.
+It was preferred over stochastic algorithms like the fastICA which yield slightly different results in every run and need several repetitions to identify the robustly estimated expression modes.
+Note that JADE encompasses centering and whitening procedures as preprocessing steps.
+The number of extracted expression modes K M need not correspond to the maximum possible and can be chosen deliberately.
+The output is a K M demixing matrix B, which allows the computation of the corresponding expression modes.
+It is defined through the relation BXT =YT =BAS=DPS with D, a diagonal scaling matrix and P, a permutation matrix.
+Typical results show expression modes which exhibit both positive and negative expression levels, though the raw expression profiles only have positive expression levels, of course.
+Note that either the expression modes or their related basis vectors can be normalized to unity because of the inherent scaling indeterminacy of ICA.
+An ICA-based gene grouping scheme to analyze gene expression profiles was proposed by (Lee and Batzoglou, 2003).
+A thorough discussion of this rather classical ICA approach, applied to the current dataset, can be found in Lutter et al.(2008), where also a discussion of the biological and medical implications of the findings is discussed in greater detail.
+Hence we abstain here from any such discussion and put the emphasis on the new methodological aspect.
+In contrast to this classical analysis, here a different approach is taken which utilizes basic properties of the matrix decomposition model and incorporates diagnostic knowledge to evaluate the structure of the feature profiles, i.e.the basis vectors of the new representation, and deduce a corresponding expression mode to identify a set of marker genes with sufficient discriminative power concerning the classification task at hand.
+ICAessentially seeks a new representation of the observed dataset with the columns of matrix A representing the new basis vectors.
+Whereas the original dataset X is interpreted as M data vectors (experiments) in N dimensions (genes), with ICA the transposed data XT matrix is considered.
+Hence, the data are interpreted as N data vectors, each representing the expression profile of one of the N genes in an M N-dimensional feature space.
+The latter is spanned by the M-dimensional column vectors of matrix A which represent the new coordinate system.
+Hence, individual gene expression profiles are mapped onto feature profiles and the component profiles, i.e.the columns of S, associated with the expression profiles by the rules of matrix multiplication contain the weights with which every feature profile contributes to each observed expression profile.
+If the matrix decomposition is adequate, a concise analysis of the structure of these feature profiles comprising the columns of matrix A might hopefully provide insights into the structure of the dataset itself.
+After the ICA decomposition XT =AS, the matrix S contains K M supposedly statistically independent expression modes sm R1N ,1m (K M) forming the rows of S. Now note that to every gene expression signature a corresponding row of matrix A is related which contains the weights with which each of the K M independent expression modes contributes to the gene expression signature under consideration.
+Hence each column of A can be associated with one specific expression mode sm to which it is related by the rules of matrix multiplication.
+This observation forms the basis of the proposed feature selection scheme.
+In a first step an informative feature profile reflecting the available diagnostic information of the set of experiments is identified and in a second step the genes of the associated independent expression mode are analyzed with respect to their diagnostic classification potential.
+Each investigated microarray dataset represents at least two different classes of cells, such as cell lines taken either from healthy subjects (Class 1) or patients suffering from any disease (Class 1).
+If the gene expression signatures x1,...,xM of the different experiments are arranged according to their diagnostic class label, i.e.the j experiments of Class 1 constitute the first j rows of the data matrix XT , whereas the members of Class 1, i.e.{xm}Mm=j+1, are collected in the remaining rows, this assignment is also valid for the rows of matrix A.
+Suppose one of the independent expression modes sm is reflecting a putative cellular gene regulation process which is related to the diagnostic difference between the classes.
+Then to every gene expression signature of Class 1, this characteristic expression mode should contribute substantiallysignalled by a large weight in the corresponding feature profilewhereas its contribution to Class 1 experiments should be less (or vice versa).
+Since the k-th column of A contains the weights with which the k-th expression mode sk contributes to all observed gene expression signatures, this column should show large/small feature components according to the class labels.
+Hence, in contrast to the method in Lee and Batzoglou (2003), the clinical diagnosis of the experiments is taken into account.
+The strategy concentrates on the identification of a column of A, which shows a class specific signature according to a design vector d containing the class labels of each experiment.
+The expression mode related to that specific column is assumed to provide a good candidate for further class specific analysis concerning the identification of marker genes.
+Informative columns were identified using the correlation coefficient |corr(an,d)| of each column vector of A with a design vector d whose m-th entry is dm =1, according to the class label of experiment m. 3.2.3 Local NMFanalysis NMF replaces the assumption of statistically independent expression modes by a positivity constraint concerning the entries of the matrices into which the given data matrix of observed expression levels is to be decomposed.
+As the experimentally observed data correspond to fluorescence intensity levels, such positivity constraints seem more natural than independent expression modes which contain numerous negative entries.
+Such negative entries appear as well in the matrix of corresponding mixing coefficients meaning that different expression modes may partially compensate their respective contributions to the observed expression levels.
+Hence the constrained NMF model has the potential to identify sets of functionally related genes more accurately.
+Applying NMF, the data matrix corresponds to the usual N M matrix X=[x1 xM ].
+Each column of X, called a gene expression signature, comprises the gene expression levels of all genes resulting from one experiment.
+After applying 1690 [11:37 17/7/03 Bioinformatics-btn245.tex] Page: 1691 16881697 Matrix Factorization the LNMF algorithm (Li et al., 2001), the data matrix is decomposed into two new matrices W and H. The columns of W=[w1 wk] are called metagenes.
+One of them is expected to be characteristic of a regulatory process, which is responsible for the class specific difference in the observed experiments.
+Its contribution to the observed gene expression signatures is contained in the rows of matrix H which are called meta-experiments.
+Once an informative meta-experiment is identified through its correlation to the design vector encompassing the diagnostic information available, further analysis can be focused only on the genes contained in the corresponding metagene.
+The search strategy is similar to the one used in case of the ICA analysis discussed earlier.
+As before all experiments were classified according to available diagnostic information and labeled accordingly.
+The correlation coefficients between every meta-experiment hm and d are then computed.
+Empirically, a correlation coefficient |corr(hm,d)|>0.9 signifies a sufficient similarity between hm and d. Besides the maximum number of iterations which controls the precision of the decomposition, the number of extracted basis components K , i.e.the metagenes, is the only adjustable parameter affecting the structure of W and H. For several decompositions X= WH using different numbers K of metagenes [w1 wK ], the matrices H are studied with respect to the appearance of correlation coefficients |corr(hm,d|) close to 1.
+A metagene is considered informative only if all entries of the corresponding meta-experiment which belong to Class 1 are smaller than all other entries of that meta-experiment (or vice versa).
+After a total number of 5000 iterations, the cost function of the LNMF algorithm did not show noticeable changes with any of the datasets investigated.
+For K =2,...,49, ten separate simulations were carried out each time and only the simulation showing the smallest reconstruction error was retained.
+Further matrix decompositions with K =50,60,...,400 metagenes were examined.
+In the latter case, only three simulations were performed for each K. Note that NMF traditionally chooses K M to go for a more compact representation of the data matrix.
+However, deliberately choosing K M opens the way to a sparse and hopefully more informative and straightforwardly interpretable representation of the dataset with co-regulated genes combined into one metagene.
+3.3 Classifier 3.3.1 SVM classifier SVM (Schlkopf and Smola, 2002) are appropriate tools whenever data classification is the goal.
+They are based on geometric considerations in a vector space.
+Given an optimal separating hyperplane, characterized through its vector wopt normal to the hyperplane, the corresponding decision rule reads f (x)=sgn(x,wopt+b) (1) where wopt =mSV ymmxSVm and ym represents the class label, m represents a hyperparameter and xSVm indicates the support vectors closest to the separating hyperplane.
+The solution to this quadratic optimization problem is implemented in the LSVM algorithm (Mangasarian and Musicant, 2001), a MATLAB version of which is available at www.cs.wisc.edu/musicant/lsvm/ and has been used in this study.
+For cross-validation to evaluate the performance of the LSVM classifier, a LOO procedure was applied.
+Note that in every case the test sample has been taken out before the classifier was trained to avoid any bias in the decision making (Simon, 2003).
+3.3.2 MF classifier MF of the data matrix has been considered a feature generation technique sofar.
+The resulting M-dim feature profiles (ICA: columns of A) or the M-dim meta-experiments (NMF: rows of H) have then been used for feature selection purposes by correlating them with a design vector d the components of which represent class labels encoding the diagnostic information available about the respective experiments or environmental conditions.
+But the known class labels of the GESs (ICA: xTm or NMF: xm) also translate to corresponding labels for the rows ak in case of ICA or the columns hk in case of NMF.
+Similarities between these row or column vectors, respectively, can thus be used to classify the observations directly without having to identify appropriate sets of marker genes.
+The method will be explained in the following referring to the NMF notation but can be translated to the ICA notation immediately by recognizing the correspondence of metageneexpression mode and feature profilemeta-experiment, i.e.WST and HAT , respectively.
+Note that from X=WH it follows that W# xm =hm where W# denotes the pseudo-inverse of W. Now the similarities between the columns of H can be used to classify the observations.
+Though any method based on similarity measures can be used, we simply estimate the correlation coefficient, i.e.cm corr(htest,hm).
+Now for each class a separate index set Ii of indices is created, where I1 encompasses all indices m for which xm Class 1 while I1 contains all remaining indices.
+This thus results in two sets of correlation coefficients corresponding to the two assignments m I1 or m I1.
+Two rules for class assignment were tested: Average correlation: label(htestm )= { 1 if cm(1)> cm(1) 1 otherwise (2) where.... denotes an average of the correlation coefficients over the respective index set.
+Maximal correlation: label(htestm )= { 1 if max{cm(1)}>max{cm(1)} 1 otherwise (3) where max{cm(1)} denotes the maximal value of all correlation coefficients within either the set I1 or I1.
+Rule 1 thus assigns the class label according to an average correlation of the test vector with all vectors belonging to one or the other index set.
+Rule 2 assigns the class label according to the maximal correlation occurring between the test vector and the members of each index set.
+3.3.3 Random forest classifier Last but not least a random forest (RF) classifier (Breiman, 2001; Diaz-Uriarte, 2007; Diaz-Uriarte and de Andrs, 2006) was applied to a set of 50 genes which were selected by either a) the highest scores, b) the highest expression values in the most informative expression mode in case of ICA feature selection or c) the highest expression levels in the most informative metagene in case of NMF feature selection.
+RF is a classification algorithm which uses an ensemble of classification trees.
+Each tree is built using a bootstrap sample of the data, and at each node of the decision tree the candidate set of variables is a random subset of the variables.
+Hence RF uses both bagging and random variable selection which results in largely uncorrelated decision trees.
+RF shows improved accuracy in comparison to other supervised learning methods.
+Apart from this it provides a stability measure of the list of genes selected according to some welldefined measure of variable importance.
+This is a definite advantage over other cross-validation schemes, hence it was applied to all features (= gene lists) generated with other techniques in this contribution.
+4 RESULTS AND DISCUSSION The following results discuss the application of the various gene or feature selection schemes and classifiers to the microarray datasets.
+The goal was to identify an as small as possible set of marker genes which allow for a diagnostic classification of the given microarray experiments devoted to the investigation of the related disease.
+These marker genes would allow the design of special purpose chips which could provide a less costly alternative to genome-wide microarray diagnostics.
+The cases to be distinguished by the classifier in the MoMa datasets are the following: Case 1: monocyte versus macrophage (MoMa) Case 2: healthy versus Niemann Pick C disease (HeDi) 1691 [11:37 17/7/03 Bioinformatics-btn245.tex] Page: 1692 16881697 R.Schachtner et al.Table 1.
+The classification task was to classify monocytes versus macrophages (Case 1:MoMa) No.
+SGP/SVM-LOO ICA-GEL-neg ICA-RF-neg ICA-GEL-pos ICA-RF-pos NMF-GEL NMF-RF 1 PABPC4 NFKBIA H3F3A GPNMB CD59 GPNMB CPVL 2 SNURF/SNRP S100A9 PPP1R15A MMP9 CTSB HLA-DRB1 CST3 3 PEBP1 IL8 HSPA5 CTSB ADFP CD74 ADFP 4 ITGAL FCN1 H3F3A FUCA1 LIPA SAT LIPA 5 ZNF331 S100A8 RGS2 LIPA CTSL PSAP MS4A6A 6 CRYL1 CSPG2 CYP1B1 CD63 K-ALPHA-1 HLA-DRB1 HLA-DPA1 7 TNFAIP3 CD83 LAMP1 GM2A HLA-DRB1 C12orf8 8 DUSP1 CYBB TFRC HEXB GRN GM2A 9 PRG1 HNRPH1 CSTB PPIA GM2A CECR1 10 FPR1 CYP1B1 K-ALPHA-1 SAT GRN BASP1 SGP/SVM-LOO: genes of the dataset which lead to an error rate (LOO)2 when genes were selected by either single gene picking or a SVM and LOO cross-validation was invoked.
+The genes are ranked according to their corresponding c-scores.
+ICA-GEL-neg/pos: the 10 most strongly expressed genes of expression submodes sneg/pos6 , respectively, when a total of k =8 expression modes were extracted by ICA.
+NMF-GEL: the 10 most highly expressed genes in the most informative metagene w28 selected by LNMF.
+NMF-RF: the most informative genes of metagene w28 according to the RF classification of the 50 most highly expressed genes of the most informative metagene w28 selected by NMF.
+4.1 Gene selection and classification 4.1.1 Random gene picking and classification The simplest possibility tested was the identification of randomly picked single genes which were able to classify the datasets into the given classes according to both classification cases using the LSVM classifier and LOO cross-validation.
+Hence 14 LOO test have been performed.
+Results obtained with the MoMa dataset concerning the Case 1 classification are listed in Table 1, first column (SGP/SVM-LOO).
+Only genes with a classification error rate (LOO)<2 are listed.
+Concerning Case 2 classification, a total of 531 genes resulted from gene picking or SVM selection which showed a classification error rate (LOO)=0 when LOO cross-validation was applied.
+These genes were ranked according to their c-score and the 10 genes with the highest c-scores (see later) are listed in Table 2, first column (SGP/SVM-LOO).
+Please, note that different genes might have the same Affy-id, hence the same gene name (Loci-id) might appear multiply in the following lists.
+Entries in bold face in these tables represent genes which were also selected as marker genes with other methods, hence appear in several columns of the table with the same type of classification (Case 1 or Case 2).
+Entries in italics in these tables represent marker genes which also appear in lists related with the other type of classification (Case 1 and Case 2), hence appear in both tables.
+4.1.2 SVM-based gene selection and classification The recursive gene elimination procedure discussed earlier has been tested with the MoMa dataset.
+As the LSVM algorithm is not able to handle datasets with many thousand genes, each dataset has been partitioned into subsets of roughly 1000 genes each.
+For each subset an optimal separating hyperplane has been estimated using LSVM.
+Two strategies were followed to filter out a set of diagnostic marker genes: 1.
+Remove the gene with the smallest squared contribution to w and run LSVM on the reduced dataset.
+When no solution can be obtained with the reduced set, then stop.
+Merge the 100 most important genes of each set and repeat the procedure.
+2.
+Remove the 100 least important genes with the smallest components in w as long as more than 200 genes are in the set.
+For smaller sets remove genes step by step.
+In each case the algorithm stopped at one of the genes listed in Tables 1 or 2 corroborating the findings already achieved with single gene picking and LOO cross-validation.
+The comparison of the scores of these genes with respect to the different scoring schemes show that the genes selected with either the single gene picking or the SVM-based selection scheme rank quite differently in the different scoring schemes.
+Choosing the 50 genes with the highest score of every scoring list, most of the genes in Table 1 would not have been selected at all by simple score ranking.
+The best correspondence is achieved with a ranking according to the cscore/SAM-score.
+Note that the SAM-score ranking is identical to the c-score ranking.
+Hence, we only will consider this latter scoring scheme further on.
+4.1.3 Score-based gene selection and RF classification The score-based gene selection methods discussed earlier yield quite different collections of genes.
+The various scores of all genes of the dataset were calculated and the genes were sorted in descending order according to these scores.
+The 50 most highly ranked genes according to the different scores were then selected for further evaluation using a RF classifier.
+In the following we concentrate only on the more interesting Case 2 (HeDi) classification.
+Furthermore we only present results in case of the c-score which turned out to be the most reliable and, furthermore, yielded an identical ranking as the SAM-score.
+Table 2 summarizes the 19 genes with the highest importance according to the mean decrease accuracy and mean decrease Gini index (Breiman, 2001) estimated by the RF classifier (Fig.1).
+4.2 Feature generation, selection and classification In the following we apply the matrix decomposition techniques discussed earlier for feature generation and selection which incorporates diagnostic knowledge available about the experiments.
+Sets of marker genes will result, which were subjected to a RF classifier to identify the most relevant genes for the classification task at hand.
+4.2.1 Analysis of feature profiles and expression modes generated by ICA Using a decomposition into K =M =14 independent 1692 [11:37 17/7/03 Bioinformatics-btn245.tex] Page: 1693 16881697 Matrix Factorization Table 2.
+The classification task was to classify healthy versus Nieman Pick C disease (Case 2: HeDi) No.
+SGP/SVM-LOO C-Sc-RF ICA-GEL-neg ICA-GEL-pos ICA-RF-neg ICA-RF-pos NMF-GEL NMF-RF 1 RPS6KA4 PEBP1 OAZ1 3GM2A RPL11 SOD2 SAP18 RY1 2 C14orf131 CD163 C6orf62 STAB1 RPL7 ACTB PNN RAD23B 3 SAP18 DIP ARPC2 GM2A ACTR2 NOTCH2NL RAB1A UBE2L3 4 COX7c unknown RPL7 HLA-A RAB1A GRN SUMO1 MIF 5 CHMP5 GRN S100A4 SOD2 ALOX5AP DUSP1 RAB31 NUDT21 6 SUMO1 MMD ITM2B NFKBIA HSPA8 HLA-C NEDD8 PCMT1 7 PNN STX7 ARHGDIB IL8 SERPINA1 GRN RPS25 SAP18 8 OAZ1 MPST TMSB4X HLA-B S100A4 AHNAK ATP6Y1C1 SNX3 9 TDE2 GRN ALOX5AP SAT H3F3A HLA-F CHMP5 CASP1 10 RAB1A PRKACB HLA-DRA PSAP ARPC2 CTSD TSPYL1 RAB31 11 GUSB C6orf62 12 GALC HNRPA1 13 NPC2 S100A10 14 SPTBN1 RAB31 15 RRAGD 16 C5orf13 17 SNRP/SNURF 18 GRB10 19 CTSD SGP/SVM-LOO: the first 10 marker genes out of a list of 531 genes of the dataset which lead to an error rate (LOO)=0 when genes were selected by either single gene picking or a SVM and LOO cross-validation was invoked.
+The genes are ranked according to their corresponding c-scores.
+The first two genes had a positive c-score, all others a negative c-score.
+C-Sc-RF: list of genes of the dataset which, after ranking by their c-score, were selected as most informative by a RF classifier.
+Only the 50 highest ranked genes were input to the RF-classifier.
+ICA-GEL: 10 most strongly expressed genes of expression mode s3 related with case 2 when a total of k =8 expression modes were extracted by ICA.
+ICA-RF: the most informative genes, according to a RF classifier, of the submodes (sneg3 ,s pos 3 ) of expression mode s3 related with case 2 when a total of k =8 expression modes were extracted by ICA.
+Only the 50 most highly expressed genes were input to the RF-classifier.
+NMF-GEL: the 10 most highly expressed genes in the most informative metagene w13 selected by LNMF.
+NMF-RF: the most informative genes of metagene w13 according to the RF classification of the 50 most highly expressed genes of the most informative metagene w13 selected by NMF.
+S T X 7 C D 16 3 M M D D IP P B P G R N P R K A C B M P S T S P T B N 1 D K F Z p4 34 P 16 2 G A LC G R N G U S B S N R P N///S N U R F N P C 2 R R A G D G R B 10 C T S D C 5o rf 13 C R T A P P B P C R A T G P N M B C B LB H LA-D R B 1 C 12 or f8 C D 16 3 C C P G 1 K IA A 07 46 H O M E R 3 T C F 4 E IF 4B C U G B P 2 M G C 13 02 4 B M P 2K R R A G D LA IR 1 C T S B M X I1 C C N G 2 P B P O S B P L1 A Z N F 33 1 F E Z 2 C S T 3 C A M LG H E X A S M Y D 2 S T M N 1 F E C H Mean Decrease Accuracy-Cscores 0.000 0.005 0.010 0.015 S T X 7 G U S B G A LC C T S D M P S T S N R P N///S N U R F C 5o rf 13 P R K A C B G R B 10 S P T B N 1 G R N N P C 2 M M D G R N D IP D K F Z p4 34 P 16 2 P B P C D 16 3 R R A G D C R T A P P B P C R A T G P N M B C B LB C D 16 3 C 12 or f8 C C P G 1 H LA-D R B 1 C A M LG C T S B M X I1 H E X A F E Z 2 H O M E R 3 S M Y D 2 K IA A 07 46 M G C 13 02 4 E IF 4B C U G B P 2 T C F 4 F E C H S T M N 1 C S T 3 B M P 2K O S B P L1 A Z N F 33 1 P B P C C N G 2 LA IR 1 R R A G D Mean Decrease Gini-Cscores 0.00 0.05 0.10 0.15 0.20 0.25 Fig.1.
+Mean decrease accuracy and Gini index determined with a RF classifier of the 50 genes of the dataset with the highest c-score.
+Note that both indices label the same 19 genes as most informative though their ordering is slightly different.
+expression modes, column a7 of the resulting mixing matrix A showed a moderately strong correlation |corr(a7,d1)|=0.7 with the design vector d1 = (d1,1 =1,...,d7,1 =1,d8,1 = 1,...,d14,1 =1) to discriminate GESs taken from monocytes from those taken from macrophages.
+Column a1 showed a correlation coefficient |corr(a1,d2)|=0.95 with design vector d2 = (d1,2 =1,...,d4,2 =1,d5,2 =1,...,d7,2 =1,d8,2 = 1,...d11,2 =1,d12,2,...,d14,2).
+The signature of Column 7 is not very clear cut.
+Hence a systematic investigation of the structure of the mixing matrices was carried out while increasing the extracted number of expression modes from K =2,...,14.
+The necessary dimension reduction step can be done during the whitening step of the JADE algorithm.
+The information loss is not critical in any case as the first three principal components cover 96.1% of the variance.
+Note that such an ordering principle does not hold in case of ICA.
+It is thus unclear whether such a dimension reduction removes informative components which posses large higher order correlations but accidentally only small second order correlations.
+It is because of this uncertainty that we performed a systematic investigation of the decomposition up to the full rank of the data matrix.
+The resulting maximal correlation coefficients |corr(ak,di)| showed little variation in both cases with average values |corr(ak,d1)|K =0.79 and |corr(ak,d2)|K =0.94.
+Shallow maxima occur at k =3 in Case 1 and at k =8 in Case 2.
+Figures 2 and 3 present the feature profiles a6 and a3 maximally correlated with design vectors d1 and d2 and the related expression modes s6 and s3.
+A list of the 10 most strongly expressed genes in each of the extracted expression modes is given in Tables 1 and 2.
+1693 [11:37 17/7/03 Bioinformatics-btn245.tex] Page: 1694 16881697 R.Schachtner et al.Table 3.
+List of marker genes of the MoMa dataset, Case 1, according to Table 1, first column and their corresponding rank according to the various scores listed above Gene symb.
+c w T+ T SAM FCh MoMa dataset: Case 1 classification PABPC4 >50 >50 >50 >50 >50 >50 SNURF 01 49 >50 >50 01 >50 PEBP1 09 >50 23 >50 09 09 PEBP1 02 >50 >50 >50 02 24 ITGAL >50 >50 >50 >50 >50 >50 ZNF331 45 22 >50 >50 45 >50 CRYL1 >50 >50 >50 >50 >50 >50 1 2 3 4 5 6 7 8 9 10 11 12 13 14 200 0 200 400 600 0 1000 2000 3000 4000 5000 6000 20 10 0 10 20 Fig.2.
+ICA(JADE): feature profile a6 for k =8 and the related expression mode s6.
+Feature profile a6 shows a strong correlation with the design vector d1 in Case 1 (monocyte versus macrophage).
+1 2 3 4 5 6 7 8 9 10 11 12 13 14 1200 1000 800 600 400 200 0 0 1000 2000 3000 4000 5000 6000 10 5 0 5 Fig.3.
+ICA(JADE): feature profile a3 for k =8 and the related expression mode s3.
+The feature profile a3 shows a strong correlation with the design vector d2 in Case 2 (healthy versus diseased).
+These marker genes are involved in a gene regulation network and all genes in this network can be associated with the MeSH term gene expression regulation, except FUCA1 and STAB1.
+For a thorough discussion of the related pathways identified by applying BiblioSphere MeSH-and GeneOntology filter tools see (Lutter et al., 2008).
+Having selected the most informative expression modes s6 (Case 1) and s3 (Case 2), their 50 most strongly expressed genes have been selected from every submode and supplied to RP L1 1 RP L7 RA B1 A AC TR 2 AL O X5 AP HS PA 8 S1 00 A4 SE RP IN A1 AR PC 2 H3 F3 A///L O C4 40 92 6 HN RP A1 RA B3 1 C6 or f6 2 S1 00 A1 0 PP IB AR HG DI B RP S2 5 CO X7 C YW HA E LD HA RP S5 RP S4 Y1 M SB 4X///TM SL 3 CA LM 2 RP L6 HS PC 01 6 RN AS E6 RP L1 8A///LO C3 90 35 4 CL EC 7A SE T O AZ 1 HN RP H1 IT M 2B PG K1 HL ADR A RP L1 5 SR P9 CA LM 1 EN O 1 AN XA 1 HL ADP A1 RP L5 PR G 1 PL P2 SK P1 A RT N4 TU BA 3 RP S2 0 RP LP 0///R PL P0-li ke HS PA 8 Mean Decrease Accuracy-Heldi-negative 0.000 0.005 0.010 0.015 0.020 SO D2 NO TC H2 NL AC TB G RN G RN AH NA K HL AC DU SP 1 HL AF CT SD NF KB IA FL J2 07 19 G PN M B LI TA F HL AC PS AP UC P2 HL AB G G A1 HL AA SQ ST M 1 HL AG RP S1 0 FU CA 1 CX CR 4 RP S2 8 LT A4 H AT P6 AP 1 CE BP B W AR S HL AA AD FP M AN 2B 1 IF I3 0 TN FA IP 3 C2 2o rf9 SA T M G AT 1 PS AP EC O P G G A1 HL AC AD AM DE C1 G M 2A G M 2A FL J2 07 19 ST AB 1 IL 8 HD G F HL AG Mean Decrease Accuracy-Heldi-positive 0.000 0.005 0.010 0.015 0.020 0.025 Fig.4.
+Mean decrease accuracy according to a RF classification of the 50 most highly expressed genes in expression submode sneg3 and s pos 3 selected by ICA with k =8 extracted expression modes in total.
+Only the 14 and 10 genes, respectively, with the highest mean decrease accuracy are considered informative.
+a RF classifier.
+In Table 1, the columns labeled ICA-GEL-neg/pos, ICA-RF-neg/pos contain either the 10 genes with the highest expression level (GEL) in the most informative expression mode or the most informative genes selected by a RF classifier.
+The columns labeled NMF-GEL/RF contain the corresponding genes from the most informative metagene selected with LNMF feature selection.
+The most highly expressed 50 genes of the expression submodes or of the corresponding metagene have been subjected to a RF classification.
+The importance of the variable decreases exponentially in all three examples, hence only the first 10 genes are listed as their importance was then already down to one-third of the maximal value.
+The corresponding results obtained in the more interesting classification Case 2 are listed in Table 2.
+According to the mean decrease accuracy estimated, 14 and 10 genes stand out as most informative as illustrated in Figure 4.
+They are listed in columns labeled ICA-RF-neg/pos and NMF-RF in Table 2, respectively.
+4.2.2 Analysis of meta-experiments and metagenes generated by LNMF A LNMF analysis was also performed on the 14 experiments of the dataset.
+Again the number k of extracted metagenes was varied systematically to identify an optimal decomposition of the N M data matrix X.
+For every k, the correlation coefficients between the meta-experiments and the design vectors di,i=1,2 were computed.
+Again a RF classifier was used to select the most informative genes from the most informative metagene.
+Monocyte versus macrophage: For k > 100, several metaexperiments show small expression levels for all monocyte experiments compared with larger expression levels for the macrophage experiments, indicated by a large correlation coefficient 1694 [11:37 17/7/03 Bioinformatics-btn245.tex] Page: 1695 16881697 Matrix Factorization Fig.5.
+Signature of meta-experiment h28 of Hk=29 and corresponding GES of metagene w28 of Wk=29.
+Fig.6.
+Signature of meta-experiment h13 and corresponding metagene w13.
+of |corr(hk,di,)| > 0.9.
+Up to K =90 mostly one significant metaexperiment was observed, for K >90, except K = 120,170 and 190, at least two significant meta-experiments were detected.
+Rows of H related to the reverse case el(macrophage)<el(monocyte) do not appear at a comparable level of correlation to the design vector.
+Figure 5 exhibits the signature of row h28 of Hk=29 and the related metagene.
+The 50 most highly expressed genes in metagene w28 have also been subjected to a RF classification to obtain a measure of importance of these genes for the decision in question (Case 1 MoMa).
+Only 4 genes stand out as informative (Fig.7) but the mean decrease accuracy decreases exponentially, hence only the 10 most important genes are listed in Table 1 together with the 10 most highly expressed genes in metagene w28.
+Healthy versus diseased: In this case, the number of metaexperiments with a strong correlation with the design vector reflecting overexpressed genes in case of cell lines taken from Niemann Pick C patients increases nearly linearly with increasing k. CP VL CS T3 AD FP LI PA HL ADP A1 M S4 A6 A C1 2o rf8 G M 2A CE CR 1 BA SP 1 HL ADM B G LT SC R2 CT SB G PN M B G NS CD 16 3 HI F1 A UC P2 M PP 1 PS AP M FS D1 PE CA M 1 FU CA 1 PP G B G RN G RN LT A4 H G RN FC G RT CT SK PL D3 FS F1 2TN FS F1 3 HL ADP B1 AN XA 4 CT SD G M 2A NP C2 AS AH 1 CD 74 CX CR 4 FS F1 2TN FS F1 3 HL ADR B1 HL ADM A PS AP CD 16 3 SA T HL ADR B1 HL ADR B1 C3 AR 1 AD AM DE C1 Mean Decrease Accuracy-MoMa 0.00 0.01 0.02 0.03 0.04 0.05 RY 1 RA D2 3B UB E2 L3 M IF PC M T1 NU DT 21 SA P1 8 CA SP 1 SN X3 RA B3 1 PP IB SD HC RP S2 5 TM EM 4 CO X7 C LG AL S8 PL SC R1 PP P1 R1 2A AS F1 A TS PY L1 UB E2 G 1 M BD 4 LS M 3 NE DD 8 O AZ 1 PP P3 CA DC TN 6 NR BF 2 FL J3 96 16 HI G 1 SM AP CH M P5-AT F2 HT AT IP 2 RA B1 A PH F2 2 CL K1 PA PO LA PP P1 R7 SU M O 1 TM ED 7 RS L1 D1 AT P6 V1 C1 LO C4 40 12 3 SM AR CE 1 LA M P2 UB E1 C M ED 4 PO LR 2K Mean Decrease Accuracy-Heldi 0.000 0.005 0.010 0.015 0.020 0.025 Fig.7.
+Mean decrease accuracy according to a RF classification of the 50 most highly expressed genes in metagene w28 and metagene w13 selected by LNMF.
+In case of underexpressed metagenes related to the disease, only a few significant meta-experiments appear for K > 60.
+As an example, a decomposition in K = 370 metagenes is considered.
+Meta-experiment h13 yields |corr(h13,d2)| = 0.98 with respect to the separation between the classes healthy and diseased (Fig.6).
+The 10 most strongly expressed genes in metagene w13 which qualify as marker genes for the discrimination between healthy subjects and Niemann Pick C patients are listed in Table 2 in column labeled NMF-GEL.
+Again the 50 most highly expressed genes in metagene w13 have been subjected to a RF classification, where 10 marker genes, listed in Table 2 in column labeled NMFRF, stand out as most informative for Case 2 (HeDi) classification (Fig.7).
+4.3 MF classifier Applying the MF classifier described eralier, the similarity between either the rows of matrix A (ICA) or the columns of matrix H (NMF) was studied using the dataset with LOO cross-validation.
+Note that the matrix decomposition step used the complete data matrix, though.
+As can be seen from Table 4, in most cases one false classification occurred in Case 1 classification leading to the suspicion of a falsely classified data sample which could be identified as Experiment 4.
+Compared to ICA-based feature selection and matrix decomposition, the corresponding LNMFbased feature selection and matrix decomposition lead to a more robust classification of all four diagnostic classes underlying the dataset with respect to a variation of the number k of extracted features.
+However, with features encompassing more than seven genes a close to perfect classification with a close to zero classification error resulted.
+4.3.1 Comparison of expression modes and metagenes Though both the ICA and the LNMF algorithm lead to data matrix 1695 [11:37 17/7/03 Bioinformatics-btn245.tex] Page: 1696 16881697 R.Schachtner et al.Table 4.
+Number of false classifications of the MF classifier using ICA (left) or NMF (right) for matrix decomposition and LOO cross-validation K JADE LNMF JADE LNMF MoMa MoMa HeDi VHeDi avg max avg max avg max avg max 2 11 11 4 9 11 12 3 5 3 3 5 1 1 5 5 0 0 4 3 4 1 1 5 3 0 0 5 2 2 1 1 4 2 0 0 6 3 2 1 1 4 1 0 0 7 1 1 1 1 1 0 0 0 8 1 1 1 1 0 0 0 0 9 1 2 1 1 0 0 0 0 10 2 2 2 1 0 0 0 0 11 1 2 1 1 0 0 0 0 12 1 2 1 2 0 0 0 0 13 1 2 2 2 0 0 0 0 14 1 2 2 2 0 0 0 0 Class labels: Mo-Monocyte, Ma-Macrophage, He-healthy, Di-Niemann Pick C disease.
+decompositions which finally lead to robust and efficient diagnostic classification of the datasets, they nonetheless resulted with groups of strongly over-or under-expressed genes in the related metagenes and expression profiles which showed only partial overlap.
+It is interesting to compare the distribution of correlation coefficients of the individually observed expression profiles of the identified marker genes for both algorithms.
+It turned out that the LNMF algorithm results in a much narrower distribution of c-values meaning that it yields a much more consistent set of diagnostic marker genes when measured by the correlation to the diagnostic design vector.
+5 SUMMARY AND CONCLUSION 5.1 Summary In this study microarray datasets from a monocytemacrophage differentiation study have been analyzed.
+Unsupervised feature generation strategies based on MF techniques were combined with knowledge-based feature selection and classification strategies referring to diagnostic information available about the class labels of the experiments.
+The importance of the generated features, i.e.either the expression modes or the metagenes, was assessed by measuring the correlation of the related feature profiles or metaexperiments with the diagnostic design vector of the experiment under consideration.
+Two strategies were then followed to achieve classification: either an MF classifier was applied directly or a set of marker genes was extracted from the most informative expression mode or metagene and classification was achieved applying an SVM classifier with LOO cross-validation.
+Marker genes were extracted based either on their expression level in the most informative feature vector or by applying an RF classifier to evaluate their level of importance for the classification decision at hand.
+5.2 Conclusion Concerning the identified marker genes, a remarkable number of marker genes could be corroborated by at least one other method, mostly of the MF venue.
+These genes are indicated in bold face in Tables 1 and 2.
+It is interesting to see that in case of ICA feature generation most of the genes with the highest expression level in the most informative expression submode, listed under ICA-GEL-neg, are corroborated by the RF classifier as being especially important for the classification decisions at hand.
+This lends credit to the ICA feature generation andselection procedure which indeed results in an informative set of marker genes.
+But in case of the NMFGEL/RF methodology only little correspondence between both lists can be seen.
+Hence in the NMF methodology strong expression levels cannot be considered a valid selection criterion to identify marker genes though these genes belong to the feature vector which was identified as most relevant for the classification decision at hand according to the diagnostic knowledge available.
+Also, there is still considerable divergence between the results obtained with the ICA and the NMF methodologies for both classification cases considered.
+One of the reasons might be the different constraints active in both feature generation methods (ICA versus NMF) investigated.
+The constraints operative with ICA assume statistical independence of the generated expression modes, thus only features which comply to this property can be detected.
+On the other hand, the sparseness and positivity constraints of the LNMF algorithm lead to metagenes which contain localized features (= few highly expressed values and many zeros) and only positive expression levels.
+The gene expression signatures of the underlying biological regulatory processes are expected to have non-Gaussian distributions, hence uncorrelated metagenes and independent expression modes are expected to be different.
+Further selection of marker genes solely based on their expression level in the feature vectors is not a statistically valid criterion, hence results might not be expected to conform to marker genes selected by the statistically well-founded RF method or the supervised techniques discussed as well.
+Still Tables 1 and 2 show a couple of genes which have been identified consistently with different methods for the classification tasks at hand.
+These genes can be considered well-justified marker genes.
+Strong overlap is also observed between the lists resulting from the SGP/SVM-LOO and the NMF-GEL methodology in Case 2 classification meaning that each of these strongly expressed genes of the most informative metagene is able to also individually classify the cell line investigated.
+Note that only two of these genes, i.e.SAP1 and RAB1A, are also identified by the ICA-GEL/RF methodology, hence are identified by three of the four methodologies investigated.
+In Case 1 classification, no correspondence between the standard methodologies and the MF-based techniques can be observed, however.
+Further note that no single gene could be identified with these standard techniques which could classify monocytes versus macrophages perfectly.
+These observations might indicate that the joint discriminative power of a set of genes is necessary to successfully classify Case 1.
+If so then none of the gene which perform best individually belongs to this set.
+All matrix decompositions strategies lead to classification results of the MF classifier with classification errors comparable to those obtained with supervised techniques.
+Since the quality of the results did not change when the number K of extracted basis vectors was increased, the classification performance did not favor one of the tested LNMF runs.
+Despite that one monocyte sample must definitely be considered to be an outlier, i.e.this probe set is expected to be falsely classified in the original dataset.
+No single tested 1696 [11:37 17/7/03 Bioinformatics-btn245.tex] Page: 1697 16881697 Matrix Factorization decomposition, neither by JADE nor by LNMF, classified these samples correctly.
+Concerning more standard supervised techniques, marker genes were selected by their ability to individually classify the cell lines under study applying an SVM classifier with LOO cross-validation.
+Preselection strategies based on various single gene scoring schemes were considered as well.
+It seems that the Pearson correlation score achieved the most useful results in what concerns reproducibility of the extracted marker genes by other methods.
+The resulting list of marker genes was for the HeDi classification problem also compared to an importance ranking resulting from the application of an RF classifier to the 50 most highly ranked genes according to all scores employed.
+No overlap is observed between both lists.
+However, 6 out of 10 genes of the SGP/SVM-LOO list could be confirmed by other methods but only one gene of the C-Sc-RF list is corroborated also by the ICA-RF-pos methodology.
+Though the classification errors are comparable, the matrix decomposition-based approach has the advantage of not having to deal with each gene in isolation as is the case with the supervised techniques considered.
+The matrix decomposition technique instead provides a feature selection and classification tool which uses diagnostic knowledge available and the joint discriminative power of a group of most informative genes.
+If it only were to classify the type of cell lines investigated, the MF classifier does well and identification of marker genes is not necessary.
+ACKNOWLEDGEMENTS Funding: This work is supported by grants from Siemens AG, Munich, the DFG (Graduate College 638) and the DAAD (PPP Luso-Alema and PPP Hispano-Alemanas) which is gratefully acknowledged.
+Conflict of Interest: none declared.

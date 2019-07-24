@@ -19,7 +19,7 @@ for txtFile in txtFiles:
 
     count = 0
     textsize = round(os.path.getsize(txtFile)/float(1024), 2)
-    # print(textsize)
+
     with open(txtFile, 'r') as f:
         dictResult = {}
 
@@ -34,7 +34,7 @@ for txtFile in txtFiles:
 
 
 
-    if textsize >=10 and count <= 900:
+    if textsize >=9 and count <= 840:
         x += 1
     else:
         os.remove(os.path.join(folder_out, txtFile))

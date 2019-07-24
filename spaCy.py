@@ -50,7 +50,7 @@ def NER(model, folder_out):
                 for word in articleDict[txt_nosupple.rstrip(".txt")]:
                     f.write(word + ", ")
             else:
-                f.write("No Software Mentions")
+                f.write("No Software Mentions ")
             f.write("\n")
             f.write("NER Results: ")
 
@@ -72,7 +72,7 @@ def NER(model, folder_out):
                             f.write(i + ", ")
                         # print(ent.text, ent.start_char, ent.end_char, ent.label_)
                     else:
-                        f.write("No Software Mentions")
+                        f.write("No Software Mentions ")
             f.write('\n\n')
     wordlist_all_sorted = sorted(set(wordlist_all))
     print("n =", n)
@@ -106,7 +106,7 @@ def PRF(list1, list2):
 
 if __name__ == '__main__':
 
-    model = '/home/riley/Documents/Github/models/software-model-395'
+    model = '/home/riley/Documents/Github/models/software-model-200-new'
     folder_out = os.getcwd() + "/test"
     word_list_sorted = NER(model, folder_out)
     print(word_list_sorted)

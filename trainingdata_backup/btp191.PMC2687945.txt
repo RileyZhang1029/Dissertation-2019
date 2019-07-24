@@ -1,0 +1,75 @@
+ABSTRACT Motivation: Promoter prediction is an important task in genome annotation projects, and during the past years many new promoter prediction programs (PPPs) have emerged.
+However, many of these programs are compared inadequately to other programs.
+In most cases, only a small portion of the genome is used to evaluate the program, which is not a realistic setting for whole genome annotation projects.
+In addition, a common evaluation design to properly compare PPPs is still lacking.
+Results: We present a large-scale benchmarking study of 17 stateof-the-art PPPs.
+A multi-faceted evaluation strategy is proposed that can be used as a gold standard for promoter prediction evaluation, allowing authors of promoter prediction software to compare their method to existing methods in a proper way.
+This evaluation strategy is subsequently used to compare the chosen promoter predictors, and an in-depth analysis on predictive performance, promoter class specificity, overlap between predictors and positional bias of the predictions is conducted.
+Availability: We provide the implementations of the four protocols, as well as the datasets required to perform the benchmarks to the academic community free of charge on request.
+Contact: yves.vandepeer@psb.ugent.be Supplementary information: Supplementary data are available at Bioinformatics online.
+1 INTRODUCTION Promoter prediction programs (PPPs) aim to identify promoter regions in a genome using computational models.
+In early work, promoter prediction focused on identifying the promoter of (proteincoding) genes (Fickett and Hatzigeorgiou, 1997), but more recently it has become clear that transcription initiation does not always result in proteins, and that transcription occurs all over the genome (Carninci et al., 2006; Frith et al., 2008; Sandelin et al., 2007).
+One important question is what the different PPPs are actually trying to predict.
+Some programs aim to predict the exact location of the promoter region of known protein-coding genes, while others focus on finding the transcription start site (TSS).
+Recent research has shown that there is often no single TSS, but rather a whole transcription start region (TSR) containing multiple TSSs that are used at different frequencies (Frith et al., 2008).
+This article analyzes the performance of 17 programs on two tasks: (i) genomewide identification of the start of genes and (ii) genome-wide identification of TSRs.
+Most PPPs that are published make use of a tailored evaluation protocol that almost always proclaims the new PPP outperforming To whom correspondence should be addressed.
+all others.
+Our aim is provide an objective benchmark that allows us to test and compare PPPs.
+In the past few years, a number of papers have evaluated promoter prediction software.
+The earliest work indicated that many of the early PPPs predicted too many false positives (FPs) (Fickett and Hatzigeorgiou, 1997).
+A later genome-wide review included a completely new set of promoter predictors and introduced an evaluation protocol based on gene annotation (Bajic et al., 2004).
+This protocol has later been used to validate promoter predictions for the ENCODE pilot project (Bajic et al., 2006).
+Sonnenburg et al.(2006) proposed a more rigorous machine-learning-inspired validation method that uses experimentally determined promoters from DBTSS, a database of promoters.
+The most recent large-scale validation of PPPs included more programs than any of the earlier studies and introduced for the first time an evaluation based on all experimentally determined TSSs in the human genome (Abeel et al., 2008a, b).
+While many issues have been solved, there is still a large number of challenges that remain open for debate in evaluating the performance of promoter prediction software.
+Generally, we can distinguish two main approaches in promoter prediction.
+The first approach assigns scores to all single nucleotides to identify TSSs or TSRs.
+Usually, the scoring is done with a classification algorithm that is typically validated using cross-validation.
+This cross-validation provides a first insight in to the performance of the model and can be used to optimize the model parameters on a training set.
+The scores obtained from these techniques can be used as input for a genome annotation pipeline, where they will be aggregated in gene models.
+Because of their design, this type of promoter predictors will always work on a genome-wide scale.
+Programs using this approach include ARTS (Sonnenburg et al., 2006), ProSOM (Abeel et al., 2008b) and EP3 (Abeel et al., 2008a).
+The second approach identifies a promoter region without providing scores for all nucleotides.
+Typically, this type of programs will output a start coordinate and a stop coordinate of the promoter, and a score that indicates the confidence in the prediction.
+In rare cases, only one coordinate is given as TSS.
+For two programs no score is provided (Wu-method and PromoterExplorer).
+Within this approach, we can distinguish two subclasses of programs: the ones that work on a genomic scale and the ones that do not.
+The latter are used to identify the promoter of a single gene.
+In this work we will not consider these programs, because they are usually distributed as a website and are thus not suited for large-scale analyses.
+PPPs can be applied to identify the promoter of known genes, or they can be used to identify the start of any transcription event, regardless of what the final fate of the transcribed sequence is.
+For each application, we propose two evaluation protocols that can be used to assess the performance of a program for that particular application.
+Each application has an associated reference dataset which the protocol will use to evaluate a PPP.
+We use the same 2009 The Author(s) This is an Open Access article distributed under the terms of the Creative Commons Attribution Non-Commercial License (http://creativecommons.org/licenses/ by-nc/2.0/uk/) which permits unrestricted non-commercial use, distribution, and reproduction in any medium, provided the original work is properly cited.
+[09:52 15/5/2009 Bioinformatics-btp191.tex] Page: i314 i313i320 T.Abeel et al.type of reference datasets that have previously been used to validate promoter predictions (see section 2 for details).
+Several methods have been proposed to validate promoter predictions.
+Cross-validation on a small set of promoter and nonpromoter sequences is sometimes used to validate a PPP (Xie et al., 2006), but the results are often an overestimation of the performance on a complete genome (Bajic et al., 2004).
+Other methods make use of gene annotation to evaluate promoter predictions, based on the rationale that the start of a gene corresponds with a promoter (Bajic et al., 2004, 2006).
+However, it is clear that not all promoters are associated with protein-coding genes and, furthermore, not all transcription events start at the beginning of a gene.
+TSSs have been observed at the start of internal exons or at the 3 end of a gene (Carninci et al., 2006).
+More recently, two large resources for promoter research in the human genome have been used to validate promoter predictions.
+The first source is the DBTSS database, containing a large set of experimentally determined promoters (Wakaguri et al., 2008).
+The second source is a genome-wide screening of the human genome using the CAGE technique (Shiraki et al., 2003), providing all TSSs in the genome.
+The latter source is the most valuable as it is an exhaustive screening for all possible TSSs.
+The remainder of this work proposes a set of protocols and datasets to use when validating promoter prediction software.
+To illustrate our methods, we analyzed 17 PPPs with the proposed validation schemes.
+While the methods are applicable to any genome, we focus in the current article on the human genome.
+Finally, we highlight some challenges that arise in selecting the best PPP for a particular task.
+2 MATERIALS AND METHODS 2.1 Datasets We used release hg18 of the human genome for all analyses.
+For the validation protocols, we use the RefSeq genes downloaded from the UCSC table browser.
+This set includes 23 799 unique gene models and is further referred to as the gene set.
+We also use the CAGE tag dataset from Carninci et al.(2006).
+The latter was preprocessed to aggregate all overlapping tags into clusters, resulting in 180 413 clusters containing a total of 4 874 272 CAGE tags.
+A cluster is considered to be a TSR if it contains at least two tags.
+Singleton clusters are removed as these could be transcriptional noise.
+This dataset will be referred to as the CAGE dataset.
+2.2 Promoter prediction software We used two criteria to select the PPPs to include in this analysis: (i) the program or predictions should be available without charge for academic use, and (ii) the program should be able to process the complete human genome or predictions should be available for the complete genome.
+At least 17 programs (Table 1) fulfilled these criteria and have been included.
+Details for settings and prediction extraction methods for each program are included in the Supplementary Material.
+2.3 Evaluation protocols In this article, we propose four protocols to evaluate the quality of predictions made by PPPs.
+The first two protocols are bin-based protocols, inspired by Sonnenburg et al.(2006).
+The latter two are distance based, inspired by Abeel et al.(2008b).
+Figure 1 shows a schematic overview of how each protocol determines the prediction performance.
+For the explanation of each protocol we assume that we have a set of predictions.
+Furthermore, we have a reference set (the gene set or the Table 1.
+Overview of all the programs analyzed Name

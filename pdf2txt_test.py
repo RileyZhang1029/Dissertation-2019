@@ -11,7 +11,7 @@ def convert_pdf_to_txt(path):
     try:
         raw = parser.from_file(path)
         text_fil = raw['content']
-
+        text_fil = text_fil.replace("-\n", "")
         printable = set(string.printable)
         for ch in text_fil:
             if ch not in printable:
@@ -19,7 +19,7 @@ def convert_pdf_to_txt(path):
 
         textClearLink = re.sub(r"[\n](http://[^ ]+)[\n]", '', text_fil)
         textClearLink = ' '.join(textClearLink.split())
-        textNoSpace = textClearLink.replace('\n\n', '\n').replace('\n', ' ').replace(' .', '.').replace(' ,', ',').replace(' -', '-').replace('- ', '-').replace('// ', '//').replace('www. ', 'www.').replace('Fig. ', 'Fig.')
+        textNoSpace = textClearLink.replace('\n\n', '\n').replace('\n', ' ').replace(' .', '.').replace(' ,', ',').replace(' -', '-').replace('- ', '-').replace('// ', '//').replace('www. ', 'www.').replace('Fig. ', 'Fig.').replace('e.g.\n', 'e.g.').replace(' .', '.')
         case = [' /', ' / ']
         for c in case:
             if c in textNoSpace:
@@ -29,7 +29,10 @@ def convert_pdf_to_txt(path):
         with open(path[:-3] + 'txt', "w", encoding='utf-8') as f:
             for s in sentences:
                 f.write(s)
-                f.write('\n')
+                if s.endswith('e.g.') or s.endswith('i.e.') or s.endswith('et al.'):
+                    f.write('')
+                else:
+                    f.write('\n')
         # with open(path[:-3] + 'txt', "w", encoding='utf-8') as f:
         #     f.write(textNoSpace)
         #     f.write('\n')
@@ -76,7 +79,7 @@ def traversal(rootdir):
 
 
 if __name__ == '__main__':
-    rootdir = os.getcwd() + "/test"
+    rootdir = os.getcwd() + "/testdata"
     traversal(rootdir)
 
 

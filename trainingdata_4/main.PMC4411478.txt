@@ -1,0 +1,81 @@
+Abstract Since the proposal for pangenomic study, there have been a dozen software tools actively in use for pangenomic analysis.
+By the end of 2014, Panseq and the pan-genomes analysis pipeline (PGAP) ranked as the top two most popular packages according to cumulative citations of peerreviewed scientific publications.
+The functions of the software packages and tools, albeit variable among them, include categorizing orthologous genes, calculating pangenomic profiles, integrating gene annotations, and constructing phylogenies.
+As epigenomic elements are being gradually revealed in prokaryotes, it is expected that pangenomic databases and toolkits have to be extended to handle information of detailed functional annotations for genes and non-protein-coding sequences including non-coding RNAs, insertion elements, and conserved structural elements.
+To develop better bioinformatic tools, user feedback and integration of novel features are both of essence.
+Introduction In the past decade or so, the remarkable advancement of DNA sequencing technology and application has led to an astronomical accumulation of genomic data.
+This is especially true for the prokaryotic genomes as individual of them is only a few megabases in size.
+It is expected that in the next decade or two, there will be more data collected than what we can actually handle.
+Therefore, database construction, improvement, and consolidation, as well as new tool development, are especially welcome.
+In this way, the sibling fields of genomics, such as pangenomics and metagenomics, can all be ready for curating, sharing, and mining floods of the incoming genomic big data.
+Coming back to the reality and focusing on pangenomics, there were, as of December 2014, more than 40 bacterial species that have over 20 fully-assembled genomes from different strains and isolates, allowing for comprehensive pangenomic studies.
+The concept of pangenome was first proposed in 2005 by Tettelin et al.[1,2], which is defined as the entire genomic repertoire of a given species or phylogenetic clade when multiple species are defined by systematics.
+According to the definition, gene profile (content) of a pangenome is divided into three groups: core (shared by all genomes), dispensable, and strain-(or isolate-) specific genes.
+A series of pangenomic studies have been performed in genomic dynamics [36], pathogenesis and drug resistance [79], bacterial toxins [10], nces and 74 Genomics Proteomics Bioinformatics 13 (2015) 7376 and species evolution [11].
+The concept has also been extended to viral [12], plant [1315], and fungal genome studies [16].
+A review on ten-year history and field achievement of pangenomics has just been published at the beginning of 2014 [2], which detailed major projects as well as methodology and technology advancements.
+Here, we provide a brief review on the pangenomic software packages and tools, including their basic function, general utility, and popularity based on their cumulative citation by peer-reviewed scientific publications.
+Although such a singlecriterion evaluation may never be adequate and thorough, we hope that it provides a field guide for students and young scientists to make the right choice for their preferred applications.
+Highlights of the software packages and tools Since 2010, we have seen a dozen or so software packages and tools being put forward, which are capable of clustering orthologous genes, identifying single nucleotide polymorphisms (SNPs), constructing phylogenies, and profiling core/ shared/isolate-specific genes.
+Although they may share similar functions, each has its own characteristics and limitations, leaving rooms for further improvement.
+Among the early-developed packages, Panseq [17] and PanCGHweb [18] were published in 2010, followed by CAMBer [19] and the Prokaryotic-genome Analysis Tool (PGAT) [20] in 2011.
+PanCGHweb is a web tool for pangenomic microarray analysis based on PanCGH algorithm [21].
+It enables users to group genes into orthologs and to construct gene-based phylogenies of related strains and isolates.
+However, this package is rather specific for handling microarray data but not RNA-seq data.
+Panseq, another online pangenomic tool, is able to determine core and accessory regions of genome assemblies based on MUMmer and BLASTn, as well as to identify SNPs among the core genomic regions.
+In addition, Panseq also has a locus selector module that selects the most discriminatory loci among the accessory loci or core gene SNPs [17].
+Panseq, however, is not able to provide pangenomic profile and functional enrichment analysis that is important for the biologists to filter out functional relevance of the pangenomic elements.
+The later released CAMBer is designed to identify multi-gene families from multiple bacterial strains and isolates.
+These multi-gene families can be used for sequencing error detection, mutation identification, and pangenomic profile computation [19].
+CAMBer is supreme in refining gene function prediction according to multi-gene family information, but it does not provide tools for comparative or evolutionary analysis among strains and isolates.
+As a webbased database, PGAT integrates several useful functions, such as plotting the presence and absence of genes among members of a pangenome, identifying SNPs among orthologs and syntenic regions, comparing gene orders among different strains and isolates, providing KEGG pathway analysis tools, and searching for genes through different annotations such as the Cluster of Orthologous Groups of proteins (COG), PSORT, SignalP, the Tied Mixture Hidden Markov Model (TMHMM), and Pfam.
+However, PGAT is just a database with a limited number of species curated and it cannot perform analysis for new sequencing data from users.
+PGAP is a stand-alone program developed by Zhao et al.in 2012, which contains five functional models [22].
+Based on functional gene clustering and analysis, PGAP presents pangenomic profile (partitions of pangenomic elements or gene categories), genetic variation, species evolution, and function enrichment of different strains and isolates of a given pangenome.
+In addition, all analyses are performed with a single command, and such integration is rather user-friendly and efficient.
+Nonetheless, PGAP has its limitation as well.
+For instance, all its output files of the five models are text files, which lacks of intuitiveness.
+Contreras-Moreira et al.subsequently proposed a program called GET_HOMOLOGUES in 2013, which is also a versatile software package for pangenomics [23].
+This software package integrated data download, sequence feature extraction, homologous gene identification, pangenome profiling, graphical display, and phylogenetic tree construction into one powerful toolkit.
+Several other tools were also available in 2013, such as PanCake [24] and PANNOTATOR [25].
+PanCake was developed for identifying singletons and core regions in arbitrary sequence sets, while PANNOTATOR, a web-based automated pipeline, was designed for the annotation of closely-related genomes for pangenomic analysis.
+However, these two tools only focus on simple functions, such as clustering homologous genes and gene curation.
+In 2014, a powerful and flexible toolkit, the Integrated Toolkit for Exploration of microbial Pan-genomes (ITEP), was published by Benedict and colleagues [26].
+ITEP integrates plenty of existing bioinformatics tools for pangenomic analysis, including protein family prediction, ortholog detection, functional domain analysis, pangenomic profiling, and metabolic network integration.
+Moreover, ITEP also integrates some visualization scripts that assist biologists in phylogenetic tree construction, annotation curation, and specific query for conserved protein domain identification.
+In 2014, another rapid core-genome alignment and visualization pangenomic software package, Harvest, was proposed by Treangen et al.Harvest contains tools, such as Parsnp and Gingr, for core gene alignment, variant calling, recombination detection, and phylogenetic trees construction [27].
+To analyze pangenomic profile in a larger scale, a software package PanGP was developed with a graphic interface by Zhao et al.in 2014 [28].
+Spine and AGEnt were also developed in 2014, which are capable of profiling pangenomes based on both finished and draft genomic sequences [29].
+We summarized all the software packages and tools in Table 1, highlighting their platforms and major features.
+We went one step further and ranked them according to their citations by peer-reviewed scientific publications (Figure 1), which were collected from ISI Web of Science-Science Citation Index Expanded.
+Our summary indicates that Panseq and PGAP have been the most popular packages up to the end of 2014.
+A wish list for improving the current software Although single-tool solution could not usually satisfy the need for understanding the whole picture, a wish list from the users is always helpful for prioritizing goals for the package developers, hence providing directions for improving each package.
+First, the performance of pangenomic analysis strongly depends on the accuracy of genome assembly and annotation.
+Therefore, an adequate number of complete sequence assemblies are a prerequisite.
+Currently, most of the existing bacterial genome sequences are actually incomplete (in most of the Table 1 Software tools for pangenomic studies Name Link Platform Main features Ref.
+Panseq https://lfz.corefacility.ca/panseq/ Online Windows Linux a, b [17] PGAT http://nwrce.org/pgat Online a, b, e [20] PanCGHweb http://bamics2.cmbi.ru.nl/websoftware/pancgh/pancgh_start.php Online a, d [18] PGAP http://pgap.sourceforge.net/ Linux a, b, c, d, e [22] ITEP https://price.systemsbiology.net/itep Linux a, b, d, e, f, g [26] CAMBer http://bioputer.mimuw.edu.pl/camber/index.html Windows Linux a, c, f [19] Harvest https://github.com/marbl/harvest Mac OSX Linux a, b, d, g [27] GET_HOMOLOGUES http://www.eead.csic.es/compbio/soft/gethoms.php Mac OSX Linux a, c, d, f, g [23] PanCake https://bitbucket.org/CorinnaErnst/pancake/wiki/Home Windows Linux a [24] PanGP http://PanGP.big.ac.cn Windows Linux c, g [28] PANNOTATOR http://bnet.egr.vcu.edu/pannotator/index.html Online a, f [25] Spine and AGEnt http://vfsmspineagent.fsm.northwestern.edu/index_age.html Online Mac OSX Linux a [29] Note: Only letters are used in main features column, their corresponding feature descriptions are listed as below: (a) Clustering homologous genes, assigning their presence/absence or analyzing core/accessory genomes; (b) Identifying SNPs; (c) Plotting pangenomic profiles; (d) Building phylogenetic relationships of orthologous genes/families of strains/isolates; (e) Function-based searching or analysis; (f) Annotation and/or curation; and (g) Visualization.
+0 10 20 30 40 50 60 70 80 90 100 2010 2011 2012 2013 2014 R el at iv e an nu al c ita tio n (% ) Year of citation PANNOTATOR PanGP GET_HOMOLOGUES CAMBer PGAP PanCGHweb PGAT Panseq Figure 1 Relative citation of the pangenomic software tools from peer-reviewed scientific publications Xiao J et al/ Software Tools for Pangenomics 75 cases, contigs are not joined together into single chromosomes), and some only have high-quality and high-coverage raw data available.
+The inclusion of incomplete genome assemblies for pangenomic analysis may need scaffold building that requires reformatting of the contig data files.
+Despite the development of the third-generation sequencing technology, which would certainly help the assembly and finishing of prokaryotic genomes [30], incomplete prokaryotic genomes are expected to be deposited into public databases in mass.
+It would be a waste if such data are left unused.
+Second, orthologous gene identification is a key step in pangenomic analysis.
+At present, the existing software for ortholog detection is mainly based on sequence similarity, phylogenetic relationship, or other annotation information such as functional information.
+The development of novel and more efficient ortholog identification method for multiple closely-related strains and isolates can greatly improve the accuracy of pangenomic analysis.
+One possibility is to integrate gene gain-and-loss information for phylogeny building among strains and isolates.
+Third, sampling is also important for pangenomics in a couple of counts.
+One is how many strains or isolates to choose for a pangenomic analysis.
+The other is how to implement a filter that differentiates more diverse strains or isolates from the less diverse for pangenomic analysis.
+For instance, if we choose all genomes of a species for an analysis, which include one or a few divergent genomes, the core genome will be much shorter or reduced.
+Obviously, individual genomes should be selected and regrouped for better representation of average nucleotide identity (ANI).
+ANI is one of the most useful measurements for species delineation [31].
+Therefore, for a better pangenomic analysis, detailed information for the available samples is of essence, which should include their genotypes, phenotypes, and habitats.
+Fourth, the current tools have not incorporated some recent advancements in prokaryotic genomics, such as the so-called genome-organization frameworks (GOFs), which are not only unique to each species but also provide guidance for sequence assembly and finishing [32].
+Other annotation information, such as that of non-coding RNAs, pseudogenes, and epigenetic elements, remains to be implemented into the relevant software packages.
+Finally, a never-ending improvement of pangenomic tools is visualization that provides not only better displays but also quality graphics for publication.
+Concluding remarks We provide an overview on the existing pangenomic analysis tools and hope to see improvements of the software tools from their original developers.
+We certainly express our enthusiasm for new tools to join the competition, and after all, for a piece of bioinformatic work, a database or a toolkit, the survival or winning game is in its long-term maintenance and constant improvement.
+Competing interests The authors declared that there are no competing interests.
+Acknowledgements This study was supported by the National High-tech R&D Program (863 Program; Grant No.
+2012AA020409) from the https://lfz.corefacility.ca/panseq/76 Genomics Proteomics Bioinformatics 13 (2015) 7376 Ministry of Science and Technology of China, the Key Program of the Chinese Academy of Sciences (Grant No.
+KSZD-EW-TZ-009-02), and the National Natural Science Foundation of China (Grant Nos.
+31471248 and 31271386).
