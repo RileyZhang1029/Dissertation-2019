@@ -106,7 +106,7 @@ def PRF(list1, list2):
 
 if __name__ == '__main__':
 
-    model = '/home/riley/Documents/Github/models/software-model-200-new'
+    model = '/home/riley/Documents/Github/models/test-model-1'
     folder_out = os.getcwd() + "/test"
     word_list_sorted = NER(model, folder_out)
     print(word_list_sorted)

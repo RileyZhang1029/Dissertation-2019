@@ -1,0 +1,54 @@
+ABSTRACT Summary: The microbial protein interaction database (MPIDB) aims to collect and provide all known physical microbial interactions.
+Currently, 22 530 experimentally determined interactions among proteins of 191 bacterial species/strains can be browsed and downloaded.
+These microbial interactions have been manually curated from the literature or imported from other databases (IntAct, DIP, BIND, MINT) and are linked to 24 060 experimental evidences (PubMed ID, PSI-MI methods).
+In contrast to these databases, interactions in MPIDB are further supported by 8150 additional evidences based on interaction conservation, co-purification and 3D domain contacts (iPfam, 3did).
+Availability: http://www.jcvi.org/mpidb/ Contact: jgoll@jcvi.org 1 INTRODUCTION As of today, about 600 bacteria have been completely sequenced and fragments of thousands of others have been determined as part of metagenomics projects (http://www.genomesonline.org/).
+Relationships among these genes and proteins are now being determined in a systematic manner.
+One such relationship that can be measured experimentally is a physical interaction between two proteins.
+High-throughput methods have generated large interaction networks.
+Such datasets have not only been shown to reveal functional clues about hypothetical proteins (Titz et al., 2008), but also that highly connected proteins are important for survival a fact that makes them ideal targets for antibiotics (Jeong et al., 2001).
+Several databases have been established for interaction data (Table 1).
+In addition to experimental data, databases such as STRING (Von Mering et al., 2007) provide predicted interactions.
+However, except for the latter, there is a significant bias towards eukaryotes.
+Furthermore, there is surprisingly little overlap between different databases.
+Hence users need to download and combine several microbial datasets.
+The aforementioned databases have other shortcomings: none of them provides information on whether an interaction is conserved in another species and how similar the homologous proteins are.
+They do not include domain pairs that are known to form close contacts in 3D structures.
+Some even do not allow to search for species-specific information or only to a very limited extent, e.g.IntAct currently provides only searches for cryptic species abbreviations or NCBI taxon ids.
+To whom correspondence should be addressed.
+Table 1.
+Overview of imported interaction data Dataset No.
+of interactions No.
+of unique interactions Reference INTACT 16 322 16 059 (Kerrien et al., 2007b) MPI-EXP 3717 3544 (Titz et al., 2008) MINT 1720 284 (Zanzoni et al., 2002) BIND 1564 180 (Alfarano et al., 2005) DIP 1413 117 (Salwinski et al., 2004) MPI-LIT 748 656 unpublished data MPIDBs top species No.
+of interactions No.
+of evidences Campylobacter jejuni 11 873 12 401 Treponema pallidum 3644 3818 Synechocystis sp 3128 3148 Helicobacter pylori 1629 1647 Escherichia coli 1292 1811 Date April 6, 2008.
+Numbers may include different strains.
+We describe the microbial protein interaction database (MPIDB), a new web resource that addresses such questions and provides unified access to available microbial interaction data.
+2 MICROBIAL INTERACTION EVIDENCES Proteinprotein interactions are defined as unique pairs of microbial UniProt accessions (UniProt Consortium, 2008).
+For each interaction, MPIDB features experimental and additional evidences (Fig.1).An interaction is reported if there is at least one experimental evidence.
+2.1 Experimental evidences Experimental evidences are based on interaction experiments that identify two physically associated proteins.
+An evidence is defined by its interaction detection method [PSI-MI vocabulary (Kerrien et al., 2007a)] in combination with its publication.
+Interactions from pull-down studies were only included if a bait protein purified only one prey protein.
+Overall, we integrated 24 060 experimental evidences from the scientific literature (MPI-LIT), from in-house two-hybrid experiments (MPI-EXP) and from other databases (Table 1).
+These experiments describe a unique set of 22 530 proteinprotein interactions.
+2008 The Author(s) This is an Open Access article distributed under the terms of the Creative Commons Attribution Non-Commercial License (http://creativecommons.org/licenses/by-nc/2.0/uk/) which permits unrestricted non-commercial use, distribution, and reproduction in any medium, provided the original work is properly cited.
+[12:22 17/7/03 Bioinformatics-btn285.tex] Page: 1744 17431744 J.Goll et al.Fig.1.
+MPIDB features 22 530 interactions that are supported by experimental and additional (AD) interaction evidences.
+2.2 Additional evidences Interactions were used to identify homologous interactions (interologs) in the same or different species.
+A protein sequence comparison of interacting proteins revealed 5465 interolog evidences among 110 species/strains (BLAST E-value 105, Fig.1A).
+Interacting proteins were co-purified by 1029 pull-down experiments (baitprey or preyprey, Fig.1B) and 1441 Pfam domain combinations among interacting proteins have been found to form close contacts in 3D structures [iPfam (Finn et al., 2005), 3did (Stein et al., 2005), Fig.1C].
+Whenever an interaction from another study is mentioned in an article without experimental evidence in the same paper, we add the referenced study as a secondary reference(Fig.1D).
+Finally, multimeric 3D structures were integrated whenever both interacting proteins were part of a protein complex (homodimers have been excluded, Fig.1E).
+3 WEB INTERFACE MPIDB can be searched by species/strain and/or by protein names (common gene name, ordered locus name and UniProt accession).
+More specific requests may be made using the advanced search option.
+Found interactions are displayed as protein pairs ordered by supporting interaction evidences.
+Lists of interactions may be downloaded as PSI-MI tab delimited files and can be imported by visualization tools, such as Cytoscape (http://www.cytoscape.org/).
+Clicking on the number of evidences shows experimental and additional evidences along with links to the source databases.
+4 DISCUSSION Experimental and/or predicted protein interactions are provided by several publicly available databases.
+Although some of them feature microbial interactions, the majority emphasise eukaryotic interactions while none of them provide access to all microbial data: each database stores interactions that are not reported by another (see No.
+of Unique interactions in Table 1).
+While features of these databases have influenced MPIDB, its manual literature curation efforts [meanwhile as an IMEx observer member (http://imex.sourceforge.net/)] and supporting evidences such as interologs and domaindomain interactions are unique to our database.
+In contrast to other repositories, we do not include binary interactions infered from pull-down experiments.
+While STRING predicts interactions de novo, we treat predictions with caution and only add them as additional evidences to experimentally verified ones.
+Finally, users are requested to suggest additional features of interest.
+Conflict of Interest: none declared.

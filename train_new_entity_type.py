@@ -53,7 +53,7 @@ def convert_dataturks_to_spacy(dataturks_JSON_FilePath):
 
 ################### Train Spacy NER.###########
 def train_spacy():
-    TRAIN_DATA = convert_dataturks_to_spacy("//home/riley/Documents/Prodigy/st_ner.jsonl")
+    TRAIN_DATA = convert_dataturks_to_spacy("/home/riley/Documents/Github/Dissertation-2019/Prodigy/st_ner_1312_new.jsonl")
     nlp = spacy.blank('en')  # create blank Language class
     # create the built-in pipeline components and add them to the pipeline
     # nlp.create_pipe works for built-ins that are registered with spaCy
@@ -83,7 +83,7 @@ def train_spacy():
                     losses=losses)
             print(losses)
     # test the model and evaluate it
-    examples = convert_dataturks_to_spacy("//home/riley/Documents/Prodigy/st_ner_test.jsonl")
+    examples = convert_dataturks_to_spacy("/home/riley/Documents/Github/Dissertation-2019/Prodigy/st_manual_test.jsonl")
     tp = 0
     tr = 0
     tf = 0

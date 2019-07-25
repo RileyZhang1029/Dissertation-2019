@@ -21,7 +21,7 @@ with open("/home/riley/Documents/Github/Dissertation-2019/Prodigy/output.txt", '
             f.write("\n")
 
 
-with open("/home/riley/Documents/Github/Dissertation-2019/Prodigy/output_word.jsonl", 'w', encoding = "utf8") as j:
+with open("/home/riley/Documents/Github/Dissertation-2019/Prodigy/output_word.txt", 'w', encoding = "utf8") as j:
     for w in wordList:
         # j.write("{\"label\":\"SOFTWARE\",\"pattern\":[{\"lower\":\"")
         j.write(w)

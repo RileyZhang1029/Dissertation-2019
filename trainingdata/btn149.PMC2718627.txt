@@ -1,0 +1,286 @@
+ABSTRACT Motivation: In bacterial evolution, inferring a strain tree, which is the evolutionary history of different strains of the same bacterium, plays a major role in analyzing and understanding the evolution of strongly isolated populations, population divergence and various evolutionary events, such as horizontal gene transfer and homologous recombination.
+Inferring a strain tree from multilocus data of these strains is exceptionally hard since, at this scale of evolution, processes such as homologous recombination result in a very high degree of gene tree incongruence.
+Results: In this article we present a novel computational method for inferring the strain tree despite massive gene tree incongruence caused by homologous recombination.
+Our method operates in three phases, where in phase I a set of candidate strain-tree topologies is computed using the maximal cliques concept, in phase II divergence times for each of the topologies are estimated using mixed integer linear programming (MILP) and in phase III the optimal tree (or trees) is selected based on an optimality criterion.
+We have analyzed 1898 genes from nine strains of the Staphylococcus aureus bacteria, and identified a fully resolved (binary) strain tree with estimated divergence times, despite the high degrees of sequence identity at the nucleotide level and gene tree incongruence.
+Our methods efficiency makes it particularly suitable for analysis of genome-scale datasets, including those of strongly isolated populations which are usually very challenging to analyze.
+Availability: We have implemented the algorithms in the PhyloNet software package, which is available publicly at http://bioinfo.cs.rice.edu/phylonet/ Contact: nakhleh@cs.rice.edu 1 INTRODUCTION Genome sequencing technologies are amassing large amounts of data from various organisms that span the Tree of Life, and in the case of bacteria, genomes of several strains of the same bacterium are becoming available (e.g.see the Microbial Genome Project of the US Department of Energy at http://microbialgenomics.energy.gov/).
+These data are enabling biologists to analyze the relationships among populations and species, as well as understand speciation and population divergence.
+To elucidate these relationships and understand these processes among different strains of the same bacterium, an accurate reconstruction of the evolutionary history of these strainsthe strain treeis essential, since it serves as the backbone against which events such as horizontal gene transfer and homologous recombination can be identified and assessed.
+In a To whom correspondence should be addressed.
+sequence of papers, Roger Milkman and co-workers pioneered some of the work in this area, mainly focusing on mapping the clonal ancestry in several strains of Escherichia coli (e.g.Milkman and Stoltzfus, 1988; Stoltzfus et al., 1988).
+In this article, we focus on the problem of inferring the strain tree from a genome-scale set of gene trees whose incongruence is mainly due to homologous recombination.
+In bacteria, homologous recombination through transformation or conjugation allows for the integration of homologous alien DNA into a host genome (Errington et al., 2001).
+This process plays an important role in DNA repair as well as bacterial genome diversification.
+From an evolutionary perspective, and barring any recombination, the evolutionary history of a set of genomes would be depicted by a tree that is the same tree that models the evolution of each gene in these genomes.
+However, homologous recombination among bacteria decouples the evolution of different genes in their genomes, thus resulting in incongruent (or, discordant) gene treesa scenario that is illustrated in Figure 1.
+For example, in Figure 1c, looking backwards in time, the gene lineage from strain A and the gene lineage from B persist deep enough into the past that they have not coalesced by the time of the ancestral strain to A, B and C. Thus, the lineage from B may coalesce with the lineage from C more recently than with the lineage from A.
+As the ancestries of different parts of the genome may take different paths through the phylogeny, e.g.due to homologous recombination, gene trees may differ in topology from the strain tree topology, and an individual gene history might not reflect the shape of the strain tree.
+Even if this gene history is correctly estimated, the strain-tree estimate based on a single locus may be incorrect.
+As genome-scale sequence data from thousands of loci in different strains of bacteria become available, it is now critical that appropriate methods and tools be developed for understanding and overcoming the problem of gene-tree discordance in strain-tree inference.
+A few methods have been introduced recently for analyzing gene trees, reconciling their incongruities and inferring species trees despite these incongruities.
+To the best of our knowledge, none of these methods have been applied to bacterial genomes, particularly different strains of the same bacterium, with massive gene tree incongruence due to homologous recombination.
+Generally speaking, each of these methods follows one of two approaches: the combined analysis approach or the separate analysis approach.
+In the combined analysis approach, the sequences from multiple loci are concatenated, and the resulting supergene dataset is analyzed using traditional phylogenetic methods, such as maximum parsimony and maximum likelihood (e.g.Rokas et al., 2003.)
+In the separate analysis approach, the sequence data from each locus is first analyzed individually, and a reconciliation of the gene trees is then 2008 The Author(s) This is an Open Access article distributed under the terms of the Creative Commons Attribution Non-Commercial License (http://creativecommons.org/licenses/by-nc/2.0/uk/) which permits unrestricted non-commercial use, distribution, and reproduction in any medium, provided the original work is properly cited.
+nakhleh@cs.rice.edu [19:02 18/6/03 Bioinformatics-btn149.tex] Page: i124 i123i131 C.Than et al.A B C A B C A B C (a) (b) (c) Fig.1.
+Three different gene trees within the branches of a strain tree.
+(a) Coalescent times coincide with divergence times, and strain/gene tree topologies are concordant.
+(b) Coalescent times do not coincide with divergence times, and strain/gene-tree topologies are concordant.
+(c) Coalescent times do not coincide with divergence times, and strain/gene-tree topologies are discordant.
+When topology (tree shape) alone is considered, the gene trees in (a) and (b) are identical, and differ from the one in (c).
+However, when times are also taken into consideration, all three gene trees are different.
+sought so as to optimize certain criterion (e.g.Edwards et al., 2007).
+Shortcomings of both approaches have been recently reported by various researchers (e.g.Degnan and Rosenberg, 2006; Kubatko and Degnan, 2007).
+A particular challenge that was not addressed in these recent studies concerns the analysis of very closely related groups of genomes (strains of the same bacterium, for example).
+In this case, sequence identity at the nucleotide level is very high, which gives rise to gene trees with low resolution, a fact that further complicates the task of inferring the strain tree.
+Last but not least, the genomic scale of the available data necessitates the development of efficient tools for tackling the task of strain tree inference.
+In this article, we address the problem of strain-tree inference from genome-scale multilocus data, where gene-tree incongruence is due to homologous recombination.
+Our proposed model of the optimal strain tree (topology and divergence times) is one that minimizes the amount of deep coalescent events, which is similar to that used in Maddison and Knowles (2006), and our proposed method to infer the optimal tree under this model is based on two widely encountered optimization problems: maximal cliques and mixed integer linear programming.
+Our method operates in three phases, where in phase I a set of candidate tree topologies is computed using the maximal cliques concept, in phase II divergence times for each of the topologies are estimated using mixed integer linear programming (MILP) and in phase III one tree, or a set of trees, is selected based on an optimality criterion.
+To assess our methods performance, we have analyzed 1898 genes from nine strains of the Staphylococcus aureus bacteria.
+A compatibility graph of all different clusters in 1898 corresponding gene trees was built, whose maximal cliques were then computed to reconstruct candidate tree topologies.
+The compatibility graph has 36 vertices and 304 edges, which correspond to 304 pairs of compatible clusters, and all its maximal cliques were identified in about 0.046 s. For the 24 trees that corresponded to the maximal cliques, we computed divergence times using a novel MILP formulation, which we solved using the CPLEX tool from ILOG.
+It took CPLEX approximately 1 h to compute the optimal divergence time assignment of a strain-tree topology, given a set of 1898 gene trees, on a 3.2 GHz Intel Pentium 4 machine, running Linux, with 1GB of RAM.
+The optimal strain tree that our method identified is fully resolved (binary) despite the high degree of sequence identity at the nucleotide level, which further affirms the suitability of the method to analysis of very closely related organisms.
+2 METHODS 2.1 Definitions and notations Let T = (V ,E) be a tree, where V (T ) and E(T ) are the tree nodes and tree edges (or, tree branches), respectively, and let L (T ) denote its leaf set.
+Further, let X be a set of taxa.
+Then, T is a phylogenetic tree over X if there is a bijection between X and L (T ).
+A tree T is said to be rooted if the edges in E are directed and there is a single internal node x with in-degree 0.
+In this article, we assume only rooted trees, unless stated otherwise.
+Let T = (V,E) be a rooted tree, and u be a node in V. Given a tree T = (V,E) leaf-labeled by set X of taxa, a node vV , an edge e= (u,v) and a set X X , we use the following notations: pT (v)=u; T [v] is the clade, or subtree, rooted at node v; cTe is the cluster, i.e.the set of leaves of T [v]; and, MRCAT (X) is the most recent common ancestor of Xi.e.the node vV (T ) such that X =cTe where e= (u,v)E(T ).
+Tree T induces the set CT ={cTe : eE(T )} of clusters.
+The topology of the tree T naturally defines a partial order T on C. In this article, we assume that any strain tree T always has a special node r with a special edge re= (r,x), where x is the MRCA of all leaves in the tree (e.g.see the strain tree in Fig.4a).
+Let :V (T ) (R+ {0}) be a function assigning each node a time such that (1) (u)= (v) for u,vL (T ) and (2) (u)> (v) for (u,v)E(V ).
+2.2 Strain-tree inference and gene-tree reconciliation As indicated above, our proposed model of the optimal strain tree (topology and divergence times) is one that minimizes the amount of deep coalescent events.
+The input to our problem is a set of gene trees (topologies and coalescent times), and the output is a strain tree (topology and divergence times) that minimizes the amount of deep coalescent events and incongruence of the gene trees when reconciled within the branches of the inferred strain tree.
+The strain tree is built in three phases.
+First, a set of topology candidates is computed based on the set of clades in the input gene trees.
+Second, the times for nodes in each of the candidate trees are inferred based on the coalescent times of the input gene trees.
+Third, the gene trees are reconciled within the branches of each of the tree candidates, and the tree (topology and times) that optimizes a certain criterion (a weighted sum of deep coalescent events, gene/strain-tree incongruence and shallow coalescent events) is selected as the strain tree.
+2.2.1 Phase I: inferring strain-tree topology candidates Given a set of gene-tree topologies {T1,...,Tk}, it may be that the tree topology that represents the most frequent coalescent history does not reflect the true divergence patterns (Degnan and Rosenberg, 2006).
+Further, the tree built from the concatenated supergene may also not reflect the true speciation patterns (Kubatko and Degnan, 2007).
+Our working hypothesis is that the strain-tree topology is most probably formed from a set of clusters, each of which appears in at least one of the gene trees.
+For a set of clusters to define a (rooted) tree, they have to be pairwise compatible.
+Two clusters (sets of taxa) c1, c2 X are compatible if at least one of the three intersections c1 c2, c1 c2 and c1 c2 is empty (c denotes the set X c).
+A classical result in phylogenetics states that a set of pairwise compatible clusters defines a unique tree (Semple and Steel, 2003).
+Based on our working hypothesis and the relationship between clusters and trees, we formulate our heuristic algorithm for finding candidate strain-tree topologies from the set of genetree topologies, as outlined in Figure 2.
+The algorithm first computes C, the set of all clusters appearing in any of the gene trees.
+It then builds the compatibility graph H = (VH ,EH ), where VH =C, and EH VH VH where EH ={(ci,cj) :ci is compatible with cj}.
+Based on the aforementioned relationship between clusters and trees, our next task entails computing all maximal sets of pairwise compatible clusters, which amounts to computing the set K of all maximal cliques in the compatibility graph H. Finally, strain tree topology candidates are constructed in a straightforward manner from the set K , where each maximal clique corresponds to a unique tree.
+Figure 3 illustrates the algorithm on three input gene trees.
+The set C contains seven distinct clusters, and the compatibility graph H is shown.
+There are six i124 [19:02 18/6/03 Bioinformatics-btn149.tex] Page: i125 i123i131 Inference of bacterial strain trees Fig.2.
+The algorithm for estimating a set T of strain-tree topology candidates from an input set G of gene-tree topologies.
+In Step 1, the set C of all clusters that appear in any of the gene trees is computed.
+In Step 2, the compatibility graph of C is built and in Step 3, the set of all maximal cliques is computed.
+Each maximal clique corresponds to one tree, and the set of all such trees is computed in Step 4.
+A DCB A DCBA DCBE F E F F E BC ABC DE DEF ABC EF DEF AB ABC DF DEF Gene Trees Clusters AB ABC BC DE EF DF DEF Compatibility Graph MC1: BC ABC DE DEF MC3: BC ABC DF DEF MC2: BC ABC EF DEF MC4: AB ABC DF DEF MC5: AB ABC DE DEF MC6: AB ABC EF DEF Maximal Cliques (ST candidates) Fig.3.
+Example illustrating algorithm EstimateSTTopology.
+At the top are three gene trees, which are the input to the algorithm.
+The set of all clusters occurring in these gene trees is then computed, and their compatibility graph is built.
+Finally, the set of all maximal cliques is computed, and each defines a strain-tree topology candidate.
+maximal cliques in H, which implies that the clusters of the input gene trees give rise to six different strain tree topology candidates.
+2.2.2 Phase II: estimating strain-tree divergence times Our next task entails estimating the divergence times at internal nodes of each of the strain-tree topology candidates that we computed so as to optimize the weighted sum criterion, as described above.
+We present a novel optimization based on solving an MILP formulation.
+The MILP formulation involves a special labeling of the strain-tree topology branches, formulation of temporal constraints based on information from the gene trees, linking coalescence and temporal information and finally putting together all steps into one MILP program.
+We now describe in details each of these four steps.
+(1) Labeling the strain-tree branches.
+In order to model the coalescent of genes on the strain-tree branches, we need to label these branches.
+As we seek to minimize deep coalescent events (genes that coalesce deeper than their MRCA), we seek a labeling that reflects the depth of the coalescent event, i.e.how far the coalescent event of a set X occurred away from the MRCA of X.
+For each internal node x in the strain tree ST , let P(x)=x1,x2,...,xp be the sequence of nodes where: (1) x1 = x, (2) xp =r(ST ) and (3) (xi,xi1) E(ST ), for all 2 ip.
+Further, EP(x) denotes the list of edges defined by P(x); i.e.EP(x) =(xi,xi1) :2 ip.
+For example, we have P(x2)=x2,x3,x5,r and EP(x2) =(x3,x2),(x5,x3),(r,x5) in the strain tree in Figure 4a.
+A B FEDC re x5 x4 x3 x2x1 r A B FEDC y5 y4 y3 y2y1 (a) (b) Fig.4.
+A strain tree (a) and a gene tree (b) on six taxa, used for illustrating the strain-tree branch labeling.
+Given these sequences, a clade rooted at node y in a gene tree may coalesce only on any edge in EP(x), where x=MRCAST (y).
+For example, the clade (C,D) in the gene tree in Figure 4b may coalesce only on one of the edges in EP(x2), where x2 is the node in the strain tree in Figure 4a.
+Given EP(x) =(x2,x1),(x3,x2),...,(xp,xp1) for some node x in a straintree topology, we label the edges in EP(x) by the numbers 1,2,...,p such that ((xs,xs1))=s2, for 2sp.
+For example, for EP(x2), where x2 is the node in the strain tree in Figure 4a, we have the labels: ((x3,x2))= 1, ((x5,x3))=2 and ((r,x5))=3.
+This labeling is essential for our MILP formulation, since it will be used to reflect the depth of the coalesce events.
+For example, if clade (C,D) from the gene tree in Figure 4b coalesces on branch (r,x5) in the strain tree, then the depth of that coalescence event is ((r,x5))1, which is 2 (the reason we choose a label that is larger by 1 than the actual depth value is to accommodate shallow coalescence events, as we discuss below).
+Indeed, in this scenario, (C,D) coalesced two branches deeper than it could have coalesced [which is branch (x3,x2)].
+We denote by LabelTree the procedure that computes the lists P(x) and EP(x), as well as the labeling of each edge in EP(x).
+(2) Temporal constraints.
+The topology of the strain tree defines a partial order on the times of the internal nodes.
+This can be represented using linear constraints as u >v for every branch (u,v) in the strain tree.
+For example, in the strain tree in Figure 4a, we have the constraint x5 >x3.
+Further, each clade in a gene tree may coalesce on any branch in the strain tree on the path from the MRCA of the clade to the branch re.
+Temporally, this imposes the (linear) constraint x y r , where y is a clade (equivalently in this case, the set of leaves in that clade) in a gene tree, x=MRCAST (y), and r is the special root of the strain tree.
+For example, in Figure 4, we have the constraint x2 y2 r. However, since the coalescence times may be underestimated or gene transfer may have occurred after divergence of the strains, we relax this constraint, by allowing the coalescence time of certain clades to be smaller than the time of their MRCA in the strain tree.
+Nonetheless, we wish to minimize such events.
+We achieve via the two constraints [y <x] [gy =1] and [y x] [gy =0], for every clade y in a gene tree and its MRCA x in the strain tree.
+The binary variable gy here takes the value 1 when the coalescence time of y is lower than that of its MRCA in the strain tree and 0 otherwise.
+Defining Tmax to be the maximum time of the root of any of the gene trees in G , we write these as linear constraints, as follows: (A) y (1gy)Tmax x (B) (1gy)y +gyTmax x (C) gy {0,1} In this case, we add a small value (e.g.=1108) to emulate the < relation.
+(3) Associating times with branches through their labels.
+Let y be a node in the gene tree, x=MRCAST (y), and (u,v) EP(x) such that ((u,v))=m.
+If node y coalesces on branch (u,v) in the strain tree, this introduces a i125 [19:02 18/6/03 Bioinformatics-btn149.tex] Page: i126 i123i131 C.Than et al.constraint of the form u y v, which translates into the constraint [ fy =m] [u y v].
+(1) Notice that if fy =m, then y is not constrained, which we emulate by constraining y from above by Tmax and from below by 0.
+In other words, we have the constraint [ fy =m] [Tmax >y 0].
+(2) Let My ={1,...,(y)}, where (y)=|P(x)|1 for x=MRCAST (y).
+For branch e= (u,v)EP(x), where (e)=m, we denote sy(m)=u and ty(m)=v.
+For each clade y in a gene tree, we convert the conjunction of constraints (1) and (2) into linear constraints by introducing (y) binary variables i for 1 i(y), and then writing the following constraints: (A) y (1i)Tmax sy(i) 1 i(y) (B) y +(1i)Tmax ty(i) 1 i(y) (C) gy +(y)i=1 i = 1 (D) fy (y)i=1 ( i i ) = 0 (E) i {0,1} 1 i(y) Constraints (A) and (B) connect the branch assignment with the times of that branch, as they guarantee that i =1 if sy(i) y ty(i) and i =0 otherwise.
+Constraint (C) guarantees that either gy =1 and all the values are 0, thus resulting in fy =0 based on constraint (D), which corresponds to the case where the coalescence times of clade y in the gene tree is lower than that of its MRCA in the strain tree, or gy =0 and exactly one of the values is 1, which corresponds to the case where y coalesces, under the time assignment to the strain tree, on a unique branch on the path from the MRCA of y to the root.
+Constraint (D) guarantees that the unique value is chosen from the set My.
+Constraint (E) states that all the variables are binary.
+(4) Putting it all together: the MILP formulation.
+Now that we have described the constraints and how to write them as linear constraints for CPLEX, we are in a position to introduce the complete MILP formulation for solving the problem of estimating divergence times in a strain tree ST , given a set G of gene trees with coalescence times at internal nodes.
+We denote I(T ) by the set of all internal nodes of tree T , and by I the set GTG I(GT ).
+We seek x , for every internal node x in the strain tree, and fy for every internal node y in all gene trees so as to minimize the amount of deep coalescence events and the amount of shallow coalescence.
+A MILP formulation of this problem, which we refer to as EstimateSTTimes, is given in Figure 5.
+Notice that since gy =1 (which indicates shallow coalescence) if and only if fy =0, the objective function correctly captures the amount of deep coalescence events, and chooses the solution that minimizes it.
+2.2.3 Phase III: strain/gene-tree reconciliation and optimality.
+Given a strain tree (ST ,ST ) and a gene tree (GT ,GT ), we seek the coalescence history of the gene, given its tree, on the branches of the strain tree.
+Because both the strain tree and gene trees have times at internal nodes at this stage of the method, this problem is trivial: the coalescence event of a set c of taxa at time t in gene tree GT must occur at time t on the path between the root of ST and the MRCA of c in ST.
+There is exactly one such point in ST , so this mapping is unique for each cluster in a gene tree.
+Considering trees with times at internal nodes is very important since temporal constrains implied by divergence and coalescent times render certain coalescent histories invalid.
+Therefore, whenever such temporal information is available, it must be used, not only for accuracy reasons, but also to achieve further reductions in the size of the space of strain/gene-tree reconciliations, which in turn affects the computational efficiency of existing and newly developed reconciliation methods.
+Let C (G ) be the set of all internal nodes in the gene trees in G (we use an internal node and the subtree rooted at it interchangeably here) and denote by cST that c is a clade in ST. Our optimality criterion, (ST ,G ), is defined as the sum of (1) weighted number of missing clades wil( {cC(G):c/ST}1), (2) weighted number of deep coalescence events wdc( {cC(G):cST , fc>0} ( fc 1)) and (3) weighted number of shallow coalescence events wsc( {cC(G):cST , fc=0}gc).
+The first term is the number of clades in the gene trees that do not occur in the strain tree.
+For a clade c in gene tree GT and which also appears in the strain tree ST , the quantity fc captures how far (in terms of the number of branches) c coalesced away from its MRCA in ST and gc captures if it may not coalesce, given the time assignment in the strain tree.
+Note that if all gene trees have the same topology as the strain tree, and each cluster coalesces on the branch immediately above its MRCA, then (ST ,G )=0.
+The weights wil , wdc and wsc can be set in a way to reflect the significance given to each of the three terms in the criterion.
+For example, if only topological difference among the gene trees and strain tree matters, wdc and wsc can be set to 0.
+2.3 The algorithm Now that we have defined our optimality criterion, the complete algorithm for inferring an optimal strain tree (topology and times) is described in Figure 6.
+Fig.5.
+Algorithm EstimateSTTimes, which is an MILP formulation for estimating the divergence times of a strain-tree topology ST given a set G of gene trees with times at internal nodes.
+Solving this MILP yields the divergence time u, for every node u in the strain tree, and for each clade y in any of the gene trees in G , the strain-tree branch fy on which clade y coalesces under the time assignment, and gy if y cannot coalesce, so as to minimize the number of deep coalescence (and shallow coalescence) events and the branch lengths.
+For k gene trees, each on n leaves, this formulation generates an MILP program with O(kn2) variables (including binary ones) and O(kn2) constraints.
+In our analysis of 1898 genes from nine strains of S.aureus bacteria, the MILP program contained over 30 000 constraints, which CPLEX solved in about 1 h. i126 [19:02 18/6/03 Bioinformatics-btn149.tex] Page: i127 i123i131 Inference of bacterial strain trees Fig.6.
+The algorithm for computing the strain-tree topology and divergence times (ST ) from an input set of gene trees with coalescence times at internal nodes (G ).
+Step 1 computes a set T of candidate strain-tree topologies, based on the set G of gene trees.
+The loop in Step 4 goes through each tree T in the set T , labels it (Step 4a) estimates the divergence times of T (Step 4b), and keeps track of the optimal candidate strain tree (Step 4d), which is the tree returned at the end.
+Steps 4c and 4d compute the optimality score, based on the formula described in Section 2.2.3, of the estimated strain tree (topology and times), given the set G of gene trees with coalescence times at internal nodes.
+3 MATERIALS AND ANALYSIS 3.1 Sequence data In our experimental study, we used the S.aureus bacteria, which infect humans in the community and hospitals and cause a variety of diseases.
+We obtained all the sequence data from the site ftp://ftp.ncbi.nih.gov/genomes/.
+Table 1 summarizes the nine strains we used.
+NC_002745 is S.aureus subsp.
+aureus N315, which is a prototype of methicillin-resitant S.aureus (MRSA; Kuroda et al., 2001).
+NC_002758 is S.aureus subsp.
+aureus Mu50, which has a moderate resistance to vancomycin by the thickened cell wall.
+NC_002951 is S.aureus subsp.
+aureus COL,which is an early methicillin-resistant isolate.
+The first isolation was found in a British hospital in 1961 (Gill et al., 2005).
+NC_002952 is S.aureus subsp.
+aureus MRSA252.
+NC_002953 is S.aureus subsp.
+aureus MSSA476.
+These strains were isolated from hospital and community (Holden et al., 2004).
+MRSA252 belongs to the clinically important EMRSA-16 clone that is responsible for half of the MRSA infections in the United Kingdom and is one of the major MRSAclones found in the USA(USA200).
+MSSA476 causes severe invasive diseases in immunocompetent children in the community and belongs to a major clone associated with community-acquired disease.
+NC_003923 is S.aureus subsp.
+aureus MW2 (Baba et al., 2002).
+This strain was isolated from the community, and caused fatal septicaemia.
+This strain was reported in mid-west USA.
+NC_007622 is S.aureus subsp.
+aureus RF122 (Herron-Olson et al., 2007).
+NC_007793 is S.aureus subsp.
+aureus USA300 (Diep et al., 2006).
+USA300 is one of the major strains in the USA, Canada and Europe.
+NC_007795 is S.aureus subsp.
+aureus NCTC 8325 (Gillaspy et al., 2006).
+3.2 Identifying orthologous genes To identify orthologous genes, we used the information of both DNA sequence identity and synteny (gene order) as follows.
+All-againstall BLASTN search with default parameters (Altschul et al., 1997) was performed for the genes in NC_002745 versus all others.
+Then, we produced a list of BLASTN hits of the 2669 genes in NC_002745 for each of the other strains.
+The lists include genes that have at least 90% sequence identity to the reference gene in NC_002745 and the length of the BLASTN hit region covers >50% of the entire gene.
+We excluded BLASTN hits when there are more than one hit for each reference gene.
+As there were not many such cases, this restriction did not result in much loss of data.
+In order to identify orthologous genes conservatively, we considered that orthologous genes should be in a large block of a region in which the gene order is well conserved for all investigated strains.
+A block is defined such that genes from all strains are continuously located on their genomes with less than three gene skips, which could be created by small indels and annotation errors.
+To detect such blocks, we performed a synteny survey from the first gene in NC_002745 (NC_002745_1) to downstream genes.
+Then, we identified 222 such blocks, which covered in total 1898 9 genes.
+3.3 Gene-and strain-tree analysis For each gene, we built a maximum parsimony (MP) tree from its DNA sequences by using PAUP* 4.0 (Swofford, 2003), and rooted the tree using the midpoint method.
+When the MP heuristic identified more than one tree for a given gene, we used the strict consensus of these trees.
+We inferred coalescence times at internal nodes in the gene trees using the formula y =  (a,b)B(y) ds(a,b) 2rs/|B(y)| (3.3) for coalescence time of node y in a gene tree, where B(y)={(a,b) : MRCA(a,b)=y}, ds is the number of synonymous substitutions per synonymous sites and rs is the rate of synonymous substitutions.
+In other words, y is the average of all coalescence times of every pair of genes whose MRCA is node y.
+Given that the rate of synonymous substitutions is similar across genes (Nei and Kumar, 2000), this allowed us to compare the coalescence times across gene trees and use them to infer divergence times in the strain tree.
+We used rs = 108, following the findings of Ochman and Wilson (1987).
+It has been suggested that ds may not be constant across the genome due to different codon bias among genes (Retchless and Lawrence, 2007).
+We found that ds and the codon adaptation index (CAI) are in a negative correlation, therefore, we used a linear regression method to correct ds for bias caused by non-random usage of codons.
+The correction is made such that a corrected ds corresponds to that with the mean CAI.
+However, the corrected ds measure did not change the relative times we obtained for the strain trees and results are not shown.
+To get the strain-tree candidates, we used the algorithm EstimateSTTopology described in Figure 2.
+The compatibility graph H contained 36 nodes and 304 edges.
+We used the MaxClique i127 [19:02 18/6/03 Bioinformatics-btn149.tex] Page: i128 i123i131 C.Than et al.Table 1.
+Strain information Refseq subsp.
+aureus Genome size (nt) Annotated gene number Reference NC_002745 N315 2 814 816 2669 Kuroda et al.(2001) NC_002758 Mu50 2 878 529 2775 Kuroda et al.(2001) NC_002951 COL 2 809 422 2724 Gill et al.(2005) NC_002952 MRSA252 2 902 619 2845 Holden et al.(2004) NC_002953 MSSA476 2 799 802 2723 Holden et al.(2004) NC_003923 NW2 2 820 462 2712 Baba et al.(2002) NC_007622 RF122 2 742 531 2665 Herron-Olson et al.(2007) NC_007793 USA300 2 872 769 2648 Diep et al.(2006) NC_007795 NCTC 8325 2 821 361 2969 None tool of Kevin ONeill to compute the maximal cliques.
+The tool identified all maximal cliques in 0.046 s.Additionally, we considered five other candidate tree topologies: (1) Tconc: the tree topology obtained by the maximum parsimony heuristic, as implemented in PAUP*, on the concatenation of all 1898 gene data sets; (2) Thf : the topology of the gene tree that is compatible with the largest number of other gene trees (this tree, shown in Figure 11, is compatible with 1645 of the gene trees); (3) Tavgds: a tree topology built using the neighbor joining (Saitou and Nei, 1987) method from the average ds distances among nine strains; (4) Tavghd : a tree topology built using the neighbor joining method from the average Hamming distances among nine strains and (5) Tmajcons: the topology of the majority consensus tree of all 1898 gene trees.
+In total, we have 29 candidate strain-tree topologies.
+We then estimated the divergence times of each of the strain tree topology candidates, using the CPLEX tool (from ILOG) to solve the algorithm (MILP program) described in Figure 5.
+We have implemented a software tool for generating the MILP program from a set of gene trees with coalescence times, following the formulation in Figure 5, in the PhyloNet software package, which is available publicly at http://bioinfo.cs.rice.edu/phylonet/.
+In the nine-genome dataset that we considered in this study, each MILP program had 4000 variables and 30000 constraints.
+Nonetheless, CPLEX solved each program in about 1h.
+4 RESULTS AND DISCUSSION Our first task was to measure the heterogeneity in the data, which consisted of the 91898 gene sequences and 1898 gene trees.
+In this task, we considered two measures of heterogeneity: topological differences among the gene trees, and distributions of coalescence times of each cluster of genes across all gene trees.
+Figure 7 shows the topological differences between every pair of the 1898 gene trees, as computed by the RobinsonFoulds (RF; Robinson and Foulds, 1981) distance measure.
+The RF measure quantifies, for a given pair of trees, the average number of clades that appears in one, but not both, of the trees.
+Hence, if two trees are identical, the RF distance between them is 0; if they do not share any clades, then the RF distance is 1; and, trees with varying degrees of shared clades have RF distance values between 0 and 1.
+As shown in Figure 7, while blue (low RF values) is the dominating color, there are many pairs of trees that have RF distance of at least 0.3.
+In fact, among the 1898 gene trees, there were over Fig.7.
+The RF distances between every pair of the 1898 gene trees.
+RF distance of 0 indicates the two trees are identical, and RF distance of 1 indicates that the two trees do not share any clades in common.
+400 different topologies.
+Given our conservative selection of the orthology groups, which almost eliminates the possibility of gene tree discordance due to events such as horizontal gene transfer and gene duplication/loss, this result indicates massive gene-tree discordance due to stochastic effects of the coalescent (incomplete lineage sorting).
+Furthermore, it is important to point out that the majority of the gene trees were not binary, since the percent identity among the orthologous sequences was very high.
+This lack of resolution of the gene tree topologies may give a false indication of high concordance (low RF values) among the gene trees, even though this may not be the case in reality.
+Alternatively, one may quantify the compatibility, rather than similarity (as measured by the RF distance), among gene trees.
+However, this suffers from the fact that compatibility measures are not true metrics, and in particular do not satisfy the triangle inequality property, which may distort the picture emerging from such an analysis.
+As indicated in the Section 1 and illustrated in Figure 1, it may be the case the gene trees have the same topology, yet they disagree in their coalescence times (times at their internal nodes).
+Therefore, what we studied next was the distribution of coalescence times of each cluster of taxa across all gene trees in which the cluster occurs i128 [19:02 18/6/03 Bioinformatics-btn149.tex] Page: i129 i123i131 Inference of bacterial strain trees Fig.8.
+The distributions of coalescence times of all 36 clusters of taxa in the 1898 gene trees, as calculated by Formula (3.3), yet without division by rs 108.
+(recall that a cluster occurs in a tree if the tree contains a clade whose leaves are the only members of that cluster); the results are shown in Figure 8.
+The figure shows that, even with the exclusion of possible outliers, each cluster of taxa has a wide distribution of coalescence times across all gene trees in which it occurs.
+Further, what makes the computational analysis of such a dataset particularly challenging is that large extent of overlap of distributions of the different clusters.
+Dealing with this overalp is where most of the computational time of solving our MILP formulation is spent.
+After we characterized the heterogeneity in the data, we turned to the main issue, namely estimating the strain-tree topology and divergence times from the set of 1898 gene trees.
+As described in the previous section, we considered 29 strain-tree topology candidates.
+For each of these 29 topology candidates, we solved the MILP formulation as outlined in Figure 5, once with wdc =wsc =1, and another with wsc =5wdc.
+In both cases, the same tree topology candidate of all 24 maximal cliques emerged as the optimal one, yet with differing times.
+Therefore, we report the results of only the optimal solution under wdc =wsc =1.
+For a clearer presentation, we show each of the three terms in the optimality criterion described in Section 2.2.3 individually, with Figure 9 showing the number of missing (or, discordant) clades, and the stacked bars in Figure 10 showing the sum of the depths of deep coalescence events (the blue bars) and the number of shallow coalescence events (the red bars).
+Figure 9 shows that the first tree out of the 24 maximal clique trees has the least disagreements with the set of 1898 gene trees, with trees 8 and 9 differing from it by about 70 clades.
+The other 21 maximal clique trees are much less optimal in this context, with the best of them disagreeing with the gene trees in at least 400 more clades.
+We denote by Tmc the first tree, which is the best in this context among all 24 maximal clique trees.
+Out of the additional five trees, Thf is clearly the best in this context, and the only one that is better than Tmc.
+Both trees, Tmc and Thf are shown in Figure 11.
+The tree Fig.9.
+The number of gene tree clades that do not appear in the strain tree.
+Trees 1 to 24 are built from maximal cliques.
+Trees 25, 26, 27, 28 and 29 are Tconc, Thf , Tavgds, Tavghd and Tmajcons, respectively.
+Fig.10.
+The number of deep coalescences, sf =cC(G),fc>0[c ST ] ( fc 1), and the number of shallow coalescences, sg=cC(G),fc=0[c ST ]gc, for all 29 strain-tree candidates.
+Trees 25, 26, 27, 28 and 29 are Tconc, Thf , Tavgds, Tavghd , and Tmajcons, respectively.
+Tmc is a refinement of the tree Thf ; that is, Tmc contains all the clades in Thf , plus additional ones.
+In this case, Thf has the clade (USA300, NCTC8325, COL) unresolved, while Tmc has it resolved as (NCTC8325, (USA300, COL)).
+When considering the optimality of both trees, Tmc and Thf , as measured by the amount of deep coalescence and shallow coalescence events, as shown in Figure 10, they are identical.
+The significance of this result comes from the fact that, while the unresolved clade (USA300, NCTC8325, COL) has three possible refinements (1) (NCTC8325, (USA300, COL)), (2) ((NCTC8325, i129 [19:02 18/6/03 Bioinformatics-btn149.tex] Page: i130 i123i131 C.Than et al.1 MRSA252 RF122 N315 Mu50 MSSA476 NW2 NCTC8325 USA300 COL 0.1 N315 Mu50 MRSA252 RF122 MSSA476 NW2 USA300 COL NCTC8325 Tmc Tconc 1 MRSA252 RF122 USA300 NCTC8325 COL N315 Mu50 MSSA476 NW2 1 MRSA252 RF122 N315 Mu50 MSSA476 NW2 COL USA300 NCTC8325 Thf Tavgds 1 MRSA252 RF122 N315 Mu50 MSSA476 NW2 NCTC8325 USA300 COL 1 MRSA252 RF122 N315 Mu50 MSSA476 NW2 USA300 NCTC8325 COL Tavghd Tmajcons Fig.11.
+Strain trees with times assigned by MILP, where Tmc is the best maximal clique tree and the rest are as defined in Section 3.3.
+The lengths of the shortened branches were divided by 105, so that the resolution of the trees can be shown clearly.
+USA300), COL) and (3) ((NCTC8325, COL) USA300), the MILP formulation led to a fully binary strain tree that has exactly the same coalescence scenarios among all gene trees.
+Notice that the majority consensus tree Tmajcons is the optimal among all 29 trees in terms of the coalescence scenarios.
+However, this tree has two problems.
+First, in terms of missing clades, it is one of the least optimal, as shown in Figure 9.
+Further, it is highly unresolved, containing only two internal branches, as shown in Figure 11.
+The concatenation tree, Tconc is the best of all trees in terms of minimizing the number of shallow coalescence events, yet is the worst in terms of the sum of the depth of all deep coalescence events.
+Further, it is the only tree that had the wrong outgroup.
+This indicates that concatenation of gene sequences and reconstructing a strain tree from the resulting supergene may result in very inaccurate trees, particularly when there is a massive extent of discordance among gene trees, a fact that has already been established through extensive experimental studies (Kubatko and Degnan, 2007).
+While it seems from Figure 11 that Tconc indicates very large divergence time between N315 and Mu50, this is but a reflection of time estimation given that these two strains did not form a single clade in the concatenation tree.
+To solve this problem, we will consider in future development of our tool all possible refinements of any non-binary strain-tree topology candidate.
+The other two trees, Tavgds and Tavghd are very similar in terms of topology, as shown in Figure 11, and both fall in the middle in terms of optimality, as shown in Figures 9 and 10.
+Therefore, our proposed evolutionary history of all nine strains of S.aureus is the tree Tmc, shown in Figure 11.
+5 CONCLUSIONS AND FUTURE WORK In this article, we introduced a three-phase method for efficient inference of an optimal strain tree from genome-scale multilocus data.
+We have implemented all phases of our method and analyzed nine strains of S.aureus.
+Our hypothesis for the vertical evolutionary history of these nine strains is the tree Tmc, shown in Figure 11.
+It is very important to note that even though the closely related set of strains has a very high degree of sequence identity at the nucleotide level, our method was able to infer a fully resolved evolutionary tree for them.
+Further, the method computed and evaluated each of 24 possible strain trees within an hour, which is efficient, considering that we used about 1900 loci from nine strains in this analysis.
+Two immediate future directions that we will pursue are (1) studying the performance of our method in extensive simulations and (2) investigating the evolutionary diameter of a dataset within which the method reliably returns good strain, or even species, trees.
+It is worth mentioning that our method can be adapted in a straightforward manner to handle multiallelic loci in the data.
+ACKNOWLEDGEMENTS The authors wish to thank the three anonymous reviewers for very helpful comments on the manuscript.
+Funding: L.N.
+and C.T.
+were supported in part by DOE grant DEFG02-06ER25734 and NSF grant CCF-0622037.
+H.I.
+and R.S.
+were supported in part by NSF grant CCF-0622037.
+Conflict of Interest: none declared.
+i130 [19:02 18/6/03 Bioinformatics-btn149.tex] Page: i131 i123i131 Inference of bacterial strain trees

@@ -1,0 +1,242 @@
+Abstract Nanopore-based sequencers, as the fourth-generation DNA sequencing technology, have the potential to quickly and reliably sequence the entire human genome for less than $1000, and possibly for even less than $100.
+The single-molecule techniques used by this technology allow us to further study the interaction between DNA and protein, as well as between protein and protein.
+Nanopore analysis opens a new door to molecular biology investigation at the single-molecule scale.
+In this article, we have reviewed academic achievements in nanopore technology from the past as well as the latest advances, including both biological and solid-state nanopores, and discussed their recent and potential applications.
+Introduction DNA, a molecule that encodes genetic instructions, is the blueprint of life.
+Accurate and rapid DNA sequencing technology would have profound impacts on human diseases and personalized medicine.
+The non-nanopore DNA sequencing technologies currently on the market require a great deal of sample preparation and complicated algorithms for data processing.
+Therefore, they have limitations such as low throughput, high cost, and short read lengths.
+Fortunately, several academic and commercial efforts have been made to develop inexpensive DNA sequencers.
+After the development of three generations, DNA sequencing technology is now entering the era of singlemolecule nanopore technology.
+In the 1990s, Church et al.and Deamer and Akeson separately proposed that it is possible to sequence DNA using nanopore sensors [1,2].
+Since 1996, beginning with the first nanopore paper published in PNAS [3], nanopore-based detection of single molecules has emerged nces and Feng Y et al/ The Fourth-generation DNA Sequencing 5 as one of the most powerful sequencing technologies.
+The significant advantages of nanopores include label-free, ultra-long reads (104106 bases), high throughput, and low material requirement.
+Each of these greatly simplifies the experimental process and can be easily used for DNA sequencing applications.
+The nanopore approach will be one option for the fourth-generation low-cost and rapid DNA sequencing technology.
+Nanopore-based technologies originated from the Coulter counter and ion channels [4,5].
+With the application of an external voltage, particles with sizes slightly smaller than the pore size are passed through the pore.
+The nanometer-sized pores are either embedded in a biological membrane or formed in solid-state film, which separates the reservoirs containing conductive electrolytes into cis and trans compartments.
+Electrodes are immersed in each chamber as shown in Figure 1.
+Under a biased voltage, electrolyte ions in solution are moved through the pore electrophoretically, thereby generating an ionic current signal.
+When the pore is blocked by an analyte, such as a negatively-charged DNA molecule added into the cis chamber, current flowing through the nanopore would be blocked, interrupting the current signal.
+The physical and chemical properties of the target molecules can be calculated by statistically analyzing the amplitude and duration of transient current blockades from translocation events [6].
+Nanopores as single-molecule sensing technologies have great potential applications in many areas, such as analysis of ions, DNA, RNA, peptides, proteins, drugs, polymers, and macromolecules, as previously reviewed [710].
+This review describes the concept and attributes of biological and solid-state nanopores, as well as the latest academic advances and commercial achievements in DNA sequencing and other applications.
+Type of nanopores Nanopore technologies can be broadly divided into two categories: biological and solid-state.
+Several groups have verified that both types of nanopores can be used to detect biological and chemical molecules at the single-molecule level.
+Table 1 categorizes many of the available biological and solid-state nanopores for DNA sequencing.
+PMMA DNA Nanopore Electrolyte Ag/AgCl Ag/AgCl Cis _ + A Trans Figure 1 Schematic view of nanopore fluidic setup comprising a DNA molecule through the nanopore PMMA stands for polymethyl methacrylate.
+Biological nanopores have been widely used in single-molecule detection, disease diagnosis, and DNA sequencing.
+Recent advances in nanotechnology have facilitated the rise of solidstate nanopore sensors [11,12].
+In combination with other devices such as a field-effect transistor, these synthetic nanopores can be further integrated on a circuit chip, which offers the potential for miniature, portable DNA sequencing devices.
+More recently, hybrid nanopores have been proposed to take advantage of the features of both biological and solid-state nanopores [13].
+Nanopore DNA sequencing technology is developing rapidly.
+Although it has a very high error rate (over 90%), an instrument based on nanopore technology that sequences DNA at the scale of a single molecule is currently available on the market [14].
+Biological nanopores Biological nanopores, also called transmembrane protein channels, are usually inserted into a substrate, such as planar lipid bilayers, liposomes, or other polymer films.
+The advantages of biological nanopores include their well-defined and highly-reproducible nanopore size and structure.
+More importantly, biological nanopores can be modified easily with modern molecular biology techniques, such as mutating the nucleotide sequence to change the amino acid residue at a specific site.
+In this section, three well-studied biological nanopores are discussed.
+a-Hemolysin a-Hemolysin (a-HL, also called a-toxin) is the first and most commonly used biological nanopore, holding a tremendous value in the field of DNA sequencing.
+a-HL is an exotoxin secreted by the bacterium Staphylococcus aureus, a human pathogen.
+This mushroom-shaped heptamer is a 232.4-kDa transmembrane channel, consisting of a 3.6-nm diameter cap and a 2.6-nm diameter transmembrane b-barrel (Figure 2A) [15].
+The external dimensions of the pores are 10 nm 10 nm.
+In vivo, an a-HL unit can quickly insert itself into planar bilayers and form a nanochannel with a width of 1.4 nm at the narrowest point.
+The inner diameter of the a-HL channel and the size of a single-stranded DNA (ssDNA) molecule are very close in size (diameter 1.3 nm).
+Thus, the a-HL nanopore is able to discriminate single nucleotides using ionic current inside the nanopore [16].
+This makes a-HL a very promising tool for analyzing biomolecular interactions and structures at the single-molecule level.
+Furthermore, the nanopore structure can remain functionally stable at temperatures close to 100 C [17] within a wide pH range (pH 212) [17].
+Although a-HL pores are extensively used in biological experiments, the limited pore size (1.4 nm) has restricted its application in the analysis of ssDNA, RNA, or small molecules.
+Moreover, the b-barrel of its nanopore is too long to distinguish individual nucleotides from single long-chain DNA molecules directly.
+MspA Mycobacterium smegmatis porin A (MspA) is a promising and powerful nanopore for reading information from four nucleotides simultaneously, as reported by Butler et al.in 2008 [7].
+As shown in Figure 2B, the channel of the MspA octamer is 1 nm in diameter at the minimal point, which is relatively Table 1 Comparison of the schematics and structural features for the major types of nanopore Nanopore type Schematics Fabrication membrane nanopore Diameter of channel (nm) Length of channel (nm) Refs.
+a-hemolysin Lipid bilayer Self-assemble 1.42.6 5.2 [1517] MspA Self-assemble 1.2 3.7 [1820] Phi 29 Self-assemble 3.66 7 [2126] Silicon-based nanopore Si3N4/SiO2 membrane Ion milling track-etch method Can be precisely controlled in sub-nm scale Thickness of membrane [8,11] Electron beam based decomposition sputtering [12,32] FIB techniques [41] Laser ablation [42] Electron-beam lithography [40] Helium ion microscopy [43] Dielectric breakdown [44,45] Al2O3 nanopore Al2O3 FIB and TEM Can be precisely controlled in sub-nm scale 4560 [6,42,80] Single-layer membranes Graphene TEM Can be precisely controlled in sub-nm scale 0.335 [38,35,49] BN [65,66] MoS2 [67] Hybrid biological/solidstate nanopores Si3N4 TEM Can be precisely controlled in sub-nm scale Thickness of membrane [6971] Al2O3 [72,73] Note: Figures were reprinted from [8,16,20,22,38,69,80] with permission.
+TEM, transmission electron microscopy.
+6 Genomics Proteomics Bioinformatics 13 (2015) 416 2.6 nm Top view 10 nm 7 nm 5.2 nm Side view Cap-barrel A Side view B 4 nm 1.2 nm Top view 9 nm 3.6 nm 6 nm 13.8 nm 7.5 nm Top view Side view C 10 nm 9.6 nm Figure 2 Side and top views of three biological nanopores A. Heptameric a-hemolysin toxin from Staphylococcus aureus, figure adapted from [15].
+B. Octameric MspA porin from Mycobacterium smegmatis, figure adapted from [7].
+C. Dodecamer connector channel from bacteriophage phi29 DNA packaging motor, figure adapted from [20].
+Feng Y et al/ The Fourth-generation DNA Sequencing 7 small and narrow, compared to that of a-HL.
+Thus, it can improve the spatial resolution of ssDNA sequencing.
+In addition, MspA is very robust and keeps the channel active under extreme experimental conditions, such as varying the pH value from 0 to 14 and maintaining the temperature at 100 C for 30 min [18].
+Laszlo et al.has shown that the MspA nanopore can accurately sequence the phi X 174 genome up to 4500 bases in length [19].
+Bacteriophage phi29 Phi29, another biological nanopore, has generated a great deal of interest.
+Wendell et al.first demonstrated that doublestranded DNA (dsDNA) could pass through the phi29 pore [20].
+As shown in Figure 2C, the bacteriophage phi29 DNApackaging motor has a 12-subunit gp10 connector [21], six copies of ATP-binding DNA packaging RNA (pRNA) [22], and an ATPase protein, gp16 [23], which provides the chemical energy required for DNA translocation.
+The connector protein can easily self-assemble to form a stable and repetitive dodecameric structure in solution.
+The length is about 7 nm, while the cross-sectional area of the channel is about 10 nm2 (3.6 nm in diameter) at one end and 28 nm2 (6 nm in diameter) at the other end [24].
+The phi29 connector channel shows stable channel properties in a voltage range from 150 mV to +150 mV, even under a wide range of pH conditions [25].
+Compared to a-HL and MspA, the phi29 pore has a larger diameter, which allows for the measurement of larger molecules, such as dsDNA, complexes of DNA, and proteins.
+The larger phi29 pore also provides more flexibility for biochemical modifications.
+Commercial biological nanopore sequencers Oxford Nanopore Technologies (ONT), founded by Hagan Bayley and Gordon Sanghera, has been developing nanopore-based DNA sequencing systems for commercial use.
+ONT released the preliminary experimental results from its larger GridION system at the Advances in Genome Biology & Technology meeting (AGBT) in Marco Island, Florida in February 2012 [26].
+ONTs GridION system can be extended with additional cartridges, each of which contains arrays of nanopores.
+Each GridION node and cartridge can produce several gigabytes of raw data per day.
+The system is designed for flexible run times ranging from a few minutes up to several days depending on the data requirements of the experiments.
+ONT has miniaturized the commercial nanopore sequencing instruments to develop the MinION [26], first launched at Februarys AGBT conference in Marco Island, Florida (shown in Figure 3) in November 2013.
+The MinION is a single-use DNA sequencing device with the size of a USB memory Figure 3 The portable MinION the first handheld nanopore DNA sequencer This figure was reproduced from [26] with permission.
+8 Genomics Proteomics Bioinformatics 13 (2015) 416 stick, which is designed for general applications of DNA sequencing.
+More recently, it was announced at AGBT 2014 [27] that the average read length using the MinION is about 5.4 kb up to 10 kb.
+This is much longer than the average read lengths of other DNA sequencing technologies, which are hundreds of base pairs.
+Several groups have used the MinION to sequence Escherichia coli K-12 substr.
+[28], the k phage genome, and amplicons from a snake venom gland transcriptome.
+However, the error rates of these analyses were over 90% [14].
+Although the MinION is still a long way from use in a wide range of applications, these results are very encouraging for nanopore-based DNA sequencing technology.
+Solid-state nanopore Although biological nanopores have shown very exciting experimental results for ssDNA sequencing, these protein pores have a constant pore size, profile and lack of stability [29].
+Furthermore, they suffer from the fragility of traditional supported lipid membranes.
+To adjust for these deficiencies, various synthetic nanopores have been fabricated using different methods and applied to DNA and RNA analysis [12,18,3032].
+In 2001, Li et al.confirmed that solid-state nanopores can be used to study the molecule translocation process [11].
+With the development of microfabrication technologies, solid-state nanopores have attracted increasing attention.
+Solid-state nanopores have many superior advantages over their biological counterparts, such as chemical, thermal, and mechanical stability, size adjustability, and integration [6,11,18].
+In addition, solid-state nanopores can work properly under a wide variety of experimental conditions and can be mass produced using conventional semiconductor processes.
+In recent years, solid-state nanopores have been applied as a new method in various fields, including DNA sequencing, protein detection, molecule translocation process, and disease diagnosis [33].
+Several primary techniques are often used to fabricate nanopores in silicon nitride (Si3N4) [30], silicon dioxide (SiO2) [12], aluminum oxide (Al2O3) [34], boron nitride (BN) [35], graphene [36], polymer membranes [37], and hybrid materials [38].
+Methods of fabricating nanopores include the ion milling track-etch method [11], electron beam based decomposition sputtering [12,30], focused ion beam (FIB) techniques [39], the laser ablation method [40], electron-beam lithography [38], helium ion microscopy [41], and the latest dielectric breakdown methods [42,43].
+Numerous groups have studied ultrathin membranes using chemical vapor deposition [38,44], and there are also studies on biomolecule transport through nanopores in graphene [33,45].
+The exclusive electrical and geometric properties of solid-state nanopores give them a distinct advantage over their biological counterparts; however, for these nanopores to make reliable devices, their chemical and thermal stabilities still need to be improved [33,40] (Figure 4).
+Si3N4 and SiO2 nanopores Si3N4 and SiO2 films have been widely used as substrates because of their low mechanical stress and high chemical stability [46].
+They can be manufactured with the complementary metal oxide semiconductor (CMOS)-compatible industrial integrated circuit processes [16,40,4749].
+Nanopores are often drilled by electron or ion beam sculpting in a free-standing membrane window, which can be controlled by standard photolithography [48,50] and wet-etching techniques with micrometer precision [11,40,49,5153].
+Si3N4 and SiO2 substrates also exhibit good performance in high concentrations of an electrolyte solution.
+Immersion in an electrolyte solution has been shown to change the size of the Si3N4 and SiO2 pores over time [54].
+Two groups have reported that Si3N4 and SiO2 pores were used to detect DNA molecules, although DNA sequencing has not yet been demonstrated [18,55].
+Al2O3 membranes Compared to SiO2 and Si3N4 films, Al2O3 films have improved electrical performance, a higher signal-to-noise ratio, and lower noise during DNA translocation [6].
+Atomic-layer deposition (ALD) can be used to fabricate Al2O3 membranes at single atomic-level thickness.
+Focused ion beam (FIB) and transmission electron microscopy (TEM) can be used to manufacture nanopores in metal oxide membranes [6,40].
+The DNA translocation speed was slower through Al2O3 nanopores than that seen through Si3N4 nanopores, which is attributed to the strong electrostatic interaction between the positively-charged surface of Al2O3 and the negatively-charged dsDNA molecules [40].
+Single-layer membranes Although solid-state nanopores fabricated in insulating membranes have been widely applied in DNA and protein translocation processes, they do not have enough spatial and temporal resolution to obtain structural information of molecules at the single-base level.
+Graphene membrane, a single atomic layer of carbons with extraordinary electrical and mechanical properties, has recently been used as an alternative to traditional solid-state membranes [33].
+BN and molybdenum disulfide (MoS2) have also generated a great deal of interest [35,38,51,56].
+Nanopores can be fabricated in suspended single-layer membranes by controlled electron-beam exposure via TEM [45].
+One particular advantage of using nanopores in ultrathin membranes is that the minimal thickness of the membrane (0.335 nm) is equivalent to the distance between Figure 4 Solid state nanopores A.
+Top view of single 2-nm diameter nanopore in silicon nitride membrane.
+B. Arrays of 18-nm nanopores in diameters with single conical angle 12.7 5.4 (N = 19) fabricated with standard semiconductor process.
+C. 200-mm wafers patterned in a matrix of 11 11 3-metal nanopore devices.
+The dark field TEM images are presented in D and E and the EELS element analysis results along the red solid lines in D and E are presented in F and G, respectively.
+Panels BG were reproduced from [38] with permission.
+TEM, transmission electron microscopy; EELS, electron energy loss spectroscopy.
+Feng Y et al/ The Fourth-generation DNA Sequencing 9 two bases in a DNA chain [33].
+Single layer membranes may hold the potential to achieve extraordinarily high spatial resolution for DNA sequencing.
+Hybrid biological/solid-state nanopores Amajor drawback of solid-state nanopores at present is the lack of chemical differentiation from the targetmolecules of approximately the same size.
+This chemical specificity can be improved by functionalizing surfaces [38] or attaching specific recognition sequences and receptors to the nanopores [34,57].
+Nanopores functionalized with hairpin DNAs or other receptors have the potential to uniquely identify nucleotides in sequencing applications [7,57].
+The synthetic nanopores can be coated with a fluid lipid bilayer to control protein translocations [58].
+The thickness and surface chemistry of the coating surface can be accurately controlled by various lipids.
+Venkatesan et al.have reported vesicle fusion techniques to form fluid lipid bilayers with high impedance on single Al2O3 nanopore sensors [34].
+These nanopore sensors exhibit excellent electrical properties and enhanced mechanical stability and, therefore, may find broader applications in nano-biotechnology.
+Figure 5 Experimental results on ssDNA translocation through a 6-nm nanopore A.
+Current trace for ssDNA in water.
+B.
+Current trace for ssDNA in a 50% glycerol solution.
+C. Scatter plots (blockade current vs. dwell time) for current signals of ssDNA translocation in water (black triangles), 20% glycerol (red dots) and 50% glycerol (blue squares) solutions.
+Insets in A and B show typical translocation events.
+This figure was reproduced from [60] with permission.
+ssDNA, single-stranded DNA.
+10 Genomics Proteomics Bioinformatics 13 (2015) 416 Applications Nanopore-based DNA sequencing ssDNA detection In 1996, Kasianowicz et al.demonstrated that an a-HL channel embedded in planar phospholipid bilayers has the ability to electrically detect individual ssDNA and ssRNA molecules [3], which marked the beginning of the era of single-molecule nanopore DNA sequencing.
+Recently, Clarke et al.demonstrated that a-HL with a covalently-attached adapter molecule can be used to continuously identify unlabeled single nucleotides (dAMP, dCMP, dGMP, and dTMP) through nanopore-based resistive current measurements [59].
+Besides the a-HL channel, the MspA nanopore, containing a single 1.2-nm wide and 0.6-nm long constriction, also allows for the detection of ssDNA.
+In 2010, Derrington et al.demonstrated that the MspA nanopore has a high signal-to-noise ratio and can be used to distinguish single nucleotides of ssDNA, while duplex DNA sections pause the translocation [13].
+Many groups have used a solid-state nanopore to study the ssDNA translocation process.
+In Figure 5, the nanopore group at IBM was able to slow down the translocation of ssDNA with a 6-nm diameter solid-state nanopore immersed in different concentrations of a glycerol solution [60].
+Iqbal et al.functionalized a silicon-on-insulator solid-state nanopore using hairpin-loop DNA as a selected probe for single molecule DNA detection [57].
+Their results show a shorter translocation time of the target molecules, which exhibit single molecule mismatch than that of the perfectly-complementary DNA molecules, which is the opposite of the experimental result using bio-nanopores.
+These functionalized nanopores have the potential to be stable and robust and can be implemented in an array.
+However, real-time DNA sequencing is currently a major challenge because longitudinal current detection cannot distinguish individual nucleotides due to the thickness of membrane (>10 bases) and the fast translocation of a single base [45].
+Many experiments have focused on measuring the transverse tunneling current or capacitance when a single ssDNA molecule is driven through a solid-state nanopore with embedded electrodes [7,45,61,62].
+Ventra et al.were able to detect the transverse charge transport to the backbone axis of ssDNA between two embedded electrodes inside of the nanopore [61].
+Each nucleotide provides a unique electrical signature determined by its orientation and charge properties.
+It is also slightly affected by neighboring nucleotides if the lateral dimension of the electrode is comparable with the spatial gap between the two bases.
+Although this approach seems to provide a potential method for DNA sequencing, there are several challenges that must be addressed: (1) the thickness of the embedded electrode must be comparable with the size of the bases [45]; (2) the device must be able to control the orientation and position of each base between metal electrodes as the tunneling current is exponentially sensitive to atomic scale changes of orientations and distance [62]; and (3) unidirectional translocation must be controlled so that each nucleobase remains between the tunneling probes for at least 0.1 ms to sample over inevitable noise and molecule motion [7].
+dsDNA segment detection Most biological pores have small channels, which only allow small molecules to pass through, such as ssDNA and ssRNA.
+The bacteriophage phi29 DNA-packaging motor has a minimal 3.6-nm diameter channel that allows for the translocation of ssDNA, dsDNA, and small proteins.
+In 2009, Wendell et al.reported that modification of this connector protein with distinct regions of hydrophilicity allows for the translocation of dsDNA when reconstituted into liposomes and inserted into a planar lipid bilayer [20].
+Haque et al.first demonstrated that as a native wild type protein channel, the phi29 connector channel exhibits a rectifying behavior with regard to DNA translocation; that is, it only allows dsDNA to translocate from the N-terminal entrance (narrower-end) to the C-terminal exit (wider-end).
+This one-way traffic property has been demonstrated by voltage ramping, electrode polarity switching, and sedimentation force assessment [25].
+The possibility of using solid-state nanopores for DNA translocation was first shown by Li and colleagues [11,18].
+They demonstrated a solid-state nanopore microscope capable of electronically characterizing dsDNA molecules.
+The folding configurations of dsDNA could also be revealed by the ionic current blockade induced by the DNA molecule.
+In 2009, Bashir et al.studied the properties of nanopores in Al2O3 membranes formed via the atomic layer deposition process [6,34,63].
+These nanopores showed better noise performance and higher mechanical properties over their silicon-substrate counterparts.
+Furthermore, the average translocation velocities of dsDNA through these alumina nanopores were an order of magnitude less than those measured through Si3N4/SiO2 nanopores [63].
+In Figure 6, the nanopore group at IBM has shown that a nanopore functionalized with a self-assembled Feng Y et al/ The Fourth-generation DNA Sequencing 11 monolayer (SAM) can potentially regulate the transport of a DNA molecule by changing the hydrophobility and hydrophobicity of SAM.
+They found that an enhanced interaction between DNA and a SAM-coated nanopore can slow down the translocation speed of DNA molecules and increase the DNA capture rate in the hydrophobic state [38].
+Dimitrov et al.at the University of Illinois at UrbanaChampaign was able to trap single k phage DNA for about 20 s extremely with a 2.6-nm diameter solid-state nanopore [44].
+DNA detection based on graphene nanopores was first demonstrated by Golovchenko and then studied by many other groups [36,64,65].
+In these devices, graphene acts as the membrane allowing for single base resolution in the ionic current due to its single-atom thickness.
+The noise of the ionic current of graphene nanopores was several orders of magnitude larger than that of silicon-based nanopores.
+Xie et al.described a novel sensor that combined solid-state nanopores with silicon nanowire field-effect transistors (FETs) on a Si3N4 membrane, in which detection is locally self-aligned at the nanopore (Figure 4A) [47].
+Both FET signals and block ionic current signals are observed simultaneously during dsDNA translocation.
+It has been demonstrated that nanowire FET could achieve high speed and sensitivity as chemical and biological sensors [7].
+Significantly, if combined with nanopores, the nanowire FET would offer the possibility of DNA sequencing characterized by high sensitivity and high throughput.
+Radenovic et al.recently reported nanopore DNA detection based on a graphene FET [33].
+A lower translocation rate at a 200-mV transmembrane bias was achieved, and the longer DNA translocation time facilitated the event analysis.
+For the first time, they demonstrated that translocation events of DNA segments are detected by electrical means other than the ionic current itself using a novel device based on the integration of graphene ribbons with solid-state Si3N4 nanopores.
+(A) (B) (C) (D) Figure 6 Experimental set-up A.
+A schematic of DNA translocation through a SAM-coated nanopor before (B) and after (C) coating with carboxyl benzyl phosphonic acid, molecules in the hydrophilic and hydrophobic SAMs.
+E. Translocati SAMs at 300 mV.
+F. Hydrophobic-SAM coating, switched from the h G. and H. Typical ionic current signals of DNA translocation events reproduced from [38] with permission.
+SAM, self-assembled monolaye Other applications The engineered transmembrane protein pores of a-HL have been used as stochastic sensing elements for the identification and quantification of a wide variety of substances, including cations [66], anions [11], organic molecules [67], enantiomers [68], chemical and biological terrorism agents [6972], DNA [3,59,7378], peptides [70,7982], proteins [66,8385], and microRNAs [86].
+The a-HL nanopore was able to detect 2,4,6-trinitrotoluene (TNT) in an aqueous field following the introduction of aromatic side chains at position 113 of the a-HL polypeptide using site-directed mutagenesis [69].
+Furthermore, via weak non-covalent bonding interactions, various peptides may be identified and differentiated using engineered protein pores with different surface functional groups.
+For example, a series of short peptides, consisting of mainly aromatic amino acids and of various lengths, is able to be analyzed with a (M113Y)7 pore, which contains an aromatic binding site with seven aromatic tyrosine chains.
+In addition, due to differences in blockage residual currents and mean residence times of translocation events (Figure 7), the sequences of short peptides such as PYWF, YPWF, YWPF, and YPFW could also be differentiated from each other [70,87].
+It is well known that b-cyclodextrin (b-CD) can be used as a composite host to capture and sense organic molecules [88].
+Therefore, pinacolyl methylphosphonic acid (PMPA) and cyclohexyl methylphosphonic acid (CMPA), the hydrolysis products of the nerve agents soman (GD) and cyclohexylsarin (GF), respectively, could be detected using the engineered aHL (M113F/K147N)7 pore and a host b-CD molecule (as depicted in Figure 8) as a molecular adapter [71].
+When bCD is bound to the a-HL pore, the channel is partially blocked, and the open channel current drops.
+A guest molecule (E) (F) (G) (H) e. B. and C. TEM images of a 12-nm diameter solid-state nanopore respectively.
+Red circles highlight pore sizes.
+D. Configurations of on of DNA through the same nanopore coated with hydrophilic ydrophilic-SAM coating after adding trimethylsilyl diazomethane.
+at hydrophilic and hydrophobic states, respectively.
+Figure was r. 12 Genomics Proteomics Bioinformatics 13 (2015) 416 (PMPA or CMPA) added in the channel would be captured by b-CD, blocking the channel and greatly reducing the current.
+Challenges Although the nanopore-based sequencing technology has emerged to be a promising tool, several problems remain to be solved.
+One of the more troublesome among these is the rapid DNA translocation velocity (13 ls/base), which limits the identification of single nucleotide bases via the currently available single-channel recording technique [89].
+In the past several years, various strategies have been developed to slow down the translocation rate, including immobilization of DNA polynucleotides with streptavidin [90], formation of DNA-hemolysin rotaxane [77], and binding to an enzyme [9194].
+Furthermore, a modified a-HL channel conjugated with a molecular adaptor b-CD via disulfide linkage was able to successfully capture and identify four single nucleotide bases [59,89].
+The optimization of experimental physical conditions is also useful to control the DNA translocation rate, including reducing the voltage [3], decreasing the solution temperature [75], increasing the viscosity [75,95], and increasing the salt concentration [64].
+Recently, Manrao et al.demonstrated a new method to sequence ssDNA at single-nucleotide resolution using a mutant MspA nanopore and phi29 DNA polymerase [96], which can control the rate of DNA translocation with median durations of 28 ms and ionic current differences up to 40 pA. Atomic force microscopy has been developed to control the DNA translocation rate at less than 100 ls/base Figure 7 Effects of peptide length and structure on the transport of p A.
+Representative single-channel traces.
+B.
+Current blockage amplitud under a series of symmetrical buffer conditions with a 2.0 ml solution co at ground).
+Peptides were added to the trans compartment, while the final concentrations of peptides in the buffer were 1.0 lM each.
+Figur [97], allowing the ionic current and force signal to be detected simultaneously [98,99].
+This technique directly reveals how the position of a single DNA molecule could affect the ionic current of the nanopore when the DNA is moved around the entrance and exit of the nanopore.
+It can also be used to study the friction interaction between single DNA molecules and different pore surfaces.
+As addressed previously, a-HL and MspA nanopores can sequence DNA molecules up to a few kilobases in length by reading three or four nucleotides simultaneously with a large error rate.
+One of the most promising methods is reading the tunneling current through a single base between two electrodes.
+However, the orientation of single bases and distances between two electrodes are difficult to control.
+The size and thickness of the two electrodes should be designed carefully.
+Teams at the Arizona State University and IBM have used a multi-layer structure to fix the gap between the top and bottom electrodes for single base detection [53].
+However, reading single nucleotide information from a long chain of DNA through a nanopore or nanogap continues to present a challenge.
+The use of nanopore array sensors has become an active research area, and methods of fabricating the sensors have been improving as well.
+With multi-dimensional signals, a nanopore array can increase the capability to distinguish analytes compared to a single pore.
+This allows for identification of a target molecule from a mixture and offers the potential for monitoring multiple targets simultaneously [87].
+Using the reactive ion etching (RIE) method instead of TEM drilling, an average size of 18 2 nm nanopore arrays were fabricated in a membrane with an embedded 3-level metal [38].
+These eptides through a single (M113Y)7 pore es.
+C. Event mean dwell times.
+The experiments were performed mprising 1 M NaCl and 10 mM TrisHCl (pH 7.5) at +50 mV (cis (M113Y)7 protein was added from cis of the chamber device.
+The e was reproduced from [70] with permission.
+A B DC E F Trans Figure 8 Molecular graphic representation of the staphylococcal a-HL protein with b-CD lodged in the lumen of the channel A.
+Side view of the (M113F/K147N)7 pore.
+B.
+Top view into the (M113F/K147N)7 pore from the cis side of the lipid bilayer, highlighting positions 113 (orange) and 147 (cyan), where the naturally-occurring Met and Lys residues have been substituted with Phe and Asn, respectively.
+b-CD molecule is shown in red.
+C. Structures of PMPA and CMPA.
+The detection of PMPA and CMPA was shown by the typical single-channel current recording traces.
+D. PMPA/CMPA was not detected.
+E. 2 lM PMPA was detected.
+F. 2 lM CMPA was detected.
+The experiments were performed at 80 mV in 1 M NaCl and 10 mM TrisHCl (pH 7.5) in the presence of 40 lM b-CD.
+Figure was reproduced from [71] with permission.
+a-HL, a-hemolysin; b-CD, b-cyclodextrin; PMPA, pinacolyl methylphosphonic acid; CMPA, cyclohexyl methylphosphonic acid.
+Feng Y et al/ The Fourth-generation DNA Sequencing 13 nanopore devices are electrically and structurally functional and use semiconductor processes that are compatible with integrated circuits.
+For the commercialization of a DNA sequencing instrument or sensor based on solid-state nanopores, it will be necessary to develop new approaches to mass production of nanopores smaller than 20 nm in size.
+Summary Detection of single molecules using nanopore-based technology has been used for the identification and quantification of a wide variety of analytes.
+As the fourth-generation sequencing technique, nanopores have the potential to become a labelfree, rapid, and low-cost DNA sequencing technology and thus may achieve the $1000-per-human-genome goal set by the National Institutes of Health of the United States.
+At the same time, nanopores provide several advantages, including minimal sample preparation, elimination of the need for amplification or modification (nucleotides, polymerases or ligases), and long read lengths (10,00050,000 bases).
+Although nanopore DNA sequencing has good maneuverability, there are still significant challenges remaining to be overcome.
+Among them, a key limitation of nanopore-based DNA sequencing at the single-molecule level is the requirement of ultra-precise, high-speed DNA detection beyond the spatial and temporal resolutions of existing optical and electrical technologies.
+Therefore, single base recognition and slowing down the rate of DNA velocity are still the principal challenges.
+Nevertheless, nanopore technology will have a tremendous impact on DNA sequencing and the future of personal health and disease diagnosis.
+Competing interests The authors have declared no competing interests.
+Acknowledgements This work was supported by the National Natural Science Foundation of China China (Grant No.
+61471336), and by the Joint-Scholar of West Light Foundation of the Chinese Academy of Sciences awarded to DW and Shanghai Synchrotron Radiation Facility.
+CY was supported by China Postdoctoral Science Foundation China (Grant No.
+2014M551011).

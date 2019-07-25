@@ -1,0 +1,51 @@
+ABSTRACT Summary: MAGI is a web service for fast MicroRNA-Seq data analysis in a graphics processing unit (GPU) infrastructure.
+Using just a browser, users have access to results as web reports in just a few hours4600% end-to-end performance improvement over state of the art.
+MAGIs salient features are (i) transfer of large input files in native FASTA with Qualities (FASTQ) format through drag-and-drop operations, (ii) rapid prediction of microRNA target genes leveraging parallel computing with GPU devices, (iii) all-in-one analytics with novel feature extraction, statistical test for differential expression and diagnostic plot generation for quality control and (iv) interactive visualization and exploration of results in web reports that are readily available for publication.
+Availability and implementation: MAGI relies on the Node.js JavaScript framework, along with NVIDIA CUDA C, PHP: Hypertext Preprocessor (PHP), Perl and R. It is freely available at http://magi.
+ucsd.edu.
+Contact: j5kim@ucsd.edu Supplementary information: Supplementary data are available at Bioinformatics online.
+Received on February 25, 2014; revised on May 14, 2014; accepted on June 2, 2014 1 INTRODUCTION MicroRNAs (miRNAs) are short, single-stranded and nonprotein-coding RNAs, with an average size of 22 bases that silence target genes either by degradation of mRNA level or repression of a translated protein.
+miRNAs have generated great interest by the biomedical community because of their implications in human disease and development.
+The advent of high-throughput short-read sequencing has enabled comprehensive miRNA studies.
+There are several web services for miRNA-seq data analysis targeting the needs of non-technical users.
+Deep-sequencing Small RNA analysis Pipeline (DSAP) (Huang et al.2010) quantifies known miRNAs, while miRAnalyzer (Hackenberg et al., 2011), Computational Platform analysis of Small RNA deep Sequencing data (CPSS) (Zhang et al., 2012) and wapRNA (Zhao et al., 2011) perform novel miRNA prediction and target prediction.
+mirTools (Zhu et al., 2010) add functional annotation, while omiRas (Muller et al., 2013) allows for upload of raw FASTQ files.
+However, there are a number of issues that limit the adoption and usability of these services in real-world scenarios.
+Many of these tools incur significant file transfer and preprocessing overheads.
+Existing web services for miRNA-seq do not handle large FASTQ files.
+For instance, omiRas is limited to 2 GB inputs.
+Furthermore, because of a users browser or web server limitations, a user cannot upload multiple large files and the connection to the server may get lost during file transfers.
+A common work-around is to run command-line scripts that downsize the input before uploada cumbersome and error-prone two-step approach that alienates non-technical users who may not have experience with complex Perl-or Python-based parsing scripts and their cryptic parameter settings.
+Additionally, prediction of miRNA targets is a time-consuming task that delays downstream analyses.
+Moreover, most tools do not provide a statistical test for novel miRNA differential expression; statistical quality control is limited, as base quality scores and summary statistics for aligned reads are ignored.
+Lastly, most tools generate simple static image plots, where in-depth analysis and interactive rendering are not possible.
+2 DESCRIPTION MAGI addresses these limitations by fully embracing the HTML5-technology with a Node.js-based web service backend for the analysis of miRNA sequencing data directly from FASTQ files.
+The results can later be retrieved and shared with others via a unique URL provided directly during the analysis or via email.
+To aid new users, we provide tutorial links to the web reports generated with peer-reviewed published data, including miRNA-seq in Kawasaki Disease (Shimizu et al., 2013).
+MAGIs backend further incorporates graphics processing unit (GPU) devices to tremendously speed-up the analyses and deliver results in just a couple of hours instead of days.
+Open-source technologies, such as PHP, Perl and R running on top of a Linux platform drive the generation of a web report consisting of quality plots, alignment, pile-up charts of mapped reads, secondary structure of precursor miRNAs, differentially expressed miRNA between two groups, predicted miRNA target genes*To whom correspondence should be addressed.
+The Author 2014.
+Published by Oxford University Press.
+This is an Open Access article distributed under the terms of the Creative Commons Attribution Non-Commercial License (http://creativecommons.org/licenses/by-nc/3.0/), which permits non-commercial re-use, distribution, and reproduction in any medium, provided the original work is properly cited.
+For commercial re-use, please contact journals.permissions@oup.com prior to  , , and enriched pathways.
+In this article, we introduce four novel features of MAGI.
+Technical details are provided in the Supplementary Material.
+#1MAGI natively accepts large FASTQ format files as input, requiring no additional file processing by the user.
+For instance, in Figure 1, with a simple drag and drop into the browser, six FASTQ files are added to the processing queue using HTML5 WebWorkers that scan over the short reads and compress each sequence from a 3GB FASTQ file down to a 3 MB read-count hash-table file, completely within the browser.
+This process makes the processed data small enough to reach our server in just a few seconds.
+The adoption of WebWorkers technology reduced the end-to-end analysis time of 24 microRNASeq samples (total size 48 GB) down to 4h using a 2012 MacBook Air with 1.3GHz dual core CPU, 4 GB RAM, 500 GB HDD.
+Comparatively, when using omiRas, the FASTQ input file transfer time alone took 5h.
+miRAnalyzer and miRTools require file preprocessing that alone took 57h before uploading them to the web service.
+#2MAGI uses our parallel implementation of miRanda (Enright et al., 2003), a widely used CPU algorithm for miRNA target identification.
+Its Compute Unified Device Architecture C implementation (Wang et al., 2014) modifies and parallelizes the SmithWaterman algorithm to return multiple alignment results with the corresponding trace-back sequences plus heuristic rules for miRNAs.
+Four NVIDIA M2090 GPU devices (6 GB memory) are installed in our MAGI server and reduced the prediction time from hours using just the CPU to a fewminutes using the GPU devices additionally.
+#3MAGI predicts novel miRs using a novel feature-extraction algorithm and random forest-based classifier in just minutes (Stepanowsky et al., 2012).
+With miRDeep2 (Friedlander et al., 2008), a widely used novel miR prediction algorithm, the prediction module alone took 1216h with the same 24 samples.
+Then, a list of differentially expressed miRNAs between two groups is tabulated using the DESeq (Anders and Huber, 2010) R package that performs a statistical test for both known and novel miRNAs with multiple samples.
+For quality control, MAGIs web-socket module collects diagnostic statistics and plots such as average quality score, length distribution of trimmed reads and Guanine-Cytosine contents at the time of FASTQ file drag and drop by a user.
+#4MAGI generates D3 and jQuery-enabled charts where users can zoom in/out, mouse over for actual numbers and export them as separate image files.
+Tables and pile-up charts are interactive as users can sort and filter with different cutoff values.
+Such powerful visualization features enable users to discover signals and patterns.
+Funding: This work was supported by NIH Grant U54HL 108460.
+NIH Grant U54HL108460.
+Conflict of Interest: none declared.

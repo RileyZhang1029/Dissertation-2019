@@ -33,12 +33,12 @@ for txtFile in txtFiles:
                 count += eachLetterCount
 
 
-
-    if textsize >=9 and count <= 840:
-        x += 1
-    else:
-        os.remove(os.path.join(folder_out, txtFile))
-        os.remove(os.path.join(folder_out, txtFile.replace("txt","pdf")))
+    if textsize != 0:
+        if (count/textsize) < 80.5:
+            x += 1
+        else:
+            os.remove(os.path.join(folder_out, txtFile))
+            os.remove(os.path.join(folder_out, txtFile.replace("txt","pdf")))
 
 
 print(x)
