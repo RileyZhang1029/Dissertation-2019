@@ -1,4 +1,7 @@
-ABSTRACT Motivation: Due to advances in molecular sequencing and the increasingly rapid collection of molecular data, the field of phyloinformatics is transforming into a computational science.
+            Copyedited by: TRJ MANUSCRIPT CATEGORY: APPLICATIONS NOTE [12:10 20/7/2012 Bioinformatics-bts309.tex] Page: 2064 20642066 BIOINFORMATICS APPLICATIONS NOTE Vol.
+28 no.
+15 2012, pages 20642066doi:10.1093/bioinformatics/bts309 Phylogenetics Advance Access publication May 24, 2012 RAxML-Light: a tool for computing terabyte phylogenies A. Stamatakis1,, A.J.
+Aberer1, C. Goll1, S.A. Smith2, S.A. Berger1 and F. Izquierdo-Carrasco1 1The Exelixis Lab, Scientific Computing Group, Heidelberg Institute for Theoretical Studies, Schloss-Wolfsbrunnenweg 35, D-68159 Heidelberg, Germany and 2Blackrim Lab, Department of Ecology and Evolutionary Biology, University of Michigan, 2071A Kraus Natural Science Building, 830 North University Ann Arbor, MI 48109-1048, USA Associate Editor: Jonathan Wren ABSTRACT Motivation: Due to advances in molecular sequencing and the increasingly rapid collection of molecular data, the field of phyloinformatics is transforming into a computational science.
 Therefore, new tools are required that can be deployed in supercomputing environments and that scale to hundreds or thousands of cores.
 Results: We describe RAxML-Light, a tool for large-scale phylogenetic inference on supercomputers under maximum likelihood.
 It implements a light-weight checkpointing mechanism, deploys 128-bit (SSE3) and 256-bit (AVX) vector intrinsics, offers two orthogonal memory saving techniques and provides a fine-grain production-level message passing interface parallelization of the likelihood function.

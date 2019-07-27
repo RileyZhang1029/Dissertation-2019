@@ -1,4 +1,5 @@
-ABSTRACT Motivation: There has recently been a notable shift in biomedical information extraction (IE) from relation models toward the more expressive event model, facilitated by the maturation of basic tools for biomedical text analysis and the availability of manually annotated resources.
+            G:\bioinformatics\ISMB\btq180.dvi [12:17 12/5/2010 Bioinformatics-btq180.tex] Page: i382 i382i390 BIOINFORMATICS Vol.
+26 ISMB 2010, pages i382i390doi:10.1093/bioinformatics/btq180 Complex event extraction at PubMed scale Jari Bjrne1,2,, Filip Ginter1, Sampo Pyysalo3, Junichi Tsujii3,4 and Tapio Salakoski1,2 1Department of Information Technology, University of Turku, Turku, Finland, 2Turku Centre for Computer Science (TUCS), Turku, 3Department of Computer Science, University of Tokyo, Tokyo, Japan and 4National Centre for Text Mining, University of Manchester, Manchester, UK ABSTRACT Motivation: There has recently been a notable shift in biomedical information extraction (IE) from relation models toward the more expressive event model, facilitated by the maturation of basic tools for biomedical text analysis and the availability of manually annotated resources.
 The event model allows detailed representation of complex natural language statements and can support a number of advanced text mining applications ranging from semantic search to pathway extraction.
 A recent collaborative evaluation demonstrated the potential of event extraction systems, yet there have so far been no studies of the generalization ability of the systems nor the feasibility of large-scale extraction.
 Results: This study considers event-based IE at PubMed scale.
@@ -51,15 +52,4 @@ Further, events are modeled as primary objects of annotation and bound to specif
 Finally, events following the Shared Task model are given GENIA Event ontology types drawn from the community-standard Gene Ontology, giving each event well-defined semantics.
 Using events to represent information contained in natural language sentences, for the first time it is now possible to accurately describe in a formal fashion the multitude of different biological phenomena depicted in research articles.
 In the rest of this section, we describe the steps of the event extraction pipeline (Fig.1).
-2.1 Named entity recognition NER is a fundamental requirement for IE: the analysis of IE systems normally takes the form of associations between references to entities, and most applications require the references to be sufficiently specific to identify particular real-world entities, i.e.entity names.
-Consequently, NER is a well-studied subtask in IE.
-Also in the biomedical domain NER has been A B C D E Fig.1.
-Event extraction.
-A multiphased system is used to generate an event graph, a formal representation for the semantic content of the sentence.
-Before event detection, sentences are parsed (A) to generate a suitable syntactic graph to be used in detecting semantic relationships.
-Event detection starts with identification of named entities (B) with BANNER (parses are not used at this step).
-Once named entities have been identified, the trigger detector (C) uses them and the parse for predicting triggers, words which define potential events.
-The edge detector (D) predicts relationship edges (event arguments) between triggers and named entities.
-Finally, the resulting semantic graph is divided into individual events by (E) duplicating trigger nodes and regrouping argument edges.
-i383 [12:17 12/5/2010 Bioinformatics-btq180.tex] Page: i384 i382i390 J.Bjrne et al.Table 2.
-NER system performance System Corpus F-score
+2.1 Named entity recognition NER is a fundamental requirement for IE: the analysis of IE systems normally takes the form of associations between

@@ -3,15 +3,22 @@ import re
 import string
 from tika import parser
 from nltk.tokenize import sent_tokenize
-import numpy as np
 import xlrd  # 打开excel文件
 
 
 def convert_pdf_to_txt(path):
     try:
         raw = parser.from_file(path)
-        text_fil = raw['content']
-        text_fil = text_fil.replace("-\n", "")
+        text = raw['content']
+        text = text.replace("-\n", "")
+        if "2007-11-GENOME_RES.pdf" in path:
+            text_fil = text
+        else:
+            if text.lower().find('references\n'):
+                text_fil = text[:text.lower().find('references\n')]
+            else:
+                print("error: ", path)
+
         printable = set(string.printable)
         for ch in text_fil:
             if ch not in printable:
@@ -33,15 +40,9 @@ def convert_pdf_to_txt(path):
                     f.write('')
                 else:
                     f.write('\n')
-        # with open(path[:-3] + 'txt', "w", encoding='utf-8') as f:
-        #     f.write(textNoSpace)
-        #     f.write('\n')
+
     except Exception as e:
         print("ERROR：" + path)
-        # if os.path.exists(path):
-        #     os.remove(os.path.join(path))
-        # if os.path.exists(path.replace("pdf", "txt")):
-        #     os.remove(os.path.join(path.replace("pdf", "txt")))
         pass
 
 
@@ -70,7 +71,6 @@ def traversal(rootdir):
             if filenamefull.lower().endswith('pdf'):
                 convert_pdf_to_txt(filenamefull)
             if filenamefull.lower().endswith('xls'):
-                print(filenamefull)
                 convert_xls_to_txt(filenamefull)
             # if filenamefull.lower().endswith('doc'):
             #     convert_doc_to_txt(filenamefull)

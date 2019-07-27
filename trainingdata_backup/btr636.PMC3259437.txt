@@ -1,4 +1,9 @@
-ABSTRACT Motivation: Metal ions are essential for the folding of RNA molecules into stable tertiary structures and are often involved in the catalytic activity of ribozymes.
+            K:\bioinformatics\Bioinfo-28(2)issue\btr636.dvi [17:36 20/12/2011 Bioinformatics-btr636.tex] Page: 198 198205 BIOINFORMATICS ORIGINAL PAPER Vol.
+28 no.
+2 2012, pages 198205doi:10.1093/bioinformatics/btr636 Structural bioinformatics Advance Access publication November 21, 2011 MetalionRNA: computational predictor of metal-binding sites in RNA structures Anna Philips1,2, Kaja Milanowska1,2, Grzegorz Lach1, Michal Boniecki1, Kristian Rother2 and Janusz M. Bujnicki1,2, 1Laboratory of Bioinformatics and Protein Engineering, International Institute of Molecular and Cell Biology, ul.
+Ks.
+Trojdena 4, 02-109 Warsaw and 2Laboratory of Bioinformatics, Institute of Molecular Biology and Biotechnology, Adam Mickiewicz University, ul.
+Umultowska 89, 61-614 Poznan, Poland Associate Editor: Anna Tramontano ABSTRACT Motivation: Metal ions are essential for the folding of RNA molecules into stable tertiary structures and are often involved in the catalytic activity of ribozymes.
 However, the positions of metal ions in RNA 3D structures are difficult to determine experimentally.
 This motivated us to develop a computational predictor of metal ion sites for RNA structures.
 Results: We developed a statistical potential for predicting positions of metal ions (magnesium, sodium and potassium), based on the analysis of binding sites in experimentally solved RNA structures.
@@ -131,106 +136,4 @@ The MetalionRNA web server once per week (every Saturday at 12 p.m. Central Euro
 RNA structures containing Mg2+, Na+ or K+ cations that fulfill the conditions described in Section 2.1 are added to the original training set and the statistical potential is recalculated.
 In time, the structures with the resolution worse between 2 and 3 will be outnumbered by those with the resolution better than 2 , hopefully leading to a constant improvement of the potential.
 The MetalionRNA web site allows the user to select whether to perform predictions with the original potential described in this article or with the updated one.
-4.2 RNA-metal ion statistical preferences To calculate the anisotropic statistical potential for RNA-ion contact prediction, we derived statistics for the most common cations from 50 RNA structures containing Mg2+ (182 binding sites), 25 RNA structures containing Na+ (88 binding sites) and 38 RNA structures containing K+ (123 binding sites).
-The graph showing the statistical potential in Figure 1B depicts the preferred interaction geometries for direct contacts and solvated Mg2+ ions.
-The distribution function for the RNA atom pair [P, OP2] and Mg2+ has three peak tuples (the darkest areas).
-The peak tuples correspond to the three possible states of magnesium binding to RNA (Draper, 2004).
-The first peak tuple is present at a distance of 2 , with an acute angle of 1560.
-It corresponds to magnesium ions chelated and partially dehydrated by phosphate groups of RNA.
-In this state, the Mg2+ ion interacts with RNA atoms directly.
-The second peak tuple is at a distance of 45 with a bimodal angle distribution.
-Acute angles (1590) correspond to the water-mediated state, in which the cation retains one layer of hydrating water molecules that in turn interact with the RNA atoms.
-Obtuse angles (120 and higher) correspond to cations chelated with the OP2 atom, and the same Mg2+ ions appear as 201 [17:36 20/12/2011 Bioinformatics-btr636.tex] Page: 202 198205 A.Philips et al.Fig.3.
-ROC curves to assess the classification performance of MetalionRNA with the width of 0.5 for the cubic grid C using (A) the RNA-Mg2+ dataset, (B) the RNA-Na+ dataset, (C) the RNA-K+ dataset, (D) the DNA-Mg2+ dataset and various cut-off distance values (the maximum distance between a predicted and a real metal ion in which the prediction is marked as correct).
-In the big picture overall graph is shown, in the small picture only a range between 0 and 0.2 is illustrated on a logarithmic scale.
-the first peak (in the distance of about 22.5 ) for the [P, OP1] pair (data not shown).
-Finally, the third peak tuple corresponds to a distance of 67 and represents the situation where the Mg2+ ion remains hydrated and interacts with the RNA via a layer of water molecules.
-For these distances, angles of 3060 are predominant.
-4.3 MetalionRNA predicts metal ion with high accuracy In order to assess the accuracy of MetalionRNA, a 5-fold crossvalidation test was performed using RNAmetal ion complexes (Supplementary Table S1).
-We used a cubic grid C with edge width of 0.25 and 0.5 , a Mg2+ ionic radius of 0.75 and a minimal distance between predicted cations of 1.5.
-The results for the cubic grid of 0.5 edge width are illustrated in the form of ROC plots (RNA-Mg2+ in Fig.3A, RNA-Na+ in Fig.3B and RNA-K+ in Fig.3C).
-The AUC values that describe the degree of successful predictions for the Mg2+ ions were calculated for the following cut-off distances (the maximum distances between a predicted and a real metal ion, for which the prediction was regarded as correct): 0.72, 0.75, 1.0, 1.5, 2.0 and 3.0.
-The ionic radius of Mg2+ is 0.72 , the other values are multiples of grid width of C. Using these values, the AUC values for the Mg2+ ions were 50, 56, 81, 93, 95, 96% for the grid C of 0.25 and 62, 62, 81, 95, 96, 97% for the grid C of 0.5.
-The solid line in Figure 3A illustrates predictions that lie within the ionic radius of Mg2+ (0.72 ) and hence are within the space occupied by the cation in the crystallographic model.
-For Na+ ions, AUC values were calculated to be 43, 82, 87, 91, 93% (0.25 grid) and 47, 78, 85, 88, 91% (0.5 grid) for the cut-off distances 1.0, 1.5, 2.0, 3.0 and 4.0 , respectively.
-The ionic radius of Na+ is 1.0.
-Predictions for Na+ are slightly less accurate than those for Mg2+, most likely because of the smaller number of cations in the training dataset.
-The solid line in Figure 3B illustrates predictions within the ionic radius of Na+ (1.0 ).
-For K+ ions, AUC values were 54, 61, 84, 96, 97% (0.25 grid) and 54, 61, 81, 97, 98% (0.5 grid) for the cut-off distances 1.38, 1.5, 2.0, 3.0 and 4.0 , respectively.
-The ionic radius of K+ is 1.38.
-Figure 3C shows predictions for K+.
-We also conducted the predictions and ROC analysis for a set of DNAMg2+ complexes (Fig.3D) using the statistical potential derived from RNAMg2+ PDB complexes.
-Interestingly, our method works for DNA structures that were not considered in the training of the potential: the AUC curve corresponding to the cut-off 202 [17:36 20/12/2011 Bioinformatics-btr636.tex] Page: 203 198205 MetalionRNA Table 2.
-A list of Mg2+ ions in the 23s rRNA structure (PDB ID: 1HC8) for which predictions using MetalionRNA and FEATURE were done Mg2+ (atom no.)
-MetalionRNA FEATURE deviation (), rank out of 224MetalionRNA training set: deviation (), rank (out of 224) FEATURE training set deviation () rank (out of 224) 1159 0.8 (1) 0.8 (1) 1.6 (15), 0.4 (58) 1160 1.9 (6) 1.7 (33) 0.6 (17), 2.0 (8) 1161 2.9 (29) 3.7 (29) 1.5 (102) *1163 0.6 (3) 0.6 (4) 1.5 (5a) 1164 1.4 (2) 1.1 (21) 0.7 (181), 1.6 (88) *1167 3.8 (10) 1.1 (8) 3.6 (2a) 1172 3.2 (13) 3.4 (9) 2.5 (202) The first column from the left lists real Mg2+ ions identifiers as labeled in the PDB file 1HC8.
-The site-bound Mg2+ ions are labeled with an asterisk.
-Column 2 describes the predictions made by MetalionRNA using the Mg2+ training set (Supplementary Table S1).
-Column 3 describes the MetalionRNA predictions made using statistical potential derived from the FEATURE training set.
-In both columns, the first value is a prediction distance to the respective Mg2+ ion, the value in the brackets is the prediction rank by score with respect to the total number of all generated binding sites.
-Column 4 contains the predictions made by FEATURE.
-The first value is a prediction distance to the respective Mg2+ ion, the value in the brackets is the prediction rank by score with respect to the total number of all hits above the cut-off score [for details see Banatao et al.(2003)].
-aRank out of 9. distances of 0.72, 0.75, 1.0, 1.5, 2.0 and 3.0 was calculated to be 44, 49, 74, 90, 91, 93% (for the grid C of 0.25 ) and 56, 56, 72, 88, 91, 93% (for the grid C of 0.5 ) respectively.
-These results are only slightly worse than those for RNA and indicate that our approach captured a general aspect of the metal ion binding by nucleic acids.
-FEATURE is another method for predicting metal ions in RNA structures (Banatao et al., 2003).
-It applies supervised learning on a training set consisting of positive and negative examples of Mg2+ ion binding sites to create a statistical model that describes the microenvironments surrounding site-bound and diffusely bound cations.
-To create a statistical model, 126 physicochemical and structural properties that influence or take part in RNAMg2+ ion interactions were used, and the method was tested on a 58 nt fragment of Bacillus stearothermophilus 23S rRNA (PDB code 1HC8).
-To compare the performance of MetalionRNA with that of WebFEATURE, we made predictions for this structure using our default settings, as well as after retraining our potential on the FEATURE training set.
-Table 2 and Figure 4 summarize predictions for seven Mg2+ ions present in the 1HC8 structure.
-MetalionRNA calculated it for the molecule of that size, with six Mg2+ ions expected to be observed in a crystal structure solved under average conditions; hence, the six top-scoring predictions are considered as strong bets, and further positions in the ranking correspond to alternative, low-confidence sites, potentially occupied e.g.at higher Mg2+ concentrations.
-The six predictions reported with top scores by MetalionRNA with the default potential included four out of the seven Mg2+ ions, identified with accuracy of 0.61.9.
-The remaining ions were predicted with ranks 10, 13 and 29.
-Using a potential calculated from the FEATURE training set, MetalionRNA predicted only two of the seven ions at the first six positions of the ranking, with accuracy of 0.8 and 0.6 , Fig.4.
-Structure of the 23S rRNA fragment (PDB ID: 1HC8) with the experimentally determined positions of Mg2+ cations indicated by white labeled balls.
-Top-scoring Mg2+ cations predicted by MetalionRNA are shown as black balls.
-For detailed comparison of predicted and experimentally observed ions, see Table 2. respectively.
-The remaining five ions were ranked at positions 8, 9, 21, 29 and 33.
-FEATURE correctly identified only two site-bound Mg2+ ion positions within its seven top-scored predictions with accuracy of 1.5 and 3.6 , respectively.
-The diffuse ions were all scored relatively poorly by FEATURE, all outside the top positions of its ranking.
-MetalionRNA with both variants of the potential were able to identify four out of five diffuse Mg2+ ions much better than FEATURE.
-The only exception was Mg2+ ion 1160, for which FEATURE found a more accurate match, but only at the 17th position of the ranking, while MetalionRNA reported a reasonable prediction at the sixth position of its ranking (i.e.above the default threshold).
-Predictions for two of the diffuse ions (1161 and 1172) were reported with relatively low scores by both methods.
-MetalionRNA also predicted one of the two site-bound Mg2+ ions (*1163) with very high accuracy and high position in the ranking (using our training set: 0.6 , Rank 3, using the FEATURE training set: 0.6 , Rank 4).
-For this cation, FEATURE performed only slightly worse (accuracy 1.5 , Rank 5 in a separate prediction for site-bound ions alone).
-The second site (*1167) was predicted by MetalionRNA with accuracy of 3.8 (Rank 10) and 1.1 (Rank 8) for the two training sets, while FEATURE reported it with accuracy of 3.6 , Rank 2 (again, in a separate prediction for site-bound ions).
-Hence, both methods performed similarly well for site-bound ions.
-Summarizing, MetalionRNA was able to identify four out of seven true Mg2+ sites in the 1HC8 structure with just two false positives, while FEATURE identified these ions with a much higher number of false positives.
-Interestingly, the top-scoring Mg2+ binding site predicted by FEATURE corresponds to a K+ binding site in the 1HC8 structure (*1162, accuracy 1.4 ).
-MetalionRNA predicted this site at the fourth position of the ranking specific for K+ cations (accuracy 2.2 ), with the three alternative predictions coinciding with the Mg2+ binding sites observed in the experimentally determined structure.
-Among the Mg2+ binding sites predicted by MetalionRNA, this K+ binding site is found at the 18th position in our ranking (accuracy 1.7 ).
-This partial overlap of predicted Mg2+ and K+ binding sites suggests that cations compete with each other 203 [17:36 20/12/2011 Bioinformatics-btr636.tex] Page: 204 198205 A.Philips et al.for binding to the RNA molecule.
-MetalionRNA does not yet support simultaneous prediction of different ions and does not take the ion concentration into account.
-Such features will be implemented when the number of high-resolution RNA structures determined at a range of different ion concentrations (and with confidently assigned ions) reaches the level required for statistical significance of training and testing the knowledge-based potential.
-5 DISCUSSION MetalionRNA is a novel tool for predicting metal ion-binding sites in RNA structures.
-It uses an anisotropic statistical potential trained on a database of known structures.
-The current implementation is capable of making predictions for Mg2+, Na+ and K+ cations, and further ions will be added as the database of RNA structures is expected to grow.
-The 5-fold cross-validation test proved that ion positions are predicted by MetalionRNA with useful accuracy, as the method successfully reproduces the crystallographically determined positions of Mg2+, Na+ and K+ cations in dozens of different RNA molecules.
-A similar accuracy was achieved by the prediction of Mg2+ in DNA structures, which were not used for training, revealing that the general mechanism of ion binding by both types of the nucleic acids is sufficiently similar to be captured by a coarse-grained method such as ours.
-Comparison with another fully automated method FEATURE demonstrated that MetalionRNA can identify true Mg2+ sites in RNA structure with a relatively low rate of false positives, suggesting that it may be a practically useful tool.
-There are alternative approaches for predicting metal ion-binding sites in RNA structures with high accuracy.
-Hermann and Westhof (1998) applied Brownian dynamics (BD) simulations of cations diffusing under the influence of random Brownian motion within the electrostatic field to predict metal ion-binding sites.
-Misra and Draper (2000) presented an analytical model based on the non-linear PoissonBoltzmann (PB) equation that describes the energetic and stoichiometric linkage between the Mg2+ binding and RNA folding.
-Tan and Chen (2005, 2010) developed a statistical mechanical model based on the PB theory, which considers and ensemble of discrete ion distributions; it models electrostatics and steric interactions for tightly bound ions and uses the mean-field fluid model to describe the diffuse ions.
-The advantage of these methods is that they model the physicochemistry of the system and therefore can be used to infer dynamic and thermodynamic parameters of the systems under study and its individual elements.
-An important feature of these and similar methods is the examination of the system under physical conditions defined by the user, such as temperature, concentration of different ions, possible presence of other molecules, etc.
-These methods are, however, computationally very costly, and require specialized expertise to set up and run the simulations, and to interpret their results.
-The simulation methods are not available as black box packages that can take an RNA structure as an input and generate defined positions of ions as an output.
-For these reasons, they cannot be used to make predictions for a large series of test structures.
-They serve different purpose than the automated predictive methods such as FEATURE or MetalionRNA and these two types of tools cannot be directly compared.
-The advantage of MetalionRNA is that it is relatively fast, can be accessed by a user friendly web interface and does not require special skills to interpret the results.
-Ion sites predicted by MetalionRNA are ranked according to their score, which can be used to infer the relative order and strength of binding consecutive metal ions by the given RNA molecule e.g.with increasing ion concentration.
-MetalionRNA requires the 3D structure of a nucleic acid as an input.
-However, predictions of ion-binding sites in nucleic acid structures may be validated experimentally with methods that do not require the experimental determination of nucleic acid structure.
-In particular, Fenton chemistry makes use of the ability of Fe2+ to replace Mg2+ and to generate highly reactive hydroxyl radicals that can cleave nucleic acid backbones in spatial proximity of the ion-binding site; the sites of cleavage can be then mapped with standard biochemical methods (Berens et al., 1998).
-This and other methods of experimental determination of ion-binding sites can be used in conjunction with MetalionRNA to model RNA structures in the more physically and biologically realistic ion-bound state.
-The next steps in the development of MetalionRNA will be to assess its ability to predict ion-binding sites in low-accuracy structures and to explore the possibilities of integrating the modeling of metal ions with software for automated RNA 3D structure modeling by comparative (Rother et al., 2011) or de novo assembly approaches (Das and Baker, 2007).
-We also intend to explore the possibility to include the ion concentration as a parameter of the prediction, and to enable predictions for mixed solutions with different cations present simultaneously and potentially competing for similar binding sites.
-6 CONCLUSIONS We developed MetalionRNA, a novel bioinformatics tool for prediction of metal ion-binding sites in RNA.
-The anisotropic potential in MetalionRNA outperforms the previously published FEATURE method based on a statistical approach.
-Our method can be used to assist crystal structure determination e.g.by identifying tentative metal ion sites to be further validated by comparison with experimental data or to propose metal positions for structural models that lack coordinates of cations, e.g.RNA structures determined by NMR spectroscopy (Shen et al., 1995) or theoretical models.
-MetalionRNA is freely available as a web server, at http://metalionrna.genesilico.pl/ and has a mirror atWe thank Russ Altman, Mike Wong and Rey Banatao for their help with WebFEATURE, and Magdalena Rother for help in using ModeRNA.
-We also thank Irina Tuszynska and Marcin Pawlowski for critical reading of the manuscript.
-Funding: Foundation for Polish Science (grant TEAM/2009-4/2 and Ideas for Poland fellowship to J.M.B.
-); Polish Ministry of Science and Higher Education (for the development of software in the Bujnicki Laboratory; POIG.02.03.00-00-003/09); EU Seventh Framework Programme (Health-Prot, contract number 229676).
-German Academic Exchange Service (D/09/42768 to K.R.
-); European Research Council (RNA+P=123D to J.M.B.).
-Conflict of Interest: none declared.
+4.2 RNA-metal ion statistical p

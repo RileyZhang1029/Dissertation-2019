@@ -1,4 +1,6 @@
-ABSTRACT Summary: With the wide application of next-generation sequencing (NGS) techniques, fast tools for protein similarity search that scale well to large query datasets and large databases are highly desirable.
+            K:\bioinformatics\Bioinfo-28(1)issue\btr595.dvi [18:49 8/12/2011 Bioinformatics-btr595.tex] Page: 125 125126 BIOINFORMATICS APPLICATIONS NOTE Vol.
+28 no.
+1 2012, pages 125126doi:10.1093/bioinformatics/btr595 Sequence analysis Advance Access publication October 28, 2011 RAPSearch2: a fast and memory-efficient protein similarity search tool for next-generation sequencing data Yongan Zhao1, Haixu Tang1,2 and Yuzhen Ye1, 1School of Informatics and Computing and 2Center for Genomics and Bioinformatics, Indiana University, Bloomington, IN 47404, USA Associate Editor: Alfonso Valencia ABSTRACT Summary: With the wide application of next-generation sequencing (NGS) techniques, fast tools for protein similarity search that scale well to large query datasets and large databases are highly desirable.
 In a previous work, we developed RAPSearch, an algorithm that achieved a 2090-fold speedup relative to BLAST while still achieving similar levels of sensitivity for short protein fragments derived from NGS data.
 RAPSearch, however, requires a substantial memory footprint to identify alignment seeds, due to its use of a suffix array data structure.
 Here we present RAPSearch2, a new memory-efficient implementation of the RAPSearch algorithm that uses a collision-free hash table to index a similarity search database.

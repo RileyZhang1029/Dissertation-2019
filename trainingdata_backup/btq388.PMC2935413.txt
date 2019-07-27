@@ -1,4 +1,5 @@
-ABSTRACT Motivation: In Systems Biology, an increasing collection of models of various biological processes is currently developed and made available in publicly accessible repositories, such as biomodels.net for instance, through common exchange formats such as SBML.
+            G:\bioinformatics\Bioinfo-ECCB(suppl-26)\btq388.dvi [11:03 28/8/2010 Bioinformatics-btq388.tex] Page: i575 i575i581 BIOINFORMATICS Vol.
+26 ECCB 2010, pages i575i581doi:10.1093/bioinformatics/btq388 A graphical method for reducing and relating models in systems biology Steven Gay, Sylvain Soliman and Franois Fages EPI Contraintes, Institut National de Recherche en Informatique et Automatique, INRIA Paris-Rocquencourt, France ABSTRACT Motivation: In Systems Biology, an increasing collection of models of various biological processes is currently developed and made available in publicly accessible repositories, such as biomodels.net for instance, through common exchange formats such as SBML.
 To date, however, there is no general method to relate different models to each other by abstraction or reduction relationships, and this task is left to the modeler for re-using and coupling models.
 In mathematical biology, model reduction techniques have been studied for a long time, mainly in the case where a model exhibits different time scales, or different spatial phases, which can be analyzed separately.
 These techniques are however far too restrictive to be applied on a large scale in systems biology, and do not take into account abstractions other than time or phase decompositions.
@@ -187,37 +188,4 @@ Model 43 is the basic one poolmodel and there is a match from 44, the 1-pool mod
 The morphisms from 43 and 44 to 166 correctly exhibit the inclusion of the basic three-element oscillator in those models.
 A false positive morphism is found however from 44 to 45, the 2-pool model.
 This morphism is purely formal and has no biological meaning.
-It could be eliminated by using annotations as further constraints, for instance by taking into account the references to UniProt/KEGG or ChEBI databases that are already present in some SBML models.
-Model 122 (Fisher et al., 2006) is actually a big model of NFAT and NFB with a side calcium oscillator.
-However, it includes many reversible reactions and thus structurally maps to all of the other models of this class.
-Model 58 is a coupled oscillator version which interestingly maps to the 2-pool oscillator of Borghans et al.(1997) by merging some components of the two oscillators into one.
-Finally, models 39, related to mitochondria, and 145, related to ATP-induced oscillations, only map the small oscillators already described.
-5.4 Cell-cycle models The reaction graphs of the cell cycle models are plagued by a common problem: these models originate from ODE models and the reaction graphs extracted from their encoding in SBML format does not correctly represent the structure of these models.
-It is thus hard to make sense of mappings between such graphs.
-For instance, the graphs of models 7, 8 and 56 are disconnected.
-Models 111, 144 i579 [11:03 28/8/2010 Bioinformatics-btq388.tex] Page: i580 i575i581 S.Gay et al.039_Marh 098_Gold 115_Somo 117_Dupo 166_Zhu 043_Borg 044_Borg 045_Borg 058_Bind 122_Fish 145_Wang Fig.5.
-Subgraph epimorphisms for models of calcium oscillations from biomodels.net.
-007_Nova 008_Gard 168_Obey 056_Chen 169_Agud 196_Sriv109_Habe 111_Nova144_Calz Fig.6.
-SEPI for some models of the cell cycle.
-and 196 have ghost molecules, that is, molecules which appear in the kinetics but not in the stoichiometry.
-Nevertheless, models 144, 56 and 109 are relatively big with more than 50 reactions, and map easily on smaller models.
-Actually, there are 16 comparisons missing from this graph, and 13 are comparisons from these bigger graphs to the smaller ones.
-Models 8, 168 and 196 are small (less than 15 reactions), which make them easy to match to, excepted for 196, which has a big diameter (Fig.6).
-There is no matching from 111 to 8 however.
-This is explained by the erroneous structure of 8 which is disconnected.
-5.5 Negative control For the sake of completeness of the evaluation of our method, the reduction relations between all pairs of models of the biomodels.net repository have been computed (with a time out of 20 min per problem).
-Some matchings between unrelated model classes were found.
-These false positive matchings typically arise with small models that formally appear as reductions of large models without any biological meaning, for the same reasons as in the cases discussed above within a same class.
-These false positives arise in less than 9% of the total inter-class pairs, and in 1.2% of the tests after the removal of the small models.
-6 CONCLUSION Constraint-based graph-matching algorithms have shown their effectiveness and efficiency to analyze and automatically relate biochemical reaction models on a large scale, namely among the 241 curated models of the systems biology repository biomodels.net.
-Of course, such an automatic correspondence between models inferred solely from the structure of the reaction graph may be biologically erroneous in some cases.
-In particular, small reaction graphs can be recognized as motifs of biologically unrelated large reaction graphs.
-Nevertheless, the search for subgraph epimorphisms between all models of the biomodels.net repository revealed connected components roughly corresponding to the different models of similar biological systems for the MAPK signaling cascade, the circadian clock and the calcium oscillation models, automatically exhibiting morphisms, corresponding to model reductions, as well as isomorphisms, corresponding to variants of the same model with different parameter values.
-On the other hand, the cell-cycle models of this repository often originate from ODE models that have been transcribed in SBML rules without correctly reflecting the structure of the interactions.
-As a result, many model reductions could not be detected as graph morphisms.
-More work is thus needed to curate the expression of these models in SBML, and also to restrict mappings by considering the information on molecular species present in the annotations, for instance.
-Although necessarily imperfect, this approach opens a new way to query Systems Biology model repositories and study model reductions as subgraph epimorphism problems, before taking into account constraints on the stoichiometry and the dynamics of the reactions.
-As a perspective for future work, the formal ground presented here in terms of graph operations and graph morphisms is currently used to investigate mathematical conditions under which the kinetics are compatible with graph reduction operations, such as for instance: reaction deletions for slow reverse reactions, reaction mergings for reaction chains with a limiting reaction, molecular species deletions for species in excess, molecular mergings for quasi-steady state approximations.
-ACKNOWLEDGEMENTS We acknowledge fruitful discussions with many participants of these projects and with Christine Solnon for an enlighting talk on graph matching at our seminar.
-Funding: AE Regate; ANR Calamar (ANR-08-SYSC-003); ANR EraSysBio C5SYs; OSEO BioIntelligence projects.
-Conflict of Interest: none declared.
+It could be eliminated by using annotations as further constraints, for instance by taking into account the

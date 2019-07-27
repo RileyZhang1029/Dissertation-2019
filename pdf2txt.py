@@ -10,16 +10,14 @@ def convert_pdf_to_txt(path):
         raw = parser.from_file(path)
         text = raw['content']
         text = text.replace("-\n", "--").replace("--\n", "").replace("--","")
-        if 'References' in text:
-            text_fil = text[text.lower().find(r'abstract'):(text.find(r'References'))]
-        elif 'REFERENCES' in text:
-            text_fil = text[text.lower().find(r'abstract'):(text.find(r'REFERENCES'))]
+        if text.lower().find('references\n'):
+            text_fil = text[:text.lower().find('references\n')]
         else:
             print("error: ", path)
-            if os.path.exists(path):
-                os.remove(os.path.join(path))
-            if os.path.exists(path.replace("pdf", "txt")):
-                os.remove(os.path.join(path.replace("pdf", "txt")))
+            # if os.path.exists(path):
+            #     os.remove(os.path.join(path))
+            # if os.path.exists(path.replace("pdf", "txt")):
+            #     os.remove(os.path.join(path.replace("pdf", "txt")))
 
         printable = set(string.printable)
         for ch in text_fil:

@@ -1,4 +1,6 @@
-ABSTRACT Summary: Genoscape is an open-source Cytoscape plug-in that visually integrates gene expression data sets from GenoScript, a transcriptomic database, and KEGG pathways into Cytoscape networks.
+            G:\fpp\tex\journals\oup\BioInfo\Bioinfo-25(19)issue\btp464.dvi [15:21 31/8/2009 Bioinformatics-btp464.tex] Page: 2617 26172618 BIOINFORMATICS APPLICATIONS NOTE Vol.
+25 no.
+19 2009, pages 26172618doi:10.1093/bioinformatics/btp464 Gene expression Genoscape: a Cytoscape plug-in to automate the retrieval and integration of gene expression data and molecular networks Mathieu Clment-Ziza1,2,,, Christophe Malabat3,, Christian Weber4, Ivan Moszer5, Tero Aittokallio6, Catherine Letondal7 and Sandrine Rousseau5, 1Biotechnology Center, TU Dresden, Dresden, Germany, 2INSERM U-781, Universit Ren-Descartes, Hpital Necker-Enfants Malades, 3Institut Pasteur, Unit de Gntique des Interactions Macromolculaires, CNRS, URA2171, 4Institut Pasteur, INSERM U786, Biologie Cellulaire du Parasitisme, 5Institut Pasteur, Plate-Forme Intgration et Analyse Gnomiques, 6Institut Pasteur, Unit de Biologie Systmique and 7Institut Pasteur, Ple Informatique, Paris, France Received on February 9, 2009; revised on July 1, 2009; accepted on July 24, 2009 Advance Access publication August 3, 2009 Associate Editor: Trey Ideker ABSTRACT Summary: Genoscape is an open-source Cytoscape plug-in that visually integrates gene expression data sets from GenoScript, a transcriptomic database, and KEGG pathways into Cytoscape networks.
 The generated visualisation highlights gene expression changes and their statistical significance.
 The plug-in also allows one to browse GenoScript or import transcriptomic data from other sources through tab-separated text files.
 Genoscape has been successfully used by researchers to investigate the results of gene expression profiling experiments.
@@ -40,18 +42,4 @@ This layer was developed to manage and secure access to the GenoScript database 
 Data import from GenoScript to Cytoscape is performed using specific XML and tab-separated text formats.
 The tab-separated text format is used to transfer expression data.
 The XML format is used to browse GenoScript from Cytoscape, as it encloses the relational organisation of experiments and analyses in the GenoScript database.
-KEGG pathways and the mapping of KEGG identifiers to external references are retrieved via the KEGG FTP server.
-Several tab-separated text files are generated: one for each pathway and one for the pathway list.
-To avoid unnecessary requests, pathway data are saved locally, improving the plug-in efficiency in subsequent runs.
-The correspondence between KEGG pathway elements and a GenoScript or user-generated gene list is automatically achieved by scanning KEGG identifier mapping tables, which include identifiers such as KEGG, Entrez-gene, Ensembl or other widely used species-specific identifiers.
-To update the visualisation according to expression level changes, Genoscape builds a dedicated customizable VisualStyle that maps the expression data to visual properties.
-4 DISCUSSION An existing KEGG tool (http://www.genome.jp/kegg/tool/color _pathway.html) and Pathway Visualization tool (Arakawa et al., 2005) can be used to colour KEGG pathways but (i) the integration of expression data requires data transformations and (ii) the visualization of networks is static and non editable.
-Other software such as VisANT (Hu et al., 2005) or KGML-ED (Klukas and Schreiber, 2007) offer a dynamic visualization of KEGG pathways but the integration of expression data is hardly possible, and they do not provide most of the useful Cytoscape features, such as interactive filtering and layout.
-A Cytoscape plugin, BioNetBuilder (Avila-Campillo et al., 2007), can also be used to import KEGG data into Cytoscape but (i) it merges all KEGG interactions into a single network, making its exploration difficult, (ii) it does not provide a simple way to integrate expression data and (iii) it does not produce a visualisation highlighting gene expression changes.
-Genoscape addresses the increasing need for researchers working in the field of gene expression profiling to get a dynamic and unified visualisation of comprehensive biological networks and expression data.
-This tool makes it possible to efficiently integrate the workflow going from the analysis to the mining of microarray expression datasets in an automated and seamless way.
-Genoscape has been successfully used to explore expression data of the eukaryotic organism Entamoeba histolytica.
-Entamoeba histolytica is the causative agent of amoebiasis, a parasitic infection of the human intestine and liver.
-Transcription profiles of the parasite under stress conditions were determined and genes involved in stress response were identified using DNA microarrays (Weber et al., 2006).
-Genoscape allowed the identification of pathways containing modulated genes, facilitating the analysis of networks and opening up new avenues for studies in basic biology, diagnosis of infectious diseases, and drug development.
-Conflict of Interest: none declared.
+KEGG pathways and the mapping of KEGG identifiers to external

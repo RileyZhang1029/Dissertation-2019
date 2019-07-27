@@ -1,4 +1,6 @@
-ABSTRACT Summary: Current challenges in microRNA (miRNA) research are to improve the identification of in vivo mRNA targets and clarify the complex interplay existing between a specific miRNA and multiple biological networks.
+            G:\bioinformatics\Bioinfo-26(24)issue\btq589.dvi [15:27 18/11/2010 Bioinformatics-btq589.tex] Page: 3131 31313132 BIOINFORMATICS APPLICATIONS NOTE Vol.
+26 no.
+24 2010, pages 31313132doi:10.1093/bioinformatics/btq589 Gene expression Advance Access publication October 19, 2010 MiRonTop: mining microRNAs targets across large scale gene expression studies Kevin Le Brigand1,2,, Karine Robbe-Sermesant1,2,, Bernard Mari1,2 and Pascal Barbry1,2, 1Centre National de la Recherche Scientifique, Institut de Pharmacologie Molculaire et Cellulaire, UMR6097, 06560 Sophia-Antipolis and 2University of Nice Sophia Antipolis, Nice, France Associate Editor: David Rocke ABSTRACT Summary: Current challenges in microRNA (miRNA) research are to improve the identification of in vivo mRNA targets and clarify the complex interplay existing between a specific miRNA and multiple biological networks.
 MiRonTop is an online java web tool that integrates DNA microarrays or high-throughput sequencing data to identify the potential implication of miRNAs on a specific biological system.
 It allows a rapid characterization of the most pertinent mRNA targets according to several existing miRNA target prediction approaches.
 It also provides useful representations of the enrichment scores according to the position of the target site along the 3-UTR, where the contribution of the sites located in the vicinity of the stop codon and of the polyA tail can be clearly highlighted.
@@ -18,41 +20,4 @@ MiRonTop provides several novel and complementary information including (i) the 
 Overall, these different modes of representation increase the sensitivity of the research in order to define a set of either mRNA or miRNAs associated with the selected experiment.
 2 IMPLEMENTATION 2.1 Description of the interface MiRonTop takes as input the results of a global mRNA expression data.
 An acceptable format corresponds to a tab-delimited text file containing a unique identifier (HGNC gene symbol, NCBI gene ID, Affymetrix or Agilent probe identifiers), a signal intensity, a log2 ratio between two experimental conditions and a statistical value (P-value or odds ratio).
-MiRonTop maintains a relational database linking DNA microarray probes identifiers with NCBI gene IDs, which are used as references by the application.
-The database also keeps targeting relationships between NCBI gene IDs and miRNA predicted by Targetscan, MicroCosm, Miranda, Pictar and an exact seed search (27, 18 or 28 first nucleotides of the miRNA) across genes 3-UTRs and coding sequence (CDS).
-Predictions can be tuned with several adjustable parameters defining expressed genes (signal intensity cut-off1) and statistically significant genes (expressed genes having |log2 ratio | cut-off2 and P-value cut-off3 or odds ratio cut-off3 ).
-The three cut-offs, selected by the end-user, are used to define two sets: the down-regulated gene set (where enrichment for mRNA targets of up-regulated miRNAs should be detected) and the up-regulated gene set (where mRNA targets for down-regulated miRNAs are expected).
-For each miRNA considered, an enrichment of its predicted targets according to one selected prediction tool is defined for the Down and the Up gene sets, significance The Author(s) 2010.
-Published by Oxford University Press.
-This is an Open Access article distributed under the terms of the Creative Commons Attribution Non-Commercial License (http://creativecommons.org/licenses/ by-nc/2.5), which permits unrestricted non-commercial use, distribution, and reproduction in any medium, provided the original work is properly cited.
-[15:27 18/11/2010 Bioinformatics-btq589.tex] Page: 3132 31313132 K.Le Brigand et al.Fig.1.
-Graphs derived from MiRonTop showing the significance of the enrichment [represented as log10(adjusted P-value)] according to the fold enrichment, in three experiments of overexpression of miR-34a, miR-34b* and miR-34c-5p in four distinct regions of the transcripts.
-On each panel, a large square highlights the result for the overexpressed miRNA.
-being evaluated using the hypergeometric law.
-The interface then displays for each miRNA the relationship between a Benjamini and Hochberg-adjusted hypergeometric P-value and the fold enrichment, relative to the Down and Up gene sets.
-In this representation, miRNAs having the largest influence on Down or Up gene set (green or red circles, respectively) are located in the top right quadrant of the plot.
-A possibility is given to highlight the effect of a specific miRNA (large square).
-The interface also provides a summary table.
-Functional annotations of the different gene lists can be accessed through several hyperlinks that show the results of Gene Ontology enrichment analyses.
-Additional information provided for each miRNA corresponds to the expression levels of the transcripts encoded by the same host gene.
-Each table can be easily downloaded for further analysis.
-2.2 Database resources Genes set references are based on Refseq v14/06/2010.
-Gene Ontology annotations are linked to Refseq genes through NCBI Gene IDs.
-The set of miRNAs corresponds to release 15 of Mirbase (Griffiths-Jones, 2006).
-The interface accommodates several miRNA prediction softwares: Targetscan v5.1 (Lewis et al., 2003), MicroCosm Targets v5 (Griffiths-Jones et al., 2008), Miranda-sept.2008 (Enright et al., 2003) and PicTar (Krek et al., 2005) and exact search of miRNA seeds 27, 18 and 28 into the 3-UTR and into the CDS of the reference set of genes.
-2.3 Example of dataset exploration Figure 1 summarizes the results of a typical experiment where miR-34a, miR-34b* and miR-34c-5p were individually overexpressed into HeLa cells.
-Expression data have been publicly deposited in Gene Expression Omnibus (reference GSE15957).
-Corresponding top tables are also accessible through MiRonTop web portal.
-Cut-offs were equal to 8 for the log2 signal, 0.5 for the log2 ratio (miR-34a,b*,c-5p versus controls) and 0 for the odds ratio.
-Large variations in the log(adjusted P-value), which depicts the significance of the enrichment, were noticed for miR-34abc (large black square) when different zones of the transcripts were analyzed.
-From this representation and in agreement with Majoros and Ohler, the most specific profiles were observed for the regions of the 3-UTR adjacent to the stop codon, and, to a lesser extent, to the polyA tail.
-Low enrichment was noticed for the CDS and in the middle of the 3-UTR.
-This was consistent with Hafner et al.showing that CDS sites were not as functionally active as 3-UTR sites (Hafner et al., 2010).
-Similar relationships were made for about 10 distinct miRNAs, regardless of the target prediction software that was used (data not shown).
-3 CONCLUSION MiRonTop is an online application allowing the detection of miRNAs that significantly affect gene expression at a large scale.
-The flexibility of the interface allows a fine-tuning of the Down and Up gene sets according to three parameters that correspond to the level of expression, the extent of differential expression and a significance index.
-Such a selection allows experimenters to easily explore a large-scale experiment and get a summary report of the different predictions made by several miRNA target identification softwares.
-Recent investigations on other datasets have indicated that miRonTop is not only useful in experiments of miRNA overexpression/knock-down but can also detect more subtle miRNA activities in a physiological context.
-In the future, MiRonTop will be easily updated in order to integrate any additional predictions made publicly available, such as experimentally validated pairs of miRNA and mRNA that could now be provided by recent experimental approaches (Chi et al., 2009; Hafner et al., 2010).
-Funding: MICROENVIMET, FP7-HEALTH-F2-2008-201279, ARC, INCa and Vaincre la Mucoviscidose.
-Conflict of Interest: none declared.
+MiRonTop maintains a relational database linking DNA microarray probes identifiers with NCBI gene IDs, which are used as

@@ -1,4 +1,6 @@
-ABSTRACT Motivation: Lysine acetylation is a post-translational protein modification and a primary regulatory mechanism that controls many cell signaling processes.
+            C:\Documents and Settings\senthil.d\Desktop\Bioinfo-26(13)issue\btq260.dvi [09:56 15/6/2010 Bioinformatics-btq260.tex] Page: 1666 16661668 BIOINFORMATICS APPLICATIONS NOTE Vol.
+26 no.
+13 2010, pages 16661668doi:10.1093/bioinformatics/btq260 Sequence analysis Advance Access publication May 26, 2010 Predicting post-translational lysine acetylation using support vector machines Florian Gnad1,2, Shubin Ren1, Chunaram Choudhary1,3, Jrgen Cox1 and Matthias Mann1, 1Department of Proteomics and Signal Transduction, Max-Planck-Institute of Biochemistry, Am Klopferspitz 18, D-82152 Martinsried, Germany, 2Department of Systems Biology, Harvard Medical School, 200 Longwood Avenue, Boston, MA 02115, USA and 3The Novo Nordisk Foundation Center for Protein Research, Faculty of Health Sciences, University of Copenhagen, Blegdamsvej 3, DK-2200 Copenhagen, Denmark Associate Editor: John Quackenbush ABSTRACT Motivation: Lysine acetylation is a post-translational protein modification and a primary regulatory mechanism that controls many cell signaling processes.
 Lysine acetylation sites are recognized by acetyltransferases and deacetylases through sequence patterns (motifs).
 Recently, we used high-resolution mass spectrometry to identify 3600 lysine acetylation sites on 1750 human proteins covering most of the previously annotated sites and providing the most comprehensive acetylome so far.
 This dataset should provide an excellent source to train support vector machines (SVMs) allowing the high accuracy in silico prediction of acetylated lysine residues.
@@ -61,14 +63,4 @@ The good performance of our predictor indicates stringent sequence constraints o
 Precision-recall curve for acetylation site prediction.
 The line presents the trade-off between false positives and false negatives.
 patterns that are readily distinguished from the sequences surrounding unmodified lysines.
-In contrast, other PTMs including phosphorylation have less readily detectable primary sequence preferences.
-Interestingly, our previous large-scale acetylation study showed relatively high overlap of the measured human acetylome in the three cell lines studied and the fact that it covered most of the in vivo sites described in the literature (Choudhary et al., 2009).
-This suggests that a substantial proportion of all acetylation sites was sampled.
-As mentioned above, our observation that acetylation sites can be predicted quite accurately implies relatively clear sequence constraints.
-It also suggests a limited number of possible acetylation sites, which apparently are already well sampled in vivo identification by high accuracy mass spectrometry.
-However, there are sites that have not or cannot easily be detected via mass spectrometry and for these our predictor provides valuable information.
-It can also be applied to predict acetylated sites in proteins of species that are closely related to human and whose acetylome has not been measured so far.
-In the case of phosphorylation, we have previously found that species-specific predictors improve accuracy for more distantly related organisms (Hilger et al., 2009).
-As more lysine acetylomes of other organisms are determined by high-resolution mass spectrometry, it will be interesting to see if our predictor is also capable to predict acetylation sites of other species or whether species-specific lysine acetylation predictors will be required.
-Funding: German Research Foundation (DFG grant 1563) RECESS (partial).
-Conflict of Interest: none declared.
+In contrast, other PTMs including phosphorylation have less readily detectable primary sequence p

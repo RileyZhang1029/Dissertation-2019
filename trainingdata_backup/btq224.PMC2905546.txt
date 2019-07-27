@@ -1,4 +1,6 @@
-ABSTRACT Summary: Multiple sequence alignment (MSA) is an important step in comparative sequence analyses.
+            G:\bioinformatics\Bioinfo-26(15)issue\btq224.dvi [16:43 30/6/2010 Bioinformatics-btq224.tex] Page: 1899 18991900 BIOINFORMATICS APPLICATIONS NOTE Vol.
+26 no.
+15 2010, pages 18991900doi:10.1093/bioinformatics/btq224 Sequence analysis Advance Access publication April 28, 2010 Parallelization of the MAFFT multiple sequence alignment program Kazutaka Katoh and Hiroyuki Toh Computational Biology Research Center, National Institute of Advanced Industrial Science and Technology, Tokyo 135-0064, Japan Associate Editor: David Posada ABSTRACT Summary: Multiple sequence alignment (MSA) is an important step in comparative sequence analyses.
 Parallelization is a key technique for reducing the time required for large-scale sequence analyses.
 The three calculation stages, all-to-all comparison, progressive alignment and iterative refinement, of the MAFFT MSA program were parallelized using the POSIX Threads library.
 Two natural parallelization strategies (best-first and simple hill-climbing) were implemented for the iterative refinement stage.

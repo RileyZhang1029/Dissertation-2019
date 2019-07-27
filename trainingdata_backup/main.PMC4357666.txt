@@ -1,4 +1,7 @@
-Abstract Shigella species and Escherichia coli are closely related organisms.
+                Shigella Strains Are Not Clones of Escherichia coli but Sister Species in the Genus Escherichia Genomics Proteomics Bioinformatics 11 (2013) 6165 Genomics Proteomics Bioinformatics www.elsevier.com/locate/gpb www.sciencedirect.com ORIGINAL RESEARCH Shigella Strains Are Not Clones of Escherichia coli but Sister Species in the Genus Escherichia Guanghong Zuo , Zhao Xu , Bailin Hao * T-Life Research Center and Department of Physics, Fudan University, Shanghai 200433, China Received 28 October 2012; accepted 5 November 2012 Available online 29 December 2012 * A Pe C 16 an ht KEYWORDS Shigella; Escherichia coli; Prokaryote phylogeny and taxonomy; Composition vector; CVTree Corresponding author.
+E-mail: hao@mail.itp.ac.cn Present address: Shanghai cademy of Sciences, Shangha Present address: Applied Bi er review under responsibil hinese Academy of Sciences a Production an 72-0229/$-see front matter d Science Press.
+All rights rese tp://dx.doi.org/10.1016/j.gpb.20 (Hao B) Institute i 201800, osystems ity of B nd Gene d hostin 2013 Beiji rved.
+12.11.002 Abstract Shigella species and Escherichia coli are closely related organisms.
 Early phenotyping experiments and several recent molecular studies put Shigella within the species E. coli.
 However, the whole-genome-based, alignment-free and parameter-free CVTree approach shows convincingly that four established Shigella species, Shigella boydii, Shigella sonnei, Shigella felxneri and Shigella dysenteriae, are distinct from E. coli strains, and form sister species to E. coli within the genus Escherichia.
 In view of the overall success and high resolution power of the CVTree approach, this result should be taken seriously.
@@ -72,54 +75,4 @@ Among the genomes released at the NCBI FTP site (ftp://ftp.ncbi.nih.gov/genomes/
 For example, for the time being, complete genome sequences of ten or more strains are available for Chlamydia trachomatis, Corynebacterium diphtheriae, Helicobacter pylori, Salmonella enterica, Staphylococcus aureus, Streptococcus pneumoniae, Streptococcus pyogenes, Sulfolobus islandicus, Y. pestis, etc.
 Once the genomes have been sequenced, there is no additional cost to getting the interrelationship of the strains by simply submitting the genomes to the CVTree Web Server.
 We encourage researchers to try out this convenient and effective tool.
-Materials and methods Since the CVTree approach has been described repeatedly in previous publications (see [1520] and references therein), we only give a brief summary in order to introduce notations and concepts needed in what follows.
-CVTree is a whole-genome-based approach.
-It makes use of all the protein products encoded in a given genome.
-In this way it circumvents the problem of lateral gene transfer (LGT) as LGT and lineage-dependent gene loss are merely mechanisms of genome evolution.
-User avoids the tedious task of finding orthologous proteins as well, since all genomes are orthologous as they are descended from a common ancestor.
-The methodology of CVTree must be alignment-free due to the extreme diversity of bacterial genomes in their size and gene content.
-By using a sliding window of width K, a primary protein sequence made of L amino acids is replaced by (L K+ 1) peptides of length K. The number of K-peptides from all the protein products in a genome is counted and these counts are put in lexicographic order of all possible K-peptides over the 20 amino acid letters to form a raw composition vector (CV) of dimension 20K.
-Then a random background caused by neutral mutations is subtracted from each raw count to highlight the role of natural selection by using a (K 2)th order Markovian prediction formula.
-The subtraction procedure is crucial to the success of CVTree.
-A recalculated CV represents a species and a dissimilarity/distance measure is defined between each pair of CVs.
-Then a phylogenetic tree is constructed by using the standard neighbor-joining algorithm which has been proved to be a robust quartet-basedmethod [33].
-Being alignment-free renders the method parameter-free, as sequence alignment involves many parameters embodied in the elements of scoring matrices and gap penalties.
-The peptide length K is not a parameter.
-Longer Ks make emphasis on species-specificity, while shorter Ks reflect common features between different species.
-We never adjust K value.
-Five trees are calculated for K= 37 (there is no need to go beyond K= 7) and the improved agreement of the tree topology with taxonomy when K increases provides an additional angle to evaluate the quality of the resulted trees.
-In order to facilitate the use of the new method by biologists practitioners, a web server entitled CVTree was published in 2004 [17].
-A significantly-improved version was released in 2009 [18].
-Just by entering the URL (http://tlife.fudan.edu.cn/cvtree/) into a browser, user can enjoy playing with CVTree.
-The built-in dataset is updated automatically in the beginning of each month from the NCBI FTP site.
-Users may also upload their own data to CVTree, these data will be kept only for 48 h after the last run of the job.
-The results may be displayed online or sent back to users by email.
-In the latter case, there is a directory named Collapsed-trees with many files in Newick (.nwk) or plain text format.
-The notion of collapsed trees requires special explanation.
-Although statistical re-sampling methods such as bootstrap or jackknife have been designed to check the stability and selfconsistency of the CVTree results [34], the CVTrees are verified by direct comparison with prokaryote systematics at all taxonomic ranks from domain down to genera and species.
-In doing so, the monophyleticity of a branch is taken as a guideline.
-When all genomes from one and the same taxon in the input dataset appear in the same branch and no other genomes fall in, one may collapse the branch to a single leave named after the taxon.
-For example, Escherichia_coli{54} means that all 54 E. coli genomes appear in a monophyletic branch at a given K. In fact, we have the E. coli strains making a monophyletic branch at all K-values from 4 to 7, which is denoted as Escherichia_coli{54} K4K5K6K7.
-For the time being, this kind of convergence lists has to be obtained by manual inspection of the corresponding files returned via email by the CVTree web server.
-Automatic generation of such lists at all 64 Genomics Proteomics Bioinformatics 11 (2013) 6165 taxonomic ranks will be implemented in the next release of the CVTree web server.
-Throughout this paper we use the abbreviation CVTree to denote the method, the CVTree web server, and the phylogenetic tree obtained by using the CVTree web server.
-In the present study, we have used all the prokaryote genomes released at the NCBI FTP site as of 30 September 2012, excluding 14 tiny highly-degenerated genomes of bacterial endosymbiont bacteria.
-The 54 E. coli genomes, listed in Table S1 in the Supplementary material, are divided into six groups, corresponding to the six monophyletic clusters within the monophyletic E. coli{54} branch in CVTrees for K= 47 (see Figure 2).
-We note that 49 [9] and 53 [10] E. coli genomes from GenBank were used, respectively.
-There are minor differences in the lists as we used all the genomes released by NCBI with accession number starting with NC_ in order to have better comparability.
-The 9 Shigella genomes used in the present study are listed in Table S2.
-When constructing the phylogenetic trees, we used all 133 Archaea genomes and 1929 Bacteria genomes, including the 54 E. coli and 9 Shigella genomes.
-We excluded 14 tiny highly-degenerated genomes of endosymbiont bacteria (Candidatus Carsonella, C. Hodgkinia, C. Sulcia, C. Tremblaya, and C. Zinderia), as they would violate the trifurcation of the three main domains of life.
-Eight Eukarya genomes were included as outgroups.
-Altogether it led to a treeing job with 133 + 1929 + 8 = 2070 population.
-Authors contributions GZandBHposed the problem.
-ZXmaintained the CVTree web server.
-GZ, ZX and BH collected data and performed the calculation.
-GZ and BH analyzed the results and wrote the manuscript.
-All authors read and approved the final manuscript.
-Competing interests The authors have declared that no competing interests exist.
-Acknowledgements This work was supported by the National Basic Research Program of China (973 Project, Grant No.
-2007CB814800 and 2013CB834100), the Shanghai Leading Academic Discipline Project (Grant No.
-B111), the National Key Laboratory of Applied Surface Physics and the Department of Physics, Fudan University.
-BH thanks Dr. Kui Lin for a discussion on E. coli phylogroups.
-Supplementary material Supplementary data associated with this article can be found, in the online version, at http://dx.doi.org/10.1016/j.gpb.2012.11.002.
+Materials and methods Since the CVTree approach has been described repeatedly in previous publications (see [1520] and

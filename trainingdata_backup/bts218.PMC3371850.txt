@@ -1,4 +1,9 @@
-ABSTRACT Motivation: While phylogenetic analyses of datasets containing 10005000 sequences are challenging for existing methods, the estimation of substantially larger phylogenies poses a problem of much greater complexity and scale.
+            Copyedited by: TRJ MANUSCRIPT CATEGORY: [12:03 29/5/2012 Bioinformatics-bts218.tex] Page: i274 i274i282 BIOINFORMATICS Vol.
+28 ISMB 2012, pages i274i282doi:10.1093/bioinformatics/bts218 DACTAL: divide-and-conquer trees (almost) without alignments Serita Nelesen1, Kevin Liu2, Li-San Wang3, C. Randal Linder4 and Tandy Warnow5, 1Dept.
+of Computer Science, Calvin College, Grand Rapids, MI 49546, 2Dept.
+of Computer Science, Rice University, Houston, TX 77005, 3Dept.
+of Pathology and Laboratory Medicine, The University of Pennsylvania, Philadelphia, PA 19104, 4Section of Integrative Biology and 5Dept.
+of Computer Science, The University of Texas at Austin, Austin, TX 78712, USA ABSTRACT Motivation: While phylogenetic analyses of datasets containing 10005000 sequences are challenging for existing methods, the estimation of substantially larger phylogenies poses a problem of much greater complexity and scale.
 Methods: We present DACTAL, a method for phylogeny estimation that produces trees from unaligned sequence datasets without ever needing to estimate an alignment on the entire dataset.
 DACTAL combines iteration with a novel divide-and-conquer approach, so that each iteration begins with a tree produced in the prior iteration, decomposes the taxon set into overlapping subsets, estimates trees on each subset, and then combines the smaller trees into a tree on the full taxon set using a new supertree method.
 We prove that DACTAL is guaranteed to produce the true tree under certain conditions.

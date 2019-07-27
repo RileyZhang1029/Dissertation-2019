@@ -1,4 +1,6 @@
-ABSTRACT Motivation: The increasing availability of mitochondria-targeted and off-target sequencing data in whole-exome and whole-genome sequencing studies (WXS and WGS) has risen the demand of effective pipelines to accurately measure heteroplasmy and to easily recognize the most functionally important mitochondrial variants among a huge number of candidates.
+          OP-CBIO140529 3115..3117 Vol.
+30 no.
+21 2014, pages 31153117 BIOINFORMATICS APPLICATIONS NOTE doi:10.1093/bioinformatics/btu483 Genome analysis Advance Access publication July 14, 2014 MToolBox: a highly automated pipeline for heteroplasmy annotation and prioritization analysis of human mitochondrial variants in high-throughput sequencing Claudia Calabrese1,y, Domenico Simone2,y, Maria Angela Diroma3, Mariangela Santorsola4, Cristiano Gutta3, Giuseppe Gasparre1, Ernesto Picardi3,5,6, Graziano Pesole3,5,7 and Marcella Attimonelli3,* 1Department of Medical and Surgical Sciences, University of Bologna, 40138 Bologna, 2Department of Biosciences, University of Milan, 20133 Milan, 3Department of Biosciences, Biotechnologies and Biopharmaceutics, University of Bari, 70126 Bari, 4Department of Sciences and Technologies, University of Sannio, 82100 Benevento, 5Institute of Biomembranes and Bioenergetics, National Research Council, 70126 Bari, 6National Institute of Biostructures and Biosystems, 00136 Rome and 7Center of Excellence in Genomics for Biomedicine and Agri-food (CEGBA), University of Bari, 70126 Bari, Italy Associate Editor: Inanc Birol ABSTRACT Motivation: The increasing availability of mitochondria-targeted and off-target sequencing data in whole-exome and whole-genome sequencing studies (WXS and WGS) has risen the demand of effective pipelines to accurately measure heteroplasmy and to easily recognize the most functionally important mitochondrial variants among a huge number of candidates.
 To this purpose, we developed MToolBox, a highly automated pipeline to reconstruct and analyze human mitochondrial DNA from high-throughput sequencing data.
 Results: MToolBox implements an effective computational strategy for mitochondrial genomes assembling and haplogroup assignment also including a prioritization analysis of detected variants.
 MToolBox provides a Variant Call Format file featuring, for the first time, allele-specific heteroplasmy and annotation files with prioritized variants.
@@ -42,26 +44,3 @@ Thus, MToolBox may provide a valuable support for the recognition of candidate m
 Funding: This work was supported by Progetto Strategico Invecchiamento e Medicina Personalizzata (CNR, Italy) and the PRIN2009 fund assigned to M.A.
 The computational work has been executed on the IT resources made available by the ReCaS project (PONa3_00052).
 Conflicts of interest: none declared.
-REFERENCES Andrews,R.M.
-et al.(1999) Reanalysis and revision of the Cambridge reference sequence for human mitochondrial DNA.
-Nat.
-Genet., 23, 147.
-Bandelt,H.J.
-et al.(2014) The case of the continuing use of the revised Cambridge Reference Sequence (rCRS) and the standardization of notation in human mitochondrial DNA studies.
-J. Hum.
-Genet., 59, 6677.
-Behar,D.M.
-et al.(2012) A Copernican reassessment of the human mitochondrial DNA tree from its root.
-Am.
-J. Hum.
-Genet., 90, 675684.
-Fig.1.
-The main steps of the MToolBox workflow: (ad) read mapping and NumtS filtering; (eh) post-mapping processing; (im) genome assembly, haplogroup prediction and variant annotation.
-In brackets, programs or modules particularly important for the associated process.
-Solid connectors indicate mandatory pipeline steps; dashed connectors (eg) indicate that the corresponding post-mapping steps can be optional, otherwise the OUT2.sam file directly undergoes the assembly process (h).
-Please refer to Supplementary Information for a detailed description of MToolBox workflow steps 3116 C.Calabrese et al.urein order in order ) (high throughput sequencing confidence interval.
-2.
-Fig.1 The main steps of the MToolBox workflow.
-In brackets, programs or modules particularly important for the associated process.
-Solid connectors indicate mandatory pipeline steps; dashed connectors (e) to (g) indicate that the corresponding post-mapping steps can be optional, otherwise the OUT2.sam file directly undergoes the assembly process (h).
-Please refer to Supplementary Information for a detailed description of MToolBox workflow steps.ACKNOWLEDGMENTS `` '' `` '' ).

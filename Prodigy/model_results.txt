@@ -12,3 +12,339 @@ Number of common software mentions:  9
 The precision of the model is:  0.05844155844155844
 The recall of the model is:  0.04864864864864865
 The fscore of the model is:  0.05309734513274337
+
+
+
+
+
+
+WHEN using Howison's results as evaluation set:
+
+root@riley-ThinkPad-T470:/home/riley/Documents/Github/Dissertation-2019/Prodigy# prodigy ner.batch-train st_ner_100 en_core_web_lg --output /home/riley/Documents/Github/models/st-model-100 --label SOFTWARE --eval-id howison_test --n-iter 20 --batch-size 8
+Using 1 labels: SOFTWARE
+
+Loaded model en_core_web_lg
+Loaded 172 evaluation examples from 'howison_test'
+Using 100% of remaining examples (196) for training
+Dropout: 0.2  Batch size: 8  Iterations: 20  
+
+
+BEFORE      0.000             
+Correct     0   
+Incorrect   204
+Entities    652               
+Unknown     0                 
+
+#            LOSS         RIGHT        WRONG        ENTS         SKIP         ACCURACY  
+01           2621.007     0            204          280          0            0.000                                                           
+precision: 0.0 recall: 0.0 fscore: 0.0
+02           2023.328     0            204          300          0            0.000                                                           
+precision: 0.0 recall: 0.0 fscore: 0.0
+03           2213.187     1            203          253          0            0.005                                                           
+precision: 0.011 recall: 0.015 fscore: 0.013
+04           2296.452     8            196          255          0            0.039                                                           
+precision: 0.039 recall: 0.049 fscore: 0.043
+05           2344.094     11           193          273          0            0.054                                                           
+precision: 0.04 recall: 0.063 fscore: 0.049
+06           2358.708     11           193          263          0            0.054                                                           
+precision: 0.037 recall: 0.049 fscore: 0.042
+07           2204.077     15           189          237          0            0.074                                                           
+precision: 0.073 recall: 0.078 fscore: 0.075
+08           2298.590     10           194          229          0            0.049                                                           
+precision: 0.042 recall: 0.053 fscore: 0.047
+09           2284.632     11           193          237          0            0.054                                                           
+precision: 0.043 recall: 0.053 fscore: 0.048
+10           2187.306     10           194          222          0            0.049                                                           
+precision: 0.044 recall: 0.044 fscore: 0.044
+11           2322.300     9            195          201          0            0.044                                                           
+precision: 0.04 recall: 0.044 fscore: 0.042
+12           2121.549     9            195          230          0            0.044                                                           
+precision: 0.042 recall: 0.063 fscore: 0.051
+13           2044.427     10           194          242          0            0.049                                                           
+precision: 0.043 recall: 0.053 fscore: 0.048
+14           2205.345     12           192          224          0            0.059                                                           
+precision: 0.053 recall: 0.063 fscore: 0.058
+15           2062.909     10           194          215          0            0.049                                                           
+precision: 0.047 recall: 0.049 fscore: 0.048
+16           2203.596     10           194          204          0            0.049                                                           
+precision: 0.047 recall: 0.053 fscore: 0.05
+17           2148.633     12           192          209          0            0.059                                                           
+precision: 0.06 recall: 0.058 fscore: 0.059
+18           2110.859     12           192          201          0            0.059                                                           
+precision: 0.039 recall: 0.049 fscore: 0.043
+19           2120.332     11           193          217          0            0.054                                                           
+precision: 0.046 recall: 0.058 fscore: 0.051
+20           2122.196     11           193          224          0            0.054                                                           
+precision: 0.053 recall: 0.063 fscore: 0.057
+
+Correct     15  
+Incorrect   189
+Baseline    0.000             
+Accuracy    0.074             
+
+
+Model: /home/riley/Documents/Github/models/st-model-100
+Training data: /home/riley/Documents/Github/models/st-model-100/training.jsonl
+Evaluation data: /home/riley/Documents/Github/models/st-model-100/evaluation.jsonl
+
+
+
+
+
+
+
+
+
+root@riley-ThinkPad-T470:/home/riley/Documents/Github/Dissertation-2019/Prodigy# prodigy ner.batch-train st_ner_200 en_core_web_lg --output /home/riley/Documents/Github/models/st-model-200 --label SOFTWARE --eval-id howison_test --n-iter 20 --batch-size 8
+Using 1 labels: SOFTWARE
+
+Loaded model en_core_web_lg
+Loaded 172 evaluation examples from 'howison_test'
+Using 100% of remaining examples (975) for training
+Dropout: 0.2  Batch size: 8  Iterations: 20  
+
+
+BEFORE      0.000             
+Correct     0   
+Incorrect   204
+Entities    652               
+Unknown     0                 
+
+#            LOSS         RIGHT        WRONG        ENTS         SKIP         ACCURACY  
+01           12304.430    2            202          296          0            0.010                                                           
+precision: 0.01 recall: 0.015 fscore: 0.012
+02           11363.532    9            195          382          0            0.044                                                           
+precision: 0.054 recall: 0.102 fscore: 0.071
+03           10906.060    10           194          377          0            0.049                                                           
+precision: 0.018 recall: 0.039 fscore: 0.025
+04           10792.810    12           192          393          0            0.059                                                           
+precision: 0.029 recall: 0.063 fscore: 0.039
+05           10704.633    13           191          422          0            0.064                                                           
+precision: 0.03 recall: 0.063 fscore: 0.041
+06           10519.024    13           191          440          0            0.064                                                           
+precision: 0.03 recall: 0.063 fscore: 0.041
+07           10538.526    12           192          444          0            0.059                                                           
+precision: 0.024 recall: 0.053 fscore: 0.033
+08           10174.002    12           192          442          0            0.059                                                           
+precision: 0.026 recall: 0.053 fscore: 0.035
+09           10361.326    14           190          434          0            0.069                                                           
+precision: 0.03 recall: 0.068 fscore: 0.041
+10           10237.335    13           191          427          0            0.064                                                           
+precision: 0.025 recall: 0.058 fscore: 0.035
+11           10027.703    13           191          424          0            0.064                                                           
+precision: 0.042 recall: 0.083 fscore: 0.056
+12           10385.183    13           191          421          0            0.064                                                           
+precision: 0.032 recall: 0.058 fscore: 0.041
+13           10318.396    14           190          424          0            0.069                                                           
+precision: 0.029 recall: 0.063 fscore: 0.039
+14           10029.795    14           190          424          0            0.069                                                           
+precision: 0.031 recall: 0.063 fscore: 0.041
+15           9982.977     11           193          433          0            0.054                                                           
+precision: 0.024 recall: 0.053 fscore: 0.033
+16           10019.480    11           193          438          0            0.054                                                           
+precision: 0.021 recall: 0.049 fscore: 0.029
+17           9873.275     10           194          431          0            0.049                                                           
+precision: 0.026 recall: 0.063 fscore: 0.037
+18           10247.376    13           191          438          0            0.064                                                           
+precision: 0.027 recall: 0.053 fscore: 0.036
+19           9985.113     13           191          434          0            0.064                                                           
+precision: 0.032 recall: 0.068 fscore: 0.043
+20           10200.642    13           191          421          0            0.064                                                           
+precision: 0.025 recall: 0.058 fscore: 0.035
+
+Correct     14  
+Incorrect   190
+Baseline    0.000             
+Accuracy    0.069             
+
+
+Model: /home/riley/Documents/Github/models/st-model-200
+Training data: /home/riley/Documents/Github/models/st-model-200/training.jsonl
+Evaluation data: /home/riley/Documents/Github/models/st-model-200/evaluation.jsonl
+
+
+
+
+
+
+
+
+root@riley-ThinkPad-T470:/home/riley/Documents/Github/Dissertation-2019/Prodigy# prodigy ner.batch-train st_ner_395 en_core_web_lg --output /home/riley/Documents/Github/models/st-model-395 --label SOFTWARE --eval-id howison_test --n-iter 20 --batch-size 8
+Using 1 labels: SOFTWARE
+
+Loaded model en_core_web_lg
+Loaded 172 evaluation examples from 'howison_test'
+Using 100% of remaining examples (752) for training
+Dropout: 0.2  Batch size: 8  Iterations: 20  
+
+
+BEFORE      0.000             
+Correct     0   
+Incorrect   204
+Entities    652               
+Unknown     0                 
+
+#            LOSS         RIGHT        WRONG        ENTS         SKIP         ACCURACY  
+01           9293.046     0            204          388          0            0.000                                                           
+precision: 0.0 recall: 0.0 fscore: 0.0
+02           8857.063     16           188          349          0            0.078                                                           
+precision: 0.071 recall: 0.112 fscore: 0.087
+03           8494.026     21           183          305          0            0.103                                                           
+precision: 0.039 recall: 0.049 fscore: 0.043
+04           8269.641     17           187          351          0            0.083                                                           
+precision: 0.034 recall: 0.073 fscore: 0.047
+05           7920.520     21           183          347          0            0.103                                                           
+precision: 0.043 recall: 0.087 fscore: 0.058
+06           7972.317     22           182          375          0            0.108                                                           
+precision: 0.028 recall: 0.053 fscore: 0.036
+07           7988.067     24           180          409          0            0.118                                                           
+precision: 0.052 recall: 0.102 fscore: 0.069
+08           7800.222     26           178          413          0            0.127                                                           
+precision: 0.016 recall: 0.039 fscore: 0.023
+09           7848.905     21           183          398          0            0.103                                                           
+precision: 0.027 recall: 0.058 fscore: 0.037
+10           7518.664     21           183          418          0            0.103                                                           
+precision: 0.059 recall: 0.121 fscore: 0.079
+11           7898.948     14           190          424          0            0.069                                                           
+precision: 0.035 recall: 0.068 fscore: 0.046
+12           7559.576     16           188          409          0            0.078                                                           
+precision: 0.041 recall: 0.083 fscore: 0.054
+13           7433.428     17           187          406          0            0.083                                                           
+precision: 0.05 recall: 0.107 fscore: 0.068
+14           7683.366     21           183          393          0            0.103                                                           
+precision: 0.049 recall: 0.107 fscore: 0.067
+15           7730.735     21           183          400          0            0.103                                                           
+precision: 0.058 recall: 0.107 fscore: 0.075
+16           7875.207     22           182          415          0            0.108                                                           
+precision: 0.043 recall: 0.097 fscore: 0.06
+17           7652.768     21           183          420          0            0.103                                                           
+precision: 0.074 recall: 0.136 fscore: 0.096
+18           7827.315     19           185          403          0            0.093                                                           
+precision: 0.053 recall: 0.102 fscore: 0.07
+19           7800.768     21           183          399          0            0.103                                                           
+precision: 0.056 recall: 0.117 fscore: 0.076
+20           7806.431     20           184          390          0            0.098                                                           
+precision: 0.047 recall: 0.092 fscore: 0.062
+
+Correct     26  
+Incorrect   178
+Baseline    0.000             
+Accuracy    0.127             
+
+
+Model: /home/riley/Documents/Github/models/st-model-395
+Training data: /home/riley/Documents/Github/models/st-model-395/training.jsonl
+Evaluation data: /home/riley/Documents/Github/models/st-model-395/evaluation.jsonl
+
+
+
+
+
+
+root@riley-ThinkPad-T470:/home/riley/Documents/Github/Dissertation-2019/Prodigy# prodigy ner.batch-train st_ner_1312_new en_core_web_lg --output /home/riley/Documents/Github/models/st-model-1312-new --label SOFTWARE --eval-id howison_test --n-iter 20 --batch-size 8
+Using 1 labels: SOFTWARE
+
+Loaded model en_core_web_lg
+Loaded 172 evaluation examples from 'howison_test'
+Using 100% of remaining examples (734) for training
+Dropout: 0.2  Batch size: 8  Iterations: 20  
+
+
+BEFORE      0.000             
+Correct     0   
+Incorrect   204
+Entities    652               
+Unknown     0                 
+
+#            LOSS         RIGHT        WRONG        ENTS         SKIP         ACCURACY  
+01           11110.682    0            204          365          0            0.000                                                           
+precision: 0.0 recall: 0.0 fscore: 0.0
+02           10356.729    13           191          357          0            0.064                                                           
+precision: 0.034 recall: 0.063 fscore: 0.045
+03           9787.380     15           189          323          0            0.074                                                           
+precision: 0.04 recall: 0.063 fscore: 0.049
+04           9559.694     18           186          382          0            0.088                                                           
+precision: 0.036 recall: 0.083 fscore: 0.051
+05           9377.486     16           188          357          0            0.078                                                           
+precision: 0.048 recall: 0.087 fscore: 0.062
+06           9375.624     19           185          384          0            0.093                                                           
+precision: 0.049 recall: 0.097 fscore: 0.065
+07           9087.760     20           184          393          0            0.098                                                           
+precision: 0.052 recall: 0.092 fscore: 0.066
+08           8905.206     18           186          398          0            0.088                                                           
+precision: 0.045 recall: 0.087 fscore: 0.06
+09           8805.317     17           187          426          0            0.083                                                           
+precision: 0.042 recall: 0.087 fscore: 0.057
+10           9027.035     16           188          395          0            0.078                                                           
+precision: 0.068 recall: 0.102 fscore: 0.081
+11           8976.312     16           188          371          0            0.078                                                           
+precision: 0.041 recall: 0.078 fscore: 0.054
+12           8875.094     16           188          372          0            0.078                                                           
+precision: 0.04 recall: 0.083 fscore: 0.054
+13           9081.247     15           189          388          0            0.074                                                           
+precision: 0.037 recall: 0.078 fscore: 0.05
+14           8811.003     13           191          385          0            0.064                                                           
+precision: 0.037 recall: 0.068 fscore: 0.048
+15           8820.898     13           191          373          0            0.064                                                           
+precision: 0.036 recall: 0.068 fscore: 0.047
+16           8718.298     13           191          375          0            0.064                                                           
+precision: 0.036 recall: 0.073 fscore: 0.048
+17           8592.465     15           189          386          0            0.074                                                           
+precision: 0.036 recall: 0.083 fscore: 0.05
+18           8771.550     17           187          389          0            0.083                                                           
+precision: 0.043 recall: 0.078 fscore: 0.056
+19           8372.224     18           186          375          0            0.088                                                           
+precision: 0.036 recall: 0.063 fscore: 0.046
+20           8786.316     16           188          373          0            0.078                                                           
+precision: 0.042 recall: 0.092 fscore: 0.058
+
+Correct     20  
+Incorrect   184
+Baseline    0.000             
+Accuracy    0.098             
+
+
+Model: /home/riley/Documents/Github/models/st-model-1312-new
+Training data: /home/riley/Documents/Github/models/st-model-1312-new/training.jsonl
+Evaluation data: /home/riley/Documents/Github/models/st-model-1312-new/evaluation.jsonl
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+WHEN using the correct pattern file(converting all the words into lower case) on 395 articles
+
+
+['AGTTGGTTTG', 'AIRN', 'AK060116', 'AK060438', 'AK067840', 'AK070213', 'AP389', 'ASIP', 'ATAAATACTA', 'ATGCACAGTG', 'Acrobat', 'Adobe', 'Amalanagar', 'AmpliTaq', 'Aniridia', 'B6.CAST-1', 'B75-d', 'BGPP', 'BIDG', 'BIONJ', 'BLAST', 'BLASTN', 'BLASTP', 'BLASTX', 'BLAT', 'BP00048', 'BRCA1-BARD1', 'BeadStudio', 'BioEdit', 'BioOne', 'BlastX', 'CA24014', 'CA87497', 'CAACCACGTG', 'CAST', 'CATCTCCAGT', 'CLUSTALW', 'COXII', 'CTACAATTTG', 'CTGCTTTTTG', 'CTGGCTTTTG', 'CTTTTGCTAT', 'CaMCNBCNA', 'Caussinus', 'Cbk1-ace2', 'CellTiter', 'ChipViewer', 'Chr01:-:33815199:33815212:47283185', 'Chr01:-:45612538:45612551:47283185', 'Clb2', 'ClustalW', 'ClustalX', 'Columbia', 'Cornus', 'CyO', 'DNAseI', 'Delta', 'E16E18', 'E497Q536', 'EA', 'EAHK', 'EALA', 'ECFP', 'ECs', 'EDIM', 'EIGENSTRAT', 'ENSEMBL', 'EPMR', 'EQVL', 'ERVPKEYRP', 'ESTEXT', 'EcoRV', 'Edderkaoui', 'Ednrbs', 'Elledge', 'Ensembl', 'Ephedrus', 'Excel', 'Extracellular', 'FOXO', 'FVIII', 'Flag', 'GAAGCTGTTG', 'GATCACATAC', 'GGATGAAGTG', 'GGGGATTGTG', 'GISP2', 'GRounDhog', 'GSKGIVKREL', 'GTPase', 'GeNorm', 'GlyThr', 'Gq', 'HCINT', 'HCRT', 'HECT', 'HPLC', 'His6-Ubc13', 'ID13', 'IPTG', 'IRESII', 'IVof', 'ImageJ', 'Inositol', 'Iodice', 'JAZZ', 'JNKmediated', 'JW', 'LL428', 'LVEDP', 'MATP', 'MITOCHONDRIAL', 'MITOMI', 'MPTP', 'MSCV', 'MTERF', 'MULTREES', 'MV99-GC31/', 'Mapmaker', 'Matlab', 'Mburu', 'McConkey', 'McGavran', 'McGinniss', 'Medicine', 'Medtronic', 'MetaMorph', 'Microfluidic', 'Mlodseen', 'MrBayes', 'MutSDNA', 'MutantsDsh', 'NMRPipe29', 'NbaitDNprey', 'NeuroZoom', 'PAUP', 'PBS', 'PCUE', 'PDE11A/', 'PH.E2F', 'PHYML', 'PMCA', 'POPTR_0001s39660', 'PPAR', 'PROCHECK', 'PROML', 'PROTEOMICS', 'PVDF', 'Panke', 'Pasquini', 'Pentaphylacaceae', 'Peprotech', 'Polemoniaceae', 'PowerPoint', 'PubMed', 'PvuII', 'QUANTA', 'QuikChange', 'R', 'RAPD', 'REANYLAAI', 'RIAM', 'RTLYI', 'RepeatMasker', 'SHELLSCALE', 'SMZ1500', 'SPSS', 'SUKONTASON', 'Sarracenia', 'Sigma', 'SmN', 'TAAATTGTGC', 'TBLASTN', 'TBST', 'TESPA', 'TFAM', 'TGGGTGGTTG', 'TGTTACCGTG', 'TGTTCAGTTG', 'TMed', 'TRKB', 'TTCTTGTTTG', 'TTGSQSLAA', 'TTTAGACGTG', 'TTTCTTCCAA', 'Tanabe', 'TargetP', 'Thunb', 'TnsCwt', 'Transcriptional', 'Transgenesis', 'Typhoon', 'USeq', 'Uhlenbeck21', 'Umbelliferae', 'V.M.', 'V2)=?C', 'VECTASHIELD', 'Va11', 'VaE', 'VanAs', 'Vibratome', 'WS0124_D16', 'Word-1178343s.doc', 'Y.Y.', 'YERMVYLDADIQVFDNIDHLFDLDKGAFYAVKDCFCEKTWSHTPQYDIGYCQQRPDEVAWPE', 'YSDLRD', 'controlStill', 'diseases41,42', 'dsDNA', 'eyg76M26', 'pRS316', 'tnsE']
+
+Number of common software mentions:  33
+The precision of the model is:  0.15492957746478872
+The recall of the model is:  0.1783783783783784
+The fscore of the model is:  0.1658291457286432
+
+
+
+
+
+
+adding 20% of howison's results
+
+['AGTTGGTTTG', 'AIRN', 'AK060116', 'AK060438', 'AK067840', 'AK070213', 'AP389', 'ASIP', 'ATAAATACTA', 'ATGCACAGTG', 'Acrobat', 'Adobe', 'Amalanagar', 'AmpliTaq', 'Aniridia', 'B6.CAST-1', 'B75-d', 'BGPP', 'BIDG', 'BIONJ', 'BLAST', 'BLASTN', 'BLASTP', 'BLASTX', 'BLAT', 'BP00048', 'BRCA1-BARD1', 'BeadStudio', 'BioEdit', 'BioOne', 'BlastX', 'CA24014', 'CAACCACGTG', 'CAST', 'CATCTCCAGT', 'CLUSTALW', 'COXII', 'CTACAATTTG', 'CTGCTTTTTG', 'CTGGCTTTTG', 'CTTTTGCTAT', 'CaMCNBCNA', 'Caussinus', 'ChipViewer', 'Chr01:-:33815199:33815212:47283185', 'Chr01:-:45612538:45612551:47283185', 'ClustalW', 'Cornus', 'DNAseI', 'Delta', 'E16E18', 'E497Q536', 'EA', 'EAHK', 'EALA', 'ECFP', 'ECs', 'EDIM', 'EIGENSTRAT', 'ENSEMBL', 'EPMR', 'ESTEXT', 'EcoRV', 'Edderkaoui', 'Ednrbs', 'Ensembl', 'Ephedrus', 'Excel', 'Extracellular', 'FOXO', 'FVIII', 'Flag', 'GAAGCTGTTG', 'GATCACATAC', 'GGATGAAGTG', 'GGGGATTGTG', 'GISP2', 'GRounDhog', 'GTPase', 'GeNorm', 'GlyThr', 'Gq', 'HCINT', 'HCRT', 'HECT', 'HPLC', 'His6-Ubc13', 'ID13', 'IPTG', 'IRESII', 'ImageJ', 'Inositol', 'Iodice', 'JAZZ', 'JNKmediated', 'JW', 'LVEDP', 'MATP', 'MITOCHONDRIAL', 'MITOMI', 'MPTP', 'MTERF', 'MULTREES', 'MV99-GC31/', 'Mapmaker', 'Matlab', 'McGinniss', 'Medtronic', 'MetaMorph', 'Microfluidic', 'MrBayes', 'NMRPipe29', 'NbaitDNprey', 'PAUP', 'PBS', 'PCUE', 'PDE11A/', 'PHYML', 'PMCA', 'POPTR_0001s39660', 'PPAR', 'PROCHECK', 'PROML', 'PROTEOMICS', 'Pasquini', 'Pentaphylacaceae', 'Peprotech', 'Polemoniaceae', 'PowerPoint', 'PubMed', 'PvuII', 'QuikChange', 'R', 'RIAM', 'RepeatMasker', 'SHELLSCALE', 'SMZ1500', 'SPSS', 'SUKONTASON', 'Sarracenia', 'Sigma', 'SmN', 'TAAATTGTGC', 'TBLASTN', 'TFAM', 'TGGGTGGTTG', 'TGTTACCGTG', 'TGTTCAGTTG', 'TRKB', 'TTCTTGTTTG', 'TTTAGACGTG', 'TTTCTTCCAA', 'Tanabe', 'TargetP', 'Thunb', 'TnsCwt', 'Transcriptional', 'Typhoon', 'USeq', 'V.M.', 'V2)=?C', 'VECTASHIELD', 'Vibratome', 'WS0124_D16', 'Word-1178343s.doc', 'Y.Y.', 'YERMVYLDADIQVFDNIDHLFDLDKGAFYAVKDCFCEKTWSHTPQYDIGYCQQRPDEVAWPE', 'diseases41,42', 'dsDNA', 'eyg76M26', 'tnsE']
+
+Number of common software mentions:  30
+The precision of the model is:  0.17543859649122806
+The recall of the model is:  0.16216216216216217
+The fscore of the model is:  0.16853932584269662
+
+

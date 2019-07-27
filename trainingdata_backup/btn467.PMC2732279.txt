@@ -1,4 +1,7 @@
-ABSTRACT Motivation: Understanding the transcriptional regulation of a gene in detail is a crucial step towards uncovering and ultimately utilizing the regulatory grammar of the genome.
+           btn467 BIOINFORMATICS APPLICATIONS NOTE Vol.
+24 no.
+21 2008, pages 25442545doi:10.1093/bioinformatics/btn467 Gene expression STREAM: Static Thermodynamic REgulAtory Model of transcription Denis C. Bauer and Timothy L. Bailey Institute for Molecular Bioscience, University of Queensland, Brisbane, Qld.
+4072, Australia Received on June 27, 2008; revised on August 11, 2008; accepted on August 28, 2008 Advance Access publication September 6, 2008 Associate Editor: Joaquin Dopazo ABSTRACT Motivation: Understanding the transcriptional regulation of a gene in detail is a crucial step towards uncovering and ultimately utilizing the regulatory grammar of the genome.
 Modeling transcriptional regulation using thermodynamic equations has become an increasingly important approach towards this goal.
 Here, we present STREAM, the first publicly available framework for modeling, visualizing and predicting the regulation of the transcription rate of a target gene.
 Given the concentrations of a set of transcription factors (TFs), the TF binding sites (TFBSs) in a regulatory DNA region, and the transcription rate of the target gene, STREAM will optimize its parameters to generate a model that best fits the input data.
@@ -25,37 +28,4 @@ It offers the same functionality (e.g.multistart options of the optimization or 
 Both the command-line and the GUI version can save the current result and settings of the program into a file, which makes saving and modifying previous experiments simple.
 3 METHODS In order to generate a model for a particular target gene, the user must identify a set of putative TFs and a putative regulatory region.
 The suspected role of each TF, x, as an activator xA or repressor xB must be specified by the user.
-The program also requires measurements of the concentrations and binding preferences of those TFs, as well as the transcriptional output of the target gene.
-In the following section, we introduce the required input data, D, which contains the concentration and rate data, C, and a TFBS map, S. The concentration and rate data, C, comprises a set of independent data points.
-Each data point is a pair (V,vt), with V= ([a1],... ,[an]), a vector listing the protein concentrations of the putative regulatory TF proteins 2008 The Author(s) This is an Open Access article distributed under the terms of the Creative Commons Attribution Non-Commercial License (http://creativecommons.org/licenses/ by-nc/2.0/uk/) which permits unrestricted non-commercial use, distribution, and reproduction in any medium, provided the original work is properly cited.
-Fig.1.
-Screen shot of the GUI of STREAM.
-The interface is exemplified on a model trained for the even-skipped gene (eve).
-(a1,...,an), and vt giving the corresponding observed transcription rate of the target gene.
-The concentration and rate data, C, can be measured by various methods.
-To measure the TF concentrations, in situ antibody staining can be used to measure V. To obtain the corresponding vt , one can proceed indirectly by measuring the mRNA levels of a reporter gene by staining against the mRNA of the reporter (Jaeger et al., 2004).
-For visualization purposes, STREAM allows the user to label the data points with up to two features (e.g.the condition under which the measurements were made).
-Features may be continuous (real numbers as in the example above), or categorical such as cell types, tissue types or experimental treatments.
-STREAM utilizes the values of the features for visualization only, and the user may interactively select either feature as the X-axis for plots of the data.
-Besides the concentration data, the input data also contains the TFBS map, S, corresponding to the regulatory region of interest.
-The TFBS map, S= (s1,s2,...,sn), is a list, where each si represents a TFBS as a triple (a,l,s) giving the name, a, of the binding TF, the position, l, of the binding site and the log-odds score (natural logarithm), s, of the site.
-The log-odds score is proportional to the binding strength of the TFBS (Stormo, 2000).
-S can be constructed from experimentally verified binding sites, in silico predicted sites using a prediction algorithm such as FIMO (http://meme.sdsc.edu), or a combination of both.
-For more detailed information, see Bauer and Bailey (2008).
-The objective of the optimization is to determine the set of model parameters, , that optimally explains the input data, D. depends on the thermodynamic model.
-Currently, STREAM implements the model introduced by Reinitz et al.(2003).
-This model uses free parameters = (0,R0,W), where 0 is an energy barrier, R0 is the maximal transcription rate, and W contains a tuple, (Kx,Ex), for each TF, x, where Kx is the association constant of the TF to the DNA and Ex is the effectiveness of the TF to activate transcription, if xA, or to repress, if xB.
-For more details see Reinitz et al.(2003) and Bauer and Bailey (2008).
-Four different optimization methods are implemented: simulated annealing (SA), gradient descent (GD), genetic algorithm (GA) and limited-memory quasi-Newton unconstrained optimization (LBFGS) (for a comparison of the optimization methods see D.C.Bauer and T.L.Bailey, manuscript in preparation).
-All optimization methods seek to optimize the free parameters of the Reinitz model by minimizing the root mean-squared (RMS) error between the known transcription rate and the rate predicted by the Reinitz model, averaged over all input points, D (Bauer and Bailey, 2008).
-4 FUTURE DEVELOPMENTS Besides the Reinitz model, we plan to provide additional models with enhanced functionality to simulate interacting TFs in a more detailed way, e.g., by incorporating TF-TF cooperation.
-Furthermore, simplifying models by using discreet TFBSs might introduce artifacts, hence, changing the model approach to use continuous binding gradients deems beneficial.
-Future research on other CRMs will guide the development of new models and our framework can provide the environment to directly compare them.
-In addition, we plan to extend the approach to optimize one model to fit more than one CRM.
-Being able to fit one model to the data of several CRMs, which are suspected to have the same regulatory TFs, increases the confidence in the produced model.
-Finally, we plan to improve the functionality of the GUI in manipulating input data, e.g., by an interactive interface to vary the properties of the TFBS map and to directly observe the changes in the predicted transcription rate.
-ACKNOWLEDGEMENTS The authors wish to acknowledge John Reinitz, Stefan Maetschke and Fabian Buske for their input on conceptual and implementation details for STREAM as well as Lachlan Dufton for providing the initial implementation of SA.
-Funding: Australian Research Council Centre of Excellence in Bioinformatics (to T.L.B.
-); National Institutes of Health (RO-1 RR021692-01 to T.L.B.
-), UQ International Research Tuition Award (D.C.B.).
-Conflict of Interest: none declared.
+The program also requires measurements of the concentrations and binding p

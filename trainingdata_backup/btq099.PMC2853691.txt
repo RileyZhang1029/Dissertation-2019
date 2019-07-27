@@ -1,4 +1,6 @@
-ABSTRACT Motivation: Describing biological sample variables with ontologies is complex due to the cross-domain nature of experiments.
+            G:\bioinformatics\Bioinfo-26(8)issue\btq099.dvi [12:48 25/3/2010 Bioinformatics-btq099.tex] Page: 1112 11121118 BIOINFORMATICS ORIGINAL PAPER Vol.
+26 no.
+8 2010, pages 11121118doi:10.1093/bioinformatics/btq099 Databases and ontologies Advance Access publication March 3, 2010 Modeling sample variables with an Experimental Factor Ontology James Malone1,, Ele Holloway1, Tomasz Adamusiak1, Misha Kapushesky1, Jie Zheng2, Nikolay Kolesnikov1, Anna Zhukova1, Alvis Brazma1 and Helen Parkinson1 1Microarray Informatics Team, EMBL-EBI, Wellcome Trust Genome Campus, Hinxton, Cambridgeshire CB10 1SD, UK and 2Center for Bioinformatics, University of Pennsylvania School of Medicine, Philadelphia, PA 19104, USA Associate Editor: Alfonso Valencia ABSTRACT Motivation: Describing biological sample variables with ontologies is complex due to the cross-domain nature of experiments.
 Ontologies provide annotation solutions; however, for cross-domain investigations, multiple ontologies are needed to represent the data.
 These are subject to rapid change, are often not interoperable and present complexities that are a barrier to biological resource users.
 Results: We present the Experimental Factor Ontology, designed to meet cross-domain, application focused use cases for gene expression data.
@@ -191,94 +193,4 @@ The first is that parts of the Atlas sample and assay data are annotated with EF
 We associate data elements to our explicit definition of what the data represent, by annotating each experiment with EFO classes.
 The second element is the set of cross-ontology mappings that are maintained within EFO.
 As EFO is an application ontology, there is an advantage in reusing and importing classes from existing ontologies where possible.
-Not only does this reduce the effort in adding new classes to EFO, but it also provides interoperability (via cross references) with other resources that use these existing ontologies.
-There are a number of challenges associated with this approach.
-One of the most challenging is deciding upon the appropriate ontology to select when attempting to reuse classes.
-In the simplest case, where overlap does not exist and there is a clear single authoritative reference ontology, we simply import that class with the original URI maintained, e.g.BFO.
-However, there are a limited number of examples for where this is the case; for many terms, there may be multiple classes that can fulfill the required definition.
-For example, consider the term hypertension: as of January 2010, there are 12 exact matches for this class label when querying the NCBO BioPortal and most of these ontologies provide definitions consistent with our data annotation use cases.
-For this reason, we performed some preliminary dataontology mapping which allowed us to both assess the matching algorithm and the available reference ontologies for coverage on gene expression data (Malone et al., 2009).
-Recently, a tool designed to assist with selecting the most suitable ontologies for a given task has become available, and essentially replicate our early work in an extensible framework (Jonquet et al., 2009).
-As we require EFO to be cross-referenced to as many external functional genomics datasets as possible, we maximize interoperability and therefore add as many mappings to different ontologies as are valid for our given class and curate these.
-The decision to create multiple external mappings to EFO classes clearly presents additional overhead to both the initial set of mappings and the subsequent maintenance of these mappings, as both are labor intensive if performed manually.
-We have therefore developed semi-automatic mapping tools.
-Our matching approach uses the Metaphone (Phillips, 1990) and Double Metaphone algorithms (Phillips, 2000), which were selected following an empirical study of commonly used matching algorithms and their utility in the biomedical domain (Malone et al., 2008).1 We were particularly interested in algorithms yielding low false positive rates, as we wished to use the same algorithm for semiautomatic annotation of incoming data to the ArrayExpress Archive as a curator aid.
-Following the evaluation of several algorithms, a combined strategy was implemented using Metaphone for a first pass and then falling back to Double Metaphone for those terms not matched by Metaphone.
-This strategy yields the highest overall number of matches with minimal human intervention (required only for multiple matches).
-Verified matched terms identified by this strategy were included as valid mappings in EFO and added to a definition_citation annotation property.
-We have developed a speciesspecific ranked list of preferred ontologies with known good coverage when mapping to new terms.
-We prefer to use OBO Foundry candidate ontologies when these provide good matches and use general uncurated 1Tools available at http://www.ebi.ac.uk/efo/tools Fig.3.
-Added value relations between classes in EFO.
-The figure illustrates the existential restrictions (i.e.one or more relationship) placed on some of the subclasses of the classes shown (classes shown in boxes).
-resources like Unified Medical Language System (UMLS) only when necessary.
-3 RESULTS The diversity of experiments captured in the Gene Expression Atlas and ArrayExpress provides a wide range of experimental variables.
-A typical experiment includes factors such as disease, anatomical parts, developmental stage, species and chemical compounds.
-Within these experimental factors, there is additional knowledge that we capture to support our use cases.
-Consider the query, retrieve all data for cancer cell line samples.
-This query requires more than just samples in the database which have been annotated with cancer and with a cell line.
-The query is more accurately expressed as cell lines that are derived from some diseased sample.
-We therefore add logical relations between classes in the context of EFO; these can serve as OBO Foundry integration use cases.
-An example of some of the existential restrictions between classes is shown in Figure 3.
-The ability to explicitly express richer statements of knowledge (such as the example above) is one of the major advantages of using ontologies; however, with increased complexity comes increased possibility of contradiction and inconsistent expression.
-To help manage this issue, we chose to use the Web Ontology Language (Horrocks et al., 2003), the recommendation for representing knowledge with formally defined meaning.
-Using the OWL-DL flavor of the language, we are able to create axiomatic statements about classes, and use the Pellet 1.5.2 description logic reasoner (Sirin et al., 2007) to ensure the ontology is consistent, i.e.class membership is axiomatically correct and there are no contradictions in the model.
-OWL also offers the ability to create equivalent classes (often called defined classes) which are useful for inferring hierarchies and managing multiple inheritance.
-Considering the previous example of the EFO class cancer cell line, this is defined in OWL as any class which has the bearer_of some cancer axiom.
-In other words, any cell line which bears the disease cancer will be inferred to be a subclass of this type.
-Here we illustrate some of these examples from our application.
-3.1 Querying gene expression data In order to demonstrate that EFO is fit for purpose, we evaluate it against the competency questions and use cases.
-One of the primary 1116 [12:48 25/3/2010 Bioinformatics-btq099.tex] Page: 1117 11121118 Experimental Factor Ontology Fig.4.
-Gene Expression Atlas Query for genes under-or overexpressed in mammalian craniofacial tissues.
-use cases for EFO was to annotate ArrayExpress data (i.e.providing ontological coverage) and to ask meaningful questions of gene expression data.
-In a recent review conducted by Jonquet et al.(2009), EFO was assessed for coverage in annotating biological datasets using an NCBO tool, the Open Biomedical Annotator.
-Alongside 98 English ontologies in UMLS 2008AA and 92 of the BioPortal ontologies, in total, these resources offer a dictionary of 3 582 434 classes and 7 024 618 textual terms.
-Following experimentation with three biological datasets, EFO is reported as fourth best in all three tests.
-EFO performs well in these tests due to the data-driven development, cross-domain method we use.
-It is also noticeable that the ontologies that finished in the top three were significantly larger than EFO, for example, NCI Thesaurus has 35 000 classes compared with 2600 classes in EFO.
-The real return for the user when using an ontology is in the additional relations used for improving queries.
-Due to the relations used in EFO, we are able to ask general questions without requiring that every subtype is enumerated in the query.
-For example, for experiments about cancer, we want all subtypes of cancer, for example prostate carcinoma, without requiring the user to specifically enumerate these subtypes and we want to return only subtypes for which we have data.
-Similarly, we want a user to be able to ask for forebrain and the query to return data that is annotated with forebrain substructures such as hypothalamus.
-Finally, for mouse we want to return data annotated to Mus musculus and substrains thereof.
-Figure 4 shows the results of a query for gene that is expressed in craniofacial tissues or sub structures.
-Within the ontology, relations are made between classes such as those seen in Figure 4.
-Specifically here, the query is asking for genes which are over-or underexpressed in assays that are annotated with an organism part that is craniofacial tissue or a sub-structure.
-Figure 4 presents the parts of the ontology that satisfy this query at the top of the image.
-The tree includes classes such as eye (synonym eye structure), which expands to include its substructures such as retina.
-Fig.5.
-Ontology-enabled search using EFO, showing query expansion for keyword cancer with breast carcinoma selected.
-Subtypes (red), synonyms (green) and matches to the search term (yellow) shown in the ArrayExpress Archive.
-As described earlier, EFO has also been used in the ArrayExpress Archive (http://www.ebi.ac.uk/arrayexpress) to enrich querying.
-Figure 5 illustrates that in addition to keyword breast carcinoma (yellow), EFO-enabled search returns experiments matching is-a children, e.g.medullary breast cancer.
-3.2 Linking data through BioPortal An additional advantage to using an ontology to annotate data in the Atlas is in the use of external ontology tools.
-The BioPortal resource at NCBO is an open repository of biomedical ontologies that provides access via web services and web browsers to ontologies developed in OWL, RDF and OBO format (Noy et al., 2009).
-It allows the searching of biomedical data resources such as ArrayExpress, through the annotation and indexing of these resources with ontologies that can be accessed through BioPortal.
-Since EFO is used to annotate data in ArrayExpress and also provides multiple mappings to other ontologies, it is possible to query data through BioPortal using ontology class names and return annotated data from multiple resources via the BioPortals Resources facility, for example, pathway data from Reactome.
-4 DISCUSSION In this article, we present EFO, an application ontology driven by the annotation and query needs of samples in omics datasets.
-Our approach to ontology engineering uses the many existing reference bio-ontologies while allowing us to develop a hierarchy that supports our use cases.
-EFO enables queries of the data that were not previously possible because we add value to existing ontologies by adding explicit relations and because we have adopted a datadriven methodology.
-Furthermore, EFO separates knowledge from the experimental data, is reusable and easy to maintain; when modification to the knowledge is required, modification to the data is not.
-We believe the methodology and tools present a reproducible and maintainable strategy to create ontological solutions for a particular application focus.
-EFO has also proven to be useful for text mining annotation of gene expression datasets and has been used 1117 [12:48 25/3/2010 Bioinformatics-btq099.tex] Page: 1118 11121118 J.Malone et al.in data mining.
-An EFO-R package that facilitates such analysis is currently under development.
-Essentially EFO represents a custom view of several domainspecific ontologies.
-We believe that use of ontology views will help end users to understand and use ontologies.
-An advantage of EFO for ArrayExpress staff is that they do not need specialist domain knowledge of multiple ontologies and are able to apply EFO consistently to data, while users typically do not perform well as annotators.
-Ideally, views should contain a subset of the ontology that is still logically consistent containing only classes, instances and properties that are desirable.
-The requirements of a view are likely to be driven by particular applications and user communities as described here.
-Improved tools that support the creation and use of views will help the users of bioinformatic resources overcome one of the largest obstacles of using ontologies: that the learning curve is extremely steep and the climb is a disincentive to users.
-There is a great deal of useful work presently under way within the bio-ontology community.
-However, it is impractical and undesirable to import, wholesale, ontologies that touch upon many domains and expect users to apply them consistently.
-Guidelines on development of application ontologies and appropriate reuse of existing resources would be useful.
-In particular, maintenance and mapping of original ontology identifiers and development of public domain tools are important.
-Similarly, there are several important challenges facing reference ontologies.
-One of the most challenging is mapping anatomy between multiple species.
-This is not in scope for EFO and we look forward to consuming such reference ontologies, but application data should inform some of this work.
-Our work with ontologies is focused on enabling us to do novel research with the experimental data we have, such as answer more complex questions and integrate multiple data sources.
-In this respect, ontologies are a means to an end; our work here is based on describing experimental data, and we believe this should be the driving force behind ontology development and consumption.
-Future work will develop an RDF triple store representation of Atlas and provide federated querying using SPARQL end points.
-An ontology-enabled annotation application for functional genomics dataAnnotare (code.google.com/p/annotare/ ) is being collaboratively developed, which allows users and curators to select terms from multiple ontologies, including EFO.
-We hope this will expose users to ontologies in a user-friendly way and help provide better annotated datasets.
-ACKNOWLEDGEMENTS We thank Eric Neumann, Mlanie Courtot, Frank Gibson, Alan Rector, the Gen2Phen and Engage consortia and P3G colleagues for sharing use cases and data annotations, and the ArrayExpress and Gene Expression Atlas team for their implementation of EFO in the Atlas UI and the 3 anonymous reviewers for their comments.
-Funding: European Commision grants FELICS (contract number 021902); EMERALD (project number LSHG-CT-2006-037686); Gen2Phen (contract number 200754); European Molecular Biology Laboratory.
-Conflict of Interest: none declared.
+Not only does this reduce the effort in adding new classes to EFO, but it also provides interoperability (via cross

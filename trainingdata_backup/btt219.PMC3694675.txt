@@ -1,4 +1,5 @@
-ABSTRACT Motivation: RNA sequencing based on next-generation sequencing technology is effective for analyzing transcriptomes.
+          OP-CBIO130250 326..334 Vol.
+29 ISMB/ECCB 2013, pages i326i334 BIOINFORMATICS doi:10.1093/bioinformatics/btt219 IDBA-tran: a more robust de novo de Bruijn graph assembler for transcriptomes with uneven expression levels Yu Peng1, Henry C. M. Leung1, Siu-Ming Yiu1, Ming-Ju Lv2, Xin-Guang Zhu2 and Francis Y. L. Chin1,* 1Department of Computer Science, The University of Hong Kong, Hong Kong and 2CAS-MPG Partner Institute for Computational Biology, Shanghai Institutes for Biological Sciences, Chinese Academy Sciences, Shanghai 200031, China ABSTRACT Motivation: RNA sequencing based on next-generation sequencing technology is effective for analyzing transcriptomes.
 Like de novo genome assembly, de novo transcriptome assembly does not rely on any reference genome or additional annotation information, but is more difficult.
 In particular, isoforms can have very uneven expression levels (e.g.1:100), which make it very difficult to identify low-expressed isoforms.
 One challenge is to remove erroneous vertices/ edges with high multiplicity (produced by high-expressed isoforms) in the de Bruijn graph without removing correct ones with not-sohigh multiplicity from low-expressed isoforms.
@@ -187,98 +188,4 @@ IDBA-Tran and IDBA-UD were run with k ranging from 20 to 50 with step size 5.
 For Oases and Velvet-SC, k values ranging from 20 to 50 with step size 5 were used, and the best result was selected as output.
 As the k value of Trinity was fixed to 25, the default parameters were used to run it.
 i330 Y.Peng et al.For transcriptome assembly, the most important indicator of assembly quality is the number of correct transcripts an assembler can reconstruct.
-In the experiments, known transcript references were used for benchmarking.
-A known transcript is reconstructed successfully if a certain portion, say 80% (referred as completeness), of its sequence is covered by a contig with 95% similarity.
-Similarly, the contig is considered correct if it can be aligned to at least 80% of a transcript with 95% similarity.
-The alignment of contigs to transcripts was performed by BLAT (Kent, 2002) without considering long gaps representing introns (as we aligned contigs to transcripts instead of genome).
-The sensitivity and specificity were calculated to measure performance.
-Sensitivity is the percentage of reconstructed transcripts over all expressed transcripts.
-Specificity is the percentage of correct contigs over all reported contigs.
-We also compared the performance of IDBA-Tran and CEM (Li and Jiang, 2012) on estimating expression levels of reconstructed transcripts.
-CEM requires the genome sequence as additional information.
-By aligning reads to the reference genome, CEM can predict the expressed transcript sequences and estimate the expression level of each transcript based on a statistical model (quasi-multinomial model).
-Since some transcripts may align to multiple contigs and some contigs may align to multiple transcripts, we considered only those transcripts and contigs with one-to-one correspondence.
-The Pearsons correlation between the predicted expression levels and the exact expression levels was calculated.
-As suggested in Li and Jiang, 2012, we also calculated the Pearsons correlation between the logarithm of predicted expression levels and the logarithm of exact expression levels.
-3.1 Simulated data In order to simulate more realistic data, we aligned all reads in a real RNA-Seq data of Oryza sativa Transcriptome to known transcripts of Oryza sativa in the database.
-Based on the alignment results, we identified the set of expressed transcripts and estimated their expression levels.
-Note that, since the transcript sequences were known, no long gap (representing an intron) alignments were allowed.
-Reads aligned to multiple transcripts were not considered for estimating the depth of the transcript.
-We used all transcripts with at least 80% of the region aligned by reads and with depth at least 0.5 to generate the simulated data, i.e.there were 0.5 reads covering each nucleotide on average.
-We sampled paired-end reads from the transcripts according to their expression levels.
-The read length was 100 bp, error rate was 1% and the insert distance followed a normal distribution with mean 250bp and standard deviation 25bp.
-Figure 4 shows the quality of the assembly results of the assemblers for different levels of completeness.
-Velvet-SC reconstructed the least number of transcripts in all completeness settings because it is designed for assembling genomic data and cannot handle multiple isoforms of the same gene well.
-IDBAUD, which is designed for assembling genomic and metagenomic data, handled some simple cases of multiple isoforms of the same gene and had better performance than Velvet-SC.
-Trinity and Oases found more transcripts than Velvet-SC and IDBA-UD because they are designed for assembling transcriptome data.
-Oases had its best performance when k was set to 25, the same k value for Trinity.
-IDBA-Tran reconstructed the most transcripts and consistently reported more correct contigs.
-Table 1 shows the detailed figures when completeness was 0.8.
-The number of correct contigs and reconstructed transcripts for IDBA-Tran were the highest among the tools.
-IDBA-Tran also had the highest sensitivity and specificity.
-Table 2 shows the expression level distribution of reconstructed transcripts of the assemblers when completeness was 0.8.
-For low-expressed transcripts with sequencing depth 55, IDBA-Tran reconstructed 664 more transcripts (33% more) than the second best tool (Trinity).
-This is probably due to the fact that IDBA-Tran can separate transcripts from different genes into components efficiently while preserving the low-expressed transcripts.
-We also checked the quality of decomposition and found that over 80% of the transcripts were still inside the same component after the decomposition step (referred to unbroken transcripts after decomposition).
-Except transcripts with very low sequencing depth (55), most transcripts were not broken after the decomposition and could be constructed successfully.
-Similar results were found for transcripts with sequencing depth between 5 and 10.
-For transcripts with higher sequencing depth, in general, IDBA-Tran also performed better (even though all assemblers had better performance for high-expressed transcripts).
-For IDBA-Tran, we verified the effectiveness of its component separation algorithm and show the distribution of transcripts in Table 3.
-If a component contained a certain portion (80%) of a transcript, the component was deemed to have contained this transcript.
-There were 2865 components containing no transcripts and 10 611 components, each of which contained at most 5 transcripts, together containing most of the transcripts (16 663).
-Since very low-expressed transcripts cannot be 0k 5k 10k 15k 20k 0.5 0.6 0.7 0.8 0.9 Completeness Reconstructed Transcripts IDBA-Tran IDBA-UD Oases Trinity Velvetsc 0k 5k 10k 15k 20k 0.5 0.6 0.7 0.8 0.9 Completeness Correct Contigs IDBA-Tran IDBA-UD Oases Trinity Velvet-SC 0m 10m 20m 30m 40m 0.5 0.6 0.7 0.8 0.9 Completeness Total Length of Reconstructed Transcripts IDBA-Tran IDBA-UD Oases Trinity Velvet-SC Fig.4.
-Experiment result of each assembler on different completeness level for simulated data i331 IDBA-tran assembled by any assemblers, the total number of transcripts (18 180) in all components was less than the total number of expressed transcripts (22 402).
-A component containing a transcript does not guarantee that the transcript can be reconstructed.
-Thus, the number of reconstructed transcripts (17 243) is less than the total number of transcripts in all components (18 180).
-However, experiments showed that most transcripts decomposed correctly can be reconstructed successfully.
-Table 4 shows the performance of IDBA-Tran and CEM on estimating expression levels of transcripts.
-Although CEM had the additional information of the rice genome, the number of expression transcripts reconstructed by IDBA-Tran and CEM were similar.
-Moreover, IDBA-Tran had similar performance to CEM in estimating the expression levels because it could reconstruct most of the expressed transcripts making the estimation process easier.
-3.2 Real data We verified IDBA-Tran and other assemblers on the real RNASeq data of Oryza sativa transcriptome.
-There were 24855 142 paired-end length-90 reads in the data set.
-The insert distance was about 200.
-Previous simulated data used the expression level profile of this data set, so they had the same set of expressed transcripts and expression levels.
-The distribution of expressed transcripts is also included in Table 6 for comparison (with the distribution of expressed transcripts estimated as mentioned in Section 3.1).
-Note that since the expressed transcripts and expression levels were estimated from alignments, there may be some error due to the existence of unknown transcripts and transcripts with over 80% similarity.
-The sensitivities and specificities shown are approximation of the real sensitivities and specificities only.
-Figure 5 shows the number of reconstructed transcripts and aligned (correct) contigs reported by each assembler under different completeness.
-The results were consistent with those for the simulated data.
-IDBA-Tran still performed the best for all levels of completeness.
-All assemblers had poorer performance for real data than for simulated data.
-Oases still had its best performance when k was set to 25, and had very similar performance in terms of reconstructed transcripts compared with Trinity in all completeness settings.
-Table 2.
-Expression level distribution of reconstructed transcripts of each assembler for simulated data set (completeness 0.8) Depth 0, 5 5, 10 10, 15 15, 20 =20 Total number of transcripts 5943 5011 2943 1857 6646 Trinity 1955 3251 2393 1527 5782 Oases 1648 3224 2461 1606 5481 IDBA-UD 1629 2563 1753 1107 3831 Velvet-SC 58 139 106 55 31 IDBA-Tran (unbroken transcripts after decomposition) 2619 (2700) 4177 (4337) 2746 (2824) 1723 (1811) 5977 (6505) Table 1.
-Statistics of assembly result of each assembler for simulated data set (completeness 0.8) Contigs number Average length (nt) Total length (nt) Reconstructed transcripts number Correct contigs number Sensitivity Specificity Trinity 26 189 1941 41M 14910 14 389 66.56% 54.94% Oases 22 804 1963 39M 14420 14 712 64.37% 64.51% IDBA-UD 18020 1322 24M 10941 8406 48.58% 46.65% Velvet-SC 22 868 613 14M 389 357 1.74% 1.56% IDBA-Tran 22 708 1933 39M 17242 16 707 76.98% 73.57% Table 3.
-Distribution of transcripts in IDBA-Tran components for simulated data set (completeness 0.8) Transcripts in component 0 1 2 3 4 5 6 7 8 9 10 Total Number of components 2865 6722 2407 954 370 158 71 28 24 4 22 13 625 Number of unbroken transcripts (after decomposition) 0 6720 4814 2859 1480 790 426 196 192 37 666 18 180 Number of reconstructed transcripts 0 6676 4682 2672 1324 667 349 164 141 33 535 17 243 i332 Y.Peng et al.Detailed statistics of assembly results are shown in Table 5 when completeness is set to 0.8.
-IDBA-Tran, Oases and Trinity had about the same number of contigs and total contig bases.
-IDBA-UD assembled relatively fewer contigs than others.
-IDBA-Tran had the highest sensitivity (42.08%) and specificity (22.94%) while other assemblers had much lower sensitivity and specificity.
-Table 6 shows the expression level distribution of reconstructed transcripts for different assemblers when completeness is set to 0.8.
-When comparing Tables 2 and 6, it is clear that the real data was more difficult to assemble than simulated data, especially for low-expressed transcripts.
-Only 732 transcripts (25%) with depth55 were reconstructed by IDBA-Tran and worse for other assemblers.
-Similar to simulated data, IDBATable 5.
-Statistics of assembly result of each assembler for real data set (completeness 0.8) Contigs number Average length (nt) Total length (nt) Reconstructed transcripts number Correct contigs number Sensitivity Specificity Trinity 39 974 966 39M 7052 6121 31.48% 15.31% Oases 36 684 1041 38M 5666 5162 25.29% 14.07% IDBA-UD 28753 890 25M 6164 4567 27.51% 15.88% Velvet-SC 28 626 518 15M 233 208 1.04% 0.73% IDBA-Tran 40 010 1055 42M 9428 9177 42.08% 22.94% Table 6.
-Expression level distribution of reconstructed transcripts of each assembler for real data set (completeness 0.8) Depth 0, 5 5, 10 10, 15 15, 20 =20 Total number of transcripts 5943 5011 2943 1857 6646 Trinity 410 910 983 743 4004 Oases 431 907 1005 776 3946 IDBA-UD 287 978 985 723 3124 Velvet-SC 28 55 55 28 67 IDBA-Tran (unbroken transcripts after decomposition) 732 (921) 1480 (1525) 1417 (1472) 1041 (1083) 4758 (5325) 0k 2k 4k 6k 8k 10k 12k 14k 16k 0.5 0.6 0.7 0.8 0.9 Completeness Reconstructed Transcripts IDBA-Tran IDBA-UD Oases Trinity Velvetsc 0k 2k 4k 6k 8k 10k 12k 14k 16k 0.5 0.6 0.7 0.8 0.9 Completeness Correct Contigs IDBA-Tran IDBA-UD Oases Trinity Velvetsc 0m 5m 10m 15m 20m 25m 30m 0.5 0.6 0.7 0.8 0.9 Completeness Total Length of Reconstructed Transcripts IDBA-Tran IDBA-UD Oases Trinity Velvetsc Fig.5.
-Experiment result of each assembler on different completeness level for real data Table 4.
-Statistic on estimating expression levels of reconstructed transcripts of each assembler for simulated data set (completeness 0.8) Transcripts reconstructed by both algorithms Transcripts reconstructed by only one algorithm Number of transcripts Pearsons correlation (based on log value) Number of transcripts Pearsons correlation (based on log value) CEM 5611 0.95 (0.91) 100 0.89 (0.79) IDBA-Tran 0.95 (0.94) 37 0.93 (0.85) i333 IDBA-tran Tran had better performance than other assemblers for all expression levels.
-Table 7 shows the distribution of transcripts in components.
-Since the sampling depths of a single transcript may be uneven, many transcripts were broken into fragments.
-Moreover, there were some unknown transcripts in the data set.
-So, quite a number of components did not contain 80% of a transcript.
-However, for the other components, IDBA-Tran did a good job: 6353 components, each of which contained at most 5 transcripts, contained 9082 transcripts all together.
-Similar to simulated data, once a transcript was correctly assigned to a component, the transcript was reconstructed with high probability.
-4 DISCUSSION We have identified one key issue in transcriptome assembly, namely how to remove erroneous vertices/edges of high multiplicity (due to high-expressed isoforms) from the de Bruijn graph while keeping correct ones with relatively lower multiplicity (due to low-expressed isoforms).
-We developed a probabilistic progressive approach with local thresholds to solve the problem.
-We proposed IDBA-Tran, combined with other techniques, to assemble transcriptome sequencing data.
-Experiments on both simulated and real data confirm that IDBA-Tran can outperform existing de novo transcriptome assemblers in terms of both sensitivity and specificity.
-In particular, for low-expressed transcripts, the improvement of IDBA-Tran is substantial.
-Recall that there is another approach to recover both low-expressed and high-expressed transcripts, namely: run the assembler for different k values and merge all contigs as output.
-OasesM, which runs Oases several times with multiple k values, is a post-processing tool based on this approach.
-Oases-M can reconstruct many transcripts for both simulated and real data.
-However, since erroneous contigs cannot be merged, Oases-M produces many incorrect contigs and has a low specificity (see Supplementary Table SA8).
-Moreover, contigs representing some transcripts may appear multiple times (with small difference) in the output such that the number of correct contigs is double the number of reconstructed transcripts.
-The large number of erroneous contigs and redundant contigs may make analysis difficult, and it is very hard to distinguish the erroneous contigs from the correct ones.
-On the other hand, we found that Oases-M had slightly better performance than IDBA-Tran for high-expressed transcripts for real data (see Supplementary Table SA9).
-Thus, it may be a good idea to investigate how to integrate both approaches to reconstruct more transcripts.
-Funding: This research is partially supported by RGC HKU 7111/12E and HKU 719709E, the Shanghai Pujiang Plan (Y057C11501) and Bill & Melinda Gates Foundation Project (C4 Rice).
-Conflict of Interest: none declared.
+In the experiments, known transcript

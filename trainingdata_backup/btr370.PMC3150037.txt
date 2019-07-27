@@ -1,4 +1,6 @@
-ABSTRACT Motivation: Mathematical models of complex biological systems usually consist of sets of differential equations which depend on several parameters which are not accessible to experimentation.
+            btr370.dvi [10:14 15/7/2011 Bioinformatics-btr370.tex] Page: 2311 23112313 BIOINFORMATICS APPLICATIONS NOTE Vol.
+27 no.
+16 2011, pages 23112313doi:10.1093/bioinformatics/btr370 Systems biology Advance Access publication June 17, 2011 AMIGO, a toolbox for advanced model identification in systems biology using global optimization Eva Balsa-Canto and Julio R. Banga Bioprocess Engineering Group, IIM-CSIC, 36208 Vigo, Spain Associate Editor: Martin Bishop ABSTRACT Motivation: Mathematical models of complex biological systems usually consist of sets of differential equations which depend on several parameters which are not accessible to experimentation.
 These parameters must be estimated by fitting the model to experimental data.
 This estimation problem is very challenging due to the non-linear character of the dynamics, the large number of parameters and the frequently poor information content of the experimental data (poor practical identifiability).
 The design of optimal (more informative) experiments is an associated problem of the highest interest.
@@ -50,21 +52,4 @@ However, finding the global optimum for multimodal problems, i.e.those presentin
 In this regard, the toolbox offers the multistart of local methods to detect multimodality or poor identifiability and several global stochastic methods.
 Despite the fact that many stochastic methods can locate the vicinity of global solutions very rapidly, the computational cost associated to the refinement of the solution is usually large.
 In order to surmount this difficulty, the toolbox integrates several metaheuristics (Egea et al., 2007), clustering methods (Csendes et al., 2008) and sequential hybrids (Balsa-Canto et al., 2005, 2008b), which combine different mechanisms of global exploration of the search space with the use of local methods to enhance computational efficiency.
-See the toolbox documentation for exhaustive lists and references to the available numerical methods.
-2312 [10:14 15/7/2011 Bioinformatics-btr370.tex] Page: 2313 23112313 AMIGO Fig.2.
-AMIGO structure.
-2.4 Illustrative examples For illustrative purposes, a number of examples are included with the tool (see folder Examples) covering different types of biochemical networks.
-The implementation of these examples and the corresponding results are extensively discussed in the AMIGO user guide.
-In addition, interested readers are referred to the works by Vera et al.(2010) where the tool was used in the modelling of the MEK/ERK/RKIP pathway or Balsa-Canto et al.(2010) where the complete model identification procedure is applied to a NFB signaling module model.
-3 GENERAL STRUCTURE AND IMPLEMENTATION AMIGO has been developed as a modular multiplatform toolbox organized in two major blocks: the user and the server sides (Fig.2).
-The user side consists of the following folders: doc keeps all toolbox-related documentation (user guide, tutorials, etc.
-); Examples keeps a number of implemented examples that the user may consider as templates to implement new problems; Inputs, originally empty, is devoted to keep new inputs created by users; Results, originally empty, is devoted, by default, to keep all results; Release_info contains the AMIGO_release_info.m file with all details about previous and current releases.
-The server side is arranged in four modules: the Preprocessor that generates MATLAB or FORTRAN codes, performs the mex of files when required; the tasks SModel, Sobs, SData, LRank, GRank, PE, ContourP, RIdent and OED that correspond to different steps in the model identification loop; the Kernel that performs the numerical computations and the Postprocessor that post-processes the results to generate output reports, structures and figures.
-The toolbox has been implemented in MATLAB, but it also offers the possibility to automatically generate compiled FORTRAN models that AMIGO will link to FORTRAN initial value problem (IVP) solvers, substantially increasing computational efficiency.
-The user may define and solve different tasks by either using input scripts or by means of a user-friendly graphical interface.
-The toolbox generates reports, including tables and plots, according to user specifications for the different tasks.
-Help functions are also present to facilitate the handling of data and results.
-ACKNOWLEDGEMENTS The authors acknowledge the different beta-testers, C. Vilas for his contributions regarding multiplatform FORTRAN compilation, J.M.
-Snchez-Curto for his contributions to WEB and GUI implementation and M. Prez-Rodrguez for the AMIGO logo design.
-Funding: This work was funded by the EU [CAFE FP7-KBBE2007-1(212754)]; the Spanish Ministry of Science and Innovation (MultiSysBio DPI2008-06880-C03-02, SMART-QC AGL200805267-C03-01); the Xunta de Galicia (IDECOP 08DPI007402PR) and the CSIC (PIE 200730I002).
-Conflict of Interest: none declared.
+See the toolbox documentation for exhaustive lists and

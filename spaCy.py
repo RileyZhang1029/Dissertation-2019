@@ -106,12 +106,12 @@ def PRF(list1, list2):
 
 if __name__ == '__main__':
 
-    model = '/home/riley/Documents/Github/models/test-model-1'
-    folder_out = os.getcwd() + "/test"
+    model = '/home/riley/Documents/Github/models/st-model-395-new'
+    folder_out = os.getcwd() + "/testdata"
     word_list_sorted = NER(model, folder_out)
     print(word_list_sorted)
 
-    howlist = readHow()
+    # howlist = readHow()
     # print(howlist)
 
     st_men_all = readCSV()[1]

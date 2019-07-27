@@ -1,0 +1,269 @@
+                 Predicting the Subcellular Localization of Human Proteins Using Machine Learning and Exploratory Data Analysis Article Predicting the Subcellular Localization of Human Proteins Using Machine Learning and Exploratory Data Analysis George K. Acquaah-Mensahl*, Sonia M. Leach2, and Chittibabu Guda3 Department of Pharmaceutical Sciences, School of Pharmacy-Worcester, Massachusetts College of Pharmacy and Health Sciences, Worcester, M A 01 608-1 715, USA; Center for Computational Pharmacology, Department of Pharmacology, University of Colorado School of Medicine, Aurora, CO 80010, USA; Gen*NY*Sis Center for Excellence an Cancer Genomics, Department of Epidemiology and Biostatistics, State University of New York at Albany, Rensselaer, N Y 12144-3456, USA.
+Identifying the subcellular localization of proteins is particularly helpful in the func-tional annotation of gene products.
+In this study, we use Machine Learning and Ex-ploratory Data Analysis (EDA) techniques to examine and characterize amino acid sequences of human proteins localized in nine cellular compartments.
+A dataset of 3,749 protein sequences representing human proteins was extracted from the SWISS-PROT database.
+Feature vectors were created to capture specific amino acid sequence characteristics.
+Relative to a Support Vector Machine, a Multi-layer Perceptron, and a Ndive Bayes classifier, the C4.5 Decision Tree algorithm was the most consistent performer across all nine compartments in reliably predict-ing the subcellular localization of proteins based on their amino acid sequences (average Precision=0.88; average Sensitivity=0.86).
+Furthermore, EDA graphics characterized essential features of proteins in each compartment.
+As examples, proteins localbed to the plasma membrane had higher proportions of hydrophobic amino acids; cytoplasmic proteins had higher proportions of neutral amino acids; and mitochondrial proteins had higher proportions of neutral amino acids and lower proportions of polar amino acids.
+These data showed that the C4.5 classifier and EDA tools can be effective for characterizing and predicting the subcellular localization of human proteins based on their amino acid sequences.
+Key words: subcellular localization, Machine Learning, Exploratory Data Analysis, Decision Tree Introduction Intensified efforts at characterizing gene function are a natural consequence of the recent surge in high-throughput sequencing of eukaryotic genomes.
+Pro-tein subcellular localization is an important charac-teristic of gene function since most proteins in specific activity states are typically localized within a specific cellular compartment.
+Localization of proteins in ap-propriate compartments is vital for the function and integrity of the internal structure of the cell.
+Thus, identifying the subcellular localization of proteins is particularly helpful in their functional annotation.
+Exhaustive experimental studies have been carried out to elicit the subcellular localization of the entire yeast proteome (1 ) and the mitochondrial proteomes *Corresponding author.
+E-mail: george.acquaah-mensah8mcphs.edu 120 Geno.
+Prot.
+Bioinfo.
+of human (2), rat ( 3 ) , and Arabidopsis ( 4 ) ; however, such large-scale experimental studies are not feasi-ble for all genomes.
+Hence, experimental annotation of protein localization is unable to keep up with the pace at which new gene sequences emerge from high-throughput genome sequencing projects.
+As a result, the gap between the sequenced and functionally anno-tated genes in the genome databases is rapidly widen-ing.
+A number of computational methods have been developed over the past decade for automated pre-diction of the subcellular localization of eukaryotic proteins.
+These methods may be broadly catego-rized into four classes: (1) Methods based on sort-ing signals that rely on the presence of localization-specific protein sorting signals, which are recognized by the localization-specific transport machinery to en-Vol.
+4 No.
+2 2006 This is an open access article under the CC BY license (http://creativecommons.org/licenses/by/4.0/).
+Acquaah-Mensah et al.able their entry [for example, MitoProt ( 5 ) , PSORT-I1 ( 6 ) , and TargetP (7)l; (2) Methods based on differences in the amino acid composition or amino acid properties of proteins from different subcellu-lar localizations [for example, Sub-Loc ( 8 ) , Esub8 (9), and pSLIP ( lo ) ].
+In this category, methods using neural networks and Support Vector Machines (SVMs) have been developed; (3) Methods based on lexical analysis of key words in the functional anno-tation of proteins [such as LOCkey (11)]; (4) Meth-ods using phylogenetic profiles or domain projection (12), or localization-specific protein functional dc-mains ( 1 3 , 1 4 ).
+In this study, we combine the use of Ma-chine Learning (ML) with Exploratory Data Anal-ysis (EDA) techniques to examine and characterize amino acid sequences of human proteins localized in nine cellular compartments, including the cyto-plasm, nucleus, golgi apparatus, lysosome, plasma membrane, endoplasmic reticulum, peroxisome, ex-tracellular compartment (for example, secretory pro-teins), and mitochondrion.
+ML is useful for the pur-pose of class prediction.
+It is a field of scientific study that concentrates on methods for computer pro-grams to improve their performance by learning (that is, modifying behavior) from previous data examples.
+During the learning process, structural patterns in the given dataset (training set) are established; these patterns then constitute the basis upon which predic-tions are made when presented with data of unknown classification (test set).
+Since proteins localized in particular cellular com-partments have certain features in common, ML algo-rithms have been used previously to predict the sub-cellular localization of proteins (8).
+The ML methods used in the current studies were: 548, an implementa-tion of the C4.5 Decision Tree algorithm (15) ; SVM ~ Table 1 Amino Acid Groupings (16); Multi-Layer Perceptron (MLP; a neural net-work implementation); and Naive Bayes (NB) clas-sifier (17).
+There are three classes of features of amino acid sequences used in ML ( I t?)
+, namely Com-position, Transition, and Distribution.
+These features have been successfully used in ML algorithms to pre-dict protein secondary structure (19) and subcellular localization (8).
+On the other hand, EDA tools (20) seek to iden-tify patterns within datasets by emphasizing graph-ics.
+EDA graphics do not rely on means and variances but rather on the median, ranks, depths, and outlier-insensitive spread measures (such as the fourth-spread) inherent in a distribution.
+They quickly lead to the identification of inherent underlying structures of datasets.
+In contrast to confirmatory analyses, ex-ploratory analyses are robust and resistant to the un-due influence of data outliers.
+In this study, the Deci-sion Tree (548) emerges as being the most consistent performer across all the nine human cellular compart-ments, relative to SVM, MLP, and NB classifier.
+In addition, the promise of EDA in characterizing under-lying structures within data distributions is exploited to identify primary protein structure features unique to specific subcellular localizations.
+Results and Discussion The current studies have identified certain properties shared by proteins localized in specific cellular com-partments, which rely on the physicochemical prop-erties (electronic, bulk, and steric) of amino acid side chains as detailed in Table 1.
+The categorizations used for Hydrophobicity and Charge are non-numeric (Table 1); nonetheless, they detail the propensity of each amino acid for localization in the hydrophobic (membranes) and soluble environments of the cell.
+Group 1 Group 2 Group 3 R K E D Q N G A S T P H Y C V L I M F W  Hydrophobicity polar neutral hydrophobic NVWV 0-2.8 2.954.0 4.43-8.08 G A S C T P D N V E Q I L M H K F R Y W  Polarity 4.9-6.2 8.0-9.2 10.0-13.0 L I F W C M V Y P A T G S H Q R K N E D  G A S D T C P N V E Q I L K M H F R Y W  Polarizability 0-0.108 0.128-0.186 0.219-4.409 Charge positive negative other H R K D E M F Y W C P N V Q T L N  Geno.
+Prot.
+Bioinfo.
+Vol.
+4 No.
+2 2006 121  Predicting Protein Localization with Decision Tree Categorizations used for Normalized van der Wads volume (N W), Polarity, and Polarizability were based on previously calculated values (21,22).
+These calculated biophysical parameters of amino acid side chains are orthogonal.
+For instance, Polarizability is related to molar refractivity while NVWVs model dis-persion forces (21); whereas molar refractivity and dispersion forces are not directly related.
+There are, nonetheless, correlations between certain parameters.
+For instance, there is strong correlation between Po-larizability and NVWV values (21).
+Since these cal-culated values constitute the basis upon which the amino acids were grouped in the current study (Table l), the elements of the feature vector, though incon-gruent, are not completely independent of each other.
+Instead, they complement each other, providing a rich dataset for any given amino acid sequence.
+For each given amino acid side chain, the measured van der Waals volume (V) was normalized as follows: NVWV (side chain) = [V(side chain)-V(H)]/ V(CH2) The side chain of alanine has NVWV=l; each addi-tional CH2 increases this by one unit.
+Machine Learning To evaluate the accuracy of ML classification, two scenarios were considered: (1) using the entire data as both the training and test set, and (2) separat-ing the dataset into disjoint training and test sets us-ing a ten-fold cross validation technique (Table 2; ref.
+23,244).
+In Table 2A, when the test option is train set only, all test instances were part of the training set.
+On the other hand, when the test option is ten-fold cross validation, an average value was obtained for ten different sets of the reorganized data such that in each case, 90% of the data were used for training and 10% for testing.
+The former case represents the Table 2 Evaluation of Machine Learning Algorithms* Table 2A Method Test option Correctly classified Incorrectly classified 548 Train set only 3,560 (95.0%) 189 (5.0%) ten-fold cross validation 2,390 (63.8%) 1,356 (36.2%) ten-fold cross validation 2,892 (77.1%) 857 (22.9%) SVM Train set only 2,927 (78.1%) 822 (21.9%) ten-fold cross validation 2,842 (75.8%) 907 (24.2%) NB Train set only 1,634 (43.6%) 2,215 (56.4%) ten-fold cross validation 1,595 (42.5%) 2,154 (57.5%) MLP Train set only 3,370 (89.9%) 379 (10.1%) Table 2B Method Test option Correctly classified Incorrectly classified 548 Train set (All species); Human test set 3,584 (95.6%) 165 (4.4%) SVM Train set (All species); Human test set 2,726 (72.7%) 1,023 (27.3%) MLP Train set (All species); Human test set 1,397 (37.3%) 2,352 (62.7%) NB Train set (All species); Human test set 1,294 (34.5%) 2,455 (65.5%) Table 2C Method Test option Correctly classified Incorrectly classified 548 Train set (Non-human species); Human test set 3,069 (67.4%) 1,483 (32.6%) SVM Train set (Non-human species); Human test set 3,032 (66.6%) 1,520 (33.4%) MLP Train set (Non-human species); Human test set 2,779 (61.1%) 1,773 (38.9%) NB Train set (Non-human species); Human test set 1,379 (30.3%) 3,173 (69.7%) *Evaluation of a variety of Machine Learning algorithms when applied to the methods characterizing human protein amino acid sequences.
+A.
+Training and testing were performed on human sequences only, B.
+Training was performed with 22,565 sequences from a variety of species available on SWISS-PROT but testing was performed on a subset of 3,749 human sequences only.
+C. Training was performed with 18,013 sequences from a variety of non-human species available on SWISS-PROT but testing was performed on 4,552 human sequences only.
+122 Geno.
+Prot.
+Bioinfo.
+Vol.
+4 No.
+2 2006  Acquaah-Mensah et al.most optimistic possible performance of each learning scheme (training set error).
+Table 3 shows that even with this most optimistic measure, SVM and MLP did not classify as accurately as J48 for the nucleus, lysosome, and peroxisome.
+NB recorded the highest number (57.5%) of incorrectly classified human pro-tein instances (Table 2A).
+The ten-fold cross validation test option was the better indicator of the learning schemes' generalizabil-ity by calculating its performance on an independent Table 3 Impact of Attribute Type Pool on the Performance of Machine Learning Algorithms* Type Localization 548 NB SVM MLP P S P S P S P 5 C, T, and D CYT NUC GOL LYS PLA END POX EXC MIT 0.919 1 0.951 0.980 0.779 0.831 0.793 0.767 0,971 0.982 0.876 0.829 0.731 0.576 0.959 0.936 0.971 0.880 0.085 0.780 0.067 0.062 0.920 0.357 0.049 0.593 0.368 0.241 1 0.418 0.734 0.348 0.667 0.767 0 0.536 0.813 0.324 0.679 0.424 0 0.367 0.786 0.184 0.795 0.025 0.903 0.022 0 0.948 0.324 0 0.669 0.663 0.653 0.405 0.889 0.968 0.686 0.393 0.875 0.350 0.929 0.987 0.891 0.624 0.364 0.242 0.893 0.900 0.903 0.848 C and T CYT NUC GOL LYS PLA END POX EXC MIT 0.908 1 0.943 0.968 0.798 0.753 0.833 0.583 0.950 0.982 0.890 0.806 0.810 0.515 0.920 0.911 0.924 0.832 0.156 0.749 0.091 0.110 0.905 0.224 0.038 0.498 0.395 0.291 0 0.570 0.690 0.124 0 0.650 0 0.544 0.748 0.471 0.522 0.455 0 0.470 0.681 0.291 0.738 0 0.878 0 0 0.932 0.206 0 0.466 0.492 0.407 0.278 0.842 0.883 0.477 0.348 0.623 0.550 0.899 0.943 0.577 0.571 0.286 0.061 0.851 0.777 0.733 0.754 C and D CYT NUC GOL LYS PLA END POX EXC 0.878 1 0.942 0.980 0.871 0.685 0.745 0.683 0.961 0.985 0.884 0.759 0.769 0.606 0.941 0.934 0.099 0.266 0.799 0.397 0.060 0.348 0.056 0.783 0.925 0.517 0.336 0.276 0.058 0.394 0.595 0.375 1 0.025 0.563 0.456 0.735 0.878 0.879 0.916 1 0.022 0.692 0.404 0 0 0.697 0.383 0.760 0.941 0.889 0.960 0.644 0.224 0.860 0.653 0 0 0.429 0.182 0.787 0.629 0.836 0.828 MIT 0.964 0.877 0.354 0.184 0.768 0.579 0.872 0.819 D a n d T CYT 0.888 1 0.100 0.215 1 0.025 0.442 0.532 NUC 0.942 0.965 0.729 0.307 0.664 0.815 0.841 0.852 GOL 0.766 0.809 0.066 0.427 0 0 0.643 0.303 LYS 0.667 0.633 0.048 0.750 0 0 0.611 0.367 PLA 0.957 0.980 0.849 0.505 0.697 0.919 0.798 0.973 END 0.883 0.712 0.270 0.159 1 0.006 0.720 0.424 POX 0.682 0.455 0.054 0.303 0 0 0.500 0.091 EXC 0.939 0.911 0.554 0.331 0.753 0.555 0.919 0.708 MIT 0.926 0.887 0.271 0.136 0.663 0.369 0.871 0.657 *Performed on the human protein sequences (training set).
+C=Composition type attributes, T=Transition type at-tributes, and D=Distribution type attributes.
+CYT=cytoplasm, NUC=nucleus, GOL=golgi complex, LYS=lysosome, PLA=plasma membrane, END=endoplasmic reticulum, POX=peroxisome, EXC=extracellular/secretory compart-ment, MIT=mitochondrion.
+P=Precision, S=Sensitivity.
+Geno.
+Prot.
+Bioinfo.
+Vol.
+4 No.
+2 2006 123  Predicting Protein Localization with Decision n e e  test set; it is also a measure of each schemes predicted error rate (test set error).
+When the classification was conducted based on the training set along with ten-fold cross validation, the accuracy rates for human proteins decreased across all learners.
+MLP, SVM, and 548 emerged best with 2,892, 2,842, and 2,390 (out of 3,749) correctly classified human protein se-quences, respectively (Table 2A).
+Comparing both testing schemes in Table 2A, 548 did best (relative to MLP, SVM, and NB) when tested with sequences derived from the training set only.
+On the application of ten-fold cross validation (a predic-tor of the error rate), 548 did not perform as well as MLP.
+Nonetheless, 548 was the more consistent high performer across all compartments (Table 3; Figure Sl).
+Furthermore, upon training with the data gen-erated from 22,565 sequences from all species, and testing with a subset of human sequences, 548 outper-formed the other learning schemes in correctly classi-fying 95.6% of instances (Table 2B).
+This speaks to the fact that testing with instances derived only from the training set results in the most optimistic out-comes, which makes an estimate of the models error rate a necessity.
+Indeed as shown in Table 2C, upon training with a separate dataset of sequences from a variety of non-human species available on SWISS-PROT and then testing with only a dataset of human sequences, J48 and SVM ranked highest for accuracy, correctly classifying 67.4% and 66.6% of instances, re-spectively (Table 2C).
+The lowered performance in this latter case is attributable to the fact that the training data were derived from the sequences from a diverse set of eukaryotic organisms with no repre-sentation of human sequences.
+Thus 548 performs creditably in terms of the ability to generalize unseen sequences.
+A closer look at the data indicated that although the accuracy of classification for SVM was high for other subcellular localizations, it consistently clas-sified cytoplasm, golgi, lysosome, and peroxisome pro-teins poorly (Table 3).
+Similarly, MLP consistently classified cytoplasm, golgi, lysosome, and peroxisome proteins poorly (Table 3).
+Thus J48 emerged as the most consistent accurate classifier for all the subcel-lular localizations considered (Figure Sl).
+Even with the high-performance 548 classifier, outcomes varied with subcellular localizations.
+Rel-atively speaking, proteins localized in the golgi ap-paratus, lysosome, and peroxisome were less likely to be correctly classified than proteins of the cyto-plasm, plasma membrane, nucleus, extracellular com-partment, and mitochondrion (Table 4).
+The contrast became stark when the ten-fold cross validation was applied: although there was a precipitous drop in the accuracy of prediction for proteins of other localiza-tions, those of the nucleus, plasma membrane, extra-cellular compartment, and cytoplasm remained rela-tively high.
+This could be attributed to the relatively smaller training sets available for golgi, lysosome, and peroxisome.
+The effect of using subsets of the features with the ML algorithms was examined.
+Precision is a measure of the positive predictive value, that is, the propor-tion of the claimed subcellular localizations that are indeed those specified subcellular localizations: Precision = True Positives/(True Positives + False Positives) Sensitivity (or Recall) is a measure of the probability that the test would reject a false null hypothesis: Sensitivity = True Positives/(True Positives + False Negatives) Table 4 Performance of Decision Tree (548) Using Instances for Training Localization TP rate FP rate Precision Sensitivity F-measure PLA 0.982 0.020 0.971 0.982 0.977 NUC CYT EXC MIT END GOL LYS POX 0.980 0.017 0.951 1 0.002 0.919 0.936 0.007 0.959 0.880 0.002 0.971 0.829 0.006 0.876 0.831 0.006 0.779 0.767 0.003 0.793 0.576 0.002 0.731 0.980 1 0.936 0.880 0.829 0.831 0.767 0.576 0.965 0.958 0.947 0.924 0.852 0.804 0.780 0.644 124 Geno.
+Prot.
+Bioinfo.
+Vol.
+4 No.
+2 2006  Acquaah-Mensah et al.As Table 3 indicates, the Precision and Sensitivity values of all the learners decreased from the highest values (when all attribute types were used) when only pairs of attribute types (from among Composition, Transition, and Distribution) were available.
+Models that used a combination of all attribute types per-formed better, in terms of Precision and Sensitivity, than those that only used any attribute type subset (or subset combinations).
+548 performed better than SVM and MLP in classifying proteins of the golgi, lysosome, endoplasmic reticulum, and peroxisome (all of which present a more difficult classification prob-lem than the other compartments).
+There were high J48 True Positive rates and low False Positive rates for all compartments, with the exception of the peroxisome and lysosome (Table 4).
+The F-measure is the harmonic mean of Precision and Sensitivity and can be used as a single measure of a tests performance: F-measure = (2xPrecisionxSensitivity)/(Precision + Sensitivity) Accordingly, the highest 548 F-measures were those for proteins of the plasma membrane and nucleus; the lowest were those for the peroxisome and lysosome proteins.
+NB classifiers work best if all attributes are truly independent of each other; they classify correctly as long as the correct class is more probable than any other class.
+Correlations exist between certain val-ues present in the vector, for example between Po-larizability and NVWV ( 2 1 ) ; this could explain the less than impressive performance of NB.
+The advan-tage that Decision Trees have, in this regard, are their ability to choose the best attribute to split on at each node.
+The 548 version of the C4.5 Decision Tree ( 1 5 )  is implemented as follows: the algorithm works top-down, seeking at each stage an attribute that best separates the classes.
+The attribute with the great-est information gain is chosen.
+It then recursively processes the sub-problems resulting from the split until the information is zero or reaches a maximum.
+The information measure (entropy) is calculated as follows: E ~ ~ ~ w ( P I P Z ,..., Pn) =-PI 1092 PI-PZ log2 ~2 * *-Pn log2 Pn where p l , p Z ,... , pn are fractions representing the data distribution at a node (attribute) and sum up to 1.
+Exploratory Data Analysis Following the application of Tukeys Median Polish (MP) algorithm (25) to the data, a diagnostic plot of the comparison values against the residuals yielded no clear pattern (Figure S2), indicating that there was no systematic departure from the additive model as-sumption underlying the MP algorithm.
+A clear and consistent diagnostic plot would have indicated non-additivity and signaled a need to transform the data before further analyses.
+The vectors derived from the human protein dataset were grouped, depending on which of the nine, compartments they are localized in.
+For each of the localizations, the median value for each attribute was the entry used for the table to which MP was applied (Figure 1).
+The MP procedure laid out the column effects (Figure 2).
+The lowest effects were due to the Composition of the ungrouped individual amino acids; the highest effects were due to the Distribution of grouped amino acids.
+These observations were con-sistent with the attributes used by the 548 learner for its initial splits (Figure 3).
+These indicate that it is the set of physicochemical properties of the individual amino acids, rather than their unique identities, that help determine the subcellular localization of the pro-teins of which they are a part.
+It has been known that the distribution of charge and hydrophobicity is cru-cial for targeting a protein to its intended subcellular localization ( 7).
+The row effects (range:-0.2 through 0.1; median: 0) were much lower than the column effects (range:-25.1 through 74.9; median: 0), indicating that the measured amino acid feature influenced the numeri-cal response more than the cellular localization of a protein did.
+This indicates that the individual ele-ments of the vector generated for a protein are less dependent on the cellular compartment to which the protein belongs than they are on the attribute of the sequence they represent.
+There were differences in the row effects (Figure S3): the extracellular compmt-ment, peroxisome, cytoplasm, and lysosome had the lowest effects.
+This signifies that, in relative terms, these compartments presented the more difficult clas-sification tasks.
+This observation is largely supported by the Precision and Sensitivity values noted in Tables 2 and 3 (where all attribute types were used).
+A stem-and-leaf display of the column effects (Figure S4) in-dicated that the extremely low and extremely high responses had to do with the Distribution of amino Geno.
+Prot.
+Bioinfo.
+Vol.
+4 No.
+2 2006 125  Predicting Protein Localization with Decision Tree Fig.1 A description of the table to which Tukey's MP algorithm was applied.
+The vectors derived from the human protein dataset were grouped, depending on which of the nine compartments they are localized in (cytoplasm, nucleus, golgi apparatus, lysosome, plasma membrane, endoplasmic reticulum, peroxisome, extracellular compartment, and mi-tochondrion).
+For each of the localizations, the median value for each attribute was the entry used for the table.
+Attribute TvDes 1-20: Composition, Individual Amino Acids 8 21-23: Composition, Hydrophobicity 0 27-41 : Distribution, Hydrophobicity V 42-44: Composition, M M N  24-26: Transition, Hydrophobicity t; 4547: Transition, NVWV t 48-62: Distribution NWW 63-65: Composition, Polarity k 8  6668: Transition, Polarity 69-83: Distribution, Polarii 84-86: Composition, Polarizability 87-89: Transition, Polarizability 90-1 04: Distribution, Polarizability 1051 07:Composition, Charge 120 108-1 10: Transition, Charge 0 8 11 1-125: Distribution, Charge 0 20 40 80 80 1 0  INDNBxlALCOLuMJ A Ill I l l  1 I 1 10 m 30 40 INDIVIDUAL COLUMN B ' 4 I '  50 0 5 10 15 20 25 INDIVIDUAL COLUMN C 30 35 Fig.2 The impact of attribute pool on relative contributions of attribute types to data.
+Changes in MP column effects (effects of 125 sequence amino acid characteristics) occurred with the diversity of attribute type used.
+A.
+Composition, Transition, and Distribution attributes were used.
+B.
+Only Composition and Transition attributes were used.
+C. Only Composition attributes were used.
+Column effect patterns were preserved in all cases, the lowest being the Composition of individual amino acids (A).
+In the absence of Distribution type (B and C) and/or Transition type (C) attributes, the effects of the remaining attribute type(s) increased.
+126 Geno.
+Prot.
+Bioinfo.
+Vol.
+4 No.
+2 2006  Predicting Protein Localization with Decision Tree '3% Polar Amino Acids * en 1 O h Hydrophobic Amino Acids 7 z 1.- A : I n I % Neutral Amino Acids 0 1 3-% e R w ~~ I r , 1- 1 2 3 4 5 6 7 8 9  1 Cytoplasm 2 Nucleus 3 Golgi 4 Lysosome 5 Plasma membrane 6 Endoplasmic reticulum 7 Peroxisome 8 Extra cellular 9 Mitochondrion , I !
+&- L 1 2 9 4 5 8 7 0 8  Fig.4 Boxplots depicting the distribution, based on Composition (Hydrophobicity) of human amino acids within the specific cellular localizations.
+amino acids.
+Table 5 summarizes the observations from 50 boxplots, depicting the distribution of the data derived from Composition and Transition type attributes.
+Generally, the more discriminative attributes of a Decision Tree appear closer to the root.
+The first three splits of the tree (Figure 3) involve both a Com-position type attribute measuring percent polarity of Group 1 and a Distribution type attribute of Group 1 Polarity (PolarityPercent-Group1 and Polar-ity-GP1Distributi0n-25~~Percentile-Occurrence, re-spectively).
+Notably, the Polarizability attributes were the only class of features that did not appear in the first few informative splits of the tree.
+This may be attributable to the fact (21) of correlations be-tween calculated Polarizability values for amino acid side chains and those of NVWVs (Table 1).
+As can be seen from Figure 3, 548 was most strongly influenced by attributes characterizing P e  larity Percent Groupl (polarity between 0-0.108) of the amino acid sequence.
+Closer examination of plots of the column effects indicates distinct differences in the patterns of effects between those human sequences with Polarity Percent Groupl 5 37.9 and those with Polarity Percent Groupl > 37.9 (Figure 5).
+For exam-128 Geno.
+Prot.
+Bioinfo.
+ple, there are differences in the patterns of the Per-cent W as well as the Percent Charge Group3 col-umn effects.
+In both cases, the column effect de-creases dramatically between those two groups (Po-larity Percent Groupl 5 37.9 or > 37.9).
+How-ever, there was a dramatic increase in column effect for the 20th column (Percent W) between those two groups.
+There were several other contrasting changes in effect between those two groups involving Composi-tion, Transition, and Distribution type columns (Fig-ure 5).
+Similar EDA examination of different groups of amino acid sequences based on the 548 tree cate-gorizations (Figure S6) would demonstrate contrasts that confirm the underlying reason for the success of this learning scheme.
+In some instances, the level of difficulty in clas-sifying proteins of certain compartments may be at-tributable to a number of factors.
+Firstly, cellular or-ganelles are not as homogenous (26) as most current annotations would seem to suggest.
+The nucleus, for instance, has a matrix, a nucleolus, and an envelope.
+Each sub-compartment often has a proteome with a unique set of features and functions, some of which could more closely resemble features of other localiza-tions or organelles.
+Database annotations with such Vol.
+4 No.
+2 2006  Acquaah-Mensah et al.Fig.3 A depiction of the root (initial splits) of the Decision Tree (548) on the human amino acid sequence data following training with human sequences.
+The root includes Composition, Transition, and Distribution type attributes.
+acids across the sequences: the low values indicated the magnitude of the effects of the remaining at-that low proportions of the specified amino acid type tribute type(s) increased in the absence of Distribu-occurred at the beginnings of the sequences, and the tion and/or Transition type attributes.
+Composition, high values confirmed that high proportions were Transition, and Distribution type columns together stretched across entire sequences.
+They also showed provided higher effects than any subsets in particular.
+that, next to the low response Distribution data, the The pattern of column effects changed when Compo-directly measured proportions (Composition) of indi-sition and Transition type columns or only Composi-vidual amino acids influenced the numerical responses tion type columns were used.
+This observation was least.
+borne out by the mix of attributes upon which the An investigation was implemented to find out if initial J48 splits occurred (Figure 3).
+all the three attribute types (Composition, Transi-When sequence amino acids were grouped in terms tion, and Distribution) were necessary to best char-of hydrophobicity, NVWV, polarity, polarizability, acterize each protein.
+The MP algorithm was per-and charge, interesting patterns emerged.
+EDA formed in the presence of different attribute types, and the column effects were plotted (Figure 2): (1) Composition, Transition, and Distribution attributes were used; (2) Only Composition and Transition at-tributes were used; (3) Only Composition attributes were used.
+This confirmed (Figure 2A) that the high-est effects were attributable to the Distribution data and that the lowest effects were attributable to the graphics confirmed certain expected patterns.
+For ex-ample, a stem-and-leaf display of the residuals of MP showed that plasma membrane proteins have high in-cidences of transitions between hydrophobic and neu-tral amino acids (Figure S5); this observation was borne out by boxplots (Table 5 ; transitions between Hydrophobicity Groups 2 and 3).
+Similarly, boxplots in Figure 4 showed that nuclear proteins tend to have Composition of individual amino acids, as well as Dis-tribution (the first occurrence of each amino acid clas-sification member along a sequence).
+Even in the ab-sence of Distribution type attributes (Figure 2B and C) and/or Transition type attributes (Figure 2C), the patterns of column effects were preserved, the low-est being the Composition of individual amino acids.
+However, note that while the patterns were conserved, higher proportions of polar amino acids and lower prc-portions of hydrophobic amino acids.
+In contrast, pro-teins localized on the plasma membrane have higher proportions of hydrophobic amino acids and lower proportions of polar amino acids; cytoplasmic pro-teins have higher proportions of neutral amino acids; and mitochondrial proteins have higher proportions of neutral amino acids and lower proportions of polar Geno.
+Prot.
+Bioinfo.
+Vol.
+4 No.
+2 2006 127  Acquaah-Mensah et al.Table 5 Notable Composition and Transition Patterns from Boxplots Localization Composition Transition High level Low level High level Low level CYT NVWV Group 2; NVWV Group 1 Hydrophobicity NVWV Groups 1 and 3 Polarizability Group 2; Charge Group 2 Groups 1 and 3; Polarity Groups 1 and 3; Charge Groups 2 and 3 NUC Hydrophobicity Hydrophobicity Hydrophobicity Hydrophobicity Group 1; Group 3; Groups 1 and 2; Groups 2 and 3; NVWV Group 1; Polarity Group 3; Polarity Group 1 Polarizability Polarizability Group 1 NVWV Group 2; Polarity Groups 2 and 3; Polarity Groups 1 and 2; Groups 2 and 3 GOL NVWV Group 2; NVWV Groups 2 and 3 NVWV Group 3 LYS NVWV Group 1; NVWV Group 2 NVWV Groups 1 and 3; Polarizability Group 1 PLA Hydrophobicity Hydrophobicity Hydrophobicity Hydrophobicity Group 3; Group 1; Groups 2 and 3; Groups 1 and 3; N W Group 2; Polarity Group 1 Polarizability Groups 1 and 3 Polarity Group 3; Charge Group 1; Charge Group 2 NVWV Groups 1 and 2 Polarity Groups 1 and 3 END Hydrophobicity NVWV Group 1; Hydrophobicity Groups 1 and 3; Group 3; Polarizability Group 1 NVWV Groups 2 and 3; NVWV Group 2; Polarity Groups 1 and 3; NVWV Group 3; Polarizability Groups 2 and 3 Polarizability Group 3 Hydrophobicity Groups 1 and 3; NVWV Groups 2 and 3; Polarity Groups 1 and 3; Charge Groups 1 and 3 POX EXC NVWV Group 1; NVWV Group 3; Hydrophobicity NVWV Groups 2 and 3 Polarizability Group 1; Polarizability Group 3 Groups 1 and 3 Polarizability Group 2 Polarity Groups 1 and 3 Polarizability Groups 1 and 2 Polarity Groups 1 and 3; Charge Groups 1 and 3 MIT Charge Group 1 Polarizability Group 2 Hydrophobicity Groups 1 and 3; distinctions are not yet widely available.
+Scott et al (27) have sought to reduce the effects of this short-coming by factoring in protein interaction data and specific sub-compartmental protein data in a pro-cess that improves subcellular localization prediction.
+Secondly, there are instances in which proteins typi-cally associated with certain organelles have been de-tected in the proteome of other organelles (28,29).
+While these could be artifacts of fractionation pro-cedures, they are sometimes biologically significant (29).
+Thirdly, isoforms of certain proteins occur in or shuttle between multiple localizations, such as the cytoplasm and the nucleus.
+These include a num-ber of enzymes with multiple isoforms that are local-ized in multiple localizations depending on the spa-tial and temporal patterns of protein expression.
+As an example, the enzyme adenylate kinase [AK (EC 2.7.4.3)] has six isoforms in humans, which are dis-tributed across the cytoplasm, mitochondrion, and nucleus (30).
+Since the features of these proteins are Geno.
+Prot.
+Bioinfo.
+Vol.
+4 No.
+2 2006 129  Predicting Protein Localization with Decision Tree Percent C harg.
+Group3.
+,-7./ 0 iD 20 3 $8 Z,u W W 4 L CCCUIN-.. 0 YJ 3 JrJ m F l. _ _  Percent W MT~W c a m  Fig.5 An illustration of the contrasting patterns in MP column effects between amino acid sequences on either side of a 548 split.
+The chart highlights two of the columns whose effects differ sharply between the two groups: Percent Charge Group3 and Percent W. very similar, it is difficult to predict the localization of such proteins.
+Conclusion Previous subcellular localization predictors that use amino acid compositions have used neural networks (31) , the covariant discriminant algorithm (32 ) , and SVMs (8); each predictor has achieved a unique ac-curacy rate over up to four eukaryotic or prokaryotic subcellular compartments.
+In this study, nine hu-man (eukaryotic) cellular compartments were exam-ined, and the Decision Tree J48 emerged as perform-ing consistently better at classifying across all com-partments (including those that present with difficult classification tasks).
+This scheme is better able to handle functional annotation tasks that involve gene products localized outside of those eukaryotic cellu-lar compartments.
+Furthermore, the unique features of the nine human compartments in terms of amino acid composition and transition have been outlined; this result provides a ready guide for such annotation tasks.
+Materials and Methods Data collection and filtering We used protein sequences from the SWISS-PROT database release 45.O (htt p://www.ebi.ac.uk/swissprot ) for training and testing purposes in this study.
+To obtain high-quality datasets, we filtered the data as follows: (1) Include sequences only from the ani-130 Geno.
+Prot.
+Bioinfo.
+ma1 species that have experimentally derived anno-tations for subcellular localization.
+(2) Remove sequences with ambiguous and uncertain annota-tions, such as by similarity, potential, proba-ble, possible, and so on.
+(3) Remove sequences known to exist in more than one subcellular 10-calization, such as those that shuttle between the cytoplasm and the nucleus.
+Finally, we selected only those subcellular localizations with at least 100 annotated sequences.
+These localizations in-clude (the number of sequences are shown in paren-theses): CYT-cytoplasm (2,673), END-endoplasmic reticulum (794), EXC-extracellular/secretory com-partment (7,077), GOL-golgi complex (253), LYS-lysosome (179), MIT-mitochondrion (2,019), NUC-nucleus (4,112), PLA-plasma membrane (5,273), and POX-peroxisome (185).
+From these datasets, we sep-arated a subset of 3,749 proteins belonging to human.
+Machine Learning Three classes of features of amino acid sequences were used in the current study, including Composition, Transition, and Distribution.
+These features are fo-cused on physicochemical properties of the primary structure of proteins.
+Composition is a reference to the proportions of amino acid types contributing to the protein sequence.
+Transition represents the fre-quency with which specific amino acid types are fol-lowed or preceded by other amino acid types within the sequence.
+Distribution captures the dissemina-tion of specific amino acid types within specific por-tions of the sequence (or the entire sequence).
+These feature types have been used in previous ML algo-Vol.
+4 No.
+2 2006  Acquaah-Mensah et al.rithms to characterize amino acid sequences based on hydrophobicity, NVWV, polarity, polarizability, and charge (Table 1).
+6A.
+amino acid Composition, Transition, and Distribution along with the categories just outlined (Table l), a Common Lisp algorithm (33) was used to generate a vector of size 125 for each protein.
+The breakdown of the elements of each vector is outlined as in Figure Based on numerical attributes characterizing A matrix consisting of a vector of each of the pro-teins (Figure 6B) was thus generated and used as a training set for ML (32).
+Based on the data, predic-tive classifications (based on instances derived from Fig.6 Structure of the data used.
+A.
+For each amino acid sequence examined, Composition (C), Transition (T), and Distribution (D) data (as described in the text) were calculated and placed in a vector in the order shown.
+1-20: Composition, individual natural amino acids; 21-23: Composition, Hydrophobicity (members of Groups 1, 2, and 3, respectively); 24-26: Transition, Hydrophobicity (between members of Groups 1 and 2; between members of Groups 2 and 3; and between members of Groups 1 and 3, respectively); 27-41: Distribution, Hydrophobicity (the lst, 25th, 50th, 75th, and looth percentile occurrences for members of Groups 1, 2, and 3, respectively).
+Similarly, the rest of each vector was constituted as follows: 42-44: Composition, N W W ; 45-47: Transition, NVWV; 48-62: Distribution, N W ; 6345: Composition, Polarity; 66-68: Transition, Polarity; 69-83: Distribution, Polarity; 84-86: Composition, Polarizability; 87-89: Transition, Polarizability; 90-104: Distribution, Polarizability; 105-107: Composition, Charge; 10&110: Transition, Charge; 111-125: Distribution, Charge.
+B.
+From each proteins amino acid sequence, a vector was generated as above.
+A matrix consisting of an aggregate of all the vectors generated was then created and used for ML and EDA.
+Geno.
+Prot.
+Bioinfo.
+Vol.
+4 No.
+2 2006 131  Predicting Protein Localization with Decision Tree the training set alone as well as the training set in con-junction with ten-fold cross validations) were made by using 548, SVM, MLP, and NB classifier.
+These algo-rithms are all available through the Weka ML work-bench (http://www.cs.waikato.ac.nz/ml/weka/).
+Exploratory Data Analysis The data was also analyzed using EDA tools.
+The MP algorithm (25) was used along with boxplots (35) in these studies to help establish effects.
+The MP pro-cedure fits an additive model: Response Variable = Common Value + Row Effect + Column Effect + Residual where the Common Value is constant throughout the table; the Row Effect is constant by rows; the Coi-umn Effect is constant by columns; and the Residu-als or remaining effects represent departures of each data array element from the purely additive model.
+MP works iteratively on a data table, alternatively finding and subtracting column medians and row me-dians until all columns and rows have zero medians.
+The residuals, row effects, or column effects may then be illustrated graphically by the way of a stem-and-leaf display or boxplot.-Boxplots depict the distri-butions central tendency (median), spread (fourth-spread), skewness (based on the relative positions of the median, lower fourth, and upper fourth), tail length, as well as outliers.
+The R language (http://www.r-project.org/) sta-tistical environment was used to implement the EDA aspects of the study.
+Furthermore, for each subcel-lular compartment, Boxplots (36 ) were generated for each amino acid category and feature.
+Comparisons were made within and between the data for the cell compartments.
+Acknowledgements This work was supported by resources of the Mas-sachusetts College of Pharmacy and Health Sciences, as well as startup funds from the State University of New York at Albany (to CG).
+Authors contributions GKA conducted the Machine Learning and Ex-ploratory Data Analysis experiments and cewrote the draft manuscript.
+SML conceived the original idea of using this approach of protein characterization, wrote the initial code implementing it and wrote portions of the manuscript.
+CG collected the dataset used for the experiments, wrote the code for cleaning up the data to render them useful for the experiments, co-wrote and edited the various drafts of the manuscript.
+All authors read and approved the final manuscript.
+Competing interests The authors have declared that no competing inter-ests exist.

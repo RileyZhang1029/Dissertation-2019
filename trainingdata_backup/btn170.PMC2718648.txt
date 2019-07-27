@@ -1,4 +1,8 @@
-ABSTRACT Motivation: At the heart of many important bioinformatics problems, such as gene finding and function prediction, is the classification of biological sequences.
+            [20:38 18/6/03 Bioinformatics-btn170.tex] Page: i6 i6i14 BIOINFORMATICS Vol.
+24 ISMB 2008, pages i6i14doi:10.1093/bioinformatics/btn170 POIMs: positional oligomer importance matricesunderstanding support vector machine-based signal detectors Sren Sonnenburg1,,, Alexander Zien1,2,3,, Petra Philips2 and Gunnar Rtsch2 1Fraunhofer Institute FIRST, Department IDA, Kekulstr.
+7, 12489 Berlin, 2Friedrich Miescher Laboratory, Max Planck Society, Spemannstr.
+39 and 3Max Planck Institute for Biological Cybernetics, Spemannstr.
+38, 72076 Tbingen, Germany ABSTRACT Motivation: At the heart of many important bioinformatics problems, such as gene finding and function prediction, is the classification of biological sequences.
 Frequently the most accurate classifiers are obtained by training support vector machines (SVMs) with complex sequence kernels.
 However, a cumbersome shortcoming of SVMs is that their learned decision rules are very hard to understand for humans and cannot easily be related to biological facts.
 Results: To make SVM-based sequence classifiers more accessible and profitable, we introduce the concept of positional oligomer importance matrices (POIMs) and propose an efficient algorithm for their computation.
@@ -298,14 +302,4 @@ First, we realize that the list of POs can be prohibitively large for manual ins
 Hence, if several discriminative motifs occur in the same sequence region, we currently only find the strongest ones.
 Second, if a motif z has positional variance exceeding its length, we also find its duplicate zz.
 This effect gets even stronger for self-overlapping motifs (like AAA, where appending a single further A already yields a second motif occurrence).
-We currently work on clustering approaches to summarize POs scoring high in similar regions to obtain motifs like PWMs with positional preferences.
-We believe that such approaches will solve both problems.
-Additional work in progress includes computational techniques to efficiently determine the highest scoring consensus sequence x :=argmaxx s(x), which can be of interest for sequence design applications.
-Finally, note that protein sequences are known to show dependencies of XOR type, e.g.a pair of a positively and a negatively charged amino acid that can swap their positions.
-As such dependencies escape sequence logos, but can be modeled by POIMs, an implementation of protein POIMs seems desirable.
-We believe that our new POIM-based ranking and visualization algorithms are easy to use yet very helpful analysis tools.
-It is freely available as part of the SHOGUN toolbox (Sonnenburg et al., 2006a) at http://www.shogun-toolbox.org.
-Finally, note that it seems possible to transfer the underlying concept to other kernels and feature spaces to aid understanding of SVMs that are used for other biological tasks.
-ACKNOWLEDGEMENTS The authors would like to thank G. Schweikert for providing the trans-splice data set for C. elegans.
-Funding: This work was supported in part by the IST Programme of the European Community, under the PASCAL Network of Excellence (IST-2002-506778), and by the Learning and Inference Platform of the Max Planck and Fraunhofer Societies.
-Conflict of Interest: none declared.
+We currently work on clustering approaches to summarize POs scoring high in similar regions to obtain motifs like PWMs with positional p
