@@ -11,7 +11,7 @@ def convert_pdf_to_txt(path):
         raw = parser.from_file(path)
         text = raw['content']
         text = text.replace("-\n", "")
-        if "2007-11-GENOME_RES.pdf" in path:
+        if "2007-11-GENOME_RES.pdf" in path or "2001-16-CELL.pdf" in path or "2001-50-CELL.pdf" in path or "2004-46-NATURE" in path:
             text_fil = text
         else:
             if text.lower().find('references\n'):
@@ -44,7 +44,6 @@ def convert_pdf_to_txt(path):
     except Exception as e:
         print("ERROR：" + path)
         pass
-
 
 
 

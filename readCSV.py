@@ -20,15 +20,15 @@ csvFile.close()
 
 print("Howison length", len(set(articleList)))
 
-
+print(len(st_men_all))
 st_men_all = sorted(set(st_men_all))
 print(len(st_men_all))
-# print(articleDict)
+
 print(st_men_all)
 
-st_men_all_new = [w for w in st_men_all if " " not in w and "-" not in w]
-# print(st_men_all_new)
-# print(len(st_men_all_new))
+st_men_all_new = [w for w in st_men_all if " " not in w ]
+print(st_men_all_new)
+print(len(st_men_all_new))
 
 
 
@@ -39,14 +39,14 @@ txtFiles_nosupple = [f for f in txtFiles if "Supplemen" not in f]
 # print("Text length", len(set(txtFiles_nosupple)))
 os.chdir(folder_out)
 for key, value in articleDict.items():
-    for txtFile in txtFiles:
+    for txtFile in txtFiles_nosupple:
         flag = True
-        if key == txtFile.strip(".txt"):
+        if key in txtFile.strip(".txt"):
             document = open(txtFile, "r", encoding='utf-8').read()
             for v in value:
-                if not document.lower().find(v.lower()):
-                    print(v)
+                if v.lower() not in document.lower():
                     flag = False
+                    print(v)
             print(txtFile, flag)
 
 

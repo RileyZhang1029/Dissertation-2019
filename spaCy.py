@@ -50,7 +50,7 @@ def NER(model, folder_out):
                 for word in articleDict[txt_nosupple.rstrip(".txt")]:
                     f.write(word + ", ")
             else:
-                f.write("No Software Mentions ")
+                f.write("No Software Mentions, ")
             f.write("\n")
             f.write("NER Results: ")
 
@@ -67,12 +67,13 @@ def NER(model, folder_out):
                         if (ent.label_ == "SOFTWARE"):
                             wordlist.append(ent.text)
                             wordlist_all.append(ent.text)
+                            # print(ent.text, ent.start_char, ent.end_char, ent.label_)
                     if wordlist != []:
                         for i in sorted(set(wordlist)):
                             f.write(i + ", ")
-                        # print(ent.text, ent.start_char, ent.end_char, ent.label_)
+
                     else:
-                        f.write("No Software Mentions ")
+                        f.write("No Software Mentions, ")
             f.write('\n\n')
     wordlist_all_sorted = sorted(set(wordlist_all))
     print("n =", n)
@@ -95,6 +96,13 @@ def PRF(list1, list2):
     list2 = [i.lower() for i in list2]
     tplist = [i for i in list1 if i in list2]
     tplist = sorted(set(tplist))
+    wrongExamples = [i for i in list2 if i not in tplist]
+    with open("/home/riley/Documents/Github/Dissertation-2019/Prodigy/wrongExamples1.txt", 'w', encoding="utf8") as f:
+        for w in wrongExamples:
+            f.write(w.lower())
+            f.write("\n")
+
+
     print("Common software mentions: ", tplist)
     print("Number of common software mentions: ", len(tplist))
     precision = len(tplist)/len(list2)
@@ -106,7 +114,7 @@ def PRF(list1, list2):
 
 if __name__ == '__main__':
 
-    model = '/home/riley/Documents/Github/models/st-model-395-new'
+    model = '/home/riley/Documents/Github/models/st-model-all'
     folder_out = os.getcwd() + "/testdata"
     word_list_sorted = NER(model, folder_out)
     print(word_list_sorted)
