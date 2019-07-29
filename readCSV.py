@@ -31,7 +31,7 @@ print(st_men_all_new)
 print(len(st_men_all_new))
 
 
-
+n = 0
 folder_out = os.getcwd() + "/testdata"
 files = os.listdir(folder_out)
 txtFiles = [f for f in files if f.endswith(".txt")]
@@ -45,9 +45,11 @@ for key, value in articleDict.items():
             document = open(txtFile, "r", encoding='utf-8').read()
             for v in value:
                 if v.lower() not in document.lower():
+                    n += 1
                     flag = False
                     print(v)
             print(txtFile, flag)
+print(n)
 
 
 
