@@ -32,3 +32,35 @@ Published by Oxford University Press.
 This is an Open Access article distributed under the terms of the Creative Commons Attribution Non-Commercial License (http://creativecommons.org/licenses/ by-nc/2.5), which permits unrestricted non-commercial use, distribution, and reproduction in any medium, provided the original work is properly cited.
 [10:30 19/2/2011 Bioinformatics-btr012.tex] Page: 868 867869 A.Goncalves et al.The analysis proceeds by mapping reads to a reference sequence (a genome or a transcriptome), with one of the available aligners: Bowtie (Langmead et al., 2009), TopHat (Trapnell et al., 2009) or BWA (Li and Durbin, 2009).
 The alignments are saved in the standard SAM format, converted to the BAM format (loadable into R) and sorted seamlessly with SAMtools (Li et al., 2009).
+References and index files for the aligners can be automatically downloaded from Ensembl (Hubbard et al., 2009) and created upon request, or manually provided in a local directory for alignment to custom references.
+It is also possible to provide custom alignment files by passing the appropriate options to the main R function (for more details see user documentation online).
+Aligned reads can then be submitted to a set of filters including cutoffs on average base call qualities, number of allowed uncalled bases, by the size of runs of the same base at the head and tail of the reads, by read complexity as measured by a complexity score, by number of valid alignments, by number of reads with the same sequence, by genomic regions and other parameters.
+In order to get the expression of features of interest (genes, transcripts or exons), aligned reads are either counted over those features and given as counts or as estimates calculated by the statistical method Cufflinks using a reference (Trapnell et al., 2010) or MMSEQ (Turro et al., 2011).
+The type of values returned can be controlled by passing normalization and standardization options to the main R function.
+The data is stored in a Bioconductor ExpressionSet object, grouping samples by factors, for downstream data analysis.
+A final HTML report is created providing information on the characteristics of the alignments and data (examples are again provided at the pipelines website).
+For users analysing their own experiments locally, the data must be available on the filesystem while the experiment metadata can be provided in the function call itself as a list of options or through a MAGE-TAB like set of files (Rayner et al., 2006).
+Optionally, publicly available datasets in AE can be re-analysed by providing the function with the experiments accession number, upon which all raw data files and relevant metadata will be downloaded from the AE Archive and the European Nucleotide Archive.
+The pipeline strives to minimize the amount of computation needed.
+Each time it is run on the same dataset with the exact same set of options, it will check at each step whether previous results, such as alignment files, reports or expression estimates, already exist and if this is the case the results will be retrieved instead of being re-processed.
+Runs of the pipeline with different options will have the results saved in different directories so the users can process the data in different ways for comparison.
+2.2 Implementation on the R cloud ArrayExpressHTS can also be run remotely on the R cloud at the European Bioinformatics Institute (EBI).
+Running it remotely on the cloud has several advantages while retaining the same function interface as the local implementation.
+In particular, it makes use of the distributed computing power of the EBI cluster.
+The only difference for the user is that the pipeline must be called from within the R Workbench graphical user interface for R, which provides a pooling framework for dispatching compute-intensive tasks to the server farm.
+This allows a multi-sample experiment to be automatically distributed among several computing nodes (the steps depicted in Figure 1 are run in parallel for each sample).
+A possible way to use the R cloud at EBI to analyse the users own data is to submit these data to the AE Archive, where the data will remain password protected (simple MAGE-TAB templates can be obtained from www.ebi.ac.uk/arrayexpress, curators will assist in file preparation and validation).
+When calling the function with an accession number the data already resides in a filesystem accessible to R cloud at EBI.
+In this way it is possible to use for analysis the data in AE (possibly in combination with users own data) without downloading gigabytes of raw sequences to the local computer.
+Finally, the R Workbench uses the most up to date package, reference sequences, aligner indexes and annotation for all major organisms, and access to the 3rd party software used, relieving the users from installing these on their own machines.
+2.3 Performance and other use cases We tested ArrayExpressHTS on publicly available human Solexa/Illumina RNA-seq datasets on the EBI R CLOUD.
+Experiment sizes ranged from 660 MB (1 sequencing run) to 160 GB (161 runs) with median analysis time (including data gathering) of 1.5 h per GB.
+Running the pipeline with default options gives us expression estimates for known transcripts, but other option settings make different types of analysis possible.
+We have tested the pipeline for a variety of alternative set-ups including: (i) haplo-isoform-level expression estimation, i.e.obtaining the expression estimates for the different haplotypes of transcripts containing heterozygotes (ii) and strand-specific expression estimation with Cufflinks for anti-sense and non-coding RNA discovery and quantification (possible when the experimental protocol used allows the identification of the reads strand of origin).
+3 DISCUSSION The ArrayExpressHTS package allows the users to obtain a standard Bioconductor ExpressionSet object containing expression levels from raw sequence files with a single R function call.
+The main benefit of ArrayExpressHTS is the ease of its use, running in the same way either on a local computer or on the R cloud and with private or public data.
+Written in R and available as open source, it also gives users the opportunity to extend and customize the pipeline for their needs.
+It can be used for individual data analyses or in routine data production pipelines, and it will be extended in the future to support other sequencing platforms, multiplexed data and the reporting of expression of non-annotated regions.
+ACKNOWLEDGEMENTS We would like to thank Wolfgang Huber, Ernest Turro, Anna Farne, Duncan Odom, Stephen Watt, Sarah Leigh-Brown, David Thybert, Johan Rung and John Marioni for their helpful comments.
+Funding: The work was partly funded by the European Commission under the Seventh Framework Programmes (FP7) SLING (grant agreement number 226073) and SYBARIS collaborative projects (grant agreement number 242220).
+Conflict of Interest: none declared.

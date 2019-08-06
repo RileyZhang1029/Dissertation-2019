@@ -97,11 +97,17 @@ def PRF(list1, list2):
     tplist = [i for i in list1 if i in list2]
     tplist = sorted(set(tplist))
     wrongExamples = [i for i in list2 if i not in tplist]
-    with open("/home/riley/Documents/Github/Dissertation-2019/Prodigy/wrongExamples1.txt", 'w', encoding="utf8") as f:
+    notFound = [i for i in list1 if i not in tplist and " " not in i]
+    with open("/home/riley/Documents/Github/Dissertation-2019/Prodigy/wrongExamples2.txt", 'w', encoding="utf8") as f:
         for w in wrongExamples:
             f.write(w.lower())
             f.write("\n")
-
+    with open("/home/riley/Documents/Github/Dissertation-2019/Prodigy/st_patterns_notfound2.jsonl", 'w', encoding="utf8") as j:
+        for w in notFound:
+            j.write("{\"label\":\"SOFTWARE\",\"pattern\":[{\"lower\":\"")
+            j.write(w.lower())
+            j.write("\"}]}")
+            j.write("\n")
 
     print("Common software mentions: ", tplist)
     print("Number of common software mentions: ", len(tplist))
@@ -114,7 +120,7 @@ def PRF(list1, list2):
 
 if __name__ == '__main__':
 
-    model = '/home/riley/Documents/Github/models/st-model-all'
+    model = '/home/riley/Documents/Github/models/st-model-notfound'
     folder_out = os.getcwd() + "/testdata"
     word_list_sorted = NER(model, folder_out)
     print(word_list_sorted)

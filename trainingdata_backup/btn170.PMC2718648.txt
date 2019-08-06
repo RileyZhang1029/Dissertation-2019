@@ -302,4 +302,14 @@ First, we realize that the list of POs can be prohibitively large for manual ins
 Hence, if several discriminative motifs occur in the same sequence region, we currently only find the strongest ones.
 Second, if a motif z has positional variance exceeding its length, we also find its duplicate zz.
 This effect gets even stronger for self-overlapping motifs (like AAA, where appending a single further A already yields a second motif occurrence).
-We currently work on clustering approaches to summarize POs scoring high in similar regions to obtain motifs like PWMs with positional p
+We currently work on clustering approaches to summarize POs scoring high in similar regions to obtain motifs like PWMs with positional preferences.
+We believe that such approaches will solve both problems.
+Additional work in progress includes computational techniques to efficiently determine the highest scoring consensus sequence x :=argmaxx s(x), which can be of interest for sequence design applications.
+Finally, note that protein sequences are known to show dependencies of XOR type, e.g.a pair of a positively and a negatively charged amino acid that can swap their positions.
+As such dependencies escape sequence logos, but can be modeled by POIMs, an implementation of protein POIMs seems desirable.
+We believe that our new POIM-based ranking and visualization algorithms are easy to use yet very helpful analysis tools.
+It is freely available as part of the SHOGUN toolbox (Sonnenburg et al., 2006a) at http://www.shogun-toolbox.org.
+Finally, note that it seems possible to transfer the underlying concept to other kernels and feature spaces to aid understanding of SVMs that are used for other biological tasks.
+ACKNOWLEDGEMENTS The authors would like to thank G. Schweikert for providing the trans-splice data set for C. elegans.
+Funding: This work was supported in part by the IST Programme of the European Community, under the PASCAL Network of Excellence (IST-2002-506778), and by the Learning and Inference Platform of the Max Planck and Fraunhofer Societies.
+Conflict of Interest: none declared.

@@ -93,4 +93,39 @@ For the transcript set for Cufflinks, we selected the longest predicted model as
 Fig.3.
 Calculation procedure of match rate used in Tables 1 and 2.
 The size of each region used for the match rate is measured at single nucleotide resolution.
-2.3 Evaluation of predicted transcripts We compared predicted full-length transcripts with
+2.3 Evaluation of predicted transcripts We compared predicted full-length transcripts with references to assess a performance ofARTADE2.
+The set of predicted transcripts must be expressed under some conditions.
+Besides this, most of predicted transcript structures must correspond to known transcript structures of Arabidopsis, because the full-length cDNAs of Arabidopsis have been significantly researched as a model for plant species.
+We therefore compared predicted transcripts with 39 361 TAIR9 (The Arabidopsis Information Resource version 9) gene models (http://www.arabidopsis.org).
+The TAIR8 genome is used for mapping of tiling arrays and mRNA-Seq data.
+We therefore transferred the TAIR9 gene models according to the TAIR8 genome.
+We paired predicted transcripts with the TAIR9 reference if they had at least 30% overlap in the region.
+If more than two transcripts fit, we selected the best-fit transcript pair by comparison among them.
+The judgment boundary about correctness of 5 and 3 ends was set at a 300 bp distance between the prediction and TAIR9 ends.
+The match rate of the predicted transcript was calculated from a correspondence as shown in Figure 3.
+For Figure 5, Supplementary Figs S6 and S7, we calculated precision and recall of the predicted transcript models on references with a way modified from the match rate, because some prediction methods used for the comparison provide multiple transcript models for a single locus.
+Locations outside the transcripts (O) and introns (I) were treated as the same in calculations of precision and recall.
+We also allowed correspondences between multiple predicted transcripts and multiple reference transcripts.
+When a position had inconsistency in multiple transcripts of prediction or annotation, such as exon and intron or exon and outside, the position was considered as an exon.
+2.4 Implementation of factor analysis The factor analysis method embedded in ARTADE2 is based on a maximum likelihood (ML) method.
+The first and second factors obtained by ML method are rotated obliquely using the criterion of promax rotation (Hendrickson and White, 1964) after an orthogonal varimax rotation (Kaiser, 1958).
+From the obtained first and second major factor loadings, we checked availability of separation for the predicted transcript.
+If different factors were found, we re-predicted the transcript by dividing the region at the edge of two factors.
+The same techniques were also applied to exons of the transcript predicted by ARTADE2 for the detection of alternative isoforms.
+The detected region consists of a cluster of high factor loading probes.
+For the detection, the number of factors was estimated by using minimum average partial method (Velicer et al., 2000).
+We here define a discreteness value given to each cluster.
+The discreteness value measures a density of high factor loadings in cluster.
+Detail for the cluster detection algorithm and a definition of the discreteness is described in Supplementary Material (sections: Use of factor analysis to remove concatenation of different transcripts and and Factor Analysis for detection of regions having alternative isoforms).
+931 Copyedited by: ES MANUSCRIPT CATEGORY: ORIGINAL PAPER [12:32 12/3/2012 Bioinformatics-bts065.tex] Page: 932 929937 S.Kawaguchi et al.2.5 Dataset We used tiling arrays for 55 experiments with A.thaliana observed under 18 conditions (Supplementary Table S1).
+The GeneChip Arabidopsis tiling arrays set (1.0F Array and 1.0R Array, Affymetrix) was used.
+Details of RNA sample preparation were described previously (Matsui et al., 2008; Okamoto et al., 2010).
+Probe sequences of the tilling array set were mapped to genome of Arabidopsis TAIR8.
+The tiling array has intensity of perfectly matching (PM) probes and mismatch (MM) probes.
+We calculated expression signals from PM, MM values with MAS5 algorithm.
+Pre-processing of tiling array data were described earlier (Iida et al., 2011).
+All data are available at Gene Expression Omnibus (http://www.ncbi.nlm.nih.gov/geo/info/linking.html) under accession numbers GSE9646, GSE15700 and GSE26074.
+We also used mRNA-Seq dataset with SOLiD3 Plus system (Applied Biosystems) for 16 libraries from 7 conditions (Supplementary Table S1), which are a subset of samples used for tiling array experiments.
+We mapped mRNA-Seq tags to the A.thaliana genome (TAIR8) with TopHat (Trapnell et al., 2009).
+We normalized mRNA-Seq data into each library having 1 GB of tags (i.e.20 million reads); see Supplementary Table S2.
+3 RESULTS AND DISCUSSION 3.1 Full-length transcript structures predicted with ARTADE2 significantly validated by

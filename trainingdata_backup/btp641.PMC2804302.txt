@@ -34,4 +34,45 @@ In addition, MAVEN offers powerful filtering capabilities using different criter
 2 FEATURES Data Managements: for the current implementation, MAVEN accepts and stores GWAS results based on single-locus analysis methods, not the raw data, which makes sharing less problematic in terms of privacy.
 All data are stored and managed using a relational database management system.
 The system allows users to upload their own results into MAVEN by preparing their analysis results in a tabular text format [e.g.output file of the program pLink (Purcell et al., 2007)].
-Users can also submit other information such as descriptions of the study and
+Users can also submit other information such as descriptions of the study and references to their publications.
+The database is study oriented and also maintains some tables that are common to all studies.
+For example, SNP information and gene information have been downloaded from NCBI databases beforehand.
+They are identified by NCBI build number and will be updated as necessary.
+We have compiled all SNPs from many different SNP-chip platforms of the two major vendors (i.e.Illumina and Affymetrix).
+Users can also upload SNPs of their customized chips.
+For gene annotations, all three assemblies (reference, HuRef and Celera) have been considered.
+The reference assembly serves as the main coordinate for SNP/gene physical positions.
+Filtering Capability: the tool offers several types of filtering capabilities for users to retrieve interesting SNPs and gene regions that are specific to their studies.
+Users can query SNPs according to (i) significance (e.g.P-value or 2 statistic) using a threshold value; (ii) chromosomes and physical positions with specified window sizes; (iii) identification number (rs#); (iv) functional roles (e.g.synonymous, non-synonymous, etc.
+); (v) specific gene regions; (vi) KEGG pathways, as well as combinations of all of the above criteria.
+MAVEN will visualize all SNPs that satisfy all the conditions.
+Data Visualization: search results are displayed in two different formats: a tabular format and a graphical format.
+The result table displays the Chromosome, SNP rs# and other columns from the study dataset provided by users.
+Users can sort the records according to the values of a selected column or save the results into a file.
+The graphical display plots the value of each SNP as a line chart using the corresponding filtering field (e.g.P-value) as the Y-axis and chromosomes and/or base pair positions as the X-axis.
+Both the table and the chart support interactive and synchronized selections.
+When a user moves the mouse over the chart, summary statistics will be displayed.
+Users can also show SNP results in UCSC Genome Browsers as a customized track.
+Functional Annotation of SNPs: when a user selects a particular SNP from the result table, or from the display graph, a request is sent to the backend which will access dbSNP database through NCBI eUtils to obtain up-to-date functional annotations of the SNP.
+MAVEN will output summary information about the selected SNP, which includes a link to its NCBI record, its chromosome position, gene name and a link to the gene if the SNP is within a gene region, its functional roles (synonymous, missense or nonsense, etc.
+), pathway information (links to KEGG) as well as disease information (links to OMIM) about the gene.
+Users can obtain more detailed information through these hyperlinks.
+Not all significant SNPs will be within gene regions.
+To better understand the roles of those SNPs, MAVEN provides a functionality to allow users to retrieve all genes from NCBI for a given window around a SNP.
+It will return all genes within that region with hyperlinks for detailed information.
+Performance on Real Examples: we have performed extensive tests of MAVEN using a real GWA dataset with 500 K SNPs and a simulated data with around one million SNPs.
+Results using our local network have shown that MAVEN is efficient to handle such datasets.
+The most time-consuming operation is the data uploading and database creation step, which can be finished in a few minutes.
+This is not an issue because it is a one-time operation.
+All other operations can be finished almost instantly, partially due to the pagination mechanism implemented by MAVEN.
+For each query, MAVEN will first obtain the total number of SNPs that satisfy the criteria.
+At maximum, it only displays the first 500 SNP records and users can navigate through different pages for other SNPs.
+The limit usually does not cause any problem because users normally examine a handful of significant or interesting SNPs at a time.
+Multiple phenotypes and/or multiple statistics: the current version of MAVEN is not restricted to a single phenotype or a single statistics.
+In the uploading stage, users can define any number of columns to be searchable.
+For example, users can have several P-values for a single phenotype, each based on a different test statistic or several P-values for different phenotypes.
+3 IMPLEMENTATION This web application has been developed using JAVA-J2EE technologies and follows the Model-View-Controller framework, which is a proven and convenient way to generate organized, modular applications that cleanly separate logic, style and data.
+Detailed information about implementation is provided as online Supplementary Materials.
+ACKNOWLEDGEMENTS We thank Yong Guo and Daniel Haig for their help.
+Funding: NIH/NLM (LM008991); NIH/NCRR (RR03655); NSF (CRI0551603).
+Conflict of Interest: none declared.

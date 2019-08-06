@@ -48,4 +48,33 @@ After these preprocessing steps, KEGGtranslator branches between two different c
 Depending on the chosen output format, KEGGtranslator determines how to continue with the conversion.
 The functional translation is performed by converting the KGML document to a JSBML data structure (Drger et al., 2011).
 The focus lies on generating valid and specification-conform SBML (Level 2 Version 4) code that eases, e.g.a dynamic simulation of the pathway.
-Multiple MIRIAM URNs and an SBO term, which describes best the function of the element, is assigned to each entry of the pathway (pathway
+Multiple MIRIAM URNs and an SBO term, which describes best the function of the element, is assigned to each entry of the pathway (pathway references, genes, compounds, enzymes, reactions, reaction-modifiers, etc.).
+Additionally, notes are assigned to each element with human-readable names and synonyms, a description of the element, and links to pictures and further information.
+The user may also choose to add graphical information by putting CellDesigner annotations to the model.
+But the focus in functional translation lies on the reactions in KGML documents, whereas graphical representations concentrate on relations between pathway elements.
+Besides the already mentioned completion of reactions, each enzymatic modifier is correctly assigned to the reaction and the reversibility of the reaction is annotated.
+As a final step, the SBML2LATEX (Drger et al., 2009) tool has been integrated into KEGGtranslator, which allows users to automatically generate a LATEX or PDF-report, to document the SBML-code of the translated pathway.
+Furthermore, the user may add kinetics to the pathway by using the SBMLsqueezer (Drger et al., 2008) tool after the translation.
+In graphical translations, results can be saved as GraphML, GML or YGF and finally as images of type JPG, GIF or TGF.
+In this mode, the KGML data structure is being converted to a yFiles (Wiese et al., 2001) data structure.
+The focus here lies on the visualization of the pathway.
+Relations are being translated by inserting arrows with the appropriate style, which is given in the KGML document.
+For example, dashed arrows without heads represent bindings or associations and a dotted arrow with a simple, filled head illustrates an indirect effect.
+Please see the KGML specification for a complete list.
+As in the functional translation, GraphML allows to define custom annotation elements.
+KEGGtranslator makes use of those, by putting several identifiers (e.g.EntrezGene or Ensembl) and descriptions to the single nodes.
+From the KGML document, the shape of the node is translated as well as the colors and labels.
+Links to descriptive HTML pages are being setup and hierarchical group nodes are being created for defined compounds.
+All these features lead to a graphical representation of the pathway that provides as much information about the elements as possible.
+3 DISCUSSION KEGGtranslator is a stand-alone application with a graphical user interface that runs on every operating system for which a Java virtual machine is available.
+There are other tools for converting KGML to SBML and for converting KGML to graph structures in R. But, to our knowledge, no other KEGG converter is able to translate KGML formatted files to such a variety of output formats with important functionalities like the autocompletion of reactions or the annotation of each element in the translated file, using various identifiers.
+Furthermore, KEGGtranslator is simple, easy-to-use and comes with a powerful command-line and graphical user interface.
+The variety of output formats, combined with the translation options and comprehensive, standard-conform annotation of the pathway elements allow a quick and easy usage Fig.1.
+(A) Screenshot of a translated GraphML pathway in KEGGtranslator.
+(B) The need for autocompleting reactions: the upper half shows the KGMLfile with only one substrate and product.
+On the lower half, the complete reaction equation is shown.
+As one can see, one substrate and product is missing in the XML-document.
+of files from the KEGG pathway database in a wide range of other applications.
+ACKNOWLEDGEMENT We gratefully acknowledge very fruitful discussions with Jochen Supper, Akira Funahashi and Toshiaki Katayama.
+Funding: The Federal Ministry of Education and Research (BMBF, Germany) funded this work in the projects Spher4Sys (grant number 0315384C) and NGFNplus (grant number 01GS08134).
+Conflict of Interest: none declared.

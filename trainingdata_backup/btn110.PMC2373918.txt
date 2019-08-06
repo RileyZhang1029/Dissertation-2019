@@ -214,4 +214,22 @@ The two clusters were found to significantly differ with regard to their role in
 The DRC sites select key mechanical regions, near the global hinges that control the most cooperative motions of the enzyme; PhVC residues, on the other hand, preferentially occupy flexible regions that can easily accommodate residue substitutions.
 Covariance analysis of related protein sequences is known to be problematic in many aspects (Fodor and Aldrich, 2004; Halperin et al., 2006).
 Many options exist to improve the basic method presented here.
-For example, MI treats all substitutions of amino acids equally, ignoring physicochemical p
+For example, MI treats all substitutions of amino acids equally, ignoring physicochemical preferences.
+In the future, it may be worth considering different essential covariance measures for further analysis.
+Methods for assigning significant scores using the original MI scores and shuffling of the original data (Hoffman et al., 2003; Shackelford and Karplus, 2007) can also help in obtaining more meaningful results.
+One major goal here was, however, to draw attention to the utility of clustering the covariance data.
+We utilized a relatively less detailed, but objective and theoretically robust approach.
+Significantly, this approach allowed us to separate the sequence covariance arising from functional pressures (e.g.MDR) from those evolutionarily selected within the examined phylogeny.
+Both groups of correlations exhibit strong signals when covariance properties are quantified in terms of MI.
+Yet, the distinctive character of the two groups, confirmed by experiments (Fig.4), and rationalized by comparison with structural dynamics (Fig.6), supports the utility of adopting a spectral bi-clustering method for efficiently discriminating between potential correlations of fundamentally different nature/origin.
+It will be of interest to further explore the utility of spectral bi-clustering for differentiating between correlated mutations that reflect real inter-residue interactions and those reflecting other evolutionary signals, often considered as noise for most analyses purposes (Noivirt et al., 2005).
+Notably, some of the sites for potential MDR, indistinguishable in the untreated sequences (Fig.2B), can be detected upon rank ordering the residues via spectral clustering of MI data; furthermore, treated sequences subjected to different regimens share common DRC residues (Fig.3).
+These two observations invite attention to the intrinsic tendency of the enzyme to potentially select those effective sites to develop mutations that confer MDR, irrespective of treatment.
+A challenging, yet important task, which is a natural continuation to this work, is to detect correlations between protease residues and residues of other mature/pre-mature proteins of HIV-1.
+A recent work demonstrates how such correlations can be detected between a protease mutation (V82A) and a mutation at the nucleocapsid-p1 cleavage site (Prabu-Jeyabalan et al., 2004).
+It remains to be seen if current methodology can be extended to investigating the relation between the protease and other cleavage sites as well as the correlations with other regions in HIV-1 pre-proteins, toward shedding more light on the late stages of the virus maturation.
+ACKNOWLEDGEMENTS We thank Dr Rieko Ishima for useful discussions.
+I.B.
+gratefully acknowledges support from NIH grants 5U54 MH074411 02 and R01 LM007994 03.
+Conflict of Interest: none declared.
+1249 Correlated mutations in HIV-1 protease using spectral clustering

@@ -257,4 +257,37 @@ The other two metrics are based on the first 50 solutions returned by A* rather 
 The third metric, correctness, measures the percentage of the top 50 solutions calculated with memory restriction that were also presented in the top 50 solutions calculated without such restriction.
 The fourth metric, recovery rate, reports the average percentage of amino acids in the top 50 solutions that are identical to those in the wild-type protein.
 Table 3 shows the results.
-The numbers reported in the row of GA*768 search space indicate that the numbers of new nodes expanded by parallel A* search did not exceed the memory limit of GPU so that the results computed without memory restriction can be used as
+The numbers reported in the row of GA*768 search space indicate that the numbers of new nodes expanded by parallel A* search did not exceed the memory limit of GPU so that the results computed without memory restriction can be used as references for evaluating their tests with memory restriction.
+We found that the native sequence recovery ratios of last three structures were a little low, even when no node was thrown away.
+Apart from that, the results look encouraging.
+The GMEC solution can be guaranteed by GSMA*768 on all our test data even if we only used10% of memory required by GA*768.
+When we restricted the memory to 1%, GSMA*768 can still keep all GMEC solutions, though it cannot theoretically guarantee to find the GMEC solution in some cases.
+Table 3.
+Performance of GSMA* with 768 parallel priority queues on 6 test datasets PDB 1OAI 1U2H 1ZZK 2CS7 2DSX 3D3B No.
+of mutable residues 16 18 14 15 15 15 Conformation space 21022 21020 21015 21023 31020 61818 GA*768 search spacea 4107 8106 8106 4107 4107 3107 3 104 nodes limit Scan countb 252 104 99 202 182 109 GMEC gotten NO YES YES NO YES NO GMEC assured NO NO NO NO NO NO Correctness 4% 100% 20% 12% 32% 6% Recovery ratio 62% 75% 85% 48% 46% 48% 3 105 nodes limit Scan countb 139 43 36 103 97 55 GMEC gotten YES YES YES YES YES YES GMEC assured NO YES YES NO NO NO Correctness 100% 100% 100% 100% 100% 44% Recovery ratio 74% 75% 87% 46% 48% 54% 3 106 nodes limit Scan countb 22 3 3 24 22 18 GMEC gotten YES YES YES YES YES YES GMEC assured YES YES YES YES YES YES Correctness 100% 100% 100% 100% 100% 100% Recovery ratio 74% 75% 87% 46% 48% 53% 3 107 nodes limit Scan countb 1 0 0 1 1 1 GMEC gotten YES YES YES YES YES YES GMEC assured YES YES YES YES YES YES Correctness 100% 100% 100% 100% 100% 100% Recovery ratio 74% 75% 87% 46% 48% 53% Note: The meaning of each row is explained either in the text or here.
+aThe row labeled with GA*768 search space represents the number of nodes expanded by GA*768 for calculating the best 50 solutions.
+bThe rows labeled with Scan Count represent the number of times that the system ran out of memory, in which a series of operations described in Section 2.5 were executed.
+i261 A parallel algorithm for accelerating computational protein design 6 about , one-thousand one percent ten p ercent , one hundred percent approximately  In the test with the restriction of 0.1% memory, the algorithm achieved relatively poor performance.
+In this case, the algorithm was only allow to keep 30 000 nodes in memory, which is unfriendly to parallel A*, as discussed in Section 3.1.
+When the absolute size of allowed memory is too small, it is more probable for GSMA* to throw away an important node at the beginning of the tree expansion.
+In practice, we will always use all available memory to perform the protein design task.
+So this setting was only for the evaluation purpose.
+4 CONCLUSION AND FUTURE WORK Computational protein design is a challenging problem in the computation biology field.
+In this article, we have developed an innovative method to improve the A* algorithm for computational protein design, which significantly reduces running time of the original protein design algorithm by up to four orders of magnitude while maintaining low memory overhead.
+Another advantage of our algorithm is that we do not change the interface of the original protein design framework in OSPREY (Gainza et al., 2013).
+We have shown that it could be successfully integrated with iMinDEE (Gainza et al., 2012) to further improve SCPR with the consideration of continuous side-chain flexibility.
+Memory limitation becomes a more important problem in protein design after A* is sped up.
+Thus, we introduce memory-bounded parallel A*, a variant of A* algorithm that only uses limited memory.
+In the Results section, we have shown that in practice, the memory-bounded parallel A* algorithm is able to guarantee the GMEC solution with only onetenth of memory consumption that the original algorithm requires.
+Currently GA* is only implemented on the Tesla GPU card.
+It would be interesting to know whether it can achieve similar performance on a more affordable GPU card such as NVIDIA GeForce GTX series.
+In addition, although currently GA* is only runnable on a single GPU platform, it should be easy to port it to other parallel computational platforms due to the parallel characteristic of our algorithm.
+If we can utilize the existing large clusters of CPUs and GPUs to run GA*, in which more memory and computation resource is available, we will be able to solve a larger protein design problem than ever before.
+ACKNOWLEDGEMENTS We thank Mr Kyle Roberts and Mr Pablo Gainza for helping us set up the iMinDEE code and providing us the benchmark dataset and scripts for testing.
+We thank Mr Kyle Roberts and Mr Mark Hallen for their helpful comments on the draft of this article.
+We particularly thank Mr Kyle Roberts for his indepth comments on the property of memory-bounded A*.
+We thank the anonymous reviewers for their helpful comments.
+Funding: This work is supported in part by the National Basic Research Program of China (grant 2011CBA00300, 2011CBA00301) and the National Natural Science Foundation of China (grant 61033001, 61361136003).
+This work is supported by a grant to B.R.D.
+from the National Institutes of Health (R01 GM-78031).
+Conflict of Interest: none declared.

@@ -190,4 +190,77 @@ Further, data linked with a passkey can be reused by subsequent submissions and 
 After providing these credentials, the user is presented with a panel of six tabs.
 The first tab relates to the sequence-based features: the target gene and RNAi construct.
 The second tab handles non-sequence data (resources) such as experimental animals and protocols.
-The third tab contains the publication data, including external database cross-
+The third tab contains the publication data, including external database cross-references.
+Such references are also available for the resources and features, allowing users to identify experimental animal stocks or GenBank gene identifiers.
+Once all required information is provided, a finalize tabs becomes available and users are able to review their submission prior to storing the study as complete.
+At any time, users can stop 3122 [12:40 18/11/2010 Bioinformatics-btq599.tex] Page: 3123 31193124 GMOD Drupal Bioinformatic Server Framework and continue their submission at a later day by making use of their passkey credentials.
+In order to reduce work load to curators, much of the data are driven by controlled vocabularies (as provided by the community).
+Building new modules might be considered time consuming.
+It might be of interest, therefore, to note that the design and deployment of this module required weeks of full-time equivalent work, excluding a week of responding to community feedback.
+Using the existing module as a template, however, other types of experiments can be supported in a matter of hours.
+4 DISCUSSION 4.1 Utility as a community resource Unlike other software, the work presented here aims to integrate well with an existing laboratory website.
+This system allows laboratories to deploy software locally.
+This is especially useful for software that can take advantage of clusters of computers [e.g.the RaxML phylogenetics or PAML molecular evolution software (Stamatakis et al., 2008; Yang, 2007)].
+Further, by utilizing a CMS, laboratories can deploy the biosoftware_bench module via the point-and-click approach.
+They can, likewise, create their entire web content including feed aggregators (e.g.Atom), blogs and file servers.
+Indeed, a user-friendly system can be the key to allow a specific-omics community (such as one centered around a taxon or a genome-sequencing project) to develop and interact with a central resource such as a large database supporting that community.
+Drupal modules offer a straightforward installation and also allow for customization within a variety of existing themes.
+It is possible, then, to provide the feeling that the-omic data, BLAST servers and standard web-pages are part of one package.
+4.2 Utility as a bioinformatic framework With the explosion of information and the paucity of expertise, Drupal is already being applied across biological disciplines: recent work funded by the European Union Framework 6 has produced Scratchpads, a Drupal project for Natural History collections (Smith et al., 2009).
+With advances in information technology and increased interest in semantic integration, the genomics community will benefit from choosing a diverse and robust system, such as Drupal, for integrating, analyzing and displaying information.
+With more genome-sequencing project coming to fruition, there will be laboratories focusing on datatypes such as ecological and population data which, thus far, are not part of genome databases.
+GMODDBSF is a step toward addressing these emerging needs without worsening the bioinformatic bottleneck.
+This new API for Drupal makes the co-existence of Chado and Drupal seamless to the end user and reduces the learning curve for the bioinformatic community.
+Additionally, a large number of core functions or third party modules are available to be used by the bioinformatic community.
+One example is Drupals abilities for data federation.
+A single settings file (settings.ini) defines the database names and access credentials, allowing for a federated database system in the sense that a single web-page can be served by multiple databases which may reside on multiple hosts.
+This may be of special interest as such an approach would allow us to build to a heterogeneous system of database engines or gain remote access to other database servers.
+In InsectaCentrals implementation, for example, we deploy Drupal and Chado as core databases and then a SeqFeature::Store database for each of the 200 hosted species.
+In future versions of InsectaCentral, a laboratory will be able to deploy a local copy of InsectaCentral, a local copy of a Drupal database and connect to the public Chado and SeqFeature::Store databases.
+They can then deploy their private data as local Chado and SeqFeature::Store databases so that a mix of private data and data from the up-to-date InsectaCentral is seamlessly served to the end user.
+Further, the Services module (http://drupal.org/project/services) provides the means for integrating multiple interfaces such as XMLRPC, JSON, REST, SOAP, etc., avoiding, thus, the need to set up a separate BioMart instance (Smedley et al., 2009).
+This allows a Drupal site to provide web services to other software via multiple interfaces while using the same callback code.
+Even though Chado was built to be generic and therefore easy to exchange data between groups, different genome-sequencing teams have implemented it in a slightly different way so that cross-communication is not straightforward and adaptors have to be written.
+The Drupal CMS can become a solution to this compatibility issue between Chado databases.
+4.3 Integrating with other software This generic framework could tap into the concept of bioinformatic work flows, such as those offered by Taverna and Galaxy.
+This is an interesting possibility to consider and may inspire the EEFG community to use these tools.
+Meta-servers and software to run bioinformatic applications are constantly being developed.
+A number of command-line software packages now have their own web servers and a dedicated journal now exists (the annual Nucleic Acids Research Web Server issue).
+The most robust and widely used meta-application amongst these is the Galaxy framework.
+Even though originally developed for genomic data, it has now expanded to other types of data through an active developer community.
+Galaxy does not offer the main benefits of a CMS (i.e.ease of customization and a rich API).
+Further, administration of a multi-lab server can be a daunting task for the often over-worked bioinformatician.
+The biosoftware_bench approach provides full control of the visualization and processing routines.
+As Drupal is taken up by the GMOD consortium, bioinformaticians who provide new tools would benefit from preparing a biosoftware_bench.inc file (i.e.their software can be easily deployed and laboratories readily can manage and administer it without requiring access to a dedicated bioinformatician).
+An increasing number of applications exist for displaying genome data to web-users [e.g.the FlyBase database (Drysdale and Crosby, 2005), the UCSC Genome Browser (Kent et al., 2002), the Ensembl system and the ubiquitous GBrowse (Stein et al., 2002)].
+As more laboratory groups generate-omic data, there will be a pressing need to develop more such software.
+One example is the GMODWeb, which builds a web site for a Chado database using the Turnkey application (http://turnkey.sourceforge.net).
+Like GMODWeb, GMOD-DBSF utilizes an external application to drive content deployment but, instead of Turnkey, it uses Drupal, another open source software.
+Drupal has the advantages of a broader enduser base and hundreds of developers, and is built to be robust and secure for users and the host server.
+Because of the large number of functions provided by the core and contributed modules, the Drupal solution will become a powerful tool for bioinformaticians.
+3123 [12:40 18/11/2010 Bioinformatics-btq599.tex] Page: 3124 31193124 A.Papanicolaou and D.G.Heckel GMOD-DBSF is the only Drupal application built to a generic GMOD API.
+Another implementation, Tripal, also a GMOD tool (http://gmod.org/wiki/Tripal), is available and in active development.
+It provides a direct interface with Chado, allowing users to edit the contents of a Chado database.
+The two modules are not mutually exclusive as GMOD-DBSF is aimed as a base module to facilitate development of other modules.
+With Tripal and the software presented here, the Drupal solution provides a feature set unavailable in any of the other software.
+Indeed, we could envision multiple Drupal sites linking and sharing their data in a seamless manner.
+5 CONCLUSION The software presented here was built specifically for the research communities that are only now emerging into the-omics era.
+For example, NGS transcriptome data are widely used to address central biological questions in non-model species but many laboratories do not yet have the means to make the best use of these data.
+Due to funding constraints, these communities also have a paucity of bioinformaticians.
+Developed tools must, therefore, be general enough so that they can be used between laboratories and also straightforward to customize so that wet-lab biologists with a bit of training in programming can deploy and maintain the software.
+Supporting this new cadre of bioinformaticists is vital in order for the communities of emerging model species to reap the rewards that NGS technologies have to offer.
+We have shown that our software can assist with development of bioinformatic web services.
+Because Drupal modules are licensed under the GNU Public license and our software was built to be generic and expandable, it would be of interest to the bioinformatic community to expand it.
+To assist users and developers, we have provided screencast tutorials via another Drupal project, SciVee (http://scivee.tv), which can be accessed via http://gmod.org/gmod-dbsf.
+We anticipate that the uptake of the Drupal CMS by the bioinformatic community will result in a powerful new set of tools.
+ACKNOWLEDGEMENTS We would like to thank the University of Exeter for computational support, drupal.org, InsectaCentral.org users and the Lepidoptera RNAi team for guidance and end-user testing.
+We would also like to thank Dr Lars Jermiin and three anonymous reviewers for enhancing the quality of the manuscript.
+No conflicting interests exist.
+Author contributions: A.P.
+conceived, designed and programmed the software, co-ordinated and drafted the manuscript.
+D.H. tested the software, advised on design and drafted the manuscript.
+Funding: Max Planck Gesellschaft (to A.P.
+and D.G.H.
+); the European Union Research Network GAMEXP (to A.P.
+); Office of the Chief Executive fellowship by the Australian Commonwealth Scientific and Research Organization (CSIRO) (to A.P.).
+Conflict of Interest: none declared.

@@ -178,4 +178,59 @@ As described above, PPL2 was recently identified as an accumulation factor of Nd
 Thus, we checked the coexpression changes of PPL2 and the genes in the Ndh complex.
 In higher organisms, all of the components of Ndh have not been fully elucidated, and they are known to be very diverse among species (Rumeau et al., 2005).
 But we could identify the following four Ndh-related genes in our dataset according to the annotations in TAIR, NdhL (At1g70760), NdhO (At1g74880), CRR7 (At5g39210) and NdhN (At5g58260).
-According to the annotations and the
+According to the annotations and the references in TAIR, NdhL is thought to be a subunit of the Ndh complex and its mutant exhibited weak Ndh activity (Shimizu et al., 2008), CRR7 is considered as an essential factor of Ndh formation, NdhN is a required element for Ndh complex formation, and NdhO appeared to be a factor involved in Ndh complex assembly (Rumeau et al., 2005).
+In our analyses (Fig.2B), three pairs (NdhLPPL2, NdhNPPL2 and NdhNNdhL) have relatively high stability (S = 0.620.69), while four pairs (NdhONdhL, NdhOPPL2, CCR7 NdhL and CCR7NdhO) have low stabilities (S =0.410.45).
+In the former three pairs, PPL2 is always involved, and in the latter four pairs, NdhO and CCR7 are involved.
+Therefore, these results suggested that PPL2 is very likely to be involved in the Ndh complex, but NdhO and CCR7 are unlikely to be or only transiently related with the Ndh complex.
+3.5 Correlation change of a specific case: metabolic pathway In the glycerolipid metabolism pathway (ath00561), seven genes were included in the four modestly co-expressed gene pairs, MGDC (At2g11810), MGD2 (At5g20410), SQD2 (At5g01220), GAUT9 (At3g02350), QUA1 (At3g25140), BGAL2, (At3g52840) and ATS2 (At4g30580).
+As shown in Figure 3A, the coexpression levels with all PCs were relatively lower than those of the gene pairs in PS-II.
+There may be a general trend that the coexpression caused by a metabolic pathway is weaker than that due to the same cellular localization, and two extreme patterns were observed again.
+The three pairs with stable coexpression are GAUT9QUA1 (S = 0.887), SQD2MGDC (S = 0.953) and MGD2MGDC (S =0.981), and the fragile pair is BGAL2ATS2 (S = 0.354).
+The location of the pairs of genes in the KEGG pathway is shown in Figure 3B by the boxes with the same 2681 [14:52 17/9/2009 Bioinformatics-btp442.tex] Page: 2682 26772684 K.Kinoshita and T.Obayashi A B Fig.3.
+(A) Correlation change for genes in Glycerolipid metabolism (ath00561) and (B) their location in KEGG pathways.
+color as the coexpression change lines.
+The stable pairs clearly show a functional relationship: the MGD2MGDC pair and the GAUT QUA1 pair are the subunits of an enzyme complex, which is stable, and SQD2MGDC catalyzed the successive reactions.
+On the other hand, the genes in the fragile pair are very far apart from each other, and it is hard to imagine their functional relationships.
+3.6 GO prediction using multidimensional correlations and SVM To evaluate the average effectiveness of the multidimensional correlations or 11 correlations, we carried out GO term predictions based on the multidimensional correlations.
+We assigned GO terms for each gene, as described in the Materials and methods section, and then we tested whether the pair of genes has common GO terms or not.
+If the pair has at least one common term, we regarded the pair as having a functional relationship.
+The performance of the prediction result was estimated by the area under the ROC curve (Zweig and Campbell, 1993), which is a plot of sensitivity against specificity and can evaluate the trade-off between sensitivity and specificity of the prediction.
+An area under the ROC curve (AUC) = 1.0 indicates a perfect prediction, while an AUC = 0.5 means a random prediction.
+We evaluated the performance for each GO category, that is, cellular component (CC), biological process (BP), and molecular function (MF), respectively.
+Table 2.
+GO prediction performance by AUC CC BP MF PCC 0.6940.0086 0.6090.015 0.6030.018 SCC 0.6880.0009 0.6280.0001 0.6070.0002 SVMmcor 0.7330.014 (6) 0.6450.029 (6) 0.6410.024 (3) Prediction performance based on PCC, SCC and SVMmcol.
+The number in the parenthesis is the number of used correlations for multidimensional correlations.
+See section Materials and methods for details.
+Table 2 shows the AUC values of the predictions using a SVM for a single Pearsons correlation coefficient (PCC), for a multidimensional correlation (SVMmcol) and for Spearman correlation coefficient (SCC), in each GO category.
+For PCC and SCC, their values were used as inputs for SVM, and for multidimensional correlations, the first n correlations (n = 2..11) were used as input vectors.
+The genes sharing the same GO term was judged to have a functional relationship, and the best AUC values for the prediction results were shown (see the Materials and methods section for details.).
+The performance with other number of correlations was also shown in Supplementary Figure S4.
+As in the figure, the significant performance improvements were observed for a few specific numbers of correlations.
+In other words, more correlations did not always raise the prediction performance, and the best numbers of correlation were different in each GO category.
+It may be noteworthy that good performance was obtained both in BP and CC when we used the first six correlations out of the eleven correlations, but the six correlations resulted in bad performance in MF.
+In general, SVMmcol outperformed the PCC-based predictions, and the improvements in the MF categories were especially impressive, because we thought that our multidimensional correlations might be suitable to describe the hierarchy of tissues.
+The performance in the CC category is better than the others, which could imply that common cellar components are the best target for prediction by coexpression.
+But it should be noted that the higher true positive rate of CC (1.85%) than those of BP (0.63%) and MF (0.51%) can also contribute to the higher performance in CC.
+SCC did not improve the performance in CC and MF categories compared with PCC, but in BP category it showed large improvement.
+3.7 Interpretation of the major PCs We carried out a PCA to observe the main contributors to each PC by calculating the factor loading of each sample, which can be obtained as a correlation coefficient between each PC and a sample.
+Figure 4 shows the distribution of the factor loadings of the first three major PCs against the sample index, where the red dots indicate those that exceeded 0.5.
+The details of the samples with the sample index are provided in Supplementary Table 1, and here we focused on the mainly contributed samples.
+The 1388 samples can roughly be divided into three categories, that is, developmental stage (1237), time course samples (238771) and others (772 1388).
+As shown in Figure 4, the first two PCs mainly consist of the developmental stages, while the third PC is composed of the time course samples.
+Furthermore, the main contributors to the first PC are samples 4042, 5257, 8587, 121123, 133141, 163265 and 2682 [14:52 17/9/2009 Bioinformatics-btp442.tex] Page: 2683 26772684 Multi-dimensional correlations A B C Fig.4.
+Factor loading of each sample in (A) first PC, (B) second PC, with the plot expanded for sample 1200, and (C) third PC.
+The red dots indicate the largely contributing samples, or those with factor loadings >0.5.
+The background colors in the plots correspond to the rough classifications: developmental stage (1237), time course samples (238771) and others (7721388).
+175202, which are related to the shoot or flower stages.
+On the other hand, the main samples that contributed to the second PC are 4348, 5254, 6181, 88105, 109120, which are young rosetta leaves (see Supplementary Table 1 for sample descriptions by sample index).
+In other words, the second PC is mainly derived from the early developmental stages before flowering, and the first PC consists of the later developmental stages after flowering.
+For the first PC, since there are some samples with large contributions (Fig.4A and Supplementary Table 1), we also checked the possibility that other factors such as the bias of experimental series (Alter et al., 2000) and of different strains, but in this dataset we could not observe the relation between these factors and the first PC.
+As seen in Figure 4C, the main contributor to the third PC is distributed in the middle region of samples, which corresponds to the time course samples with various stresses.
+We could not get clear interpretations of the PCs after the fourth components (data not shown).
+4 CONCLUSION In this study, we observed the correlation change by removing the effects of large contribution bias to the variety of gene expression, and found that the large fraction of gene pairs with high correlation can have the weak functional relationship, or fragile coexpression.
+Our interpretation about the fragility of coexpression may be biased by the data used in this study, but, in general, gene pairs coexpressed in the specific condition such as the proteinprotein interaction in signal cascade will be fragile due to their limited interactions.
+As described in the examples shown in this article, a correlation by using expression values from all experiments is too sensitive to the cellular components, and the improvement in the GO prediction in MF suggests that our approach successfully reduced the unbalanced effect of the tissue difference to provide more information from large-scale expression data.
+ACKNOWLEDGEMENTS The authors would like to thank Dr Ashwini Patil for her careful reading of the manuscript and constructive comments.
+Funding: Grant-in-Aid for Scientific Research on Priority Areas Transportsome from the Ministry of Education, Culture, Sports, Science and Technology of Japan (to K.K.
+); the Global COE Program (Center of Education and Research for Advanced GenomeBased Medicine), MEXT, Japan (to T.O.).
+Conflict of Interest: none declared.

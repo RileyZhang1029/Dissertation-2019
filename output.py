@@ -23,10 +23,11 @@ with open("/home/riley/Documents/Github/Dissertation-2019/Prodigy/output.txt", '
 
 with open("/home/riley/Documents/Github/Dissertation-2019/Prodigy/output_word.txt", 'w', encoding = "utf8") as j:
     for w in set(wordList):
-        # j.write("{\"label\":\"SOFTWARE\",\"pattern\":[{\"lower\":\"")
-        j.write(w.lower())
-        # j.write("\"}]}")
-        j.write("\n")
+        if " " in w:
+            j.write("{\"label\":\"SOFTWARE\",\"pattern\":[{\"lower\":\"")
+            j.write(w.lower())
+            j.write("\"}]}")
+            j.write("\n")
 
 
 

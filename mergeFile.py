@@ -10,10 +10,10 @@ import os
 import random
 
 n = 0
-folder_out = os.getcwd() + "/trainingdata"
+folder_out = os.getcwd() + "/trainingdata_backup"
 files = os.listdir(folder_out)
 txtFiles = [f for f in files if f.endswith(".txt")]
-with open("/home/riley/Documents/Github/Dissertation-2019/Prodigy/fileMerged_1000.txt", 'w', encoding = "utf8") as f:
+with open("/home/riley/Documents/Github/Dissertation-2019/Prodigy/fileMerged_1312.txt", 'w', encoding = "utf8") as f:
     os.chdir(folder_out)
 
     # random.shuffle(txtFiles)

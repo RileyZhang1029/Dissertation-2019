@@ -355,4 +355,48 @@ One software package usable for our purpose is MEME.
 We used the command line version of MEME 4.0.0 (http://meme.sdsc.edu/meme4/meme-download.html) compiled on a Linux machine.
 To make the competition as fair as possible, Table 2.
 Overview of IUPAC-motifs found by our method in non-coding regions of M. tuberculosis Motif Expectation Occurrences p-value 1 AGACSCARAA 1.7 122 6.5 10176 2 GCATCGTCRC 5.2 99 7.1 1088 3 CGWCGWCGNN 195.2 313 1.9 1072 4 CTCCTCMTCR 3.5 77 1.9 1069 5 GGGACGGAAA 0.5 42 3.5 1063 6 NYTCGNCGAR 94.6 191 3.6 1056 7 NNYWGATCWR 120.6 211 3.3 1052 Table 3.
-Overview of motifs (consensus strings of reported PWMs) found by MEME in non-coding regions of M. tuberculosis Consensus Occurrences E-value Similar to Table 2 AGACGCAAAA 161 4.6 10190 (1) GCATCGTCGC 115 7.0 10108 (2) GTTTCCGTCC 44 1.1 1031 (5)a CGGCGTGTCG 104 1.5 1034 AGTCTCCGGA 31 1.8 1014 GGGCGGTTCA 41 2.7 109 TTCTTGGAAA 32 4.2 1011 GATCGCAAGC 37 2.1 1015 GATCTGAGAC 17 4.4 102 AACGTGAACT 23 2.7 102 The right most column
+Overview of motifs (consensus strings of reported PWMs) found by MEME in non-coding regions of M. tuberculosis Consensus Occurrences E-value Similar to Table 2 AGACGCAAAA 161 4.6 10190 (1) GCATCGTCGC 115 7.0 10108 (2) GTTTCCGTCC 44 1.1 1031 (5)a CGGCGTGTCG 104 1.5 1034 AGTCTCCGGA 31 1.8 1014 GGGCGGTTCA 41 2.7 109 TTCTTGGAAA 32 4.2 1011 GATCGCAAGC 37 2.1 1015 GATCTGAGAC 17 4.4 102 AACGTGAACT 23 2.7 102 The right most column references are row numbers of motifs in Table 2. aSimilar to the reverse complementary motif.
+we instructed MEME to search for 10 motifs of length 10 on both DNA strands and allowed any number of motif occurrences in each sequence1.
+MEME was run on a 2 GHz PC and reported its results after 15.2 h of CPU time (about 1/20 of our methods time).
+Tables 2 and 3 show the motifs found by our method and MEME, respectively.
+Both methods agree on the two top-scoring motifs.
+The third best motif discovered by MEME is as well found by our algorithm.
+Note that the E-value score reported by MEME considerably drops from the fourth to the fifth motif, i.e.the last six motifs reported are not strong ones (and therefore maybe noise).
+But why did our algorithm fail to find the fourth MEME motif?
+We calculated the p-value of the IUPAC string that represented the PWM returned by MEME best and found it to be 3.6 1040.
+That means, we missed this motif due to the quite demanding p-value threshold of 1050.
+We did find, however, four other motifs with an even better p-value, which were missed by MEME.
+The AGACSCARAAmotif appears to have two different functions: on the one hand, as part of a transcription terminator; on the other hand, as part of a clustered regularly interspaced short palindromic repeat (CRISPR) involved in bacteriophage response (C. Kaleta, personal communication).
+The function of the remaining motifs is apparently unknown.
+Because of their high statistical significance, they are excellent candidates for further investigations about their biological meaning.
+1Precise commandline options:-dna-mod anr-nmotifs 10-w 10-revcomp-maxsize 500000-maxsites 500. i363 [09:49 15/5/2009 Bioinformatics-btp188.tex] Page: i364 i356i364 T.Marschall and S.Rahmann 5 DISCUSSION In this article, we bridge the gap between rigorous motif statistics and motif discovery.
+On the motif statistics side, we describe a new algorithm to exactly compute the clump size distribution with respect to Markovian text models.
+Furthermore, we experimentally verify that the resulting compound Poisson approximation is highly accurate.
+On the motif discovery side, we show that, in the i.i.d.
+case, an exact, pattern-driven approach is feasible in practice.
+The main tricks here are the decomposition of the motif space into abelian patterns and the use of the monotonicity properties proven in Lemmas 2 and 3.
+To the best of our knowledge, these properties have not been used before.
+In the concluding evaluation, we demonstrate that our method outperforms Weeder and MEME on the benchmark suite proposed by Sandve et al.(2007).
+It should be noted that, to avoid obfuscating the results, we did not perform any postprocessing.
+That means all returned motifs had a length of 10.
+Most probably the results can further be improved by extending the motifs into both directions.
+The described motif discovery procedure works equally well when searching forward and backward strand of DNA in parallel; the PAA used for statistics can be constructed for a joint motif consisting of both, the forward pattern and its reverse.
+Another advantage of the approach lies in its parallelizability.
+Different abelian patterns can simply be evaluated on different CPUs.
+Note that, using all cores, the algorithm will evaluate almost 18 billion motifs in <3 h on a recent quad core system.
+Future work.
+The filtering step can be optimized in several ways: We used a fixed upper bound of 3.0 for the expected clump size and showed that it holds by exhaustively checking it for all motifs in M. It would be more elegant to have a direct proof and tighter bounds.
+In the Markov model, we may be able to skip the i.i.d.
+filtering step if we can find a tight and easily computable lower bound on m for certain groups of motifs: note that Lemmas 2 and 3 still hold when m is replaced by a lower bound.
+Another optimization of practical interest is to speed up and find alternative ways of formalizing the discovery process of suboptimal motifs.
+The present brute-force approach works, but using conditional probabilities given the already discovered motifs may provide a more elegant solution.
+Even though the motif space M was chosen with some care, it cannot cover all potentially interesting motifs.
+However, we may speculate that most biologically relevant motifs can be discovered by starting a local hill-climbing search from the M-motifs using operations such as generalizing/specializing sites of the motif, extending or shortening the motif at its left or right border.
+This remains to be evaluated in future work.
+In any case, the shortcuts introduced in this article show that efficient exact motif discovery is now possible for fairly large and biologically relevant motif spaces.
+Recently, Hannenhalli (2008) reviewed current trends in TFBS search.
+He points out that better TFBS models and integrative searching (using additional information as evolutionary conservation, TF interactivity, etc.)
+are important lines of future improvements.
+Therefore, the method we present here should be seen as one component in a larger pipeline for TFBS discovery.
+In this context, it may prove especially useful that the presented method returns statistically meaningful scores.
+Conflict of Interest: none declared.

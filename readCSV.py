@@ -47,9 +47,9 @@ for key, value in articleDict.items():
                 if v.lower() not in document.lower():
                     n += 1
                     flag = False
-                    print(v)
-            print(txtFile, flag)
-print(n)
+                    # print(v)
+            # print(txtFile, flag)
+# print(n)
 
 
 

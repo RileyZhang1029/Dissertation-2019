@@ -108,4 +108,137 @@ Entity expansion performs a rule-based semantic decomposition of the entities pa
 Event expansion introduces additional queries that are combinatorial variants of the unexpanded form, e.g.a query for a Binding event with n Theme arguments will be augmented with additional queries for Binding events with 1 to n 1 Theme arguments.
 2.3 User interface and programmatic access PathText 2 offers a web-based user interface and a web service API for programmatic access.
 Both offer the same functionality for searching the literature for a given reaction in a provided pathway model.
-They take as input an SMBL/CellDesigner model in XML format and a reaction ID that identifies the reaction of interest in the model and return a list of ranked
+They take as input an SMBL/CellDesigner model in XML format and a reaction ID that identifies the reaction of interest in the model and return a list of ranked references.
+Each returned reference consists of a PubMed ID, a snippet of text that provides evidence supporting the reaction and a confidence level with which the reference matches the query (Fig.1).
+Additionally, two Boolean parameters control whether to perform entity expansion and/or event expansion (Section 2.2).
+A screenshot of the PathText 2 web interface is shown in Figure 3.
+3 DOCUMENT-REACTION RELEVANCE RANKING User feedback for the PathText system indicated that it would be useful to combine the results of the various semantic search systems, ensuring that no document appearedmore than once.
+It was also requested that this set should be ranked according to the relevance of the document to the reaction.
+To address these desiderata, PathText 2 performs document combination and also includes various functions for document ranking.
+In this section, we present the details of the document-reaction relevance ranking.
+We formulate the task as follows.
+Firstly, we assume that the ranking of documents by relevance to a given reaction is independent of other reactions in the pathway, and we consider a single reaction at a time.
+The ranking method is provided with a reaction, the set of queries generated for each semantic search system for the reaction (Section 2.2) and the response of the systems to these queries.
+The response to each query consists of an ordered set of documents, each of which may additionally be associated with system-specific information, such as the entities recognized in the document.
+The ranking method must produce a document list containing the union of document sets provided.
+The aim, then, is to order this list so that documents most relevant to the given reaction occur first.
+To address this task, we manually annotated reaction-document pairs with the relevance of the documents to each reaction (Section 3.1).
+These annotations were then used to develop novel methods for combining the results of the semantic search systems and ranking documents (Section 3.2), which were further validated through an independent second round of annotation.
+The experimental setup is described in Section 3.3.
+3.1 Corpus annotation We initially created a corpus of pathway reaction-document pairs manually annotated using four levels of relevance: NOT RELEVANT, PARTLY RELEVANT, RELEVANT and HIGHLY RELEVANT (for detailed definitions, see Supplementary Material).
+These data were used to train the document-reaction ranking in PathText 2 and for the primary evaluation.
+To create the corpus, we initially selected from the PANTHER DB a set of prominent pathway models of interest that were familiar to our domain experts: the p38MAPK, p53, p53 feedbackloops and Wnt signalling pathways.
+We then selected reactions that activated the specific reaction-query mappings of PathText 2 (Section 2.2).
+Results obtained from the semantic search systems were then combined and ranked using a simple Average hit ratio ranking heuristic (described in Section 3.2).
+To ensure that we had a sufficient number of candidate documents to enable the measurement of differences between rankingmethods, we selected a set of reactions from each pathway for which at least 10 candidate documents were identified by PathText 2.We then took a random sample of these reactions for manual annotation.
+This corpus was used only to study the document rankingmethods.We did not use this corpus to assess the recall, as PathText 2 itself was used to obtain the set of candidate documents and reactions.
+Table 2 shows the annotation statistics for the 45 randomly selected reactions and the 450 evaluated documents (exactly 10 per reaction).
+Relatively few of the documents state the specified reaction explicitly; this is because in pathway models, combined biological phenomena (e.g.Phosphorylation and Activation) canFig.3.
+Screenshot of PathText 2 web interface i47 Integrating the evidence for pathways from text be represented in a single reaction.
+Where a document was found to state only part of the reaction, it was judged as PARTLY RELEVANT.
+NOT RELEVANT is the most frequent single judgment over the four pathways in the corpus.
+One reason identified for these false positives was a failure in the underlying entity recognition common to each of the search systems; this can be attributed to ambiguous biomolecule names or incorrect synonym expansion.
+Another possible reason is a failure in the event extraction used to build the MEDIE event search system; this can be attributed to a mismatch between the event type and the reaction, or an incorrect assignment of participant roles (e.g.Theme and Causemight be swapped).
+In addition, our annotation guidelines are strict; for example, documents retrieved for a Heterodimer/ Multimer association reaction were required to explicitly refer to binding involving all the reactants to be judged as HIGHLY RELEVANT.
+The detailed annotation guidelines are provided as Supplementary Material.
+3.2 Ranking methods We implemented and evaluated the followingmethods for ranking documents according to their relevance to a given pathway reaction.
+For allmethods, the newer documents (according to the publication date) are ranked first in cases where the scores are equal.
+Random: This method simply takes the union of the documents returned by the semantic search systems and creates a randomly sorted list of the documents.
+This naive method establishes a lower bound on performance.
+BM25: This method ranks the documents using the Okapi BM25 (Robertson et al., 1999) ranking function, which is often used as a baseline for ranking in keyword-matching-based search systems.
+To calculate BM25 scores, bag-of-words queries (OR queries) are generated by decomposing FACTA queries, document frequencies of the queries and the average document length are calculated by using the entire PubMed abstracts, and the parameters k1 1:2 and b 0:75 are used.
+This method is used as a baseline for the performance of document ranking.
+Average hit ratio: For a given reaction and semantic search system, we define the hit ratio for each document as the fraction of queries generated by PathText 2 that retrieve the document.
+This score has the range [0,1] and so can be compared, regardless of the number of queries generated.
+This method orders documents by the average hit ratio across the semantic search systems for each document.
+Priority ranking: Scoring by average hit ratio implicitly assumes that the effectiveness of the various semantic search systems at recognizing relevant documents is equal, which may not hold in practice.
+We therefore define a heuristic that gives priority to systems whose evaluation on training data indicates to be more effective (Section 4).
+Specifically, the hit ratio for MEDIE event is considered first, followed by MEDIE SVO, then KLEIO and finally FACTA.
+When choosing the order between any two documents, the hit ratios of the documents are compared in this order in turn; the document that comes first is the one with the highest value for the first ratio that is not equal.
+Thus, if a pair of documents has the same hit ratio for the MEDIE event system, MEDIE SVO scores will be used, unless these are equal, in which case KLEIO scores are used and so on.
+Machine learning with annotated corpus: Several machinelearning methods have been used in merging results from several search engines (Shokouhi and Si, 2011).
+This task has been treated as classification (Si and Callan, 2003), regression (He et al., 2011; Shokouhi and Zobel, 2009) and ranking (Joachims, 2002) problems.
+We also treated the task according to these three problem types and solved each problem individually, using the primary annotated corpus data (Section 3.1) for training.
+We implemented three machine learning-based ranking components using the following learning methods: support vector machines (SVM) (Vapnik, 1998), support vector regression (SVR) (Drucker et al., 1996) and ranking SVM (RankSVM) (Joachims, 2002).
+We used documents annotated with the relevance labels as input to the machine-learning methods, and we trained the SVM classifier to predict the relevance label for each document and used these predictions for ranking.
+The SVR method is similarly trained to predict the document relevance label, but it uses a regression model.
+For SVR training, we mapped the relevance labels to scores, from 0 (NOT RELEVANT) to 3 (HIGHLY RELEVANT).
+In contrast to these point-wise methods, the RankSVM method constructs a binary SVM classifier that predicts which of a given pair of inputs should be ranked higher.
+RankSVM was trained on document pairs, with the order of the pair derived from the relevance labels; those with the same relevance label are ignored.
+All of the machine-learning methods were applied using the following set of features: (i) hit ratio of each system without query expansion; (ii) hit ratio of MEDIE event with query expansion; (iii) number of hits for each system without query expansion and (iv) number of hits for MEDIE event with query expansion.
+We chose these features, as they match the elements that make up the heuristic rules; the comparison between the heuristic rules and machine-learning methods can then show if machine-learning methods perform better with the same information.
+Machine learning with curated pathways: To explore the potential for previously released pathway annotations to support the ranking task, we extracted reaction-document pairs fromPubMed IDs found in comments attached to pathway model reactions.
+In all, 3586 reaction-document pairs were annotated in five manually curated pathway models (Caron2010mTOR SignalingNetwork, TLR ICSB, Kaizu2010 BuddingYeastCellCycle, Rb pathway3, Table 2.
+Summary of the annotated corpus statistics Pathway p38 MAPK p53 p53 feedback Wnt signalling Total Number of reactions 16 12 6 11 45 Number of documents 160 120 60 110 450 Highly relevant 6 13 15 14 48 Relevant 0 17 16 0 33 Partly relevant 101 42 8 33 184 Not relevant 53 48 21 63 185 i48 M.Miwa et al.EGFR signaling for RTKC) in the BioModels database.
+PathText 2 was used to retrieve up to 1000 documents for each reaction, giving 530 reaction-document pairs.
+We note that the relevance of these documents is based on the full texts, not abstracts, that this approach does not provide a way to distinguish between different levels of relevance and that the relevance is not determined according to our criteria.
+Nevertheless, these reactiondocument pairs may provide useful supervision for ranking.
+We used two different approaches to make use of the pairs, using the same features mentioned above, focusing on the SVM-learning methods based on the results of preliminary evaluation.
+The first approach (Pathway) is to train an SVM classifier on the pairs with pseudo-negative pairs randomly selected from the pairs retrieved by PathText 2.
+The second approach (SVMPathway) is to train an SVM classifier on the annotated corpuswith an additional feature, which denotes the prediction by the SVM classifier in the first approach (stacking).
+3.3 Experimental setup We divided the annotated corpus into training and test sets by placing a randomly selected 80% of the reactions into the training set and 20% into the test set.
+Ensuring that the reactions are kept separate eliminates the risk of over-fitting of the algorithms to the corpus.
+Table 3 presents some statistics regarding the split data.
+The test set was not used during the development of the methods.
+We evaluate ranking performance using the normalized discounted cumulative gain (nDCG) metric (Jarvelin and Kekalainen, 2002).
+This metric is commonly used for measuring performance on graded relevance judgments where the gold standard does not provide a strict total ordering of the data.
+It also has the benefit that it can compare the ranking performance between queries, owing to it producing a fixed range metric (with values between 0.0 and 1.0), with larger values indicating better performance.
+Feature vectors were (L2-) normalized before applying the machine-learning methods.
+The regularization parameter (C) values of the machine-learning methods were left at their default value of 1.0.
+4 RESULTS We initially evaluated the individual contribution of each semantic search system on the training data by measuring the average hit ratio of each system separately (Table 4).
+This evaluates the ranking performance of each semantic search system on fixed document sets (i.e.system recall is not evaluated); documents that were not retrieved by a semantic search system were assigned the lowest ranking.
+The results show that the semantic search systems vary in their effectiveness, with MEDIE event best matching the gold standard.
+These results were used to define the ordering for the priority ranking heuristic (Section 3.2).
+We note that although some systems show similar overall ranking performance, detailed analysis indicates substantial differences in the document sets retrieved by the systems (see Supplementary Material).
+Table 5 shows the nDCG score of each ranking system.
+For the machine-learning methods, we found that the SVM method achieved the best results, notably outperforming the average hit ratio heuristic and BM25.
+RankSVM slightly outperformed the average hit ratio method, but SVR did not.
+The results for SVR are to be expected, as we treated relevance judgments as linearly increasing absolute scores, which imposes considerable constraints on SVR.
+In contrast, SVM and RankSVM do not have these constraints.
+The priority ranking heuristic shows competitive performance on the test data, outperforming two of the machine-learning methods and showing a notable performance improvement compared with the average hit ratio heuristic.
+For machine-learning methods, using the pairs curated in pathway models, an SVM trained on the pairs (Pathway) performed as well as RankSVM, and the pairs slightly improved performance when used for creating an additional feature for training with the data specifically annotated for ranking (SVMPathway).
+These results demonstrate that existing pathway annotations can bebeneficially combinedwith data annotated for the ranking task.
+We note that the performance of the methods on the test data appears somewhat lower than the results obtained for the Table 5.
+Evaluation of test data and rule-based scoring method on training data in nDCG Data SVMPathway Pathway SVM RankSVM SVR Priority ranking Average hit ratio BM25 Random Test 0.788 0.719 0.777 0.719 0.672 0.775 0.696 0.747 0.542 Train   0.865 0.846 0.842 0.641 Table 3.
+Statistics of the train/test data split Category Train Test All Number of reactions 36 9 45 Number of documents 360 90 450 Highly relevant 38 10 48 Relevant 26 7 33 Partly relevant 148 36 184 Not relevant 148 37 185 Table 4.
+Contribution of each semantic search system on training data in nDCG FACTA KLEIO MEDIE SVO MEDIE EVENT 0.829 0.847 0.850 0.859 i49 Integrating the evidence for pathways from text individual systems on the training data.
+However, comparison on training and test data results confirms that this is owing to differences between the two datasets; for example, the priority ranking heuristic achieves a higher level of performance (0.865 nDCG) than any single semantic search system on the training data (Table 4).
+The results confirm that it is effective to aggregate the various semantic search systems and indicate that the systems provide complementary information regarding document relevance.
+The priority ranking heuristic produced comparable results to the SVM-based ranking on the test dataset.
+This indicates that heuristic ranking informed by an analysis of the performance of the semantic search methods remains competitive with machine learning for the current training data size.
+To assess the degree to which this result depends on the specific size of the training dataset, we calculated a learning curve on the test dataset for the SVM method (Fig.4).
+We find that the performance of the SVM increases with the size of the training data up to the point of using all of the available 360 training documents, and the curve does not appear to have flattened out up to this point.
+This suggests that if given more annotated data, the SVM has the potential to outperform the heuristics, which do not require training and therefore do not benefit from additional data.
+We note also that we used a somewhat limited set of features, and that there is potential for improved performance by incorporating more detailed query-result pair-specific features, such as detailed information on how a query matches, or the rarity of the query and matched reactions.
+Table 6 gives the results of manual evaluation of PathText 2 with three settings contrasted with PubMed search, showing the top 10 precision and nDCG of the manual evaluations on five reactions.
+Each reaction had three manual evaluations, and the score shows the means of scores calculated for the three evaluations.
+PubMed provides keyword-based search and returns documents in a reverse chronological ordering (Lu, 2011).
+We refer readers to the Supplementary Material for the details of the evaluation setting.
+These results indicate that (i) documents retrieved by PathText 2 are more relevant than those retrieved by querying PubMed; (ii) query expansion is effective in retrieving relevant documents and (iii) priority ranking outperforms the average hit ratio heuristic.
+In summary, our results show that the annotated corpus can benefit both the development of ranking based on heuristic rules and the training of machine-learning methods.
+In addition, either of these approaches could result in a substantial improvement in the document ranking functionality in PathText 2, compared with the average hit ratio heuristic.
+5 DISCUSSION AND FUTURE WORK Our evaluation of the performance of the machine-learning system with respect to the training data size suggests that the machine-learning methods could benefit from additional data.
+One idea is to gain feedback from users on the perceived quality of the results while simultaneously increasing the amount of data available for training the ranking component, as for our SVMPathway model.
+This feedback might be gained by allowing users to annotate documents with relevance annotations.
+Additionally, there remain many opportunities for further improvements to the feature representation of the SVM method, which has the potential to allow for substantial increases in ranking performance.
+PathText 2 relies on pathways being specified in SBML with CellDesigner semantics.
+Although this representation is commonly used, it is not the only possible representation.
+One possibility here is to generalize the support to include SBML with alternative physical entity and reaction semantics, such as Systems Biology Ontology (SBO) (Courtot et al., 2011), as well as alternative pathway representations such as BioPAX (Demir et al., 2010).
+This could be done using established mappings between different pathway model semantics (Stromback and Lambrix, 2005) as well as automatic conversions such as that between SBML and BioPAX (Mi et al., 2011).
+Such support could further allow integration of PathText 2 with numerous domain tools such as Cytoscape (Smoot et al., 2011).
+We finally note that there remain opportunities for improvement of the semantic search systems themselves, in particular in the text-mining algorithms to recognize entities and events.
+6 CONCLUSION We have presented PathText 2, an integrated search system designed to link biological pathways with supporting knowledge in the vast body of literature.
+This system allows direct access to the most relevant documents from the literature, thus supporting various tasks in the creation, verification, maintenance and extension of pathway models.
+The system implements SBML parsing, the conversion of reactions into system-specific queries, query result combination and ranking by relevance to the given pathway reaction using heuristic or machine learningbased methods and an API supporting programmatic access to the search functionality.
+A major focus of our efforts has been Table 6.
+Manual evaluation of PathText 2 and PubMed in Top 10 precision and nDCG Evaluation Metric Priority ranking Query expansion Average hit ratio Query expansion Priority ranking PubMed Top 10 precision 0.493 0.347 0.393 0.280 nDCG 0.419 0.373 0.376 0.215 Fig.4.
+Learning curve on SVM-based ranking i50 M.Miwa et al.the development of ranking functionality that combines the candidate document information retrieved by the various text mining-based search systems into a list ordered in a way where documents most likely to be relevant to the query reaction are presented first.
+We created a corpus of 450 judgments that identify on a four-point scale the relevance of documents to reactions randomly selected from a set of four PANTHER DB pathways and used it to evaluate simple ranking heuristics, advanced heuristics informed by evaluation of the training set and three machine learning-based ranking methods.
+Our results show that an SVM-based ranking with annotations in pathway models can notably outperform the simple ranking heuristics, achieving a 0.788 nDCG score.
+An online demonstration of the PathText 2 system is accessible, and the annotated corpus is available for research purposes from the project homepage (http://www.nactem.ac.uk/pathtext2/).
+Access to the PathText 2 API is available on request.
+ACKNOWLEDGEMENTS The authors thank Yonghwa Jo and Hyeyeon Choi for their contributions to the development of the relevance judgment annotation criteria.
+This work is a part of joint research of KISTI and NaCTeM.
+They also thank Georgios V. Gkoutos (Department of Computer Science, University of Aberystwyth), Paul N. Schofield (Department of Physiology, Development and Neuroscience, University of Cambridge), Loukia Tsaprouni (Wellcome Trust, Sanger Institute), Yukiko Matsuoka (The Systems Biology Institute and JST ERATO Kawaoka infection-induced host response network project) and Manami Katoh (JST ERATO Kawaoka infection-induced host response network project) for the evaluation and Paul Thompson for his helpful comments on the manuscript.
+Funding: Part of this work is supported by the Biotechnology and Biological Sciences Research Council (BBSRC) [BB/G013160/1].
+Conflict of Interest: none declared.

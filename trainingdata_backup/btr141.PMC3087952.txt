@@ -126,4 +126,67 @@ Thus, the LS BAM should provide enough detail to meet the current informational 
 Specific examples of how the LS BAM is currently being used for software development and requirements traceability are described below.
 4.1 LS BAM and the caBIG LS Domain Analysis Model 1.1 The business processes described in a BAM also provide context for the development of information models, e.g.Class Diagrams.
 Class Diagrams present common representations of the data of a domain and their attributes, datatypes, permissible values and relationships.
-Workflows and
+Workflows and references to data that are collected, exchanged, integrated or processed in the LS BAM Use Case and Activity Diagrams can be used to create a Class Diagram for an entire domain, such as the LS Domain Analysis Model (DAM).
+Information models for many different pieces of software supporting diverse LS subdomains or workflows can be created from a single domain analysis model.
+While the LS BAM provides a description of the business processes of the LS domain, the LS DAM provides a description of the data semantics of the LS domain and is traceable to the business capabilities and processes in the LS BAM.
+For example, the data class ExperimentalItem was created in the Domain Analysis Model to capture the BAM concept of experimental items, which are specialized study materials usually required to conduct an experiment and are logically distinct from general reagents and supplies, e.g.see Identify Experimental Items (https://wiki.nci.nih.gov/x/OFNyAQ).
+As the LS BAM describes how one researchers processed data may be another researchers primary data, the existing LS DAM class, ProcessedData, was generalized to Data.
+In addition, classes and attributes in the Domain Analysis Model are being traced back to the BAM to provide a holistic representation of business processes and the data elements necessary to describe LS research concepts.
+As the LS BAM is a living model, the LS DAM will continue to be updated as required as the LS BAM expands.
+To create platform-independent interoperability among software systems, both data standards and a common business context must be applied.
+To this end, the LS DAM defines the data properties within its classes and attributes, and the LS BAM defines which of these data should be captured and exchanged, at what time and with whom.
+Conformance to these models can ensure some basic level of interoperability, as all services and applications will map to the standard use cases and classes.
+This conformance and interoperability can be validated using test conditions that validate that a given interface is conformant to the LS BAM and LS DAM specifications supporting a given LS scenario.
+For example, test scripts can be written to verify that a systems data model matches classes from the LS DAM, which are derived from use cases and actors from the LS BAM [see conformance statements in (http://bit.ly/dXkMXB)].
+4.2 LS BAM, the Enterprise Conformance and Compliance Framework and the caBIO Molecular Annotation Service Reference Implementation The caBIG initiative is adopting the HL7 Services Aware Interoperability Framework (SAIF) to support the development of semantically interoperable services.
+One SAIF component, the Enterprise Conformance and Compliance Framework (ECCF), provides software development teams with clear guidelines and a standard methodology to show compliance of the planned service to existing standards reference models such as the LS BAM and the LS DAM (http://bit.ly/abFyxP).
+The service use cases, processes and storyboards must be mapped to a standardized Use Case Diagram.
+For LS services these items are mapped to the LS BAM.
+As a reference implementation of the ECCF, the LS BAM has been used in support of the development of a Molecular Annotations (MA) Service (http://bit.ly/ax0UWK) based on the caBIO (cancer Biomedical Informatics Objects).
+caBIO is an opensource object-oriented model and data resource that integrates biomedical annotations on genes, proteins, disease ontologies, pathways and other biological entities with controlled vocabularies and metadata models originating from 23 data sources (Covitz et al., 2003; Komatsoulis et al., 2008).
+The MA service allows programmers and scientists to quickly access biological annotations in a platform-independent fashion and is currently available as a preproduction resource.
+As part of their ECCF-compliant development process, the MAservice development team created artifacts detailing the service specifications for three business use cases and mapped them to the four LS BAM 1.1 use cases: Characterize/Organize the Data, Integrate Data Sets, Annotate Findings/Results, and Identify and Review Knowledge Bases and/or Databases.
+For example, the service objective to obtain information associated with molecular entities to assist in annotating findings/results maps to the LS BAM use case Annotate Findings/Results (Supplementary Table S2 illustrates how MA use cases map to those from the LS BAM).
+4.3 LS BAM, caLIMSv2 and NCI Enterprise Services The cancer Laboratory Information Management System (caLIMSv2) development team has also extensively used the LS BAM to facilitate the design of core aspects of their ongoing efforts to create an interoperable laboratory information management system (LIMS).
+caLIMSv2 is being developed as a configurable, open-source system that utilizes a set of services to manage a complete laboratory workflow.
+These services are designed to 1433 [15:58 19/4/2011 Bioinformatics-btr141.tex] Page: 1434 14291435 L.Becnel Boyd et al.interoperate with biospecimen management and experimental results management services, such as those that are being implemented in caTissue and caArray, respectively.
+Core LIMS functions include the management of personnel, equipment, lab supplies, reagents, samples, workflows and experimentally derived metadata and data.
+The team reviewed the Use Case Diagram and utilized concepts such as equipment (Identify Equipment), facilities (Identify Facilities particularly core facilities), data and metadata (Obtain Data, Metadata and Annotations) and configuration of the experimental system (Configure Equipment and Configure Software Tools).
+In addition to the LS BAM use cases, the actors within the model were also of significant value to the creation of privilege-based roles for end users in the system.
+These actors included organizations such as Collaborative teams (Collaborators), Oversight Bodies [Institutional Review Board (IRB) and IACUC] and individual persons, such as Bioinformaticians, Statisticians and Students.
+caLIMSv2 developers also provided critical feedback to the LS BAM team, as during their review process they identified the need for use cases surrounding the management of data (Manage Data).
+Thus, the LS BAM was utilized to identify areas that were within the scope of a LIMS, but had not previously been included in a standardized way in caLIMSv2 development plans.
+LS BAM is also being used to evaluate and identify NCI Enterprise Services (NES).
+The NES is a portfolio of software services that can be implemented in any LS application to facilitate interoperability.
+Services that have been implemented through the caBIG program include those that expose data for organizations, people, protocol abstraction and the correlation among these entities.
+Once core specifications were developed for the caLIMSv2 services, analysts reviewed the existing NES to determine if all concepts were present and found that some of the concepts that were taken from the LS BAM were missing in the Correlation of Organizations and Person services.
+The analysts took these findings back to the NCI Enterprise Architecture team, who are currently reviewing the feedback and may revise or create additional standard services.
+Using the LS BAM, the caLIMSv2 team was able to review the existing services within the NES portfolio to identify areas in which such services were needed.
+4.4 Future directions Efforts are underway to expand the LS BAM by creating additional Activity Diagrams for priority concerns in the areas of next generation sequencing, pathology and imaging, all areas of particular interest to the caBIG community.
+The LS BAM is one of several caBIG BAMs, including CR, population sciences, clinical information and patients involved in human subjects research.
+As there are significant areas of overlap and synergy of purpose among these BAMs, there are plans to integrate them to create a caBIG Translational Medicine BAM (Fig.4).
+Coordinating the growth and expansion of the Translational Medicine BAM will be important to its sustainability; therefore, the governance processes are being developed to manage updating, expansion and maintenance of the BAMs in response to user feedback.
+A number of activities in LS BAM development and use have been identified for future work.
+The LS BAM use cases will be expanded in areas of priority, actors will be fully incorporated into the Use Case Diagram, and additional Activity Diagrams will be created for processes related capabilities critical to the caBIG community.
+Fig.4.
+The Translational Medicine BAMconceptual future vision.
+Currently there are two mature caBIG BAMsa LSs research BAM and a CR BAM.
+Work has begun to create BAMs for population sciences, cancer electronic health records and patients involved in human subjects research (Patient BAM).
+The vision is that these individual models will eventually be integrated to form the Translational Medicine BAM (rectangle).
+Areas of synergy between goals documented within the various BAMs are represented by overlap.
+BAM circle circumference represents the current relative maturity and size of each model.
+Mapping the LS BAM to the LS DAM will be a priority activity for the caBIG program and the SAIF ECCF governance process to promote semantic harmonization across business processes supported in the NCI inventory of services.
+Mapping existing caBIG software capabilities to the BAM is another area of possible activity to communicate where there is current tooling support and where there are gaps.
+As the model continues to mature, its utilization will likely expand beyond informing NCI system requirements.
+Although it is not possible to predict all of the ways in which the model will be utilized, the CR BAM is likely a useful indicator for how the LS BAM will be used in the future, as it shares much of the same biomedical research-oriented target audience as the LS BAM.
+The Mayo Clinic is using the CR model to direct the development of functional requirements for the creation of software (Sharon Elcombe, personal communication).
+As the CR BAM provides clear descriptions of business processes, Wake Forest University uses the model as a training tool for those who are unfamiliar with CR actors, goals, processes and terminologies (Bob Morrell, personal communication).
+This usage can be particularly helpful for those in the role of business analyst, as the BAM can help identify the appropriate personnel with whom to speak and formulate questions.
+It is anticipated that the LS BAM and the overarching Translational Medicine BAM will be used in a similar manner.
+To facilitate system interoperability across the cancer research enterprise, the LS BAM (and the LS DAM) can be used beyond caBIG to support their requirements definition efforts.
+Common business and information models provide a consistent understanding of business processes and data to be collected and exchanged, which should lower the barrier to interoperability.
+The model may therefore be a resource to train software engineers, facilitate development of standards and underpin software validation in many organizations, such as cancer centers, commercial tool providers or other large research institutions.
+To meet this goal, feedback from the 1434 [15:58 19/4/2011 Bioinformatics-btr141.tex] Page: 1435 14291435 The caBIG Life Science Business Architecture Model community will be required to ensure that the LS BAM accurately models goals and activities of the LS domain; thus, members of the LS research community are asked to review the model, provide feedback and post questions (http://bit.ly/9DYSX1).
+ACKNOWLEDGEMENTS We thank Bob Morrell, Sharon Elcombe, Jason Hipp, Robert Freimuth and Konrad Rokicki for helpful discussions and advice.
+Funding: Contracts from Booz Allen Hamilton on behalf of the National Cancer Institute as a part of the cancer Biomedical Informatics Grid (caBIG) Initiative Integrative Cancer Research Workspace.
+Conflict of Interest: none declared.

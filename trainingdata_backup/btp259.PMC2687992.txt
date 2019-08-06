@@ -8,4 +8,190 @@ We then link the UMLS concepts to classes in open biomedical ontologies.
 The result is accessible and clear semantic annotations of gene expression experiments.
 We applied the method to 595 expression experiments from Gemma, a resource for re-use and meta-analysis of gene expression profiling data.
 We evaluated and corrected all stages of the annotation process.
-The majority of missed annotations were due to a lack of cross-
+The majority of missed annotations were due to a lack of cross-references.
+The most errorprone stage was the extraction of concepts from phrases.
+Final review of the annotations in context of the experiments revealed 89% precision.
+A naive system, lacking the phrase to concept corrections is 68% precise.
+We have integrated this annotation pipeline into Gemma.
+Availability: The source code, documentation and Supplementary Materials are available at http://www.chibi.ubc.ca/GEOMMTX.
+The results of the manual evaluations are provided as Supplementary Material.
+Both manual and predicted annotations can be viewed and searched via the Gemma website at http://www.chibi.ubc.ca/Gemma.
+The complete set of predicted annotations is available as a machine readable resource description framework graph.
+Contact: paul@chibi.ubc.ca 1 INTRODUCTION A challenge in the utilization of genomics databases is in the automated retrieval of relevant data.
+For example, naive approaches to automatically retrieve gene expression studies about brain will fail to find datasets that only mention cerebrum in their descriptions, because free text-based retrieval algorithms are generally unable to make the inference that cerebrum is part of brain.
+To whom correspondence should be addressed.
+In addition, using free text for information retrieval can produce false positives due to ambiguity and additional false negatives due to synonyms (Bhogal et al., 2007).
+For these reasons, it is valuable to use formal ontologies to describe genomics studies, where inference can be conducted using the structure of the ontology.
+However, tagging studies with terms from ontologies is currently done by human curators.
+Such manual curation efforts are costly and often lag behind the generation of new datasets.
+In this article, we describe efforts to use automated text analysis to assist in the process of accurately tagging genomics studies with terms from ontologies for later retrieval and analysis operations.
+Semantically rich annotation is possible in the biomedical domain as there are now available formal ontologies for anatomy, phenotype, environment, cell types and many other areas (Smith et al., 2007).
+Using formal ontologies affords a number of advantages in addition to the information retrieval scenario described above.
+A concept in an ontology can have extensive semantic information beyond its textual representation, and allows computational integration with other resources that use the same ontologies (Rubin et al., 2008).
+Of particular interest for biomedical resource annotation are the open biomedical ontologies (OBOs) (Smith et al., 2007) and the Unified Medical Language System (UMLS) (Bodenreider, 2004).
+Previous work on automated genomics experiment annotation has often linked textual names and synonyms to concepts from the UMLS (Butte and Kohane, 2006).
+However, OBO offers some advantages.
+First, the UMLS is very large and broad in scope, containing concepts from over 100 source vocabularies (Bodenreider, 2004), which makes it unwieldy.
+Second in contrast to the UMLS, which requires registration due to license restrictions on the source vocabularies, the OBOs are publicly accessible online (Smith et al., 2007).
+Third, UMLS is complex because its many source vocabularies provide differing relationships between concepts, in contrast to the more orthogonal nature of the OBOs.
+For example, two UMLS concepts may form a parentchild relationship in one source vocabulary and a sibling relationship in another.
+In OBO, those two concepts would exist in only one source because OBO enforces orthogonality, providing a single view of their relations.
+Finally, UMLS lacks tools for programmatically navigating its complex data structures (Srinivasan, 2008).
+Because we used ontologies defined in the Web Ontology Language (OWL) and represent our results in resource description framework (RDF), we were able to use general purpose semantic web tools.
+Importantly, mappings exist between many UMLS and OBO concepts.
+2009 The Author(s) This is an Open Access article distributed under the terms of the Creative Commons Attribution Non-Commercial License (http://creativecommons.org/licenses/ by-nc/2.0/uk/) which permits unrestricted non-commercial use, distribution, and reproduction in any medium, provided the original work is properly cited.
+[15:09 18/5/2009 Bioinformatics-btp259.tex] Page: 1544 15431549 L.French et al.Here, we focus our attention on annotation of data in Gemma, a resource for re-use and meta-analysis of gene expression profiling data (Hamer,K.
+et al., submitted for publication, http://www.chibi.ubc.ca/Gemma).
+The majority of Gemmas datasets is downloaded from the Gene Expression Omnibus (GEO), which provides primarily free text descriptions of data and limited use of controlled vocabularies (Barrett et al., 2007).
+Over 500 gene expression experiments from mouse, human and rat have been manually annotated with ontology terms in Gemma, providing a useful resource for evaluating automated methods.
+The annotations are linked to the experiments using categories from the MGED Ontology (Whetzel et al., 2006).
+Furthermore, Gemmas search employs query expansion using ontology reasoners.
+For example, a search for brain will return all experiments annotated with any part of the brain.
+While the ultimate goal of our annotation efforts is to formally describe every sample in Gemma, our current work focuses on providing useful high-level descriptions of experiments.
+A typical use case is the retrieval of all cancer-related studies.
+The fact that this might retrieve studies that contain cancer as well as non-cancer samples is acceptable in this scenario.
+Therefore, we aim to automatically link experiments to concepts that identify the treatments, conditions or locations.
+A similar task is extraction of diagnosis from clinical documents and medical records or Gene Ontology terms from literature (Spasic et al., 2005; Zeng et al., 2006).
+We evaluated a simple approach for automatic annotation of gene expression experiments using standard OBOs.
+We used natural language processing to link phrases to biomedical concepts from a large lexicon and then map them to OBOs.
+Importantly, we extensively evaluated the method, and show that it yields very high quality annotations with few false positives.
+Although we designed our system with the Gemma system in mind, the approach is general and should be applicable to other databases.
+2 METHODS 2.1 MetaMap Transfer To map text to concepts in UMLS, we used the MetaMap Transfer software (MMTx version) developed at the National Library of Medicine (http://mmtx.nlm.nih.gov/).
+MMTx retrieves UMLS concepts from input free text by matching terms derived from the concepts.
+Natural language processing is used to parse text into sentences, phrases, tokens and parts of speech (Smith et al., 2004).
+Phrases are the result of MMTx parsing the sentences for preposition phrases and noun phrases.
+These phrases are matched against the terms (textual realizations of a concept).
+The terms for a concept come from its main name, synonyms and abbreviations from UMLS.
+The terms are then expanded to produce spelling, derivational and inflectional variants.
+This results in a vast number of terms, primarily due to the size and sources of UMLS.
+For each term and phrase, MMTx scores the pair using measures of coverage, cohesiveness, centrality and variation (Aronson, 2001; Aronson, 2006).
+The final result is several scored concepts for each phrase.
+For a detailed example of how the system uses MMTx, view the Supplementary website.
+We used MMTx to perform the main tasks of natural language processing and mapping to UMLS concepts.
+We employed version 2.4C using the default strict database derived from UMLS version 2006AA as provided by the MMTx website.
+Our initialization options for MMTx are an_derivational_variants to allow adjectivenoun derivational variation and no_acros_abbrs to limit the use of acronym/abbreviation variants.
+For each phrase in the input text, we keep all final mappings with an MMTx score >850.
+Although the MMTx score ranges from 0 to 1000, we set a high limit to reduce processing time and the amount of evaluations.
+Although we record the UMLS string and concept identifiers, we only store those that have a mapping to one of the three ontologies described below.
+2.2 Ontologies For this study, we limited our analysis to three ontologies to represent concepts from the domains of neuroscience, anatomy and diseases: BIRNLex (Bug et al., 2008), Foundational Model of Anatomy (FMA; Rosse and Mejino, 2003) and Disease Ontology (DO) (http://diseaseontology.sourceforge.net/).
+Concept identifiers or codes from the original source are cited during curation into UMLS.
+Conversely, some ontologies are based on UMLS concepts and reference UMLS directly.
+Many other ontologies or terminologies have these references and could be used in our system such as the Gene Ontology (Ashburner et al., 2000), Medical Subject Headings (MeSHs), the NCI Thesaurus (Sioutos et al., 2007) and the NCBI taxonomy (Wheeler et al., 2001).
+Each is a UMLS source, allowing direct linking from MMTx results.
+While there are ontologies created specifically for the annotation of gene expression data (Kelso et al., 2003), we choose larger general purpose ontologies with UMLS cross-references, allowing us to leverage the UMLS software systems.
+FMA is recognized as a high quality ontology and listed as a mature ontology in the OBO Foundry (Smith et al., 2007).
+We used the Lite version which only contains the relationships for is_a, part_of and has_part (Rosse and Mejino, 2003).
+We converted 61 370 Digital Anatomist IDs provided by UMLS into URIs (uniform resource identifiers) referring to the same concepts in the FMA lite ontology.
+The DO is primarily designed for medical coding purposes and is based primarily on the UMLS.
+Like FMA, it is considered a mature OBO Foundry ontology.
+The cross-references were extracted by retrieving all classes that had hasDbXref (http://www.geneontology.org/formats/oboInOwl#) property to UMLS concept identifiers (CUI) prefixed with UMLS_CUI:.
+The result is 17 776 UMLS concept references.
+BIRNLex is an ontology-based lexicon developed to support the Biomedical Informatics Research Network (Bug et al., 2008).
+With a focus on neurodegenerative disease, it provides extensive concepts pertaining to sensation, behavior, cognition and neuroanatomy.
+It follows the OBO Foundry guidelines and was chosen to enhance Gemmas utility as a neuroinformatics resource.
+Four hundred and sixty-nine cross-references were extracted by retrieving all classes that had the UmlsCui (http://purl.org/nbirn/birnlex/ontology/annotation/ OBO_annotation_properties.owl#) property, which point to UMLS CUIs.
+2.3 Gemma For each microarray experiment, we used several sources of free text as input.
+At the top level, we used the main title and description.
+In some cases, the experiments are linked to journal articles, for which we processed the title and abstract.
+For each RNA sample, we processed its name and description.
+To reduce computation time we employed a memory cache that recalled the concepts from previously seen text fragments.
+We used experiments performed on rat, mouse and human samples.
+Although the ontologies we used are not organism independent, we found that they are useful for annotation of the three mammalian experiment types.
+For evaluation we extracted annotations previously applied by the Gemma curators before our method was applied.
+Although the annotations occur as both free text and concepts from several ontologies, we selected only the annotations that were present in one of the aforementioned ontologies.
+2.4 OWL/RDF data We used the Jena semantic web API throughout the project (http://jena.
+sourceforge.net/).
+Queries were written in the SPARQL language and executed using ARQ query engine.
+Tabulator (http://www.w3.org/2005/ajar/ tab) and IsaViz (http://www.w3.org/2001/11/IsaViz/) tools were used to 1544 [15:09 18/5/2009 Bioinformatics-btp259.tex] Page: 1545 15431549 Automated annotation of gene expression experiments visualize the generated RDF data.
+OWL versions of FMA Lite and DO were downloaded from the OBO Download matrix (http://www.berkeleybop.org/ ontologies/).
+2.5 Evaluation We evaluated the process of converting free text to UMLS concepts, and separately the mapping of concepts to URIs.
+Additionally, we evaluated whether the final extracted term was appropriate for the original Gemma experiment.
+Each evaluation was performed by two human curators (SL, TL or LX) and final agreement was achieved through review.
+To examine the extraction from phrase to CUI, we reviewed a list of phrases and their mappings.
+For each phrase and concept extracted by MMTx a UMLS string identifier is provided (SUI).
+The SUI allows filtering of specific synonyms linked to a concept.
+Because many phrases can result in the same SUI and CUI combination, we reviewed all phrases for each.
+If one phrase was deemed to be a false positive for that concept, then that CUI+SUI combination was rejected.
+Several guidelines were created for this evaluation: (1) we rejected abbreviations unless the whole term contained a word (e.g.CA1 region).
+(2) In some cases, the concept name does not fit the phrasefor example, gland Gland Structure.
+In these cases we referred to UMLS for the definition of the concept.
+(3) We accepted mappings to concepts even if they were considered uninformative or nonspecific, for example, Branch or Genes.
+Note that some of these terms are filtered out at later stages.
+(4) We rejected general to specific mappings and accepted the reverse.
+For example, we would reject the mapping of the free text deficiency to the UMLS concept of Malnutrition, but would accept the mapping of the free text malnutrition to the concept Deficiency.
+For a given phrase MMTx provides many concepts, some of which are outside our scope.
+For our evaluation we only reviewed phrases and concepts that had a cross-reference to a FMA, DO or BIRNLex URI.
+We comprehensively reviewed this entire set of 7449 phrase-to-concept mappings for errors.
+To validate that the mapping from UMLS concept to URI was correct, we manually reviewed 387 cross-references.
+This evaluation was done on only a subset of the data as the cross-references were expected to be more accurate than text processing, since they were created by expert curators (i.e.they are provided as part of the UMLS system or the ontologies).
+Specifically, we assumed as correct 609 cross-references where the UMLS concept name and the URI label matched (ignoring case).
+Although the resolved concept might fit the phrase it was found in, it may not describe the experiment.
+A phrase extracted and successfully mapped to a UMLS concept may have a different meaning in the context of the experiment.
+For example, a study abstract that mentioned malnutrition may have done so in passing, not in the context of describing the study itself.
+We evaluated the appropriateness of the automatically generated annotations in two ways.
+First, we compared predicted annotations to annotations drawn from the same ontologies that were previously added to Gemma by curators.
+Exact comparison was performed by matching the URIs.
+However, because the number of manual annotations was limited, this could only provide an accurate measure of false negatives and a lower bound of true positive predictions.
+To get a second measure of accuracy, we manually reviewed the predicted annotations for a random sample of 100 experiments, excluding concepts that were already manually annotated.
+Two curators manually reviewed each of the 100 experiments and marked each predicted annotation as correct or incorrect.
+The guidelines for the manual evaluation of annotation quality performed on the 100 experiments focused on information retrieval.
+We accepted concepts that described an experiment even if a more precise concept was appropriate, for example we would accept a cancer annotation of a lung cancer dataset.
+After review, we decided to accept an annotation of concept C if, in the judgment of the evaluator, a researcher searching for datasets pertaining to C would want to retrieve the experiment.
+We rejected concepts that described the experimental method or technique used (e.g.Decapitation in the preparation of mouse brain tissue).
+3 RESULTS Our approach uses the entire UMLS for the text mining stage, and then translates the UMLS concepts to three domain-specific ontologies (Fig.1).
+By narrowing down to the specific ontologies, we reduce the number of concepts to the domains of neuroscience, anatomy and diseases.
+Using the open ontologies follows the efforts of other neuroinformatics resources that have provided data in semantic web formats (French and Pavlidis, 2007; Ruttenberg et al., 2007).
+The results of running our mapping procedure are outlined in Tables 1 and 3.
+For all Gemma experiments, 58 030 text to URI mappings were found.
+Further processing reduced the predictions to 2740 URI to experiment pairings between the 782 URIs and 595 experiments.
+The predicted annotations are provided as a RDF graph.
+3.1 Text mining evaluation We manually evaluated all 7449 phrase-to-CUI MMTx mappings, yielding a rejection rate of 17%.
+Inter-evaluator agreement was 91%.
+We manually reviewed the conflicts for full agreement, resulting in 246 rejected SUI to CUI pairings.
+The main reasons for rejection were ambiguous terms and general to specific mappings.
+As a result of the CUI to URI evaluation, we rejected only four pairings that corresponded to the UMLS to FMA pairings of NeurotransmittersBiogenic amine; LaminaSubintima; CephalicRostral; and BranchLeaf of cardiac valve.
+A further nine UMLS mappings pointed to non-existent FMA URIs and were removed.
+To remove uninformative concepts from the results, we manually selected concepts from a list of most frequently found annotations.
+In addition, we designated concepts to be uninformative during the manual evaluation of annotation quality.
+Examples from the full list of 19 include Genes, RNA and Cells.
+The complete list is available as Supplementary Material.
+3.2 Extraction We ran our program on all 595 gene expression experiments stored in the Gemma system.
+It extracted 801 unique concepts from the text sources.
+Processing time averaged 46 s per experiment on a dual core 2.6 GHz processor.
+Most of this time was attributable to computations done by MMTx.
+Before filtering rejected mappings, MMTx found 58 030 mentions of concepts that had mappings to one or more of the three ontologies.
+Filtering for rejected and uninformative mappings reduced this amount to 26 525 mentions (Table 1).
+Predicted annotations could come from multiple free text sources associated with the experiment.
+At the top level, 3075 mentions (12%) were extracted from the main title and description.
+The titles and abstracts of linked journal abstracts revealed 2384 mentions (9%).
+The names and descriptions of experimental samples (representing a single microarray run) resulted in 21 066 1545 [15:09 18/5/2009 Bioinformatics-btp259.tex] Page: 1546 15431549 L.French et al.Fig.1.
+Outline of the methods.
+The procedure starts with free text associated with a genomics study.
+The text is converted to UMLS concepts then mapped to a FMA ontology term.
+The ontology term can then be associated with the genomics study.
+Table 1.
+Number and accuracy of mentions before and after filtering steps Stage Mentions Annotations Recall Precision (min) Unfiltered 58 030 5484 0.497 0.094 Filtered for rejected SUI + CUI, and CUI URI pairs 39 155 3985 0.488 0.128 Filtered for uninformative concepts 26 525 2740 0.488 0.185 mentions (79%).
+The concepts found across these sources are not unique and many duplicates exist within and across the sources.
+These repetitions are demonstrated by our final list of 26 525 mentions that reduces to 2740 unique experimentconcept pairs.
+Table 2 displays the predicted annotation concepts and their frequencies.
+The average number of predicted annotations per experiment was 4.6.
+Thirty-five experiments had no predicted annotations.
+At the maximum, an experiment surveying tissuespecific expression in mouse had 60 predicted annotations (48 are from the FMA).
+3.3 Evaluation of annotation relevance Because our goal is to generate meaningful annotations of expression studies, we performed an evaluation of the relevance of predicted annotations to the target experiments.
+As described in the methods, we did this in two ways: by comparing predicted annotations to manually generated ones, and by manually evaluating the quality of predicted annotations.
+These evaluations are covered in the next two sections.
+3.4 Comparison to manual annotations Due to the cost of manual annotation, curation in Gemma is incomplete.
+In other words, we expect that the automated procedure will generate correct annotations which are, strictly speaking, false positives when compared with the existing manual annotations.
+Indeed, the manual annotation yielded only 1.8 concepts per experiment, while our method produced 4.6.
+Thus, the comparison to manual annotations provides an estimate of recall but only a lower bound on precision.
+The system automatically recalled approximately half of the 1042 existing manual annotations in Gemma.
+For 213 experiments, our method perfectly recalled all 298 of the existing annotations.
+Table 3 shows how performance varied across the three ontologies.
+Predictions of FMA concepts were the most numerous and precise but recall was relatively low.
+BIRNLex annotations were low in number owing to its small scope and limited Table 2.
+Top 40 concepts mapped to experiments Concept name Count Brain 119 Cerebral cortex 61 Spinal cord 56 Malignant neoplasms 55 cancer 49 Hippocampus 46 Spleen 42 Stem cell 35 Cerebellum 34 Heart 32 Liver 31 Muscle tissue 30 Kidney 28 Pair of lungs 27 Infection 25 Communicable diseases 24 Nervous system 21 Skeletal muscle tissue 21 Breast 21 Epithelial cell 19 Blood 18 Hypothalamus 17 Neurodegenerative disorders 17 Chromosome 16 Retina 16 Carcinoma 16 Prostate 16 Neoplasm metastasis 15 Frontal lobe 15 Bone marrow 15 Malignant neoplasm of breast 15 Breast carcinoma 15 Amygdala 14 Colon 14 Alzheimers disease 13 Neuraxis 13 Mammary neoplasms 12 Primary tumor 12 Fibroblast 12 Epithelium 11 UMLS mappings.
+Manual inspection of the disease predictions revealed many related predictions for a single disorder, possibly explaining the low precision.
+An example is the experiment Cytotoxic activity of HTI-286 in prostate cancer (GSE8325).
+Predicted annotations for this study were Malignant neoplasm of prostate, Malignant Neoplasms, Refractory Carcinoma and finally Prostate carcinoma, which was the only annotation chosen 1546 [15:09 18/5/2009 Bioinformatics-btp259.tex] Page: 1547 15431549 Automated annotation of gene expression experiments Table 3.
+Comparison to manual annotations, divided by ontology Name Existing Predicted Intersection Recall Precision (min) FMA 682 1351 304 0.446 0.225 DO 217 1041 127 0.585 0.122 BIRNLex 143 348 77 0.538 0.221 All 1042 2740 508 0.488 0.185 Table 4.
+Recall of annotations with cross-
