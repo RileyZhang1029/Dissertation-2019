@@ -1,5 +1,5 @@
 Syst.Biol.
-55(1 ):89-96, 2006 Copyright Society of Systematic Biologists ISSN: 1063-5157 print/ 1076-836X online DO1:10.1080/10635150500433565 Comparative Performance of Bayesian and AIC-Based Measures of Phylogenetic Model Uncertainty MICHAEL E. ALFARO1 AND JOHN P. HUELSENBECK2 1 School of Biological Sciences, P.O.
+55(1 ):89-96, 2006 Copyright Society of Systematic Biologists ISSN: 1063-5157 print/1076-836X online DO1:10.1080/10635150500433565 Comparative Performance of Bayesian and AIC-Based Measures of Phylogenetic Model Uncertainty MICHAEL E. ALFARO1 AND JOHN P. HUELSENBECK2 1 School of Biological Sciences, P.O.
 Box 644236, Pullman, Washington 99164-4236, USA; E-mail: alfaro@wsu.edu 2Section Ecology, Evolution, and Behavior, 9500 Gilman Drive, Muir Biology 0116, La Jolla, California 92093, USA; E-mail: johnh@biomail.ucsd.edu Abstract.
 Reversible-jump Markov chain Monte Carlo (RJ-MCMC) is a technique for simultaneously evaluating multiple related (but not necessarily nested) statistical models that has recently been applied to the problem of phylogenetic model selection.
 Here we use a simulation approach to assess the performance of this method and compare it to Akaike weights, a measure of model uncertainty that is based on the Akaike information criterion.
@@ -38,7 +38,7 @@ The Akaike information criterion is a metric that describes the Kullback-Liebler
 55 true model (Akaike, 1973).
 The AIC score for each candidate in a pool of models can be calculated as where t is the log of the maximum likelihood of the model and K is the number of parameters.
 Akaike weights are based on the difference in AIC score between each model in the pool and the best model.
-To calculate the Akaike weight, one first calculates these differences (AAIC): A AIC/ =AIQ-minAIC The relative likelihood of a model g, is a function of its Akaike difference A, (Burnham and Anderson, 2003) L(g|.|0)cxexp(-1/2A/) where 6 is the data.
+To calculate the Akaike weight, one first calculates these differences (AAIC): A AIC/=AIQ-minAIC The relative likelihood of a model g, is a function of its Akaike difference A, (Burnham and Anderson, 2003) L(g|.|0)cxexp(-1/2A/) where 6 is the data.
 By normalizing these relative likelihoods, the Akaike weight (w,) of each model can be calculated.
 W; = exp(-l/2A,) r R =1exp(-l/2Ar) Here R is the number of models in the pool of candidate models.
 Akaike weights sum to one and have the interpretation of describing the weight of the evidence favoring model i as the model that minimizes the Kullback-Liebler distance to the true model (Burnham and Anderson, 2003).

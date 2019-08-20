@@ -1,6 +1,4 @@
-          OP-CBIO130626 768..774 Vol.
-30 no.
-6 2014, pages 768774 BIOINFORMATICS ORIGINAL PAPER doi:10.1093/bioinformatics/btt611 Sequence analysis Advance Access publication November 4, 2013 WaveCNV: allele-specific copy number alterations in primary tumors and xenograft models from next-generation sequencing Carson Holt1,y, Bojan Losic1,y,z, Deepa Pai1, Zhen Zhao1, Quang Trinh1, Sujata Syam1, Niloofar Arshadi1, Gun Ho Jang1, Johar Ali1, Tim Beck1, John McPherson1 and Lakshmi B. Muthuswamy1,2,* 1Ontario Institute for Cancer Research, Toronto, ON, M5G 0A3, Canada and 2Department of Medical Biophysics, University of Toronto, Toronto, ON, M5G 2M9, Canada Associate Editor: Martin Bishop ABSTRACT Motivation: Copy number variations (CNVs) are a major source of genomic variability and are especially significant in cancer.
+Motivation: Copy number variations (CNVs) are a major source of genomic variability and are especially significant in cancer.
 Until recently microarray technologies have been used to characterize CNVs in genomes.
 However, advances in next-generation sequencing technology offer significant opportunities to deduce copy number directly from genome sequencing data.
 Unfortunately cancer genomes differ from normal genomes in several aspects that make them far less amenable to copy number detection.
@@ -31,7 +29,7 @@ yThe authors wish it to be known that, in their opinion, the first two authors s
 zPresent address: Icahn Institute for Genomics and Multiscale Biology, Graduate School of Biological Sciences, Icahn School of Medicine at Mount Sinai, New York, NY 10029-6574.
 The Author 2013.
 Published by Oxford University Press.
-This is an Open Access article distributed under the terms of the Creative Commons Attribution Non-Commercial License (http://creativecommons.org/licenses/ by-nc/3.0/), which permits non-commercial re-use, distribution, and reproduction in any medium, provided the original work is properly cited.
+This is an Open Access article distributed under the terms of the Creative Commons Attribution Non-Commercial License (http://creativecommons.org/licenses/by-nc/3.0/), which permits non-commercial re-use, distribution, and reproduction in any medium, provided the original work is properly cited.
 For commercial re-use, please contact journals.permissions@oup.com https://github.com/WaveCNV mailto:lakshmi.muthuswamy@gmail.comxenograft (PDX) models are being increasingly used in pre-clinical settings to understand tumor biology and therapy response (Huynh et al., 2011; Morton and Houghton, 2007).
 Assignment of digitized copy number to CNVs in these models becomes increasingly difficult due to mouse contamination of the tumor samples that introduces noise in the sequencing coverage as well as allele frequencies for SNVs (both of which are integral to CNV calling methods).
 Although algorithms such as qpure (Song et al., 2012), genoCN (Sun et al., 2009), ASCAT (Van Loo et al., 2010) and ABSOLUTE (Carter et al., 2012) model for stromal contamination and ploidy estimation on SNP array data, they do not function for genome sequencing data.
@@ -166,7 +164,7 @@ Our concordance with CNVnator is one of the highest reported so far between any 
 There are key additional features that are unique to our algorithm, which are critical for cancer genomes.
 WaveCNV successfully combines the read depth distribution, MAF and reference-based normalization of tumor with matched normal to estimate ploidy of the genome and corrects for mouse contamination with the additional benefits of copy number allele assignments and LOH detection.
 We have a well-defined mechanism to control for detectable event sizes at different levels of sequencing coverage and tumor sample cellularity.
-Also although WaveCNV can assign copy numbers to any segment within the genome, the primary focus of cancer research is on the somatic changes and somatic CNVs are identified in our output by integrating matched normal/ controls into the copy number analysis.
+Also although WaveCNV can assign copy numbers to any segment within the genome, the primary focus of cancer research is on the somatic changes and somatic CNVs are identified in our output by integrating matched normal/controls into the copy number analysis.
 4 DISCUSSION We have developed a computational algorithm to detect CNV boundaries from whole-genome sequencing data and assigned digitized copy number by modeling for sample-specific confounding factor such as aneuploidy, normal/diploid contamination of primary tumors and mouse contamination in xenograft models.
 The segmentation algorithm based on wavelet transform provides a unique opportunity to probe the genome in any Fig.5.
 Validation of copy number calls using three methods.

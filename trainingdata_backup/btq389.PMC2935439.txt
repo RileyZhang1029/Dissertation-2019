@@ -1,5 +1,4 @@
-            G:\bioinformatics\Bioinfo-ECCB(suppl-26)\btq389.dvi [11:05 28/8/2010 Bioinformatics-btq389.tex] Page: i589 i589i595 BIOINFORMATICS Vol.
-26 ECCB 2010, pages i589i595doi:10.1093/bioinformatics/btq389 Bayesian experts in exploring reaction kinetics of transcription circuits Ryo Yoshida, Masaya M. Saito, Hiromichi Nagao and Tomoyuki Higuchi The Institute of Statistical Mathematics, Research Organization of Information and Systems, 10-3 Midori-cho, Tachikawa, Tokyo, 190-8562, Japan ABSTRACT Motivation Biochemical reactions in cells are made of several types of biological circuits.
+Motivation Biochemical reactions in cells are made of several types of biological circuits.
 In current systems biology, making differential equation (DE) models simulatable in silico has been an appealing, general approach to uncover a complex world of biochemical reaction dynamics.
 Despite of a need for simulationaided studies, our research field has yet provided no clear answers: how to specify kinetic values in models that are difficult to measure from experimental/theoretical analyses on biochemical kinetics.
 Results: We present a novel non-parametric Bayesian approach to this problem.
@@ -26,7 +25,7 @@ Alternatively, maximum and minimum levels of gene expression data provide a help
 The Gibbsian mixture distribution, enabling Bayesian expert system in kinetic explorations, aggregates such m constraint conditions on the kinetic parameters that are induced automatically in light of experimental data and reaction speeds inherent in given models.
 The Author(s) 2010.
 Published by Oxford University Press.
-This is an Open Access article distributed under the terms of the Creative Commons Attribution Non-Commercial License (http://creativecommons.org/licenses/ by-nc/2.5), which permits unrestricted non-commercial use, distribution, and reproduction in any medium, provided the original work is properly cited.
+This is an Open Access article distributed under the terms of the Creative Commons Attribution Non-Commercial License (http://creativecommons.org/licenses/by-nc/2.5), which permits unrestricted non-commercial use, distribution, and reproduction in any medium, provided the original work is properly cited.
 [11:05 28/8/2010 Bioinformatics-btq389.tex] Page: i590 i589i595 R.Yoshida et al.This article describes our Bayesian experts, focusing on key examples of specific types of in silico transcription circuits.
 Transcription factor activities are modelled on Hill functions and mass action kinetics (Alon, 2006; Wilkinson, 2006) as described in Section 2.
 To emphasize the ability of the Bayesian expert prior, we explore unknown parameters using a simplified stochastic search algorithm without using more advanced computational techniques.
@@ -175,7 +174,7 @@ The black circles in the panels corresponding to the seven mRNAs denote the expe
 The error bars (vertical red lines) indicate the maximum and minimum values among 20 simulated trajectories with different sets of the parameters that were estimated by repeating the Bayesian expert search independently.
 modelits mathematical form is available in the Supplementary Materialcontains 116 unknown parameters in total, consisting of 97 kinetic parameters and 19 initial conditions on x(0).
 The search methods were applied to time course gene expression indices from GeneChip mouse genome microrrays (Ueda et al., 2002).
-Of the 19 variables, temporal expression changes of the seven mRNAs were measured along 12 time points equally spaced on 44 h (http://sirius.cdb.riken.jp/MouseSCN/ MouseSCNCCG(020707).html).
+Of the 19 variables, temporal expression changes of the seven mRNAs were measured along 12 time points equally spaced on 44 h (http://sirius.cdb.riken.jp/MouseSCN/MouseSCNCCG(020707).html).
 A much detailed information on the specified prior distributionsvalues for , temperature and conventional Gaussian priors used in combinationsis accessible from the Supplementary web site, as well as the LiSDAS code that can reproduce the subsequent numerical analyses with a default configuration file.
 Figure 2 displays simulation trajectories of the 19 endogenous variables, where the identified kinetic parameters and initial state variables were defined as the i exhibiting the best fit in terms of P(Y |i).
 The DEs were solved using the Euler discretization with 700 time steps equally spaced on the entire time interval.

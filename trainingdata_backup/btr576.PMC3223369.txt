@@ -1,7 +1,4 @@
-            K:\bioinformatics\Bioinfo-27(23)issue\btr576.dvi [17:15 4/11/2011 Bioinformatics-btr576.tex] Page: 3286 32863292 BIOINFORMATICS ORIGINAL PAPER Vol.
-27 no.
-23 2011, pages 32863292doi:10.1093/bioinformatics/btr576 Structural bioinformatics Advance Access publication October 13, 2011 Protein stability: a single recorded mutation aids in predicting the effects of other mutations in the same amino acid site Gilad Wainreb1, Lior Wolf2,, Haim Ashkenazy1, Yves Dehouck3 and Nir Ben-Tal1, 1Department of Biochemistry and Molecular Biology, George S. Wise Faculty of Life Sciences, 2The Blavatnik School of Computer Science, Tel-Aviv University, Ramat Aviv 69978, Israel and 3Bioinformatique gnomique et structurale, Universit Libre de Bruxelles, Av Fr.
-Roosevelt 50, CP165/61, 1050 Brussels, Belgium Associate Editor: Anna Tramontano ABSTRACT Motivation: Accurate prediction of protein stability is important for understanding the molecular underpinnings of diseases and for the design of new proteins.
+Motivation: Accurate prediction of protein stability is important for understanding the molecular underpinnings of diseases and for the design of new proteins.
 We introduce a novel approach for the prediction of changes in protein stability that arise from a singlesite amino acid substitution; the approach uses available data on mutations occurring in the same position and in other positions.
 Our algorithm, named Pro-Maya (Protein Mutant stAbilitY Analyzer), combines a collaborative filtering baseline model, Random Forests regression and a diverse set of features.
 Pro-Maya predicts the stability free energy difference of mutant versus wild type, denoted as G. Results: We evaluated our algorithm extensively using crossvalidation on two previously utilized datasets of single amino acid mutations and a (third) validation set.
@@ -28,7 +25,7 @@ The recently developed Prethermut tool (Tian et al., 2010) incorporates the ener
 The use of a machine learning algorithm enables non-energy-like terms to be incorporated into the scoring function (Capriotti et al., 2005; Cheng et al., 2006; Montanucci et al., 2008).
 For example, both I-Mutant2.0 (Capriotti et al., 2005) and MUpro (Cheng et al., 2006) encode the identities of the wildtype (WT) and mutant amino acids in addition to the quantity The Author(s) 2011.
 Published by Oxford University Press.
-This is an Open Access article distributed under the terms of the Creative Commons Attribution Non-Commercial License (http://creativecommons.org/licenses/ by-nc/3.0), which permits unrestricted non-commercial use, distribution, and reproduction in any medium, provided the original work is properly cited.
+This is an Open Access article distributed under the terms of the Creative Commons Attribution Non-Commercial License (http://creativecommons.org/licenses/by-nc/3.0), which permits unrestricted non-commercial use, distribution, and reproduction in any medium, provided the original work is properly cited.
 [17:15 4/11/2011 Bioinformatics-btr576.tex] Page: 3287 32863292 Protein stability (in I-Mutant2.0) or frequency (in MUpro) of the residue type found inside a sphere centered at the mutated residue.
 Both methods also offer sequence-based predictions in cases where the protein structure is not available.
 For instance, Capriotti et al.added a description of the amino acid frequency within a symmetrical sequence window centered at the mutated residue and reached a prediction accuracy that was only slightly lower than that achieved using a structurally based approach (Capriotti et al., 2005).
@@ -179,7 +176,7 @@ As can be seen, Pro-Maya performs better on the entire validation set and subset
 LOO-unseen declined both on the MRPM and SRPM subsets (PCC of 0.760.01 and 0.600.02, respectively), the CFCB algorithm was able to compensate and maintain a similar PCC in both LOO procedures, achieving a PCC of 0.830.01.
 The results of the 5-and 10-fold and LOO-unseen cross-validation can be viewed online at the FAQ section of the Pro-Maya website.
 The FAQ section also contains a detailed description of Pro-Mayas training set e.g.number of proteins, number of mutated positions per proteins, functionality [SCOP classification (Andreeva et al., 2008)] and physical properties of the proteins.
-An analysis of Pro-Mayas LOO-unseen versus the SCOP classification (Supplementary Table S6) of the proteins shows that Pro-Maya performs similarly on the All , All , + and/ SCOP classes with a PCC ranging from 0.59 to 0.64 for the SRPM and 0.80.83 for the MRPM.
+An analysis of Pro-Mayas LOO-unseen versus the SCOP classification (Supplementary Table S6) of the proteins shows that Pro-Maya performs similarly on the All , All , + and/SCOP classes with a PCC ranging from 0.59 to 0.64 for the SRPM and 0.80.83 for the MRPM.
 The PoPMuSiC-DB includes low number of mutations from the Coiled-coil, Multi-domain and Small proteins SCOP classes.
 Thus, we cannot estimate Pro-Maya performance on these classes, although there is no reason to believe that the performance over them will differ significantly from the rest.
 3.2 How do the number and type of mutations with known G values in the query position affect the prediction accuracy?

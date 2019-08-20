@@ -1,5 +1,4 @@
-            Copyedited by: TRJ MANUSCRIPT CATEGORY: [10:23 29/5/2012 Bioinformatics-bts230.tex] Page: i32 i32i39 BIOINFORMATICS Vol.
-28 ISMB 2012, pages i32i39doi:10.1093/bioinformatics/bts230 Protein subcellular location pattern classification in cellular images using latent discriminative models Jieyue Li1,2,, Liang Xiong3,, Jeff Schneider3,4, and Robert F. Murphy1,2,3,5,6,7, 1Center for Bioimage informatics, 2Department of Biomedical Engineering, 3Machine Learning Department, 4The Robotics Institute, 5Lane Center for Computational Biology, 6Department of Biological Sciences, Carnegie Mellon University, 5000 Forbes Ave, Pittsburgh, PA 15213, USA and 7Freiburg Institute for Advanced Studies, Albert Ludwig University of Freiburg, 79104 Freiburg, Germany ABSTRACT Motivation: Knowledge of the subcellular location of a protein is crucial for understanding its functions.
+Motivation: Knowledge of the subcellular location of a protein is crucial for understanding its functions.
 The subcellular pattern of a protein is typically represented as the set of cellular components in which it is located, and an important task is to determine this set from microscope images.
 In this article, we address this classification problem using confocal immunofluorescence images from the Human Protein Atlas (HPA) project.
 The HPA contains images of cells stained for many proteins; each is also stained for three reference components, but there are many other components that are invisible.
@@ -39,7 +38,7 @@ For HLR, this computation is easy.
 But for the HCRF model, inferences for these marginals cannot be done exactly.
 To address this difficulty in The Author(s) 2012.
 Published by Oxford University Press.
-This is an Open Access article distributed under the terms of the Creative Commons Attribution Non-Commercial License (http://creativecommons.org/licenses/ by-nc/3.0), which permits unrestricted non-commercial use, distribution, and reproduction in any medium, provided the original work is properly cited.
+This is an Open Access article distributed under the terms of the Creative Commons Attribution Non-Commercial License (http://creativecommons.org/licenses/by-nc/3.0), which permits unrestricted non-commercial use, distribution, and reproduction in any medium, provided the original work is properly cited.
 Jeff.Schneider@cs.cmu.edu murphy@cmu.edu Copyedited by: TRJ MANUSCRIPT CATEGORY: [10:23 29/5/2012 Bioinformatics-bts230.tex] Page: i33 i32i39 Knowledge of the subcellular location of a protein inference, we propose to remove certain edges in the HCRF model so that the component variables are clustered.
 By doing this, the exact inference is greatly accelerated while most of the local interactions between cell components can be retained.
 The effectiveness of both the HLR and HCRF models are tested on synthetic data and real HPA images.

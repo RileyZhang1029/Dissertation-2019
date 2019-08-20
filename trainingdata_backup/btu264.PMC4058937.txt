@@ -1,5 +1,4 @@
-          OP-CBIO140273 255..263 Vol.
-30 ISMB 2014, pages i255i263 BIOINFORMATICS doi:10.1093/bioinformatics/btu264 An efficient parallel algorithm for accelerating computational protein design Yichao Zhou1, Wei Xu1, Bruce R. Donald2,3 and Jianyang Zeng1,* 1Institute for Theoretical Computer Science (ITCS), Institute for Interdisciplinary Information Sciences, Tsinghua University, Beijing 100084, P. R. China, 2Department of Computer Science, Duke University, Durham, NC 27708, USA and 3Department of Biochemistry, Duke University Medical Center, Durham, NC 27708, USA ABSTRACT Motivation: Structure-based computational protein design (SCPR) is an important topic in protein engineering.
+Motivation: Structure-based computational protein design (SCPR) is an important topic in protein engineering.
 Under the assumption of a rigid backbone and a finite set of discrete conformations of sidechains, various methods have been proposed to address this problem.
 A popular method is to combine the dead-end elimination (DEE) and A* tree search algorithms, which provably finds the global minimum energy conformation (GMEC) solution.
 Results: In this article, we improve the efficiency of computing A* heuristic functions for protein design and propose a variant of A* algorithm in which the search process can be performed on a single GPU in a massively parallel fashion.
@@ -8,7 +7,7 @@ As a result, our enhancements can achieve a significant speedup of the A*-based 
 We also show that our parallel A* search algorithm could be successfully combined with iMinDEE, a state-of-the-art DEE criterion, for rotamer pruning to further improve SCPR with the consideration of continuous side-chain flexibility.
 Availability: Our software is available and distributed open-source under the GNU Lesser General License Version 2.1 (GNU, February 1999).
 The source code can be downloaded from http://www.cs.duke.
-edu/donaldlab/osprey.php or http://iiis.tsinghua.edu.cn/compbio/ software.html.
+edu/donaldlab/osprey.php or http://iiis.tsinghua.edu.cn/compbio/software.html.
 Contact: zengjy321@tsinghua.edu.cn Supplementary information: Supplementary data are available at Bioinformatics online.
 1 INTRODUCTION Structure-based computational protein design (SCPR) provides a promising tool in a wide range of protein engineering applications, such as drug design (Gorczynski et al., 2007), enzyme synthesis (Chen et al., 2009), drug resistance prediction (Frey et al., 2010) and design of proteinprotein interactions (Roberts et al., 2012).
 The basic idea of SCPR is to find a new amino acid sequence based on a known structure, such that the total energy of the resulting molecular complex is minimized.

@@ -1,6 +1,4 @@
-            G:\fpp\tex\journals\oup\BioInfo\Bioinfo-25(9)issue\btp123.dvi [11:18 25/3/2009 Bioinformatics-btp123.tex] Page: 1152 11521157 BIOINFORMATICS ORIGINAL PAPER Vol.
-25 no.
-9 2009, pages 11521157doi:10.1093/bioinformatics/btp123 Gene expression A modified hyperplane clustering algorithm allows for efficient and accurate clustering of extremely large datasets Ashok Sharma1, Robert Podolsky1,2, Jieping Zhao1 and Richard A. McIndoe1,3, 1Center for Biotechnology and Genomic Medicine, 2Department of Medicine and 3Department of Pathology, Medical College of Georgia, Augusta, GA, USA Received on October 7, 2008; revised on January 27, 2009; accepted on February 28, 2009 Advance Access publication March 4, 2009 Associate Editor: David Rocke ABSTRACT Motivation: As the number of publically available microarray experiments increases, the ability to analyze extremely large datasets across multiple experiments becomes critical.
+Motivation: As the number of publically available microarray experiments increases, the ability to analyze extremely large datasets across multiple experiments becomes critical.
 There is a requirement to develop algorithms which are fast and can cluster extremely large datasets without affecting the cluster quality.
 Clustering is an unsupervised exploratory technique applied to microarray data to find similar data structures or expression patterns.
 Because of the high input/output costs involved and large distance matrices calculated, most of the algomerative clustering algorithms fail on large datasets (30 000 + genes/200 + arrays).
@@ -36,7 +34,7 @@ Because most of the conventional clustering algorithms require multiple iterativ
 For example, using a desktop computer, it is time consuming and difficult to cluster >30 000 genes 100 arrays using the available algorithms.
 The memory requirements and computation time increases dramatically as the dataset size increases with the complexity being proportional to the square of the dataset size.
 To address this issue we have developed a two-stage algorithm designed to cluster large datasets.
-2009 The Author(s) This is an Open Access article distributed under the terms of the Creative Commons Attribution Non-Commercial License (http://creativecommons.org/licenses/ by-nc/2.0/uk/) which permits unrestricted non-commercial use, distribution, and reproduction in any medium, provided the original work is properly cited.
+2009 The Author(s) This is an Open Access article distributed under the terms of the Creative Commons Attribution Non-Commercial License (http://creativecommons.org/licenses/by-nc/2.0/uk/) which permits unrestricted non-commercial use, distribution, and reproduction in any medium, provided the original work is properly cited.
 [11:18 25/3/2009 Bioinformatics-btp123.tex] Page: 1153 11521157 A modified hyperplane clustering algorithm for gene expression The first stage of the algorithm reduces the data complexity using the Balanced Iterative Reducing and Clustering using Hierarchies (BIRCH) algorithm (Zhang et al., 1996).
 This data reduction step is done in a single scan of the data and reduces the memory requirements.
 The second stage uses the resulting partitions from the first stage and performs a conventional k-means algorithm on the reduced dataset.

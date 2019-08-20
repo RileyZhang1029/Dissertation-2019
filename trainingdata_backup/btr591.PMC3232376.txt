@@ -1,6 +1,4 @@
-            K:\bioinformatics\Bioinfo-27(24)issue\btr591.dvi [10:14 21/11/2011 Bioinformatics-btr591.tex] Page: 3399 33993406 BIOINFORMATICS ORIGINAL PAPER Vol.
-27 no.
-24 2011, pages 33993406doi:10.1093/bioinformatics/btr591 Gene expression Optimized application of penalized regression methods to diverse genomic data Levi Waldron1,3, Melania Pintilie2, Ming-Sound Tsao3, Frances A. Shepherd3, Curtis Huttenhower1, and Igor Jurisica3, 1Department of Biostatistics, Harvard School of Public Health, Boston, MA, USA, 2Department of Biostatistics, Ontario Cancer Institute, University Health Network and 3Ontario Cancer Institute, PMH/UHN, Campbell Family Institute for Cancer Research, Toronto, ON, Canada Associate Editor: Janet Kelso ABSTRACT Motivation: Penalized regression methods have been adopted widely for high-dimensional feature selection and prediction in many bioinformatic and biostatistical contexts.
+Motivation: Penalized regression methods have been adopted widely for high-dimensional feature selection and prediction in many bioinformatic and biostatistical contexts.
 While their theoretical properties are well-understood, specific methodology for their optimal application to genomic data has not been determined.
 Results: Through simulation of contrasting scenarios of correlated high-dimensional survival data, we compared the LASSO, Ridge and Elastic Net penalties for prediction and variable selection.
 We found that a 2D tuning of the Elastic Net penalties was necessary to avoid mimicking the performance of LASSO or Ridge regression.
@@ -26,7 +24,7 @@ We present a comprehensive assessment and optimization of these methods, using t
 Comparative studies of this nature provide the most realistic and unbiased assessments of available machine learning methods, issues which have been identified as critical to researchers selection of appropriate methodology (Boulesteix, 2006; Jelizarow et al., 2010).
 We introduce a 2D optimization of the Elastic Net penalty parameters, and show that it or a comparable procedure is necessary The Author(s) 2011.
 Published by Oxford University Press.
-This is an Open Access article distributed under the terms of the Creative Commons Attribution Non-Commercial License (http://creativecommons.org/licenses/ by-nc/3.0), which permits unrestricted non-commercial use, distribution, and reproduction in any medium, provided the original work is properly cited.
+This is an Open Access article distributed under the terms of the Creative Commons Attribution Non-Commercial License (http://creativecommons.org/licenses/by-nc/3.0), which permits unrestricted non-commercial use, distribution, and reproduction in any medium, provided the original work is properly cited.
 [10:14 21/11/2011 Bioinformatics-btr591.tex] Page: 3400 33993406 L.Waldron et al.to distinguish the Elastic Net from LASSO and Ridge regression.
 In particular, we show that successive 1D tuning of the Elastic Net restricts the search for tuning parameters sufficiently that it can yield inferior prediction to a single-penalty counterpart.
 A univariate prefilter is commonly used to reduce dimensionality and computation time, but we demonstrate a simulated situation in which the pre-filter can reduce predictive performance of the Elastic Net by reducing the importance of the L1 penalty relative to the L2 penalty.

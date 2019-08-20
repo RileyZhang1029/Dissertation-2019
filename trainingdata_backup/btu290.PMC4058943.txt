@@ -1,5 +1,4 @@
-          OP-CBIO140299 175..184 Vol.
-30 ISMB 2014, pages i175i184 BIOINFORMATICS doi:10.1093/bioinformatics/btu290 MIRA: mutual information-based reporter algorithm for metabolic networks A. Ercument Cicek1,*, Kathryn Roeder1 and Gultekin Ozsoyoglu2 1Lane Center for Computational Biology, School of Computer Science, Carnegie Mellon University, Pittsburgh, PA, USA 15213 and 2Department of Electrical Engineering and Computer Science, School of Engineering, Case Western Reserve University, Cleveland, OH, USA 44106 ABSTRACT Motivation: Discovering the transcriptional regulatory architecture of the metabolism has been an important topic to understand the implications of transcriptional fluctuations on metabolism.
+Motivation: Discovering the transcriptional regulatory architecture of the metabolism has been an important topic to understand the implications of transcriptional fluctuations on metabolism.
 The reporter algorithm (RA) was proposed to determine the hot spots in metabolic networks, around which transcriptional regulation is focused owing to a disease or a genetic perturbation.
 Using a z-score-based scoring scheme, RA calculates the average statistical change in the expression levels of genes that are neighbors to a target metabolite in the metabolic network.
 The RA approach has been used in numerous studies to analyze cellular responses to the downstream genetic changes.
@@ -32,7 +31,7 @@ Using the z-score-based method introduced before (Ideker et al., 2002), the algo
 Various*To whom correspondence should be addressed.
 The Author 2014.
 Published by Oxford University Press.
-This is an Open Access article distributed under the terms of the Creative Commons Attribution Non-Commercial License (http://creativecommons.org/licenses/ by-nc/3.0/), which permits non-commercial re-use, distribution, and reproduction in any medium, provided the original work is properly cited.
+This is an Open Access article distributed under the terms of the Creative Commons Attribution Non-Commercial License (http://creativecommons.org/licenses/by-nc/3.0/), which permits non-commercial re-use, distribution, and reproduction in any medium, provided the original work is properly cited.
 For commercial re-use, please contact journals.permissions@oup.com mailto:cicek@cs.cmu.edu; Ideker etal., 2002; Chuang etal., 2007 ; David etal., 2006 tiliz 1 2 ; Covert and Palsson, 2002b; 3 ; Subramanian etal., 2005; Dinu etal., 2007; Hancock etal., 2012; Patil and Nielsen, 2005; &Ccedil;akir etal., 2006; Deo etal., 2010; Nam etal., 2009; Oliveira etal., 2008 , ; Draghici etal., 2007 ) XPath error Undefined namespace prefix XPath error Undefined namespace prefix extensions and modifications to the algorithm have been published in the literature.
 For instance, same idea has been used to discover reporter reactions (Cakir et al., 2006).
 A similar z-scorebased approach has also been used analyze the rate-limiting steps of pathways (Nam et al., 2009).
@@ -201,7 +200,7 @@ The metabolites reported by MIRA highly overlap with this definition.
 The second reporter metabolite protoheme (heme b) is an important metabolite in the hemebiosynthesis pathway, and is the first electron acceptor in nitrate reductase complex (Metacyc).
 As mentioned above, glutathione and thioredoxin are key agents to convert the enzyme, and MIRA detects them as reporter metabolites [glutaredoxin (reduced/oxidized) and thioredoxin (reduced/oxidized)].
 Nitrite is one of the direct products of nitrate reductase, and it is also reported as a reporter metabolite.
-Aside from the metabolites in UniProts definition, MIRA found dimethyl sulfide/sulfoxide (DMSO) and trimethylamine/ trimethylamine n-oxide (TMAO) as reporter metabolites.
+Aside from the metabolites in UniProts definition, MIRA found dimethyl sulfide/sulfoxide (DMSO) and trimethylamine/trimethylamine n-oxide (TMAO) as reporter metabolites.
 As Figure 4 shows, E.coli uses N-and S-oxides as the terminal electron acceptors (Daruwala and Meganathan, 1991).
 When RA is considered, the top metabolite picked by MIRA is not a reporter metabolite in RAs list.
 Tungstate is known as a direct inhibitor of nitrate reductase as well as TMAO and DMSO reductases, which are also reporter metabolites (Prins et al., 1980).

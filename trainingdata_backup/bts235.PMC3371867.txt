@@ -1,5 +1,4 @@
-            Copyedited by: TRJ MANUSCRIPT CATEGORY: [20:04 28/5/2012 Bioinformatics-bts235.tex] Page: i147 i147i153 BIOINFORMATICS Vol.
-28 ISMB 2012, pages i147i153doi:10.1093/bioinformatics/bts235 Incorporating prior information into association studies Gregory Darnell1,, Dat Duong2,, Buhm Han1 and Eleazar Eskin1,3, 1Department of Computer Science, University of California, Los Angeles, CA 90095, 2Department of Statistics, University of California, Berkeley, CA 94720 and 3Department of Human Genetics, University of California, Los Angeles, CA 90095, USA ABSTRACT Summary: Recent technological developments in measuring genetic variation have ushered in an era of genome-wide association studies which have discovered many genes involved in human disease.
+Summary: Recent technological developments in measuring genetic variation have ushered in an era of genome-wide association studies which have discovered many genes involved in human disease.
 Current methods to perform association studies collect genetic information and compare the frequency of variants in individuals with and without the disease.
 Standard approaches do not take into account any information on whether or not a given variant is likely to have an effect on the disease.
 We propose a novel method for computing an association statistic which takes into account prior information.
@@ -36,13 +35,13 @@ This is the key observation underlying our approach and allows us to propose a v
 We assume a low-disease prevalence, however, our method can be easily extended to higher prevalence.
 For each marker i and relative risk , the true case allele frequency is defined as follows: p+i = fi/(( 1)fi +1), The Author(s) 2012.
 Published by Oxford University Press.
-This is an Open Access article distributed under the terms of the Creative Commons Attribution Non-Commercial License (http://creativecommons.org/licenses/ by-nc/3.0), which permits unrestricted non-commercial use, distribution, and reproduction in any medium, provided the original work is properly cited.
+This is an Open Access article distributed under the terms of the Creative Commons Attribution Non-Commercial License (http://creativecommons.org/licenses/by-nc/3.0), which permits unrestricted non-commercial use, distribution, and reproduction in any medium, provided the original work is properly cited.
 Copyedited by: TRJ MANUSCRIPT CATEGORY: [20:04 28/5/2012 Bioinformatics-bts235.tex] Page: i148 i147i153 G.Darnell et al.where fi is the population allele frequency.
 The control allele frequency for the causal maker, pi , is approximately equal to the population allele frequency, pi fi.
 The non-causal markers have equal case and control allele frequencies, that is, p+i =pi.
 The overall allele frequency in the casecontrol sample is, pi = (p+i +pi )/2.
 Let p+i , pi and pi be the observed values of the corresponding statistic.
-The statistic si = p + i pi 2 N pi(1 pi) (1) for each marker i is approximately normally distributed with variance 1 and mean non-centrality parameter i N =p+i pi/ 2/N pi(1pi).
+The statistic si = p + i pi 2 N pi(1 pi) (1) for each marker i is approximately normally distributed with variance 1 and mean non-centrality parameter i N =p+i pi/2/N pi(1pi).
 The power of a standard association study to detect a significant association at a maker i, relies on the non-centrality parameter and is Ps(t,i N )=(1(t/2)i N ) +1(1(1t/2)i N ) where the value of t is the significance threshold, which serves to control the overall false-positive rate, and and 1 denote the cumulative density function (CDF) and the inverse of CDF of the standard normal distribution, respectively.
 The false-positive rate represents the probability of rejecting the null hypothesis for any marker, assuming there is no causal marker.
 In our case, we control this probability to.

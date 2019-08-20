@@ -14,6 +14,14 @@ def convert_pdf_to_txt(path):
             text_fil = text[:text.lower().find('references\n')]
         else:
             print("error: ", path)
+            if os.path.exists(path):
+                os.remove(os.path.join(path))
+            if os.path.exists(path.replace("pdf", "txt")):
+                os.remove(os.path.join(path.replace("pdf", "txt")))
+        if text.lower().find('abstract\n'):
+            text_fil = text_fil[text_fil.lower().find('abstract\n')+9:]
+        else:
+            print("error: ", path)
             # if os.path.exists(path):
             #     os.remove(os.path.join(path))
             # if os.path.exists(path.replace("pdf", "txt")):
@@ -25,16 +33,17 @@ def convert_pdf_to_txt(path):
                 text_fil = text_fil.replace(ch, '')
 
         textClearLink = re.sub(r"[\n](http://[^ ]+)[\n]", '', text_fil)
-        textNoSpace = textClearLink.replace('\n\n', '\n').replace('\n', ' ').replace('  ', ' ').replace(' -', '-').replace('- ', '-').replace('// ', '//').replace('www. ', 'www.').replace('Fig. ', 'Fig.').replace(' .', '.')
-        case = [' /', ' / ']
+        textClearLink = ' '.join(textClearLink.split())
+        textNoSpace = textClearLink.replace('\n\n', '\n').replace('\n', ' ').replace('  ', ' ')
+        case = [' /', '/ ', ' -', '- ', '// ', 'www. ', 'Fig. ', ' .']
         for c in case:
             if c in textNoSpace:
-                textNoSpace = textNoSpace.replace(c, '/')
+                textNoSpace = textNoSpace.replace(c, c.strip(' '))
 
         sentences = sent_tokenize(textNoSpace)
         with open(path[:-3] + 'txt', "w", encoding='utf-8') as f:
             for s in sentences:
-                f.write(s)
+                f.write(s.strip(' '))
                 if s.endswith('e.g.') or s.endswith('i.e.') or s.endswith('et al.'):
                     f.write('')
                 else:
@@ -59,7 +68,7 @@ def traversal(rootdir):
 
 
 if __name__ == '__main__':
-    rootdir = os.getcwd() + "/trainingdata_backup"
+    rootdir = os.getcwd() + "/trainingdata"
     traversal(rootdir)
 
 

@@ -1,6 +1,4 @@
-            G:\fpp\tex\journals\oup\BioInfo\Bioinfo-25(8)issue\btp104.dvi [10:19 3/4/2009 Bioinformatics-btp104.tex] Page: 1056 10561062 BIOINFORMATICS ORIGINAL PAPER Vol.
-25 no.
-8 2009, pages 10561062doi:10.1093/bioinformatics/btp104 Genetics and population analysis Array-based genotyping in S.cerevisiae using semi-supervised clustering Richard Bourgon1,, Eugenio Mancera2, Alessandro Brozzi1, Lars M. Steinmetz2 and Wolfgang Huber1 1EMBL-European Bioinformatics Institute, Wellcome Trust Genome Campus, Hinxton, Cambridge CB10 1SD, UK and 2European Molecular Biology Laboratory, Meyerhofstrasse 1, 69117 Heidelberg, Germany Received on December 28, 2008; revised on February 1, 2009; accepted on February 17, 2009 Advance Access publication February 23, 2009 Associate Editor: Martin Bishop ABSTRACT Motivation: Microarrays provide an accurate and cost-effective method for genotyping large numbers of individuals at high resolution.
+Motivation: Microarrays provide an accurate and cost-effective method for genotyping large numbers of individuals at high resolution.
 The resulting data permit the identification of loci at which genetic variation is associated with quantitative traits, or fine mapping of meiotic recombination, which is a key determinant of genetic diversity among individuals.
 Several issues inherent to short oligonucleotide arrayscross-hybridization, or variability in probe response to targethave the potential to produce genotyping errors.
 There is a need for improved statistical methods for array-based genotyping.
@@ -9,7 +7,7 @@ Using a meiotic recombination dataset, we show that ssG is more accurate than ex
 The ssG algorithm is able to fit probespecific affinity differences and to detect and filter spurious signal, permitting high-confidence genotyping at nucleotide resolution.
 We also demonstrate that oligonucleotide probe response depends significantly on genomic background, even when the probes specific target sequence is unchanged.
 As a result, supervised classifiers trained on reference strains may not generalize well to diverged strains; ssGs semi-supervised approach, on the other hand, adapts automatically.
-Availability: The ssGenotyping software is implemented in R. It is currently available for download (www.ebi.ac.uk/bourgon/ yeast_genotyping/ssG) and is being submitted to Bioconductor.
+Availability: The ssGenotyping software is implemented in R. It is currently available for download (www.ebi.ac.uk/bourgon/yeast_genotyping/ssG) and is being submitted to Bioconductor.
 Contact: bourgon@ebi.ac.uk Supplementary information: Supplementary data and a version including color figures are available at Bioinformatics online.
 1 INTRODUCTION During meiosis, homologous copies of the chromosomes align, and the repair of programmed double-stranded breaks in the DNA leads to recombination: the reciprocal exchange of DNA between homologs (crossovers), or the non-reciprocal modification of one homolog, using the other as a template (non-crossover gene conversion).
 As a consequence, the genome of each meiotic product, To whom correspondence should be addressed.
@@ -27,7 +25,7 @@ To genotype segregants from a cross, a posterior probability was computed using 
 (1) Variants on this procedure soon emerged.
 The 1-versus 2-mean ANOVA is equivalent to a two-sample t-test for difference in means, and Borevitz et al.(2003) proposed an alternative t-test for identification of SFPs, using the ad hoc moderated t-statistic of SAM (Tusher et al., 2001).
 Brem et al.(2002)whose data included hybridizations from numerous segregants of unknown genotype, as well from parental samples of known genotypefurther augmented this approach: using parental data, candidate SFPs were identified on the basis of a high moderated t-statistic.
-Then, known parental 2009 The Author(s) This is an Open Access article distributed under the terms of the Creative Commons Attribution Non-Commercial License (http://creativecommons.org/licenses/ by-nc/2.0/uk/) which permits unrestricted non-commercial use, distribution, and reproduction in any medium, provided the original work is properly cited.
+Then, known parental 2009 The Author(s) This is an Open Access article distributed under the terms of the Creative Commons Attribution Non-Commercial License (http://creativecommons.org/licenses/by-nc/2.0/uk/) which permits unrestricted non-commercial use, distribution, and reproduction in any medium, provided the original work is properly cited.
 [10:19 3/4/2009 Bioinformatics-btp104.tex] Page: 1057 10561062 Array-based genotyping using semi-supervised clustering Meiosis Diploid cross Haploid spores S96 hybridiation pattern Probes interoggating a G/C SNP YJM789 S96 A B CTAACTTCACTATTTGTACAGATCG GGCCCTAACTTCACTATTTGTACAG GACTGGCCCTAACTTCACTATTTGT GACTGGCCCTAACTTGACTATTTGT GGAGGACTGGCCCTAACTTCACTAT Fig.1.
 Meiotic recombination genotyping assay.
 (A) Meiosis was induced in a diploid cross derived from the highly polymorphic S96 and YJM789 strains.

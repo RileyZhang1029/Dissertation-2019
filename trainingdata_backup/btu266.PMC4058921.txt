@@ -1,5 +1,4 @@
-          OP-CBIO140264 293..301 Vol.
-30 ISMB 2014, pages i293i301 BIOINFORMATICS doi:10.1093/bioinformatics/btu266 ExSPAnder: a universal repeat resolver for DNA fragment assembly Andrey D. Prjibelski1,y,*, Irina Vasilinetc1,y, Anton Bankevich1, Alexey Gurevich1, Tatiana Krivosheeva1, Sergey Nurk1, Son Pham4, Anton Korobeynikov1,2, Alla Lapidus1,3 and Pavel A. Pevzner1,4 1Algorithmic Biology Lab, St. Petersburg Academic University, St. Petersburg, Russia, 2Department of Mathematics and Mechanics, 3Theodosius Dobzhansky Center for Genome Bioinformatics, St. Petersburg State University, St. Petersburg, Russia and 4Department of Computer Science and Engineering, University of California, San Diego, USA ABSTRACT Next-generation sequencing (NGS) technologies have raised a challenging de novo genome assembly problem that is further amplified in recently emerged single-cell sequencing projects.
+Next-generation sequencing (NGS) technologies have raised a challenging de novo genome assembly problem that is further amplified in recently emerged single-cell sequencing projects.
 While various NGS assemblers can use information from several libraries of read-pairs, most of them were originally developed for a single library and do not fully benefit from multiple libraries.
 Moreover, most assemblers assume uniform read coverage, condition that does not hold for single-cell projects where utilization of read-pairs is even more challenging.
 We have developed an exSPAnder algorithm that accurately resolves repeats in the case of both single and multiple libraries of read-pairs in both standard and single-cell assembly projects.
@@ -30,7 +29,7 @@ We also show that EXSPANDER *To whom correspondence should be addressed.
 yThe authors wish it to be known that, in their opinion, the first two authors should be regarded as Joint First Authors.
 The Author 2014.
 Published by Oxford University Press.
-This is an Open Access article distributed under the terms of the Creative Commons Attribution Non-Commercial License (http://creativecommons.org/licenses/ by-nc/3.0/), which permits non-commercial re-use, distribution, and reproduction in any medium, provided the original work is properly cited.
+This is an Open Access article distributed under the terms of the Creative Commons Attribution Non-Commercial License (http://creativecommons.org/licenses/by-nc/3.0/), which permits non-commercial re-use, distribution, and reproduction in any medium, provided the original work is properly cited.
 For commercial re-use, please contact journals.permissions@oup.com Since [ 1 2 ] less than p kb p up p tiliz 3 ] 4 ] 5 ] 6 ] 7 ] 8 ] 9 10 11 ] ( 2 ) 8 11 ] 8 ] , 12 ; 13 ] XPath error Undefined namespace prefix XPath error Undefined namespace prefix [implemented as a part of SPAdes (Bankevich et al., 2012)] improves on existing assemblers on standard bacterial datasets and outperforms such popular assemblers as ABySS (Simpson et al., 2009), Ray (Boisvert et al., 2010), SOAPdenovo (Li et al., 2010) and Velvet (Zerbino and Birney, 2008).
 ALLPATHS-LG (Gnerre et al., 2011) is an excellent assembler whose applications, however, are limited to specially constructed read-pair libraries.
 On such libraries EXSPANDER and ALLPATHS-LG generate comparable results (EXSPANDER generates longer contigs but ALLPATHS-LG generates longer scaffolds).
@@ -190,7 +189,7 @@ ALLPATHS-LG was run with the default parameters; however, we down-sampled jumpin
 SPAdes 2.4 (previous version of SPAdes that did not include EXSPANDER and did not support multiple libraries) was run in its default iterative mode with k=21, 33, 55, 77 for the B.faecium dataset and k=21, 33, 55 for the S.aureus dataset.
 EXSPANDER (coupled with SPAdes) was run using the default parameters.
 To analyze the resulting assemblies we used QUAST 2.2 (Gurevich et al., 2013) that reports various parameters including NG50 (similar to N50, but is calculated with respect to the reference genome size), the total number of contigs/scaffolds, the length of the longest assembled contig/scaffold, the number of misassemblies and the fraction of genome mapped.
-QUAST defines a misassembly breakpoint as a position in the contig/ scaffold, such that its left and right flanking sequences either align to the reference genome over 1 kb away from each other, or overlap by41 kb, or align on opposite strands or different chromosomes (Gurevich et al., 2013).
+QUAST defines a misassembly breakpoint as a position in the contig/scaffold, such that its left and right flanking sequences either align to the reference genome over 1 kb away from each other, or overlap by41 kb, or align on opposite strands or different chromosomes (Gurevich et al., 2013).
 To compare assemblers we used both contigs and scaffolds of length exceeding 500 bp.
 Fig.7.
 An example of a composite rectangle formed by paths (p1, p2, p3) and p01; p02; p03 Fig.8.

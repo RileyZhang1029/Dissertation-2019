@@ -1,5 +1,4 @@
-            G:\fpp\tex\journals\oup\BioInfo\Bioinfo-25-ISMB-ECCB\btp224.dvi [10:10 15/5/2009 Bioinformatics-btp224.tex] Page: i196 i196i203 BIOINFORMATICS Vol.
-25 ISMB 2009, pages i196i203doi:10.1093/bioinformatics/btp224 Speeding up HMM algorithms for genetic linkage analysis via chain reductions of the state space Dan Geiger1,, Christopher Meek2 and Ydo Wexler2 1Computer Science Department, Technion-Israel Institute of Technology, Haifa 32000, Israel and 2Microsoft Research, Redmond, WA 98052, USA ABSTRACT We develop an hidden Markov model (HMM)-based algorithm for computing exact parametric and non-parametric linkage scores in larger pedigrees than was possible before.
+We develop an hidden Markov model (HMM)-based algorithm for computing exact parametric and non-parametric linkage scores in larger pedigrees than was possible before.
 The algorithm is applicable whenever there are chains of persons in the pedigree with no genetic measurements and with unknown affection status.
 The algorithm is based on shrinking the state space of the HMM considerably using such chains.
 In a two g-degree cousins pedigree the reduction drops the state space from being exponential in g to being linear in g. For a Finnish family in which two affected children suffer from a rare cold-inducing sweating syndrome, we were able to reduce the state space by more than five orders of magnitude from 250 to 232.
@@ -27,7 +26,7 @@ For a Finnish family in which two affected children suffer from a rare cold-indu
 For another pedigree, recently used for the study of pituitary adenoma (Vierimaa et al., 2006), we were able to reduce the state space from 227 to 60218, by a factor of more than 8.5.
 Previously, only approximate scores could be computed for this pedigree on a standard PC and software for exact linkage computations such as Merlin (Abecasis et al., 2002) failed as reported by Albers et al.(2008).
 Our space reduction enables exact linkage computations and we demonstrate order of magnitude experimental speedups when performing computations across 6000 genomic locations, as used by standard SNP panels for linkage analysis.
-2009 The Author(s) This is an Open Access article distributed under the terms of the Creative Commons Attribution Non-Commercial License (http://creativecommons.org/licenses/ by-nc/2.0/uk/) which permits unrestricted non-commercial use, distribution, and reproduction in any medium, provided the original work is properly cited.
+2009 The Author(s) This is an Open Access article distributed under the terms of the Creative Commons Attribution Non-Commercial License (http://creativecommons.org/licenses/by-nc/2.0/uk/) which permits unrestricted non-commercial use, distribution, and reproduction in any medium, provided the original work is properly cited.
 [10:10 15/5/2009 Bioinformatics-btp224.tex] Page: i197 i196i203 Speeding up HMM algorithms for genetic linkage analysis 2 STATE REDUCTION IN HMMS Consider an HMM with hidden variables Si and observed variables Xi, i=1,...,L (Rabiner and Juang, 1986).
 The (hidden) state space is the set S of possible values for Si.
 The state space is identical for every slot i.

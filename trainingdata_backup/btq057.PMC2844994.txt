@@ -1,6 +1,4 @@
-            C:\Documents and Settings\senthil.d\Desktop\Bioinfo-26(7)issue\btq057.dvi [17:13 17/3/2010 Bioinformatics-btq057.tex] Page: 873 873881 BIOINFORMATICS ORIGINAL PAPER Vol.
-26 no.
-7 2010, pages 873881doi:10.1093/bioinformatics/btq057 Sequence analysis Advance Access publication February 10, 2010 Fast and SNP-tolerant detection of complex variants and splicing in short reads Thomas D. Wu and Serban Nacu Department of Bioinformatics, Genentech, Inc., 1 DNA Way, South San Francisco, CA, USA Associate Editor: Limsoon Wong ABSTRACT Motivation: Next-generation sequencing captures sequence differences in reads relative to a reference genome or transcriptome, including splicing events and complex variants involving multiple mismatches and long indels.
+Motivation: Next-generation sequencing captures sequence differences in reads relative to a reference genome or transcriptome, including splicing events and complex variants involving multiple mismatches and long indels.
 We present computational methods for fast detection of complex variants and splicing in short reads, based on a successively constrained search process of merging and filtering position lists from a genomic index.
 Our methods are implemented in GSNAP (Genomic Short-read Nucleotide Alignment Program), which can align both single-and paired-end reads as short as 14 nt and of arbitrarily long length.
 It can detect shortand long-distance splicing, including interchromosomal splicing, in individual reads, using probabilistic models or a database of known splice sites.
@@ -26,7 +24,7 @@ However, that approach requires exons to have sufficiently high expression and w
 A third approach, provided by the QPALMA program (Bona et al., 2008), can align individual reads across exonexon junctions using SmithWaterman-type alignments and a specifically trained splice site model.
 All of these approaches are limited to The Author(s) 2010.
 Published by Oxford University Press.
-This is an Open Access article distributed under the terms of the Creative Commons Attribution Non-Commercial License (http://creativecommons.org/licenses/ by-nc/2.5), which permits unrestricted non-commercial use, distribution, and reproduction in any medium, provided the original work is properly cited.
+This is an Open Access article distributed under the terms of the Creative Commons Attribution Non-Commercial License (http://creativecommons.org/licenses/by-nc/2.5), which permits unrestricted non-commercial use, distribution, and reproduction in any medium, provided the original work is properly cited.
 [17:13 17/3/2010 Bioinformatics-btq057.tex] Page: 874 873881 T.D.Wu and S.Nacu identifying only local exonexon junctions and not unanticipated distant or interchromosomal gene fusion events.
 To expand the range of biological phenomena that can be inferred from short reads, we have developed fast and memory-efficient methods for detecting complex variants and splicing in individual reads.
 Our methods are implemented in GSNAP (Genomic Short-read Nucleotide Alignment Program), which can align singleand paired-end reads as short as 14 nt and as long as desired.

@@ -1,7 +1,4 @@
-          OP-CBIO130733 497..505 Vol.
-30 no.
-4 2014, pages 497505 BIOINFORMATICS ORIGINAL PAPER doi:10.1093/bioinformatics/btt716 Structural bioinformatics Advance Access publication December 12, 2013 Sequence-based Gaussian network model for protein dynamics Hua Zhang1,* and Lukasz Kurgan2 1School of Computer and Information Engineering, Zhejiang Gongshang University, Hangzhou, Zhejiang 310018, P.R.
-China and 2Department of Electrical and Computer Engineering, University of Alberta, Edmonton, Alberta T6G 2V4, Canada Associate Editor: Anna Tramontano ABSTRACT Motivation: Gaussian network model (GNM) is widely adopted to analyze and understand protein dynamics, function and conformational changes.
+Motivation: Gaussian network model (GNM) is widely adopted to analyze and understand protein dynamics, function and conformational changes.
 The existing GNM-based approaches require atomic coordinates of the corresponding protein and cannot be used when only the sequence is known.
 Results: We report, first of its kind, GNM model that allows modeling using the sequence.
 Our linear regression-based, parameter-free, sequence-derived GNM (L-pfSeqGNM) uses contact maps predicted from the sequence and models local, in the sequence, contact neighborhoods with the linear regression.
@@ -86,7 +83,7 @@ This concurs with Yang et al.(2009), where the structure-based parameter-free mo
 3.3.
 Use of local predicted contacts improves prediction of residue flexibility with pfSeqGNM Inspired by Erman (2006) and Halle (2002), we investigate whether the local predicted contacts, i.e.contacts in a sequence Fig.1.
 The ACCs between the native B0-factors and the B-factors predicted with the classical SeqGNM on the PDB951 dataset.
-The ACC values are calculated for varying probability cutoffs 499 Gaussian network model parameter free sequence-based sequence-based GNM ( ) , <AQ1/ > (LDM) , in , that utilize Results s for linear regression-based pfGNM , Linear regression-based, parameter-free, Sequence-derived GNM sequence-bas ed , &Aring; utilize The average correlation coefficient ( ) is , sequence-based parameter-free sequence-based parameter-free GNM, named <?A3B2 show [AuthorQuery id= sequence-based parameter-free ; ,  window, contribute to the flexibility expressed using B-factors.
+The ACC values are calculated for varying probability cutoffs 499 Gaussian network model parameter free sequence-based sequence-based GNM ( ) , <AQ1/> (LDM) , in , that utilize Results s for linear regression-based pfGNM , Linear regression-based, parameter-free, Sequence-derived GNM sequence-bas ed , &Aring; utilize The average correlation coefficient ( ) is , sequence-based parameter-free sequence-based parameter-free GNM, named <?A3B2 show [AuthorQuery id= sequence-based parameter-free ; ,  window, contribute to the flexibility expressed using B-factors.
 We developed linear regression model that takes the predicted probability values of contacts, i.e.the diagonal elements in the Kirchhoff matrix in the window as its input to compute the Bfactor value of the central residue.
 Figure 2 shows the ACC values that quantify the correlations between the outputs of the linear regression model and the native B-factor values for the window sizes (shown on the x-axis) between 1 and 21 residues.
 These results are based on 5-fold cross-validation (CV) (Zhang et al., 2009) (Fig.2A) and 10-fold cross-validation (Fig.2B) on the PDB951 dataset.

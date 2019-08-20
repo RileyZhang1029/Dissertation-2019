@@ -1,5 +1,4 @@
-          OP-CBIO140921 1686..1688 Systems biology Functional Gene Networks: R/Bioc package to generate and analyse gene networks derived from functional enrichment and clustering Sara Aibar, Celia Fontanillo, Conrad Droste and Javier De Las Rivas* Bioinformatics and Functional Genomics Research Group, Cancer Research Center (Consejo Superior de Investigaciones Cientficas, Universidad de Salamanca and Instituto de Investigacion Biomedica de Salamanca, CSIC/USAL/IBSAL), Salamanca, Spain *To whom correspondence should be addressed.
-Present address: Celgene Institute for Translational Research Europe (CITRE), Sevilla, Spain Associate Editor: Jonathan Wren Received on June 20, 2014; revised on December 16, 2014; accepted on December 29, 2014 Abstract Summary: Functional Gene Networks (FGNet) is an R/Bioconductor package that generates gene networks derived from the results of functional enrichment analysis (FEA) and annotation clustering.
+Summary: Functional Gene Networks (FGNet) is an R/Bioconductor package that generates gene networks derived from the results of functional enrichment analysis (FEA) and annotation clustering.
 The sets of genes enriched with specific biological terms (obtained from a FEA platform) are transformed into a network by establishing links between genes based on common functional annotations and common clusters.
 The network provides a new view of FEA results revealing gene modules with similar functions and genes that are related to multiple functions.
 In addition to building the functional network, FGNet analyses the similarity between the groups of genes and provides a distance heatmap and a bipartite network of functionally overlapping genes.
@@ -11,7 +10,7 @@ Functional enrichment analysis (FEA) is the most popular bioinformatic methodolo
 FEA methods search in biological databases (such as Gene Ontology and KEGG pathways, among others) and use statistical testing to find biological terms and functional annotations that are significantly enriched in a list of genes.
 However, in most cases the results of these analyses are very long lists of biological terms associated to genes that are difficult to digest and interpret.
 Some tools cluster the FEA results, like DAVID-FAC (Huang et al., 2009) and GeneTerm Linker (Fontanillo et al., 2011), but their output is provided as large tables and there are not many tools to integrate and visualize these results.
-Here we present Functional Gene Networks (FGNet), an R/ Bioconductor package that uses FEA results to perform networkbased analyses and visualization.
+Here we present Functional Gene Networks (FGNet), an R/Bioconductor package that uses FEA results to perform networkbased analyses and visualization.
 The main network is built by establishing links between genes annotated to similar functional terms.
 In this way, FGNet generates and provides a network representing the links and associations between the clusters of genes and enriched terms.
 The network summarizes and facilitates the interpretation of the biological processes significantly enriched in the initial list of genes, revealing important information such as: distance and overlap VC The Author 2015.
@@ -30,7 +29,7 @@ The network produced is provided as an igraph object for further analysis, and c
 2.3 Visualization and plots of the functional network The main plot of the network presents the functionally associated genes (Fig.1B).
 Edges link the genes that are in the same gtsets.
 Nodes within the same Cl/Mg are placed together using a forcedirected FruchtermanReingold layout, within a common background colour.
-Genes in only one Cl/Mg are plotted with the colour of such group, while genes that are included in more than one Cl/ Mg are left white.
+Genes in only one Cl/Mg are plotted with the colour of such group, while genes that are included in more than one Cl/Mg are left white.
 2.4 Analysis of functional modules in the network To facilitate the analysis and quantification of the modules and the overlap between groups, FGNet also provides a distance matrix and a heatmap (Fig.1C), plus an intersection network (Fig.1D).
 The distance matrix is calculated based on the pairwise binary distance in the adjacency matrix of common Cls/Mgs.
 These distances are analysed by hierarchical average linkage and plotted as a heatmap that reveals the proximity and similarity between the groups of genes (Cls/Mgs).

@@ -1,6 +1,4 @@
-            Copyedited by: TRJ MANUSCRIPT CATEGORY: ORIGINAL PAPER [12:07 20/7/2012 Bioinformatics-bts317.tex] Page: 2037 20372044 BIOINFORMATICS ORIGINAL PAPER Vol.
-28 no.
-15 2012, pages 20372044doi:10.1093/bioinformatics/bts317 Systems biology Advance Access publication May 29, 2012 An integrated open framework for thermodynamics of reactions that combines accuracy and coverage Elad Noor1,, Arren Bar-Even1,, Avi Flamholz1, Yaniv Lubling2, Dan Davidi1 and Ron Milo1, 1Department of Plant Sciences and 2Department of Computer Science and Applied Mathematics, Weizmann Institute of Science, Rehovot 76100, Israel Associate Editor: Olga Troyanskaya ABSTRACT Motivation: The laws of thermodynamics describe a direct, quantitative relationship between metabolite concentrations and reaction directionality.
+Motivation: The laws of thermodynamics describe a direct, quantitative relationship between metabolite concentrations and reaction directionality.
 Despite great efforts, thermodynamic data suffer from limited coverage, scattered accessibility and nonstandard annotations.
 We present a framework for unifying thermodynamic data from multiple sources and demonstrate two new techniques for extrapolating the Gibbs energies of unmeasured reactions and conditions.
 Results: Both methods account for changes in cellular conditions (pH, ionic strength, etc.)
@@ -35,7 +33,7 @@ Recent advances in the field allow incorporating thermodynamic data directly int
 The NIST database for Thermodynamics of Enzyme-Catalyzed Reactions (NIST-TECR) is the most comprehensive collection of empirical thermodynamic data (Goldberg et al., 2004, 2007).
 About 400 reactions have measured equilibrium constants and were The Author(s) 2012.
 Published by Oxford University Press.
-This is an Open Access article distributed under the terms of the Creative Commons Attribution Non-Commercial License (http://creativecommons.org/licenses/ by-nc/3.0), which permits unrestricted non-commercial use, distribution, and reproduction in any medium, provided the original work is properly cited.
+This is an Open Access article distributed under the terms of the Creative Commons Attribution Non-Commercial License (http://creativecommons.org/licenses/by-nc/3.0), which permits unrestricted non-commercial use, distribution, and reproduction in any medium, provided the original work is properly cited.
 Copyedited by: TRJ MANUSCRIPT CATEGORY: ORIGINAL PAPER [12:07 20/7/2012 Bioinformatics-bts317.tex] Page: 2038 20372044 E.Noor et al.successfully mapped to KEGG identifiers (Kanehisa et al., 2008).
 Still, this represents only about 6% of the 5500 biochemically relevant reactions in the KEGG database.
 Moreover, since equilibrium constants in the NIST-TECR database are measured in a variety of pH and ionic strength levels, it is difficult to extrapolate the equilibrium constant for the conditions prevailing in an organism or system of interest.
@@ -142,7 +140,7 @@ It was not possible to directly compare our cross-validation results to the othe
 3.5 The reversibility index We introduce a quantitative measure for reversibility that takes the mean concentration of metabolites and the number of substrates and products into consideration.
 Further details regarding the application of the index to genome-scale models and motivation for its use are given in Section 4.
 We assume that all reactant concentrations lie within a range located symmetrically (in log-scale) around some characteristic physiological concentration Chere we use 100 M (Bennett et al., 2009).
-The variable describing this range is denoted : all substrates are assigned a concentration of (1/  )C and all products have a concentration of  C. Therefore, the log-scale width of the range is log(  C)log((1/ )C)= log( ).
+The variable describing this range is denoted : all substrates are assigned a concentration of (1/ )C and all products have a concentration of  C. Therefore, the log-scale width of the range is log(  C)log((1/)C)= log( ).
 Thus, a value of =100 corresponds to the range 10M1 mM and =1000 corresponds to about 3M3 mM.
 For a reaction with NS substrates and NP products, the apparent reaction quotient Q( ) = ( 1/2C)NP ( 1/2C)NS = NP/2 NS/2CNPNS  N/2Q, where we define N = NP +NS as the total number of reactants and Q = CNPNS as the default reaction quotient.
 We define the reversibility index as =(K/Q)2/N , which is the required concentration range for reversing the reaction, i.e.Q( )=K.

@@ -1,6 +1,4 @@
-          OP-CBIO140243 2310..2316 Vol.
-30 no.
-16 2014, pages 23102316 BIOINFORMATICS ORIGINAL PAPER doi:10.1093/bioinformatics/btu239 Gene expression Advance Access publication April 23, 2014 On non-detects in qPCR data Matthew N. McCall1,*, Helene R. McMurray2, Hartmut Land2,3 and Anthony Almudevar1 1Department of Biostatistics and Computational Biology, 2Department of Biomedical Genetics and 3James P Wilmot Cancer Center, University of Rochester Medical Center, Rochester, NY 14642, USA Associate Editor: Ziv Bar-Joseph ABSTRACT Motivation: Quantitative real-time PCR (qPCR) is one of the most widely used methods to measure gene expression.
+Motivation: Quantitative real-time PCR (qPCR) is one of the most widely used methods to measure gene expression.
 Despite extensive research in qPCR laboratory protocols, normalization and statistical analysis, little attention has been given to qPCR non-detectsthose reactions failing to produce a minimum amount of signal.
 Results: We show that the common methods of handling qPCR nondetects lead to biased inference.
 Furthermore, we show that nondetects do not represent data missing completely at random and likely represent missing data occurring not at random.
@@ -34,7 +32,7 @@ Next, we provide evidence that nondetects are not missing completely at random a
 To address non-detects, we propose a method to model the missing data mechanism that can be used to impute Ct values for the non-detects or to directly estimate the quantities*To whom correspondence should be addressed.
 The Author 2014.
 Published by Oxford University Press.
-This is an Open Access article distributed under the terms of the Creative Commons Attribution Non-Commercial License (http://creativecommons.org/licenses/ by-nc/3.0/), which permits non-commercial re-use, distribution, and reproduction in any medium, provided the original work is properly cited.
+This is an Open Access article distributed under the terms of the Creative Commons Attribution Non-Commercial License (http://creativecommons.org/licenses/by-nc/3.0/), which permits non-commercial re-use, distribution, and reproduction in any medium, provided the original work is properly cited.
 For commercial re-use, please contact journals.permissions@oup.com    of interest.
 Finally, we show that the proposed approach greatly reduces the bias introduced by non-detects in qPCR data analysis.
 Three published qPCR datasets (described in the Methods Section) are used throughout the manuscript to motivate and illustrate the results.
@@ -86,7 +84,7 @@ Replacing these non-detects with a value of 40 will produce a sizeable differenc
 Data are said to be missing completely at random if the probability of a missing value is the same for all data points.
 For qPCR data this implies that the probability of a non-detect is the same for every data point regardless of gene, sample-type, sample-replicate, etc.
 A broader class of missing data is missing at random in which the probability of a missing value depends only on the available information.
-For qPCR data this would imply that the probability of a non-detect is the same for each replicate within a given gene/ sample-type combination.
+For qPCR data this would imply that the probability of a non-detect is the same for each replicate within a given gene/sample-type combination.
 Finally, the data are called missing not at random when the probability of a missing value depends on either unobserved predictors or the missing value itself.
 A wellstudied example of the latter is censoring.
 For data missing not at random, filtering the missing values produces bias in ones inferences.

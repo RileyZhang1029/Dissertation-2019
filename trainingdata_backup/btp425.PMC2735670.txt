@@ -1,6 +1,4 @@
-            G:\fpp\tex\journals\oup\BioInfo\Bioinfo-25(18)issue\btp425.dvi [15:35 24/8/2009 Bioinformatics-btp425.tex] Page: 2369 23692375 BIOINFORMATICS ORIGINAL PAPER Vol.
-25 no.
-18 2009, pages 23692375doi:10.1093/bioinformatics/btp425 Gene expression TileProbe: modeling tiling array probe effects using publicly available data Jennifer Toolan Judy1 and Hongkai Ji2, 1Department of Mental Health and 2Department of Biostatistics, Johns Hopkins Bloomberg School of Public Health, 615 North Wolfe Street, Baltimore, MD 21205, USA Received on April 15, 2009; revised on June 16, 2009; accepted on July 7, 2009 Advance Access publication July 9, 2009 Associate Editor: John Quackenbush ABSTRACT Motivation: Individual probes on an Affymetrix tiling array usually behave differently.
+Motivation: Individual probes on an Affymetrix tiling array usually behave differently.
 Modeling and removing these probe effects are critical for detecting signals from the array data.
 Current data processing techniques either require control samples or use probe sequences to model probe-specific variability, such as with MAT.
 Although the MAT approach can be applied without control samples, residual probe effects continue to distort the true biological signals.
@@ -32,7 +30,7 @@ Another popular method, represented by MAT (Johnson et al., 2006), uses probe se
 The MAT method assumes that most probes on an array measures background noise, an assumption that usually holds in applications such as ChIP-chip.
 With this assumption, MAT attempts to explain background probe intensities in a single Affymetrix array by fitting a regression, using log probe intensities as the response and probe sequences and probe copy numbers in the genome as the covariates.
 The difference between the observed and model-fitted log probe intensities, after further processing, forms the background corrected probe intensity.
-Using the background corrected probe 2009 The Author(s) This is an Open Access article distributed under the terms of the Creative Commons Attribution Non-Commercial License (http://creativecommons.org/licenses/ by-nc/2.0/uk/) which permits unrestricted non-commercial use, distribution, and reproduction in any medium, provided the original work is properly cited.
+Using the background corrected probe 2009 The Author(s) This is an Open Access article distributed under the terms of the Creative Commons Attribution Non-Commercial License (http://creativecommons.org/licenses/by-nc/2.0/uk/) which permits unrestricted non-commercial use, distribution, and reproduction in any medium, provided the original work is properly cited.
 [15:35 24/8/2009 Bioinformatics-btp425.tex] Page: 2370 23692375 J.T.Judy and H.Ji Fig.1.
 Illustration of probe effects on Affymetrix Mouse Promoter 1.0R arrays.
 (a) IP1IP3, CT1CT3: quantile normalized Gli3 ChIP and control probe intensities at log2 scale.

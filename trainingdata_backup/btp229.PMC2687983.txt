@@ -1,5 +1,4 @@
-            G:\fpp\tex\journals\oup\BioInfo\Bioinfo-25-ISMB-ECCB\btp229.dvi [10:13 15/5/2009 Bioinformatics-btp229.tex] Page: i231 i231i239 BIOINFORMATICS Vol.
-25 ISMB 2009, pages i231i239doi:10.1093/bioinformatics/btp229 Joint estimation of gene conversion rates and mean conversion tract lengths from population SNP data Junming Yin1, Michael I. Jordan1,2 and Yun S. Song1,2, 1Computer Science Division and 2Department of Statistics, University of California, Berkeley, CA, USA ABSTRACT Motivation: Two known types of meiotic recombination are crossovers and gene conversions.
+Motivation: Two known types of meiotic recombination are crossovers and gene conversions.
 Although they leave behind different footprints in the genome, it is a challenging task to tease apart their relative contributions to the observed genetic variation.
 In particular, for a given population SNP dataset, the joint estimation of the crossover rate, the gene conversion rate and the mean conversion tract length is widely viewed as a very difficult problem.
 Results: In this article, we devise a likelihood-based method using an interleaved hidden Markov model (HMM) that can jointly estimate the aforementioned three parameters fundamental to recombination.
@@ -28,7 +27,7 @@ However, the genomic resequencing data to be produced over the next several year
 Therefore, algorithmic and statistical tools to study gene conversion are becoming increasingly more important.
 Song et al.(2007) recently developed algorithms to distinguish the role of gene conversion from crossover in the derivation of SNP sequences in a population.
 Their method can produce an explicit evolutionary history of the input sequences using mutations and recombinations (crossovers and gene conversions), but it cannot produce estimates of recombination parameters.
-The parameters fundamental to recombination are the crossover rate, the gene conversion rate and the mean conversion tract length the conversion tract length is often assumed to follow a geometric distribution (Wiuf and Hein, 2000), in which case the mean 2009 The Author(s) This is an Open Access article distributed under the terms of the Creative Commons Attribution Non-Commercial License (http://creativecommons.org/licenses/ by-nc/2.0/uk/) which permits unrestricted non-commercial use, distribution, and reproduction in any medium, provided the original work is properly cited.
+The parameters fundamental to recombination are the crossover rate, the gene conversion rate and the mean conversion tract length the conversion tract length is often assumed to follow a geometric distribution (Wiuf and Hein, 2000), in which case the mean 2009 The Author(s) This is an Open Access article distributed under the terms of the Creative Commons Attribution Non-Commercial License (http://creativecommons.org/licenses/by-nc/2.0/uk/) which permits unrestricted non-commercial use, distribution, and reproduction in any medium, provided the original work is properly cited.
 [10:13 15/5/2009 Bioinformatics-btp229.tex] Page: i232 i231i239 J.Yin et al.completely specifies the distribution.
 Joint estimation of all three parameters is widely viewed as a very difficult problem.
 There currently exist several statistical methods (reviewed in Section 2) that can jointly estimate crossover and gene conversion rates, but all existing methods, with the only exception being the recent work of Gay et al.(2007), cannot estimate the mean conversion tract length at the same time.
@@ -100,10 +99,10 @@ In addition to a coupling of the two hidden chains, we allow pairwise overlaps o
 (a) A factorial HMM in which the two hidden chains are independent of each other.
 (Gay et al., 2007) used this model.
 (b) An interleaved HMM with coupled hidden chains.
-i233 [10:13 15/5/2009 Bioinformatics-btp229.tex] Page: i234 i231i239 J.Yin et al.g{1,...,k} to state g {1,...,k}, where g =g: P(Gj+1 =g |Gj =g)= dj 0 ex/ (1e x/k) k dx.
+i233 [10:13 15/5/2009 Bioinformatics-btp229.tex] Page: i234 i231i239 J.Yin et al.g{1,...,k} to state g {1,...,k}, where g =g: P(Gj+1 =g |Gj =g)= dj 0 ex/(1e x/k) k dx.
 (7) This formulation requires terminating the gene conversion tract from g before initiating a new one from g. The integrand corresponds to the probability of there being at least one gene conversion event after the last termination event at distance x to the left of site j+1.
 In general, Gay et al.s formulation implicitly allows for an infinite number of gene conversion initiation events to occur before the last termination event.
-Lastly, the initial probability of the G chain depends on how the rate of starting a gene conversion tract compares to the rate of the ending one, i.e.P(G1 =g)=  1/ 1/+/k , if g=,/k k(1/+/k) , if g =.
+Lastly, the initial probability of the G chain depends on how the rate of starting a gene conversion tract compares to the rate of the ending one, i.e.P(G1 =g)=  1/1/+/k , if g=,/k k(1/+/k) , if g =.
 In the above HMM formulation, it is straightforward to compute the conditional probability (hk+1 |h1,...,hk,,,) by using the standard forwardbackward algorithm.
 3 OUR MODEL As described above, the work of Gay et al.(2007) assumes that crossovers and gene conversions are independent, and that gene conversion tracts cannot overlap.
 In this section, we construct a new model that couples the crossover and gene conversion processes.
@@ -154,10 +153,10 @@ In contrast, recall that Gay et al.only integrate over the position of the last 
 It turns out that the main computation involves a symbolic convolution of exponential functions, which can be easily evaluated.
 The transition probability P(Gj+1 =s |Gj =s) can be obtained by adding up the probability of all valid paths in Ps,s and then normalizing to make sure that the outgoing probabilities sum to 1, that is, P(Gj+1 =s |Gj =s)= Ps,s P() s Ps,s P().
 As a concrete example, consider the transition probability P(Gj+1 =g |Gj =g), where g,g {1,...,k} and g =g.
-For a= b=1, Pg,g contains three valid paths, namely 1 =gg, 2 =g (g,g)g and 3 =g (g,g)g. The probability of 1 is given by P(1) = dj 0 djx 0 [ 1 ex/ e(djxy)/ ] [ e x/k  k e y/k 1 k e (djxy)/k ] dydx = e dj/kdj/ k2 dj 0 1  djx 0 1 ey/dydx = e dj/kdj/ k2 ( 1+edj/ dj ).
+For a= b=1, Pg,g contains three valid paths, namely 1 =gg, 2 =g (g,g)g and 3 =g (g,g)g. The probability of 1 is given by P(1) = dj 0 djx 0 [ 1 ex/e(djxy)/] [ e x/k  k e y/k 1 k e (djxy)/k ] dydx = e dj/kdj/k2 dj 0 1  djx 0 1 ey/dydx = e dj/kdj/k2 ( 1+edj/dj ).
 The integrand corresponds to the probability of there being exactly one termination event and exactly one initiation event, with the termination (respectively, initiation) event occurring at distance x (respectively, x+y) to the right of site j.
 Integrating over all possible values of x and y yields the probability of 1.
-In a similar vein, one can show that the probabilities P(2) and P(3) are given by P(2)=P(3)= 12 e dj/kdj/ k2 ( 1+edj/+ dj ).
+In a similar vein, one can show that the probabilities P(2) and P(3) are given by P(2)=P(3)= 12 e dj/kdj/k2 ( 1+edj/+ dj ).
 The transition probability P(Gj+1 =g |Gj =g) is proportional to P(1)+P(2)+P(3).
 Table 1 lists the transition probabilities in the G chain of our implementation with a=b=1.
 In the table, g,g and g denote distinct elements of {1,...,k}.
@@ -165,7 +164,7 @@ In the table, g,g and g denote distinct elements of {1,...,k}.
 However, in the computation of (hk+1 |h1,...,hk,,,), the size of the transition matrix is (1+k+k2)(1+k+k2), since there are 1 null state , k singlet states (g), k degenerate doublet states (g,g) and k2 k non-degenerate doublet states (g,g), where g =g.
 Finding an eigenvector of that transition matrix could be computationally expensive for moderate values of k. Therefore, we make the following approximation: we collapse the transition matrix to a 44 matrix, whose rows and columns are indexed by null, singlet, degenerate doublet and non-degenerate doublet.
 Each entry in the collapsed matrix is obtained by summing over the corresponding i235 [10:13 15/5/2009 Bioinformatics-btp229.tex] Page: i236 i231i239 J.Yin et al.Table 1.
-Transition probabilities P(Gj+1 =s |Gj =s) for the gene conversion chain in the computation of (hk+1 |h1,...,hk,,,), assuming at most one initiation and at most one termination of gene conversions between adjacent sites State s at marker j State s at marker j+1 P(Gj+1 =s |Gj =s) up to normalization  e dj/k + e dj/k k ( 1+edj/+ dj ) g e dj/kdj/ k2 (1+edj/) g (g,g) e dj/k2dj/ k2 (1+edj/) g (g,g) e dj/k2dj/ 2k2 (1+edj/) g g e dj/kdj/+ e dj/kdj/ k2 [ (k+1) ( 1+edj/+ dj ) + ( 1+edj/ dj )] g g e dj/kdj/ k2 [( 1+edj/+ dj ) + ( 1+edj/ dj )] g e dj/k(1edj/) (g,g) (g,g) e dj/k2dj/+ 2 e dj/k2dj/ k2 ( 1+edj/ dj ) (g,g) (g,g) e dj/k2dj/ k2 ( 1+edj/ dj ) (g,g) g 2e dj/kdj/(1edj/) (g,g) (g,g) or (g,g) or (g,g) e dj/k2dj/ k2 ( 1+edj/ dj ) (g,g) (g,g) e dj/k2dj/+ e dj/k2dj/ k2 ( 1+edj/ dj ) (g,g) (g,g) or (g,g) e dj/k2dj/ 2k2 ( 1+edj/ dj ) (g,g) g or g e dj/kdj/(1edj/) Here, g,g and g denote distinct elements of {1,...,k}.
+Transition probabilities P(Gj+1 =s |Gj =s) for the gene conversion chain in the computation of (hk+1 |h1,...,hk,,,), assuming at most one initiation and at most one termination of gene conversions between adjacent sites State s at marker j State s at marker j+1 P(Gj+1 =s |Gj =s) up to normalization  e dj/k + e dj/k k ( 1+edj/+ dj ) g e dj/kdj/k2 (1+edj/) g (g,g) e dj/k2dj/k2 (1+edj/) g (g,g) e dj/k2dj/2k2 (1+edj/) g g e dj/kdj/+ e dj/kdj/k2 [ (k+1) ( 1+edj/+ dj ) + ( 1+edj/dj )] g g e dj/kdj/k2 [( 1+edj/+ dj ) + ( 1+edj/dj )] g e dj/k(1edj/) (g,g) (g,g) e dj/k2dj/+ 2 e dj/k2dj/k2 ( 1+edj/dj ) (g,g) (g,g) e dj/k2dj/k2 ( 1+edj/dj ) (g,g) g 2e dj/kdj/(1edj/) (g,g) (g,g) or (g,g) or (g,g) e dj/k2dj/k2 ( 1+edj/dj ) (g,g) (g,g) e dj/k2dj/+ e dj/k2dj/k2 ( 1+edj/dj ) (g,g) (g,g) or (g,g) e dj/k2dj/2k2 ( 1+edj/dj ) (g,g) g or g e dj/kdj/(1edj/) Here, g,g and g denote distinct elements of {1,...,k}.
 entries in the original transition matrix.
 We find the left eigenvector v=(v0,v1,v2,v3) of the collapsed matrix with eigenvalue 1.
 Then, for g,g {1,...,k}, where g =g, the initial probabilities of the G chain are specified as P(G1 =) = v0, P(G1 =g) = v1k , P(G1 = (g,g)) = v2k , P(G1 = (g,g )) = v3 k2 k. 3.5 Complexity of the algorithm Since the augmented HMM has O(k3) states when computing (hk+1 |h1,...,hk,,,), a naive implementation of the forward backward algorithm takes O(k6L) time, where L is the number of polymorphic sites in the input data (i.e.the length of each haplotype).
@@ -207,14 +206,14 @@ Histogram of gene conversion rate estimates and mean conversion tract length est
 Based on 100 simulations with n=20, = =1.0/kb and =0.5 kb.
 estimate of the mean tract length seems slightly biased downward when is large.
 4.2 A real biological application Gay et al.(2007) used their method to study recombination patterns in two genesnamely, su(s) and su(wa) surveyed by Langley i237 [10:13 15/5/2009 Bioinformatics-btp229.tex] Page: i238 i231i239 J.Yin et al.Table 3.
-Estimates of and for the su(s) and su(wa) loci in D.melanogaster, with held fixed at 0.352 kb Gene Method/su(s) GenCo 1.7 12 7.1 Ours 3.9 5.1 1.3 su(wa) GenCo 0.57 28 48 Ours 9.4 7.1 0.76 The estimates of and are per kilobase.
+Estimates of and for the su(s) and su(wa) loci in D.melanogaster, with held fixed at 0.352 kb Gene Method /su(s) GenCo 1.7 12 7.1 Ours 3.9 5.1 1.3 su(wa) GenCo 0.57 28 48 Ours 9.4 7.1 0.76 The estimates of and are per kilobase.
 Table 4.
-Estimates of , and for the su(s) and su(wa) loci in D.melanogaster Gene Method/su(s) GenCo 0.78 10 13 0.55 Ours 4.7 11 2 0.13 su(wa) GenCo 9.9 270 27 0.004 Ours 9.4 96 10 0.015 The estimates of and are per kilobase, while the estimate of is in kilobase.
+Estimates of , and for the su(s) and su(wa) loci in D.melanogaster Gene Method /su(s) GenCo 0.78 10 13 0.55 Ours 4.7 11 2 0.13 su(wa) GenCo 9.9 270 27 0.004 Ours 9.4 96 10 0.015 The estimates of and are per kilobase, while the estimate of is in kilobase.
 et al.(2000)located near the telomere of the X chromosome of D.melanogaster.
 The su(s) and su(wa) loci are about 4.1 kb and 2.5 kb long, respectively, and are about 400 kb apart.
 Langley et al.(2000) surveyed samples from both an African and an European population, but only the African sample was considered by Gay et al., and we do the same here.
 The su(s) dataset contains 50 haplotypes and 41 SNPs, while the su(wa) dataset contains 50 haplotypes and 46 SNPs.
-Gay et al.reported that, upon fixing the mean tract length to 0.352 kb (Hilliker et al., 1994), they obtained =0.067/kb and = 26.9/kb, thus concluding/ =432.
+Gay et al.reported that, upon fixing the mean tract length to 0.352 kb (Hilliker et al., 1994), they obtained =0.067/kb and = 26.9/kb, thus concluding/=432.
 In their paper, Gay et al.did not specify whether the above estimates were for the su(s) locus or the su(wa) locus.
 To compare their method GenCo with our method, we redid the analysis, following the same procedure as in Section 4.1, i.e.taking 20 random permutations of haplotype order and iterating the computation 10 times.
 We used =1.0/kb and =1.0/kb as the starting values of the optimization procedure in the first iteration.

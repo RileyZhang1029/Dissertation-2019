@@ -1,6 +1,4 @@
-            G:\bioinformatics\Bioinfo-26(21)issue\btq511.dvi [15:29 6/10/2010 Bioinformatics-btq511.tex] Page: 2752 27522759 BIOINFORMATICS ORIGINAL PAPER Vol.
-26 no.
-21 2010, pages 27522759doi:10.1093/bioinformatics/btq511 Systems biology Advance access publication September 8, 2010 Robust and accurate data enrichment statistics via distribution function of sum of weights Aleksandar Stojmirovic and Yi-Kuo Yu National Center for Biotechnology Information, National Library of Medicine, National Institutes of Health, Bethesda, MD 20894, USA Associate Editor: Trey Ideker ABSTRACT Motivation: Term-enrichment analysis facilitates biological interpretation by assigning to experimentally/computationally obtained data annotation associated with terms from controlled vocabularies.
+Motivation: Term-enrichment analysis facilitates biological interpretation by assigning to experimentally/computationally obtained data annotation associated with terms from controlled vocabularies.
 This process usually involves obtaining statistical significance for each vocabulary term and using the most significant terms to describe a given set of biological entities, often associated with weights.
 Many existing enrichment methods require selections of (arbitrary number of) the most significant entities and/or do not account for weights of entities.
 Others either mandate extensive simulations to obtain statistics or assume normal weight distribution.
@@ -34,7 +32,7 @@ By ordering values in w, these tools require users to select a number of top-ran
 After the selection is made, SEA treats all entities equally, ignoring their value differences.
 The gene set analysis (GSA) class was pioneered by the gene set enrichment analysis (GSEA) tool (Mootha et al., 2003; Subramanian et al., 2005).
 Tools from this class use all values (entire w) to Published by Oxford University Press on behalf of The US Government 2010.
-This is an Open Access article distributed under the terms of the Creative Commons Attribution Non-Commercial License (http://creativecommons.org/licenses/ by-nc/2.5), which permits unrestricted non-commercial use, distribution, and reproduction in any medium, provided the original work is properly cited.
+This is an Open Access article distributed under the terms of the Creative Commons Attribution Non-Commercial License (http://creativecommons.org/licenses/by-nc/2.5), which permits unrestricted non-commercial use, distribution, and reproduction in any medium, provided the original work is properly cited.
 [15:29 6/10/2010 Bioinformatics-btq511.tex] Page: 2753 27522759 Robust and accurate data enrichment statistics calculate P-values and do not require preselection of entities.
 Some approaches (Al-Shahrour et al., 2007; Blom et al., 2007; Breitling et al., 2004; Eden et al., 2009) in this group apply hypergeometric tests to all possible selections of top-ranking entities.
 The final P-value is computed by combining (in a toolspecific manner) the P-values from the individual tests.

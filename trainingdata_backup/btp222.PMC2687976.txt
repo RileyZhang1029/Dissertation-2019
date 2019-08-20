@@ -1,5 +1,4 @@
-            G:\fpp\tex\journals\oup\BioInfo\Bioinfo-25-ISMB-ECCB\btp222.dvi [10:09 15/5/2009 Bioinformatics-btp222.tex] Page: i6 i6i14 BIOINFORMATICS Vol.
-25 ISMB 2009, pages i6i14doi:10.1093/bioinformatics/btp222 Constrained mixture estimation for analysis and robust classification of clinical time series Ivan G. Costa1,, Alexander Schnhuth2, Christoph Hafemeister3 and Alexander Schliep3 1Center of Informatics, Federal University of Pernambuco, Recife, Brazil, 2School of Computing Science, Simon Fraser University, Burnaby, BC, Canada and 3Department of Computational Molecular Biology, Max Planck Institute for Molecular Genetics, Berlin, Germany ABSTRACT Motivation: Personalized medicine based on molecular aspects of diseases, such as gene expression profiling, has become increasingly popular.
+Motivation: Personalized medicine based on molecular aspects of diseases, such as gene expression profiling, has become increasingly popular.
 However, one faces multiple challenges when analyzing clinical gene expression data; most of the well-known theoretical issues such as high dimension of feature spaces versus few examples, noise and missing data apply.
 Special care is needed when designing classification procedures that support personalized diagnosis and choice of treatment.
 Here, we particularly focus on classification of interferon-(IFN) treatment response in Multiple Sclerosis (MS) patients which has attracted substantial attention in the recent past.
@@ -34,7 +33,7 @@ Since then, two supervised learning methods have been applied to the very same d
 Borgwardt et al.(2006) used support vector machines, based on dynamic systems kernels.
 Lin et al.(2008) based their classifier on hidden Markov models (HMM) using discriminative learning.
 Both of these methods profited from exploring the temporal aspects of the data.
-For example, a main contribution of the HMM based method proposed by Lin et al.(2008) was to show that patients have specific treatment response 2009 The Author(s) This is an Open Access article distributed under the terms of the Creative Commons Attribution Non-Commercial License (http://creativecommons.org/licenses/ by-nc/2.0/uk/) which permits unrestricted non-commercial use, distribution, and reproduction in any medium, provided the original work is properly cited.
+For example, a main contribution of the HMM based method proposed by Lin et al.(2008) was to show that patients have specific treatment response 2009 The Author(s) This is an Open Access article distributed under the terms of the Creative Commons Attribution Non-Commercial License (http://creativecommons.org/licenses/by-nc/2.0/uk/) which permits unrestricted non-commercial use, distribution, and reproduction in any medium, provided the original work is properly cited.
 [10:09 15/5/2009 Bioinformatics-btp222.tex] Page: i7 i6i14 Constraint mixture estimation for classification of time series HMM 1 HMM 2 (a) (b) (c) HMM 1 HMM 2 HMM 1 HMM 2 HMM 3 Fig.1.
 Schematic example of the classification problem in a 2D space in the presence of mislabeled examples and unknown sub-classes.
 Dark blue dots correspond to good responders and light red dots to bad responders.
@@ -232,7 +231,7 @@ noise comp.
 HMM Class (a) (b) Fig.4.
 Accuracy on simulated data (a) after addition of noise to x% of time points and (b) after inclusion of wrong labels.
 Table 1.
-Classification accuracy of distinct methods in the MS patient response data Method Number of genes Training Test Accuracy (%) Accuracy (%) IBIS 3 74.20 HMMClass 70 87.15 76.52 (+/ 0.03) HMMConst4 35 89.62 78.08 (+/ 17.0) HMMConst2 70 87.12 80.49 (+/ 9.5) HMMConst3 70 88.26 81.38 (+/ 10.0) HMMDisc 7 85.00 Kalman SVM  87.80 HMMClass 17 93.66 89.34 (+/ 8.5) HMMConst2 17 92.31 89.62 (+/ 8.1) HMMConst3 17 92.60 90.39 (+/ 7.2) HMMConstAll3 17 93.64 92.31 (+/ 7.6) HMMConstAll2 17 93.47 92.70 (+/ 6.1) employing a noise component, the accuracy of HMMClass stays at around 90%.
+Classification accuracy of distinct methods in the MS patient response data Method Number of genes Training Test Accuracy (%) Accuracy (%) IBIS 3 74.20 HMMClass 70 87.15 76.52 (+/0.03) HMMConst4 35 89.62 78.08 (+/17.0) HMMConst2 70 87.12 80.49 (+/9.5) HMMConst3 70 88.26 81.38 (+/10.0) HMMDisc 7 85.00 Kalman SVM  87.80 HMMClass 17 93.66 89.34 (+/8.5) HMMConst2 17 92.31 89.62 (+/8.1) HMMConst3 17 92.60 90.39 (+/7.2) HMMConstAll3 17 93.64 92.31 (+/7.6) HMMConstAll2 17 93.47 92.70 (+/6.1) employing a noise component, the accuracy of HMMClass stays at around 90%.
 A t-test confirms significance of the higher accuracy of HMMClass with a noise component when >1% of noise is added (P-value > 0.05).
 As shown before, with the noise component the emission distributions have longer tails (Fraley and Raftery, 1998) which makes the model estimation more robust to outlier points.
 The second aspect we analyzed was the inclusion of wrong labels into the patient response data.

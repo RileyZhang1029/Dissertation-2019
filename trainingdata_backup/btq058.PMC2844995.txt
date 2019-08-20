@@ -1,7 +1,4 @@
-            G:\bioinformatics\Bioinfo-26(7)issue\btq058.dvi [15:24 17/3/2010 Bioinformatics-btq058.tex] Page: 882 882888 BIOINFORMATICS ORIGINAL PAPER Vol.
-26 no.
-7 2010, pages 882888doi:10.1093/bioinformatics/btq058 Structural bioinformatics Advance Access publication February 11, 2010 MULTICOM: a multi-level combination approach to protein structure prediction and its assessments in CASP8 Zheng Wang1, Jesse Eickholt1 and Jianlin Cheng1,2,3, 1Department of Computer Science, 2Informatics Institute and 3C.
-Bond Life Science Center, University of Missouri, Columbia, MO 65211, USA Associate Editor: Burkhard Rost ABSTRACT Motivation: Protein structure prediction is one of the most important problems in structural bioinformatics.
+Motivation: Protein structure prediction is one of the most important problems in structural bioinformatics.
 Here we describe MULTICOM, a multi-level combination approach to improve the various steps in protein structure prediction.
 In contrast to those methods which look for the best templates, alignments and models, our approach tries to combine complementary and alternative templates, alignments and models to achieve on average better accuracy.
 Results: The multi-level combination approach was implemented via five automated protein structure prediction servers and one human predictor which participated in the eighth Critical Assessment of Techniques for Protein Structure Prediction (CASP8), 2008.
@@ -33,7 +30,7 @@ The CASP8 results show that the multi-level combination approach is effective fo
 More specifically, our pipeline first uses a set of fold recognition methods to generate several lists of templates, each one ranked by one of the fold recognition methods employed.
 Then alignments between the target and one or more of the top templates in The Author(s) 2010.
 Published by Oxford University Press.
-This is an Open Access article distributed under the terms of the Creative Commons Attribution Non-Commercial License (http://creativecommons.org/licenses/ by-nc/2.5), which permits unrestricted non-commercial use, distribution, and reproduction in any medium, provided the original work is properly cited.
+This is an Open Access article distributed under the terms of the Creative Commons Attribution Non-Commercial License (http://creativecommons.org/licenses/by-nc/2.5), which permits unrestricted non-commercial use, distribution, and reproduction in any medium, provided the original work is properly cited.
 [15:24 17/3/2010 Bioinformatics-btq058.tex] Page: 883 882888 Protein structure prediction and its assessments in CASP8 each of the ranked lists are greedily combined into a multiple sequence alignment (Cheng, 2008).
 This multiple sequence alignment along with the structure for each template are fed into model generation tools which construct models.
 All the models are then evaluated and ranked by model quality assessment tools.

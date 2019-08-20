@@ -1,5 +1,4 @@
-          OP-CBIO130241 237..246 Vol.
-29 ISMB/ECCB 2013, pages i237i246 BIOINFORMATICS doi:10.1093/bioinformatics/btt224 Predicting protein interactions via parsimonious network history inference Rob Patro* and Carl Kingsford* Lane Center for Computational Biology, School of Computer Science, Carnegie Mellon University, Pittsburgh, PA 15213, USA ABSTRACT Motivation: Reconstruction of the network-level evolutionary history of proteinprotein interactions provides a principled way to relate interactions in several present-day networks.
+Motivation: Reconstruction of the network-level evolutionary history of proteinprotein interactions provides a principled way to relate interactions in several present-day networks.
 Here, we present a general framework for inferring such histories and demonstrate how it can be used to determine what interactions existed in the ancestral networks, which present-day interactions we might expect to exist based on evolutionary evidence and what information extant networks contain about the order of ancestral protein duplications.
 Results: Our framework characterizes the space of likely parsimonious network histories.
 It results in a structure that can be used to find probabilities for a number of events associated with the histories.
@@ -32,7 +31,7 @@ As a result, rather than enumerating individual solutions, we are able to enumer
 Inspired by Feynman and Brown (1942), we call this method a sum-over-parsimonious-histories (SOPH) approach to*To whom correspondence should be addressed.
 The Author 2013.
 Published by Oxford University Press.
-This is an Open Access article distributed under the terms of the Creative Commons Attribution Non-Commercial License (http://creativecommons.org/licenses/ by-nc/3.0/), which permits non-commercial re-use, distribution, and reproduction in any medium, provided the original work is properly cited.
+This is an Open Access article distributed under the terms of the Creative Commons Attribution Non-Commercial License (http://creativecommons.org/licenses/by-nc/3.0/), which permits non-commercial re-use, distribution, and reproduction in any medium, provided the original work is properly cited.
 For commercial re-use, please contact journals.permissions@oup.com mailto:robp@cs.cmu.edu or carlk@cs.cmu.eduancestral network reconstruction.
 Although related to certain approaches in natural language processing, our approach for generating a weighted ensemble of parsimonious solutions is novel and may also prove useful in other areas of computational biology.
 For every potential interactioneither ancestral or extant our algorithm computes the posterior probability, summed over an ensemble of parsimonious and near-parsimonious histories, which the interaction exists.

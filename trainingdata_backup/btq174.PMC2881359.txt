@@ -1,5 +1,4 @@
-            G:\bioinformatics\ISMB\btq174.dvi [12:19 12/5/2010 Bioinformatics-btq174.tex] Page: i391 i391i398 BIOINFORMATICS Vol.
-26 ISMB 2010, pages i391i398doi:10.1093/bioinformatics/btq174 Multivariate multi-way analysis of multi-source data Ilkka Huopaniemi1,, Tommi Suvitaival1, Janne Nikkil1,2, Matej Oreic3 and Samuel Kaski1, 1Aalto University School of Science and Technology, Department of Information and Computer Science, Helsinki Institute for Information Technology HIIT, PO Box 15400, FI-00076 Aalto, Espoo, 2Department of Veterinary Biosciences, Faculty of Veterinary Medicine, University of Helsinki, PO Box 66, FIN-00014, Helsinki and 3VTT Technical Research Centre of Finland, PO Box 1000, FIN-02044 VTT, Espoo, Finland ABSTRACT Motivation: Analysis of variance (ANOVA)-type methods are the default tool for the analysis of data with multiple covariates.
+Motivation: Analysis of variance (ANOVA)-type methods are the default tool for the analysis of data with multiple covariates.
 These tools have been generalized to the multivariate analysis of highthroughput biological datasets, where the main challenge is the problem of small sample size and high dimensionality.
 However, the existing multi-way analysis methods are not designed for the currently increasingly important experiments where data is obtained from multiple sources.
 Common examples of such settings include integrated analysis of metabolic and gene expression profiles, or metabolic profiles from several tissues in our case, in a controlled multi-way experimental setup where disease status, medical treatment, gender and time-series are usual covariates.
@@ -10,7 +9,7 @@ In particular, the method partitions the effects to those shared between the sou
 The method is specifically designed for datasets with small sample sizes and high dimensionality.
 We apply the method to a lipidomics dataset from a lung cancer study with two-way experimental setup, where measurements from several tissues with mostly distinct lipids have been taken.
 The method is also directly applicable to gene expression and proteomics.
-Availability: An R-implementation is available at http://www.cis.hut.fi/projects/mi/software/multiWayCCA/ Contact: ilkka.huopaniemi@tkk.fi; samuel.kaski@tkk.fi 1 INTRODUCTION Data from experiments with multiple covariates are usually analyzed with multi-way analysis of variance (ANOVA)-type methods.
+Availability: An R-implementation is available at http://www.cis.hut.fi/projects/mi/software/multiWayCCA/Contact: ilkka.huopaniemi@tkk.fi; samuel.kaski@tkk.fi 1 INTRODUCTION Data from experiments with multiple covariates are usually analyzed with multi-way analysis of variance (ANOVA)-type methods.
 A typical one-way analysis setup in experiments looking for potential biomarkers for disease is the diseasedhealthy differential analysis.
 Biological experiments often contain additional covariates, such as drug treatment groups, gender or time-series, resulting in a multi-way experimental setup.
 The traditional methods for multi-way analysis are univariate multi-way ANOVA, and its multivariate generalization MANOVA.
@@ -33,7 +32,7 @@ Different data sources usually have distinct, unmatched variable spaces with dif
 If the variable spaces were the same, one might want to consider the source as an additional covariate in a standard ANOVA-type analysis.
 However, this is usually impossible since variable spaces The Author(s) 2010.
 Published by Oxford University Press.
-This is an Open Access article distributed under the terms of the Creative Commons Attribution Non-Commercial License (http://creativecommons.org/licenses/ by-nc/2.5), which permits unrestricted non-commercial use, distribution, and reproduction in any medium, provided the original work is properly cited.
+This is an Open Access article distributed under the terms of the Creative Commons Attribution Non-Commercial License (http://creativecommons.org/licenses/by-nc/2.5), which permits unrestricted non-commercial use, distribution, and reproduction in any medium, provided the original work is properly cited.
 [12:19 12/5/2010 Bioinformatics-btq174.tex] Page: i392 i391i398 I.Huopaniemi et al.are in general distinct and unmatched, and covariate effects shared between the sources cannot be defined a priori.
 The desired goal would be to write a linear model for the sources x and y in the two-source, two-way case as x=x +a +b +()ab +xa +xb +()xab +, y=y +a +b +()ab +ya +yb +() y ab +, (2) where, in addition to the source-specific effects denoted by superscripts x and y, there are effects shared between the sources: a, b and ()ab.
 Unfortunately, since x and y have distinct variable spaces, a model including shared effects cannot be defined as simply as in Equation (2).

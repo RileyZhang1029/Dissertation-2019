@@ -1,5 +1,4 @@
-          OP-CBIO140290 34..42 Vol.
-30 ISMB 2014, pages i34i42 BIOINFORMATICS doi:10.1093/bioinformatics/btu282 Inferring gene ontologies from pairwise similarity data Michael Kramer1, Janusz Dutkowski1, Michael Yu1, Vineet Bafna2 and Trey Ideker1,* 1Department of Medicine and 2Department of Computer Science and Engineering, University of California San Diego, La Jolla, CA 92093, USA ABSTRACT Motivation: While the manually curated Gene Ontology (GO) is widely used, inferring a GO directly from-omics data is a compelling new problem.
+Motivation: While the manually curated Gene Ontology (GO) is widely used, inferring a GO directly from-omics data is a compelling new problem.
 Recognizing that ontologies are a directed acyclic graph (DAG) of terms and hierarchical relations, algorithms are needed that: (1) analyze a full matrix of genegene pairwise similarities from-omics data; (2) infer true hierarchical structure in these data rather than enforcing hierarchy as a computational artifact; and (3) respect biological pleiotropy, by which a term in the hierarchy can relate to multiple higher level terms.
 Methods addressing these requirements are just beginning to emergenone has been evaluated for GO inference.
 Methods: We consider two algorithms [Clique Extracted Ontology (CliXO), LocalFitness] that uniquely satisfy these requirements, compared with methods including standard clustering.
@@ -32,7 +31,7 @@ This syntactic information is the most commonly used information by biologists u
 *To whom correspondence should be addressed.
 The Author 2014.
 Published by Oxford University Press.
-This is an Open Access article distributed under the terms of the Creative Commons Attribution Non-Commercial License (http://creativecommons.org/licenses/ by-nc/3.0/), which permits non-commercial re-use, distribution, and reproduction in any medium, provided the original work is properly cited.
+This is an Open Access article distributed under the terms of the Creative Commons Attribution Non-Commercial License (http://creativecommons.org/licenses/by-nc/3.0/), which permits non-commercial re-use, distribution, and reproduction in any medium, provided the original work is properly cited.
 For commercial re-use, please contact journals.permissions@oup.com mailto:tideker@ucsd.edu ",0,0,2 ",0,0,2 however, gene ontology www.nexontology.org `` '' `` '' ,  `` '' `` '' `` ''  XPath error Undefined namespace prefix XPath error Undefined namespace prefix GO is structured as a rooted, directed acyclic graph (DAG), where gene annotations propagate up the hierarchy from child terms to parent terms through is a and part of relations.
 For example, in the biological process (BP) branch, M phase of mitotic cell cycle and interphase of mitotic cell cycle are child terms beneath mitotic cell cycle.
 Since GO is a DAG, any term can have multiple parents and/or multiple children.
@@ -152,7 +151,7 @@ We add all edges adjusted in M to U and update Ccur.
 2.3 Evaluation of reconstructed ontologies 2.3.1 Ontology alignment Ontologies were aligned as in Dutkowski et al.(2013).
 Briefly, given two ontologiesO1 with n1 terms andO2 with n2 terms, an ontology alignment A is a mapping of terms between ontologies such that each term in O1 maps to at most one term in O2 and vice versa.
 Term mapping in our alignment procedure is evaluated using a score i37 Inferring gene ontologies.
-Clique Extracted Ontology ( ) time , ' ' ' ' ( )-/ x &Unicode_xF020; ) &Unicode_xF020; `` '' &Unicode_xF020; `` '' &minusb; 1-",0,0,2 ",0,0,2 ",0,0,2 ",0,0,2 4 1 Ci Cj 5 from ) ( ), ( function that considers the similarity of the sets of genes assigned to terms (intrinsic similarity) and the similarity of the ontology hierarchy surrounding each term (relational similarity).
+Clique Extracted Ontology ( ) time , ' ' ' ' ( )-/x &Unicode_xF020; ) &Unicode_xF020; `` '' &Unicode_xF020; `` '' &minusb; 1-",0,0,2 ",0,0,2 ",0,0,2 ",0,0,2 4 1 Ci Cj 5 from ) ( ), ( function that considers the similarity of the sets of genes assigned to terms (intrinsic similarity) and the similarity of the ontology hierarchy surrounding each term (relational similarity).
 Each pair of terms which is aligned receives an alignment score ranging from 0 to 1 where 1 represents identity in both intrinsic and relational similarity.
 To calculate false discovery rate (FDR) of term alignment, we first create n ontologies with the same structure as the inferred ontologyOi but with all gene labels randomly permuted.
 The FDR of a term alignment at a given score t is then: FDRt= 1 n Xn i=1 NRi t Nt Where NRi t is the number of terms in the random permutation i that have an alignment score t, and N(t) is the number of terms in the ontology Oi that have an alignment score t. Terms are binned by size for the FDR computation, and we set a minimum score threshold value t 0.1 for large terms and higher threshold values for small terms so as to maintain an FDR55% within each size group.

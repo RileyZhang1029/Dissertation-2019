@@ -1,9 +1,4 @@
-            Copyedited by: TRJ MANUSCRIPT CATEGORY: [12:03 29/5/2012 Bioinformatics-bts218.tex] Page: i274 i274i282 BIOINFORMATICS Vol.
-28 ISMB 2012, pages i274i282doi:10.1093/bioinformatics/bts218 DACTAL: divide-and-conquer trees (almost) without alignments Serita Nelesen1, Kevin Liu2, Li-San Wang3, C. Randal Linder4 and Tandy Warnow5, 1Dept.
-of Computer Science, Calvin College, Grand Rapids, MI 49546, 2Dept.
-of Computer Science, Rice University, Houston, TX 77005, 3Dept.
-of Pathology and Laboratory Medicine, The University of Pennsylvania, Philadelphia, PA 19104, 4Section of Integrative Biology and 5Dept.
-of Computer Science, The University of Texas at Austin, Austin, TX 78712, USA ABSTRACT Motivation: While phylogenetic analyses of datasets containing 10005000 sequences are challenging for existing methods, the estimation of substantially larger phylogenies poses a problem of much greater complexity and scale.
+Motivation: While phylogenetic analyses of datasets containing 10005000 sequences are challenging for existing methods, the estimation of substantially larger phylogenies poses a problem of much greater complexity and scale.
 Methods: We present DACTAL, a method for phylogeny estimation that produces trees from unaligned sequence datasets without ever needing to estimate an alignment on the entire dataset.
 DACTAL combines iteration with a novel divide-and-conquer approach, so that each iteration begins with a tree produced in the prior iteration, decomposes the taxon set into overlapping subsets, estimates trees on each subset, and then combines the smaller trees into a tree on the full taxon set using a new supertree method.
 We prove that DACTAL is guaranteed to produce the true tree under certain conditions.
@@ -31,7 +26,7 @@ The dataset decomposition technique used in DACTAL is inspired by theoretical re
 Our study compares DACTAL to several existing methods, including several leading two-phase methods and SAT, on simulated and biological datasets with 1000 to almost 28 000 sequences.
 We show that: DACTAL produced more accurate trees than ML analyses of the alignment methods we studied, when analyzing very large difficult-to-align datasets, and matches accuracy on datasets that are easy to align; DACTAL matched the accuracy of SAT but was much faster (about one-tenth the time for each iteration on the largest datasets); and The Author(s) 2012.
 Published by Oxford University Press.
-This is an Open Access article distributed under the terms of the Creative Commons Attribution Non-Commercial License (http://creativecommons.org/licenses/ by-nc/3.0), which permits unrestricted non-commercial use, distribution, and reproduction in any medium, provided the original work is properly cited.
+This is an Open Access article distributed under the terms of the Creative Commons Attribution Non-Commercial License (http://creativecommons.org/licenses/by-nc/3.0), which permits unrestricted non-commercial use, distribution, and reproduction in any medium, provided the original work is properly cited.
 Copyedited by: TRJ MANUSCRIPT CATEGORY: [12:03 29/5/2012 Bioinformatics-bts218.tex] Page: i275 i274i282 Phylogeny estimation using DACTAL Fig.1.
 DACTAL algorithmic design.
 DACTAL can begin with an initial tree (bottom triangle), or through a technique that divides the unaligned sequence dataset into overlapping subsets.

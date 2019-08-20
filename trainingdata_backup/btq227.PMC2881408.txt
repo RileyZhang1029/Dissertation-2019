@@ -1,6 +1,4 @@
-            G:\bioinformatics\Bioinfo-26(12)issue\btq227.dvi [16:46 12/5/2010 Bioinformatics-btq227.tex] Page: 1520 15201527 BIOINFORMATICS ORIGINAL PAPER Vol.
-26 no.
-12 2010, pages 15201527doi:10.1093/bioinformatics/btq227 Gene expression Advance Access publication April 23, 2010 FABIA: factor analysis for bicluster acquisition Sepp Hochreiter1,, Ulrich Bodenhofer1, Martin Heusel1, Andreas Mayr1, Andreas Mitterecker1, Adetayo Kasim2, Tatsiana Khamiakova2, Suzy Van Sanden2, Dan Lin2, Willem Talloen3, Luc Bijnens3, Hinrich W. H. Ghlmann3, Ziv Shkedy2 and Djork-Arn Clevert1,4 1Institute of Bioinformatics, Johannes Kepler University, Linz, Austria, 2Institute for Biostatistics and Statistical Bioinformatics, Hasselt University, Hasselt, 3Johnson & Johnson Pharmaceutical Research & Development, Division of Janssen Pharmaceutica, Beerse, Belgium and 4Department of Nephrology and Internal Intensive Care, Charit, Berlin, Germany Associate Editor: Olga Troyanskaya ABSTRACT Motivation: Biclustering of transcriptomic data groups genes and samples simultaneously.
+Motivation: Biclustering of transcriptomic data groups genes and samples simultaneously.
 It is emerging as a standard tool for extracting knowledge from gene expression measurements.
 We propose a novel generative approach for biclustering called FABIA: Factor Analysis for Bicluster Acquisition.
 FABIA is based on a multiplicative model, which accounts for linear dependencies between gene expression and conditions, and also captures heavytailed distributions as observed in real-world transcriptomic data.
@@ -36,7 +34,7 @@ FLexible Overlapped biClustering (FLOC; Yang et al., 2005) extend ChengChurch-bi
 (2) Two-way clustering methods apply conventional clustering to the columns and rows and (iteratively) combine the results.
 Coupled Two-Way Clustering (CTWC; Getz et al., 2000) iteratively The Author(s) 2010.
 Published by Oxford University Press.
-This is an Open Access article distributed under the terms of the Creative Commons Attribution Non-Commercial License (http://creativecommons.org/licenses/ by-nc/2.5), which permits unrestricted non-commercial use, distribution, and reproduction in any medium, provided the original work is properly cited.
+This is an Open Access article distributed under the terms of the Creative Commons Attribution Non-Commercial License (http://creativecommons.org/licenses/by-nc/2.5), which permits unrestricted non-commercial use, distribution, and reproduction in any medium, provided the original work is properly cited.
 [16:46 12/5/2010 Bioinformatics-btq227.tex] Page: 1521 15201527 FABIA performs standard clustering of the rows (columns) using previously constructed columns (rows) clusters as features.
 Also Interrelated Two-Way Clustering (ITWC; Tang et al., 2001) using k-means and Double Conjugated Clustering (DCC; Busygin et al., 2002) using self-organizing maps combine column and row clustering.
 (3) Motif and pattern recognition methods define a bicluster as samples sharing a common pattern or motif.
@@ -115,7 +113,7 @@ Therefore, the tails of the distribution are heavier than those of the Laplace d
 The Gaussian noise, however, reduces the heaviness of the tails such that the heaviness is between Gaussian and Bessel function tails about as heavy as the tails of the Laplacian distribution.
 These heavy tails are exactly the desired model characteristics.
 The second model, called FABIAS, uses a prior distribution for the loadings that is non-zero only in regions where the loadings are sparse.
-Following (Hoyer, 2004), we define sparseness as sp(i) = n nk=1 |ki|/ nk=12ki n 1 leading to the prior with parameter spL p(i) = { c for sp(i) spL 0 for sp(i) > spL.
+Following (Hoyer, 2004), we define sparseness as sp(i) = n nk=1 |ki|/nk=12ki n 1 leading to the prior with parameter spL p(i) = { c for sp(i) spL 0 for sp(i) > spL.
 (5) Relation to Independent Component Analysis (ICA): our models are closely related to ICA (Hyvrinen, 1999).
 ICA searches for a matrix factorization, where the components of z in model Equation (3) without noise should be mutually independent.
 The matrix decomposition for ICA is X = ICA ZICA, where ZICA ZTICA = I. ICA results in sparse ZICA, whereas ICA is not sparse as in our models.

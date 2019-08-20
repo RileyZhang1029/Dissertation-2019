@@ -1,5 +1,4 @@
-            [20:17 18/6/03 Bioinformatics-btn162.tex] Page: i232 i232i240 BIOINFORMATICS Vol.
-24 ISMB 2008, pages i232i240doi:10.1093/bioinformatics/btn162 Prediction of drugtarget interaction networks from the integration of chemical and genomic spaces Yoshihiro Yamanishi 1,,, Michihiro Araki 2, Alex Gutteridge 1, Wataru Honda 1 and Minoru Kanehisa 1,2 1Bioinformatics Center, Institute for Chemical Research, Kyoto University, Gokasho, Uji, Kyoto 611-0011 and 2Human Genome Center, Institute of Medical Science, University of Tokyo, 4-6-1 Shirokane-dai Minato-ku, Tokyo 108-8639, Japan ABSTRACT Motivation: The identification of interactions between drugs and target proteins is a key area in genomic drug discovery.
+Motivation: The identification of interactions between drugs and target proteins is a key area in genomic drug discovery.
 Therefore, there is a strong incentive to develop new methods capable of detecting these potential drugtarget interactions efficiently.
 Results: In this article, we characterize four classes of drugtarget interaction networks in humans involving enzymes, ion channels, G-protein-coupled receptors (GPCRs) and nuclear receptors, and reveal significant correlations between drug structure similarity, target sequence similarity and the drugtarget interaction network topology.
 We then develop new statistical methods to predict unknown drug target interaction networks from chemical structure and genomic sequence information simultaneously on a large scale.
@@ -60,7 +59,7 @@ The similarity matrix Sc is considered to represent chemical space.
 2.3 Genomic data Amino acid sequences of the target proteins were obtained from the KEGG GENES database (Kanehisa et al., 2006).
 In this study we focused on the proteins in human.
 We computed the sequence similarities between the proteins i233 [20:17 18/6/03 Bioinformatics-btn162.tex] Page: i234 i232i240 Y.Yamanishi et al.using a normalized version of SmithWaterman scores (Smith and Waterman, 1981).
-The normalized Smith Waterman score between two proteins g and g is computed as sg(g,g)=SW (g,g)/ SW (g,g) SW (g,g), where SW (,) means the original SmithWaterman score.
+The normalized Smith Waterman score between two proteins g and g is computed as sg(g,g)=SW (g,g)/SW (g,g) SW (g,g), where SW (,) means the original SmithWaterman score.
 Applying this operation to all protein pairs, we construct a similarity matrix denoted as Sg.
 In this study the similarity matrix Sg is considered to represent genomic space.
 3 METHODS The proposed supervised method is a two-step process.

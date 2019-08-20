@@ -1,6 +1,4 @@
-            G:\bioinformatics\Bioinfo-26(8)issue\btq097.dvi [10:33 23/3/2010 Bioinformatics-btq097.tex] Page: 1043 10431049 BIOINFORMATICS ORIGINAL PAPER Vol.
-26 no.
-8 2010, pages 10431049doi:10.1093/bioinformatics/btq097 Gene expression Advance Access publication March 4, 2010 Statistical expression deconvolution from mixed tissue samples Jennifer Clarke1,2,, Pearl Seo1 and Bertrand Clarke1,2,3 1Department of Medicine, University of Miami, 1120 NW 14th St, Suite 611, Miami, FL 33136, 2Department of Epidemiology and Public Health, University of Miami, 1120 NW 14th St, Suite 1005, Miami, FL 33136 and 3Center for Computational Science, University of Miami, 1120 NW 14th St, Suite 619, Miami, FL 33136, USA Associate Editor: John Quackenbush ABSTRACT Motivation: Global expression patterns within cells are used for purposes ranging from the identification of disease biomarkers to basic understanding of cellular processes.
+Motivation: Global expression patterns within cells are used for purposes ranging from the identification of disease biomarkers to basic understanding of cellular processes.
 Unfortunately, tissue samples used in cancer studies are usually composed of multiple cell types and the non-cancerous portions can significantly affect expression profiles.
 This severely limits the conclusions that can be made about the specificity of gene expression in the cell-type of interest.
 However, statistical analysis can be used to identify differentially expressed genes that are related to the biological question being studied.
@@ -30,7 +28,7 @@ For example, the program DECONVOLUTE (Lu et al., 2003) uses simulated annealing 
 These methods depend on known tissue-or cell-specific genes, and technology that can detect their expression with little or no cross-hybridization.
 If these conditions is not met, widely varying estimates of pA can be obtained by selecting different subsets The Author(s) 2010.
 Published by Oxford University Press.
-This is an Open Access article distributed under the terms of the Creative Commons Attribution Non-Commercial License (http://creativecommons.org/licenses/ by-nc/2.5), which permits unrestricted non-commercial use, distribution, and reproduction in any medium, provided the original work is properly cited.
+This is an Open Access article distributed under the terms of the Creative Commons Attribution Non-Commercial License (http://creativecommons.org/licenses/by-nc/2.5), which permits unrestricted non-commercial use, distribution, and reproduction in any medium, provided the original work is properly cited.
 [10:33 23/3/2010 Bioinformatics-btq097.tex] Page: 1044 10431049 J.Clarke et al.of tissue-specific genes.
 Note that low specificity of microarray hybridizations has been suggested to be one of the prime measures affecting discrepancies in gene-expression profiles between different probes targeting the same region of a given transcript or between different microarray platforms (Koltai and Weingarten-Baror, 2008).
 We do not assume knowledge of cell-or tissue-specific genes in our method, although such knowledge may be available, particularly for samples from xenograft studies (where the tissues of interest are from different species).
@@ -100,7 +98,7 @@ We discovered that across several datasets a value for does exist for which mini
 Unfortunately, this value for varies with each dataset and with the value of pA, i.e.within each dataset and across datasets the value of that provides an accurate estimate of pA is different for each value of pA. For any given dataset and value of pA we could successfully model as a function of pA, using a function of the form log(pA +1)/(pA 1) for some ,>0.
 However, this function depends on pA, the value we are trying to estimate.
 Fig.3.
-Values of tR() and md(tR()) as functions of for (a) MDA231/ mouse titration data at pA =0.5 and (b) MAQC human titration data at pA =0.75.
+Values of tR() and md(tR()) as functions of for (a) MDA231/mouse titration data at pA =0.5 and (b) MAQC human titration data at pA =0.75.
 The vertical line indicates the correct value of.
 We acknowledge that the minimum value of tRi is sensitive to the noise in the data, particularly in relation to the mean or the median.
 Hence we decided to explore the possibility of using information from a summary statistic of tRi (e.g.mean or median) as a function of to determine the correct value of , and hence the value of our estimate mintRi.

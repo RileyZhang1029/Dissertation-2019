@@ -1,13 +1,11 @@
-          OP-CBIO130235 171..179 Vol.
-29 ISMB/ECCB 2013, pages i171i179 BIOINFORMATICS doi:10.1093/bioinformatics/btt238 Efficient network-guided multi-locus association mapping with graph cuts Chloe-Agathe Azencott1,*, Dominik Grimm1, Mahito Sugiyama1, Yoshinobu Kawahara2 and Karsten M. Borgwardt1,3 1Machine Learning and Computational Biology Research Group, Max Planck Institute for Developmental Biology & Max Planck Institute for Intelligent Systems Spemannstr.
-38, 72076 Tubingen, Germany, 2The Institute of Scientific and Industrial Research (ISIR) Osaka University 8-1 Mihogaoka, Ibaraki-shi, Osaka 567-0047, Japan and 3Zentrum fur Bioinformatik, Eberhard Karls Universitat Tubingen, 72076 Tubingen, Germany ABSTRACT Motivation: As an increasing number of genome-wide association studies reveal the limitations of the attempt to explain phenotypic heritability by single genetic loci, there is a recent focus on associating complex phenotypes with sets of genetic loci.
+Motivation: As an increasing number of genome-wide association studies reveal the limitations of the attempt to explain phenotypic heritability by single genetic loci, there is a recent focus on associating complex phenotypes with sets of genetic loci.
 Although several methods for multi-locus mapping have been proposed, it is often unclear how to relate the detected loci to the growing knowledge about gene pathways and networks.
 The few methods that take biological pathways or networks into account are either restricted to investigating a limited number of predetermined sets of loci or do not scale to genome-wide settings.
 Results: We present SConES, a new efficient method to discover sets of genetic loci that are maximally associated with a phenotype while being connected in an underlying network.
 Our approach is based on a minimum cut reformulation of the problem of selecting features under sparsity and connectivity constraints, which can be solved exactly and rapidly.
 SConES outperforms state-of-the-art competitors in terms of runtime, scales to hundreds of thousands of genetic loci and exhibits higher power in detecting causal SNPs in simulation studies than other methods.
 On flowering time phenotypes and genotypes from Arabidopsis thaliana, SConES detects loci that enable accurate phenotype prediction and that are supported by the literature.
-Availability: Code is available at http://webdav.tuebingen.mpg.de/u/ karsten/Forschung/scones/.
+Availability: Code is available at http://webdav.tuebingen.mpg.de/u/karsten/Forschung/scones/.
 Contact: chloe-agathe.azencott@tuebingen.mpg.de Supplementary information: Supplementary data are available at Bioinformatics online.
 1 INTRODUCTION Twin and family/pedigree studies make it possible to estimate the heritability of observed traits, that is to say the amount of their variability that can be attributed to genetic differences.
 In the past few years, genome-wide association studies (GWAS), in which several hundreds of thousands to millions of single nucleotide polymorphisms (SNPs) are assayed in up to thousands of individuals, have made it possible to identify hundreds of genetic variants associated with complex phenotypes (Zuk et al., 2012).
@@ -32,7 +30,7 @@ In this setting, we aim at recovering subsequences of the genomic sequence that 
 *To whom correspondence should be addressed.
 The Author 2013.
 Published by Oxford University Press.
-This is an Open Access article distributed under the terms of the Creative Commons Attribution Non-Commercial License (http://creativecommons.org/licenses/ by-nc/3.0/), which permits non-commercial re-use, distribution, and reproduction in any medium, provided the original work is properly cited.
+This is an Open Access article distributed under the terms of the Creative Commons Attribution Non-Commercial License (http://creativecommons.org/licenses/by-nc/3.0/), which permits non-commercial re-use, distribution, and reproduction in any medium, provided the original work is properly cited.
 For commercial re-use, please contact journals.permissions@oup.com GM (gene membership) network: SNPs are connected as in the sequence network described earlier in the text; in addition, SNPs near the same gene are linked together as well.
 Usually, a SNP is considered to belong to a gene if it is either located inside said gene or within a predefined distance of this gene.
 In this setting, we aim more particularly at recovering genes that correlate with the phenotype.
@@ -92,7 +90,7 @@ In our implementation, we use the BoykovKolmogorov algorithm (Boykov and Kolmogo
 Although its worst case complexity is in On2nEnC, where nE is the number of edges of the graph and nC the size of the minimum cut, it performs much better in practice, particularly when the graph is sparse.
 We refer to this method as SConES, for Selecting CONnected Explanatory SNPs.
 (if     ) original graph sinksource (if     ) Fig.2.
-Graph for the s/ t-min-cut formulation of the selection of networks of genetic markers i173 Network-guided multi-locus mapping 3 RESULTS We evaluate the ability of SConES to detect networks of traitassociated SNPs on simulated datasets and on datasets from an association mapping study in A.thaliana.
+Graph for the s/t-min-cut formulation of the selection of networks of genetic markers i173 Network-guided multi-locus mapping 3 RESULTS We evaluate the ability of SConES to detect networks of traitassociated SNPs on simulated datasets and on datasets from an association mapping study in A.thaliana.
 3.1 Experimental settings For all of our experiments, we consider the three SNP networks defined in Section 1: the GS network, the GM network and the GI network.
 For SConES, the association term c is derived from Linear SKAT (Wu et al., 2011), which makes it possible to correct for covariates (and therefore population structure).
 SKAT has been devised to address rare variants association problems by grouping SNPs to achieve statistical significance, but it can equally be applied to common variants.

@@ -1,6 +1,4 @@
-            G:\fpp\tex\journals\oup\BioInfo\Bioinfo-25(15)issue\btp332.dvi [18:26 26/6/2009 Bioinformatics-btp332.tex] Page: 1915 19151922 BIOINFORMATICS ORIGINAL PAPER Vol.
-25 no.
-15 2009, pages 19151922doi:10.1093/bioinformatics/btp332 Systems biology Using chemical organization theory for model checking Christoph Kaleta1,2,3,, Stephan Richter1,2, and Peter Dittrich1,2, 1Bio Systems Analysis Group, Jena Centre for Bioinformatics (JCB), 2Department of Mathematics and Computer Science and 3Department of Bioinformatics, Friedrich Schiller University Jena, Ernst-Abbe-Platz 2, D-07743 Jena, Germany Received on July 22, 2008; revised on May 4, 2009; accepted on May 17, 2009 Advance Access publication May 25, 2009 Associate Editor: Olga Troyanskaya ABSTRACT Motivation: The increasing number and complexity of biomodels makes automatic procedures for checking the models properties and quality necessary.
+Motivation: The increasing number and complexity of biomodels makes automatic procedures for checking the models properties and quality necessary.
 Approaches like elementary mode analysis, flux balance analysis, deficiency analysis and chemical organization theory (OT) require only the stoichiometric structure of the reaction network for derivation of valuable information.
 In formalisms like Systems Biology Markup Language (SBML), however, information about the stoichiometric coefficients required for an analysis of chemical organizations can be hidden in kinetic laws.
 Results: First, we introduce an algorithm that uncovers stoichiometric information that might be hidden in the kinetic laws of a reaction network.
@@ -33,7 +31,7 @@ If modeled in Systems Biology Markup Language (SBML, Hucka et al., 2003), the ve
 A modifier is a species whose concentration affects the reaction velocity, but whose concentration itself is not changed by this reaction.
 Some modifiers, as for example catalysts or activators, are required to be present 1As growth state we define a situation where some species accumulate.
 An example is exponential growth in which, for instance, the overall amount of DNA increases given that there is a continuous supply (inflow) of nutrients.
-2009 The Author(s) This is an Open Access article distributed under the terms of the Creative Commons Attribution Non-Commercial License (http://creativecommons.org/licenses/ by-nc/2.0/uk/) which permits unrestricted non-commercial use, distribution, and reproduction in any medium, provided the original work is properly cited.
+2009 The Author(s) This is an Open Access article distributed under the terms of the Creative Commons Attribution Non-Commercial License (http://creativecommons.org/licenses/by-nc/2.0/uk/) which permits unrestricted non-commercial use, distribution, and reproduction in any medium, provided the original work is properly cited.
 [18:26 26/6/2009 Bioinformatics-btp332.tex] Page: 1916 19151922 C.Kaleta et al.for a non-zero reaction velocity.
 However, if we want a reaction to fulfill the Feinberg condition, such modifiers need to be added on its educt and product sides.
 Hence, since information necessary for the analysis using OT can be hidden in the kinetic laws, we present an algorithm for extracting this information.
@@ -217,7 +215,7 @@ Thus, there is a constant inflow of NADPH and oxygen that can replenish the cons
 However, the kinetic law of the production of superoxide from O2 and hydrogen does not depend on the concentration of hydrogen in the model.
 Together with a zero initial concentration of hydrogen, the simulation of the model leads to a negative concentration of this species.
 Making the rate law dependent on the concentration of hydrogen resolves the problem of negative concentration of hydrogen.Additionally, either removing the inconsistencies in the stoichiometry or adding an inflow for Table 1.
-Selected results from the large-scale analysis Model Description Species/ Reactions Reactive Orgs.
+Selected results from the large-scale analysis Model Description Species/Reactions Reactive Orgs.
 First Step Second Step OT FBM OT FBM (spec./rea.)
 (rea.)
 (spec./rea.)

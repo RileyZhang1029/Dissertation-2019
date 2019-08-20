@@ -1,7 +1,4 @@
-            G:\bioinformatics\ISMB\btq209.dvi [12:12 12/5/2010 Bioinformatics-btq209.tex] Page: i358 i358i366 BIOINFORMATICS Vol.
-26 ISMB 2010, pages i358i366doi:10.1093/bioinformatics/btq209 TRStalker: an efficient heuristic for finding fuzzy tandem repeats Marco Pellegrini1,, M. Elena Renda1 and Alessio Vecchio 2 1CNR, Istituto di Informatica e Telematica, Via Moruzzi 1, 56124 Pisa and 2Univ.
-di Pisa, Dip.
-Ingegneria dellInformazione, Via Diotisalvi 2, 56122 Pisa (Italy) ABSTRACT Motivation: Genomes in higher eukaryotic organisms contain a substantial amount of repeated sequences.
+Motivation: Genomes in higher eukaryotic organisms contain a substantial amount of repeated sequences.
 Tandem Repeats (TRs) constitute a large class of repetitive sequences that are originated via phenomena such as replication slippage and are characterized by close spatial contiguity.
 They play an important role in several molecular regulatory mechanisms, and also in several diseases (e.g.in the group of trinucleotide repeat disorders).
 While for TRs with a low or medium level of divergence the current methods are rather effective, the problem of detecting TRs with higher divergence (fuzzy TRs) is still open.
@@ -38,7 +35,7 @@ Finally, we use ranking instead of thresholds when deciding the substrings to pa
 For the final validation stage we employ an NP-complete definition of TR involving the concept of generalized median string under edit distance (de la Higuera and Casacuberta, 2000; Sim and Park, 2003), together with an efficient heuristic for computing an approximation of such median string (Jiang et al., 2003) previously not used in a biological context.
 The Author(s) 2010.
 Published by Oxford University Press.
-This is an Open Access article distributed under the terms of the Creative Commons Attribution Non-Commercial License (http://creativecommons.org/licenses/ by-nc/2.5), which permits unrestricted non-commercial use, distribution, and reproduction in any medium, provided the original work is properly cited.
+This is an Open Access article distributed under the terms of the Creative Commons Attribution Non-Commercial License (http://creativecommons.org/licenses/by-nc/2.5), which permits unrestricted non-commercial use, distribution, and reproduction in any medium, provided the original work is properly cited.
 [12:12 12/5/2010 Bioinformatics-btq209.tex] Page: i359 i358i366 TRStalker By extensive experimental comparisons of TRStalker with two state-of-the-art tools, namely TRF and ATRHunter, we did find out that TRStalker has consistently better performance for a large range of error and length parameters for the class of fuzzy TRs under edit distance, with a recall ranging from 100 to 60%.
 Thus TRStalker improves the capability of TR detection for classes of TRs for which existing methods do not perform well.
 Tests performed on standard evolutionary TRs definitions (verifiable in polynomial time) also show recall performance close to 100%.
@@ -86,7 +83,7 @@ The choice of block length could be critical too, but experimental results showe
 For long input, string occurrences of the same q-gram that are too distant are unlikely to be related to a TR, thus we limit the number of pairs of homologous q-grams considered.
 While scanning each block of the input Y we record for each occurrence of a gapped q-gram in Y its distance to the five preceding and the five following homologous occurrences (10 in total).
 The high-level pseudocode of TRStalker is shown in the Supplementary Materials while we expose next the key algorithmic choices.
-Gapped q-grams: The presence of substitutions/insertions/ deletions in X has the effect that many instances of q-grams will be affected by error and a match will be missed, thus reducing the frequency counts for the period k. To cope with this effect, we use gapped q-grams (Burkhardt and Krkkinen, 2002, 2003) that are more resilient to the presence of substitutions/insertions/deletions.
+Gapped q-grams: The presence of substitutions/insertions/deletions in X has the effect that many instances of q-grams will be affected by error and a match will be missed, thus reducing the frequency counts for the period k. To cope with this effect, we use gapped q-grams (Burkhardt and Krkkinen, 2002, 2003) that are more resilient to the presence of substitutions/insertions/deletions.
 As suggested by experiments in Burkhardt and Krkkinen (2002), just few gaps are sufficient to be effective, thus we will use the family of all gapped q-grams with three alphabet symbols and at most two gaps.
 Anti-smear weighting: If q1 and q2 are occurrences of homologous q-grams in X at distance k, before the implant of mutations, the effect of insertion and deletions on the positions of the string X between q1 and q2 is to alter their distance so that a different period k is detected.
 The difference kk is equal to the algebraic sum of number of insertions and deletions in the positions between q1 and q2.

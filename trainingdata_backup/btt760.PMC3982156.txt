@@ -1,6 +1,4 @@
-          OP-CBIO130778 1129..1137 Vol.
-30 no.
-8 2014, pages 11291137 BIOINFORMATICS ORIGINAL PAPER doi:10.1093/bioinformatics/btt760 Phylogenetics Advance Access publication January 2, 2014 Optimization strategies for fast detection of positive selection on phylogenetic trees Mario Valle1,y, Hannes Schabauer2,3,y, Christoph Pacher4, Heinz Stockinger5, Alexandros Stamatakis6,7, Marc Robinson-Rechavi2,3 and Nicolas Salamin2,3,* 1Swiss National Supercomputing Centre, Scientific Computing Group, Lugano, Switzerland, 2Department of Ecology and Evolution, University of Lausanne, Lausanne, Switzerland, 3SIB Swiss Institute of Bioinformatics, Lausanne, Switzerland, 4AIT Austrian Institute of Technology, Safety & Security Department, Vienna, Austria, 5Vital-IT Group, SIB Swiss Institute of Bioinformatics, Lausanne, Switzerland, 6Heidelberg Institute for Theoretical Studies, Scientific Computing Group and 7Karlsruhe Institute of Technology, Institute for Theoretical Informatics, Karlsruhe, Germany Associate Editor: David Posada ABSTRACT Motivation: The detection of positive selection is widely used to study gene and genome evolution, but its application remains limited by the high computational cost of existing implementations.
+Motivation: The detection of positive selection is widely used to study gene and genome evolution, but its application remains limited by the high computational cost of existing implementations.
 We present a series of computational optimizations for more efficient estimation of the likelihood function on large-scale phylogenetic problems.
 We illustrate our approach using the branch-site model of codon evolution.
 Results: We introduce novel optimization techniques that substantially outperform both CodeML from the PAML package and our previously optimized sequential version SlimCodeML.
@@ -28,7 +26,7 @@ yThe authors wish it to be known that, in their opinion, the first two authors s
 The Author 2014.
 Published by Oxford University Press.
 This is an Open Access article distributed under the terms of the Creative Commons Attribution Non-Commercial License (http://creativecommons.org/licenses/bync/3.0/), which permits non-commercial re-use, distribution, and reproduction in any medium, provided the original work is properly cited.
-For commercial re-use, please contact journals.permissions@oup.com ftp://ftp.vital-it.ch/tools/FastCodeML/ mailto:selectome@unil.ch mailto:nicolas.salamin@unil.ch democratisation ( ) optimisation ) [ ]; ) ) still lies with the repeated calls to compute the PLF.
+For commercial re-use, please contact journals.permissions@oup.com ftp://ftp.vital-it.ch/tools/FastCodeML/mailto:selectome@unil.ch mailto:nicolas.salamin@unil.ch democratisation ( ) optimisation ) [ ]; ) ) still lies with the repeated calls to compute the PLF.
 For example, the estimation of positive selection on a large genomic vertebrate dataset (Proux et al., 2009) shows the enormous computational requirements of such analyses [approx.
 100 CPU years for each release of the Selectome database (Kraut et al., 2010)].
 As a consequence, large gene trees, comprising more than 100 sequences, are usually excluded and faster implementations of the BSM are urgently needed.
@@ -193,7 +191,7 @@ To increase parallelism, the trees of each group are replicated for each site cl
 The parallelization inside each group has been implemented using OpenMP.
 This site-wise parallelization strategy including load balancing can likewise be applied to nucleotide-or protein-based MSAs.
 The parallel performance may vary due to different computational load per site.
-2.3 Implementation FastCodeML has been implemented from scratch (except for the BEB that was largely taken from the CodeML codebase) in ISO C 2003 utilizing BLAS and LAPACK for linear algebra operations, and Spirit (http://www.boost.org/doc/libs/release/libs/ spirit/) for tree parsing.
+2.3 Implementation FastCodeML has been implemented from scratch (except for the BEB that was largely taken from the CodeML codebase) in ISO C 2003 utilizing BLAS and LAPACK for linear algebra operations, and Spirit (http://www.boost.org/doc/libs/release/libs/spirit/) for tree parsing.
 We use the parameter optimization codebase of CodeML.
 3 EVALUATION We measure median runtimes of 10 individual runs for each evaluation (three on the large scale analysis in Section 3.5).
 Speedup values are determined by S T1T2, where T1 is the Fig.3.
@@ -204,7 +202,7 @@ Memory consumption of CodeML, SlimCodeML and FastCodeML for these datasets is no
 Although a single executable can be used for all subsequent evaluations, we built sequential, OpenMP parallelized, MPI parallelized and hybrid executables separately.
 A summary of the platforms used can be found in the supplementary material.
 3.1 Datasets Table 1 contains the six datasets we used for evaluation.
-With respect to the Selectome database, these empirical datasets are representative for the cases: (D1) small number of species/ medium sequence length; (D2) small number of species/large sequence length; (D3) medium number of species/small sequence length; (D4) large number of species/short sequence length; (D5) a simulated dataset with positive selection based on dataset D1 (using PAMLs evolver choosing evolverNSbranchsites for the BSM with !2 5).
+With respect to the Selectome database, these empirical datasets are representative for the cases: (D1) small number of species/medium sequence length; (D2) small number of species/large sequence length; (D3) medium number of species/small sequence length; (D4) large number of species/short sequence length; (D5) a simulated dataset with positive selection based on dataset D1 (using PAMLs evolver choosing evolverNSbranchsites for the BSM with !2 5).
 Finally, we analyse in D6 a very large rbcL dataset (Grass Phylogeny Working Group II, 2012) which cannot be processed in a feasible time by CodeML.
 3.2 Accuracy In Table 2 we analyse the accuracy of FastCodeml with respect to lnLs and LRT scores.
 We use SlimCodeML as a proxy for good accuracy, as it gives very similar results as CodeML (Schabauer et al., 2012), which is the established gold standard.

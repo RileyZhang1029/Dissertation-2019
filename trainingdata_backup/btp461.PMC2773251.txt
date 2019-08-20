@@ -1,6 +1,4 @@
-            G:\fpp\tex\journals\oup\BioInfo\Bioinfo-25(22)issue\btp461.dvi [09:38 26/10/2009 Bioinformatics-btp461.tex] Page: 2955 29552961 BIOINFORMATICS ORIGINAL PAPER Vol.
-25 no.
-22 2009, pages 29552961doi:10.1093/bioinformatics/btp461 Data and text mining Mining gene functional networks to improve mass-spectrometry-based protein identification Smriti R. Ramakrishnan1, Christine Vogel2, Taejoon Kwon2, Luiz O. Penalva3, Edward M. Marcotte2, and Daniel P. Miranker1, 1Department of Computer Sciences, 1 University Station C0500, 2Department of Chemistry and Biochemistry & Institute for Cellular and Molecular Biology, Center for Systems and Synthetic Biology, 2500 Speedway, The University of Texas at Austin, Austin, TX 78712 and 3Childrens Cancer Research Institute, The University of Texas Health Science Center at San Antonio, San Antonio, TX 78229, USA Received on March 10, 2009; revised on June 26, 2009; accepted on July 19, 2009 Advance Access publication July 24, 2009 Associate Editor: Jonathan Wren ABSTRACT Motivation: High-throughput protein identification experiments based on tandem mass spectrometry (MS/MS) often suffer from low sensitivity and low-confidence protein identifications.
+Motivation: High-throughput protein identification experiments based on tandem mass spectrometry (MS/MS) often suffer from low sensitivity and low-confidence protein identifications.
 In a typical shotgun proteomics experiment, it is assumed that all proteins are equally likely to be present.
 However, there is often other evidence to suggest that a protein is present and confidence in individual protein identification can be updated accordingly.
 Results: We develop a method that analyzes MS/MS experiments in the larger context of the biological processes active in a cell.
@@ -27,7 +25,7 @@ Given a list of proteins identified in an MS experiment (M), we determine a more
 Since current gene networks can be incomplete, we intend for M to serve as a complement to M, rather than replace it as the authoritative list of expressed proteins.
 The Author(s) 2009.
 Published by Oxford University Press.
-This is an Open Access article distributed under the terms of the Creative Commons Attribution Non-Commercial License (http://creativecommons.org/licenses/ by-nc/2.5/uk/) which permits unrestricted non-commercial use, distribution, and reproduction in any medium, provided the original work is properly cited.
+This is an Open Access article distributed under the terms of the Creative Commons Attribution Non-Commercial License (http://creativecommons.org/licenses/by-nc/2.5/uk/) which permits unrestricted non-commercial use, distribution, and reproduction in any medium, provided the original work is properly cited.
 [09:38 26/10/2009 Bioinformatics-btp461.tex] Page: 2956 29552961 S.R.Ramakrishnan et al.Fig.1.
 Integrative analysis of MS-based shotgun proteomics and gene functional networks.
 A complex protein sample, e.g.cellular extract, is enzymatically digested into peptides and subjected to tandem mass spectrometry.
@@ -69,10 +67,10 @@ A second related difference 2956 [09:38 26/10/2009 Bioinformatics-btp461.tex] Pa
 We justify the use of U in Supplementary Appendix I, and show that it performs better in our domain in Supplementary Figure S6.
 MSNet can be shown to converge to a unique solution irrespective of starting vector Y(0) (proof of convergence is in Supplementary Appendix I).
 In practice, MSNet converges within 106 tolerance in tens of iterations (Equation 3).
-In our experiments, we initialize Y (0) = O. Parameter (1)/ weights the networks contribution to the MSNet score.
+In our experiments, we initialize Y (0) = O. Parameter (1)/weights the networks contribution to the MSNet score.
 We optimize in yeast by maximizing the area under the ROC curve (AUC) while maintaining similar error rates as the MS analysis across multiple datasets.
-AUC is not very sensitive to (1)/ in the range [5,50] (see Supplementary Fig.S3).
-We set (1)/ = 6 for yeast.
+AUC is not very sensitive to (1)/in the range [5,50] (see Supplementary Fig.S3).
+We set (1)/= 6 for yeast.
 2.2 Evaluation methodology In this section, we describe the MSNet evaluation framework, introduce the error measures used and describe how they are computed.
 For a given mass spectrometry experiment and gene functional network, we calculate the MSNet protein identification score for every protein on a genome-wide scale.
 To test robustness to missing network links, the reported MSNet score is averaged across 10 runs of 10-fold cross-validation.
@@ -164,7 +162,7 @@ The corresponding ROC and precisionrecall curves are plotted in Supplementary Fi
 3.4 Applicability to higher organisms Finally, we tested MSNet in higher organisms by evaluating proteins expressed in human HEK293T cells analyzed on a high-resolution mass spectrometer (Table 1, Human-293T).
 We used a human gene functional network (Lee and Marcotte, manuscript in preparation).
 We considered 18 514 protein-coding genes present in the network, and reported up to 40% increase in the number of identified proteins at 5% FDR.
-We present a range of results in Table 2 with parameter (1)/ varying in [6,10].
+We present a range of results in Table 2 with parameter (1)/varying in [6,10].
 As in yeast (Section 2.1), this parameter may be optimized as reference sets for human data become available.
 The new 5% FDR MSNet proteins were not enriched for any functional category.
 3.5 Performance on different MS/MS pipelines We tested the applicability of MSNet to MS/MS data analyzed using different software pipelines.

@@ -1,6 +1,4 @@
-          OP-CBIO140484 349..355 Vol.
-30 ECCB 2014, pages i349i355 BIOINFORMATICS doi:10.1093/bioinformatics/btu439 Lambda: the local aligner for massive biological data Hannes Hauswedell*, Jochen Singer and Knut Reinert Department of Mathematics and Computer Science, Freie Universitat Berlin, Takustr.
-9, 14195 Berlin, Germany ABSTRACT Motivation: Next-generation sequencing technologies produce unprecedented amounts of data, leading to completely new research fields.
+Motivation: Next-generation sequencing technologies produce unprecedented amounts of data, leading to completely new research fields.
 One of these is metagenomics, the study of large-size DNA samples containing a multitude of diverse organisms.
 A key problem in metagenomics is to functionally and taxonomically classify the sequenced DNA, to which end the well-known BLAST program is usually used.
 But BLAST has dramatic resource requirements at metagenomic scales of data, imposing a high financial or technical burden on the researcher.
@@ -157,7 +155,7 @@ Table 3.
 Results overview of dataset II (Sanger reads) Program # matched queries bitS % Id.
 BLAST recall Performance Med Med Total * Time[s] SpeedUp mem[MiB] BLAST 82954 100.00% 150.0 44.9 82 954 100.0% 82954 100.0% 45227 1.0x 341 PAUDAfast 5159 6.22% 139.0 49.0 387 0.4% 169 0.2% 28 1615.3x 20000 PAUDAslow 9552 11.51% 151.0 47.0 980 1.1% 416 0.5% 130 347.9x 20000 RAPSearch2fast 53 651 64.68% 150.2 60.2 33 259 40.0% 15988 19.2% 187 241.9x 2294 RAPSearch2default 65 594 79.07% 153.2 53.3 46 204 55.7% 30691 37.0% 1039 43.5x 2335 Lambdafast 47 541 57.31% 225.7 58.0 34 814 41.9% 34107 41.1% 82 551.5x 5370 Lambdadefault 63 422 76.45% 187.1 51.9 50 016 60.2% 48572 58.5% 522 86.6x 8650 Lambdaslow 67427 81.28% 179.1 50.9 54 060 66.3% 53255 64.2% 937 48.3x 13 121 Note: Relative measures highlighted and in comparison with BLAST; green indicates the best results of a column, followed by yellow (satisfactory) and red (worst).
 The * column contains only recalls with bit scores * to BLASTs.
-i353 Lambda: accurate and fast local aligner 5 employs , `` '' since since employed `` '' https://moore.jcvi.org/sargasso/ 11 Since  compared with BLAST, with UBlast6 being slightly better than the rest.
+i353 Lambda: accurate and fast local aligner 5 employs , `` '' since since employed `` '' https://moore.jcvi.org/sargasso/11 Since  compared with BLAST, with UBlast6 being slightly better than the rest.
 Different profiles (except the fast settings of Lambda and RAPSearch2) seem to have little influence on the amount of assigned queries, and the distributions of bit scores are similar, also compared with BLAST.
 PAUDA is far behind in all aspects; it produces only 50 and 60% of the amount of queries with matches and in total only recalls 16 and 35% of BLASTs results.
 The greatest speed-up compared with BLAST is 1380 achieved by Lambdafast, which is even faster than PAUDAfast by a factor of 1.6.

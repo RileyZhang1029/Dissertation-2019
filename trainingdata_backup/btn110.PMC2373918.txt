@@ -1,6 +1,4 @@
-         btn110 1243..1250 Vol.
-24 no.
-10 2008, pages 12431250 BIOINFORMATICS ORIGINAL PAPER doi:10.1093/bioinformatics/btn110 Sequence analysis Analysis of correlated mutations in HIV-1 protease using spectral clustering Ying Liu, Eran Eyal and Ivet Bahar* Department of Computational Biology, School of Medicine, University of Pittsburgh, PA 15232, USA Received on December 19, 2007; revised on February 29, 2008; accepted on March 24, 2008 Advance Access publication March 28, 2008 Associate Editor: Burkhard Rost ABSTRACT Motivation: The ability of human immunodeficiency virus-1 (HIV-1) protease to develop mutations that confer multi-drug resistance (MDR) has been a major obstacle in designing rational therapies against HIV.
+Motivation: The ability of human immunodeficiency virus-1 (HIV-1) protease to develop mutations that confer multi-drug resistance (MDR) has been a major obstacle in designing rational therapies against HIV.
 Resistance is usually imparted by a cooperative mechanism that can be elucidated by a covariance analysis of sequence data.
 Identification of such correlated substitutions of amino acids may be obscured by evolutionary noise.
 Results: HIV-1 protease sequences from patients subjected to different specific treatments (set 1), and from untreated patients (set 2) were subjected to sequence covariance analysis by evaluating the mutual information (MI) between all residue pairs.
@@ -28,13 +26,13 @@ In fact sequence data are known to be noisy.
 A strong covariance may be detected among columns due to evolutionary signals that originate from early random mutation events.
 *To whom correspondence should be addressed.
 yThe authors wish it to be known that, in their opinion, the first two authors should be regarded as joint First Authors.
-2008 The Author(s) This is an Open Access article distributed under the terms of the Creative Commons Attribution Non-Commercial License (http://creativecommons.org/licenses/ by-nc/2.0/uk/) which permits unrestricted non-commercial use, distribution, and reproduction in any medium, provided the original work is properly cited.
+2008 The Author(s) This is an Open Access article distributed under the terms of the Creative Commons Attribution Non-Commercial License (http://creativecommons.org/licenses/by-nc/2.0/uk/) which permits unrestricted non-commercial use, distribution, and reproduction in any medium, provided the original work is properly cited.
 Noivirt et al.(2005) have shown that the signal due to interresidue interactions is comparable in magnitude to the noise caused by other stochastic evolutionary events.
 Several metrics have been used to quantify sequence covariance in proteins.
 A comparative analysis of some commonly used methods can be found in the studies of Fodor and Aldrich (2004) and Halperin et al.(2006).
 Yet, not enough attention has been given to date, to the clustering step.
 This step is important due to various reasons.
-First, although the CMA is performed in a pairwise manner (mainly due to technical and statistical reasons), it is clear that in nature larger sets of residues are expected to co-evolve to meet particular structural/ functional requirements.
+First, although the CMA is performed in a pairwise manner (mainly due to technical and statistical reasons), it is clear that in nature larger sets of residues are expected to co-evolve to meet particular structural/functional requirements.
 Second, the clustering procedure is expected to help in distinguishing the real correlations from the background noise.
 The choice of clustering technique may also depend on the adopted CMA.
 When an asymmetric metric like the statistical coupling analysis (SCA) introduced by Ranganathan and coworkers (Lockless and Ranganathan, 1999) is used in step 2, a hierarchical clustering is conveniently applied (Chen et al., 2006; Hatley et al., 2003; Shulman et al., 2004; Suel et al., 2003).
@@ -84,7 +82,7 @@ A MI matrix was generated for each dataset of HIV-1 protease sequences listed in
 The result for dataset 1 is illustrated in Figure 1.
 The plot underneath represents the entropy profile, calculated using Equation (3).
 Peaks are distinguished at positions such as 10, 20, 63 and 82, reflecting the high tendency of these residues to undergo substitutions.
-In order to extract more distinctive information, each MI matrix was subjected to spectral graph bi-partitioning as described above, and the elements were re-ordered (i.e.rows/ columns were shuffled) according to the rank of residues indicated by the dominant eigenvector y2 (i.e.by sorting the elements of y2 in descending order).
+In order to extract more distinctive information, each MI matrix was subjected to spectral graph bi-partitioning as described above, and the elements were re-ordered (i.e.rows/columns were shuffled) according to the rank of residues indicated by the dominant eigenvector y2 (i.e.by sorting the elements of y2 in descending order).
 Figure 2 displays the MI maps as a function of the re-ordered residues for datasets 1 and 2.
 The exact labeling of residues following rank ordering can be found in the Supplementary Materials.
 For visual clarity, the top ranking (highest MI) pairs of amino acids (500 out of a total of 99 99 pairs) are displayed.
@@ -104,7 +102,7 @@ Panel B displays the entropy profile, with the peaks indicating those sites exhi
 1245 Correlated mutations in HIV-1 protease using spectral clustering and calculated the variation frequency at each position with respect to the consensus subtype B sequence (Fig.4A).
 (More detailed information on the variation for each individual non-B subtype isolates can be found in Fig.2 of Gonzales et al., 2001).
 This suggests a phylogenetic origin for the observed covariance, which can well be obtained simply based on few neutral substitution events in the evolution of the HIV subtypes.
-These residues do not necessarily possess important functional/ structural associations (Noivirt et al., 2005).
+These residues do not necessarily possess important functional/structural associations (Noivirt et al., 2005).
 We will refer to this cluster of residues as the phylogenetic variation cluster (PhVC).
 It should be noted, however, that sequence variations between subtypes are not necessarily functionally insignificant.
 This is reflected for example by the fact that different subtypes have different tendencies for acquisition of resistance mutations (Kantor et al., 2005).

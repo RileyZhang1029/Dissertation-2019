@@ -1,14 +1,11 @@
-            G:\fpp\tex\journals\oup\BioInfo\Bioinfo-25(14)issue\btp310.dvi [18:44 22/6/2009 Bioinformatics-btp310.tex] Page: 1822 18221830 BIOINFORMATICS ORIGINAL PAPER Vol.
-25 no.
-14 2009, pages 18221830doi:10.1093/bioinformatics/btp310 Systems biology Robust synthetic biology design: stochastic game theory approach Bor-Sen Chen1,, Chia-Hung Chang1 and Hsiao-Ching Lee2 1Laboratory of Control and Systems Biology, Department of Electrical Engineering, National Tsing Hua University, Hsinchu, 30013 and 2Department of Biological Science and Technology, National Chiao Tung University, Hsinchu, 30068, Taiwan, R.O.C.
-Received on November 12, 2008; revised on April 14, 2009; accepted on May 6, 2009 Advance Access publication May 12, 2009 Associate Editor: Alfonso Valencia ABSTRACT Motivation: Synthetic biology is to engineer artificial biological systems to investigate natural biological phenomena and for a variety of applications.
+Motivation: Synthetic biology is to engineer artificial biological systems to investigate natural biological phenomena and for a variety of applications.
 However, the development of synthetic gene networks is still difficult and most newly created gene networks are non-functioning due to uncertain initial conditions and disturbances of extra-cellular environments on the host cell.
 At present, how to design a robust synthetic gene network to work properly under these uncertain factors is the most important topic of synthetic biology.
 Results: A robust regulation design is proposed for a stochastic synthetic gene network to achieve the prescribed steady states under these uncertain factors from the minimax regulation perspective.
 This minimax regulation design problem can be transformed to an equivalent stochastic game problem.
 Since it is not easy to solve the robust regulation design problem of synthetic gene networks by non-linear stochastic game method directly, the TakagiSugeno (TS) fuzzy model is proposed to approximate the non-linear synthetic gene network via the linear matrix inequality (LMI) technique through the Robust Control Toolbox in Matlab.
 Finally, an in silico example is given to illustrate the design procedure and to confirm the efficiency and efficacy of the proposed robust gene design method.
-Availability: http://www.ee.nthu.edu.tw/bschen/ SyntheticBioDesign_supplement.pdf Contact: bschen@ee.nthu.edu.tw Supplementary information: Supplementary data are available at Bioinformatics online.
+Availability: http://www.ee.nthu.edu.tw/bschen/SyntheticBioDesign_supplement.pdf Contact: bschen@ee.nthu.edu.tw Supplementary information: Supplementary data are available at Bioinformatics online.
 1 INTRODUCTION Synthetic biology will revolutionize how we conceptualize and approach the engineering of biological systems.
 The vision and applications of this emerging field will influence many other scientific and engineering disciplines, as well as affect various aspects of daily life and society (Andrianantoandro et al., 2006).
 Synthetic biology builds living machines from the off-the-shelf chemical ingredients, utilizing many of the same strategies that electrical engineers employ to make computer chips (Tucker and Zilinskas, 2006).
@@ -23,7 +20,7 @@ Previously, sensitivity analysis has been used for analysis of the dynamic prope
 For applications in synthetic biology, these approaches are not satisfying.
 The local sensitivity analysis can provide only a partial description of all possible behaviors of a non-linear gene network.
 In particular, it cannot guarantee that a synthetic gene network behaves as expected for all uncertain initial conditions and disturbances.
-Moreover, obtaining all convergences of states and parameters by extensive numerical simulations quickly becomes computationally 2009 The Author(s) This is an Open Access article distributed under the terms of the Creative Commons Attribution Non-Commercial License (http://creativecommons.org/licenses/ by-nc/2.0/uk/) which permits unrestricted non-commercial use, distribution, and reproduction in any medium, provided the original work is properly cited.
+Moreover, obtaining all convergences of states and parameters by extensive numerical simulations quickly becomes computationally 2009 The Author(s) This is an Open Access article distributed under the terms of the Creative Commons Attribution Non-Commercial License (http://creativecommons.org/licenses/by-nc/2.0/uk/) which permits unrestricted non-commercial use, distribution, and reproduction in any medium, provided the original work is properly cited.
 [18:44 22/6/2009 Bioinformatics-btp310.tex] Page: 1823 18221830 Robust synthetic biology design intractable when the size of the synthetic network grows (Batt et al., 2007).
 An approach has recently been developed using semidefinite programming to partition the parameter spaces of polynomial differential equation models into so-called feasible and infeasible regions (Kuepfer et al., 2007).
 Following that, a robustness analysis and tuning approach of synthetic networks was proposed to provide a means to assess the robustness of the expected behavior of a synthetic gene network in spite of parameter variations (Batt et al., 2007).
@@ -76,7 +73,7 @@ For a repressor, Hill function is an S-shaped curve which can be described in th
 r is the maximal expression level of promoter.
 Kr is the repression coefficient.
 The Hill coefficient n governs the steepness of the input function.
-For an activator, Hill function can be described in the form a(x)=axn/ ( Kna +xn ).
+For an activator, Hill function can be described in the form a(x)=axn/( Kna +xn ).
 a is the maximal expression level of promoter.
 Ka is the activation coefficient.
 n determines the steepness of the input function (Alon, 2007).
@@ -132,7 +129,7 @@ The i-th rule of fuzzy model for non-linear systems in (4) is of the following f
 Rule i: If x1(t) is Fi1 and and xq(t) is Fiq, then x=Ai(k, )x+v, i=1,2,...,L (14) where Fij is the fuzzy set.
 Ai(k, ) is constant matrix with the elements of k and contained in its entries.
 q is the number of premise variables and x1,...,xq are the premise variables.
-The fuzzy system is inferred as follows (Chen et al., 1999, 2000; Li et al., 2004; Lian et al., 2001; Takagi and Sugeno, 1985) x(t)= L i=1i(x(t))[Ai(k, )x(t)+v]L i=1i(x(t)) = L i=1 hi(x(t))[Ai(k, )x(t)+v], x(0)= x0 (15) where i(x(t))= q j=1 Fij(xj(t)),hi(x(t))=i(x(t))/ L i=1i(x(t)) and Fij(xj(t)) are the grade of membership of xj(t) in Fij.
+The fuzzy system is inferred as follows (Chen et al., 1999, 2000; Li et al., 2004; Lian et al., 2001; Takagi and Sugeno, 1985) x(t)= L i=1i(x(t))[Ai(k, )x(t)+v]L i=1i(x(t)) = L i=1 hi(x(t))[Ai(k, )x(t)+v], x(0)= x0 (15) where i(x(t))= q j=1 Fij(xj(t)),hi(x(t))=i(x(t))/L i=1i(x(t)) and Fij(xj(t)) are the grade of membership of xj(t) in Fij.
 We assume i(x(t))0 and L i=1 i(x(t))>0 (16) Therefore, we get the following fuzzy basis functions hi(x(t))0 and L i=1 hi(x(t))=1 (17) The TS fuzzy model in (15) is to interpolate L linear systems to approximate the non-linear system in (4) via the fuzzy basis functions hi(x(t)).
 We could specify system parameter Ai(k, ) easily so that L i=1hi(x(t))Ai(k, )x can approximate f (x+xd ,k, ) in (4) by the fuzzy identification method (Takagi and Sugeno, 1985).
 After the non-linear system in (4) is approximated by the TS fuzzy system in (15), the non-linear dynamic game problem in (10) is replaced by solving a dynamic game problem in (6) subject to the fuzzy system (15).

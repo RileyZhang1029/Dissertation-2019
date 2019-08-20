@@ -1,4 +1,4 @@
-                   PrimerSeq: Design and Visualization of RT-PCR Primers for Alternative Splicing Using RNA-seq Data Genomics Proteomics Bioinformatics 12 (2014) 105109 Genomics Proteomics Bioinformatics www.elsevier.com/locate/gpb www.sciencedirect.com APPLICATION NOTE PrimerSeq: Design and Visualization of RT-PCR Primers for Alternative Splicing Using RNA-seq Data * Corresponding author.
+PrimerSeq: Design and Visualization of RT-PCR Primers for Alternative Splicing Using RNA-seq Data Genomics Proteomics Bioinformatics 12 (2014) 105109 Genomics Proteomics Bioinformatics www.elsevier.com/locate/gpb www.sciencedirect.com APPLICATION NOTE PrimerSeq: Design and Visualization of RT-PCR Primers for Alternative Splicing Using RNA-seq Data * Corresponding author.
 E-mail: yxing@ucla.edu (Xing Y).
 # Present address: Department of Biomedical Engineering, Johns Hopkins University, Baltimore, MD 21218, USA.
 Peer review under responsibility of Beijing Institute of Genomics, Chinese Academy of Sciences and Genetics Society of China.
@@ -49,7 +49,7 @@ As shown in the flow diagram (Figure 1), the input to PrimerSeq includes a genom
 Visualizing read density also requires a BigWig file, although this visualization step is optional.
 For each AS event, PrimerSeq attempts to place a pair of forward and reverse PCR primers on suitable flanking exons.
 Such flanking exons can be specified by users in the input.
-Alternatively, PrimerSeq can automatically choose Tokheim C et al/ PrimerSeq: RT-PCR Primer Design Using RNA-seq Data 107 appropriate flanking exons by finding the nearest suitable flanking exons whose inclusion levels (PSI) are above a userdefined threshold (95% by default), a procedure that typically finds constitutive exons.
+Alternatively, PrimerSeq can automatically choose Tokheim C et al/PrimerSeq: RT-PCR Primer Design Using RNA-seq Data 107 appropriate flanking exons by finding the nearest suitable flanking exons whose inclusion levels (PSI) are above a userdefined threshold (95% by default), a procedure that typically finds constitutive exons.
 PrimerSeq then runs Primer3 [7] to perform primer design on the selected flanking exons.
 Through configuration options, users can fully customize the parameters for primer design, such as the size range of the PCR products.
 As part of the primer design procedure, PrimerSeq utilizes the biconnected components algorithm [24] as a generalized definition of AS events called alternative splicing modules (ASMs).
@@ -77,7 +77,7 @@ PrimerSeq can display figures within the GUI and save the results as a static we
 Additionally, PrimerSeq provides links to UCSC In-Silico PCR [28] for users to inspect potential offtarget amplifications.
 Implementation and availability PrimerSeq is mainly written in Python using the wxPython library (http://wxpython.org/) to create a GUI.
 The identification of AS events using the biconnected components algorithm was performed using the NetworkX library [29] in Python.
-The Java libraries SAM-JDK v1.77 (http://picard.sourceforge.net/) and BigWig API r39 (revision 39, https://code.google.com/p/ bigwig/) were used to enhance the performance of handling RNA-seq data and read density files, respectively.
+The Java libraries SAM-JDK v1.77 (http://picard.sourceforge.net/) and BigWig API r39 (revision 39, https://code.google.com/p/bigwig/) were used to enhance the performance of handling RNA-seq data and read density files, respectively.
 PrimerSeq uses standard file formats for gene and transcript annotations (GTF), RNA-seq data (SAM/BAM), genome sequence (FASTA) and read density (BigWig).
 BAM, FASTA and BigWig files are indexed, which provides significant speed improvements for handling large datasets.
 Primer3 v2.3.4 [7] is used to perform primer design after the appropriate exonic sequences are retrieved from the FASTA file.

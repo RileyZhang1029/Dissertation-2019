@@ -1,5 +1,4 @@
-            G:\bioinformatics\Bioinfo-ECCB(suppl-26)\btq380.dvi [10:50 28/8/2010 Bioinformatics-btq380.tex] Page: i511 i511i516 BIOINFORMATICS Vol.
-26 ECCB 2010, pages i511i516doi:10.1093/bioinformatics/btq380 De-correlating expression in gene-set analysis Dougu Nam School of Nano-Biotechnology and Chemical Engineering, Ulsan National Institute of Science and Technology, Republic of Korea ABSTRACT Motivation: Group-wise pattern analysis of genes, known as geneset analysis (GSA), addresses the differential expression pattern of biologically pre-defined gene sets.
+Motivation: Group-wise pattern analysis of genes, known as geneset analysis (GSA), addresses the differential expression pattern of biologically pre-defined gene sets.
 GSA exhibits high statistical power and has revealed many novel biological processes associated with specific phenotypes.
 In most cases, however, GSA relies on the invalid assumption that the members of each gene set are sampled independently, which increases false predictions.
 Results: We propose an algorithm, termed DECO, to remove (or alleviate) the bias caused by the correlation of the expression data in GSAs.
@@ -34,7 +33,7 @@ We present how to remove the correlation bias in GSA by rescaling the principal 
 Because the accurate estimation of the covariance matrix of each gene set is critical in this method, we suggested using the shrinkage covariance estimator (Schafer and Strimmer, 2005) instead of the unstable sample covariance.
 We might also consider The Author(s) 2010.
 Published by Oxford University Press.
-This is an Open Access article distributed under the terms of the Creative Commons Attribution Non-Commercial License (http://creativecommons.org/licenses/ by-nc/2.5), which permits unrestricted non-commercial use, distribution, and reproduction in any medium, provided the original work is properly cited.
+This is an Open Access article distributed under the terms of the Creative Commons Attribution Non-Commercial License (http://creativecommons.org/licenses/by-nc/2.5), which permits unrestricted non-commercial use, distribution, and reproduction in any medium, provided the original work is properly cited.
 [10:50 28/8/2010 Bioinformatics-btq380.tex] Page: i512 i511i516 D.Nam Fig.1.
 De-correlation process for gene set expression data Y and covariance matrix C. Let C =UDU1 be the eigen-decomposition of C; each step then represents (a) normalized correlated data, (b) rotating the data to the eigen-axes, (c) shrinking the data to a unit ball and (d) returning the data to the original axes.
 that there may still be errors in estimating covariance matrixes especially for large gene sets, and that de-correlating itself does not transform data into independent samples except for multivariate normal distributions.
@@ -153,7 +152,7 @@ Table 1 shows how each prediction of the 25 key pathways in the association anal
 While the truncated de-correlation (DECO-t) improved the performance in the enrichment analysis, its superiority was not clear in the association analysis.
 This implies that the square-root decorrelation provides a good compromise for analyzing real data by reducing the correlation effects, while ameliorating the nonnormality of the data and the estimation errors of the covariance matrices.
 3.4 Analysis of normal/cancer prostate expression data We conducted an additional test for normal/cancer prostate expression data (Chandran et al., 2007; Yu et al., 2004).
-The data are available from the GEO database (http://www.ncbi.nlm.nih.gov/ projects/geo) with the series number GSE6919.
+The data are available from the GEO database (http://www.ncbi.nlm.nih.gov/projects/geo) with the series number GSE6919.
 We used the 171 samples with the platform of HG-U95A.
 The data are composed of 18 normal samples without any pathogenetic alterations, 63 normal samples from cells adjacent to prostate tumors, 65 prostate tumor samples and 25 metastatic tumor samples.
 Regarding the first two groups as normal, and the last two groups as cancer samples, we conducted enrichment and association analyses.

@@ -1,6 +1,4 @@
-            C:\Documents and Settings\senthil.d\Desktop\Bioinfo-26(14)issue\btq270.dvi [09:46 25/6/2010 Bioinformatics-btq270.tex] Page: 1708 17081713 BIOINFORMATICS ORIGINAL PAPER Vol.
-26 no.
-14 2010, pages 17081713doi:10.1093/bioinformatics/btq270 Sequence analysis Advance Access publication May 26, 2010 Threshold Average Precision (TAP-k): a measure of retrieval designed for bioinformatics Hyrum D. Carroll1, Maricel G. Kann2, Sergey L. Sheetlin1 and John L. Spouge1, 1National Center for Biotechnology Information, Bethesda, MD 20894 and 2University of Maryland, Baltimore County, Baltimore, MD 21250, USA Associate Editor: Alfonso Valencia ABSTRACT Motivation: Since database retrieval is a fundamental operation, the measurement of retrieval efficacy is critical to progress in bioinformatics.
+Motivation: Since database retrieval is a fundamental operation, the measurement of retrieval efficacy is critical to progress in bioinformatics.
 This article points out some issues with current methods of measuring retrieval efficacy and suggests some improvements.
 In particular, many studies have used the pooled receiver operating characteristic for n irrelevant records (ROCn) score, the area under the ROC curve (AUC) of a pooled ROC curve, truncated at n irrelevant records.
 Unfortunately, the pooled ROCn score does not faithfully reflect actual usage of retrieval algorithms.
@@ -29,7 +27,7 @@ The Principle of Fidelity supports Wilburs Condition (2) in bioinformatics, beca
 Since a user rarely examines a retrieval list far beyond the E-value threshold E0, any practical measure of database retrieval in bioinformatics should reflect the users E0.
 The rest of this article, therefore, disregards Swets Condition (2) in favor of Wilburs Condition (2), referring to the result as the SwetsWilbur Conditions.
 Published by Oxford University Press on behalf of the US Government 2010.
-This is an Open Access article distributed under the terms of the Creative Commons Attribution Non-Commercial License (http://creativecommons.org/licenses/ by-nc/2.5), which permits unrestricted non-commercial use, distribution, and reproduction in any medium, provided the original work is properly cited.
+This is an Open Access article distributed under the terms of the Creative Commons Attribution Non-Commercial License (http://creativecommons.org/licenses/by-nc/2.5), which permits unrestricted non-commercial use, distribution, and reproduction in any medium, provided the original work is properly cited.
 [09:46 25/6/2010 Bioinformatics-btq270.tex] Page: 1709 17081713 TAP-k: a measure of retrieval designed for bioinformatics In addition to the SwetsWilbur Conditions, the Principle of Fidelity suggests that an ideal retrieval measure should satisfy additional conditions.
 Accordingly, we introduce the following conditions: (5) It should be robust against results representing a small proportion of possible user queries.
 (6) When two disjoint sets of queries are considered, its value for the union of the two sets should lie between its values for the two sets of queries.

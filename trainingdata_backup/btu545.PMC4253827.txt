@@ -1,6 +1,4 @@
-          OP-CBIO140593 3451..3457 Vol.
-30 no.
-24 2014, pages 34513457 BIOINFORMATICS ORIGINAL PAPER doi:10.1093/bioinformatics/btu545 Genome analysis Advance Access publication August 14, 2014 MindTheGap: integrated detection and assembly of short and long insertions Guillaume Rizk1,*, Anas Gouin2, Rayan Chikhi3 and Claire Lemaitre1,* 1Inria/IRISA GenScale, Campus de Beaulieu, 35042 Rennes cedex, France, 2INRA, UMR 1349 Institut de Genetique, Environnement et Protection des Plantes, Domaine de la Motte-35653 Le Rheu Cedex, France and 3Department of Computer Science and Engineering, Pennsylvania State University, PA, USA Associate Editor: Michael Brudno ABSTRACT Motivation: Insertions play an important role in genome evolution.
+Motivation: Insertions play an important role in genome evolution.
 However, such variants are difficult to detect from short-read sequencing data, especially when they exceed the paired-end insert size.
 Many approaches have been proposed to call short insertion variants based on paired-end mapping.
 However, there remains a lack of practical methods to detect and assemble long variants.
@@ -31,7 +29,7 @@ Alternatively, tools based on read coverage can detect duplicated insertions of 
 While insertion sites cannot be determined by this method alone, the Reprever (Kim et al., 2013) software identifies low-copy duplicated*To whom correspondence should be addressed.
 The Author 2014.
 Published by Oxford University Press.
-This is an Open Access article distributed under the terms of the Creative Commons Attribution Non-Commercial License (http://creativecommons.org/licenses/ by-nc/4.0/), which permits non-commercial re-use, distribution, and reproduction in any medium, provided the original work is properly cited.
+This is an Open Access article distributed under the terms of the Creative Commons Attribution Non-Commercial License (http://creativecommons.org/licenses/by-nc/4.0/), which permits non-commercial re-use, distribution, and reproduction in any medium, provided the original work is properly cited.
 For commercial re-use, please contact journals.permissions@oup.com ; Alkan etal., 2011 that , that ; Albers etal., 2011 XPath error Undefined namespace prefix XPath error Undefined namespace prefix insertions by combining paired-end mapping with read depth analysis.
 Finally, several methods detect sites of mobile element insertions using collections of known transposable element sequences, by searching for read pairs where one mate is mapped to a known element and the other to a unique part of the reference genome (Ewing and Kazazian, 2011; Hormozdiari et al., 2010; Stewart et al., 2011).
 1.3 Reconstruction of inserted sequences While short insertions are easy to reconstruct (as seen in Section 1.2), to the best of our knowledge, only a few methods are capable of handling medium or long insertions.
@@ -150,7 +148,7 @@ Finally, the recall is the number of TP filled sequences over the number of simu
 2.4.3 Real sequencing data Paired-end sequencing data from C.elegans strain N2 were downloaded from SRA (accession SRX026594).
 This dataset is composed of 33.8 M Illumina 2 100bp read pairs (insert size of 350bp), representing roughly 70 of coverage on the 100.3Mb reference sequence of C.elegans (downloaded from NCBI version WBcel235).
 As we did not find any validated dataset of known large insertions for this genome, we simulated insertion variants following the protocol of simulated data: 1000 regions of a given size (here 1100bp or 1kb) were deleted in the reference genome, corresponding to homozygous insertion variants in the N2 donor genome.
-Sequencing data of human individual NA12878 from DePristo et al., 2011, consisting of 2.8 G Illumina 2 101bp read pairs, was downloaded from EBI (ftp://ftp-trace.ncbi.nih.gov/1000genomes/ftp/technical/ working/20101201_cg_NA12878/NA12878.hiseq.wgs.bwa.raw.bam).
+Sequencing data of human individual NA12878 from DePristo et al., 2011, consisting of 2.8 G Illumina 2 101bp read pairs, was downloaded from EBI (ftp://ftp-trace.ncbi.nih.gov/1000genomes/ftp/technical/working/20101201_cg_NA12878/NA12878.hiseq.wgs.bwa.raw.bam).
 The human genome reference assembly (NCBI36 hg18) was downloaded from UCSC Genome Browser.
 A set of predicted or validated large insertions were obtained from Supplementary Material of Kim et al., 2013.
 This set contained 30 validated insertions from the study of Kidd et al.(2010) and 44 which were predicted by Kim et al.(2013) based on the alignments of 40 kb sequenced fosmids from this individual to the hg18 reference genome.

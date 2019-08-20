@@ -1,6 +1,4 @@
-          OP-CBIO130200 1682..1684 Vol.
-29 no.
-13 2013, pages 16821684 BIOINFORMATICS APPLICATIONS NOTE doi:10.1093/bioinformatics/btt193 Sequence analysis Advance Access publication April 23, 2013 mapDamage2.0: fast approximate Bayesian estimates of ancient DNA damage parameters Hakon Jonsson1,*, Aurelien Ginolhac1, Mikkel Schubert1, Philip L. F. Johnson2 and Ludovic Orlando1 1Centre for GeoGenetics, Natural History Museum of Denmark, University of Copenhagen, 1350 Kbenhavn K, Denmark and 2Department of Biology, Emory University, Atlanta, GA 30322, USA Associate Editor: Michael Brudno ABSTRACT Motivation: Ancient DNA (aDNA) molecules in fossilized bones and teeth, coprolites, sediments, mummified specimens and museum collections represent fantastic sources of information for evolutionary biologists, revealing the agents of past epidemics and the dynamics of past populations.
+Motivation: Ancient DNA (aDNA) molecules in fossilized bones and teeth, coprolites, sediments, mummified specimens and museum collections represent fantastic sources of information for evolutionary biologists, revealing the agents of past epidemics and the dynamics of past populations.
 However, the analysis of aDNA generally faces two major issues.
 Firstly, sequences consist of a mixture of endogenous and various exogenous backgrounds, mostly microbial.
 Secondly, high nucleotide misincorporation rates can be observed as a result of severe post-mortem DNA damage.
@@ -12,7 +10,7 @@ Assuming that damage events depend only on sequencing position and post-mortem d
 Our model enables rescaling base quality scores according to their probability of being damaged.
 mapDamage 2.0 handles NGS datasets with ease and is compatible with a wide range of DNA library protocols.
 Availability: mapDamage 2.0 is available at ginolhac.github.
-io/mapDamage/ as a Python package and documentation is maintained at the Centre for GeoGenetics Web site (geogenetics.ku.dk/ publications/mapdamage2.0/).
+io/mapDamage/as a Python package and documentation is maintained at the Centre for GeoGenetics Web site (geogenetics.ku.dk/publications/mapdamage2.0/).
 Contact: jonsson.hakon@gmail.com Supplementary information: Supplementary data are available at Bioinformatics online.
 Received on February 13, 2013; revised on April 16, 2013; accepted on April 18, 2013 1 INTRODUCTION DNA in historical samples is subject to a plethora of environmental conditions and degradation reactions (Sawyer et al., 2012).
 Abasic sites, strand breaks, interstrand cross-links and a wide diversity of atypic nucleotidic bases are formed following oxidative and hydrolytic degradation (Lindahl, 1993; Paabo et al., 2004), even in the most favorable preservation conditions.
@@ -34,7 +32,7 @@ Posterior distributions of damage parameters also enable penalizing the quality 
 We make the simplifying assumption that mutations*To whom correspondence should be addressed.
 The Author 2013.
 Published by Oxford University Press.
-This is an Open Access article distributed under the terms of the Creative Commons Attribution Non-Commercial License (http://creativecommons.org/licenses/ by-nc/3.0/), which permits non-commercial re-use, distribution, and reproduction in any medium, provided the original work is properly cited.
+This is an Open Access article distributed under the terms of the Creative Commons Attribution Non-Commercial License (http://creativecommons.org/licenses/by-nc/3.0/), which permits non-commercial re-use, distribution, and reproduction in any medium, provided the original work is properly cited.
 For commercial re-use, please contact journals.permissions@oup.com and post-mortem DNA damage are independent within a fragment, with occurrences depending only on the relative position from the sequence ends.
 3 METHODS The general idea is to mutate bases following an Hasegawa, Kishino and Yano (HKY) transition matrix (Hasegawa et al., 1985) and then independently add post-mortem damage on top of mutated bases.
 In this framework, we have multinomial distributions describing the positionspecific substitutions for any given base (SA, i, SC, i, SG, i and ST, i).

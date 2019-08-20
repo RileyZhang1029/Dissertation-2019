@@ -1,5 +1,4 @@
-            Copyedited by: ES MANUSCRIPT CATEGORY: [11:35 29/5/2012 Bioinformatics-bts236.tex] Page: i172 i172i178 BIOINFORMATICS Vol.
-28 ISMB 2012, pages i172i178doi:10.1093/bioinformatics/bts236 Xenomea tool for classifying reads from xenograft samples Thomas Conway1,, Jeremy Wazny,1 Andrew Bromage,1 Martin Tymms,2 Dhanya Sooraj,2 Elizabeth D. Williams2 and Bryan Beresford-Smith1 1NICTA Victoria Research Laboratory, Department of Computer Science and Software Engineering, The University of Melbourne, Parkville and 2Monash Institute of Medical Research, Monash University, Clayton, Australia ABSTRACT Motivation: Shotgun sequence read data derived from xenograft material contains a mixture of reads arising from the host and reads arising from the graft.
+Motivation: Shotgun sequence read data derived from xenograft material contains a mixture of reads arising from the host and reads arising from the graft.
 Classifying the read mixture to separate the two allows for more precise analysis to be performed.
 Results: We present a technique, with an associated tool Xenome, which performs fast, accurate and specific classification of xenograft-derived sequence read data.
 We have evaluated it on RNA-Seq data from human, mouse and human-in-mouse xenograft datasets.
@@ -37,7 +36,7 @@ For the remainder of the article, we will assume, unless otherwise stated, that 
 However, the techniques we present are applicable to genomic DNA sequences (including ChIP-Seq and MeDIP-Seq) and also to other mixtures of DNA species.
 2 METHODS Under the assumption that a graft sample has only a low level of host material contamination, the simplest analysis is to use a regular mappingbased RNA-Seq analysis tool, such as Tophat and assume that either the observed expression is dominated by the graft, which has the greatest number The Author(s) 2012.
 Published by Oxford University Press.
-This is an Open Access article distributed under the terms of the Creative Commons Attribution Non-Commercial License (http://creativecommons.org/licenses/ by-nc/3.0), which permits unrestricted non-commercial use, distribution, and reproduction in any medium, provided the original work is properly cited.
+This is an Open Access article distributed under the terms of the Creative Commons Attribution Non-Commercial License (http://creativecommons.org/licenses/by-nc/3.0), which permits unrestricted non-commercial use, distribution, and reproduction in any medium, provided the original work is properly cited.
 Copyedited by: ES MANUSCRIPT CATEGORY: [11:35 29/5/2012 Bioinformatics-bts236.tex] Page: i173 i172i178 Xenome Fig.1.
 A Venn diagram showing the different classes that a given k-mer may belong to.
 The marginal host (and marginal graft) partitions are for those host (and graft) k-mers that are Hamming distance 1 from a k-mer in the graft (and host) reference of input cells, or that the homology between the host species and graft species is such that reads arising from host material will tend to map poorly, and the resultant inferred level of gene expression will be negligible.
@@ -78,7 +77,7 @@ As also discussed in our previous work, succinct data structures have been devel
 The one we use, due to (Okanohara and Sadakane, 2006), works very well, requiring about 13 GB.
 For each reference k-mer, we determine whether it occurs in the host, the graft, both, or if it occurs in one and has a marginal occurrence in the other.
 These classes are denoted h, g, b or m, respectively (Fig.1).
-More formally, we compute the function K for each x S: K(x)=  b if x G x H g if x G x/ H (H M(x,S)=) h if x/ G x H (GM(x,S)=) m if ( x G x/ H (H M(x,S) 	=) ) ( x/ G x H (GM(x,S) 	=) ) K may be extended to project not just k-mers to classes, but also a set of k-mers Q to a set of classes in the obvious way: K(Q)={K(x) : x Q} These classes are pre-computed and stored as a sequence of 2-bit values corresponding to the k-mers in the succinctly store reference set.
+More formally, we compute the function K for each x S: K(x)=  b if x G x H g if x G x/H (H M(x,S)=) h if x/G x H (GM(x,S)=) m if ( x G x/H (H M(x,S) 	=) ) ( x/G x H (GM(x,S) 	=) ) K may be extended to project not just k-mers to classes, but also a set of k-mers Q to a set of classes in the obvious way: K(Q)={K(x) : x Q} These classes are pre-computed and stored as a sequence of 2-bit values corresponding to the k-mers in the succinctly store reference set.
 i173 Copyedited by: ES MANUSCRIPT CATEGORY: [11:35 29/5/2012 Bioinformatics-bts236.tex] Page: i174 i172i178 T.Conway et al.The class m denotes that the k-mer exists in H and has marginal membership of G or vice versa.
 That is, they are marginally distinctive, in the sense that a single polymorphism or sequencing error may cause a k-mer in that class to change from being marginally host to being marginally graft.
 Since the marginal set is symmetric (every marginal host k-mer has a corresponding marginal graft k-mer and vice versa), and represents k-mers that are not very discriminating, we combine both marginal sets into a single marginal set with the class m. 2.2.3 Classification Classification proceeds by taking each read r and constructing the set of canonical k-mers that may be derived from the read Qr.
@@ -185,7 +184,7 @@ What is evident in this figure is that although there are many genes for which t
 There are 15 591 genes for which there were at least 20 mapped reads in the BM18 xenograft sample.
 Of these, there were 65 for which Xenome assigned both or ambiguous to at least half the reads mapping to the gene; there were 498 for which the Tophatbased analysis assigned both to at least half the reads mapped to the gene.
 For the most highly conserved genes, there is not much that can be done with this data directlyfurther signal processing or other data would be required to determine the relative expression in the host and graft.
-While we have developed Xenome with RNA-Seq on human/ mouse xenografts in mind, we anticipate it will be an effective tool for other similar mixtures.
+While we have developed Xenome with RNA-Seq on human/mouse xenografts in mind, we anticipate it will be an effective tool for other similar mixtures.
 For example, capturing the differential methylation around genes between host and graft using MeDIP-Seq may shed light on the interraction between the two.
 Fig.7.
 A plot showing the distribution of human genes with respect to the proportion of xenograft reads which are classed as both by the Tophat-based analysis and the Xenome analysis.

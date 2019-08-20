@@ -1,13 +1,11 @@
-          OP-CBIO140195 2733..2740 Vol.
-30 no.
-19 2014, pages 27332740 BIOINFORMATICS ORIGINAL PAPER doi:10.1093/bioinformatics/btu194 Structural bioinformatics Advance Access publication June 13, 2014 Improving the accuracy of the structure prediction of the third hypervariable loop of the heavy chains of antibodies Mario Abdel Messih1,y, Rosalba Lepore1,y, Paolo Marcatili2,y and Anna Tramontano1,3,* 1Department of Physics, Sapienza University, 00185 Rome, Italy, 2Department of Systems Biology, Center for Biological Sequence Analysis, Technical University of Denmark, Lyngby, Denmark and 3Istituto Pasteur-Fondazione Cenci Bolognetti, 00185 Rome, Italy Associate Editor: Alfonso Valencia ABSTRACT Motivation: Antibodies are able to recognize a wide range of antigens through their complementary determining regions formed by six hypervariable loops.
+Motivation: Antibodies are able to recognize a wide range of antigens through their complementary determining regions formed by six hypervariable loops.
 Predicting the 3D structure of these loops is essential for the analysis and reengineering of novel antibodies with enhanced affinity and specificity.
 The canonical structure model allows high accuracy prediction for five of the loops.
 The third loop of the heavy chain, H3, is the hardest to predict because of its diversity in structure, length and sequence composition.
 Results: We describe a method, based on the Random Forest automatic learning technique, to select structural templates for H3 loops among a dataset of candidates.
 These can be used to predict the structure of the loop with a higher accuracy than that achieved by any of the presently available methods.
 The method also has the advantage of being extremely fast and returning a reliable estimate of the model quality.
-Availability and implementation: The source code is freely available at http://www.biocomputing.it/H3Loopred/ Contact: anna.tramontano@uniroma1.it Supplementary Information: Supplementary data are available at Bioinformatics online.
+Availability and implementation: The source code is freely available at http://www.biocomputing.it/H3Loopred/Contact: anna.tramontano@uniroma1.it Supplementary Information: Supplementary data are available at Bioinformatics online.
 Received on January 24, 2014; revised on March 27, 2014; accepted on April 4, 2014 1 INTRODUCTION Antibodies are a class of Y-shaped proteins produced by B-cells that the immune system uses to identify and neutralize foreign pathogens such as bacteria and viruses.
 They have the remarkable ability to recognize virtually any foreign targets (the antigens) and bind to these with extraordinary affinity and specificity (Mian et al., 1991; Sliwkowski and Mellman, 2013).
 These characteristics make antibodies an ideal tool for the prevention and treatment of diseases such as cancer, infectious and cardiovascular diseases, arthritis, inflammation, immune disorders as well as for biotechnological applications (Mian et al., 1991; Sliwkowski and Mellman, 2013).
@@ -28,7 +26,7 @@ yThe authors wish it to be known that, in their opinion, the first three authors
 *To whom correspondence should be addressed.
 The Author 2014.
 Published by Oxford University Press.
-This is an Open Access article distributed under the terms of the Creative Commons Attribution Non-Commercial License (http://creativecommons.org/licenses/ by-nc/3.0/), which permits non-commercial re-use, distribution, and reproduction in any medium, provided the original work is properly cited.
+This is an Open Access article distributed under the terms of the Creative Commons Attribution Non-Commercial License (http://creativecommons.org/licenses/by-nc/3.0/), which permits non-commercial re-use, distribution, and reproduction in any medium, provided the original work is properly cited.
 For commercial reuse, please contact journals.permissions@oup.com ; Choi and Deane canonical structure 4 6 ; Shirai , etal., 1996 since There have been several attempts to develop methods for predicting the structure of H3 loops, both template-based (Choi and Deane, 2011; Mandal et al., 1996; Marcatili et al., 2008) and template-free methods that try to predict the structure using ab initio conformation searches followed by ranking based on energy estimates and clash avoidance (Bruccoleri and Karplus, 1987; Sivasubramanian et al., 2009).
 One of the most used approaches for antibody structure prediction is Rosetta Antibody (RA; Sircar et al., 2009; Sivasubramanian et al., 2009), which combines template selections with ab initio CDR H3 loop modeling (using loop fragments) and simultaneous optimization of the CDR loop conformations and Variable Light (VL)-Variable Heavy (VH) orientations.
 Another interesting approach is FREAD (Choi and Deane, 2010, 2011), which attempts to predict antibody loops using local similarities (local sequence and geometric matches).

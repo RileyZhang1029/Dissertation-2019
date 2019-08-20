@@ -1,10 +1,4 @@
-            Copyedited by: CK MANUSCRIPT CATEGORY: ORIGINAL PAPER [12:56 23/5/2012 Bioinformatics-bts180.tex] Page: 1598 15981603 BIOINFORMATICS ORIGINAL PAPER Vol.
-28 no.
-12 2012, pages 15981603doi:10.1093/bioinformatics/bts180 Genetics and population analysis Advance Access publication April 18, 2012 optiCall: a robust genotype-calling algorithm for rare, low-frequency and common variants T. S. Shah, J.
-Z. Liu, J.
-A.
-B. Floyd, J.
-A. Morris, N. Wirth, J. C. Barrett and C. A. Anderson Human Genetics, Wellcome Trust Sanger Institute, Hinxton, Cambridgeshire, CB10 1SA, UK Associate Editor: Prof. Martin Bishop ABSTRACT Motivation: Existing microarray genotype-calling algorithms adopt either SNP-by-SNP (SNP-wise) or sample-by-sample (sample-wise) approaches to calling.
+Motivation: Existing microarray genotype-calling algorithms adopt either SNP-by-SNP (SNP-wise) or sample-by-sample (sample-wise) approaches to calling.
 We have developed a novel genotype-calling algorithm for the Illumina platform, optiCall, that uses both SNP-wise and sample-wise calling to more accurately ascertain genotypes at rare, low-frequency and common variants.
 Results: Using data from 4537 individuals from the 1958 British Birth Cohort genotyped on the Immunochip, we estimate the proportion of SNPs lost to downstream analysis due to false quality control failures, and rare variants misclassified as monomorphic, is only 1.38% with optiCall, in comparison to 3.87, 7.85 and 4.09% for Illuminus, GenoSNP and GenCall, respectively.
 We show that optiCall accurately captures rare variants and can correctly account for SNPs where probe intensity clouds are shifted from their expected positions.
@@ -32,7 +26,7 @@ In the following sections, we describe optiCall and compare its output to that f
 2 METHODS 2.1 Data Illumina uses a six degree of freedom affine transformation to normalize data for channel-dependent background and global intensity differences.
 The data The Author(s) 2012.
 Published by Oxford University Press.
-This is an Open Access article distributed under the terms of the Creative Commons Attribution Non-Commercial License (http://creativecommons.org/licenses/ by-nc/3.0), which permits unrestricted non-commercial use, distribution, and reproduction in any medium, provided the original work is properly cited.
+This is an Open Access article distributed under the terms of the Creative Commons Attribution Non-Commercial License (http://creativecommons.org/licenses/by-nc/3.0), which permits unrestricted non-commercial use, distribution, and reproduction in any medium, provided the original work is properly cited.
 Copyedited by: CK MANUSCRIPT CATEGORY: ORIGINAL PAPER [12:56 23/5/2012 Bioinformatics-bts180.tex] Page: 1599 15981603 Robust genotype-calling algorithm input to the algorithm have a normalized intensity point x=(x(1),x(2)) for each sample and SNP on the array, indicating the binding strength of the samples DNA to the probes for each of the two alleles being interrogated at the SNP.
 2.2 Creating the within and across sample prior optiCall first takes a random subset S of intensity values from the data (by default |S| is the minimum of 50 000 and the size of the dataset).
 Every element in S is a ( x(1),x(2) ) normalized intensity point for a random sample at a random SNP.

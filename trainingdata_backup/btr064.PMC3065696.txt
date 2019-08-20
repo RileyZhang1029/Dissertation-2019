@@ -1,6 +1,4 @@
-            G:\bioinformatics\Bioinfo-27(7)issue\btr064.dvi [13:20 17/3/2011 Bioinformatics-btr064.tex] Page: 1017 10171018 BIOINFORMATICS APPLICATIONS NOTE Vol.
-27 no.
-7 2011, pages 10171018doi:10.1093/bioinformatics/btr064 Sequence analysis Advance Access publication February 16, 2011 FIMO: scanning for occurrences of a given motif Charles E. Grant1, Timothy L. Bailey2, and William Stafford Noble1,3, 1Department of Genome Sciences, University of Washington, Seattle, WA, USA, 2Institute for Molecular Bioscience, The University of Queensland, Brisbane, Australia and 3Department of Computer Science and Engineering, University of Washington, Seattle, WA, USA Associate Editor: John Quackenbush ABSTRACT Summary: A motif is a short DNA or protein sequence that contributes to the biological function of the sequence in which it resides.
+Summary: A motif is a short DNA or protein sequence that contributes to the biological function of the sequence in which it resides.
 Over the past several decades, many computational methods have been described for identifying, characterizing and searching with sequence motifs.
 Critical to nearly any motif-based sequence analysis pipeline is the ability to scan a sequence database for occurrences of a given motif described by a position-specific frequency matrix.
 Results: We describe Find Individual Motif Occurrences (FIMO), a software tool for scanning DNA or protein sequences with motifs described as position-specific scoring matrices.
@@ -15,7 +13,7 @@ Thus, sequence motifs are one of the basic functional units of molecular evoluti
 Consequently, identifying and understanding these motifs is fundamental to building models of cellular processes at the molecular scale and to understanding the mechanisms of human disease.
 We describe here a software tool, called FIMO (Find Individual Motif Occurrences, pronounced femo), that carries out in an efficient, statistically rigorous fashion one of the core functions required for any motif-based sequence analysis: scanning a collection of To whom correspondence should be addressed.
 Table 1.
-Comparison of motif search functionality Method Scans DNA Scans proteins Supports custom backgrounds Reports P-values Performs multiple testing correction Source code freely available Web accessible GFF/ WIG output XML/ HTML output MotifScanner   MotifViz   STORM  TRED  RSAT    Patser    PoSSuMsearch    MATCH  FIMO     References for the motif scanning algorithms are provided in the supplement.
+Comparison of motif search functionality Method Scans DNA Scans proteins Supports custom backgrounds Reports P-values Performs multiple testing correction Source code freely available Web accessible GFF/WIG output XML/HTML output MotifScanner   MotifViz   STORM  TRED  RSAT    Patser    PoSSuMsearch    MATCH  FIMO     References for the motif scanning algorithms are provided in the supplement.
 Note that FIMO only supports zero-order custom backgrounds.
 DNA or protein sequences for occurrences of one or more motifs.
 FIMO is by no means the first motif scanning method; however, many publicly available motif scanners are either not currently maintained or lack some of FIMOs features.
@@ -32,7 +30,7 @@ FIMO is thus a general-purpose tool for identifying individual candidate binding
 These motifs can be generated from the MEME motif discovery algorithm, extracted from an existing motif database or created by hand using a simple text format.
 The program computes a log-likelihood ratio score (often referred The Author(s) 2011.
 Published by Oxford University Press.
-This is an Open Access article distributed under the terms of the Creative Commons Attribution Non-Commercial License (http://creativecommons.org/licenses/ by-nc/2.5), which permits unrestricted non-commercial use, distribution, and reproduction in any medium, provided the original work is properly cited.
+This is an Open Access article distributed under the terms of the Creative Commons Attribution Non-Commercial License (http://creativecommons.org/licenses/by-nc/2.5), which permits unrestricted non-commercial use, distribution, and reproduction in any medium, provided the original work is properly cited.
 [13:20 17/3/2011 Bioinformatics-btr064.tex] Page: 1018 10171018 C.E.Grant et al.0 0.01 0.02 0.03 0.04 0.05 0.06 0 0.01 0.02 0.03 0.04 0.05 P re ci si on ( T P/T P + F P ) Recall (TP/TP+FN) A B Fig.1.
 Using FIMO to identify candidate CTCF binding sites in the human genome.
 (A) Sample FIMO HTML output, showing the locations of the top-scoring occurrences of the CTCF motif in the human genome.

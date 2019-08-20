@@ -1,6 +1,4 @@
-          OP-CBIO140783 841..848 Phylogenetics Joint amalgamation of most parsimonious reconciled gene trees Celine Scornavacca1,2,*, Edwin Jacox1 and Gergely J. Szollosi3,* 1ISEM, UM2-CNRS-IRD, Place Eugene Bataillon 34095 Montpellier, France, 2Institut de Biologie Computationnelle (IBC), 95 rue de la Galera, 34095 Montpellier, France and 3ELTE-MTA Lendulet Biophysics Research Group 1117 Bp., Pazmany P. stny.
-1A., Budapest, Hungary *To whom correspondence should be addressed.
-Associate Editor: David Posada Received on May 27, 2014; revised on October 28, 2014; accepted on October 29, 2014 Abstract Motivation: Traditionally, gene phylogenies have been reconstructed solely on the basis of molecular sequences; this, however, often does not provide enough information to distinguish between statistically equivalent relationships.
+Motivation: Traditionally, gene phylogenies have been reconstructed solely on the basis of molecular sequences; this, however, often does not provide enough information to distinguish between statistically equivalent relationships.
 To address this problem, several recent methods have incorporated information on the species phylogeny in gene tree reconstruction, leading to dramatic improvements in accuracy.
 Although probabilistic methods are able to estimate all model parameters but are computationally expensive, parsimony methodsgenerally computationally more efficientrequire a prior estimate of parameters and of the statistical support.
 Results: Here, we present the Tree Estimation using Reconciliation (TERA) algorithm, a parsimony based, species tree aware method for gene tree reconstruction based on a scoring scheme combining duplication, transfer and loss costs with an estimate of the sequence likelihood.
@@ -86,7 +84,7 @@ Figure 1 provides a schematic illustration of the amalgamation approach.
 Clades present in the sample of trees (the unrooted trees on the left) can be combined to obtain a tree such that each clade is found in the sample, but the tree itself is not.
 For example, one can produce a green-blue tree consisting of a green subtree with genes a, b and c, and a blue subtree with genes d, e and f. The sequence score of each tree is obtained using CCPs that depend on the number of times different trees are seen in the sample and is described in detail in the next section.
 The reconciliation score for each tree corresponds to the MPR of the gene tree with the species tree.
-The amalgamation algorithm itself is a joint dynamic programming recursion Joint amalgamation of parsimonious reconciled gene trees 843 , , , M <AQ 5/ > , , , , , , , , , ,  ( paper , , ,  ( respectively  ( , ; ,  ( , , , , , ,  ( ,  ( ,  paper , , , , , , , function , , , , , , ,  ( &ndash;  &ndash; , ,  ( ,  ( , , ,  ( ; , ) paper ,  ( ,  ( , , ,  ( ,  ( ,  ( ,  ( ,  ( ,  ( ,  ( , , , , , , , , , , , , , , , , , , , , , , ,  ( ( , , ,  ( , , , , , conditional clade probabilities most parsimonious reconciliation  over (i) all trees that can be produced from clades present in the input sample and (ii) all possible ways to reconcile each of these trees with the species tree, to recover a gene tree with the smallest joint sequence-reconciliation score.
+The amalgamation algorithm itself is a joint dynamic programming recursion Joint amalgamation of parsimonious reconciled gene trees 843 , , , M <AQ 5/> , , , , , , , , , ,  ( paper , , ,  ( respectively  ( , ; ,  ( , , , , , ,  ( ,  ( ,  paper , , , , , , , function , , , , , , ,  ( &ndash;  &ndash; , ,  ( ,  ( , , ,  ( ; , ) paper ,  ( ,  ( , , ,  ( ,  ( ,  ( ,  ( ,  ( ,  ( ,  ( , , , , , , , , , , , , , , , , , , , , , , ,  ( ( , , ,  ( , , , , , conditional clade probabilities most parsimonious reconciliation  over (i) all trees that can be produced from clades present in the input sample and (ii) all possible ways to reconcile each of these trees with the species tree, to recover a gene tree with the smallest joint sequence-reconciliation score.
 As shown in Figure 1 in the online appendix, amalgamation permits us to explore a vastly larger set of trees than those contained in the sample.
 Conceptually, both ALE (Szollosi et al., 2013b) and TERA are based on the amalgamation approach of AnGST (David and Alm, 2010), and all three methods areat the level of the dynamic programming recursionclosely related.
 TERA differs from AnGST in the underlying reconciliation model (Doyon et al., 2010) and because it allows transfers going/coming from extinct or unsampled species (Szollosi et al., 2013a).
@@ -104,7 +102,7 @@ For each pair (C, x0) the algorithm computes the cost of reconciling clade C wit
 Because each non-trivial tripartition p can be seen as an internal node of an amalgamated tree, with children p2 and p3, the cost of reconciling a tripartition p with x0 can be computed according to Algorithm 1 of Doyon et al.(2010).
 We refer the reader to Algorithm 1 of Doyon et al.(2010) for a better understanding of the pseudocode.
 The correctness of our approach is proven in the appendix.
-Note thatfor ease of writingthe pseudocode of the algorithm does not contain the transfers from the dead, i.e.the transfers going/ coming from extinct or unsampled species (Szollosi et al., 2013a).
+Note thatfor ease of writingthe pseudocode of the algorithm does not contain the transfers from the dead, i.e.the transfers going/coming from extinct or unsampled species (Szollosi et al., 2013a).
 However, Algorithm 1 can be easily modified to accommodate this kind of event by adding to the species tree S a sister group of the root clade such that, within this group, duplications and losses are free, speciations are not permitted, and transfers to this new group (formally corresponding to unrepresented speciations) cost zerosimilar to what is done in the likelihood framework by Szollosi et al.(2013a).
 2.4 Taking into account the CCP As described in the introduction, our goal is to create a species tree aware method for reconstructing gene phylogenies that uses information from both gene sequences and from the reconciliation with a species tree.
 That is, we wish to construct a method that optimizes a joint sequence-reconciliation score.
@@ -208,7 +206,7 @@ and E.J.
 were supported by the French Agence Nationale de la Recherche Investissements davenir/ioinformatique (ANR-10-BINF-01-02, Ancestrome).
 G.J.Sz.
 was supported by the Marie Curie CIG 618438 Genestory and the Albert Szent-Gyorgyi Call-Home Researcher Scholarship A1-SZGYA-FOK13-0005 supported by the European Union and the State of Hungary, cofinanced by the European Social Fund in the framework of TAMOP 4.2.4.
-A/ 1-11-1-2012-0001 National Excellence Program.
+A/1-11-1-2012-0001 National Excellence Program.
 This publication is contribution no.
 2014-178 of the Institut des Sciences de lEvolution de Montpellier [ISEM, UMR 5554].
 Conflict of Interest: none declared.

@@ -1,5 +1,4 @@
-          OP-CBIO130217 117..125 Vol.
-29 ISMB/ECCB 2013, pages i117i125 BIOINFORMATICS doi:10.1093/bioinformatics/btt221 Stability selection for regression-based models of transcription factorDNA binding specificity Fantine Mordelet1, John Horton1, Alexander J. Hartemink1,2,3, Barbara E. Engelhardt1,3,4 and Raluca Gordan1,2,4,5,* 1Institute for Genome Sciences and Policy, 2Department of Computer Science, 3Department of Statistical Science, 4Department of Biostatistics and Bioinformatics and 5Department of Molecular Genetics and Microbiology, Duke University, Durham, NC 27708, USA ABSTRACT Motivation: The DNA binding specificity of a transcription factor (TF) is typically represented using a position weight matrix model, which implicitly assumes that individual bases in a TF binding site contribute independently to the binding affinity, an assumption that does not always hold.
+Motivation: The DNA binding specificity of a transcription factor (TF) is typically represented using a position weight matrix model, which implicitly assumes that individual bases in a TF binding site contribute independently to the binding affinity, an assumption that does not always hold.
 For this reason, more complex models of binding specificity have been developed.
 However, these models have their own caveats: they typically have a large number of parameters, which makes them hard to learn and interpret.
 Results: We propose novel regression-based models of TFDNA binding specificity, trained using high resolution in vitro data from custom protein-binding microarray (PBM) experiments.
@@ -8,7 +7,7 @@ These high-throughput quantitative data are well suited for training complex mod
 To ensure that our models remain interpretable, we use feature selection to identify a small number of sequence features that accurately predict TFDNA binding specificity.
 To further illustrate the accuracy of our regression models, we show that even in the case of paralogous TF with highly similar position weight matrices, our new models can distinguish the specificities of individual factors.
 Thus, our work represents an important step toward better sequence-based models of individual TFDNA binding specificity.
-Availability: Our code is available at http://genome.duke.edu/labs/ gordan/ISMB2013.
+Availability: Our code is available at http://genome.duke.edu/labs/gordan/ISMB2013.
 The PBM data used in this article are available in the Gene Expression Omnibus under accession number GSE47026.
 Contact: raluca.gordan@duke.edu 1 INTRODUCTION At the level of transcription, gene expression is regulated mainly via the binding of transcription factors (TFs) to specific short DNA sites in the promoters or enhancers of genes they regulate.
 Accurate characterization of the DNA binding specificity of TFs is critical to understand how these proteins achieve their regulatory purpose in the cell.
@@ -25,7 +24,7 @@ The first aspect is important because many previous models were trained either o
 In vitro data from high-throughput assayssuch as protein binding microarrays (PBMs) (Berger et al., 2006), MITOMI (Maerkl and Quake, 2007) or highthroughput SELEX (Jolma et al., 2010; Zhao et al., 2009)are more appropriate for learning complex models of TFDNA binding specificity (Agius et al., 2010; Annala et al., 2011;*To whom correspondence should be addressed.
 The Author 2013.
 Published by Oxford University Press.
-This is an Open Access article distributed under the terms of the Creative Commons Attribution Non-Commercial License (http://creativecommons.org/licenses/ by-nc/3.0/), which permits non-commercial re-use, distribution, and reproduction in any medium, provided the original work is properly cited.
+This is an Open Access article distributed under the terms of the Creative Commons Attribution Non-Commercial License (http://creativecommons.org/licenses/by-nc/3.0/), which permits non-commercial re-use, distribution, and reproduction in any medium, provided the original work is properly cited.
 For commercial re-use, please contact journals.permissions@oup.com Weirauch et al., 2013; Zhao et al., 2009).
 Here, we use the PBM technology to generate custom data on the binding specificities of the TFs of interest.
 Our microarray designs contain hundreds or thousands of genomic DNA regions centered at putative DNA binding sites for the TFs of interest (see Section 2 for details).

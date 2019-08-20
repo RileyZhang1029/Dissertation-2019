@@ -3,11 +3,11 @@
 2 (2003) 205214 c World Scientific Publishing Company FRONT PROPAGATION IN UNIAXIAL FERROMAGNETS J. R. FERMIN,, R. RIVAS SUAREZ, J. P. FRANCESCHINI and L. J. RODRIGUEZ Departamento de Fsica, Departamento de Qumica, Facultad de Ciencias, Universidad del Zulia, Aptdo.
 Postal 526, Maracaibo 4001, Zulia, Venezuela fermin@luz.ve Received 7 January 2003 Revised 6 February 2003 This work is a theoretical study of fronts propagating into an uniaxial ferromagnetic medium with velocity v, when the magnetization, M, is driven by a DC applied magnetic field, H0, from the demagnetized to the magnetized state.
 It is assumed that the dynamics of M is govern by the LandauLifshitzGilbert equation (LLGE).
-We also consider an effective field that includes in-plane uniaxial, HU, and shape anisotropy fields, HD.
+We also consider an effective field that includes in-plane uniaxial, HU , and shape anisotropy fields, HD.
 We show that, in the particular case of uniformly translating profiles, this equation reduces to a damped-forced Duffings equation, with a family of solutions that describe periodic oscillating (PO), damped oscillating (DO) or exponential front profiles (EF).
 Of particular interest is the existence of a critical speed, v0, below which there are no stable states for the magnetization.
 When the velocity of the profile exactly equals vosc, the only stable states are the PO profiles.
-Above vosc, there is an asymptotic speed, v, that separates the DO profiles from EF profiles.
+Above vosc , there is an asymptotic speed, v, that separates the DO profiles from EF profiles.
 This velocity (v) is connected with the existence of a non-linear marginal stability point for front propagation.
 Both v0 and v depend on the applied field and on the anisotropy constants of the material.
 A stability diagram for front propagation and magnetization curves are also calculated.
@@ -48,18 +48,18 @@ Section 4 is devoted to solving numerically the equation resulting from the anal
 In Sec.
 5 we summarize our results.
 July 28, 2003 9:3 WSPC/169-ACS 00085 Front Propagation in Uniaxial Ferromagnets 207 2.
-Modeling a Ferromagnet We start by assuming that the dynamics of the magnetization in a ferromagnet (FM) is governed by the LandauLifschitzGilbert equation (LLGE) [7], t M = MH MMH, (1) where and, are the gyromagnetic ratio and the Gilbert damping parameter, respectively, M is the magnetization, H = ME is the effective magnetic field, and E is the magnetic free energy.
+Modeling a Ferromagnet We start by assuming that the dynamics of the magnetization in a ferromagnet (FM) is governed by the LandauLifschitzGilbert equation (LLGE) [7], t M = MH MMH , (1) where and , are the gyromagnetic ratio and the Gilbert damping parameter, respectively, M is the magnetization, H = ME is the effective magnetic field, and E is the magnetic free energy.
 The first term on the right-hand side repre sents the precessional torque exerted by the magnetic field and the second term is a damping torque due to viscous forces acting on the magnetization.
 For the magnetic energy we used the LandauGinsburg free energy expanded in powers of the magnetization near a critical point, which may be expressed as E = H0 M + i Kui M2 M2i i Di M2 M2i + J M2 (M)2 (i = x, y, z).
 (2) The first term on the right-hand side is the Zeeman energy, the second term rep resents the uniaxial energy, the third the demagnetizing energy, and the fourth the exchange energy, with Kui, Di and J denoting the uniaxial anisotropy, demagne tizing and exchange constants, respectively.
 H0 is an external DC applied field.
 With the help of expression (2) and the definition of the effective field, Eq.
-(1) transforms into the 3 3 system: Mx = (MyHz MzHy) [My(MxHy MyHx) Mz(MzHx MxHz)], (3) My = (MzHx MxHz) [Mz(MyHz MzHy) Mx(MxHy MyHx)], (4) Mz = (MxHy MyHx) [Mx(MzHx MxHz) My(MyHz MzHy)], (5) where the effective field components are given by Hi = H0i 2 M2 (Kui Di)Mi J M2 2Mi (i = x, y, z).
+(1) transforms into the 3 3 system: Mx = (MyHz MzHy) [My(MxHy MyHx) Mz(MzHx MxHz)] , (3) My = (MzHx MxHz) [Mz(MyHz MzHy) Mx(MxHy MyHx)] , (4) Mz = (MxHy MyHx) [Mx(MzHx MxHz) My(MyHz MzHy)] , (5) where the effective field components are given by Hi = H0i 2 M2 (Kui Di)Mi J M2 2Mi (i = x, y, z).
 (6) For the sake of simplicity, we will consider a FM of length, L, large compared to its width, w(w L), and the thickness, t, sufficiently small (t w), so that/x.
 The plane of the FM is in the (x, y)-plane and an external DC magnetic field, H0, is applied along the axis of the material (x-axis).
 It is also considered that the magnetization is completely in-plane (M 2z M 2 x+M 2 y = M2), and both demag netizing and uniaxial fields are parallel to the x-axis.
 With all these assumptions, Eqs.
-(3)(5) are rewritten as Mx = (MxHy MyHx)My, (7) My = (MyHx MxHy)Mx, (8) Mz = (MyHx MxHy) (9) July 28, 2003 9:3 WSPC/169-ACS 00085 208 J. R. Fermin et al.with the effective field components: Hx = H0x 2 M2 (Ku D)Mx J M2 2 x2 Mx (10) and Hy = J M2 2 x2 My.
+(3)(5) are rewritten as Mx = (MxHy MyHx)My , (7) My = (MyHx MxHy)Mx , (8) Mz = (MyHx MxHy) (9) July 28, 2003 9:3 WSPC/169-ACS 00085 208 J. R. Fermin et al.with the effective field components: Hx = H0x 2 M2 (Ku D)Mx J M2 2 x2 Mx (10) and Hy = J M2 2 x2 My.
 (11) Combining Eqs.
 (7)(9), it is easy to show that Mz = Mx My.
 (12) Although the FM is magnetized in-plane, there is always a torque that pushes the magnetization out-of-plane.
@@ -68,7 +68,7 @@ Since Eqs.
 (7) and (8) are equivalent, our problem is reduced to solving Eq.
 (7) together with the relation M2 = Mx(x, t) 2 + My(x, t) 2 = const.
 (13) Substitution of Eqs.
-(10), (11) and (13) into (7), lead to the non-linear partial differential equation for the magnetization: (x, t) = a 2 x2 (x, t) a (x, t) 1 (x, t)2 ( x (x, t) )2 + c3(x, t) 3 c2(x, t) 2 c1(x, t) + c0, (14) where (x, t) = Mx(x, t)/M, Hu = 2Ku/M, HD = 2D/M, HE = J/M, a = HEM, c0 = c2 = H0M, and c1 = c3 = (Hu HD)M. The resulting model describes a one-dimensional mean-field XY model for a ferromagnet.
+(10), (11) and (13) into (7), lead to the non-linear partial differential equation for the magnetization: (x, t) = a 2 x2 (x, t) a (x, t) 1 (x, t)2 ( x (x, t) )2 + c3(x, t) 3 c2(x, t) 2 c1(x, t) + c0 , (14) where (x, t) = Mx(x, t)/M , Hu = 2Ku/M , HD = 2D/M , HE = J/M , a = HEM , c0 = c2 = H0M , and c1 = c3 = (Hu HD)M. The resulting model describes a one-dimensional mean-field XY model for a ferromagnet.
 Within the mean-field approximation, we assume that the only important configurations near the critical point are those of uniform magnetization density, i.e./x = 0, so the second term in Eq.
 (14) can be neglected, and it can be expressed in the final form: (x, t) = a 2 x2 (x, t) + c3(x, t) 3 c2(x, t) 2 c1(x, t) + c0.
 (15) Equation (15) belong to a class of equations termed diffusion-reaction.
@@ -79,18 +79,18 @@ Wave Propagation and the Duffings Equation The mathematical and physical theory 
 The most relevant are How do magnetic fronts form in the material?
 What is the stability of such a front?
 How fast will a wave move through a magnetic medium?
-All these questions become more clear by considering solutions of the type (x, t) = ( = x vt), (16) which connect the unstable state () = 0 (demagnetized) and () = S 1 (magnetized), or lim () = 0, (17) lim + () = S. (18) These solutions are shape-preserving and move with constant velocity, v, and are referred to in the literature as uniformly translating profiles [2].
+All these questions become more clear by considering solutions of the type (x, t) = ( = x vt) , (16) which connect the unstable state () = 0 (demagnetized) and () = S 1 (magnetized), or lim () = 0 , (17) lim + () = S. (18) These solutions are shape-preserving and move with constant velocity, v, and are referred to in the literature as uniformly translating profiles [2].
 These fronts occur when the state emerging behind is homogeneous.
 Substitution of (16) into (15) gives the ordinary non-linear equation: d2 d2 () + v a d d () + c3() 3 c2() 2 c1() + c0 = 0.
 (19) This is the damped Duffings equation with a forced term [9].
 It is apparent that this equation has acceptable solutions for any value of v. However, according to other authors [15, 17] there are some natural conditions for which dynamical velocity selection takes place, and then the velocity of all acceptable fronts converge asymp totically to one particular value.
 One of the most common methods for studying stability of fronts is the lineariza tion method [4].
-For this, let us perturb the magnetized state (stable solution) with a small term such that, S as, where || S. Under this perturbation the magnetization will relax at some rate around it equilibrium state.
+For this, let us perturb the magnetized state (stable solution) with a small term such that, S as , where || S. Under this perturbation the magnetization will relax at some rate around it equilibrium state.
 Introducing the solution = S into Eq.
-(19), and retaining only terms up to first order in, we obtain the linear equation: d2 d2 + v a d d + = 0, (20) where = (3c3 2c2 c1)/a = 2(Hu HD H0)/HE (21) with the corresponding characteristic polynomial: 2 + v a + = 0.
-(22) July 28, 2003 9:3 WSPC/169-ACS 00085 210 J. R. Fermin et al.The roots of this polynomial are given by = v 2a ( v 2a )2 ( v 2a )2, (23) where we have defined v = 2a1/2.
+(19), and retaining only terms up to first order in , we obtain the linear equation: d2 d2 + v a d d + = 0 , (20) where = (3c3 2c2 c1)/a = 2(Hu HD H0)/HE (21) with the corresponding characteristic polynomial: 2 + v a + = 0.
+(22) July 28, 2003 9:3 WSPC/169-ACS 00085 210 J. R. Fermin et al.The roots of this polynomial are given by = v 2a ( v 2a )2 ( v 2a )2 , (23) where we have defined v = 2a1/2.
 This yields the following solutions: = e v 2a ( Ae v2v2/2a + Be v2v2/2a).
-(24) Since we require that 0 as, we get the asymptotic form: eK, (25) where K = v 2a + ( v 2a )2 ( v 2a )2 (26) or, equivalently, v a = K + K. (27) This expression gives the branch for asymptotic behavior, and is plotted in Fig.1 for = 0.1.
+(24) Since we require that 0 as , we get the asymptotic form: eK , (25) where K = v 2a + ( v 2a )2 ( v 2a )2 (26) or, equivalently, v a = K + K. (27) This expression gives the branch for asymptotic behavior, and is plotted in Fig.1 for = 0.1.
 Every front profile in this branch is purely exponential and propagates with velocity v v = 2a1/2.
 Following van Saarlooss argument [15], this region is governed by a non-linear marginal-stability scenario, and the speed v = v is 14 Figure 1.
 Fermin, J. R., et.
@@ -100,7 +100,7 @@ Branch of asymptotic behavior for front profiles as given by Eq.
 (27).
 All solutions in this branch represent purely exponential fronts that propagate with velocity v v = 2a1/2.
 The minimum of this curve is a transition point for marginal stability.
-July 28, 2003 9:3 WSPC/169-ACS 00085 Front Propagation in Uniaxial Ferromagnets 211 15 H0/ HE v* Figure 2.
+July 28, 2003 9:3 WSPC/169-ACS 00085 Front Propagation in Uniaxial Ferromagnets 211 15 H0/HE v* Figure 2.
 Fermin, J. R., et.
 al.
 E DU H HH 2/1 22 E DU H HH a Damped Oscillations (v < v*) Exponential Decay (v > v*) Fig.2.
@@ -111,13 +111,13 @@ In the case when v < v, K = 1/2a[v + i(v2 v2)1/2], and the front oscillates with
 These results are summarized in Fig.2, where the relation v = 2a1/2 is plotted for some value of the parameter (HU HD)/HE.
 This curve clearly differentiates the oscillating fronts from the exponential front profiles.
 Each point on this curve corresponds to a minimum in Eq.
-(27) for each value of H0/HE and (HU HD)/HE, as shown in Fig.1.
+(27) for each value of H0/HE and (HU HD)/HE , as shown in Fig.1.
 Also, from relation (21) it is noted that, as (HU HD)/HE increases the region of oscillatory profiles grows, while for decreasing (HU HD)/HE the oscillations disappear and the only stable states under perturbations are purely exponential front profiles.
 4.
 Numerical Results In order to understand the problem of wave propagation through a FM medium, we must go back to Eq.
 (19).
-By means of a RungeKuttaFehlberg scheme [5] the damped-forced Duffings equation is solved numerically with the boundary con ditions (17) and (18), for several values of v, and magnetic fields in the range 0 H0 HE, and 0 HU HD HE.
-We obtain a family of solutions that describe periodic oscillations (PO), damped oscillations (DO) or exponential front profiles (EF), depending on the relative value of (HU HD)/HE, and the wave speed, v. Representative results of these calculations performed on a tape of July 28, 2003 9:3 WSPC/169-ACS 00085 212 J. R. Fermin et al.16 Fig.3.
+By means of a RungeKuttaFehlberg scheme [5] the damped-forced Duffings equation is solved numerically with the boundary con ditions (17) and (18), for several values of v, and magnetic fields in the range 0 H0 HE , and 0 HU HD HE.
+We obtain a family of solutions that describe periodic oscillations (PO), damped oscillations (DO) or exponential front profiles (EF), depending on the relative value of (HU HD)/HE , and the wave speed, v. Representative results of these calculations performed on a tape of July 28, 2003 9:3 WSPC/169-ACS 00085 212 J. R. Fermin et al.16 Fig.3.
 Fermin, J. R., et.
 al.
 S 0.0 1.0 (/L)/L S 0.0 1.0/L S 0.0 1.0/L (a) v= vo (b) vo < v < v * (c) v v* Fig.3.
@@ -139,10 +139,10 @@ There also exists a region in which all states are unstable (US) and grows as (H
 A small region of unstability is also observed with fronts propagating with velocity v < vosc (shadowed).
 The region labeled as NA is phys ically inadmissible since S > 1.
 Although linearly stable, these fronts are not accessible to the system.
-The dependence of the magnetized state, S, with respect to the magnetic field and the parameter (HU HD)/HE was also studied.
+The dependence of the magnetized state, S , with respect to the magnetic field and the parameter (HU HD)/HE was also studied.
 For this, the value of (HUHD)/HE was fixed and the magnetic field varied until the value of S was reached.
 In this manner, the magnetization curves for the ferromagnet were obtained as a function of H0 for several values of (HU HD)/HE (closed symbols in Fig.5).
-The solid lines correspond to the solutions of the cubic equation: H0 HE (1 2) + ( HU HD HE ) (1 2) = 0, (28) which results from setting (x, t) = 2(x, t)/x2 = 0, and are given by S = 1, H0/(HU HD).
+The solid lines correspond to the solutions of the cubic equation: H0 HE (1 2) + ( HU HD HE ) (1 2) = 0 , (28) which results from setting (x, t) = 2(x, t)/x2 = 0, and are given by S = 1, H0/(HU HD).
 The magnetization increases linearly with respect to the applied July 28, 2003 9:3 WSPC/169-ACS 00085 Front Propagation in Uniaxial Ferromagnets 213 17 Fig.4.
 Fermin, J. R., et.
 al.

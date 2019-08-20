@@ -1,6 +1,4 @@
-            G:\bioinformatics\Bioinfo-26(8)issue\btq094.dvi [10:39 23/3/2010 Bioinformatics-btq094.tex] Page: 1073 10731081 BIOINFORMATICS ORIGINAL PAPER Vol.
-26 no.
-8 2010, pages 10731081doi:10.1093/bioinformatics/btq094 Systems biology Advance Access publication March 11, 2010 Inferring cluster-based networks from differently stimulated multiple time-course gene expression data Yuichi Shiraishi1,, Shuhei Kimura2 and Mariko Okada1 1RIKEN Research Center for Allergy and Immunology, 1-7-22 Suehiro-cho, Tsurumi, Yokohama 230-0045 and 2Graduate School of Engineering, Tottori University, 4-101, Koyama-minami, Tottori 680-8552, Japan Associate Editor: Limsoon Wong ABSTRACT Motivation: Clustering and gene network inference often help to predict the biological functions of gene subsets.
+Motivation: Clustering and gene network inference often help to predict the biological functions of gene subsets.
 Recently, researchers have accumulated a large amount of time-course transcriptome data collected under different treatment conditions to understand the physiological states of cells in response to extracellular stimuli and to identify drug-responsive genes.
 Although a variety of statistical methods for clustering and inferring gene networks from expression profiles have been proposed, most of these are not tailored to simultaneously treat expression data collected under multiple stimulation conditions.
 Results: We propose a new statistical method for analyzing temporal profiles under multiple experimental conditions.
@@ -28,7 +26,7 @@ Therefore, new statistical methods for clustering or gene network inference whic
 1.2 Relationship between clustering and gene network inference Clustering and gene network inference methods are usually developed independently.
 However, we would argue that there are The Author(s) 2010.
 Published by Oxford University Press.
-This is an Open Access article distributed under the terms of the Creative Commons Attribution Non-Commercial License (http://creativecommons.org/licenses/ by-nc/2.5), which permits unrestricted non-commercial use, distribution, and reproduction in any medium, provided the original work is properly cited.
+This is an Open Access article distributed under the terms of the Creative Commons Attribution Non-Commercial License (http://creativecommons.org/licenses/by-nc/2.5), which permits unrestricted non-commercial use, distribution, and reproduction in any medium, provided the original work is properly cited.
 [10:39 23/3/2010 Bioinformatics-btq094.tex] Page: 1074 10731081 Y.Shiraishi et al.deep relationships between the two and that they potentially cover each others shortcomings.
 Clustering techniques are useful for inferring gene networks.
 The most difficult factor in inferring gene networks is that the number of genes is so large that the regulatory networks are too complex to elucidate from a limited amount of data.
@@ -163,7 +161,7 @@ Changing the number of stimuli S from 1 to 5, we generated temporal profiles of 
 The term bs corresponding to stimulations was set randomly at each trial as bs N ( 0,(0.1)2I ).
 The structure of this synthetic network is described in Figure 2.
 To secure the fairness in the number of experiments, we changed the variance of ws,t , depending on the number of stimulations.
-When S reduces by half, we can have duplicate temporal profiles by carrying out the same number of experiments, which leads to a reduction of noise by 1/ 2.
+When S reduces by half, we can have duplicate temporal profiles by carrying out the same number of experiments, which leads to a reduction of noise by 1/2.
 We examined how the number of stimuli S and the penalty coefficient described in Section 2.3.1 influence the performance of network inference measured via sensitivity and specificity.
 These are defined as sensitivity= TP TP + FN , specificity= TN TN + FP , where TP, TN, FP and FN are the number of true positive, true negative, false positive and false negative regulations, respectively.
 At the same time, we compared the clustering results with those of other popular methods, K-means with the Euclid distance and K-medoids method with the Pearsons correlation on the 1076 [10:39 23/3/2010 Bioinformatics-btq094.tex] Page: 1077 10731081 Inferring cluster-based networks from differently stimulated multiple time-course gene expression data concatenated ST-dimensional vector {yn,s,t}1sS,1tT for each gene.

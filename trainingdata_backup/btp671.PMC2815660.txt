@@ -1,6 +1,4 @@
-            G:\fpp\tex\journals\oup\BioInfo\Bioinfo-26(3)issue\btp671.dvi Copyedited by: SM MANUSCRIPT CATEGORY: ORIGINAL PAPER [14:36 8/1/2010 Bioinformatics-btp671.tex] Page: 341 341347 BIOINFORMATICS ORIGINAL PAPER Vol.
-26 no.
-3 2010, pages 341347doi:10.1093/bioinformatics/btp671 Gene expression Dynamically weighted clustering with noise set Yijing Shen1, Wei Sun2 and Ker-Chau Li1,3, 1Department of Statistics at University of California, Los Angeles, CA 90095, 2Department of Biostatistics, Genetics, University of North Carolina, NC 27516, USA and 3Institute of Statistical Science, Academia Sinica, Taipei, Taiwan, Republic of China Received on June 16, 2009; revised on October 28, 2009; accepted on December 3, 2009 Advance Access publication December 9, 2009 Associate Editor: Joaquin Dopazo ABSTRACT Motivation: Various clustering methods have been applied to microarray gene expression data for identifying genes with similar expression profiles.
+Motivation: Various clustering methods have been applied to microarray gene expression data for identifying genes with similar expression profiles.
 As the biological annotation data accumulated, more and more genes have been organized into functional categories.
 Functionally related genes may be regulated by common cellular signals, thus likely to be co-expressed.
 Consequently, utilizing the rapidly increasing functional annotation resources such as Gene Ontology (GO) to improve the performance of clustering methods is of great interest.
@@ -31,7 +29,7 @@ The weight assigned to a given gene remains the same no matter which cluster the
 Therefore, while weighting does help identifying the scattered genes, it does not enhance the clustering of genes with similar functions.
 Furthermore, as discussed above, functionally related The Author(s) 2009.
 Published by Oxford University Press.
-This is an Open Access article distributed under the terms of the Creative Commons Attribution Non-Commercial License (http://creativecommons.org/licenses/ by-nc/2.5) which permits unrestricted non-commercial use, distribution, and reproduction in any medium, provided the original work is properly cited.
+This is an Open Access article distributed under the terms of the Creative Commons Attribution Non-Commercial License (http://creativecommons.org/licenses/by-nc/2.5) which permits unrestricted non-commercial use, distribution, and reproduction in any medium, provided the original work is properly cited.
 Copyedited by: SM MANUSCRIPT CATEGORY: ORIGINAL PAPER [14:36 8/1/2010 Bioinformatics-btp671.tex] Page: 342 341347 Y.Shen et al.genes are not necessarily co-expressed.
 Therefore, the weights predetermined by the average distance to every gene in a functional group may not be appropriate.
 In this article, we develop a novel weighted clustering method, Dynamically Weighted Clustering with Noise set (DWCN), which allows for the presence of scattered noise genes and makes use of functional annotation data in a different way.
@@ -61,7 +59,7 @@ The weight wj for cluster j is defined via the minimum hyper-geometric P-value, 
 Flow chart of the DWCN algorithm.
 the functional enrichment of cluster j with respect to each of the GO terms.
 Specifically, let gj =min m y=|GmCj | ( |Gm| y )( n|Gm| |Cj|y )/( n |Cj| ) , (2) where |Gm| is the number of genes in the m-th GO term.
-Then, wj =  P if gj <0.05/ 1 if gj >0.05 b+a(loggj) otherwise (3) where 0.1 < P < 0.5 is a fixed parameter, is the number of GO terms, and a,b are scaling constants, which can be solved for by noting that they are the slope and intercept of the line passing through [log(0.05), 1] and [log(0.05/), P].
+Then, wj =  P if gj <0.05/1 if gj >0.05 b+a(loggj) otherwise (3) where 0.1 < P < 0.5 is a fixed parameter, is the number of GO terms, and a,b are scaling constants, which can be solved for by noting that they are the slope and intercept of the line passing through [log(0.05), 1] and [log(0.05/), P].
 Thus, a= 1P log , b= log(/0.05)+P log(0.05) log().
 In summary, the loss function is a weighted sum of the within cluster distances plus penalties for the noise set.
 The weight of one cluster measures the over-representation of genes within this cluster in a group of functional categories.
@@ -94,7 +92,7 @@ Rand1 [Equation (4)] computes the similarity between GO and clustering partition
 It treats noise genes and clustered genes with equal importance and thus it favors methods without scattered genes.
 Rand2 excludes all noise and un-annotated genes, and it is biased against methods with a noise set (Thalamuthu et al., 2006).
 RandW defined in Equation (5), is a weighted average between the two measures, which is used for validating the simulation by comparing the similarity of the true partitions and the clustering results.
-Rand1(G,r)= G+1 i=1 r+1 j=1 ( Yij 2 ) G+1 i=1 ( Yi 2 )r+1 j=1 ( Yj 2 )/ ( Y 2 ) 0.5 [ G+1 i=1 ( Yi 2 ) + r+1 j=1 ( Yj 2 )] G+1 i=1 ( Yi 2 )r+1 j=1 ( Yj 2 )/ ( Y 2 ) , (4) where Yi = r+1 j=1 Yij , Yj = G+1 i=1 Yij.
+Rand1(G,r)= G+1 i=1 r+1 j=1 ( Yij 2 ) G+1 i=1 ( Yi 2 )r+1 j=1 ( Yj 2 )/( Y 2 ) 0.5 [ G+1 i=1 ( Yi 2 ) + r+1 j=1 ( Yj 2 )] G+1 i=1 ( Yi 2 )r+1 j=1 ( Yj 2 )/( Y 2 ) , (4) where Yi = r+1 j=1 Yij , Yj = G+1 i=1 Yij.
 Here G is the number of GO terms, G+1 indexes the un-annotated set, r is the number of clusters, r+1 indexes the scattered set, and Yij represents the number of genes belonging to the i-th GO term and j-th cluster.
 The weighted index is simply a linear combination of Rand1 and Rand2 weighted by RandW (G,r)=Rand1(G,r)+(1)Rand2(G,r), (5) where =(Y(G+1)+Y(r+1) Y(G+1)(r+1))/Y.
 In the absence of the knowledge about true clusters (e.g.for the real datasets), we evaluate the concordance between clustering results and GO terms using another Rand index, Rand3, which treats each gene in the noise term that comes from a GO term as an individual cluster.

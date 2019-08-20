@@ -1,5 +1,4 @@
-            G:\bioinformatics\ISMB\btq191.dvi [11:31 12/5/2010 Bioinformatics-btq191.tex] Page: i208 i208i216 BIOINFORMATICS Vol.
-26 ISMB 2010, pages i208i216doi:10.1093/bioinformatics/btq191 Multi-population GWA mapping via multi-task regularized regression Kriti Puniyani, Seyoung Kim and Eric P. Xing School of Computer Science, Carnegie Mellon University, Pittsburgh, PA, USA ABSTRACT Motivation: Population heterogeneity through admixing of different founder populations can produce spurious associations in genomewide association studies that are linked to the population structure rather than the phenotype.
+Motivation: Population heterogeneity through admixing of different founder populations can produce spurious associations in genomewide association studies that are linked to the population structure rather than the phenotype.
 Since samples from the same population generally co-evolve, different populations may or may not share the same genetic underpinnings for the seemingly common phenotype.
 Our goal is to develop a unified framework for detecting causal genetic markers through a joint association analysis of multiple populations.
 Results: Based on a multi-task regression principle, we present a multi-population group lasso algorithm using L1/L2-regularized regression for joint association analysis of multiple populations that are stratified either via population survey or computational estimation.
@@ -8,7 +7,7 @@ It also implicitly accounts for correlations between the genetic markers, thus e
 Joint analysis across populations enables the detection of weak associations common to all populations with greater power than in a separate analysis of each population.
 At the same time, the regression-based framework allows causal alleles that are unique to a subset of the populations to be correctly identified.
 We demonstrate the effectiveness of our method on HapMap-simulated and lactase persistence datasets, where we significantly outperform state of the art methods, with greater power for detecting weak associations and reduced spurious associations.
-Availability: Software will be available at http://www.sailing.cs.cmu.edu/ Contact: epxing@cs.cmu.edu 1 INTRODUCTION Association mapping has recently become a popular approach to discover the genetic causes of many complex diseases such as cancer, asthma and diabetes.
+Availability: Software will be available at http://www.sailing.cs.cmu.edu/Contact: epxing@cs.cmu.edu 1 INTRODUCTION Association mapping has recently become a popular approach to discover the genetic causes of many complex diseases such as cancer, asthma and diabetes.
 A typical genome-wide association (GWA) study involves examining genotype data, often singlenucleotide polymorphisms (SNPs), collected over millions of genetic markers in search for an association with the given phenotype such as disease outcome or disease-related quantitative traits, where a very small fraction of the markers are linked to the phenotype.
 Thus, the main challenge is to maximize the power for identifying causal alleles while suppressing false positives.
 We consider the problem of taking advantage of the population structure in the samples to increase the power of an association analysis.
@@ -28,7 +27,7 @@ Thus, association signals that are weak in each population but common to all of 
 At the same time, if a non-causal SNP has weak association in a small subset of populations, the joint inference will not conclude it as being associated with the phenotype, reducing the overall false positive rate.
 The Author(s) 2010.
 Published by Oxford University Press.
-This is an Open Access article distributed under the terms of the Creative Commons Attribution Non-Commercial License (http://creativecommons.org/licenses/ by-nc/2.5), which permits unrestricted non-commercial use, distribution, and reproduction in any medium, provided the original work is properly cited.
+This is an Open Access article distributed under the terms of the Creative Commons Attribution Non-Commercial License (http://creativecommons.org/licenses/by-nc/2.5), which permits unrestricted non-commercial use, distribution, and reproduction in any medium, provided the original work is properly cited.
 [11:31 12/5/2010 Bioinformatics-btq191.tex] Page: i209 i208i216 Multi-population GWA mapping (a) (b) Fig.1.
 Illustration of association analysis methods.
 (a) Multi-population group lasso finds causal SNPs via joint inference across multiple populations.

@@ -1,6 +1,4 @@
-           btp053 BIOINFORMATICS ORIGINAL PAPER Vol.
-25 no.
-6 2009, pages 765771doi:10.1093/bioinformatics/btp053 Gene expression Testing significance relative to a fold-change threshold is a TREAT Davis J. McCarthy and Gordon K. Smyth The Walter and Eliza Hall Institute of Medical Research, 1G Royal Parade, Parkville, Victoria 3050, Australia Received on October 12, 2008; revised on January 21, 2009; accepted on January 22, 2009 Advance Access publication January 28, 2009 Associate Editor: Joaquin Dopazo ABSTRACT Motivation: Statistical methods are used to test for the differential expression of genes in microarray experiments.
+Motivation: Statistical methods are used to test for the differential expression of genes in microarray experiments.
 The most widely used methods successfully test whether the true differential expression is different from zero, but give no assurance that the differences found are large enough to be biologically meaningful.
 Results: We present a method, t-tests relative to a threshold (TREAT), that allows researchers to test formally the hypothesis (with associated p-values) that the differential expression in a microarray experiment is greater than a given (biologically meaningful) threshold.
 We have evaluated the method using simulated data, a dataset from a quality control experiment for microarrays and data from a biological experiment investigating histone deacetylase inhibitors.
@@ -33,7 +31,7 @@ We present a new method for assessing differential expression in microarray expe
 This method is an extension of the empirical Bayes moderated t-statistic presented by Smyth (2004), and can be used to test whether the true differential expression is greater than a given threshold value.
 By including the fold-change threshold of interest in a formal hypothesis test, we achieve reliable p-values and FDRs for finding genes with differential expression that is biologically meaningful.
 The biological significance of a given fold-change is likely to depend on the gene and on the experimental context.
-On the other hand, it is reasonable to assume that there is a minimum fold-change 2009 The Author(s) This is an Open Access article distributed under the terms of the Creative Commons Attribution Non-Commercial License (http://creativecommons.org/licenses/ by-nc/2.0/uk/) which permits unrestricted non-commercial use, distribution, and reproduction in any medium, provided the original work is properly cited.
+On the other hand, it is reasonable to assume that there is a minimum fold-change 2009 The Author(s) This is an Open Access article distributed under the terms of the Creative Commons Attribution Non-Commercial License (http://creativecommons.org/licenses/by-nc/2.0/uk/) which permits unrestricted non-commercial use, distribution, and reproduction in any medium, provided the original work is properly cited.
 D.J.McCarthy and G.K.Smyth threshold below which differential expression is unlikely to be of interest for any gene.
 We assume throughout this article that such a minimum fold-change threshold can be specified for the experiment at hand.
 2 APPROACH 2.1 Hypotheses relative to a threshold Let g be the log-fold-change for gene g relating to some comparison of interest.

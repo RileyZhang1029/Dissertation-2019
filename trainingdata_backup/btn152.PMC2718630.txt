@@ -1,5 +1,4 @@
-            [19:31 18/6/03 Bioinformatics-btn152.tex] Page: i147 i147i155 BIOINFORMATICS Vol.
-24 ISMB 2008, pages i147i155doi:10.1093/bioinformatics/btn152 Alignment and classification of time series gene expression in clinical studies Tien-ho Lin1, Naftali Kaminski2 and Ziv Bar-Joseph1, 1School of Computer Science, Carnegie Mellon University and 2Simmons Center for Interstitial Lung Disease, University of Pittsburgh Medical School, Pittsburgh, PA 15213, USA ABSTRACT Motivation: Classification of tissues using static gene-expression data has received considerable attention.
+Motivation: Classification of tissues using static gene-expression data has received considerable attention.
 Recently, a growing number of expression datasets are measured as a time series.
 Methods that are specifically designed for this temporal data can both utilize its unique features (temporal evolution of profiles) and address its unique challenges (different response rates of patients in the same class).
 Results: We present a method that utilizes hidden Markov models (HMMs) for the classification task.
@@ -8,7 +7,7 @@ To focus on the differences between the two classes we develop a discriminative 
 Unlike the traditional generative HMM, discriminative HMM can use examples from both classes when learning the model for a specific class.
 We have tested our method on both simulated and real time series expression data.
 As we show, our method improves upon prior methods and can suggest markers for specific disease and response stages that are not found when using traditional classifiers.
-Availability: Matlab implementation is available from http://www.cs.cmu.edu/ thlin/tram/ Contact: zivbj@cs.cmu.edu 1 INTRODUCTION Several methods have been developed for classifying tissues using gene-expression data.
+Availability: Matlab implementation is available from http://www.cs.cmu.edu/thlin/tram/Contact: zivbj@cs.cmu.edu 1 INTRODUCTION Several methods have been developed for classifying tissues using gene-expression data.
 Starting with the seminal work of Golub et al.(1999) which used ideal profiles to classify acute myeloid leukemia (AML) and acute lymphoblastic leukemia (ALL) cancer samples, researchers have been developing and applying classification methods to a wide range of diseases using expression data (Alizadeh et al., 2000; Baranzini et al., 2005).
 Recently, some of these methods have been commercialized, creating expressionbased diagnostic and treatment suggestion tools (van t Veer et al., 2002).
 To date most of the research on classifying expression data focused on static (snapshot) datasets.
@@ -39,7 +38,7 @@ Baranzini et al.(2005) used an exhaustive search strategy to identify genes for 
 While their goal was to classify time series data, their method only used the first time point, so it could not take advantage of the full set of data available.
 Borgwardt et al.(2006) used SVM with specialized kernels that accounted for temporal data.
 A Kalman Filter was trained generatively for each 2008 The Author(s) This is an Open Access article distributed under the terms of the Creative Commons Attribution Non-Commercial License (http://creativecommons.org/licenses/by-nc/2.0/uk/) which permits unrestricted non-commercial use, distribution, and reproduction in any medium, provided the original work is properly cited.
-http://www.cs.cmu.edu/$sim $thlin/tram/ file:zivbj@cs.cmu.edu [19:31 18/6/03 Bioinformatics-btn152.tex] Page: i148 i147i155 T.-h.Lin et al.class, and then the kernel was computed using the trained parameters of the two Kalman Filters.
+http://www.cs.cmu.edu/$sim $thlin/tram/file:zivbj@cs.cmu.edu [19:31 18/6/03 Bioinformatics-btn152.tex] Page: i148 i147i155 T.-h.Lin et al.class, and then the kernel was computed using the trained parameters of the two Kalman Filters.
 While their methods utilized the entire time series it does not account for the rate differences discussed above, which may lead to inaccuracies.
 A number of methods have been suggested for aligning time series datasets to overcome these rate differences.
 These either rely on dynamic programming (Aach and Church, 2001) or on continuous representation of expression data (Bar-Joseph et al., 2003).
@@ -117,7 +116,7 @@ Similarly, denj , den ij , den j (O) and den j (O 2) are expected counts in all 
 The calculations when updating (2) is similar.
 These expected counts are obtained from the dynamic matrices of the forwardbackward algorithm.
 Formally, numj = k|ck=1 t (1) kt (j), den j = k t denkt (j) numj (O)= k|ck=1 t (1) kt (j)Okt, den j (O)= k t denkt (j)Okt numj (O 2)= k|ck=1 t (1) kt (j)O 2 kt, den j (O 2)= k t denkt (j)O 2 kt numij = k|ck=1 t (1) kt (i,j), den ij = k t denkt (i,j) The major difference between generative and discriminative HMMs is in the M-step.
-MLE for the generative model only updates the parameters in the direction of positive examples, e.g.j= numj (O)/ num j.
+MLE for the generative model only updates the parameters in the direction of positive examples, e.g.j= numj (O)/num j.
 In contrast, MMIE updates the parameters by moving them toward the positive examples and away from the denominator model.
 This leads to greater focus on emission and transition probabilities that differ between the two models (either across states or at specific states for each gene) contributing to increased discrimination between the two models.
 However, such subtraction may generate negative transition probabilities or negative variances in emission probabilities.

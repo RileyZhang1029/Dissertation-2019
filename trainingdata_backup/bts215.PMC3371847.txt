@@ -1,5 +1,4 @@
-            Copyedited by: TRJ MANUSCRIPT CATEGORY: [12:07 29/5/2012 Bioinformatics-bts215.tex] Page: i292 i292i300 BIOINFORMATICS Vol.
-28 ISMB 2012, pages i292i300doi:10.1093/bioinformatics/bts215 Extending ontologies by finding siblings using set expansion techniques Gtz Fabian, Thomas Wchter and Michael Schroeder Biotechnology Center (BIOTEC), Technische Universitt Dresden, 01062 Dresden, Germany ABSTRACT Motivation: Ontologies are an everyday tool in biomedicine to capture and represent knowledge.
+Motivation: Ontologies are an everyday tool in biomedicine to capture and represent knowledge.
 However, many ontologies lack a high degree of coverage in their domain and need to improve their overall quality and maturity.
 Automatically extending sets of existing terms will enable ontology engineers to systematically improve text-based ontologies level by level.
 Results: We developed an approach to extend ontologies by discovering new terms which are in a sibling relationship to existing terms of an ontology.
@@ -9,7 +8,7 @@ Our evaluation against MeSH (Medical Subject Headings) shows that our method for
 The evaluation yields a recall of 80% at a precision of 61% where the two independent approaches are complementing each other.
 For MeSH in particular, we show that it can be considered complete in its medical focus area.
 We integrated the work into DOG4DAG, an ontology generation plugin for the editors OBO-Edit and Protg, making it the first plugin that supports sibling discovery on-the-fly.
-Availability: Sibling discovery for ontology is available as part of DOG4DAG (www.biotec.tu-dresden.de/research/schroeder/ dog4dag) for both Protg 4.1 and OBO-Edit 2.1.
+Availability: Sibling discovery for ontology is available as part of DOG4DAG (www.biotec.tu-dresden.de/research/schroeder/dog4dag) for both Protg 4.1 and OBO-Edit 2.1.
 Contact: ms@biotec.tu-dresden.de; goetz.fabian@biotec.tu-dresden.de Supplementary information: Supplementary data are available at Bioinformatics online.
 1 INTRODUCTION During the last decade, the field of biomedicine has seen a data explosion, made evident by the overwhelming number of published articles, databases, nucleotide sequences and protein structures (Howe et al., 2008).
 Today, ontologies are used extensively in the biomedical and healthcare sector for information and data integration, such as gene product annotation (Ashburner et al., 2000), analysis of high-throughput data (Whetzel et al., 2006) and searching (Doms and Schroeder, 2005).
@@ -35,7 +34,7 @@ We do this by exploiting the structure of HTML documents, which are prevalent on
 Endocrine Cells Seed Terms Generated Siblings Somatotrophs Trophoblasts Thyrotrophs Gonadotrophs Lactotrophs... Fig.1.
 Sibling discovery example: Somatotrophs, Trophoblasts, and Thyrotrophs are known child terms of Endocrine Cells in MeSH, other children such as Gonadotrophs, Lactotrophs can be automatically found using our approach The Author(s) 2012.
 Published by Oxford University Press.
-This is an Open Access article distributed under the terms of the Creative Commons Attribution Non-Commercial License (http://creativecommons.org/licenses/ by-nc/3.0), which permits unrestricted non-commercial use, distribution, and reproduction in any medium, provided the original work is properly cited.
+This is an Open Access article distributed under the terms of the Creative Commons Attribution Non-Commercial License (http://creativecommons.org/licenses/by-nc/3.0), which permits unrestricted non-commercial use, distribution, and reproduction in any medium, provided the original work is properly cited.
 Copyedited by: TRJ MANUSCRIPT CATEGORY: [12:07 29/5/2012 Bioinformatics-bts215.tex] Page: i293 i292i300 Extending ontologies by finding siblings <tr>... <td><a...>Somatotrophs</a></td> <td><a...>Corticotrophs</a></td> <td><a...>Gonadotrophs</a></td>... </tr> Fig.2.
 Excerpt of HTML code from the Wikipedia page on the endocrine system [http://en.wikipedia.org/wiki/Endocrine_system] Text-based approach: The second approach finds candidate siblings from text by extracting them from enumerations in sentences.
 For instance, the following sentence contains an enumeration of endocrine cells: several adenohypophysial endocrine cells such as somatotrophs, thyrotrophs, and gonadotrophs [http://www.ncbi.nlm.nih.gov/pubmed/11478270].
@@ -176,7 +175,7 @@ We prefer the candidate siblings whose parent term is a suffix of this sibling.
 Combining of ranked lists of methods: We examined several methods for rank aggregation of both methods.
 In our evaluation, summing up the normalized scores of the candidate siblings with identical labels and merging both lists by sorting them by their normalized scores yielded the best results.
 Previously, other ranking methods have been evaluated (Wang and Cohen, 2007, Brunzel and Spiliopoulou, 2006) and shown to have no significant impact on the overall results.
-3.5 Evaluation To evaluate our method, we used the 2011 MeSH [http://www.nlm.nih.gov/ mesh].
+3.5 Evaluation To evaluate our method, we used the 2011 MeSH [http://www.nlm.nih.gov/mesh].
 For this purpose, we randomly took a sample of 1000 terms in MeSH and chose three random child terms as seed terms for each set.
 For the selection of the parent term, we required them to have at least five child terms so the system is able to find potentially at least two siblings if three of the child terms are used as seed terms.
 Additionally, all child terms which consist of more than two words were not used as seed terms since they rarely occur in free text.

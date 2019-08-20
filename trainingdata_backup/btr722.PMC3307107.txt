@@ -1,6 +1,4 @@
-            Copyedited by: ES MANUSCRIPT CATEGORY: ORIGINAL PAPER [19:02 25/2/2012 Bioinformatics-btr722.tex] Page: 831 831837 BIOINFORMATICS ORIGINAL PAPER Vol.
-28 no.
-6 2012, pages 831837doi:10.1093/bioinformatics/btr722 Genetics and population analysis Advance Access publication January 5, 2012 A method to infer positive selection from marker dynamics in an asexual population Christopher J. R. Illingworth and Ville Mustonen Wellcome Trust Sanger Institute, Hinxton, Cambridge CB10 1SA, UK Associate Editor: Martin Bishop ABSTRACT Motivation: The observation of positive selection acting on a mutant indicates that the corresponding mutation has some form of functional relevance.
+Motivation: The observation of positive selection acting on a mutant indicates that the corresponding mutation has some form of functional relevance.
 Determining the fitness effects of mutations thus has relevance to many interesting biological questions.
 One means of identifying beneficial mutations in an asexual population is to observe changes in the frequency of marked subsets of the population.
 We here describe a method to estimate the establishment times and fitnesses of beneficial mutations from neutral marker frequency data.
@@ -8,7 +6,7 @@ Results: The method accurately reproduces complex marker frequency trajectories.
 In simulations for which positive selection is close to 5% per generation, we obtain correlations upwards of 0.91 between correct and inferred haplotype establishment times.
 Where mutation selection coefficients are exponentially distributed, the inferred distribution of haplotype fitnesses is close to being correct.
 Applied to data from a bacterial evolution experiment, our method reproduces an observed correlation between evolvability and initial fitness defect.
-Availability: A C++ implementation of the inference tool is available under GNU GPL license (http://www.sanger.ac.uk/resources/ software/optimist/).
+Availability: A C++ implementation of the inference tool is available under GNU GPL license (http://www.sanger.ac.uk/resources/software/optimist/).
 Contact: vm5@sanger.ac.uk Supplementary information: Supplementary data are available at Bioinformatics online.
 Received on November 9, 2011; revised on December 15, 2011; accepted on December 28, 2011 1 INTRODUCTION The potential of a biological system to adapt to a given environment is a key characteristic, measurements of which shed light on a critical aspect of the process of evolution.
 How adaptation takes place depends to a large extent on the distribution of the fitness effects of mutations (Eyre-Walker and Keightley, 2007; Orr, 2005).
@@ -36,7 +34,7 @@ A formal mathematical description of the method is given below; a simpler, more 
 Deterministic model of evolution We consider a deterministic representation of a system of NH haplotypes.
 Where qa denotes the frequency of The Author(s) 2012.
 Published by Oxford University Press.
-This is an Open Access article distributed under the terms of the Creative Commons Attribution Non-Commercial License (http://creativecommons.org/licenses/ by-nc/3.0), which permits unrestricted non-commercial use, distribution, and reproduction in any medium, provided the original work is properly cited.
+This is an Open Access article distributed under the terms of the Creative Commons Attribution Non-Commercial License (http://creativecommons.org/licenses/by-nc/3.0), which permits unrestricted non-commercial use, distribution, and reproduction in any medium, provided the original work is properly cited.
 (http://www.sanger.ac.uk/resources/software/optimist/) vm5@sanger.ac.uk Copyedited by: ES MANUSCRIPT CATEGORY: ORIGINAL PAPER [19:02 25/2/2012 Bioinformatics-btr722.tex] Page: 832 831837 C.J.R.Illingworth and V.Mustonen haplotype a, and fa denotes its Malthusian fitness parameter, the evolution of the system can be described via a set of differential equations: dqa/dt =qa ( fa aH fa qa ) (1) where the sum over existing haplotypes H gives the mean population fitness.
 Equation (1) is a standard population genetics description of deterministic evolution of haplotypes under selection [see e.g.Hofbauer and Sigmund (1998)].
 In order to allow for new mutations, we further define an establishment time ta of haplotype a.
@@ -181,7 +179,7 @@ Results are given for constant and for exponentially distributed selection coeff
 coefficients, a constant selection coefficient allowing for multiple equally fit haplotypes to arise within each marker population.
 Repeating the calculation, but considering only haplotypes in the simulated population which reached a minimum frequency of 0.01 (10q0), gave substantial improvements to many of the ratios (Supplementary Table S2), reflecting the existence of haplotypes having only a very small effect on the marker frequency.
 The general undercalling of mutations means that accurate estimation of the beneficial mutation rate of a system from the inferred establishment times is a difficult task.
-While accurate inference of U is not a primary aim of our method, a rough approximation can be calculated using the result that in a Wright Fisher model, the probability of a mutant with selection coefficient reaching frequency 1/ is 2 [see e.g.Desai and Fisher (2007)], giving U nm/(2T ) (7) where nm is the number of inferred mutations and T is the simulation time in generations.
+While accurate inference of U is not a primary aim of our method, a rough approximation can be calculated using the result that in a Wright Fisher model, the probability of a mutant with selection coefficient reaching frequency 1/is 2 [see e.g.Desai and Fisher (2007)], giving U nm/(2T ) (7) where nm is the number of inferred mutations and T is the simulation time in generations.
 Applying this formula across the set of simulations with constant selection coefficients gave an estimate within 15% of the correct value when U =108, with rapidly declining performance at higher values of U (Supplementary Fig.S2).
 3.3 Statistical analysis of experimental marker trajectories For each experiment described in Barrick et al.(2010), the model giving the best AIC score was identified.
 While models with more than one beneficial mutant often best fitted the data, for direct comparison with the original work, only the fitness of the first identified mutant haplotype was recorded in each case.Acomparison of the mean fitnesses of these haplotypes with the fitness defect induced in the population showed a correlation with parameter r2 =0.59 (Fig.5).

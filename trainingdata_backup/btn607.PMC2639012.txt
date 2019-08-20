@@ -1,6 +1,4 @@
-           btn607 BIOINFORMATICS ORIGINAL PAPER Vol.
-25 no.
-2 2009, pages 197203doi:10.1093/bioinformatics/btn607 Phylogenetics Phylogenetic inference under recombination using Bayesian stochastic topology selection Alex Webb1, John M. Hancock2 and Chris C. Holmes1,2, 1Department of Statistics, 1 South Parks Road, Oxford, OX1 3TG and 2MRC Harwell, Oxfordshire, OX11 0RD, UK Received on September 22, 2008; revised and accepted on November 19, 2008 Advance Access publication November 20, 2008 Associate Editor: Martin Bishop ABSTRACT Motivation: Conventional phylogenetic analysis for characterizing the relatedness between taxa typically assumes that a single relationship exists between species at every site along the genome.
+Motivation: Conventional phylogenetic analysis for characterizing the relatedness between taxa typically assumes that a single relationship exists between species at every site along the genome.
 This assumption fails to take into account recombination which is a fundamental process for generating diversity and can lead to spurious results.
 Recombination induces a localized phylogenetic structure which may vary along the genome.
 Here, we generalize a hidden Markov model (HMM) to infer changes in phylogeny along multiple sequence alignments while accounting for rate heterogeneity; the hidden states refer to the unobserved phylogenic topology underlying the relatedness at a genomic location.
@@ -32,7 +30,7 @@ Conceptually, we can imagine an indicator variable, j on each of the j=1,...,(2k
 potential topologies such that if j =0 then the state is excluded from the HMM, equivalent to setting the in-going state transition probability to zero; and if j =1 the topology is included as a candidate for a local phylogeny.
 Using Markov chain Monte Carlo, we are able to perform analytic marginal sampling on the set of indicator variables {1,...,(2k5)!/2k3(k3)!}
 integrating over all potential breakpoints and branch lengths; thus obtaining a marginal probability of support for the corresponding topology.
-2008 The Author(s) This is an Open Access article distributed under the terms of the Creative Commons Attribution Non-Commercial License (http://creativecommons.org/licenses/ by-nc/2.0/uk/) which permits unrestricted non-commercial use, distribution, and reproduction in any medium, provided the original work is properly cited.
+2008 The Author(s) This is an Open Access article distributed under the terms of the Creative Commons Attribution Non-Commercial License (http://creativecommons.org/licenses/by-nc/2.0/uk/) which permits unrestricted non-commercial use, distribution, and reproduction in any medium, provided the original work is properly cited.
 A.Webb et al.This is analogous to a probabilistic threshold such that if the j-th topology has limited marginal likelihood under the data then the corresponding state will be removed from the HMM.
 We also include a separate HMM to model rate variation along the sequence since ignoring this can lead to spurious recombination detection (Husmeier and McGuire, 2002).
 Our method has similarities and differences with previous methods which are discussed below.
@@ -59,7 +57,7 @@ The topology is an unrooted tree characterizing the relationships of the n taxa 
 There are several choices of parameterization for the matrix Q, but we choose to use the HKY matrix of Hasegawa et al.(1985).
 This allows for differing rates between nucleotide transitions and transversions and for not necessarily identical stationary probabilities, =(A,G,C ,T ), for the four nucleotides.
 The matrix can be written as Q=  G C T A c T A G T A G C  (1) where the in each row is the negative sum of the remaining elements of that row.
-The matrix can instead be parametrized in terms of =/ which in this article will be set to 2 but can be estimated beforehand if an alternative value is appropriate.
+The matrix can instead be parametrized in terms of =/which in this article will be set to 2 but can be estimated beforehand if an alternative value is appropriate.
 For identifiability between branch lengths t and Q we apply the constraint 4 i=1 Qiii =1 (Minin et al., 2005) which also gives the branch lengths the interpretation of expected number of substitutions per site.
 The equilibrium frequencies, , are calculated from the data and fixed at their observed values.
 In order to model recombination and rate variation, two HMMs are introduced, one to model the topologies underlying the data and one to take account of rate heterogeneity.
@@ -109,7 +107,7 @@ For the sampling step in (8), we again sample a path through the data, this time
 In order to update the parameters we can sample from a beta distribution.
 Let CT = L1 i=1 (Ti,Ti+1) and CR = L1 i=1 (Ri,Ri+1).
 Then Pr(T |T,R,R,A)=B(T |CT +,L1CT +) (14) Pr(R |T,R,T ,A)=B(R |CR +,L1CR +) (15) 4 DATA The proposed method has been tested on several datasets, both simulated and real.
-The datasets described below and the implemented method are available from http://www.stats.ox.ac.uk/ webb.
+The datasets described below and the implemented method are available from http://www.stats.ox.ac.uk/webb.
 4.1 Simulated data Initially we consider a 4-taxa dataset which was generated using the BARGE program of Husmeier (2005).
 This generated a 1000 bp alignment using the Kimura model of substitution.
 Two recombination events were simulated as well as a 100 bp region of increased branch lengths of the topologies as shown in Figure 2.

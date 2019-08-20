@@ -1,5 +1,4 @@
-          OP-CBIO130252 344..351 Vol.
-29 ISMB/ECCB 2013, pages i344i351 BIOINFORMATICS doi:10.1093/bioinformatics/btt212 Using state machines to model the Ion Torrent sequencing process and to improve read error rates David Golan1,* and Paul Medvedev2,3 1Department of Statistics and Operations Research, School of Mathematical Sciences, Tel-Aviv University, Tel-Aviv 69978, Israel, 2Department of Computer Science and Engineering and 3Department of Biochemistry and Molecular Biology, The Pennsylvania State University, PA 16802, USA ABSTRACT Motivation: The importance of fast and affordable DNA sequencing methods for current day life sciences, medicine and biotechnology is hard to overstate.
+Motivation: The importance of fast and affordable DNA sequencing methods for current day life sciences, medicine and biotechnology is hard to overstate.
 A major player is Ion Torrent, a pyrosequencing-like technology which produces flowgrams sequences of incorporation values which are converted into nucleotide sequences by a basecalling algorithm.
 Because of its exploitation of ubiquitous semiconductor technology and innovation in chemistry, Ion Torrent has been gaining popularity since its debut in 2011.
 Despite the advantages, however, Ion Torrent read accuracy remains a significant concern.
@@ -38,7 +37,7 @@ Our algorithm is applicable to any flowgram-based sequencing platform and is imp
 We demonstrate FlowgramFixers superior performance on Ion Torrent Escherichia coli data, with a 4.8% improvement in the*To whom correspondence should be addressed.
 The Author 2013.
 Published by Oxford University Press.
-This is an Open Access article distributed under the terms of the Creative Commons Attribution Non-Commercial License (http://creativecommons.org/licenses/ by-nc/3.0/), which permits non-commercial re-use, distribution, and reproduction in any medium, provided the original work is properly cited.
+This is an Open Access article distributed under the terms of the Creative Commons Attribution Non-Commercial License (http://creativecommons.org/licenses/by-nc/3.0/), which permits non-commercial re-use, distribution, and reproduction in any medium, provided the original work is properly cited.
 For commercial re-use, please contact journals.permissions@oup.com number of high-quality mapped reads and a 7.1% improvement in the number of uniquely mappable reads.
 2 BACKGROUND AND MOTIVATING EXAMPLES We denote the set of possible DNA sequences by nt-space, i.e.the space of possible combinations of the four nucleotides A, C, G and T. The Ion Torrent platform does not provide us directly with the read in nucleotide space, but instead, we observe the incorporation signal at each flow.
 It is, therefore, useful to define flow-space, as the vector of incorporation signals (flowgram) obtained per flow by a perfect (noiseless) sequencing process.

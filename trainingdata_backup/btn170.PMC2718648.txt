@@ -1,14 +1,10 @@
-            [20:38 18/6/03 Bioinformatics-btn170.tex] Page: i6 i6i14 BIOINFORMATICS Vol.
-24 ISMB 2008, pages i6i14doi:10.1093/bioinformatics/btn170 POIMs: positional oligomer importance matricesunderstanding support vector machine-based signal detectors Sren Sonnenburg1,,, Alexander Zien1,2,3,, Petra Philips2 and Gunnar Rtsch2 1Fraunhofer Institute FIRST, Department IDA, Kekulstr.
-7, 12489 Berlin, 2Friedrich Miescher Laboratory, Max Planck Society, Spemannstr.
-39 and 3Max Planck Institute for Biological Cybernetics, Spemannstr.
-38, 72076 Tbingen, Germany ABSTRACT Motivation: At the heart of many important bioinformatics problems, such as gene finding and function prediction, is the classification of biological sequences.
+Motivation: At the heart of many important bioinformatics problems, such as gene finding and function prediction, is the classification of biological sequences.
 Frequently the most accurate classifiers are obtained by training support vector machines (SVMs) with complex sequence kernels.
 However, a cumbersome shortcoming of SVMs is that their learned decision rules are very hard to understand for humans and cannot easily be related to biological facts.
 Results: To make SVM-based sequence classifiers more accessible and profitable, we introduce the concept of positional oligomer importance matrices (POIMs) and propose an efficient algorithm for their computation.
 In contrast to the raw SVM feature weighting, POIMs take the underlying correlation structure of k-mer features induced by overlaps of related k-mers into account.
 POIMs can be seen as a powerful generalization of sequence logos: they allow to capture and visualize sequence patterns that are relevant for the investigated biological phenomena.
-Availability: All source code, datasets, tables and figures are available at http://www.fml.tuebingen.mpg.de/raetsch/projects/ POIM.
+Availability: All source code, datasets, tables and figures are available at http://www.fml.tuebingen.mpg.de/raetsch/projects/POIM.
 Contact: Soeren.Sonnenburg@first.fraunhofer.de Supplementary information: Supplementary data are available at Bioinformatics online.
 1 INTRODUCTION For many sequence classification problems, support vector machines (SVMs) (Schlkopf and Smola, 2002; Vapnik, 1995) with the right choice of sequence kernels perform better than other state-of-theart methods, as exemplified in Table 1.
 While this success can in part be attributed to the SVM algorithm and the statistical learning theory that underlies it (Vapnik, 1995), it is essential to use appropriate kernels and features.
@@ -129,7 +125,7 @@ The function u can be decomposed correspondingly; see Equation (8) in Figure 3.
 This figure also summarizes all the previous observations in the central POIM computation theorem.
 The complete derivation can be found in Zien et al.(2007).
 Once w is available as a suffix trie (Sonnenburg et al., 2007a), the required amounts of memory and computation time for computing POIMs are dominated by the size of the output, i.e.O(||k L).
-The recursions are implemented in the freely available toolbox SHOGUN2 (which also offers a non-positional version for the spectrum kernel) and applicable online.3 2available from http://www.shogun-toolbox.org 3via Galaxy at http://galaxy.fml.tuebingen.mpg.de/ 2.3 Ranking features and condensing information for visualization Given the POIMs, we can analyze POs for their contributions to the scoring function.
+The recursions are implemented in the freely available toolbox SHOGUN2 (which also offers a non-positional version for the spectrum kernel) and applicable online.3 2available from http://www.shogun-toolbox.org 3via Galaxy at http://galaxy.fml.tuebingen.mpg.de/2.3 Ranking features and condensing information for visualization Given the POIMs, we can analyze POs for their contributions to the scoring function.
 Now we discuss several methods to visualize the information in POIMs and to find relevant POs.
 In the following, we will use the term motif either synonymously for PO, or for a set of POs that are similar (e.g.that share the same oligomer at a small range of neighboring positions).
 2.3.1 Ranking tables A simple analysis of a POIM is to sort all POs by their importance Q() or absolute importance |Q()|.

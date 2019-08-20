@@ -1,13 +1,11 @@
-            btq706.dvi [13:02 22/1/2011 Bioinformatics-btq706.tex] Page: 592 592593 BIOINFORMATICS APPLICATIONS NOTE Vol.
-27 no.
-4 2011, pages 592593doi:10.1093/bioinformatics/btq706 Phylogenetics Advance Access publication December 17, 2010 phangorn: phylogenetic analysis in R Klaus Peter Schliep UMR CNRS 7138 Systmatique, Adaptation, Evolution, Universit Pierre et Marie Curie, Musum National dHistoire Naturelle, Paris, France Associate Editor: David Posada ABSTRACT Summary: phangorn is a package for phylogenetic reconstruction and analysis in the R language.
+Summary: phangorn is a package for phylogenetic reconstruction and analysis in the R language.
 Previously it was only possible to estimate phylogenetic trees with distance methods in R. phangorn, now offers the possibility of reconstructing phylogenies with distance based methods, maximum parsimony or maximum likelihood (ML) and performing Hadamard conjugation.
 Extending the general ML framework, this package provides the possibility of estimating mixture and partition models.
 Furthermore, phangorn offers several functions for comparing trees, phylogenetic models or splits, simulating character data and performing congruence analyses.
 Availability: phangorn can be obtained through the CRAN homepage http://cran.r-project.org/web/packages/phangorn/index.html.
 phangorn is licensed under GPL 2.
 Contact: klaus.kschliep@snv.jussieu.fr Supplementary information: Supplementary data are available at Bioinformatics online.
-Received on September 27, 2010; revised on November 26, 2010; accepted on December 14, 2010 1 INTRODUCTION With more than 20 packages devoted to phylogenetics, the R software (R Development Core Team, 2009) has become a standard in phylogenetic analysis (see http://cran.r-project.org/web/views/ Phylogenetics.html for an overview).
+Received on September 27, 2010; revised on November 26, 2010; accepted on December 14, 2010 1 INTRODUCTION With more than 20 packages devoted to phylogenetics, the R software (R Development Core Team, 2009) has become a standard in phylogenetic analysis (see http://cran.r-project.org/web/views/Phylogenetics.html for an overview).
 However so far it was only possible to estimate phylogenetic trees with distance methods in R. The phangorn package permits to estimate maximum likelihood (ML) and maximum parsimony (MP) trees.
 Besides reconstructing phylogenies, the package also focuses on assessing the congruence of different trees.
 2 METHODS The phangorn package interacts with several other R-packages, especially with the ape package (Paradis et al., 2004).
@@ -35,7 +33,7 @@ phangorn also contains mixture models (Pagel and Meade, 2004) and partition mode
 The function pmlPart allows estimation of partitioned ML models and has a flexible yet simple formula interface.
 For example, the command pmlPart(edge + Q  The Author(s) 2010.
 Published by Oxford University Press.
-This is an Open Access article distributed under the terms of the Creative Commons Attribution Non-Commercial License (http://creativecommons.org/licenses/ by-nc/2.5), which permits unrestricted non-commercial use, distribution, and reproduction in any medium, provided the original work is properly cited.
+This is an Open Access article distributed under the terms of the Creative Commons Attribution Non-Commercial License (http://creativecommons.org/licenses/by-nc/2.5), which permits unrestricted non-commercial use, distribution, and reproduction in any medium, provided the original work is properly cited.
 [13:02 22/1/2011 Bioinformatics-btq706.tex] Page: 593 592593 phangorn Fig.2.
 Lento plot of the edge weights from sequence spectrum for the data of Rokas et al., 2003.
 On the x-axis the splits or edges are represented by the dots overlying the graph.

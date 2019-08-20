@@ -1,9 +1,4 @@
-           btn632 BIOINFORMATICS ORIGINAL PAPER Vol.
-25 no.
-3 2009, pages 309314doi:10.1093/bioinformatics/btn632 Phylogenetics PanCGH: a genotype-calling algorithm for pangenome CGH data Jumamurat R. Bayjanov1,, Michiel Wels1,2,3, Marjo Starrenburg2,4, Johan E. T. van Hylckama Vlieg2,3,4, Roland J. Siezen1,2,3,4 and Douwe Molenaar2,3,4 1Center for Molecular and Biomolecular Informatics, Nijmegen Center for Molecular Life Sciences, Radboud University Medical Centre, P.O.
-Box 9101, 6500 HB Nijmegen, 2NIZO food research, P.O.
-Box 20, 6710 BA Ede, 3TI Food and Nutrition, P.O.
-Box 557, 6700 AN Wageningen and 4Kluyver Centre for Genomics of Industrial Fermentation, Delft, The Netherlands Received on September 9, 2008; revised on November 20, 2008; accepted on December 4, 2008 Advance Access publication January 7, 2009 Associate Editor: Martin Bishop ABSTRACT Motivation: Pangenome arrays contain DNA oligomers targeting several sequenced reference genomes from the same species.
+Motivation: Pangenome arrays contain DNA oligomers targeting several sequenced reference genomes from the same species.
 In microbiology, these can be employed to investigate the often high genetic variability within a species by comparative genome hybridization (CGH).
 The biological interpretation of pangenome CGH data depends on the ability to compare strains at a functional level, particularly by comparing the presence or absence of orthologous genes.
 Due to the high genetic variability, available genotype-calling algorithms can not be applied to pangenome CGH data.
@@ -29,7 +24,7 @@ The biological interpretation of pangenome microarrays in terms of the presence 
 To solve this problem, we have devised the genotypecalling algorithm PanCGH that combines orthology (Fitch, 1970) information about genes with species-level pangenome array data to determine the presence or absence of orthologous genes in bacterial strains.
 In this study, we test and apply PanCGH to CGH data of 39 Lactococcus lactis strains to investigate their genotypic variation.
 To our knowledge, PanCGH is the first algorithm addressing the problem of deducing gene content from data obtained with CGH microarrays that target the pangenome of a group of relatively diverse microorganisms.
-2009 The Author(s) This is an Open Access article distributed under the terms of the Creative Commons Attribution Non-Commercial License (http://creativecommons.org/licenses/ by-nc/2.0/uk/) which permits unrestricted non-commercial use, distribution, and reproduction in any medium, provided the original work is properly cited.
+2009 The Author(s) This is an Open Access article distributed under the terms of the Creative Commons Attribution Non-Commercial License (http://creativecommons.org/licenses/by-nc/2.0/uk/) which permits unrestricted non-commercial use, distribution, and reproduction in any medium, provided the original work is properly cited.
 J.R.Bayjanov et al.2 METHODS 2.1 DNA preparation DNA was prepared from L. lactis strains (Supplementary Table 1) using the QiaAmp DNA Mini Kit (Qiagen GmbH, Hilden, Germany) according to the manufacturers protocol for the isolation of genomic DNA from Grampositive bacteria.
 2.2 Microarray design and hybridization data acquisition All genomic, plasmid and single gene or operon DNA sequences (1988 sequences in July 2005, constituting 10.7 Mb) of L. lactis were collected from the NCBI CoreNucleotide database and were deposited in a local database.
 This included complete genome sequences of L. lactis strain IL1403 (2.35 Mb, accession number AE005176) and fragments of the genome of strain SK11 (2.43 Mb, Genbank record GI:62464763).

@@ -1,6 +1,4 @@
-          OP-CBIO140509 541..548 Vol.
-30 ECCB 2014, pages i541i548 BIOINFORMATICS doi:10.1093/bioinformatics/btu462 ASTRAL: genome-scale coalescent-based species tree estimation S. Mirarab1, R. Reaz1, Md.
-S. Bayzid1, T. Zimmermann1,2, M. S. Swenson3 and T. Warnow1,* 1Department of Computer Science, The University of Texas at Austin, Austin, TX 78712, USA, 2Departement dinformatique, Ecole Normale Superieure, 45 Rue dUlm, F-75230 Paris Cedex 05, France and 3Department of Electrical Engineering, The University of Southern California, Los Angeles, CA 90089, USA ABSTRACT Motivation: Species trees provide insight into basic biology, including the mechanisms of evolution and how it modifies biomolecular function and structure, biodiversity and co-evolution between genes and species.
+Motivation: Species trees provide insight into basic biology, including the mechanisms of evolution and how it modifies biomolecular function and structure, biodiversity and co-evolution between genes and species.
 Yet, gene trees often differ from species trees, creating challenges to species tree estimation.
 One of the most frequent causes for conflicting topologies between gene trees and species trees is incomplete lineage sorting (ILS), which is modelled by the multi-species coalescent.
 While many methods have been developed to estimate species trees from multiple genes, some which have statistical guarantees under the multi-species coalescent model, existing methods are too computationally intensive for use with genome-scale analyses or have been shown to have poor accuracy under some realistic conditions.
@@ -8,7 +6,7 @@ Results: We present ASTRAL, a fast method for estimating species trees from mult
 ASTRAL is statistically consistent, can run on datasets with thousands of genes and has outstanding accuracy improving on MP-EST and the population tree from BUCKy, two statistically consistent leading coalescent-based methods.
 ASTRAL is often more accurate than concatenation using maximum likelihood, except when ILS levels are low or there are too few gene trees.
 Availability and implementation: ASTRAL is available in open source form at https://github.com/smirarab/ASTRAL/.
-Datasets studied in this article are available at http://www.cs.utexas.edu/users/phylo/ datasets/astral.
+Datasets studied in this article are available at http://www.cs.utexas.edu/users/phylo/datasets/astral.
 Contact: warnow@illinois.edu Supplementary information: Supplementary data are available at Bioinformatics online.
 1 INTRODUCTION Species tree estimation is difficult in the presence of gene tree conflict, which can result from incomplete lineage sorting [ILS, modelled by the multi-species coalescent (Kingman, 1982)] as well as other causes.
 ILS is equivalent to deep coalescence, which occurs with high probability whenever the time between speciation events is short relative to the population size (Maddison, 1997).

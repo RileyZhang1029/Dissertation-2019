@@ -1,5 +1,4 @@
-          OP-CBIO140275 149..156 Vol.
-30 ISMB 2014, pages i149i156 BIOINFORMATICS doi:10.1093/bioinformatics/btu267 Pipasic: similarity and expression correction for strain-level identification and quantification in metaproteomics Anke Penzlin1,y, Martin S. Lindner1,y, Joerg Doellinger2,3, Piotr Wojtek Dabrowski2,4, Andreas Nitsche2 and Bernhard Y. Renard1,* 1Research Group Bioinformatics (NG4), 2Centre for Biological Threats and Special Pathogens 1 (ZBS 1), 3Centre for Biological Threats and Special Pathogens 6 (ZBS 6) and 4Central Administration 4 (IT), Robert Koch Institute, 13353 Berlin, Germany ABSTRACT Motivation: Metaproteomic analysis allows studying the interplay of organisms or functional groups and has become increasingly popular also for diagnostic purposes.
+Motivation: Metaproteomic analysis allows studying the interplay of organisms or functional groups and has become increasingly popular also for diagnostic purposes.
 However, difficulties arise owing to the high sequence similarity between related organisms.
 Further, the state of conservation of proteins between species can be correlated with their expression level, which can lead to significant bias in results and interpretation.
 These challenges are similar but not identical to the challenges arising in the analysis of metagenomic samples and require specific solutions.
@@ -28,8 +27,8 @@ Even more *To whom correspondence should be addressed.
 yThe authors wish it to be known that, in their opinion, the first two authors should be regarded as Joint First Authors.
 The Author 2014.
 Published by Oxford University Press.
-This is an Open Access article distributed under the terms of the Creative Commons Attribution Non-Commercial License (http://creativecommons.org/licenses/ by-nc/3.0/), which permits non-commercial re-use, distribution, and reproduction in any medium, provided the original work is properly cited.
-For commercial re-use, please contact journals.permissions@oup.com https://sourceforge.net/projects/pipasic/ mailto:RenardB@rki.deto    mass spectrometry since due ( ) very XPath error Undefined namespace prefix XPath error Undefined namespace prefix pronounced than in classical bottom-up proteomic approaches (Nesvizhskii, 2010), one spectrum can not only match to several peptides occurring in multiple proteins of the same organism, but may match to proteins in different organisms.
+This is an Open Access article distributed under the terms of the Creative Commons Attribution Non-Commercial License (http://creativecommons.org/licenses/by-nc/3.0/), which permits non-commercial re-use, distribution, and reproduction in any medium, provided the original work is properly cited.
+For commercial re-use, please contact journals.permissions@oup.com https://sourceforge.net/projects/pipasic/mailto:RenardB@rki.deto    mass spectrometry since due ( ) very XPath error Undefined namespace prefix XPath error Undefined namespace prefix pronounced than in classical bottom-up proteomic approaches (Nesvizhskii, 2010), one spectrum can not only match to several peptides occurring in multiple proteins of the same organism, but may match to proteins in different organisms.
 This is particularly common for closely related organisms with sufficient sequence similarity and for well-conserved proteins.
 Consequently, this problem hinders the correct identification and quantification of the species present in a sample.
 While also common in metagenomics (Lindner and Renard, 2013), it is even more challenging in proteomics because peptides are commonly shorter than sequencing reads and thereby less likely to be unique.
@@ -102,7 +101,7 @@ Similarly to the GASiC framework, it is possible to obtain statistically more ro
 Statistical tests for the presence of a proteome as well as error estimates for the obtained abundances can then be computed from the distribution of abundance estimates.
 i151 Pipasic to    very very false discovery rate ( ) Since In order since    mass spectrometry since i be greater than or equal to zero less than or equal to one 2.4 Technical details Pipasic is implemented as Python scripts where performance-critical parts are calculated using the scientific computing libraries SciPy and NumPy.
 Currently, Pipasic is designed to directly work with either InsPecT or Sequest/Tide for peptide identification.
-Pipasic is freely available from https://sourceforge.net/projects/pipasic/ 3 EXPERIMENTS AND RESULTS To evaluate Pipasic and the impact of the various algorithmic steps, we conducted two experiments.
+Pipasic is freely available from https://sourceforge.net/projects/pipasic/3 EXPERIMENTS AND RESULTS To evaluate Pipasic and the impact of the various algorithmic steps, we conducted two experiments.
 First, we demonstrate the accuracy of the method on a mixture of real datasets of cowpox viruses with a known ground truth.
 Here, we can identify the benefits of individual steps and compare Pipasic with a metaproteomic analysis based on MEGAN and unique peptides.
 In a second experiment, we apply Pipasic to a published AMD dataset showing that our method is also able to provide corrected abundance estimates for datasets from a natural environment.
@@ -143,7 +142,7 @@ Figure 4a shows the output of MEGAN for the dataset containing 10% Kre and 90% B
 The size of the circles is log-proportional to the number of assigned spectra, visualizing that the majority of spectra was assigned to the higher level Orthopoxvirus node.
 The leaves, representing Kre and BR, obtained relatively few spectra: only 8.4% of all matches were unique.
 In Figure 4b, we plotted for each dataset both the unique matches to each proteome as well as the sum of shared Cowpox virus and unique matches.
-Because the number of i152 A.Penzlin et al.https://sourceforge.net/projects/pipasic/ acid mine drainage In order feld righton ed.
+Because the number of i152 A.Penzlin et al.https://sourceforge.net/projects/pipasic/acid mine drainage In order feld righton ed.
 Methods feld very righton ed feld righton ed feldto feld righton ed ( ) feld righton ed feld righton ed (b) Since  shared matches is much higher than the number of unique matches, the sum of unique and shared (dashed lines) is not informative, as both proteomes obtain close to 50% relative abundance.
 The number of unique matches (dashdotted lines) contains more information, and the resulting relative abundances are closer to the ground truth.
 However, in the case of pure datasets, still a significant number of spectra is matching uniquely to the absent species (about 15%).
@@ -153,7 +152,7 @@ With this experiment, we show that Pipasic automatically corrects abundances of 
 For that purpose, we used metaproteomic spectra of an AMD biofilm dataset described in Denef et al.(2010).
 AMD biofilms are bacterial communities in a highly acidic environment.
 Thus, AMD communities are not as complex as other microbial communities and their composition is well understood.
-We downloaded the metaproteomic spectra of sample 20 run 2 and the corresponding protein database from the authors Web site (http://compbio.ornl.gov/biofilm_amd_PIGT/ accessed in March 2013).
+We downloaded the metaproteomic spectra of sample 20 run 2 and the corresponding protein database from the authors Web site (http://compbio.ornl.gov/biofilm_amd_PIGT/accessed in March 2013).
 As the protein database contained sequences for all dominant organisms, we manually divided the database into six reference proteomes: Leptospirillum group II and III (Lepto2 and Lepto3), Ferroplasma acidarmanus Type I and II (Fer1 and Fer2), G-plasma and others, like contaminants and unassigned archaea and bacteria.
 Then we searched the spectra in the reference proteomes with Tide and counted the number of matching spectra.
 We applied Pipasic with data weighting on the results to obtain the corrected abundance estimates.

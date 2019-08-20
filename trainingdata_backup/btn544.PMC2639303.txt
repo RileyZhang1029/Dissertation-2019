@@ -1,13 +1,11 @@
-           btn544 BIOINFORMATICS ORIGINAL PAPER Vol.
-24 no.
-24 2008, pages 28492856doi:10.1093/bioinformatics/btn544 Sequence analysis IntaRNA: efficient prediction of bacterial sRNA targets incorporating target site accessibility and seed regions Anke Busch, Andreas S. Richter and Rolf Backofen Bioinformatics Group, Albert-Ludwigs-University Freiburg, Georges-Koehler-Allee 106, Freiburg D-79110, Germany Received on June 16, 2008; revised on October 14, 2008; accepted on October 17, 2008 Advance Access publication October 21, 2008 Associate Editor: Ivo Hofacker ABSTRACT Motivation: During the last few years, several new small regulatory RNAs (sRNAs) have been discovered in bacteria.
+Motivation: During the last few years, several new small regulatory RNAs (sRNAs) have been discovered in bacteria.
 Most of them act as post-transcriptional regulators by base pairing to a target mRNA, causing translational repression or activation, or mRNA degradation.
 Numerous sRNAs have already been identified, but the number of experimentally verified targets is considerably lower.
 Consequently, computational target prediction is in great demand.
 Many existing target prediction programs neglect the accessibility of target sites and the existence of a seed, while other approaches are either specialized to certain types of RNAs or too slow for genome-wide searches.
 Results: We introduce INTARNA, a new general and fast approach to the prediction of RNARNA interactions incorporating accessibility of target sites as well as the existence of a user-definable seed.
 We successfully applied INTARNA to the prediction of bacterial sRNA targets and determined the exact locations of the interactions with a higher accuracy than competing programs.
-Availability: http://www.bioinf.uni-freiburg.de/Software/ Contact: IntaRNA@informatik.uni-freiburg.de Supplementary information: Supplementary data are available at Bioinformatics online.
+Availability: http://www.bioinf.uni-freiburg.de/Software/Contact: IntaRNA@informatik.uni-freiburg.de Supplementary information: Supplementary data are available at Bioinformatics online.
 1 INTRODUCTION Starting with the discovery of microRNAs (miRNAs) and the advent of genome-wide transcriptomics, it has become obvious that RNA plays a large variety of important, often regulatory, roles in living organism that extends far beyond being a mere intermediate in protein biosynthesis (Storz, 2002).
 Several of these non-protein coding RNAs (ncRNAs) regulate gene expression posttranscriptionally through base pairing to a target mRNA, like eukaryotic miRNAs and small interfering RNAs (siRNAs) (Bartel, 2004; Hannon, 2002; Zamore and Haley, 2005) as well as bacterial small regulatory RNAs (sRNAs) (Gottesman, 2005).
 Typically, the size of bacterial sRNAs ranges from 50 nt to 250 nt (Vogel and Wagner, 2007).
@@ -29,7 +27,7 @@ This article presents IntaRNA, a new approach to the prediction of interacting R
 In addition, the existence (but not the exact location) of a seed is enforced.
 The length of the seed can be set by the user.
 We present two variants: a complete approach, which is O(n2m2) in time and O(nm) in space, when restricting the size of internal loops and where n and m are the lengths of the interacting RNA sequences (n>m), and a heuristic simplification of the complete approach, which has a time complexity of O(nm) and a space complexity of O(nm), where m=max{m,L3} and L is the size of the sequence window in which both the target mRNA and the sRNA are folded.
-2008 The Author(s) This is an Open Access article distributed under the terms of the Creative Commons Attribution Non-Commercial License (http://creativecommons.org/licenses/ by-nc/2.0/uk/) which permits unrestricted non-commercial use, distribution, and reproduction in any medium, provided the original work is properly cited.
+2008 The Author(s) This is an Open Access article distributed under the terms of the Creative Commons Attribution Non-Commercial License (http://creativecommons.org/licenses/by-nc/2.0/uk/) which permits unrestricted non-commercial use, distribution, and reproduction in any medium, provided the original work is properly cited.
 A.Busch et al.We successfully applied IntaRNA to the prediction of sRNA targets.
 Additionally, IntaRNA predicted the exact location of the RNA RNA interactions.
 Related work: to date, most existing target prediction approaches are based on one of the two following basic ideas.

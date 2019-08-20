@@ -1,6 +1,4 @@
-          OP-CBIO130352 1953..1962 Vol.
-29 no.
-16 2013, pages 19531962 BIOINFORMATICS ORIGINAL PAPER doi:10.1093/bioinformatics/btt338 Sequence analysis Advance Access publication June 12, 2013 UniNovo: a universal tool for de novo peptide sequencing Kyowon Jeong1,*, Sangtae Kim2 and Pavel A. Pevzner2,* 1Department of Electrical and Computer Engineering and 2Department of Computer Science and Engineering, University of California, San Diego, CA 92093, USA Associate Editor: Martin Bishop ABSTRACT Motivation: Mass spectrometry (MS) instruments and experimental protocols are rapidly advancing, but de novo peptide sequencing algorithms to analyze tandem mass (MS/MS) spectra are lagging behind.
+Motivation: Mass spectrometry (MS) instruments and experimental protocols are rapidly advancing, but de novo peptide sequencing algorithms to analyze tandem mass (MS/MS) spectra are lagging behind.
 Although existing de novo sequencing tools perform well on certain types of spectra [e.g.Collision Induced Dissociation (CID) spectra of tryptic peptides], their performance often deteriorates on other types of spectra, such as Electron Transfer Dissociation (ETD), Higher-energy Collisional Dissociation (HCD) spectra or spectra of non-tryptic digests.
 Thus, rather than developing a new algorithm for each type of spectra, we develop a universal de novo sequencing algorithm called UniNovo that works well for all types of spectra or even for spectral pairs (e.g.CID/ETD spectral pairs).
 UniNovo uses an improved scoring function that captures the dependences between different ion types, where such dependencies are learned automatically using a modified offset frequency function.
@@ -37,7 +35,7 @@ Published by Oxford University Press.
 This is an Open Access article distributed under the terms of the Creative Commons Attribution Non-Commercial License (http://creativecommons.org/licenses/by-nc/3.0/), which permits non-commercial re-use, distribution, and reproduction in any medium, provided the original work is properly cited.
 For commercial re-use, please contact journals.permissions@oup.com (Ma etal.,2003; Frank,2009).
 to ( al.,2000;Breci etal.,2003;Tabb etal.,2004;Huang et 2005;Barton and Whittaker,2009 ;Frank,2009), ( al.,2008;Swaney et ( al.,2007;Chi et 1., (Savitski etal.,2005; algorithm, ADEPTS, for CID/ETD spectral pairs.
-Given a CID/ ETD spectral pair, ADEPTS first finds 1000 candidate de novo sequences from each spectrum, using PEAKS.
+Given a CID/ETD spectral pair, ADEPTS first finds 1000 candidate de novo sequences from each spectrum, using PEAKS.
 The total 2000 candidate sequences are then rescored against the input spectral pair, and the best-scoring peptide is reported.
 While the above tools perform well for the spectra generated from the fragmentation method(s) that each tool targeted, they often generate inferior results for the spectra from other fragmentation methods.
 Moreover, if alternative proteases (e.g.LysC or AspN) are used for protein digestion, these tools may produce suboptimal results because different proteases often generate peptides with different fragmentation characteristics (Kim et al., 2010).
@@ -154,7 +152,7 @@ Hunters bound can be calculated from relatively simple statistics that are readi
 Supplementary Figures S2 and S3 (green bars) in the Supplementary section S9 show that the accuracy of a reconstruction is a conservative estimate of the empirical probability of the reconstruction being correct.
 3 RESULTS 3.1 Datasets To benchmark UniNovo, we used 13 different datasets with diverse fragmentation methods (CID/ETD/HCD), digested with diverse proteases (trypsin, LysC and AspN), and having diverse charge states (see Table 1).
 We re-analyzed the spectral datasets (original datasets) from Albert Hecks and Joshua Coons laboratories that were previously analyzed in Kim et al.(2010), Swaney et al.(2010) and Frese et al.(2011).
-The CID and ETD spectra in these original datasets were acquired in a hybrid linear ion trap/ Orbitrap mass spectrometers (high MS1 resolution and low MS2 resolution).
+The CID and ETD spectra in these original datasets were acquired in a hybrid linear ion trap/Orbitrap mass spectrometers (high MS1 resolution and low MS2 resolution).
 The HCD spectra have high MS1 and MS2 resolution.
 All spectra in the original datasets were identified by MS-GFDB (ver.
 01/06/2012) (Kim et al., 2010) at 1% peptidelevel FDR without allowing any modification except the carbamidomethylation of Cys (C 57) as a fixed modification [In the Supplementary section S13, we also re-analyzed the dataset reported in Kim et al.(2009b) that contains doubly charged CID spectra identified using Sequest (Eng et al., 1994) and PeptideProphet (Keller et al., 2002).].
@@ -238,12 +236,12 @@ Relatively small overlaps are observed for ETD spectra when compared with CID or
 The Venn diagrams for other datasets are found in Supplementary Figures S5S12 in the Supplementary section S11 (a) (b) Fig.4.
 Comparison of de novo sequencing tools in terms of amino acid level precision (a) and recall (b).
 The definitions of precision and recall are given in (4) and (5), respectively 1959 UniNovo of the scoring function (i.e., spectrum graph) of UniNovo for different spectrum types is found in the Supplementary section S14, where we also compared the spectrum graphs from UniNovo, PepNovo and MS-GFDB for CID2 dataset.
-3.3 De novo sequencing of paired spectra UniNovo also can be used to sequence paired spectra (e.g.CID/ ETD spectral pairs).
+3.3 De novo sequencing of paired spectra UniNovo also can be used to sequence paired spectra (e.g.CID/ETD spectral pairs).
 Given multiple spectra from the same precursor ion, UniNovo first generates a spectrum graph from each of the spectra and next merges the spectrum graphs into a combined spectrum graph, on which the reconstructions are generated (refer to the Supplementary section S5 for the spectrum graph merging algorithm).
 To benchmark UniNovo in de novo sequencing of paired spectra, CID/ETD2 and CID/ETD3 datasets were analyzed by UniNovo.
 From CID/ETD2 dataset, two additional datasets were generated: CID/etd2 and cid/ETD2 datasets.
 CID/etd2 dataset was formed by taking only CID spectra, and cid/ETD2 dataset by taking only ETD spectra in CID/ETD2 dataset.
-CID/ etd3 and cid/ETD3 datasets were generated similarly.
+CID/etd3 and cid/ETD3 datasets were generated similarly.
 For each dataset, we generated N 1, 5 and 20 top scoring reconstructions.
 The results are shown in Figure 5.
 When precursor ions were doubly charged, the performance boost from the paired spectra was very modest.

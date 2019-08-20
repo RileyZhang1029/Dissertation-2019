@@ -94,7 +94,7 @@ The prediction of a particular selection of residues is computed from the sum of
 The experimentally determined inhibition constants are listed in Table 2.
 The quality of prediction is computed as the leave-one-out correlation coefficient (q2).
 To compute this q2, one inhibitor is left out, the best r2 model is computed for the remaining n1 inhibitors and this model is used to predict the value for the inhibitor that has been left out.
-When all compounds have been left out once, the value of q2 is given by q2 = 1 n i=1(yi yi)2n i=1(yi y)2, (1) 573 Figure 2.
+When all compounds have been left out once, the value of q2 is given by q2 = 1 n i=1(yi yi)2n i=1(yi y)2 , (1) 573 Figure 2.
 Observed pKi values versus total interaction energy for the 53 HIV protease inhibitors.
 where yi is the observed inhibition constant of the i th inhibitor, yi its predicted inhibition constant not including observation i, and y the mean value for all n inhibitors.
 The resulting model has the form pKi = a1 n j=1 WjEj + a0, (2) where pKi is the computed inhibition strength, a1 and a0 are constants determined from the fit, Ej is a contribution to the non-bonded interaction energy, and n is the number of protein residues.
@@ -115,7 +115,7 @@ The acceptance decision in step 4 was taken by comparing the fitness of the chil
 Doing so helps to maintain diversity in the population.
 If the child is fitter, it will replace one of the existing population members by roulette-wheel selection.
 The probability for each population member to be replaced is inversely proportional to its fitness.
-These probabilities are computed as Pi = rin i=1 ri, (3) where Pi is the probability for the ith individual, ri is the rank of the individual as determined by its fitness (individuals are ranked in descending order where the first one is the fittest) and n is the population size.
+These probabilities are computed as Pi = rin i=1 ri , (3) where Pi is the probability for the ith individual, ri is the rank of the individual as determined by its fitness (individuals are ranked in descending order where the first one is the fittest) and n is the population size.
 The algorithms convergence behaviour can vary in two respects: the time it takes to converge and the 574 actual solution it converges on.
 Whether the best possible solution has been found cannot be known for sure, we assume that the best solution observed in multiple trials indeed is the best possible one.
 The algorithm turned out to be insensitive towards the parametrization used, except for the way in which the population is initialized.

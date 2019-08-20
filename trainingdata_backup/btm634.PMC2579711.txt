@@ -1,6 +1,4 @@
-         btm634 2650..2656 Vol.
-24 no.
-22 2008, pages 26502656 BIOINFORMATICS ORIGINAL PAPER doi:10.1093/bioinformatics/btm634 Systems biology Estimating large-scale signaling networks through nested effect models with intervention effects from microarray data Holger Frohlich*, Mark Fellmann, Holger Sultmann, Annemarie Poustka and Tim Beissbarth German Cancer Research Center (DKFZ), Im Neuenheimer Feld 580, 69120 Heidelberg, Germany Received on October 5, 2007; revised and accepted on December 18, 2007 Advance Access publication January 28, 2008 Associate Editor: Dmitrij Frishman ABSTRACT Motivation: Targeted interventions using RNA interference in combination with the measurement of secondary effects with DNA microarrays can be used to computationally reverse engineer features of upstream non-transcriptional signaling cascades based on the nested structure of effects.
+Motivation: Targeted interventions using RNA interference in combination with the measurement of secondary effects with DNA microarrays can be used to computationally reverse engineer features of upstream non-transcriptional signaling cascades based on the nested structure of effects.
 Results: We extend previous work by Markowetz et al., who proposed a statistical framework to score different network hypotheses.
 Our extensions go in several directions: we show how prior assumptions on the network structure can be incorporated into the scoring scheme by defining appropriate prior distributions on the network structure as well as on hyperparameters.
 An approach called module networks is introduced to scale up the original approach, which is limited to around 5 genes, to infer large-scale networks of more than 30 genes.
@@ -26,7 +24,7 @@ We show that module networks offer a better performance in terms of reconstructi
 We also apply our module networks to infer the signaling network between 13 genes in the ER-pathway in human MCF-7 breast cancer cells.
 Using bootstrapping and the jackknife this reconstruction is found to be statistically stable.
 2 METHODS 2.1 Original approach We start with a brief review of the framework by Markowetz et al.: in general one distinguishes between silenced genes (S-genes) and genes*To whom correspondence should be addressed.
-2008 The Author(s) This is an Open Access article distributed under the terms of the Creative Commons Attribution Non-Commercial License (http://creativecommons.org/licenses/ by-nc/2.0/uk/) which permits unrestricted non-commercial use, distribution, and reproduction in any medium, provided the original work is properly cited.
+2008 The Author(s) This is an Open Access article distributed under the terms of the Creative Commons Attribution Non-Commercial License (http://creativecommons.org/licenses/by-nc/2.0/uk/) which permits unrestricted non-commercial use, distribution, and reproduction in any medium, provided the original work is properly cited.
 showing a downstream effect (E-genes).
 It is assumed that each E-gene is attached to a single S-gene only (Fig.1).
 Knocking down a specific S-gene Sk interrupts signal flow in the downstream pathway, and hence an effect on the E-genes attached to Sk and all S-genes depending on Sk is expected.

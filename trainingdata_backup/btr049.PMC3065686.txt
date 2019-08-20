@@ -1,7 +1,4 @@
-            G:\bioinformatics\Bioinfo-27(7)issue\btr049.dvi [13:13 17/3/2011 Bioinformatics-btr049.tex] Page: 912 912918 BIOINFORMATICS ORIGINAL PAPER Vol.
-27 no.
-7 2011, pages 912918doi:10.1093/bioinformatics/btr049 Genome analysis Advance Access publication January 28, 2011 Modeling and comparing the organization of circular genomes Grace S. Shieh1,, Shurong Zheng1,, Richard A. Johnson2, Yi-Feng Chang3, Kunio Shimizu4, Chia-Chang Wang1 and Sen-Lin Tang5 1Institute of Statistical Science, Academia Sinica, Taipei 115, Taiwan, 2Department of Statistics, University of Wisconsin-Madison, Madison, WI 53706, USA, 3Institute of Biomedical Informatics, National Yang-Ming University, Taipei 112, Taiwan, R.O.C., 4Department of Mathematics, Keio University, Tokyo 53706, Japan and 5Biodiversity Research Center, Academia Sinica, Taipei 115, Taiwan, R.O.C.
-Associate Editor: Alfonso Valencia ABSTRACT Motivation: Most prokaryotic genomes are circular with a single chromosome (called circular genomes), which consist of bacteria and archaea.
+Motivation: Most prokaryotic genomes are circular with a single chromosome (called circular genomes), which consist of bacteria and archaea.
 Orthologous genes (abbreviated as orthologs) are genes directly evolved from an ancestor gene, and can be traced through different species in evolution.
 Shared orthologs between bacterial genomes have been used to measure their genome evolution.
 Here, organization of circular genomes is analyzed via distributions of shared orthologs between genomes.
@@ -33,7 +30,7 @@ Most of the marginal distributions of shared orthologs in circular genomes are a
 Therefore, we propose a family of bivariate circular distributions with each marginal assuming a GVM distribution, and call this family the bivariate generalized von-Mises (BGVM).
 The inference procedures, estimation of the parameters in BGVM and testing for independence of structures of paired circular genomes, are developed.Anovel correlation measure, which is based on the fraction of shared orthologs and a circular grade correlation derived here, is introduced to measure organization The Author(s) 2011.
 Published by Oxford University Press.
-This is an Open Access article distributed under the terms of the Creative Commons Attribution Non-Commercial License (http://creativecommons.org/licenses/ by-nc/2.5), which permits unrestricted non-commercial use, distribution, and reproduction in any medium, provided the original work is properly cited.
+This is an Open Access article distributed under the terms of the Creative Commons Attribution Non-Commercial License (http://creativecommons.org/licenses/by-nc/2.5), which permits unrestricted non-commercial use, distribution, and reproduction in any medium, provided the original work is properly cited.
 [13:13 17/3/2011 Bioinformatics-btr049.tex] Page: 913 912918 Modeling and comparing circular genomes similarity between circular genomes.
 Furthermore, this similarity is visually depicted by the rose diagrams of shared orthologs.
 The marginal distributions of BGVM are quite flexible since GVM can model either symmetric or asymmetric, unimodal or multimodal circular data, depending on the values of its four parameters.
@@ -93,7 +90,7 @@ The limiting distribution of 2lnn is 0.520 +0.521, where 2r denotes the chi-squa
 Case 2.
 When all parameters are unknown and only one among 1,1,2 and 2 is zero.
 In practice, this case occurs when MLEs of the four parameters are close to zero.
-The limiting distribution of 2lnn is 0.521 +c122 +c2G1(x,c2)+c3G1(x,c3)+c1G2(x,c1), where c1 =| 12 cos1 ( I12/ I11I22 )1/4|, Iijs are the (i,j) entries of the information matrix I() and c2 =c3 =1/4c1.
+The limiting distribution of 2lnn is 0.521 +c122 +c2G1(x,c2)+c3G1(x,c3)+c1G2(x,c1), where c1 =| 12 cos1 ( I12/I11I22 )1/4|, Iijs are the (i,j) entries of the information matrix I() and c2 =c3 =1/4c1.
 Furthermore, G1(y 2,/2)=1 { y/tan (x tan)d(x)(y)[1(y cot)] } { 0 (x tan)d(x)1/4 } , G2(y 2,/2)= 1 1 2 y tan 0 (f (x,y,))d(x) y tan (x cot)d(x) 1 2  0 (x cot)d(x) , f (x,y,)=[(x2 +y2)1/2 x sin]/cos and () is the standard normal cumulative distribution function.
 For details, see Case 8 of Self and Liang (1987).
 Codes in R to obtain MLEs and the LR test are available at http://www.stat.sinica.edu.tw/gshieh/bgvm.htm.

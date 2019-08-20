@@ -8,7 +8,7 @@ For more information about JSTOR, please contact support@jstor.org.
 Society of Systematic Biologists and Oxford University Press are collaborating with JSTOR to digitize, preserve and extend access to Systematic Biology.
 Syst.
 Biol.
-55(5):769-773, 2006 Copyright (c) Society of Systematic Biologists ISSN: 1063-5157 print/ 1076-836X online DOI: 10.1080/10635150600981604 Phylogenetic Diversity within Seconds Bui Quang Minh, Steffen Klaere, and Arndt von Haeseler Center for Integrative Bioinformatics, Vienna, Max F. Perutz Laboratories, University of Vienna, Medical University of Vienna, Veterinary University of Vienna, Dr.-Bohr-Gasse 9/6, A-1030 Vienna, Austria; E-mail: arndt.von.haeseler@univie.ac.at (A.v.H.)
+55(5):769-773, 2006 Copyright (c) Society of Systematic Biologists ISSN: 1063-5157 print/1076-836X online DOI: 10.1080/10635150600981604 Phylogenetic Diversity within Seconds Bui Quang Minh, Steffen Klaere, and Arndt von Haeseler Center for Integrative Bioinformatics, Vienna, Max F. Perutz Laboratories, University of Vienna, Medical University of Vienna, Veterinary University of Vienna, Dr.-Bohr-Gasse 9/6, A-1030 Vienna, Austria; E-mail: arndt.von.haeseler@univie.ac.at (A.v.H.)
 Abstract.
 ?We consider a (phylogenetic) tree with n labeled leaves, the taxa, and a length for each branch in the tree.
 For any subset of k taxa, the phylogenetic diversity is defined as the sum of the branch-lengths of the minimal subtree connecting the taxa in the subset.
@@ -79,7 +79,7 @@ Figure IB displays the result of this update for the five-taxon tree.
 Here, we obtain S = (v\, v^), because dmax(vi) = 5 > 2 = dmax(v3).
 This update procedure will be invoked repeatedly in the following step of gPDA.
 Having defined W and a sorted list S we can enter the core of the algorithm, the greedy step.
-We add a leaf c from Lmax?^) to Wand delete uZl from S. Then we update the maximal distances and leaves for all nodes on the path V(v{x, c) as described for the path V(a,b).
+We add a leaf c from Lmax?^) to Wand delete uZl from S. Then we update the maximal distances and leaves for all nodes on the path V(v{x, c) as described for the path V(a ,b).
 No updates are necessary for interior nodes already in S. Figure 1C illustrates this second update for the example tree with W = {a,b,c} and S = {v^}.
 v\ and V2 are updated, whereas v$ remains unchanged.
 Subsequently, the elements w of the path V(v{x, c) are inserted into the ordered list S according to their distance dmax(w) if dmax(w) > dmax(vik_2).
@@ -197,7 +197,7 @@ Bold lines visualize the subgraphs formed by the respective PD2 sets.
 2006_MINH ET AL.
 ?PHYLOGENETIC DIVERSITY_773 Acknowledgements The authors would like to thank Dan Faith for helpful suggestions on the subject and Heiko Schmidt and Tanja Gesell for fruitful discussions.
 They also thank Mike Steel and anonymous referees for constructive comments.
-A computer program written in C++ is freely available from http:// www.cibiv.at/software/pda/.
+A computer program written in C++ is freely available from http://www.cibiv.at/software/pda/.
 Financial support from the Wiener Wissenschafts-, Forschungs, and Technologiefonds (WWTF) is greatly appreciated.
 REFERENCES Cormen, T. H., C. E. Leiserson, R. L. Rivest, and C. Stein.
 2001.

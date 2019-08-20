@@ -1,6 +1,4 @@
-           btp074 BIOINFORMATICS ORIGINAL PAPER Vol.
-25 no.
-7 2009, pages 861867doi:10.1093/bioinformatics/btp074 Genome analysis A single-sample method for normalizing and combining full-resolution copy numbers from multiple platforms, labs and analysis methods Henrik Bengtsson1,, Amrita Ray2, Paul Spellman2 and Terence P. Speed1,3 1Department of Statistics, University of California, 2Life Sciences Division, Lawrence Berkeley National Laboratory, Berkeley, USA and 3Bioinformatics Division, Walter & Eliza Hall Institute of Medical Research, Parkville, Australia Received on November 19, 2008; revised on January 9, 2009; accepted on 30 January, 2009 Advance Access publication February 4, 2009 Associate Editor: John Quackenbush ABSTRACT Motivation: The rapid expansion of whole-genome copy number (CN) studies brings a demand for increased precision and resolution of CN estimates.
+Motivation: The rapid expansion of whole-genome copy number (CN) studies brings a demand for increased precision and resolution of CN estimates.
 Recent studies have obtained CN estimates from more than one platform for the same set of samples, and it is natural to want to combine the different estimates in order to meet this demand.
 Estimates from different platforms show different degrees of attenuation of the true CN changes.
 Similar differences can be observed in CNs from the same platform run in different labs, or in the same lab, with different analytical methods.
@@ -44,7 +42,7 @@ Thus far the different TCGA centers have identified CN regions independently of 
 It has been suggested that more accurate and precise results at a higher resolution and with greater coverage could be obtained if the CN estimates from the different sites are combined.
 The data can be combined at various levels, e.g.at the level of full-resolution CNs (Bengtsson et al., 2008b) and at the level of segmented CN regions.
 It can be argued that combining the data at the full resolution will leave more options for choosing downstream methods.
-2009 The Author(s) This is an Open Access article distributed under the terms of the Creative Commons Attribution Non-Commercial License (http://creativecommons.org/licenses/ by-nc/2.0/uk/) which permits unrestricted non-commercial use, distribution, and reproduction in any medium, provided the original work is properly cited.
+2009 The Author(s) This is an Open Access article distributed under the terms of the Creative Commons Attribution Non-Commercial License (http://creativecommons.org/licenses/by-nc/2.0/uk/) which permits unrestricted non-commercial use, distribution, and reproduction in any medium, provided the original work is properly cited.
 H.Bengtsson et al.Fig.1.
 Full resolution and smoothed tumor/normal CNs in a 60 Mb region on Chr 3 of TCGA sample TCGA-02-0104 as measured by four different labs based on three different types of microarray SNP and CN platforms (Table 1).
 The full-resolution estimates are displayed as light points and the smoothed estimates, which are available at every 100 kb, are displayed as dark colored curves.
@@ -128,7 +126,7 @@ Because different sources produce CNs at different loci, we estimate CNs at a pr
 Here, the set of target loci will consist of every 100 kb locus throughout the genome.
 Note that the choice of locations is not critical.
 More precisely, for target locus j with position xj we construct CN estimates {zs,j} for all sources by utilizing kernel estimators as follows.
-For each source s and target locus j, calculate: zs,j = j wj,j ys,j , (6) where {wj,j 0} are weights with constraint j wj,j =1; wj,j =w(|xj xj|)((xj xj)/ ), (7) with () being the Gaussian density function and a bandwidth parameter.
+For each source s and target locus j, calculate: zs,j = j wj,j ys,j , (6) where {wj,j 0} are weights with constraint j wj,j =1; wj,j =w(|xj xj|)((xj xj)/), (7) with () being the Gaussian density function and a bandwidth parameter.
 Mainly for computational efficiency, but also for robustness, we choose to truncate the kernel at |xj xj|>3 (excluding 0.27% of the density) by giving such data points zero weight.
 We ignore potential bias problems at the extreme locations.
 Moreover, if there are no data points within the truncated window for one of the sources, we treat that as a missing value and ignore that target locus.
@@ -181,7 +179,7 @@ Coupled with each normalized dataset is an overall variance 2s , which can be es
 2.3.11 Combining full-resolution normalized CNs The normalized CNs may be combined by merging (interweaving) them across sources generating a new set denoted by {(xM,j,yM,j)}, which is the joint set of CNs from all sources.
 The normalized and merged CN estimates are likely to be heteroscedastic, because the noise levels ( 2s ) differ between sources.
 Other 864 Multi-source normalization sources of variation, such as locus-specific error terms, may add to the heteroscedasticity as well.
-In the following section, we will give one example on how the heteroscedasticity can be modeled using locus-specific weights that are proportional to 1/ 2s.
+In the following section, we will give one example on how the heteroscedasticity can be modeled using locus-specific weights that are proportional to 1/2s.
 2.4 Evaluation Although different CN studies have different objectives, an important one is to segment the genome into regions that reflect the underlying piecewise constant nature of the true CNs.
 The main strategy of many segmentation methods is to identify the change points, and then estimate the mean CN levels between change points.
 Consider the case where there exist only one change point in a specific region and that the location of it is known.
@@ -198,7 +196,7 @@ We exclude loci that are within 500 kb of the change point for robustness agains
 Since the comparison of datasets has to be done on the same resolution, we construct a new set of common estimates by binning the CNs in nonoverlapping windows of equal (physical) lengths h and averaging within each window.
 This corresponds to using a uniform kernel of width h in Equation (6) and apply it to every h position.
 Note that this approach is guaranteed to use all available data points.
-Here, we use a weighted median estimator with weights wj 1/ 2s such that data points from more noisy sources have less impact on the smoothed estimate.
+Here, we use a weighted median estimator with weights wj 1/2s such that data points from more noisy sources have less impact on the smoothed estimate.
 Let {z(h)s,j,L} and {z(h)s,j,R} denote the resulting smoothed CNs for the left and the right set of loci in dataset s. Next, we use receiver operating characteristic (ROC) analysis (Bengtsson et al., 2008b) to assess how well these two subsets of smoothed CNs separate the CN states defined by the two sides of the change point.
 We argue that this is related to how a segmentation method tests for a change point.
 2.5 Algorithm and implementation The MSCN method is available in R (R Development Core Team, 2008) package aroma.cn part of the aroma.affymetrix framework (Bengtsson et al., 2008a).

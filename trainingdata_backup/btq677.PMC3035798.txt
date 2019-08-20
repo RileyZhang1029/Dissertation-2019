@@ -1,13 +1,11 @@
-            btq677.dvi [12:45 22/1/2011 Bioinformatics-btq677.tex] Page: 464 464470 BIOINFORMATICS ORIGINAL PAPER Vol.
-27 no.
-4 2011, pages 464470doi:10.1093/bioinformatics/btq677 Sequence analysis Advance Access publication December 9, 2010 SlideSort: all pairs similarity search for short reads Kana Shimizu1, and Koji Tsuda1,2 1Computational Biology Research Center, National Institute of Advanced Industrial Science and Technology (AIST) and 2ERATO Minato Project, Japan Science and Technology Agency, Japan Associate Editor: Alex Bateman ABSTRACT Motivation: Recent progress in DNA sequencing technologies calls for fast and accurate algorithms that can evaluate sequence similarity for a huge amount of short reads.
+Motivation: Recent progress in DNA sequencing technologies calls for fast and accurate algorithms that can evaluate sequence similarity for a huge amount of short reads.
 Searching similar pairs from a string pool is a fundamental process of de novo genome assembly, genome-wide alignment and other important analyses.
 Results: In this study, we designed and implemented an exact algorithm SlideSort that finds all similar pairs from a string pool in terms of edit distance.
 Using an efficient pattern growth algorithm, SlideSort discovers chains of common k-mers to narrow down the search.
 Compared to existing methods based on single k-mers, our method is more effective in reducing the number of edit distance calculations.
 In comparison to backtracking methods such as BWA, our method is much faster in finding remote matches, scaling easily to tens of millions of sequences.
 Our software has an additional function of single link clustering, which is useful in summarizing short reads for further processing.
-Availability: Executable binary files and C++ libraries are available at http://www.cbrc.jp/~shimizu/slidesort/ for Linux and Windows.
+Availability: Executable binary files and C++ libraries are available at http://www.cbrc.jp/~shimizu/slidesort/for Linux and Windows.
 Contact: slidesort@m.aist.go.jp; shimizu-kana@aist.go.jp Supplementary information: Supplementary data are available at Bioinformatics online.
 Received on August 19, 2010; revised on October 27, 2010; accepted on December 3, 2010 1 INTRODUCTION Due to the dramatic improvement of DNA sequencing, it is required to evaluate sequence similarities among a huge amount of fragment sequences such as short reads.
 We address the problem of enumerating all neighbor pairs in a large string pool in terms of edit distance, where the cost of insertion, deletion and substitution is one.
@@ -44,7 +42,7 @@ To demonstrate the correctness of our algorithm, the existence of a common subst
 In addition, we deliberately avoid reporting the same pair multiple times by duplication checking.
 As a result, our method scales easily to 10 million sequences and is The Author(s) 2010.
 Published by Oxford University Press.
-This is an Open Access article distributed under the terms of the Creative Commons Attribution Non-Commercial License (http://creativecommons.org/licenses/ by-nc/2.5), which permits unrestricted non-commercial use, distribution, and reproduction in any medium, provided the original work is properly cited.
+This is an Open Access article distributed under the terms of the Creative Commons Attribution Non-Commercial License (http://creativecommons.org/licenses/by-nc/2.5), which permits unrestricted non-commercial use, distribution, and reproduction in any medium, provided the original work is properly cited.
 [12:45 22/1/2011 Bioinformatics-btq677.tex] Page: 465 464470 SlideSort much faster than seed matching methods and suffix arrays for short sequences and large radius.
 The rest of this article is organized as follows.
 Section 2 introduces our algorithm.

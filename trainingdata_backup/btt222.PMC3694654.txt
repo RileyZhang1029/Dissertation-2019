@@ -1,5 +1,4 @@
-          OP-CBIO130218 9..17 Vol.
-29 ISMB/ECCB 2013, pages i9i17 BIOINFORMATICS doi:10.1093/bioinformatics/btt222 A high-throughput framework to detect synapses in electron microscopy images Saket Navlakha1, Joseph Suhan2, Alison L. Barth2,3 and Ziv Bar-Joseph1,* 1Machine Learning Department, School of Computer Science, 2Department of Biological Sciences and 3Center for the Neural Basis of Cognition, Carnegie Mellon University, Pittsburgh, PA 15213, USA ABSTRACT Motivation: Synaptic connections underlie learning and memory in the brain and are dynamically formed and eliminated during development and in response to stimuli.
+Motivation: Synaptic connections underlie learning and memory in the brain and are dynamically formed and eliminated during development and in response to stimuli.
 Quantifying changes in overall density and strength of synapses is an important pre-requisite for studying connectivity and plasticity in these cases or in diseased conditions.
 Unfortunately, most techniques to detect such changes are either low-throughput (e.g.electrophysiology), prone to error and difficult to automate (e.g.standard electron microscopy) or too coarse (e.g.magnetic resonance imaging) to provide accurate and large-scale measurements.
 Results: To facilitate high-throughput analyses, we used a 50-year-old experimental technique to selectively stain for synapses in electron microscopy images, and we developed a machine-learning framework to automatically detect synapses in these images.
@@ -7,7 +6,7 @@ To validate our method, we experimentally imaged brain tissue of the somatosenso
 We detected thousands of synapses in these images and demonstrate the accuracy of our approach using crossvalidation with manually labeled data and by comparing against existing algorithms and against tools that process standard electron microscopy images.
 We also used a semi-supervised algorithm that leverages unlabeled data to overcome sample heterogeneity and improve performance.
 Our algorithms are highly efficient and scalable and are freely available for others to use.
-Availability: Code is available at http://www.cs.cmu.edu/ saketn/detect_synapses/ Contact: zivbj@cs.cmu.edu 1 INTRODUCTION The mammalian brain can contain hundreds of millions of neurons, each with thousands of specialized connections called synapses that enable indirect communication between cells.
+Availability: Code is available at http://www.cs.cmu.edu/saketn/detect_synapses/Contact: zivbj@cs.cmu.edu 1 INTRODUCTION The mammalian brain can contain hundreds of millions of neurons, each with thousands of specialized connections called synapses that enable indirect communication between cells.
 Estimates for the number of synapses in the mammalian brain ranges into the trillions.
 Synapses are essential for the transfer of information across neuronal ensembles, and individual synapses can be modulated by patterns of incoming neural activity, a phenomenon thought to underlie learning and memory.
 Changes in the relative strength and number of synapses can be regulated by a myriad of factors, including developmental age (Cowan et al., 1984; Huttenlocher and Dabholkar, 1997; Stoneham et al., 2010), sensory experience (Klintsova and Greenough, 1999), drug addiction (Van den Oever et al., 2012), estrus cycle (Cooke and Woolley, 2005) and brain pathology.
@@ -28,7 +27,7 @@ This often involves a classification-based strategy in which a (small) manually 
 The key computational challenges involve the reliability and speed at which the analysis is done, as well as dealing with the heterogeneity of biological structures and noise*To whom correspondence should be addressed.
 The Author 2013.
 Published by Oxford University Press.
-This is an Open Access article distributed under the terms of the Creative Commons Attribution Non-Commercial License (http://creativecommons.org/licenses/ by-nc/3.0/), which permits non-commercial re-use, distribution, and reproduction in any medium, provided the original work is properly cited.
+This is an Open Access article distributed under the terms of the Creative Commons Attribution Non-Commercial License (http://creativecommons.org/licenses/by-nc/3.0/), which permits non-commercial re-use, distribution, and reproduction in any medium, provided the original work is properly cited.
 For commercial re-use, please contact journals.permissions@oup.com present in each image.
 Electron microscopy data suffer particularly from these problems and often contain undesired variation in intensity and contrast within and across samples and preparations.
 This presents a major computational challenge because model parameters learned from one sample may not generalize to other samples.

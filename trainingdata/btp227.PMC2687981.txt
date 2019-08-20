@@ -1,0 +1,316 @@
+Motivation: A fundamental problem in population genetics, which being also of importance to forensic science, is to compute the match probability (MP) that two individuals randomly chosen from a population have identical alleles at a collection of loci.
+At present, 1113 unlinked autosomal microsatellite loci are typed for forensic use.
+In a finite population, the genealogical relationships of individuals can create statistical non-independence of alleles at unlinked loci.
+However, the so-called product rule, which is used in courts in the USA, computes the MP for multiple unlinked loci by assuming statistical independence, multiplying the one-locus MPs at those loci.
+Analytically testing the accuracy of the product rule for more than five loci has hitherto remained an open problem.
+Results: In this article, we adopt a flexible graphical framework to compute multi-locus MPs analytically.
+We consider two standard models of random mating, namely the WrightFisher (WF) and Moran models.
+We succeed in computing haplotypic MPs for up to 10 loci in the WF model, and up to 13 loci in the Moran model.
+For a finite population and a large number of loci, we show that the MPs predicted by the product rule are highly sensitive to mutation rates in the range of interest, while the true MPs computed using our graphical framework are not.
+Furthermore, we show that the WF and Moran models may produce drastically different MPs for a finite population, and that this difference grows with the number of loci and mutation rates.
+Although the two models converge to the same coalescent or diffusion limit, in which the population size approaches infinity, we demonstrate that, when multiple loci are considered, the rate of convergence in the Moran model is significantly slower than that in the WF model.
+Availability: A C++ implementation of the algorithms discussed in this article is available at http://www.cs.berkeley.edu/yss/software.
+html.
+Contact: yss@eecs.berkeley.edu 1 INTRODUCTION Correlation of genealogies at different loci can cause statistical non-independence of alleles at those loci.
+It follows from the well-established population genetics theory that recombination breaks down this correlation and that in the case of an infinite population, the correlation between unlinked loci (say, on different chromosomes) becomes completely eliminated over time.
+In a finite population, however, genealogical relationships between individuals can create statistical dependence even between unlinked loci.
+This subtle difference between finite and infinite populations may have important implications for some practical questions of interest, To whom correspondence should be addressed.
+a well-known example being the forensic use of DNA typing.
+A fundamental problem which arises in forensic science is to compute the probability that two individuals randomly chosen from a population have identical alleles at a collection of loci (Balding, 2005; Evett and Weir, 1998).
+We refer to this probability as multi-locus match probability (MP).
+In population genetics, MP corresponds to the probability of homozygosity.
+At present, 13 unlinked autosomal microsatellite loci, called the Combined DNA Index System loci (see http://www.fbi.gov/hq/lab/codis/index1.htm for details), are typed in the USA for forensic use, while 11 loci are used in the UK.
+Unlinked microsatellite data are also often used in demographic inference (e.g.see Pritchard et al.2000), but we do not address that problem in this article.
+The so-called product rule, which is used in courts, computes the MP for multiple unlinked loci by assuming statistical independence, multiplying the one-locus MPs at those loci.
+In light of the above discussion regarding the existence of statistical dependence between unlinked loci in a finite population, it remains debatable to date whether the product rule produces reliable results.
+To test the accuracy of the product rule theoretically, Laurie and Weir (2003) provided a method to compute the equilibrium MPs in an ideal finite population, assuming an infinite alleles model of mutation.
+Their approach was to construct a system of coupled linear recurrence equations involving MPs and then solve the system assuming stationarity.
+Although this method is simple in principle, setting up the system of recurrence equations becomes increasingly challenging with the number of loci.
+Song and Slatkin (2007) later introduced a flexible graphical method that allowed them to generalize the analysis of Laurie and Weir to cases with more loci and other models of mate choice such as monogamy.
+Using their framework, Song and Slatkin succeeded in computing the genotypic (i.e.two alleles per locus per individual) MP for up to three loci and the haplotypic (i.e.one allele per locus per individual) MP for up to five loci.
+In this article, we employ the graphical framework of Song and Slatkin (2007) and make algorithmic improvements to carry out the MP computation for significantly more loci than what previous works could handle.
+For simplicity, we focus on the haplotypic MP computation.
+Hence, when we say MP in what follows, we mean haplotypic MP.
+Both Laurie and Weir (2003) and Song and Slatkin (2007) restricted their attention to the WrightFisher (WF) model of random mating.
+In our work, we consider the Moran model in addition to the WF model; the main difference between these two standard models in population genetics is that generations do not overlap in the WF model, while they do overlap in the Moran model.
+We are currently able to compute MPs for up to 10 loci in the WF model and up to 13 loci in the Moran model.
+Bear in mind that this work requires overcoming several algorithmic and 2009 The Author(s) This is an Open Access article distributed under the terms of the Creative Commons Attribution Non-Commercial License (http://creativecommons.org/licenses/by-nc/2.0/uk/) which permits unrestricted non-commercial use, distribution, and reproduction in any medium, provided the original work is properly cited.
+[10:11 15/5/2009 Bioinformatics-btp227.tex] Page: i188 i187i195 A.Bhaskar and Y.S.Song engineering challenges.
+For example, the 13-locus case involves about 3.1 million coupled linear equations; both finding the system of linear equations and solving it are challenging tasks.
+Two major findings of our work are as follows.
+(i) In an ideal finite population, the MPs predicted by the product rule are highly sensitive to mutation rates, while the true MPs computed using our graphical framework are not.
+For a range of mutation rates relevant to the observed level of homozygosity at microsatellite loci, the product rule may significantly underestimate the 13-locus MP.
+However, the product rule becomes more accurate if we are provided with the additional information that the individuals being compared are not close relatives.
+(ii) Both the WF and Moran models have been used in the population genetics community for many years, and it has been thought that the two models should produce very similar quantitative results as long as the population size and time are rescaled properly when relating one model to the other.
+However, our work reveals a fundamental difference between the two models which becomes transparent only when multiple loci are considered in a finite population.
+More precisely, we show that, for a finite population, the Moran model may produce significantly higher multi-locus MPs than that under the WF model, and that this difference grows with the number of loci and mutation rates.
+We show that, as expected, the two models produce the same MPs in the coalescent or the diffusion limit, in which the population size approaches infinity.
+We demonstrate that, when multiple loci are considered, the rate of convergence to the diffusion limit in the Moran model is significantly slower than that in the WF model.
+2 MODELS OF RANDOM MATING We adopt the same notational convention as in Song and Slatkin (2007).
+Throughout this article, we assume a neutral infinite-alleles model; i.e.whenever an allele mutates, it mutates to a new allele that has never been seen before.
+Further, we assume a single population containing 2NWF haploid individuals in the WF model or 2NM haploid individuals in the Moran model.
+2.1 Mating schemes The two mating schemes are detailed below.
+2.1.1 The WF model The entire population of 2NWF haploid individuals gets replaced every generation.
+Individuals in the next generation are produced from those in the current generation in the following fashion: (i) Randomly sample two individuals, each with replacement.
+The same individual may be sampled twice under this mating scheme.
+A new individual is produced from the two sampled individuals as described in Section 2.2.
+We assume that mutations occur at locus i with probability i per individual per generation, independently of other loci.
+(ii) Repeat the above procedure until 2NWF new individuals are created for the next generation.
+2.1.2 The Moran model Exactly one individual gets replaced every generation as follows.
+(i) The same as Step (i) in the WF model.
+(ii) Randomly choose exactly one individual to die in the current generation; the new individual created in the previous step replaces this individual.
+All other individuals survive to the next generation.
+2.2 Generating offspring gametes by recombination By a gamete, we mean alleles at a collection of loci; different loci may physically reside on different chromosomes within a haploid individual.
+We use xi to denote the allele at locus i in individual x.
+2.2.1 Two loci Let x1x2 and y1y2 denote the gametes of the two sampled parental individuals.
+Then, the inheritance pattern of the offspring is x1x2, y1y2, x1y2 or y1x2, with probability 1 2 (1r), 12 (1r), 12 r or 12 r, respectively.
+The unlinked case corresponds to r =1/2.
+2.2.2 More than two loci Let x1x2...xL and y1y2 yL denote the two sampled parental gametes with L loci.
+We focus on a set of loci that are pairwise unlinked, as was done previously by other authors (Laurie and Weir, 2003; Song and Slatkin, 2007).
+Hence, in the offspring gamete z1z2 zL , the allele zi at locus i is equally likely to have descended from xi or yi.
+The probability of any particular inheritance pattern is 1/2L.
+3 A GRAPHICAL APPROACH TO MP COMPUTATION Song and Slatkin (2007) introduced a graphical framework to compute multi-locus MPs in a finite population.
+We employ the same framework in this article.
+Below, we highlight the key ideas underlying the approach.
+3.1 High-level idea In Section 2, we discussed random mating models that describe how a population evolves forward in time.
+In our work, we adopt a backward point of view and determine how a given MP at generation t is related to a combination of MPs at generation t1, thus obtaining a system R(t,t1) of recurrence equations.
+At stationarity, the probability of a particular match relation (e.g., the probability that two randomly chosen individuals have the same alleles at loci 1 and 4) at generation t is equal to the probability of the same match relation at generation t1.
+Therefore, at stationarity R(t,t1) becomes a closed system S of linear equations which we can solve.
+In general, the recurrence equation for an L-locus MP at generation t contains k-locus MPs at generation t1 where k L. Therefore, one needs to carry out the computation in the following systematic order: first solve the system of linear equations for 1 locus; then solve the system for two loci, treating 1-locus MPs as known constants; then solve the system for three loci, treating 1-locus and 2-locus MPs as known constants; so on and so forth.
+Although the above procedure is simple to describe, setting up the system of recurrence equations becomes increasingly difficult with the number of loci.
+The key idea introduced by Song and Slatkin (2007) is to represent MPs as graphs.
+By performing a set of prescribed operations on a given graph at generation t, one can determine how it is related to a linear combination of graphs at generation t1, thus setting up the required system R(t,t1) of recurrence equations.
+The graphical method makes the combinatorial structure of the problem easier to understand and it is possible to implement the method in a fully automated computer program, thus reducing the chance of human error.
+i188 [10:11 15/5/2009 Bioinformatics-btp227.tex] Page: i189 i187i195 Multi-locus match probability in a finite population :.
+1 2 3 L 1 L Fig.1.
+The match graph corresponding to the probability that two randomly chosen individuals have matching alleles at L loci.
+This probability is denoted by PWFL and P M L in the WF and Moran models, respectively.
+3.2 From MPs to match graphs Here, we describe the graphical framework in the case of arbitrary mutation rates i at loci i=1,...,L. (As we will discuss in Section 6.1, there is a simplified representation if i are the same for all i.)
+Let xi yi denote the event that alleles at locus i are identical (or match) in individuals x and y.
+To the probability of a particular match relation (e.g.x1 y1,x2 y2 and x3 z3), associate a match graph constructed as follows: 1.
+Create a vertex labeled x for individual x.
+2.
+Draw an undirected edge labeled i between vertices x and y if and only if xi yi.
+3.
+Remove all vertex labels.
+The reason for removing all vertex labels in the last step is as follows.
+Any two MPs are equal under random mating if they are related by some permutation of the labels of individuals.
+For example, P(x1 y1,x2 z2) and P(x1 y1,y2 z2) are equal under random mating.
+In terms of our graphical representation, such an equality of MPs translates to the statement that two fully labeled graphs (in which all vertices and edges are labeled) are equivalent if they are isomorphic as edge-labeled graphs (i.e.ignoring vertex labels).
+An L-locus match graph has L edges, one for each locus.
+Shown in Figure 1 is the match graph corresponding to P(x1 y1,...,xL yL), the probability that two randomly chosen individuals have matching alleles at L loci.
+We use PWFL and P M L to denote this L-locus MP in the WF and Moran models, respectively.
+Our main objective is to compute PWFL and P M L. To solve for P WF L in equilibrium, we need to find a system of coupled linear equations in which PWFL appears as one of the unknown variables; as we will see in Section 6.1, the total number of unknown variables in such a system grows extremely fast as the number of loci increases.
+3.3 Vertex split and merge operations Given a number of individuals at generation t and a match relation involving them, the probability of the match relation can be written as a linear combination of MPs involving their parents.
+Recall that, forward in time, a reproduction event involves choosing two individuals (each with replacement) and creating a new offspring gamete from the two chosen gametes via recombination and mutation.
+To capture this model of reproduction, we consider the following two kinds of operations on match graphs: 3.3.1 Vertex split to represent recombination Consider an individual x whose alleles at k >1 loci are involved in a match relation.
+In the graph corresponding to that match relation, the degree of vertex x is k. If the alleles at the k loci trace back to two parental gametes as a consequence of recombination (c.f.
+Section 2.2), then split the vertex x into exactly two vertices v1 and v2, distributing the set of edges that used to be incident with x to v1 and v2.
+In the WF model, more than one vertex in the original graph may split, while in the Moran model at most one vertex may split.
+A graph resulting from performing a set of splits allowed in a single generation is called a split graph.
+3.3.2 Vertex merge to represent sharing a common parent Two or more gametes at generation t may trace back to a common parental gamete at generation t1.
+This sharing of a parental gamete translates to merging vertices in the split graph into a single vertex.
+Any isolated vertex that results from merge operations can be discarded from the resulting match graph since such a vertex is not involved in any match relation.
+If a graph becomes empty from discarding isolated vertices, the probability associated with it is 1.
+By performing all possible split-and-merge operations on a given match graph G at generation t, we obtain a set of match graphs G1,...,Gk at generation t1.
+Each split-and-merge operation has a well-defined probability associated with it, determined by the assumed model of random mating.
+(See Sections 4 and 5 for details.)
+These probabilities are used as coefficients in the equation that represents G as a linear combination of G1,...,Gk.
+4 THE GRAPHICAL FRAMEWORK FOR THE WF MODEL In this section, we briefly review the graphical framework for the WF model, which was considered in detail by Song and Slatkin (2007).
+The reader should refer to that paper for a detailed explanation.
+Let G be a match graph with vertex set VG.
+Given a vertex vVG, we use d(v) to denote its degree.
+We focus on the case with unlinked loci.
+4.1 Probability associated with a vertex split In a match graph G, consider a vertex v with degree d >1, and suppose that edges incident with v are bijectively labeled by I ={i1,i2,...,id}.
+Let BB denote a bipartition of I into two disjoint subsets.
+There are 2d1 inequivalent bipartitions of I.
+Each bipartition has probability 1/2d1 and corresponds to splitting v into two vertices, such that the edges labeled by B become incident with one vertex and the edges labeled by B become incident with the other vertex.
+4.2 Probability associated with a vertex merge Suppose that a split graph GS contains n vertices.
+For ease of discussion, label the vertices by [n]={1,...,n}.
+In the WF model, disjoint subsets of [n] may each merge into a single vertex.
+More generally, there exists an one-to-one correspondence between the set of all vertex merge operations on GS and the set of all partitions of [n] into non-empty subsets, with each subset corresponding to those vertices that merge into a single vertex.
+A partition of [n] into k non-empty subsets defines a particular case of assigning n labeled individuals to k distinct unlabeled parents, with each parent having at least one child.
+Hence, the probability of a particular set of vertex merges in GS such that k vertices remain, is given by (2NWF)(k)/(2NWF) n, where z(k) denotes the falling factorial z(z1)(zk+1).
+i189 [10:11 15/5/2009 Bioinformatics-btp227.tex] Page: i190 i187i195 A.Bhaskar and Y.S.Song 4.3 Probability associated with mutation Let {x1i ,...,xki } denote a set of alleles at locus i in k individuals at time t. In the infinite-alleles model, x1i x2i xki only if their parental alleles in generation t1 all match and no mutation occurs between generations t1 and t in the lineages relating {x1i ,...,xki } to their parents.
+Hence, the probability of any match relation at time t that requires x1i x2i xki must contain an overall factor of (1i)k when written in terms of MPs at time t1.
+This fact translates to the following statement in our graphical representation: given a vertex vVG, define i(v) := { 1 if an edge labeled i is incident with v, 0 otherwise.
+(1) This is an indicator variable for whether the individual v is involved in a match relation at locus i.
+In an L-locus match graph, d(v)=L i=1i(v).
+The total number of individuals involved in match relations at locus i is denoted by i(G) := vV (G)i(v).
+When relating G to graphs in the previous generation, we need to include an overall factor of L i=1(1i)i(G).
+5 THE GRAPHICAL FRAMEWORK FOR THE MORAN MODEL In this section, we consider the graphical framework for the Moran model, which was not considered in Song and Slatkin (2007).
+We consider performing split-and-merge operations on a given match graph G with vertex set VG, where |VG|=k.
+As before, d(v) denotes the degree of a vertex vVG and i(v) is defined as in (1).
+5.1 Coefficients in the recurrence equation Below we describe the probabilities associated with vertex splitand-merge operations in the case of completely unlinked loci.
+In the Moran model, exactly one individual in the entire population is a newborn.
+This condition puts tight restrictions on the allowed split-and-merge operations.
+In particular, at most one vertex may undergo a split.
+In what follows, we list the allowed split-and-merge operations.
+For ease of notation, define, for vVG, m(v) := L i=1 (1i)i(v).
+5.1.1 No vertex splits In this case, at most two vertices may be involved in a merge.
+All possible cases are as follows.
+0 merge: GG.
+The associated probability is p00 := 2NM k2NM + (2NM k+1) (2NM)2 vVG m(v) 2d(v)1.
+(2) 1 merge: GG, with |VG|=k and |VG |=k1.
+Let u and v denote the vertices that merge.
+The following probability is for that particular merge operation: p01(u,v) := 1 (2NM)2 [ m(u) 2d(u)1 + m(v) 2d(v)1 ].
+(3) 5.1.2 Exactly one vertex splits Let vVG with d(v)>1 be the vertex that splits, and let x,y denote the new vertices created by the split operation.
+The following probabilities are for a particular split operation at v (i.e.a particular non-trivial bipartition of the edges incident with v).
+0 merge: GG, with |VG|=k and |VG |=k+1.
+The associated probability is p10(v) := (2NM k+1)(2NM k) (2NM)3 m(v) 2d(v)1.
+(4) 1 merge: GG.
+Here, x and y merge with each other.
+The associated probability is p11a(v) := 2NM k+1 (2NM)3 m(v) 2d(v)1.
+(5) GG, with |VG|=k and |VG |=k.
+Exactly one of x and y merges with a vertex in VG \{v}.
+The following probability is for a particular merge operation: p11b(v) := 2NM k+1 (2NM)3 m(v) 2d(v)1.
+(6) 2 merges: GG, with |VG|=k and |VG |=k1.
+Here, x and y each merge with a vertex in VG \{v}.
+The following probability is for a particular set of merge operations for x and y: p12(v) := 1 (2NM)3 m(v) 2d(v)1.
+(7) 5.2 Consistency check The recurrence equation for a particular match graph G(t) has the following form: G(t)= j cj(,NM)Gj(t1), (8) where the summation is over those match graphs that can be obtained by performing vertex split-and-merge operations on G(t), and cj(,NM) are constants that depend on = (1,...,L) and NM.
+For i =0 for all i=1,...,L, then all MPs are identically equal to 1, thus implying j cj(0,NM)=1.
+We will now verify that the coefficients shown in (2)(7) satisfy this consistency condition.
+First, define S :={vVG |d(v)>1}, which denotes the set of all vertices that can undergo splits, and let k =|VG|.
+Then, for i =0,i, the right-hand side of (8) becomes p00 + {u,v}VG:u =v.
+p01(u,v)+ vS {( 2d(v)1 1 ) [ p10(v)+p11a(v)+2(k1)p11b(v)+(k1)2p12(v) ]} , where the factor [2d(v)1 1] corresponds to the total number of non-trivial bipartitions of the labeled edges incident with v. It is straightforward to show that this expression is exactly equal to 1.
+Hence, the probabilities in Section 5.1 are consistent.
+6 SIMPLIFICATION AND EXAMPLES Although split-and-merge operations allowed in the WF and Moran models are different, exactly the same set of inequivalent match graphs are involved in the systems of recurrence equations in the two models.
+In the general case, the major computational obstacle is that there are too many match graphs to consider.
+However, in the special case in which all loci have the same mutation rate, the i190 [10:11 15/5/2009 Bioinformatics-btp227.tex] Page: i191 i187i195 Multi-locus match probability in a finite population Table 1.
+The number (k) [respectively, (k)] of inequivalent loopless multigraphs with k labeled (respectively, unlabeled) edges and non-isolated vertices k (k) (k) 1 1 1 2 3 3 3 16 8 4 139 23 5 1 750 66 6 29 388 212 7 624 889 686 8 16 255 738 2 389 9 504 717 929 8 682 10 18 353 177 160 33 160 11 769 917 601 384 132 277 12 36 803 030 137 203 550 835 13 1 984 024 379 014 193 2 384 411 computation simplifies dramatically, allowing us to compute MPs for 10 or more loci.
+Below we describe this simplification in detail and give a couple of examples to illustrate setting up recurrence equations.
+6.1 Graph enumeration In the case of haplotypic MPs, there is a one-to-one correspondence between the set of inequivalent match graphs with k edges and the set of inequivalent loopless multigraphs with k edges and nonisolated vertices.
+(Recall that a multigraph is a graph in which there may be more than one edge joining any pair of vertices.)
+Using this bijection, we can determine exactly how many inequivalent match graphs we need to consider.
+The number (k) of inequivalent loopless multigraphs with k distinctly labeled edges is shown in Table 1 for k =1,...,13 (Labelle, 2000).
+Such edge-labeled graphs are what we need to consider if mutation rates i are all distinct at different loci, and the total number of inequivalent match graphs involved in the L-locus MP computation is given by A(L) := L k=1 ( L k ) (k).
+Clearly, enumerating all such match graphs to compute the 13-locus MP is not tractable.
+However, if i =, for all i=1,...,13, then we do not need to distinguish loci, thus allowing us to remove edge labels.
+This property considerably reduces the total number of inequivalent graphs we need to consider, simplifying the computation significantly.
+Shown in Table 1 is the number (k) of inequivalent loopless multigraphs with k unlabeled edges (Harary and Palmer, 1973).
+Note that (k) grows much slower than does (k) as k increases.
+If all mutation rates are equal, the number of inequivalent match graphs that we need to consider for the L-locus MP computation reduces to B(L) := L k=1 (k).
+(9) In what follows, we assume that i are the same across all loci; i.e.we set i = for all i=1,...,L. Fig.2.
+1-Locus recurrence equations for the WF model.
+Fig.3.
+1-Locus recurrence equations for the Moran model.
+Given a system of recurrence equations for edge-labeled graphs, a system for edge-unlabeled graphs can be obtained by summing over the coefficients of edge-labeled graphs that are equivalent as edge-unlabeled graphs.
+6.2 The 1-locus recurrence equations In the WF model, the recurrence equation for the 1-locus MP PWF1 is shown in Figure 2, which can be solved to yield PWF1 = (1)2 2NWF (1)2(2NWF 1).
+(10) In the Moran model, the 1-locus MP PM1 satisfies the recurrence equation shown in Figure 3, which implies PM1 = (1) 2NM (1)(2NM 1).
+(11) 6.3 The 2-locus recurrence equations Shown in Figure 4 is a system of recurrence equations for 2-locus MPs in the Moran model.
+It corresponds to the case with an arbitrary recombination rate r (c.f.
+Section 2.2) and mutation rates i = for i=1,2.
+Before solving this system of three coupled equations, the 1-locus MP PM1 should be computed first as described in Section 6.2.
+The system contains three unknowns and three coupled equations; PM2 (c.f.
+Fig.1) is one of the three unknowns.
+The 2-locus system corresponding to the WF model is also simple to write down, but we do not show it here because of space constraint.
+We refer the interested reader to Figure 10 of Song and Slatkin (2007).
+7 IMPLEMENTATION DETAILS Computing the MPs for more than five loci requires overcoming several algorithmic and engineering challenges.
+Described below are our solutions to some of these challenges.
+The reader only interested in results may skip to Section 8.
+7.1 Algorithm for computing MPs To compute PWFL in the WF model or P M L in the Moran model, a breadth-first search (BFS) is performed starting with the L-locus match graph shown in Figure 1.
+Given a match graph to explore, we perform all possible split-and-merge operations on that graph, and all newly encountered match graphs (i.e.inequivalent to the ones seen so far) get put in the BFS queue for subsequent exploration.
+When the BFS terminates, we would have constructed a directed, edge-weighted BFS graph defined as follows: (i) To each match graph, assign a vertex.
+(ii) Draw a directed edge from vertex Gi to vertex Gj if the match graph Gj can be obtained from the match i191 [10:11 15/5/2009 Bioinformatics-btp227.tex] Page: i192 i187i195 A.Bhaskar and Y.S.Song Fig.4.
+The system of recurrence equations for 2-locus MPs in the Moran model with an arbitrary recombination rate r and i = for i=1,2.
+graph Gi by performing vertex split-and-merge operations allowed in a single generation.
+We say that Gj is a neighbor of Gi.
+(iii) Assign the associated splitmerge probability to each edge.
+To avoid confusion with match graphs, we will call the above BFS graph a supergraph.
+This supergraph encodes a system of linear equations.
+A match graph with outdegree 1 in the supergraph can be written as linear combination of its neighbors, with the corresponding edge weights taken as coefficients in the linear combination.
+Since performing split-and-merge operations on a given match graph never increases the number of edges, the supergraph produced by the BFS has L strongly connected components (SCC) C1,...,CL , with Ck containing all k-locus match graphs (each of which has exactly k edges).
+Hence, the linear system for the entire supergraph is naturally decomposed into L linear systems, one for each SCC, and they can be solved sequentially from C1 to CL.
+7.2 Graph isomorphism testing During the BFS, when split-and-merge operations are performed on a particular match graph, it is possible to encounter a neighbor match graph which is isomorphic to one of the match graphs that has already been generated before.
+To avoid putting redundant match graphs into the BFS queue and to set up the system of linear equations with the correct coefficients, we therefore need an efficient way to test graph isomorphism.
+There is no known polynomialtime algorithm for testing graph isomorphism for arbitrary graphs, but several heuristics have been suggested that work well for most graphs.
+In our work, we use the nauty package (McKay, 2007) to generate a canonical permutation of the vertex labels of each graph.
+The canonical permutation ensures that if two graphs are isomorphic, their adjacency matrices will be identical after applying their respective canonical permutations.
+We hash the adjacency matrix of the canonically permuted graph and use this hash along with the adjacency matrix to store the graphs and test isomorphism.
+Match graphs in our framework are multigraphs, but nauty only deals with simple graphs (i.e.graphs with at most one edge between every pair of vertices).
+However, nauty supports the notion of colors for partitioning vertices, which is respected by the canonical permutation of vertex labels.
+We take advantage of this feature to create a new colored simple graph from a match graph as follows: if vertices u and v have k >1 edges between them, we create a new vertex w with color k and create edges {u,w} and {v,w}.
+The original vertices of the match graph maintain a color of 1.
+The canonical permutation can then be applied to this new graph for testing graph isomorphism as described before.
+7.3 Order-2 truncation In the BFS, performing all possible split-and-merge operations on a given match graph G may produce many neighbors, but a significant fraction of them might come with negligibly small edge weights (i.e.split-and-merge probabilities).
+To simplify the computation, we ignore all neighbors of G with edge weights of order 1/Nm where m>2 and N is either NWF or NM, depending on the model.
+By ignoring neighbors, we mean removing edges from G to those neighbors in the supergraph.
+This approximation scheme is called order-2 truncation.
+Song and Slatkin (2007) showed that it produces very accurate answers and we have independently verified this fact using our new implementation.
+In the WF (respectively, Moran) model computation, we used order-2 truncation for all match graphs corresponding to 2 loci (respectively, 9 loci).
+7.4 Solving the linear system In the WF model, the number of edges in the supergraph grows quadratically with the number of vertices in the supergraph.
+For L=13, the supergraph contains 3.1106 vertices and at least 21012 edges, even if the above-mentioned order-2 truncation is used.
+Storing the associated edge weights in 8 B double-precision data types is intractable, and therefore we pursued the WF model only up to 10 loci.
+This is less of a problem in the Moran model, in which the supergraph has fewer edges than that in the WF model.
+However, the linear system for 13 loci in the Moran model still has 3.1106 coupled equations in just as many variables, and the standard Gaussian elimination with a cubic running time is not tractable.
+Instead, we use the iterative Successive Over-Relaxation i192 [10:11 15/5/2009 Bioinformatics-btp227.tex] Page: i193 i187i195 Multi-locus match probability in a finite population Table 2.
+Comparison of L-locus MPs for the case with Ne =10000 and i = for all loci i=1,...,L L WFL P WF L P M L WF L P WF L P M L WF L P WF L P M L =1104 =2104 =3104 1 2.00101 2.00101 2.00101 1.11101 1.11101 1.11101 7.69102 7.69102 7.69102 2 4.00102 4.00102 4.00102 1.23102 1.24102 1.24102 5.91103 5.93103 5.94103 3 8.00103 8.01103 8.01103 1.37103 1.38103 1.38103 4.55104 4.60104 4.66104 4 1.60103 1.60103 1.61103 1.52104 1.55104 1.59104 3.50105 3.68105 4.03105 5 3.20104 3.22104 3.25104 1.69105 1.78105 2.01105 2.69106 3.26106 5.29106 6 6.40105 6.48105 6.68105 1.88106 2.16106 3.51106 2.07107 3.80107 1.52106 7 1.28105 1.31105 1.44105 2.09107 3.02107 1.08106 1.59108 6.86108 7.00107 8 2.56106 2.69106 3.48106 2.32108 5.41108 4.94107 1.22109 1.74108 3.63107 9 5.11107 5.65107 1.05106 2.57109 1.28108 2.60107 9.391011 5.08109 1.93107 10 1.02107 1.24107 4.16107 2.861010 3.72109 1.42107 7.221012 1.55109 1.03107 11 2.05108 2.06107 3.181011 7.84108 5.551013 5.54108 12 4.09109 1.15107 3.531012 4.35108 4.271014 2.98108 13 8.181010 6.69108 3.921013 2.41108 3.281015 1.60108 =5104 =1103 =5103 1 4.76102 4.76102 4.76102 2.44102 2.44102 2.44102 4.94103 4.94103 4.95103 2 2.26103 2.28103 2.29103 5.93104 6.09104 6.17104 2.44105 4.05105 4.88105 3 1.08104 1.13104 1.18104 1.44105 1.87105 2.39105 1.20107 3.54106 8.53106 4 5.13106 6.53106 9.74106 3.52107 1.42106 4.41106 5.951010 8.13107 3.59106 5 2.44107 6.33107 2.43106 8.57109 2.88107 1.92106 2.941012 2.01107 1.67106 6 1.16108 1.21107 1.10106 2.091010 7.45108 9.38107 1.451014 5.06108 8.08107 7 5.521010 3.17108 5.57107 5.081012 1.99108 4.70107 7.161017 1.27108 3.98107 8 2.631011 8.94109 2.88107 1.241013 5.36109 2.39107 3.541019 3.23109 1.98107 9 1.251012 2.56109 1.49107 3.011015 1.45109 1.21107 1.751021 8.261010 9.82108 10 5.951014 7.421010 7.79108 7.341017 3.981010 6.19108 8.621024 2.151010 4.91108 11 2.831015 4.08108 1.791018 3.17108 4.261026 2.45108 12 1.351016 2.13108 4.351020 1.62108 2.101028 1.23108 13 6.411018 1.12108 1.061021 8.32109 1.041030 6.16109 For the mutation rates shown above, the product rule MPs under the WF and Moran models are very close, so we only show the former WFL.
+method to solve the linear systems up to a relative error of 109 for each variable.
+7.5 Precomputing the supergraph structure The algorithm described above computes the MPs for a particular mutation rate.
+This computation takes about 24 h on a 2.8 GHz Opteron PC for the 13-locus MP computation in the Moran model.
+Instead of repeating this expensive computation for different , we run the BFS procedure once and store the supergraph structure on disk without actually computing the edge weights (i.e.probabilities associated with split-and-merge operations).
+To compute the MPs for a specific , another program reads the supergraph from disk, calculates the probabilities associated with each edge of the supergraph using the specified and population size, and solves the linear system to determine the MPs.
+For the 13-locus computation in the Moran model, this program takes only about 3.5 h, of which 2 h are spent on reading the supergraph and match graphs into memory, and calculating edge weights in the supergraph.
+8 RESULTS In this section, we summarize our main results.
+To model a haploid population with effective population size 2Ne, we need to use NWF =Ne in the WF model and NM =2Ne in the Moran model (see Ewens 2004 p. 121 for explanation).
+In what follows, we consider a finite population with Ne =10 000, which is an approximate long-term effective population size of humans estimated from various genetic data (Harding et al., 1997; Harpending et al., 1998).
+Hence, we use NWF =10 000 in the WF model and NM =20 000 in the Moran model.
+8.1 Accuracy of the product rule We use WFL to denote the L-locus MP in the WF model obtained using the product rule; note that WFL = (PWF1 )L. Table 2 shows WFL , PWFL and P M L for six different values of.
+We do not show the product rule MPs in the Moran model, since they are very close to WFL for the mutation rates shown in the table.
+The L-locus product rule MP WFL shown in the table agrees very well with Ewens (1972) sampling formula (ESF): 1/(1+ )L , where =4Ne.
+As Table 2 illustrates, for a give mutation rate , the product rule becomes less accurate as the number of loci increases.
+Furthermore, for a large number L of loci, a slight change in causes the product rule MP to decrease by a large amount; for L=13, it decreases by a factor of about 250 000 if changes from 1104 to 3104.
+However, PWFL and P M L are far less sensitive to a change in ; in particular, PM13 changes only by a factor of about 4 if changes from 1104 to 3104. i193 [10:11 15/5/2009 Bioinformatics-btp227.tex] Page: i194 i187i195 A.Bhaskar and Y.S.Song L P M L/P W F L 11109876543210 160 140 120 100 80 60 40 20 0 =5103 =1103 =5104 =3104 =2 104 Fig.5.
+The ratio of PML to P WF L for Ne =10000 and various values of.
+Table 3.
+MPs for Ne =109 and =108, which correspond to =40 L 1/(1+ )L PWFL PML 1 2.44102 2.44102 2.44102 2 5.95104 5.95104 5.95104 3 1.45105 1.45105 1.45105 4 3.54107 3.54107 3.54107 5 8.63109 8.63109 8.65109 6 2.111010 2.111010 2.201010 7 5.131012 5.341012 9.861012 8 1.251013 1.791013 2.521012 9 3.051015 1.751014 1.221012 Since the accuracy of the product rule is highly sensitive to mutation rates, one important question is, What range of mutation rates in the infinite alleles model is relevant to microsatellite loci?
+The observed homozygosity at the CODIS microsatellite loci typically ranges between 0.1 and 0.3, with the average over all 13 loci being about 0.2 (Budowle et al., 2001).
+Under the infinite alleles model with Ne =10000, ESF implies that homozygosity=0.2 corresponds to =104.
+For this value of , Table 2 shows that the product rule is reasonably accurate, especially for L10 and for the WF model.
+But, for =2104, which corresponds to homozygosity = 0.11, the product rule produces considerably less accurate MPs.
+8.2 WF versus Moran Table 2 reveals a striking difference between the WF and Moran models.
+The two models agree very well in the single locus case (i.e.L=1).
+However, for large values of L, PML in the Moran model can be orders of magnitude higher than PWFL in the WF model.
+As Figure 5 shows, for a given mutation rate , the ratio PML/P WF L increases rapidly with the number L of loci.
+For a given L, the ratio PML/P WF L increases with.
+As 0 and NWF while =4Ne=4NWF is held fixed, one can analytically show that PWF1 in (10) approaches 1/(1+ ), which agrees with the ESF mentioned in the previous section.
+Likewise, as 0 and NM while =4Ne=2NM is held fixed, PM1 in (11) approaches 1/(1+ ).
+Therefore, as expected PWF1 and PM1 converge to the same value in the diffusion limit.
+For L>1, we used our software to check numerically that both PWFL and P M L converge to 1/(1+ )L in the diffusion limit.
+However, for large values of L, the rate of convergence for the Moran model seems much slower than that for the WF model.
+Table 3 illustrates this point.
+For Ne =109 and =108, which correspond to =40, PWFL for L6 are much closer to 1/(1+ )L than are PML.
+8.3 The 2-locus case with a variable recombination rate In the case of two loci, we can symbolically solve the coupled equations in Figure 4 to obtain an analytic formula for PM2 for the Moran model.
+Likewise, we can symbolically solve the coupled equations in Figure 10 of Song and Slatkin (2007) to obtain an analytic formula for PWF2 for the WF model.
+The value r of r [0, 12 ] for which the ratio PM2/P WF 2 is maximized depends on Ne and.
+For example, with Ne fixed at 10000, r 0.129 for =5104, r 0.224 for =1103 and r = 12 for =5103.
+8.4 Excluding siblings To estimate the contribution of close relatives to MPs, we want to compute MPs conditioned on the event that the two individuals being compared are neither full-sibs nor half-sibs in the WF model.
+This computation can be carried out as follows.
+Suppose that the two individuals are sampled from generation t. Then, we compute the equilibrium MPs as before and use them as MPs at generation t1.
+To compute MPs at generation t conditioned on the two individuals being non-sibs, we set up a system of restricted recurrence equations, obtained by restricting vertex merge operations to avoid generating sibling relationships.
+In the Moran model, it is not clear how the analogs of full-sibs and half-sibs should be defined, so the Moran model is omitted from this discussion.
+Shown in Table 4 are WFL and P WF L conditioned on the event that the two individuals being compared are non-sibs.
+Comparing that table with Table 2, we see that the product rule becomes much more accurate if we are provided with the additional information that the individuals being compared are not close relatives.
+9 DISCUSSION For a finite population, we have shown that the accuracy of multilocus MPs predicted by the product rule is highly sensitive to mutation rates in the range of interest.
+For Ne =10000 and =104, the product rule provides a reasonable approximation to the true MP, but slightly increasing the mutation rate (say, to =2104) can change this conclusion dramatically.
+There is no doubt that the true 13-locus MP at the CODIS loci is a very small number, but it is important to find out how small it is, as the following recent work illustrates: Song et al.(2009) considered a hypothetical series of criminal cases in which a suspect is identified based only on cold hit, i.e.the DNA profile of a crime-scene sample is found to match a known profile in a DNA database.
+They showed that the average probability that a cold hit in a DNA database search results in an erroneous attribution is approximately equal to twice the number of individuals in the population not in the database times the average MP.
+Hence, since the population size is very large, an increase by several orders of magnitude in the MP may change the above probability of erroneous attribution from being negligibly small to being non-negligible.
+The reader should bear in mind that the results described here pertain to a simplified, ideal finite population.
+The models we consider ignore several important aspects of human genetics.
+In particular, monogamy is ignored for simplicity, while Song and i194 [10:11 15/5/2009 Bioinformatics-btp227.tex] Page: i195 i187i195 Multi-locus match probability in a finite population Table 4.
+MPs between non-siblings in the WF model with Ne =10 000 L Non-sib WFL Non-sib P WF L Non-sib WF L Non-sib P WF L Non-sib WF L Non-sib P WF L Non-sib WF L Non-sib P WF L =1104 =5104 =1103 =5103 1 2.00101 2.00101 4.75102 4.75102 2.43102 2.43102 4.89103 4.89103 2 4.00102 4.00102 2.26103 2.26103 5.91104 5.95104 2.39105 2.78105 3 7.99103 7.99103 1.07104 1.08104 1.44105 1.48105 1.17107 3.67107 4 1.60103 1.60103 5.11106 5.20106 3.49107 3.93107 5.711010 1.62108 5 3.19104 3.20104 2.43107 2.54107 8.48109 1.22108 2.791012 1.01109 6 6.39105 6.39105 1.15108 1.28108 2.061010 5.191010 1.361014 6.681011 7 1.28105 1.28105 5.481010 6.811010 5.011012 3.151011 6.671017 4.481012 8 2.55106 2.56106 2.611011 4.021011 1.221013 2.391012 3.261019 3.061013 9 5.10107 5.12107 1.241012 2.761012 2.961015 2.001013 1.591021 2.161014 10 1.02107 1.03107 5.891014 2.231013 7.191017 1.741014 7.791024 1.611015 Slatkin (2007) showed that monogamy increases the probabilities of matches at unlinked loci and that the effect of monogamy increases with the number of loci.
+Other relevant features that should be explored include diploidy and population structure.
+Another limitation of our study, which also applies to that of Laurie and Weir (2003) and Song and Slatkin (2007), is that we assume an infinite alleles model of mutation; as such, we do not allow for independent origins of the same allele, as can happen with microsatellite loci.
+In the infinite alleles model, identity in allelic state implies identity by descent.
+Our work studies the effect of shared genealogies in a finite population on the joint probability of identity by descent.
+Regarding this question, our work applies to other mutation models as well.
+As an important by-product of our work on MP computation, we have revealed a fundamental difference between the WF and Moran models, which are two standard models widely used in population genetics.
+We have shown that the difference in MPs in the two models increases with the number of loci.
+It will be interesting to provide a genealogical interpretation of this finding.
+We speculate that the times to the most recent common ancestors at unlinked loci are more correlated in the Moran model than in the WF model.
+Given the results discussed in this article, it is tempting to suspect that other quantities, such as linkage disequilibrium, of interest to population geneticists may be fundamentally different in the two models, especially when many loci are considered.
+Consequently, it seems pertinent to think about which random mating model is more appropriate for humans.
+ACKNOWLEDGEMENTS We thank Charles H. Langley, Rasmus Nielsen, Joshua Paul and Monty Slatkin for helpful comments and discussion.
+Funding: Berkeley Graduate Fellowship (A.B., inpart); an National Institutes of health (R00-GM080099, to Y.S.S., inpart); an Alfred P. Sloan Research Fellowship (to Y.S.S., inpart); Packard Fellowship for Science and Engineering (to Y.S.S., inpart).
+Conflict of Interest: none declared.

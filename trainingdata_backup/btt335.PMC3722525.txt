@@ -1,7 +1,4 @@
-          OP-CBIO130349 1987..1996 Vol.
-29 no.
-16 2013, pages 19871996 BIOINFORMATICS ORIGINAL PAPER doi:10.1093/bioinformatics/btt335 Gene expression Advance Access publication June 8, 2013 Joint network and node selection for pathway-based genomic data analysis Shandian Zhe1, Syed A.
-Z. Naqvi1, Yifan Yang2 and Yuan Qi1,3,* 1Department of Computer Science, 2Department of Biology, and 3Department of Statistics, Purdue University, West Lafayette, IN 47907, USA Associate Editor: Martin Bishop ABSTRACT Motivation: By capturing various biochemical interactions, biological pathways provide insight into underlying biological processes.
+Motivation: By capturing various biochemical interactions, biological pathways provide insight into underlying biological processes.
 Given high-dimensional microarray or RNA-sequencing data, a critical challenge is how to integrate them with rich information from pathway databases to jointly select relevant pathways and genes for phenotype prediction or disease prognosis.
 Addressing this challenge can help us deepen biological understanding of phenotypes and diseases from a systems perspective.
 Results: In this article, we propose a novel sparse Bayesian model for joint network and node selection.
@@ -12,7 +9,7 @@ The integration of these two components, coupled with efficient variational infe
 Simulation results demonstrate improved predictive performance and selection accuracy of our method over alternative methods.
 Based on three expression datasets for cancer study and the KEGG pathway database, we selected relevant genes and pathways, many of which are supported by biological literature.
 In addition to pathway analysis, our method is expected to have a wide range of applications in selecting relevant groups of correlated high-dimensional biomarkers.
-Availability: The code can be downloaded at www.cs.purdue.edu/ homes/szhe/software.html.
+Availability: The code can be downloaded at www.cs.purdue.edu/homes/szhe/software.html.
 Contact: alanqi@purdue.edu Received on February 9, 2013; revised on June 5, 2013; accepted on June 6, 2013 1 INTRODUCTION With the popularity of high-throughput biological data such as microarray and RNA-sequencing data, many variable selection methodssuch as lasso (Tibshirani, 1996) and elastic net (Zou and Hastie, 2005)have been proposed and applied to select relevant genes for disease diagnosis or prognosis.
 Nevertheless, these approaches ignore invaluable biological pathway information accumulated over decades of research; hence, their selection results can be difficult to interpret biologically and their predictive performance can be limited by a small sample size of expression profiles.
 To overcome these limitations, a promising direction is to integrate expression profiles with rich biological knowledge in pathway databases.
@@ -101,7 +98,7 @@ Because we set pewjw ew w, we do not need a separate distribution Qew.
 To solve Q, we minimize the KullbackLeibler (KL) divergence between the exact and approximate posterior distributions of : KLQjjpjt,X Z Q ln Q pjt,X d 7 Applying coordinate descent for the minimization of (7), we obtain efficient updates for the variational distributions as described in the following sections.
 The updates are iterative: we update one of the variational distributions at a time while having all the other variational distributions fixed, and iterate these updates until convergence.
 Because these updates monotonically decrease the value of the KL divergence (7), which is lower bounded by zero, they are guaranteed to converge in terms of the KL value (Bishop, 2006).Fig.1.
-The graphical model representation of NaNOS 1989 Joint network and node selection for pathway-based genomic data analysis 3.1 Regression The variational distributions for regression have the following forms: Qw N wjm, 8 Q Y k 	kk 1 	k 1k 9 Q Y k Y j kjkj 1 kj1kj 10 Qu/ Y k uk ~ak11 uk ~bk1 11 Qv/ Y k Y j vkj ~ckj11 vkj ~dkj1 12 Q j ~g, ~h 13 Their parameters are iteratively updated as follows:  A hiXTX1 m hiXTt 14 ~ak 	k a ~bk 1 	k b 15 ~ckj  kj c ~dkj 1 kj d 16 	k 1=1 exphln1 uki hln uki pk 2 ln s1 s2 1 2 ln jLkj 1 2 tr hwkwTk i 1 s1 Lk 1 s2 Ik 17 kj 1= 1 exp hln1 vkji hln vkji 1 2 ln r1 r2 1 2 hwkj2i 1 r1 1 r2 18 ~h h 1 2 tTtmTXTt 1 2 X i xTi hwwTixi 19 ~g gN 2 20 where A 1s1 diagf	kLkgk 1 s2 diagf1 	kIkgk 1r1 diag  1 r2 diag1  [note that diagf	kLkgk is a block-diagonal matrix], hi means expectation over the corresponding variational distribution, and the required moments in the above equations are hwwTi mmT hi ~g= ~h hln uki  ~ak  ~ek hln1 uki  ~bk  ~ek hln vkji  ~ckj  ~fkj hln1 vkji  ~dkj  ~fkj where x ddx lnx, ~ek ~ak ~bk and ~fkj ~ckj ~dkj.
+The graphical model representation of NaNOS 1989 Joint network and node selection for pathway-based genomic data analysis 3.1 Regression The variational distributions for regression have the following forms: Qw N wjm, 8 Q Y k 	kk 1 	k 1k 9 Q Y k Y j kjkj 1 kj1kj 10 Qu/Y k uk ~ak11 uk ~bk1 11 Qv/Y k Y j vkj ~ckj11 vkj ~dkj1 12 Q j ~g, ~h 13 Their parameters are iteratively updated as follows:  A hiXTX1 m hiXTt 14 ~ak 	k a ~bk 1 	k b 15 ~ckj  kj c ~dkj 1 kj d 16 	k 1=1 exphln1 uki hln uki pk 2 ln s1 s2 1 2 ln jLkj 1 2 tr hwkwTk i 1 s1 Lk 1 s2 Ik 17 kj 1= 1 exp hln1 vkji hln vkji 1 2 ln r1 r2 1 2 hwkj2i 1 r1 1 r2 18 ~h h 1 2 tTtmTXTt 1 2 X i xTi hwwTixi 19 ~g gN 2 20 where A 1s1 diagf	kLkgk 1 s2 diagf1 	kIkgk 1r1 diag  1 r2 diag1  [note that diagf	kLkgk is a block-diagonal matrix], hi means expectation over the corresponding variational distribution, and the required moments in the above equations are hwwTi mmT hi ~g= ~h hln uki  ~ak  ~ek hln1 uki  ~bk  ~ek hln vkji  ~ckj  ~fkj hln1 vkji  ~dkj  ~fkj where x ddx lnx, ~ek ~ak ~bk and ~fkj ~ckj ~dkj.
 3.2 Classification Compared with regression, the classification task is more challenging.
 Because of the logistic function (2), we cannot directly solve the variational distribution Qw.
 Therefore, we use a lower bound proposed by (Jaakkola and Jordan, 2000) to replace the logistic function in the joint distribution: yt1 y1t  exp 2t 1y 2 f2t 12y2 2 21 where fx 14 tanh=2, and is a variational parameter.
@@ -117,7 +114,7 @@ We also compare NaNOS with alternative methods, including lasso (Tibshirani, 199
 For lasso and elastic net, we used the Glmnet software package (www-stat.stanford.
 edu/tibs/glmnet-matlab/).
 For group lasso, we treat each pathway as a group.
-To handle genes appearing in multiple pathways (i.e.groups), we first duplicated their expression levels for each groupas suggested by (Jacob et al., 2009)and then used the SLEP software package (www.public.asu.edu/jye02/Software/ SLEP/) for group lasso estimation.
+To handle genes appearing in multiple pathways (i.e.groups), we first duplicated their expression levels for each groupas suggested by (Jacob et al., 2009)and then used the SLEP software package (www.public.asu.edu/jye02/Software/SLEP/) for group lasso estimation.
 For the spike and slab model, we implemented variational inference similar to our updates in Section 3.
 Just as NaNOS, all these software packages use the Gaussian likelihood for regression and the logistic likelihood for classification.
 We used the default configuration of these software packages for the maximum number of iterations, initial values and the threshold for convergence.
@@ -186,7 +183,7 @@ Prediction errors and F1 scores for gene selection in Experiment 2 (a) (b) (c) (
 Prediction errors and F1 scores for gene selection in Experiment 3 (a) (b) Fig.5.
 F1 scores for pathway selection.
 EXP stands for Experiment and D stands for Data model S.Zhe et al.1992 www.genome.jp/kegg/pathway.html www.genome.jp/kegg/pathway.html The selected MHC I (e.g.HLA-A,-B,-C,-G) was reported to be absent from the cell surface, allowing the escape from immunosurveillance of lymphoma (Amiot et al., 1998).
-And the selected Ii/ CD74 and HLA-DRB were proposed to be monoclonal antibody targets for DLBCL drug design (Dupire and Coiffier, 2010).
+And the selected Ii/CD74 and HLA-DRB were proposed to be monoclonal antibody targets for DLBCL drug design (Dupire and Coiffier, 2010).
 Second, NaNOS chose cell adhesion molecules (CAMs).
 Adhesive interactions between lymphocytes and the extracellular matrix (ECM) are essential for lymphocytes migration and homing.
 For example, the selected CD99 is known to be overexpressed in DLBCL and correlated with survival times (Lee et al., 2011), and LFA-1 (ITGB2/ITGAL) can bind to ICAM on the cell surface and further lead to the invasion of lymphoma cells into hepatocytes (Terol et al., 1999).

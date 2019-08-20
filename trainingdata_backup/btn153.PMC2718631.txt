@@ -1,5 +1,4 @@
-            [19:33 18/6/03 Bioinformatics-btn153.tex] Page: i156 i156i164 BIOINFORMATICS Vol.
-24 ISMB 2008, pages i156i164doi:10.1093/bioinformatics/btn153 Inferring differentiation pathways from gene expression Ivan G. Costa, Stefan Roepcke, Christoph Hafemeister and Alexander Schliep Department of Computational Molecular Biology, Max Planck Institute for Molecular Genetics, Berlin, Germany ABSTRACT Motivation: The regulation of proliferation and differentiation of embryonic and adult stem cells into mature cells is central to developmental biology.
+Motivation: The regulation of proliferation and differentiation of embryonic and adult stem cells into mature cells is central to developmental biology.
 Gene expression measured in distinguishable developmental stages helps to elucidate underlying molecular processes.
 In previous work we showed that functional gene modules, which act distinctly in the course of development, can be represented by a mixture of trees.
 In general, the similarities in the gene expression programs of cell populations reflect the similarities in the differentiation path.
@@ -9,7 +8,7 @@ We also infer differentiation pathways and predict functional modules in gene ex
 Conclusions: We demonstrate for the first time how, in principal, the incorporation of structural knowledge about the dependence structure helps to reveal differentiation pathways and potentially relevant functional gene modules from microarray datasets.
 Our method applies in any area of developmental biology where it is possible to obtain cells of distinguishable differentiation stages.
 Availability: The implementation of our method (GPL license), data and additional results are available at http://algorithmics.molgen.
-mpg.de/Supplements/InfDif/ Contact: filho@molgen.mpg.de, schliep@molgen.mpg.de Supplementary information: Supplementary data is available at Bioinformatics online.
+mpg.de/Supplements/InfDif/Contact: filho@molgen.mpg.de, schliep@molgen.mpg.de Supplementary information: Supplementary data is available at Bioinformatics online.
 1 INTRODUCTION Cell differentiation In all multicellular organisms somatic differentiated cells develop from embryonic stem cells in the formation phase and from adult tissue-specific stem cells in the adult phase.
 The study of triggers and molecular programs that drive cells through well-defined proliferation and differentiation stages is a central theme of developmental biology.
 In classical models of such processes external or internal factors initiate and drive differentiation steps in a non-reversible manner.
@@ -62,7 +61,7 @@ In the right, we depict three groups of genes and their corresponding estimated 
 This is equivalent to finding a tree (Chow and Liu, 1968), here indicated by pa, which has maximal mutual information among tree edges, that is pa =argmaxpa L u=1 I(Xu,Xpa(u)), (4) where I denotes the mutual information (Cover and Thomas, 1991) (see Appendix A1 for derivations).
 This problem can be efficiently solved by calculating a maximum weight spanning tree from a fully connected indirected graph, where vertices are the developmental stages (1,...,L) and the weight of an edge (u,v) is equal to the mutual information between the corresponding variables (Xu,Xv) (Chow and Liu, 1968).
 If p[xu,xv] follows a bivariate Gaussian pdf, the mutual information above can be computed (Cover and Thomas, 1991) by I(Xu,Xv)= 1 2 log(1 2 u,v 2u 2 v ).
-(5) Note that the mutual information is proportional to the correlation coefficient u,v = 2u,v/ 2u 2v.
+(5) Note that the mutual information is proportional to the correlation coefficient u,v = 2u,v/2u 2v.
 Hence, it measures the dependence between the two variables; I(Xu,Xv) = 0 if both variables are independent.
 Furthermore, as the mutual information is symmetric, I(Xu,Xv)= I(Xv,Xu), the estimation method does not determine direction of edges.
 Undirected and directed tree representations of DTree have equivalent pdfs (Meila and Jordan, 2001), directions of edges do not matter.
@@ -155,7 +154,7 @@ See Section 2.3 for complete description of plotting procedure.
 whose annotated genes are overrepresented in a group.
 We correct for multiple testing following Benjamini and Yekutieli (2001).
 All results, group plots, list of genes per cluster, KEGG and GO enrichment analysis can be found at http://algorithmics.molgen.
-mpg.de/Supplements/InfDif/ First, we measure the average treeness of the MixDTrees (we calculate Equation (6) and take the sum weighted by ).
+mpg.de/Supplements/InfDif/First, we measure the average treeness of the MixDTrees (we calculate Equation (6) and take the sum weighted by ).
 For the MixDTrees MAP this value was 0.54, which indicates an increase of 28% over the treeness index for the single DTree.
 This reinforces our point that mixture of Dependence Trees with estimated structures is more successful in modeling dependencies in the data.
 In relation to the groups of coexpressed genes found by MixDTrees, overall, stages from the same developmental lineage are at the same branches of the estimated DTree structure.

@@ -1,5 +1,4 @@
-          OP-CBIO140521 639..645 Vol.
-30 ECCB 2014, pages i639i645 BIOINFORMATICS doi:10.1093/bioinformatics/btu475 cnvOffSeq: detecting intergenic copy number variation using off-target exome sequencing data Evangelos Bellos1,* and Lachlan J. M. Coin1,2 1Department of Genomics of Common Disease, Imperial College London, London W12 0NN, UK and 2Institute for Molecular Bioscience, University of Queensland, St Lucia, QLD 4072, Australia ABSTRACT Motivation: Exome sequencing technologies have transformed the field of Mendelian genetics and allowed for efficient detection of genomic variants in protein-coding regions.
+Motivation: Exome sequencing technologies have transformed the field of Mendelian genetics and allowed for efficient detection of genomic variants in protein-coding regions.
 The target enrichment process that is intrinsic to exome sequencing is inherently imperfect, generating large amounts of unintended off-target sequence.
 Off-target data are characterized by very low and highly heterogeneous coverage and are usually discarded by exome analysis pipelines.
 We posit that offtarget read depth is a rich, but overlooked, source of information that could be mined to detect intergenic copy number variation (CNV).
@@ -9,7 +8,7 @@ Results: cnvOffSeq was benchmarked on whole-exome sequencing samples from the 10
 In a set of 104 gold standard intergenic deletions, our method achieved a sensitivity of 57.5% and a specificity of 99.2%, while maintaining a low FDR of 5%.
 For gold standard deletions longer than 5kb, cnvOffSeq achieves a sensitivity of 90.4% without increasing the FDR.
 cnvOffSeq outperforms both whole-genome and whole-exome CNV detection methods considerably and is shown to offer a substantial improvement over nave local SVD.
-Availability and Implementation: cnvOffSeq is available at http://sourceforge.net/p/cnvoffseq/ Contact: evangelos.bellos09@imperial.ac.uk or l.coin@imb.uq.edu.au Supplementary information: Supplementary data are available at Bioinformatics online.
+Availability and Implementation: cnvOffSeq is available at http://sourceforge.net/p/cnvoffseq/Contact: evangelos.bellos09@imperial.ac.uk or l.coin@imb.uq.edu.au Supplementary information: Supplementary data are available at Bioinformatics online.
 1 INTRODUCTION The advent of whole-exome sequencing (WES) has led to a renaissance in the field of Mendelian genetics (Bamshad et al., 2011; Hoischen et al., 2010; Ng et al., 2010a,b).
 WES offers deep coverage for protein-coding regions at a lower cost than whole-genome sequencing (WGS) and has thus sparked renewed interest in elucidating rare diseases.
 Exome sequence analysis typically focuses on detecting previously unobserved (or very low-frequency) coding singlenucleotide polymorphisms (SNPs) and small frame-shift indels that are absent from a reference set.
@@ -93,7 +92,7 @@ cnvOffSeq produces normalized RD files in text and binary format that can be dis
 When used in conjunction with our HMM framework, cnvOffSeq generates CNV calls in text format and optional segmentation plots.
 The sampling density of RD is a user-specified parameter that determines the CNV breakpoint resolution and the computational requirements of the algorithm.
 At the default high-resolution setting of 100bp, the normalization of chromosome 6 in 50 samples required 4GB of memory and one hour of processing time.
-The software is freely available from http://sourceforge.net/p/ cnvoffseq.
+The software is freely available from http://sourceforge.net/p/cnvoffseq.
 3 RESULTS cnvOffSeqs performance was benchmarked against chromosome 6 gold standard deletions for 50 WES samples.
 We excluded CNVs located less than 5kb from the nearest gene target as well as CNVs overlapping regions that were blacklisted by the ENCODE project for anomalous RD patterns.
 We also eliminated gold standard deletions for which none of the 50 samples passed quality control.

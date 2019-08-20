@@ -1,5 +1,4 @@
-            G:\bioinformatics\Bioinfo-ECCB(suppl-26)\btq364.dvi [10:28 28/8/2010 Bioinformatics-btq364.tex] Page: i414 i414i419 BIOINFORMATICS Vol.
-26 ECCB 2010, pages i414i419doi:10.1093/bioinformatics/btq364 A fast algorithm for exact sequence search in biological sequences using polyphase decomposition Abhilash Srikantha1,, Ajit S. Bopardikar1,, Kalyan Kumar Kaipa1, Parthasarathy Venkataraman1, Kyusang Lee2, TaeJin Ahn2 and Rangavittal Narayanan1 1Samsung Advanced Institute of Technology India Lab, Bangalore, Karnataka, India and 2Genetic Analysis Group, Emerging Center, Samsung Advanced Institute of Technology, Suwon, South Korea ABSTRACT Motivation: Exact sequence search allows a user to search for a specific DNA subsequence in a larger DNA sequence or database.
+Motivation: Exact sequence search allows a user to search for a specific DNA subsequence in a larger DNA sequence or database.
 It serves as a vital block in many areas such as Pharmacogenetics, Phylogenetics and Personal Genomics.
 As sequencing of genomic data becomes increasingly affordable, the amount of sequence data that must be processed will also increase exponentially.
 In this context, fast sequence search algorithms will play an important role in exploiting the information contained in the newly sequenced data.
@@ -31,7 +30,7 @@ They represent all suffixes of the text as a plurality of inter-mingled linked l
 Also, as every node in the tree is required to hold tree-related information such as pointers to their parents and children apart from text-based information, even the best implementation of suffix trees require 15.4 bytes per base (Kurtz et al., 2004), which scales up to 46 GB of memory to store the preprocessed Human Genome.
 Deterministic Finite Automaton (DFA)-based methods (Charras and Lecroq, 2004; Gusfield 1997) such as BWA-SW (Li and Durbin, 2010) combine DFA and dynamic-programming-based The Author(s) 2010.
 Published by Oxford University Press.
-This is an Open Access article distributed under the terms of the Creative Commons Attribution Non-Commercial License (http://creativecommons.org/licenses/ by-nc/2.5), which permits unrestricted non-commercial use, distribution, and reproduction in any medium, provided the original work is properly cited.
+This is an Open Access article distributed under the terms of the Creative Commons Attribution Non-Commercial License (http://creativecommons.org/licenses/by-nc/2.5), which permits unrestricted non-commercial use, distribution, and reproduction in any medium, provided the original work is properly cited.
 [10:28 28/8/2010 Bioinformatics-btq364.tex] Page: i415 i414i419 A fast algorithm for exact sequence search in biological sequences using polyphase decomposition alignment methods.
 As this method involves Finite Automaton, the method does not scale well for large sequences, even for the best case of exact matches.
 Also, because they use dynamic programming, the memory requirements of the method are huge.
@@ -124,7 +123,7 @@ Block diagram of the pattern-search stage.
 (5) PP = HTNQ[NQPM0(0)] = [0,3,6].
 (6) Iterating over {agt(1)} for Step (7).
 (7) Prune only PP(2).
-Because PP(2)+1Q=6+3=9/ HTNQ[NQPM0(1)].
+Because PP(2)+1Q=6+3=9/HTNQ[NQPM0(1)].
 (8) PPAll = {0,3}, (a) result of PM1: PP = {}; (b) result of PM2: PP = {7}.
 Therefore, PPAll = {0,3,7}.
 (9) Translating the locations of PPAll to those in T gives {0,9,19}.

@@ -1,6 +1,4 @@
-            G:\fpp\tex\journals\oup\BioInfo\Bioinfo-25(23)issue\btp554.dvi [20:24 3/11/2009 Bioinformatics-btp554.tex] Page: 3181 31813182 BIOINFORMATICS APPLICATIONS NOTE Vol.
-25 no.
-23 2009, pages 31813182doi:10.1093/bioinformatics/btp554 Sequence analysis MOODS: fast search for position weight matrix matches in DNA sequences Janne Korhonen1,, Petri Martinmki1, Cinzia Pizzi2, Pasi Rastas1 and Esko Ukkonen1 1Department of Computer Science and Helsinki Institute for Information Technology, University of Helsinki, Helsinki, Finland and 2Department of Information Engineering, University of Padova, Padova, Italy Received on July 14, 2009; revised on September 3, 2009; accepted on September 15, 2009 Advance Access publication September 22, 2009 Associate Editor: Alex Bateman ABSTRACT Summary: MOODS (MOtif Occurrence Detection Suite) is a software package for matching position weight matrices against DNA sequences.
+Summary: MOODS (MOtif Occurrence Detection Suite) is a software package for matching position weight matrices against DNA sequences.
 MOODS implements state-of-the-art online matching algorithms, achieving considerably faster scanning speed than with a simple brute-force search.
 MOODS is written in C++, with bindings for the popular BioPerl and Biopython toolkits.
 It can easily be adapted for different purposes and integrated into existing workflows.
@@ -34,7 +32,7 @@ It works well for very long matrices (>30 bp).
 The MLF algorithm is most suitable for PWM search tasks in practice and has the best overall performance out of the algorithms of MOODS.
 For completeness, we have also included implementations of the naive algorithm, which directly evaluates the matrix score at all sequence positions, and the permutated lookahead algorithm The Author(s) 2009.
 Published by Oxford University Press.
-This is an Open Access article distributed under the terms of the Creative Commons Attribution Non-Commercial License (http://creativecommons.org/licenses/ by-nc/2.5/uk/) which permits unrestricted non-commercial use, distribution, and reproduction in any medium, provided the original work is properly cited.
+This is an Open Access article distributed under the terms of the Creative Commons Attribution Non-Commercial License (http://creativecommons.org/licenses/by-nc/2.5/uk/) which permits unrestricted non-commercial use, distribution, and reproduction in any medium, provided the original work is properly cited.
 [20:24 3/11/2009 Bioinformatics-btp554.tex] Page: 3182 31813182 J.Korhonen et al.(Wu et al., 2000).
 In addition, the package contains the well-known dynamic programming algorithm for converting P-values into score thresholds (Staden, 1989; Wu et al., 2000).
 MOODS uses the standard scoring model (log-odds against the background distribution) of PWMs, as described, e.g.in Pizzi et al.(2009).

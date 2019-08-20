@@ -1,4 +1,4 @@
-                 Predicting the Subcellular Localization of Human Proteins Using Machine Learning and Exploratory Data Analysis Article Predicting the Subcellular Localization of Human Proteins Using Machine Learning and Exploratory Data Analysis George K. Acquaah-Mensahl*, Sonia M. Leach2, and Chittibabu Guda3 Department of Pharmaceutical Sciences, School of Pharmacy-Worcester, Massachusetts College of Pharmacy and Health Sciences, Worcester, M A 01 608-1 715, USA; Center for Computational Pharmacology, Department of Pharmacology, University of Colorado School of Medicine, Aurora, CO 80010, USA; Gen*NY*Sis Center for Excellence an Cancer Genomics, Department of Epidemiology and Biostatistics, State University of New York at Albany, Rensselaer, N Y 12144-3456, USA.
+Predicting the Subcellular Localization of Human Proteins Using Machine Learning and Exploratory Data Analysis Article Predicting the Subcellular Localization of Human Proteins Using Machine Learning and Exploratory Data Analysis George K. Acquaah-Mensahl*, Sonia M. Leach2, and Chittibabu Guda3 Department of Pharmaceutical Sciences, School of Pharmacy-Worcester, Massachusetts College of Pharmacy and Health Sciences, Worcester, M A 01 608-1 715, USA; Center for Computational Pharmacology, Department of Pharmacology, University of Colorado School of Medicine, Aurora, CO 80010, USA; Gen*NY*Sis Center for Excellence an Cancer Genomics, Department of Epidemiology and Biostatistics, State University of New York at Albany, Rensselaer, N Y 12144-3456, USA.
 Identifying the subcellular localization of proteins is particularly helpful in the func-tional annotation of gene products.
 In this study, we use Machine Learning and Ex-ploratory Data Analysis (EDA) techniques to examine and characterize amino acid sequences of human proteins localized in nine cellular compartments.
 A dataset of 3,749 protein sequences representing human proteins was extracted from the SWISS-PROT database.
@@ -53,7 +53,7 @@ There are, nonetheless, correlations between certain parameters.
 For instance, there is strong correlation between Po-larizability and NVWV values (21).
 Since these cal-culated values constitute the basis upon which the amino acids were grouped in the current study (Table l), the elements of the feature vector, though incon-gruent, are not completely independent of each other.
 Instead, they complement each other, providing a rich dataset for any given amino acid sequence.
-For each given amino acid side chain, the measured van der Waals volume (V) was normalized as follows: NVWV (side chain) = [V(side chain)-V(H)]/ V(CH2) The side chain of alanine has NVWV=l; each addi-tional CH2 increases this by one unit.
+For each given amino acid side chain, the measured van der Waals volume (V) was normalized as follows: NVWV (side chain) = [V(side chain)-V(H)]/V(CH2) The side chain of alanine has NVWV=l; each addi-tional CH2 increases this by one unit.
 Machine Learning To evaluate the accuracy of ML classification, two scenarios were considered: (1) using the entire data as both the training and test set, and (2) separat-ing the dataset into disjoint training and test sets us-ing a ten-fold cross validation technique (Table 2; ref.
 23,244).
 In Table 2A, when the test option is train set only, all test instances were part of the training set.
@@ -211,7 +211,7 @@ Vol.
 4 No.
 2 2006 129  Predicting Protein Localization with Decision Tree Percent C harg.
 Group3.
-,-7./ 0 iD 20 3 $8 Z,u W W 4 L CCCUIN-.. 0 YJ 3 JrJ m F l. _ _  Percent W MT~W c a m  Fig.5 An illustration of the contrasting patterns in MP column effects between amino acid sequences on either side of a 548 split.
+,-7./0 iD 20 3 $8 Z,u W W 4 L CCCUIN-.. 0 YJ 3 JrJ m F l. _ _  Percent W MT~W c a m  Fig.5 An illustration of the contrasting patterns in MP column effects between amino acid sequences on either side of a 548 split.
 The chart highlights two of the columns whose effects differ sharply between the two groups: Percent Charge Group3 and Percent W. very similar, it is difficult to predict the localization of such proteins.
 Conclusion Previous subcellular localization predictors that use amino acid compositions have used neural networks (31) , the covariant discriminant algorithm (32 ) , and SVMs (8); each predictor has achieved a unique ac-curacy rate over up to four eukaryotic or prokaryotic subcellular compartments.
 In this study, nine hu-man (eukaryotic) cellular compartments were exam-ined, and the Decision Tree J48 emerged as perform-ing consistently better at classifying across all com-partments (including those that present with difficult classification tasks).

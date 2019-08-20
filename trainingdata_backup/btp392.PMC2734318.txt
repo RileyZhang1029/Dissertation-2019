@@ -1,13 +1,11 @@
-            G:\fpp\tex\journals\oup\BioInfo\Bioinfo-25(17)issue\btp392.dvi [12:39 4/8/2009 Bioinformatics-btp392.tex] Page: 2292 22922293 BIOINFORMATICS APPLICATIONS NOTE Vol.
-25 no.
-17 2009, pages 22922293doi:10.1093/bioinformatics/btp392 Systems biology libAnnotationSBML: a library for exploiting SBML annotations Neil Swainston1, and Pedro Mendes1,2 1Manchester Centre for Integrative Systems Biology, Manchester Interdisciplinary Biocentre, University of Manchester, Manchester M1 7DN, UK and 2Virginia Bioinformatics Institute, Virginia Tech, Washington St. 0477, Blacksburg, VA 24061, USA Received on March 20, 2009; revised on May 22, 2009; accepted on June 21, 2009 Advance Access publication June 26, 2009 Associate Editor: Alfonso Valencia ABSTRACT Summary: The Systems Biology Markup Language (SBML) is an established community XML format for the markup of biochemical models.
+Summary: The Systems Biology Markup Language (SBML) is an established community XML format for the markup of biochemical models.
 With the introduction of SBML level 2 version 3, specific model entities, such as species or reactions, can now be annotated using ontological terms.
 These annotations, which are encoded using the resource description framework (RDF), provide the facility to specify definite terms to individual components, allowing software to unambiguously identify such components and thus link the models to existing data resources.
 libSBML is an application programming interface library for the manipulation of SBML files.
 While libSBML provides the facilities for reading and writing such annotations from and to models, it is beyond the scope of libSBML to provide interpretation of these terms.
 The libAnnotationSBML library introduced here acts as a layer on top of libSBML linking SBML annotations to the web services that describe these ontological terms.
 Two applications that use this library are described: SbmlSynonymExtractor finds name synonyms of SBML model entities and SbmlReactionBalancer checks SBML files to determine whether specifed reactions are elementally balanced.
-Availability: http://mcisb.sourceforge.net/ Contact: neil.swainston@manchester.ac.uk 1 INTRODUCTION The minimum information requested in the annotation of biochemical models (MIRIAM; Le Novre et al., 2005) defines guidelines for annotation of biochemical models.
+Availability: http://mcisb.sourceforge.net/Contact: neil.swainston@manchester.ac.uk 1 INTRODUCTION The minimum information requested in the annotation of biochemical models (MIRIAM; Le Novre et al., 2005) defines guidelines for annotation of biochemical models.
 The annotation of models with the MIRIAM standard provides a number of significant advantages in the development of computational tools and applications that can reason over them (Kell and Mendes, 2008).
 An example is the task of comparing or merging two biochemical models.
 Before the introduction of MIRIAM, individual components of SBML models (Hucka et al., 2003) were identified solely by free-text, human-readable, name attributes, often resulting in equivalent components being named differently in different models.
@@ -26,7 +24,7 @@ This task is complicated particularly because each of the web services has non-s
 The libAnnotationSBML library creates a unified framework for supporting MIRIAM-compliant annotations by wrapping these divergent web services into a Java API, allowing each web service to be queried in a consistent manner.
 The library itself can act as a layer on top of the libSBML API.
 The library is built dynamically by querying the MIRIAM web service (Laibe and Le Novre, 2007), which provides a collection of data types that are recommended for use in model annotation.
-The web service provides details of each of these data types 2009 The Author(s) This is an Open Access article distributed under the terms of the Creative Commons Attribution Non-Commercial License (http://creativecommons.org/licenses/ by-nc/2.0/uk/) which permits unrestricted non-commercial use, distribution, and reproduction in any medium, provided the original work is properly cited.
+The web service provides details of each of these data types 2009 The Author(s) This is an Open Access article distributed under the terms of the Creative Commons Attribution Non-Commercial License (http://creativecommons.org/licenses/by-nc/2.0/uk/) which permits unrestricted non-commercial use, distribution, and reproduction in any medium, provided the original work is properly cited.
 [12:39 4/8/2009 Bioinformatics-btp392.tex] Page: 2293 22922293 libAnnotationSBML: a library Fig.2.
 Class diagram showing public methods of OntologyTerm and specialized subclasses ChebiTerm, UniProtTerm and KeggReactionTerm.
 including names, URNs and physical URLs to resources.

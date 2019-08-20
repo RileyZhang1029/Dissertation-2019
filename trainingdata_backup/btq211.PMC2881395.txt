@@ -1,5 +1,4 @@
-            G:\bioinformatics\ISMB\btq211.dvi [11:18 12/5/2010 Bioinformatics-btq211.tex] Page: i149 i149i157 BIOINFORMATICS Vol.
-26 ISMB 2010, pages i149i157doi:10.1093/bioinformatics/btq211 Inferring combinatorial association logic networks in multimodal genome-wide screens Jeroen de Ridder1,2,3,, Alice Gerrits4, Jan Bot1,3, Gerald de Haan4, Marcel Reinders1,3 and Lodewyk Wessels2,3, 1Delft Bioinformatics Lab, Delft University of Technology, 2628 CD Delft, 2Bioinformatics and Statistics, Department of Molecular Biology, Netherlands Cancer Institute, 1066 CX Amsterdam, 3Netherlands Bioinformatics Center, 6525 GA Nijmegen and 4Department of Cell Biology, Section Stem Cell Biology, University Medical Center Groningen, University of Groningen, 9700 AD Groningen, the Netherlands ABSTRACT Motivation: We propose an efficient method to infer combinatorial association logic networks from multiple genome-wide measurements from the same sample.
+Motivation: We propose an efficient method to infer combinatorial association logic networks from multiple genome-wide measurements from the same sample.
 We demonstrate our method on a genetical genomics dataset, in which we search for Boolean combinations of multiple genetic loci that associate with transcript levels.
 Results: Our method provably finds the global solution and is very efficient with runtimes of up to four orders of magnitude faster than the exhaustive search.
 This enables permutation procedures for determining accurate false positive rates and allows selection of the most parsimonious model.
@@ -7,8 +6,8 @@ When applied to transcript levels measured in myeloid cells from 24 genotyped re
 A literature survey supports and further elucidates one of these findings.
 Due to our approach, optimal solutions for multi-locus logic models and accurate estimates of the associated false discovery rates become feasible.
 Our algorithm, therefore, offers a valuable alternative to approaches employing complex, albeit suboptimal optimization strategies to identify complex models.
-Availability: The MATLAB code of the prototype implementation is available on: http://bioinformatics.tudelft.nl/ or http://bioinformatics.
-nki.nl/ Contact: m.j.t.reinders@tudelft.nl; l.wessels@nki.nl 1 INTRODUCTION To explain complex biological phenomena it is of vital importance to measurein the same sampleall relevant (complementary) biological variables, and to measure these at a genome-wide scale.
+Availability: The MATLAB code of the prototype implementation is available on: http://bioinformatics.tudelft.nl/or http://bioinformatics.
+nki.nl/Contact: m.j.t.reinders@tudelft.nl; l.wessels@nki.nl 1 INTRODUCTION To explain complex biological phenomena it is of vital importance to measurein the same sampleall relevant (complementary) biological variables, and to measure these at a genome-wide scale.
 For this reason, many multimodal screens have been performed that have complemented transcriptional profiling with, among others, copy number variation measurements, transcription factor binding assays, methylation status profiling or genotype calls (Bystrykh, 2005; Pollack et al., 2002; Shames et al., 2006; Visel et al., 2009).
 A common aim in analyzing these multimodal datasets is to find associations between the biological variables measured to infer their regulatory role.
 Consider, for instance, a study in which expression profiles and genome-wide genotype data were obtained in hematopoietic cells from a panel of fully homozygous recombinant inbred mouse strains (Fig.1A).
@@ -28,7 +27,7 @@ To deal with the computational complexity associated with such an optimization p
 In contrast to the class of additive models employed by Ljungberg et al.(2004) (and many other approaches), we follow others (Kooperberg and Ruczinski, 2004; Mukherjee et al., 2009; Nunkesser et al., 2007) and employ Boolean combinatorial logic to explicitly incorporate interactions in the eQTL inference.
 To this end, we infer combinatorial association logic (CAL) networks that combine the observed genotypes through and (), or () and xor The Author(s) 2010.
 Published by Oxford University Press.
-This is an Open Access article distributed under the terms of the Creative Commons Attribution Non-Commercial License (http://creativecommons.org/licenses/ by-nc/2.5), which permits unrestricted non-commercial use, distribution, and reproduction in any medium, provided the original work is properly cited.
+This is an Open Access article distributed under the terms of the Creative Commons Attribution Non-Commercial License (http://creativecommons.org/licenses/by-nc/2.5), which permits unrestricted non-commercial use, distribution, and reproduction in any medium, provided the original work is properly cited.
 [11:18 12/5/2010 Bioinformatics-btq211.tex] Page: i150 i149i157 J.de Ridder et al.A B C Fig.1.
 Schematic overview of data and association inference.
 (A) A panel of BXD mice that is densely genotyped and expression profiled.

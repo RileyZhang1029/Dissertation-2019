@@ -1,12 +1,11 @@
-          OP-CBIO140530 379..385 Vol.
-30 ECCB 2014, pages i379i385 BIOINFORMATICS doi:10.1093/bioinformatics/btu484 Probabilistic single-individual haplotyping Volodymyr Kuleshov Department of Computer Science, Stanford University, Stanford, CA 94305, USA ABSTRACT Motivation: Accurate haplotypingdetermining from which parent particular portions of the genome are inheritedis still mostly an unresolved problem in genomics.
+Motivation: Accurate haplotypingdetermining from which parent particular portions of the genome are inheritedis still mostly an unresolved problem in genomics.
 This problem has only recently started to become tractable, thanks to the development of new long read sequencing technologies.
 Here, we introduce ProbHap, a haplotyping algorithm targeted at such technologies.
 The main algorithmic idea of ProbHap is a new dynamic programming algorithm that exactly optimizes a likelihood function specified by a probabilistic graphical model and which generalizes a popular objective called the minimum error correction.
 In addition to being accurate, ProbHap also provides confidence scores at phased positions.
 Results: On a standard benchmark dataset, ProbHap makes 11% fewer errors than current state-of-the-art methods.
 This accuracy can be further increased by excluding low-confidence positions, at the cost of a small drop in haplotype completeness.
-Availability: Our source code is freely available at: https://github.com/ kuleshov/ProbHap.
+Availability: Our source code is freely available at: https://github.com/kuleshov/ProbHap.
 Contact: kuleshov@stanford.edu 1 INTRODUCTION Although modern sequencing technology has led to rapid advances in genomics over the past decade, it has largely been unable to resolve an important aspect of human genetics: genomic phase.
 Each human chromosome comes in two copies: one inherited from the mother, and one inherited from the father.
 Despite the fact that differences between these copies play an important biological role, until recently, decoding these differences (a process known as haplotyping or genome phasing) has been a major technological challenge.

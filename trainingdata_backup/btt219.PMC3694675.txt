@@ -1,8 +1,7 @@
-          OP-CBIO130250 326..334 Vol.
-29 ISMB/ECCB 2013, pages i326i334 BIOINFORMATICS doi:10.1093/bioinformatics/btt219 IDBA-tran: a more robust de novo de Bruijn graph assembler for transcriptomes with uneven expression levels Yu Peng1, Henry C. M. Leung1, Siu-Ming Yiu1, Ming-Ju Lv2, Xin-Guang Zhu2 and Francis Y. L. Chin1,* 1Department of Computer Science, The University of Hong Kong, Hong Kong and 2CAS-MPG Partner Institute for Computational Biology, Shanghai Institutes for Biological Sciences, Chinese Academy Sciences, Shanghai 200031, China ABSTRACT Motivation: RNA sequencing based on next-generation sequencing technology is effective for analyzing transcriptomes.
+Motivation: RNA sequencing based on next-generation sequencing technology is effective for analyzing transcriptomes.
 Like de novo genome assembly, de novo transcriptome assembly does not rely on any reference genome or additional annotation information, but is more difficult.
 In particular, isoforms can have very uneven expression levels (e.g.1:100), which make it very difficult to identify low-expressed isoforms.
-One challenge is to remove erroneous vertices/ edges with high multiplicity (produced by high-expressed isoforms) in the de Bruijn graph without removing correct ones with not-sohigh multiplicity from low-expressed isoforms.
+One challenge is to remove erroneous vertices/edges with high multiplicity (produced by high-expressed isoforms) in the de Bruijn graph without removing correct ones with not-sohigh multiplicity from low-expressed isoforms.
 Failing to do so will result in the loss of low-expressed isoforms or having complicated subgraphs with transcripts of different genes mixed together due to erroneous vertices/edges.
 Contributions: Unlike existing tools, which remove erroneous vertices/edges with multiplicities lower than a global threshold, we use a probabilistic progressive approach to iteratively remove them with local thresholds.
 This enables us to decompose the graph into disconnected components, each containing a few genes, if not a single gene, while retaining many correct vertices/edges of low-expressed isoforms.
@@ -32,7 +31,7 @@ Some assemblers may stop at the junctions, reporting B, C, D, E and F as separat
 For example, running Velvet on the rice data*To whom correspondence should be addressed.
 The Author 2013.
 Published by Oxford University Press.
-This is an Open Access article distributed under the terms of the Creative Commons Attribution Non-Commercial License (http://creativecommons.org/licenses/ by-nc/3.0/), which permits non-commercial re-use, distribution, and reproduction in any medium, provided the original work is properly cited.
+This is an Open Access article distributed under the terms of the Creative Commons Attribution Non-Commercial License (http://creativecommons.org/licenses/by-nc/3.0/), which permits non-commercial re-use, distribution, and reproduction in any medium, provided the original work is properly cited.
 For commercial re-use, please contact journals.permissions@oup.com (see Section 3.2 for details) results in contigs of mean length 245 bp only, while the mean length of transcripts is about 1700 bp.
 Some metagenomic (Bankevich et al., 2012) and single-cell assemblers (Vyahhi et al., 2012) try to find a path with maximum paired-end reads support; however, as the insert distance of transcriptome data usually cannot cover more than one branch (splicing junction) and there are multiple correct paths (isoforms) with paired-end reads support, these assembliers also fail to reconstruct the isoforms.
 (2) Different expression levels of isoforms of the same gene.
@@ -118,7 +117,7 @@ Example of de Bruijn graph for two isoforms from the same gene.
 (b) de Bruijn graph of two isoforms when there is 1% sequencing error in reads.
 (c) Multiplicity of correct and erroneous k-mers for simulated data i328 Y.Peng et al.each branch in the graph, IDBA-Tran checks each outgoing (and incoming) edge, keeps the branch which leads to the longest path, and removes all other branches (tips) which lead to paths shorter than 2k.
 Usually, the correct branch leads to longer paths than tips, and this method preserves correct branches.
-As transcriptome sequencing data contains more errors and insertions/ deletions than genome sequencing data, IDBA-Tran identifies and merges paths with same starting point and end point and higher than 98% similarity (including insertions and deletions).
+As transcriptome sequencing data contains more errors and insertions/deletions than genome sequencing data, IDBA-Tran identifies and merges paths with same starting point and end point and higher than 98% similarity (including insertions and deletions).
 2.2 Decomposing the graph by iterating depth Recall that T-IDBA (Peng et al., 2011) also tries to decompose the de Bruijn graph into components.
 It is based on the observation that there are not many repeat patterns between two transcripts from different genes while isoforms from the same gene share common exons.
 Thus, it decomposes the graph into different components such that there are relatively more branches inside each component and relatively fewer branches between two components.

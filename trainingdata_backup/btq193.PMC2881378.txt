@@ -1,5 +1,4 @@
-            G:\bioinformatics\ISMB\btq193.dvi [12:00 12/5/2010 Bioinformatics-btq193.tex] Page: i310 i310i317 BIOINFORMATICS Vol.
-26 ISMB 2010, pages i310i317doi:10.1093/bioinformatics/btq193 Fragment-free approach to protein folding using conditional neural fields Feng Zhao, Jian Peng and Jinbo Xu Toyota Technological Institute, Chicago, IL 60637, USA ABSTRACT Motivation: One of the major bottlenecks with ab initio protein folding is an effective conformation sampling algorithm that can generate native-like conformations quickly.
+Motivation: One of the major bottlenecks with ab initio protein folding is an effective conformation sampling algorithm that can generate native-like conformations quickly.
 The popular fragment assembly method generates conformations by restricting the local conformations of a protein to short structural fragments in the PDB.
 This method may limit conformations to a subspace to which the native fold does not belong because (i) a protein with really new fold may contain some structural fragments not in the PDB and (ii) the discrete nature of fragments may prevent them from building a native-like fold.
 Previously we have developed a conditional random fields (CRF) method for fragment-free protein folding that can sample conformations in a continuous space and demonstrated that this CRF method compares favorably to the popular fragment assembly method.
@@ -38,7 +37,7 @@ CNF is recently invented by our group for the modeling of sequential data.
 See Peng et al.(2009) for a detailed exposition.
 CNF is The Author(s) 2010.
 Published by Oxford University Press.
-This is an Open Access article distributed under the terms of the Creative Commons Attribution Non-Commercial License (http://creativecommons.org/licenses/ by-nc/2.5), which permits unrestricted non-commercial use, distribution, and reproduction in any medium, provided the original work is properly cited.
+This is an Open Access article distributed under the terms of the Creative Commons Attribution Non-Commercial License (http://creativecommons.org/licenses/by-nc/2.5), which permits unrestricted non-commercial use, distribution, and reproduction in any medium, provided the original work is properly cited.
 [12:00 12/5/2010 Bioinformatics-btq193.tex] Page: i311 i310i317 Protein folding using conditional neural fields similar to but much more powerful than CRF in that CNF can naturally model the non-linear relationship between input and output while CRF cannot do so.
 Thus, CNF can model better the sophisticated relationship between backbone angles, sequence profile and predicted secondary structure, estimate the probability distribution of backbone angles more accurately and sample protein conformations more efficiently.
 In addition, this work also differs from our previous CRF method (Zhao et al., 2008, 2009) in that (i) instead of using a simulated annealing (SA) method for folding simulation, we developed a replica exchange Monte Carlo (REMC) method for folding simulation.

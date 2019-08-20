@@ -1,5 +1,4 @@
-          OP-CBIO140270 52..59 Vol.
-30 ISMB 2014, pages i52i59 BIOINFORMATICS doi:10.1093/bioinformatics/btu260 Using association rule mining to determine promising secondary phenotyping hypotheses Anika Oellrich*, Julius Jacobsen, Irene Papatheodorou, The Sanger Mouse Genetics Project and Damian Smedley* Wellcome Trust Sanger Institute, Wellcome Trust Genome Campus, Hinxton CB1 10SA, UK ABSTRACT Motivation: Large-scale phenotyping projects such as the Sanger Mouse Genetics project are ongoing efforts to help identify the influences of genes and their modification on phenotypes.
+Motivation: Large-scale phenotyping projects such as the Sanger Mouse Genetics project are ongoing efforts to help identify the influences of genes and their modification on phenotypes.
 Genephenotype relations are crucial to the improvement of our understanding of human heritable diseases as well as the development of drugs.
 However, given that there are20 000 genes in higher vertebrate genomes and the experimental verification of genephenotype relations requires a lot of resources, methods are needed that determine good candidates for testing.
 Results: In this study, we applied an association rule mining approach to the identification of promising secondary phenotype candidates.
@@ -7,7 +6,7 @@ The predictions rely on a large genephenotype annotation set that is used to fin
 Applying an association rule mining approach, we could identify 1967 secondary phenotype hypotheses that cover 244 genes and 136 phenotypes.
 Using two automated and one manual evaluation strategies, we demonstrate that the secondary phenotype candidates possess biological relevance to the genes they are predicted for.
 From the results we conclude that the predicted secondary phenotypes constitute good candidates to be experimentally tested and confirmed.
-Availability: The secondary phenotype candidates can be browsed through at http://www.sanger.ac.uk/resources/databases/phenodigm/ gene/secondaryphenotype/list.
+Availability: The secondary phenotype candidates can be browsed through at http://www.sanger.ac.uk/resources/databases/phenodigm/gene/secondaryphenotype/list.
 Contact: ao5@sanger.ac.uk or ds5@sanger.ac.uk Supplementary information: Supplementary data are available at Bioinformatics online.
 1 INTRODUCTION A causative gene has not yet been identified for almost half of the existing human heritable diseases (Schofield et al., 2012).
 Without the knowledge of the molecular basis of a disease, treatment possibilities are limited to treating symptoms instead of curing the underlying defects.
@@ -18,7 +17,7 @@ For example, the mouse shares 99% of genes with humans, and gene modifications l
 Experimental results of mutagenesis experiments are stored in species-specific Model Organism Database (MOD)s (Leonelli and Ankeny, 2012), e.g.the Sanger Mouse Genetics Project (Sanger-MGP) (White et al., 2013), WormBase (Yook et al., 2012), the Mouse Genome Database (MGD) (Bult et al., 2012) or FlyBase (Drysdale and FlyBase Consortium, 2008).
 The Sanger-MGP is part of the International Mouse Phenotyping Consortium (IMPC) project that aims to identify the phenotypic implications of 20 000 genes by 2021 (Brown and Moore, 2012).
 In the framework of this project genetically modified mouse models are assessed according to 20 pre-defined standard operating procedures (SOPs) that are linked to measurable physical parameters to ascertain the implications of genetic mutations on phenotypes (Mallon et al., 2012).
-An example of a SOP is the assessment of the grip strength of mice at the age of 9 weeks to assess their neuromuscular function as muscle strength (https://www.mousephenotype.org/impress/protocol/ 83/7).
+An example of a SOP is the assessment of the grip strength of mice at the age of 9 weeks to assess their neuromuscular function as muscle strength (https://www.mousephenotype.org/impress/protocol/83/7).
 Mammalian Phenotype Ontology (MP) (Smith and Eppig, 2009) annotations are assigned using a reference range method followed by an expert review.
 Later studies explore the application of other statistical methods to assign MP phenotype annotations based on the obtained parameter readings (Beck et al., 2009; Karp et al., 2012a), however, these methods only cover a subset of the phenotypes covered by the 20 SOPs.
 The process of assessing physical measurements in accordance with the 20 pre-defined SOPs is referred to as primary phenotyping (Justice, 2008).
@@ -29,7 +28,7 @@ Therefore, automated methods enabling the search for promising secondary phenoty
 Existing automated solutions include the prediction of phenotypes based on orthologous genes (Groth et al., 2007; McGary et al., 2010) as well as functional annotations of genes*To whom correspondence should be addressed.
 The Author 2014.
 Published by Oxford University Press.
-This is an Open Access article distributed under the terms of the Creative Commons Attribution Non-Commercial License (http://creativecommons.org/licenses/ by-nc/3.0/), which permits non-commercial re-use, distribution, and reproduction in any medium, provided the original work is properly cited.
+This is an Open Access article distributed under the terms of the Creative Commons Attribution Non-Commercial License (http://creativecommons.org/licenses/by-nc/3.0/), which permits non-commercial re-use, distribution, and reproduction in any medium, provided the original work is properly cited.
 For commercial re-use, please contact journals.permissions@oup.com standard operating procedure nine https://www.mousephenotype.org/impress/protocol/83/7 https://www.mousephenotype.org/impress/protocol/83/7 1XPath error Undefined namespace prefix XPath error Undefined namespace prefix (King et al., 2003).
 However, orthologous genes do not necessarily exhibit the same function or expression patterns across different species and therefore, do not always provide reliable answers.
 A solution relying only on existing phenotype annotations could overcome the problem in differing gene function and resulting phenotypes across different species.
@@ -50,7 +49,7 @@ Association rule mining was originally used to find patterns of items that are f
 Each association rule assigns a probability to an implication based on the dataset, e.g.how likely is it that someone who bought bread and milk also purchased butter.
 In the Bioinformatics domain, association rule mining has been previously successfully applied to large annotation sets with the aim to find relationships between gene functions described with Gene Ontology (GO) (Botstein et al., 2000; Kumar et al., 2004; Manda et al., 2012).
 As the goal of determining significantly co-occurring concepts to define relationships is the same here, association rule mining can also be applied.
-We used the apriori (http://www.borgelt.net/doc/apriori/ apriori.html) software implementation (Agrawal et al., 1996; Borgelt, 2003) with the following parameter settings:-tr-s-6-m2-n2-c90-ep-v %e with-tr to enforce the output of association rules instead of item sets,-s-6 to obtain only rules that are supported by at least six item sets,-m2 to include only rules with a minimum of two items,-n2 to include only rules with a maximum of two items,-c90 to only allow rules with a confidence of 90%,-ep to provide P-values for each rule and-v %e to add the P-value separated by space to each of the rules.
+We used the apriori (http://www.borgelt.net/doc/apriori/apriori.html) software implementation (Agrawal et al., 1996; Borgelt, 2003) with the following parameter settings:-tr-s-6-m2-n2-c90-ep-v %e with-tr to enforce the output of association rules instead of item sets,-s-6 to obtain only rules that are supported by at least six item sets,-m2 to include only rules with a minimum of two items,-n2 to include only rules with a maximum of two items,-c90 to only allow rules with a confidence of 90%,-ep to provide P-values for each rule and-v %e to add the P-value separated by space to each of the rules.
 The input to the apriori software was the set of literature-curated phenotype annotations of mouse genes and the output of rules of the type phenotype_1 !
 phenotype_2.
 As a starting point, we limited the output to rules including only two phenotypes to avoid complex dependencies between the annotations.
@@ -165,7 +164,7 @@ Interestingly, the Cfh gene is not only associated with Complement factor H defi
 From the improvement in both cases, we conjecture that the secondary phenotypes cover correct functional aspects of the gene that could not have been identified with the primary phenotype screens.
 This information together with additional information for another three diseases and their respective genes is provided in Supplementary Material S1.
 3.4 Browsing the secondary phenotype predictions online To provide access to the secondary phenotype predictions, we implemented an extension to our disease gene candidate prediction tool PhenoDigm (Smedley et al., 2013).
-The results can be browsed at http://www.sanger.ac.uk/resources/databases/ phenodigm/.
+The results can be browsed at http://www.sanger.ac.uk/resources/databases/phenodigm/.
 The web interface provides all the genes that possess secondary phenotype candidates as a list and the user can Fig.3.
 Adding the predicted secondary phenotype annotation to the Sanger-MGP genes with reference range annotations and using these to create gene clusters based on phenotype similarity, improves the biological coherence of the obtained gene clusters Fig.4.
 Accumulating the predicted secondary phenotypes together with reference range annotations for Sanger-MGP genes improves the predictability of causative disease genes using PhenoDigm i56 A.Oellrich et al.s twoselect individual genes for further investigation.

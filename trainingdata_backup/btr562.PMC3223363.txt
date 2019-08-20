@@ -1,6 +1,4 @@
-            K:\bioinformatics\Bioinfo-27(23)issue\btr562.dvi [17:20 29/10/2011 Bioinformatics-btr562.tex] Page: 3259 32593265 BIOINFORMATICS ORIGINAL PAPER Vol.
-27 no.
-23 2011, pages 32593265doi:10.1093/bioinformatics/btr562 Sequence analysis Advance Access publication October 13, 2011 Fast scaffolding with small independent mixed integer programs Leena Salmela, Veli Mkinen, Niko Vlimki, Johannes Ylinen and Esko Ukkonen Department of Computer Science, Helsinki Institute for Information Technology, University of Helsinki, Helsinki, Finland Associate Editor: Alex Bateman ABSTRACT Motivation: Assembling genomes from short read data has become increasingly popular, but the problem remains computationally challenging especially for larger genomes.
+Motivation: Assembling genomes from short read data has become increasingly popular, but the problem remains computationally challenging especially for larger genomes.
 We study the scaffolding phase of sequence assembly where preassembled contigs are ordered based on mate pair data.
 Results: We present MIP Scaffolder that divides the scaffolding problem into smaller subproblems and solves these with mixed integer programming.
 The scaffolding problem can be represented as a graph and the biconnected components of this graph can be solved independently.
@@ -48,7 +46,7 @@ Figure 1 shows the four possible ways of linking two contigs.
 Here the mate pair ends are oriented as in SOLiD data, where both reads of the pair are from the same strand of the genome.
 The Author(s) 2011.
 Published by Oxford University Press.
-This is an Open Access article distributed under the terms of the Creative Commons Attribution Non-Commercial License (http://creativecommons.org/licenses/ by-nc/3.0), which permits unrestricted non-commercial use, distribution, and reproduction in any medium, provided the original work is properly cited.
+This is an Open Access article distributed under the terms of the Creative Commons Attribution Non-Commercial License (http://creativecommons.org/licenses/by-nc/3.0), which permits unrestricted non-commercial use, distribution, and reproduction in any medium, provided the original work is properly cited.
 [17:20 29/10/2011 Bioinformatics-btr562.tex] Page: 3260 32593265 L.Salmela et al.i j i j contig i contig jcontig i contig j i ji j contig i contig j contig i contig j Fig.1.
 The four possible ways of linking two contigs with a mate pair and the bidirected edge representing each case.
 Several mate pairs can induce the same edge in the scaffolding graph.

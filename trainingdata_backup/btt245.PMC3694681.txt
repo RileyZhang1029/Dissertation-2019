@@ -1,5 +1,4 @@
-          OP-CBIO130239 217..226 Vol.
-29 ISMB/ECCB 2013, pages i217i226 BIOINFORMATICS doi:10.1093/bioinformatics/btt245 Multitask learning for hostpathogen protein interactions Meghana Kshirsagar1, Jaime Carbonell1 and Judith Klein-Seetharaman1,2,3,* 1Language Technologies Institute, School of Computer Science, Carnegie Mellon University, 5000 Forbes Ave., PA 15213, USA, 2Forschungszentrum Julich, Institute of Complex Systems (ICS-5), 52425 Julich, Germany and 3Systems Biology Centre, University of Warwick, Coventry CV4 7AL, UK ABSTRACT Motivation: An important aspect of infectious disease research involves understanding the differences and commonalities in the infection mechanisms underlying various diseases.
+Motivation: An important aspect of infectious disease research involves understanding the differences and commonalities in the infection mechanisms underlying various diseases.
 Systems biology-based approaches study infectious diseases by analyzing the interactions between the host species and the pathogen organisms.
 This work aims to combine the knowledge from experimental studies of host pathogen interactions in several diseases to build stronger predictive models.
 Our approach is based on a formalism from machine learning called multitask learning, which considers the problem of building models across tasks that are related to each other.
@@ -37,7 +36,7 @@ The study by Mukhtar et al.(2011) on plant pathogens, in particular, Arabidopsis
 Figure 1B illustrates an example depicting the commonality in various bacterial species, where*To whom correspondence should be addressed.
 The Author 2013.
 Published by Oxford University Press.
-This is an Open Access article distributed under the terms of the Creative Commons Attribution Non-Commercial License (http://creativecommons.org/licenses/ by-nc/3.0/), which permits non-commercial re-use, distribution, and reproduction in any medium, provided the original work is properly cited.
+This is an Open Access article distributed under the terms of the Creative Commons Attribution Non-Commercial License (http://creativecommons.org/licenses/by-nc/3.0/), which permits non-commercial re-use, distribution, and reproduction in any medium, provided the original work is properly cited.
 For commercial re-use, please contact journals.permissions@oup.com they are targeting the same biological pathways in their human host.
 This biological hypothesis, which we henceforth call the commonality hypothesis, is exploited here to jointly learn PPI models for multiple bacterial species.
 We translate the hypothesis into a prior that will bias the learned models.
@@ -373,7 +372,7 @@ Please see the Supplementary Section 5 for details.
 7.6 Incorporating other biological hypotheses The regularizer in Equation (3) uses the pathway information matrix to enforce pathway-level similarity.
 The matrix can be used to represent any other common structure.
 For example, consider the hypothesis all pathogens target hub proteins in the host, which implies that bacterial proteins are often found to interact with host proteins that have a high node degree in the PPI network of the host.
-We tried two variants to incorporate this hypothesis(i) we identify hubs in the human PPI graph and use the binary vectors pi as an indicator of the hub protein targeted by the bacterial protein, (ii) instead of a discrete hub/ not hub indicator we use pi to represent the node degree [each component of pi represents one node-degree bin say (1020)].
+We tried two variants to incorporate this hypothesis(i) we identify hubs in the human PPI graph and use the binary vectors pi as an indicator of the hub protein targeted by the bacterial protein, (ii) instead of a discrete hub/not hub indicator we use pi to represent the node degree [each component of pi represents one node-degree bin say (1020)].
 We found that using (i) gives us an improvement of upto 2.5F points over the baseline methods.
 8 CONCLUSION We presented a method that uses biological knowledge in jointly learning multiple PPI prediction tasks.
 Using a task regularizationbased multitask learning technique, we were able to encode a biological hypothesis into the optimization framework effectively, thus enabling the commonality hypothesis to be tested.

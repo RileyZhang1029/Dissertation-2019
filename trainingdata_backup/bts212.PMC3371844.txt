@@ -1,5 +1,4 @@
-            Copyedited by: BS MANUSCRIPT CATEGORY: [11:29 31/5/2012 Bioinformatics-bts212.tex] Page: i49 i49i58 BIOINFORMATICS Vol.
-28 ISMB 2012, pages i49i58doi:10.1093/bioinformatics/bts212 A single source k-shortest paths algorithm to infer regulatory pathways in a gene network Yu-Keng Shih and Srinivasan Parthasarathy Department of Computer Science and Engineering, the Ohio State University, Columbus, OH, USA ABSTRACT Motivation: Inferring the underlying regulatory pathways within a gene interaction network is a fundamental problem in Systems Biology to help understand the complex interactions and the regulation and flow of information within a system-of-interest.
+Motivation: Inferring the underlying regulatory pathways within a gene interaction network is a fundamental problem in Systems Biology to help understand the complex interactions and the regulation and flow of information within a system-of-interest.
 Given a weighted gene network and a gene in this network, the goal of an inference algorithm is to identify the potential regulatory pathways passing through this gene.
 Results: In a departure from previous approaches that largely rely on the random walk model, we propose a novel singlesource k-shortest paths based algorithm to address this inference problem.
 An important element of our approach is to explicitly account for and enhance the diversity of paths discovered by our algorithm.
@@ -30,7 +29,7 @@ The information flow model (Stojmirovic and Yu, 2009) used a similar approach to
 As we discuss later, these approaches have some important limitations that we seek to overcome.
 Specifically, in a clear departure from past work, here we discuss a novel approach to solving this inference problem by adapting the The Author(s) 2012.
 Published by Oxford University Press.
-This is an Open Access article distributed under the terms of the Creative Commons Attribution Non-Commercial License (http://creativecommons.org/licenses/ by-nc/3.0), which permits unrestricted non-commercial use, distribution, and reproduction in any medium, provided the original work is properly cited.
+This is an Open Access article distributed under the terms of the Creative Commons Attribution Non-Commercial License (http://creativecommons.org/licenses/by-nc/3.0), which permits unrestricted non-commercial use, distribution, and reproduction in any medium, provided the original work is properly cited.
 Copyedited by: BS MANUSCRIPT CATEGORY: [11:29 31/5/2012 Bioinformatics-bts212.tex] Page: i50 i49i58 Y.-K.Shih and S.Parthasarathy k shortest paths algorithm to directly point out potential pathways.
 In this article, we only discuss simple paths, in which a node is not allowed to appear more than one time.
 Intuitively, this agrees with the prevailing belief among domain scientists that a regulatory pathway is unlikely to repeatedly pass a node.
@@ -59,7 +58,7 @@ The target gene and the causal gene are denoted by gt and gc, respectively, and 
 The goal for CandidateCausal is to correctly select the true causal gene from C. An algorithm for solving UnknownCausal and UnknownTarget is to give an importance value to each node except the given node, where higher importance value indicates a higher chance that a gene is involved in a pathway containing the given gene, and the goal is to assign the potential causal genes or potential target genes and the nodes in the pathways higher importance values than other genes.
 The importance value of a gene ga is denoted by Imp(ga).
 3 REVIEW OF THE RANDOM WALK MODEL We begin by reviewing the information flow model introduced by Stojmirovic and Yu (2011), since other algorithms based on the random walk model can be thought of as specific instantiations of the information flow model.
-The information flow model first constructs a nn transition matrix P by normalizing the adjacent matrix A of the graph G, where Aij=w((gi,gj)) and Pij=Aij/ k Aik.
+The information flow model first constructs a nn transition matrix P by normalizing the adjacent matrix A of the graph G, where Aij=w((gi,gj)) and Pij=Aij/k Aik.
 (0,1) is called damping factor.
 When a random walk reaches a node gi, the walk would terminate at gi with probability 1 and go to another node gj with probability Pij in the next step.
 A random walk starts from a source node and once the walk reaches a sink node, the walk immediately terminates.

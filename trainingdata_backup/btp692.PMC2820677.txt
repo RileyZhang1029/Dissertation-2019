@@ -1,6 +1,4 @@
-            G:\fpp\tex\journals\oup\BioInfo\Bioinfo-26(4)issue\btp692.dvi [11:04 25/1/2010 Bioinformatics-btp692.tex] Page: 493 493500 BIOINFORMATICS ORIGINAL PAPER Vol.
-26 no.
-4 2010, pages 493500doi:10.1093/bioinformatics/btp692 Gene expression RNA-Seq gene expression estimation with read mapping uncertainty Bo Li1, Victor Ruotti2, Ron M. Stewart2, James A. Thomson2 and Colin N. Dewey1,3, 1Department of Computer Sciences, University of Wisconsin, Madison, WI 53706, 2Morgridge Institute for Research, Madison, WI 53707 and 3Department of Biostatistics and Medical Informatics, University of Wisconsin, Madison, WI 53706, USA Received on September 10, 2009; revised on November 24, 2009; accepted on December 15, 2009 Advance Access publication December 18, 2009 Associate Editor: Joaquin Dopazo ABSTRACT Motivation: RNA-Seq is a promising new technology for accurately measuring gene expression levels.
+Motivation: RNA-Seq is a promising new technology for accurately measuring gene expression levels.
 Expression estimation with RNASeq requires the mapping of relatively short sequencing reads to a reference genome or transcript set.
 Because reads are generally shorter than transcripts from which they are derived, a single read may map to multiple genes and isoforms, complicating expression analyses.
 Previous computational methods either discard reads that map to multiple locations or allocate them to genes heuristically.
@@ -26,7 +24,7 @@ Due to these factors, a significant number of reads are multireads: reads that h
 We will refer to reads that map to multiple genes as gene multireads and reads that map to a single gene but multiple isoforms as isoform multireads.
 The Author(s) 2009.
 Published by Oxford University Press.
-This is an Open Access article distributed under the terms of the Creative Commons Attribution Non-Commercial License (http://creativecommons.org/licenses/ by-nc/2.5) which permits unrestricted non-commercial use, distribution, and reproduction in any medium, provided the original work is properly cited.
+This is an Open Access article distributed under the terms of the Creative Commons Attribution Non-Commercial License (http://creativecommons.org/licenses/by-nc/2.5) which permits unrestricted non-commercial use, distribution, and reproduction in any medium, provided the original work is properly cited.
 [11:04 25/1/2010 Bioinformatics-btp692.tex] Page: 494 493500 B.Li et al.The fraction of mappable reads that are gene multireads varies and depends on the transcriptome and read length.
 For the datasets we analyzed, this fraction ranged between 17% (mouse) and 52% (maize), representing a significant proportion of RNA-Seq data.
 Two strategies have been previously used for handling gene multireads.

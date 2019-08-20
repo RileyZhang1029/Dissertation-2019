@@ -1,5 +1,4 @@
-            G:\fpp\tex\journals\oup\BioInfo\Bioinfo-25-ISMB-ECCB\btp227.dvi [10:11 15/5/2009 Bioinformatics-btp227.tex] Page: i187 i187i195 BIOINFORMATICS Vol.
-25 ISMB 2009, pages i187i195doi:10.1093/bioinformatics/btp227 Multi-locus match probability in a finite population: a fundamental difference between the Moran and WrightFisher models Anand Bhaskar1 and Yun S. Song1,2, 1Computer Science Division and 2Department of Statistics, University of California, Berkeley, CA, USA ABSTRACT Motivation: A fundamental problem in population genetics, which being also of importance to forensic science, is to compute the match probability (MP) that two individuals randomly chosen from a population have identical alleles at a collection of loci.
+Motivation: A fundamental problem in population genetics, which being also of importance to forensic science, is to compute the match probability (MP) that two individuals randomly chosen from a population have identical alleles at a collection of loci.
 At present, 1113 unlinked autosomal microsatellite loci are typed for forensic use.
 In a finite population, the genealogical relationships of individuals can create statistical non-independence of alleles at unlinked loci.
 However, the so-called product rule, which is used in courts in the USA, computes the MP for multiple unlinked loci by assuming statistical independence, multiplying the one-locus MPs at those loci.
@@ -35,7 +34,7 @@ Hence, when we say MP in what follows, we mean haplotypic MP.
 Both Laurie and Weir (2003) and Song and Slatkin (2007) restricted their attention to the WrightFisher (WF) model of random mating.
 In our work, we consider the Moran model in addition to the WF model; the main difference between these two standard models in population genetics is that generations do not overlap in the WF model, while they do overlap in the Moran model.
 We are currently able to compute MPs for up to 10 loci in the WF model and up to 13 loci in the Moran model.
-Bear in mind that this work requires overcoming several algorithmic and 2009 The Author(s) This is an Open Access article distributed under the terms of the Creative Commons Attribution Non-Commercial License (http://creativecommons.org/licenses/ by-nc/2.0/uk/) which permits unrestricted non-commercial use, distribution, and reproduction in any medium, provided the original work is properly cited.
+Bear in mind that this work requires overcoming several algorithmic and 2009 The Author(s) This is an Open Access article distributed under the terms of the Creative Commons Attribution Non-Commercial License (http://creativecommons.org/licenses/by-nc/2.0/uk/) which permits unrestricted non-commercial use, distribution, and reproduction in any medium, provided the original work is properly cited.
 [10:11 15/5/2009 Bioinformatics-btp227.tex] Page: i188 i187i195 A.Bhaskar and Y.S.Song engineering challenges.
 For example, the 13-locus case involves about 3.1 million coupled linear equations; both finding the system of linear equations and solving it are challenging tasks.
 Two major findings of our work are as follows.
@@ -261,7 +260,7 @@ We do not show the product rule MPs in the Moran model, since they are very clos
 The L-locus product rule MP WFL shown in the table agrees very well with Ewens (1972) sampling formula (ESF): 1/(1+ )L , where =4Ne.
 As Table 2 illustrates, for a give mutation rate , the product rule becomes less accurate as the number of loci increases.
 Furthermore, for a large number L of loci, a slight change in causes the product rule MP to decrease by a large amount; for L=13, it decreases by a factor of about 250 000 if changes from 1104 to 3104.
-However, PWFL and P M L are far less sensitive to a change in ; in particular, PM13 changes only by a factor of about 4 if changes from 1104 to 3104. i193 [10:11 15/5/2009 Bioinformatics-btp227.tex] Page: i194 i187i195 A.Bhaskar and Y.S.Song L P M L/ P W F L 11109876543210 160 140 120 100 80 60 40 20 0 =5103 =1103 =5104 =3104 =2 104 Fig.5.
+However, PWFL and P M L are far less sensitive to a change in ; in particular, PM13 changes only by a factor of about 4 if changes from 1104 to 3104. i193 [10:11 15/5/2009 Bioinformatics-btp227.tex] Page: i194 i187i195 A.Bhaskar and Y.S.Song L P M L/P W F L 11109876543210 160 140 120 100 80 60 40 20 0 =5103 =1103 =5104 =3104 =2 104 Fig.5.
 The ratio of PML to P WF L for Ne =10000 and various values of.
 Table 3.
 MPs for Ne =109 and =108, which correspond to =40 L 1/(1+ )L PWFL PML 1 2.44102 2.44102 2.44102 2 5.95104 5.95104 5.95104 3 1.45105 1.45105 1.45105 4 3.54107 3.54107 3.54107 5 8.63109 8.63109 8.65109 6 2.111010 2.111010 2.201010 7 5.131012 5.341012 9.861012 8 1.251013 1.791013 2.521012 9 3.051015 1.751014 1.221012 Since the accuracy of the product rule is highly sensitive to mutation rates, one important question is, What range of mutation rates in the infinite alleles model is relevant to microsatellite loci?

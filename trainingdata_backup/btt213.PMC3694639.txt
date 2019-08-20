@@ -1,5 +1,4 @@
-          OP-CBIO130253 352..360 Vol.
-29 ISMB/ECCB 2013, pages i352i360 BIOINFORMATICS doi:10.1093/bioinformatics/btt213 Haplotype assembly in polyploid genomes and identical by descent shared tracts Derek Aguiar and Sorin Istrail* Department of Computer Science and Center for Computational Molecular Biology, Brown University, Providence, RI 02912, USA ABSTRACT Motivation: Genome-wide haplotype reconstruction from sequence data, or haplotype assembly, is at the center of major challenges in molecular biology and life sciences.
+Motivation: Genome-wide haplotype reconstruction from sequence data, or haplotype assembly, is at the center of major challenges in molecular biology and life sciences.
 For complex eukaryotic organisms like humans, the genome is vast and the population samples are growing so rapidly that algorithms processing high-throughput sequencing data must scale favorably in terms of both accuracy and computational efficiency.
 Furthermore, current models and methodologies for haplotype assembly (i) do not consider individuals sharing haplotypes jointly, which reduces the size and accuracy of assembled haplotypes, and (ii) are unable to model genomes having more than two sets of homologous chromosomes (polyploidy).
 Polyploid organisms are increasingly becoming the target of many research groups interested in the genomics of disease, phylogenetics, botany and evolution but there is an absence of theory and methods for polyploid haplotype reconstruction.
@@ -32,7 +31,7 @@ The first widely available haplotype assembly software package was presented in 
 Bansal et al.(2008) describe a Markov chain model with Metropolis updating rules to sample*To whom correspondence should be addressed.
 The Author 2013.
 Published by Oxford University Press.
-This is an Open Access article distributed under the terms of the Creative Commons Attribution Non-Commercial License (http://creativecommons.org/licenses/ by-nc/3.0/), which permits non-commercial re-use, distribution, and reproduction in any medium, provided the original work is properly cited.
+This is an Open Access article distributed under the terms of the Creative Commons Attribution Non-Commercial License (http://creativecommons.org/licenses/by-nc/3.0/), which permits non-commercial re-use, distribution, and reproduction in any medium, provided the original work is properly cited.
 For commercial re-use, please contact journals.permissions@oup.com a set of likely haplotypes under the MEC optimization.
 In a follow-up, the authors present a much faster algorithm on a related graph model that relates maximum cuts to SNP allele flips (in the MEC model) [Bansal and Bafna (2008)].
 Still other authors have suggested reductions to the well-known maximum satisfiability problem [He et al.(2010); Mousavi et al.(2011)] The Levy et al.(2007) algorithm is a well-known heuristic that was used to haplotype assemble the HuRef genome; it assigns fragments to haplotypes in a greedy fashion and iteratively refines the solution by comparing the set of fragments to the assembled haplotypes using majority rule phasings.

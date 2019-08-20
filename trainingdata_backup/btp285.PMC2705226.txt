@@ -1,6 +1,4 @@
-            G:\fpp\tex\journals\oup\BioInfo\Bioinfo-25(14)issue\btp285.dvi [15:03 29/6/2009 Bioinformatics-btp285.tex] Page: 1833 18331835 BIOINFORMATICS APPLICATIONS NOTE Vol.
-25 no.
-14 2009, pages 18331835doi:10.1093/bioinformatics/btp285 Genome analysis baobabLUNA: the solution space of sorting by reversals Marlia D. V. Braga Universit de Lyon, F-69000, Lyon; Universit Lyon 1; CNRS UMR5558; Inria Grenoble Rhne-Alpes, Lyon, France Received on February 19, 2009; revised on April 21, 2009; accepted on April 22, 2009 Advance Access publication April 28, 2009 Associate Editor: Alex Bateman ABSTRACT Summary: Computing the reversal distance and searching for an optimal sequence of reversals to transform a unichromosomal genome into another are useful algorithmic tools to analyse real evolutionary scenarios.
+Summary: Computing the reversal distance and searching for an optimal sequence of reversals to transform a unichromosomal genome into another are useful algorithmic tools to analyse real evolutionary scenarios.
 Currently, these problems can be solved by at least two available softwares, the prominent of which are GRAPPA and GRIMM.
 However, the number of different optimal sequences is usually huge and taking only the distance and/or one example is often insufficient to do a proper analysis.
 Here, we offer an alternative and present baobabLUNA, a framework that contains an algorithm to give a compact representation of the whole space of solutions for the sorting by reversals problem.
@@ -28,7 +26,7 @@ If s=12...i is a sequence of reversals for a permutation , we say that s sorts i
 Let s=12...i be a sequence of reversals sorting into T. If d(,T )= i, then s is said to be an optimal sorting sequence.
 As an example, the sequence {1}{2}{4}{1,2,3} sorts (3,2,1,4) into I4 and is optimal.
 2.2 Main functionalities 2.2.1 Computing traces Given two permutations and T , the enumeration of all solutions (sequences) that sort into T can be done by iterating an algorithm given by Siepel (2003).
-However, the number of solutions is huge and the complexity of enumerating all of 2009 The Author(s) This is an Open Access article distributed under the terms of the Creative Commons Attribution Non-Commercial License (http://creativecommons.org/licenses/ by-nc/2.0/uk/) which permits unrestricted non-commercial use, distribution, and reproduction in any medium, provided the original work is properly cited.
+However, the number of solutions is huge and the complexity of enumerating all of 2009 The Author(s) This is an Open Access article distributed under the terms of the Creative Commons Attribution Non-Commercial License (http://creativecommons.org/licenses/by-nc/2.0/uk/) which permits unrestricted non-commercial use, distribution, and reproduction in any medium, provided the original work is properly cited.
 [15:03 29/6/2009 Bioinformatics-btp285.tex] Page: 1834 18331835 M.D.V.Braga them is O(n2n+3) (Braga, 2009).
 Bergeron et al.(2002) introduced a more compact representation of the space of solutions, grouping them into equivalence classes called traces.
 All equivalent solutions in a trace are composed by the same reversals but in different orders.

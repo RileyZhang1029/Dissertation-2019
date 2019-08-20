@@ -1,16 +1,15 @@
 # -*- coding: utf-8 -*-
 """
 Created on Sat May 25 19:21:03 2019
-
 @author: Administrator
 """
 import os
 import re
 
-n = 0
+
 x = 0
 
-folder_out = os.getcwd() + "/trainingdata"
+folder_out = os.getcwd() + "/trainingdata_backup"
 files = os.listdir(folder_out)
 txtFiles = [f for f in files if f.endswith(".txt")]
 
@@ -19,7 +18,7 @@ for txtFile in txtFiles:
 
     count = 0
     textsize = round(os.path.getsize(txtFile)/float(1024), 2)
-
+    # print(textsize)
     with open(txtFile, 'r') as f:
         dictResult = {}
 
@@ -33,12 +32,11 @@ for txtFile in txtFiles:
                 count += eachLetterCount
 
 
-    if textsize != 0:
-        if (count/textsize) < 80.5:
-            x += 1
-        else:
-            os.remove(os.path.join(folder_out, txtFile))
-            os.remove(os.path.join(folder_out, txtFile.replace("txt","pdf")))
+if textsize >=10 and count <= 900:
+    x += 1
+# else:
+#     os.remove(os.path.join(folder_out, txtFile))
+#     os.remove(os.path.join(folder_out, txtFile.replace("txt","pdf")))
 
 
 print(x)
@@ -47,3 +45,4 @@ print(x)
 
 
 
+print(x)

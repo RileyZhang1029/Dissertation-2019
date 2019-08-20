@@ -1,6 +1,4 @@
-            G:\fpp\tex\journals\oup\BioInfo\Bioinfo-25(11)issue\btp184.dvi [11:49 14/5/2009 Bioinformatics-btp184.tex] Page: 1463 14631465 BIOINFORMATICS APPLICATIONS NOTE Vol.
-25 no.
-11 2009, pages 14631465doi:10.1093/bioinformatics/btp184 Systems biology Globally optimal stitching of tiled 3D microscopic image acquisitions Stephan Preibisch, Stephan Saalfeld and Pavel Tomancak Max Planck Institute of Molecular Cell Biology and Genetics, Pfotenhauerstrasse 108, Dresden, Germany Received and revised on January 30, 2009; accepted on March 26, 2009 Advance Access publication April 3, 2009 Associate Editor: Trey Ideker ABSTRACT Motivation: Modern anatomical and developmental studies often require high-resolution imaging of large specimens in three dimensions (3D).
+Motivation: Modern anatomical and developmental studies often require high-resolution imaging of large specimens in three dimensions (3D).
 Confocal microscopy produces high-resolution 3D images, but is limited by a relatively small field of view compared with the size of large biological specimens.
 Therefore, motorized stages that move the sample are used to create a tiled scan of the whole specimen.
 The physical coordinates provided by the microscope stage are not precise enough to allow direct reconstruction (Stitching) of the whole image from individual image stacks.
@@ -28,7 +26,7 @@ Additionally, we implemented non-linear blending to compensate brightness differ
 The method has to determine the correct overlap for all tiles and create a properly registered output image containing all image tiles that are connected to the graph.
 We assume all transformations between overlapping tiles to be translation only which is reasonable for most commonly used microscopy techniques where the static, fixed sample rests on a level microscope slide moved by a motorized stage.
 2.1 Phase correlation and fast Fourier transform We use the Fourier transform (F )-based phase correlation method (PCM) (Kuglin and Hines, 1975) to compute translational offsets between images.
-If two images A and B are related by translation, the shift (x,y,z)T can be computed from inverse Fourier transform (F1) of the phase correlation 2009 The Author(s) This is an Open Access article distributed under the terms of the Creative Commons Attribution Non-Commercial License (http://creativecommons.org/licenses/ by-nc/2.0/uk/) which permits unrestricted non-commercial use, distribution, and reproduction in any medium, provided the original work is properly cited.
+If two images A and B are related by translation, the shift (x,y,z)T can be computed from inverse Fourier transform (F1) of the phase correlation 2009 The Author(s) This is an Open Access article distributed under the terms of the Creative Commons Attribution Non-Commercial License (http://creativecommons.org/licenses/by-nc/2.0/uk/) which permits unrestricted non-commercial use, distribution, and reproduction in any medium, provided the original work is properly cited.
 [11:49 14/5/2009 Bioinformatics-btp184.tex] Page: 1464 14631465 S.Preibisch et al.matrix Q(F (A),F (B)).
 It is theoretically represented by a single peak (function) whose location defines the correct translation vector between the images.
 In real images, however, F1(Q) contains several peaks marking different translations with high correlation.

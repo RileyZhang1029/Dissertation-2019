@@ -1,6 +1,4 @@
-            btr074.dvi [11:33 21/3/2011 Bioinformatics-btr074.tex] Page: 1094 10941100 BIOINFORMATICS ORIGINAL PAPER Vol.
-27 no.
-8 2011, pages 10941100doi:10.1093/bioinformatics/btr074 Gene expression Advance Access publication February 16, 2011 Defining an informativeness metric for clustering gene expression data Jessica C. Mar1,2,, Christine A. Wells3 and John Quackenbush1,2,4, 1Department of Biostatistics, Harvard School of Public Health, 2Department of Biostatistics and Computational Biology, Dana-Farber Cancer Institute, Boston, MA 02115, USA, 3National Centre for Adult Stem Cell Research, Eskitis Institute for Cell and Molecular Therapies, Griffith University, Brisbane, Australia and 4Department of Cancer Biology, Dana-Farber Cancer Institute, Boston, MA 02115, USA Associate Editor: David Rocke ABSTRACT Motivation: Unsupervised cluster analysis is an invaluable tool for exploratory microarray data analysis, as it organizes the data into groups of genes or samples in which the elements share common patterns.
+Motivation: Unsupervised cluster analysis is an invaluable tool for exploratory microarray data analysis, as it organizes the data into groups of genes or samples in which the elements share common patterns.
 Once the data are clustered, finding the optimal number of informative subgroups within a dataset is a problem that, while important for understanding the underlying phenotypes, is one for which there is no robust, widely accepted solution.
 Results: To address this problem we developed an informativeness metric based on a simple analysis of variance statistic that identifies the number of clusters which best separate phenotypic groups.
 The performance of the informativeness metric has been tested on both experimental and simulated datasets, and we contrast these results with those obtained using alternative methods such as the gap statistic.
@@ -26,7 +24,7 @@ For the analysis of microarray data, a number of methods have been developed for
 A compact cluster is defined such that the intra-cluster variability is small relative to the average inter-cluster variability.
 Metrics assessing compactness that have been applied to array data include the gap statistic (Tibshirani et al., 2001), the Silhouette width (Rousseeuw, 1987), the Dunn index (Dunn, 1974) and the The Author(s) 2011.
 Published by Oxford University Press.
-This is an Open Access article distributed under the terms of the Creative Commons Attribution Non-Commercial License (http://creativecommons.org/licenses/ by-nc/2.5), which permits unrestricted non-commercial use, distribution, and reproduction in any medium, provided the original work is properly cited.
+This is an Open Access article distributed under the terms of the Creative Commons Attribution Non-Commercial License (http://creativecommons.org/licenses/by-nc/2.5), which permits unrestricted non-commercial use, distribution, and reproduction in any medium, provided the original work is properly cited.
 [11:33 21/3/2011 Bioinformatics-btr074.tex] Page: 1095 10941100 Informativeness metric connectivity score (Handl et al., 2005).
 A stable cluster on the other hand, is one that is robust to the removal of a small number of samples from the dataset.
 Stable cluster metrics include the average proportion of non-overlap (APN), the average distance (AD), the average distance between means (ADM) (Datta and Datta, 2003) and the figure of merit (FOM) (Yeung et al., 2001).
@@ -166,7 +164,7 @@ Taken together, both sets of results on experimental and simulated datasets sugg
 This validation method is independent of the method used to generate the clusters.
 Given the additional insights into data structure provided by our approach, we hope that the simplicity of our method will make the integration of cluster validation approaches a more mainstream part of the cluster analysis procedure.
 6 IMPLEMENTATION The routines implementing this metric and associated tools for visualization are freely available as an R package attract and has been submitted to Bioconductor.
-We have also uploaded a script which details the calculations performed as well the data analyzed in this article, available from http://compbio.dfci.harvard.edu/pubs/ informativeness.zip.
+We have also uploaded a script which details the calculations performed as well the data analyzed in this article, available from http://compbio.dfci.harvard.edu/pubs/informativeness.zip.
 The Bioconductor R package clValid (Datta and Datta, 2006) contains functions that calculate the six other metrics: the connectivity score, the Dunn Index, the silhouette width, APN, AD, ADM and FOM.
 To our knowledge, the Bioconductor package SAGx contains the only implementation of the Gap statistic in R. ACKNOWLEDGEMENTS We acknowledge the assistance of Drs Jiyuan An, Alistair Chalk and Nick Matigian, The National Centre for Adult Stem Cell Research, Griffith University, who provided valuable help in assembling the experimental dataset for this article.
 We also thank the constructive suggestions from our anonymous peer reviewers, in particular on extensions to our simulation work.

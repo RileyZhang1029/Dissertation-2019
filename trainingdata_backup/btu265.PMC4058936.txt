@@ -1,10 +1,9 @@
-          OP-CBIO140274 165..174 Vol.
-30 ISMB 2014, pages i165i174 BIOINFORMATICS doi:10.1093/bioinformatics/btu265 Metabolome-scale prediction of intermediate compounds in multistep metabolic pathways with a recursive supervised approach Masaaki Kotera1,y, Yasuo Tabei2,y, Yoshihiro Yamanishi3,4,y, Ai Muto5, Yuki Moriya6, Toshiaki Tokimatsu6 and Susumu Goto6,* 1Graduate School of Bioscience and Biotechnology, Tokyo Institute of Technology, 2-12-1 Ookayama, Meguro-ku, Tokyo, 152-8550, Japan, 2PRESTO, Japan Science and Technology Agency, Kawaguchi, Saitama 332-0012, Japan, 3Division of System Cohort, Medical Institute of Bioregulation, Kyushu University, 3-1-1 Maidashi, Higashi-ku, Fukuoka 812-8582, Japan, 4Institute for Advanced Study, Kyushu University, 6-10-1 Hakozaki, Higashi-ku, Fukuoka 812-8581, Japan, 5Graduate School of Biological Sciences, Nara Institute of Science and Technology (NAIST), 8916-5 Takayama, Ikoma, Nara 630-0192, Japan and 6Bioinformatics Center, Institute for Chemical Research, Kyoto University, Gokasho, Uji, Kyoto 611-0011, Japan ABSTRACT Motivation: Metabolic pathway analysis is crucial not only in metabolic engineering but also in rational drug design.
+Motivation: Metabolic pathway analysis is crucial not only in metabolic engineering but also in rational drug design.
 However, the biosynthetic/biodegradation pathways are known only for a small portion of metabolites, and a vast amount of pathways remain uncharacterized.
 Therefore, an important challenge in metabolomics is the de novo reconstruction of potential reaction networks on a metabolome-scale.
 Results: In this article, we develop a novel method to predict the multistep reaction sequences for de novo reconstruction of metabolic pathways in the reaction-filling framework.
 We propose a supervised approach to learn what we refer to as multistep reaction sequence likeness, i.e.whether a compoundcompound pair is possibly converted to each other by a sequence of enzymatic reactions.
-In the algorithm, we propose a recursive procedure of using step-specific classifiers to predict the intermediate compounds in the multistep reaction sequences, based on chemical substructure fingerprints/ descriptors of compounds.
+In the algorithm, we propose a recursive procedure of using step-specific classifiers to predict the intermediate compounds in the multistep reaction sequences, based on chemical substructure fingerprints/descriptors of compounds.
 We further demonstrate the usefulness of our proposed method on the prediction of enzymatic reaction networks from a metabolome-scale compound set and discuss characteristic features of the extracted chemical substructure transformation patterns in multistep reaction sequences.
 Our comprehensively predicted reaction networks help to fill the metabolic gap and to infer new reaction sequences in metabolic pathways.
 Availability and implementation: Materials are available for free at Contact: goto@kuicr.kyoto-u.ac.jp Supplementary information: Supplementary data are available at Bioinformatics online.
@@ -26,7 +25,7 @@ The users input the start (source) compound and/or the goal (target) compound, a
 yThe authors wish it to be known that, in their opinion, the first three authors should be regarded as Joint First Authors.
 The Author 2014.
 Published by Oxford University Press.
-This is an Open Access article distributed under the terms of the Creative Commons Attribution Non-Commercial License (http://creativecommons.org/licenses/ by-nc/3.0/), which permits non-commercial re-use, distribution, and reproduction in any medium, provided the original work is properly cited.
+This is an Open Access article distributed under the terms of the Creative Commons Attribution Non-Commercial License (http://creativecommons.org/licenses/by-nc/3.0/), which permits non-commercial re-use, distribution, and reproduction in any medium, provided the original work is properly cited.
 For commercial re-use, please contact journals.permissions@oup.com (IUBMB) about '' '' , '' '' '' '' XPath error Undefined namespace prefix XPath error Undefined namespace prefix (Darvas, 1988; Ellis et al., 2008; Greene et al., 1999; Moriya et al., 2010; Talafous et al., 1994).
 On the other hand, the reaction-filling framework does not generate unknown chemical compounds, but use the compounds that are already present in databases.
 The users input a group of compounds, or vast amount of compounds in databases, and the methods predict the connectivity among the compounds, i.e.substrateproduct pairs in a reaction (Hatzimanikatis et al., 2005; Kotera et al., 2008a, 2013a,b; Nakamura et al., 2012; Tanaka et al., 2009).
@@ -62,7 +61,7 @@ We prepared the positive and negative examples of k-step reaction sequences as f
 For example, from the three reactant pairs C1C2, C1C3 and C3C4 (where Cn represents a compound ID), two 2-step sequences C2C1C3 and C1C3 C4 and a 3-step sequence C2C1C3C4 were generated.
 The first and the last compounds in the sequence were referred to as the start and the goal compounds, respectively.
 (2) Using the RPAIR database, the conservation ratio of the atoms from the start compound to the goal compound was calculated for each k-step sequence.
-For example, consider that C1, C2, C3 and C4 consists of 18, 20, 23 and 24 nodes (i.e.atoms other than hydrogen atoms), respectively, and the pair C1C2 conserve 18 nodes, the conservation ratio of the step C1C2 is 18/18=1.0 and that of C2C1 is 18/ 20=0.9, respectively.
+For example, consider that C1, C2, C3 and C4 consists of 18, 20, 23 and 24 nodes (i.e.atoms other than hydrogen atoms), respectively, and the pair C1C2 conserve 18 nodes, the conservation ratio of the step C1C2 is 18/18=1.0 and that of C2C1 is 18/20=0.9, respectively.
 When the 17 nodes from the conserved nodes in C2C1 are conserved in C1C3, the conservation ratio of the step C2C1C3 is 17/20=0.85.
 In this study, the k-step sequences with the monotonic increase of the numbers of the nodes and the conservation ratio 0.5 were regarded as positive examples.
 The remaining k-step sequences were regarded as negative examples.

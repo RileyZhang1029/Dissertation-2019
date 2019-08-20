@@ -1,7 +1,4 @@
-            Copyedited by: ZAZA MANUSCRIPT CATEGORY: [11:32 31/5/2012 Bioinformatics-bts231.tex] Page: i163 i163i171 BIOINFORMATICS Vol.
-28 ISMB 2012, pages i163i171doi:10.1093/bioinformatics/bts231 Detection of allele-specific methylation through a generalized heterogeneous epigenome model Qian Peng 1,2, and Joseph R. Ecker 2,3,4 1Department of Computer Science and Engineering, University of California-San Diego, 9500 Gilman Drive, La Jolla, CA 92093 and 2Plant Biology Laboratory, The Salk Institute for Biological Studies, La Jolla, CA, 92037, USA.
-3Genomic Analysis Laboratory, The Salk Institute for Biological Studies, La Jolla, CA, 92037, USA.
-4Howard Hughes Medical Institute, The Salk Institute for Biological Studies, 10010 North Torrey Pines Road, La Jolla, California 92037, USA ABSTRACT Motivations: High-throughput sequencing has made it possible to sequence DNA methylation of a whole genome at the singlebase resolution.
+Motivations: High-throughput sequencing has made it possible to sequence DNA methylation of a whole genome at the singlebase resolution.
 A sample, however, may contain a number of distinct methylation patterns.
 For instance, cells of different types and in different developmental stages may have different methylation patterns.
 Alleles may be differentially methylated, which may partially explain that the large portions of epigenomes from single cell types are partially methylated, and may have major effects on transcriptional output.
@@ -40,7 +37,7 @@ Some studies have shown that ASM is associated with SNPs (Kerkel et al., 2008; S
 The density of methylation across the whole genome, however, is much higher than that of DNA sequence polymorphism.
 For instance, while there are close to 3 million SNPs discovered in the human genome 62 million and 45 million methylcytosines were detected in H1 and The Author(s) 2012.
 Published by Oxford University Press.
-This is an Open Access article distributed under the terms of the Creative Commons Attribution Non-Commercial License (http://creativecommons.org/licenses/ by-nc/3.0), which permits unrestricted non-commercial use, distribution, and reproduction in any medium, provided the original work is properly cited.
+This is an Open Access article distributed under the terms of the Creative Commons Attribution Non-Commercial License (http://creativecommons.org/licenses/by-nc/3.0), which permits unrestricted non-commercial use, distribution, and reproduction in any medium, provided the original work is properly cited.
 qpeng@cs.ucsd.edu Copyedited by: ZAZA MANUSCRIPT CATEGORY: [11:32 31/5/2012 Bioinformatics-bts231.tex] Page: i164 i163i171 Q.Peng and J.R.Ecker IMR90 cells (Lister et al., 2009).
 It has also been observed that changes in cytosine methylation occur at a frequency much greater than that of the DNA sequence mutations (Ossowski et al., 2010; Schmitz et al., 2011).
 As a result, SNPs are absent in large portions of the methylomes.
@@ -76,7 +73,7 @@ The probability of observing string r is P(r)= k j=1 cjprj, where prj is the pro
 (1) The probability of observing the set R is therefore P(M ,C,R)= rR P(r), or equivalently the log likelihood l(M ,C,R)= rR logP(r).
 The optimization goal is to determine parameters C and M such that the probability of observing the set R is maximum, thus best explaining the reads.
 We estimate array C and matrix M by maximizing the likelihood l, argmaxM ,C rR logP(r), which can be solved by using the expectation-maximization (EM) algorithm (Dempster et al., 1977).
-First, we define a membership matrix A={arj|r R,j=1...k}, where arj = { 1 if r j, 0 if r/ j.
+First, we define a membership matrix A={arj|r R,j=1...k}, where arj = { 1 if r j, 0 if r/j.
 As the membership of string r with respect to epigenome j is unknown, it is estimated by its expected value as arj = cjprj j cj prj.
 (2) The likelihood can then be rewritten as l(M ,C,R,A)= rR k j=1 arj log(cjprj), (3) and the optimization becomes argmaxM ,C rR k j=1 arj log(cjprj).
 Solving the maximization constrained by k j=1cj =1 yields the update equations at each M-step iteration of the EM algorithm as follows (see Appendix A for the detailed derivation), cj = r arj r j arj , mij = r arjxri r arj.

@@ -1,6 +1,4 @@
-            Copyedited by: TRJ MANUSCRIPT CATEGORY: ORIGINAL PAPER [14:57 27/3/2012 Bioinformatics-bts092.tex] Page: 1136 11361142 BIOINFORMATICS ORIGINAL PAPER Vol.
-28 no.
-8 2012, pages 11361142doi:10.1093/bioinformatics/bts092 Systems biology Advance Access publication February 24, 2012 A Bayesian approach to targeted experiment design J. Vanlier1,2, C. A. Tiemann1,2, P. A. J. Hilbers1,2 and N. A. W. van Riel1,2, 1Department of BioMedical Engineering, Eindhoven University of Technology, Eindhoven 5612 AZ and 2Netherlands Consortium for Systems Biology, University of Amsterdam, Amsterdam, 1098 XH, The Netherlands Associate Editor: Martin Bishop ABSTRACT Motivation: Systems biology employs mathematical modelling to further our understanding of biochemical pathways.
+Motivation: Systems biology employs mathematical modelling to further our understanding of biochemical pathways.
 Since the amount of experimental data on which the models are parameterized is often limited, these models exhibit large uncertainty in both parameters and predictions.
 Statistical methods can be used to select experiments that will reduce such uncertainty in an optimal manner.
 However, existing methods for optimal experiment design (OED) rely on assumptions that are inappropriate when data are scarce considering model complexity.
@@ -35,7 +33,7 @@ Here yt is the true system with true parameters t , where i,j indicates the SD o
 P(y|t)= M i=1 Ni j=1 P(yi(tj),t) (4) =Ke M i=1 Ni j=1 ( yi (tj )yti (tj ,t ) 2i,j )2 (5) Using Bayes theorem, we obtain an expression for the posterior probability distribution over the parameters (Klinke, 2009).
 The posterior probability distribution is given by normalizing The Author(s) 2012.
 Published by Oxford University Press.
-This is an Open Access article distributed under the terms of the Creative Commons Attribution Non-Commercial License (http://creativecommons.org/licenses/ by-nc/3.0), which permits unrestricted non-commercial use, distribution, and reproduction in any medium, provided the original work is properly cited.
+This is an Open Access article distributed under the terms of the Creative Commons Attribution Non-Commercial License (http://creativecommons.org/licenses/by-nc/3.0), which permits unrestricted non-commercial use, distribution, and reproduction in any medium, provided the original work is properly cited.
 j.vanlier@tue.nl N.A.W.v.Riel@tue.nl Copyedited by: TRJ MANUSCRIPT CATEGORY: ORIGINAL PAPER [14:57 27/3/2012 Bioinformatics-bts092.tex] Page: 1137 11361142 Targeted Experiment Design Equation (4) multiplied with the prior to a unit area.
 Here P(y|t) corresponds to the probability of observing dataset y given the true parameters t. Both computational as well as methodological advances have made Markov Chain Monte Carlo (MCMC) an attractive option for obtaining samples from such a distribution (Geyer, 1992; Girolami and Calderhead, 2011; Klinke, 2009).
 Given a sample of the posterior parameter distribution, predictions can be made by simulating the model for each of the parameter sets.
@@ -139,7 +137,7 @@ The first reaction describes the activation of the erythropoietin receptor which
 Then phosphorylated STAT (x2) dimerises (x3) and is imported into the nucleus (x4).
 Here dissociation and dephosphorylation occurs which are associated with a time delay.
 Similar to the implementation given in the original paper, the driving input function was approximated by a spline interpolant, while the delay was approximated using a linear chain approximation (x5,...,x13).
-x1 =2 VnucleusVcyto ( p4x13 )p1x1u1 x8 =p4x7 p4x8 x2 =p1x1u1 2p2x22 x9 =p4x8 p4x9 x3 =p2x22 p3x3 x10 =p4x9 p4x10 (19) x4 = Vcyto Vnucleus ( p3x3 )p4x4 x11 =p4x10 p4x11 x5 =p4x4 p4x5 x12 =p4x11 p4x12 x6 =p4x5 p4x6 x13 =p4x12 p4x13 x7 =p4x6 p4x7 In order to infer the posterior distribution data from the paper by Swameye et al.[2003; http://webber.physik.uni-freiburg.de/~jeti/PNAS_Swameye_Data/ (dataset 1)] was used.
+x1 =2 VnucleusVcyto ( p4x13 )p1x1u1 x8 =p4x7 p4x8 x2 =p1x1u1 2p2x22 x9 =p4x8 p4x9 x3 =p2x22 p3x3 x10 =p4x9 p4x10 (19) x4 = Vcyto Vnucleus ( p3x3 )p4x4 x11 =p4x10 p4x11 x5 =p4x4 p4x5 x12 =p4x11 p4x12 x6 =p4x5 p4x6 x13 =p4x12 p4x13 x7 =p4x6 p4x7 In order to infer the posterior distribution data from the paper by Swameye et al.[2003; http://webber.physik.uni-freiburg.de/~jeti/PNAS_Swameye_Data/(dataset 1)] was used.
 Measured quantities were the total concentration of STAT (x1 +x2 +2x3) and the total concentration of phosphorylated STAT in the cytoplasm (x2 +2x3), both reported in arbitrary units (which necessitates two scaling parameters).
 The initial cytoplasmic concentration of STAT is unknown while all other forms of STAT are assumed zero at the start of the simulation.
 Given the data, not all parameters are identifiable (Raue et al., 2009).

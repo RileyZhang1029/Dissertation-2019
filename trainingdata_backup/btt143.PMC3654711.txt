@@ -1,6 +1,4 @@
-          OP-CBIO130151 1275..1282 Vol.
-29 no.
-10 2013, pages 12751282 BIOINFORMATICS ORIGINAL PAPER doi:10.1093/bioinformatics/btt143 Gene expression Advance Access publication April 14, 2013 Shrinkage estimation of dispersion in Negative Binomial models for RNA-seq experiments with small sample size Danni Yu1,2, Wolfgang Huber1 and Olga Vitek2,3,* 1Genome Biology Unit, European Molecular Biology Laboratory, Mayerhofstrae 1, Heidelberg 69117, Germany 2Department of Statistics and 3Department of Computer Science, Purdue University, West Lafayette, IN 47907, USA Associate Editor: Inanc Birol ABSTRACT Motivation: RNA-seq experiments produce digital counts of reads that are affected by both biological and technical variation.
+Motivation: RNA-seq experiments produce digital counts of reads that are affected by both biological and technical variation.
 To distinguish the systematic changes in expression between conditions from noise, the counts are frequently modeled by the Negative Binomial distribution.
 However, in experiments with small sample size, the per-gene estimates of the dispersion parameter are unreliable.
 Method: We propose a simple and effective approach for estimating the dispersions.
@@ -33,7 +31,7 @@ We consider the following parametrization: Xgij NBgi,g, where gi 0, g 0, such th
 *To whom correspondence should be addressed.
 The Author 2013.
 Published by Oxford University Press.
-This is an Open Access article distributed under the terms of the Creative Commons Attribution Non-Commercial License (http://creativecommons.org/licenses/ by-nc/3.0/), which permits non-commercial re-use, distribution, and reproduction in any medium, provided the original work is properly cited.
+This is an Open Access article distributed under the terms of the Creative Commons Attribution Non-Commercial License (http://creativecommons.org/licenses/by-nc/3.0/), which permits non-commercial re-use, distribution, and reproduction in any medium, provided the original work is properly cited.
 For commercial re-use, please contact journals.permissions@oup.com 2.2 Motivation for the proposed approach The estimation of VarfXgijg is the main focus of this work and is based on the following considerations.
 (1) A nave approach is to estimate VarfXgijg using the method of moments (i.e.the per-gene sample variance).
 However, it is highly variable in experiments with a small sample size (Croarkin and Tobias, 2006).
@@ -189,7 +187,7 @@ We used 12 truly differential genes and 19 truly non-differentially expressed ge
 Brooks et al.(2011) compared untreated cells of Drosophila melanogaster against cells cultured in presence of Pasilla, the homologue of the mammalian Nova-1 and Nova-2 protein.
 Two biological samples per condition were sequenced with the paired-end Illumina platform, resulting in 14470 genes.
 Sultan et al.(2008) (Frazee et al., 2011) compared two biological replicates of human cell lines Ramos B and HEK293T with the Illumina platform, yielding 6 573643 uniquely aligned reads.
-Bottomly et al.(2011) (Frazee et al., 2011) compared brain tissues of two inbred mouse strains, C57BL/6J (B6) and DBA/ 2J (D2), using the Illumina platform.
+Bottomly et al.(2011) (Frazee et al., 2011) compared brain tissues of two inbred mouse strains, C57BL/6J (B6) and DBA/2J (D2), using the Illumina platform.
 The analysis of 10 and 11 biological samples per condition resulted in 13 932 genes.
 Hammer et al.(2010) (Frazee et al., 2011) compared gene expression in rat strains Sprague Dawley and L5 SNL Sprague Dawley 2, at two times (2 weeks and 2 months) in a factorial design.
 Two distinct biological libraries per condition and per time slot were quantified using the Illumina platform, resulting in 18635 genes.

@@ -1,6 +1,4 @@
-            G:\bioinformatics\Bioinfo-26(12)issue\btq170.dvi [11:13 3/6/2010 Bioinformatics-btq170.tex] Page: 1572 15721573 BIOINFORMATICS APPLICATIONS NOTE Vol.
-26 no.
-12 2010, pages 15721573doi:10.1093/bioinformatics/btq170 Gene expression Advance Access publication April 28, 2010 ConsensusClusterPlus: a class discovery tool with confidence assessments and item tracking Matthew D. Wilkerson1, and D. Neil Hayes1,2 1Lineberger Comprehensive Cancer Center and 2Department of Internal Medicine, Division of Medical Oncology, Multidisciplinary Thoracic Oncology Program, 450 West Drive, Campus Box 7295, University of North Carolina at Chapel Hill, Chapel Hill, NC 27599, USA Associate Editor: Trey Ideker ABSTRACT Summary: Unsupervised class discovery is a highly useful technique in cancer research, where intrinsic groups sharing biological characteristics may exist but are unknown.
+Summary: Unsupervised class discovery is a highly useful technique in cancer research, where intrinsic groups sharing biological characteristics may exist but are unknown.
 The consensus clustering (CC) method provides quantitative and visual stability evidence for estimating the number of unsupervised classes in a dataset.
 ConsensusClusterPlus implements the CC method in R and extends it with new functionality and visualizations including item tracking, item-consensus and cluster-consensus plots.
 These new features provide users with detailed information that enable more specific decisions in unsupervised class discovery.
@@ -34,7 +32,7 @@ Empirical cumulative distribution function (CDF) plots display consensus distrib
 The purpose of the CDF plot is to find the k at which the distribution reaches an approximate maximum, which indicates a maximum stability and after which divisions are equivalent to random picks rather than true cluster structure.
 The Author(s) 2010.
 Published by Oxford University Press.
-This is an Open Access article distributed under the terms of the Creative Commons Attribution Non-Commercial License (http://creativecommons.org/licenses/ by-nc/2.5), which permits unrestricted non-commercial use, distribution, and reproduction in any medium, provided the original work is properly cited.
+This is an Open Access article distributed under the terms of the Creative Commons Attribution Non-Commercial License (http://creativecommons.org/licenses/by-nc/2.5), which permits unrestricted non-commercial use, distribution, and reproduction in any medium, provided the original work is properly cited.
 [11:13 3/6/2010 Bioinformatics-btq170.tex] Page: 1573 15721573 ConsensusClusterPlus 0 0.1 0.2 0.3 0.4 0.5 0.6 0.7 0.8 0.9 1 10 k 2 3 4 5 6 7 8 9 10 0 1 consensus C D F A Consensus matrix B Item tracking plot C CDF Plot E Cluster-consensus k=2 k=3 D Item-consensus k=2 k=3 2 3 4 5 6 7 8 9 10 k=  2  3   4   5 0 1 items 1 0 1 0 Fig.1.
 Example application of lung cancer gene expression microarrays.
 (A) consensus matrix, (B) item tracking plot, (C) CDF plot, (D) item-consensus plot and (E) cluster-consensus plot.

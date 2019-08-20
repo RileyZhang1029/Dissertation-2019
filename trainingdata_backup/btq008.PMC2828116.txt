@@ -1,6 +1,4 @@
-            G:\fpp\tex\journals\oup\BioInfo\Bioinfo-26(5)issue\btq008.dvi [14:57 5/2/2010 Bioinformatics-btq008.tex] Page: 617 617624 BIOINFORMATICS ORIGINAL PAPER Vol.
-26 no.
-5 2010, pages 617624doi:10.1093/bioinformatics/btq008 Structural bioinformatics Advance Access publication January 14, 2010 Active site prediction using evolutionary and structural information Sriram Sankararaman1, Fei Sha2, Jack F. Kirsch3, Michael I. Jordan1,4 and Kimmen Sjlander5,6, 1Computer Science Division, University of California, Berkeley, 2Computer Science Department, University of Southern California, 3Department of Molecular and Cell Biology, 4Department of Statistics, 5Department of Bioengineering and 6Department of Plant and Microbial Biology, University of California, Berkeley, USA Associate Editor: Alex Bateman ABSTRACT Motivation: The identification of catalytic residues is a key step in understanding the function of enzymes.
+Motivation: The identification of catalytic residues is a key step in understanding the function of enzymes.
 While a variety of computational methods have been developed for this task, accuracies have remained fairly low.
 The best existing method exploits information from sequence and structure to achieve a precision (the fraction of predicted catalytic residues that are catalytic) of 18.5% at a corresponding recall (the fraction of catalytic residues identified) of 57% on a standard benchmark.
 Here we present a new method, Discern, which provides a significant improvement over the state-of-the-art through the use of statistical techniques to derive a model with a small set of features that are jointly predictive of enzyme active sites.
@@ -22,7 +20,7 @@ In comparison, at the same precision, Discern yields a recall of at least 69%, r
 Features considered by Discern include evolutionary measures of positional conservation, relative and absolute solvent accessibility, presence in a cleft or pocket, secondary structure, polarity, charge and so on.
 Logistic regression takes a weighted linear combination of these features, where the weights are learned from a training set of experimentally The Author(s) 2010.
 Published by Oxford University Press.
-This is an Open Access article distributed under the terms of the Creative Commons Attribution Non-Commercial License (http://creativecommons.org/licenses/ by-nc/2.5), which permits unrestricted non-commercial use, distribution, and reproduction in any medium, provided the original work is properly cited.
+This is an Open Access article distributed under the terms of the Creative Commons Attribution Non-Commercial License (http://creativecommons.org/licenses/by-nc/2.5), which permits unrestricted non-commercial use, distribution, and reproduction in any medium, provided the original work is properly cited.
 [14:57 5/2/2010 Bioinformatics-btq008.tex] Page: 618 617624 S.Sankararaman et al.LEU102, conservation=0.9,pocket=yes,.... catalytic?=no HIS103, conservation=0.5,pocket=yes,.... catalytic?=yes ASP104, conservation=0.6,pocket=yes,.... catalytic?=yes TRY105, conservation=0.3,pocket=yes,.... catalytic?=no Features Label 2.Parameter estimation 1.
 Annotated dataset 3.
 Discern Predictor-0.6 + 0.2 * (conservation > 0.5)-0.1 * (Residue is LEU) +.........  > 0 Catalytic probability GLN1, conservation=0.95,pocket=yes,.... ALA2, conservation=0.3,pocket=yes,.... 4.

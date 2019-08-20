@@ -1,6 +1,4 @@
-           btn627 BIOINFORMATICS ORIGINAL PAPER Vol.
-25 no.
-4 2009, pages 435442doi:10.1093/bioinformatics/btn627 Genome analysis PASTAA: identifying transcription factors associated with sets of co-regulated genes Helge G. Roider, Thomas Manke, Sean OKeeffe, Martin Vingron and Stefan A. Haas Max Planck Institute for Molecular Genetics, Ihnestrasse 73, 14195 Berlin Received on September 8, 2008; revised on November 13, 2008; accepted on December 1, 2008 Advance Access publication December 9, 2008 Associate Editor: Alfonso Valencia ABSTRACT Motivation: A major challenge in regulatory genomics is the identification of associations between functional categories of genes (e.g.tissues, metabolic pathways) and their regulating transcription factors (TFs).
+Motivation: A major challenge in regulatory genomics is the identification of associations between functional categories of genes (e.g.tissues, metabolic pathways) and their regulating transcription factors (TFs).
 While, for a limited number of categories, the regulating TFs are already known, still for many functional categories the responsible factors remain to be elucidated.
 Results: We put forward a novel method (PASTAA) for detecting transcriptions factors associated with functional categories, which utilizes the prediction of binding affinities of a TF to promoters.
 This binding strength information is compared to the likelihood of membership of the corresponding genes in the functional category under study.
@@ -29,7 +27,7 @@ In order to be able to include distal cis-regulatory elements in the analysis su
 An important prerequisite for any of the above methods is the adequate definition of groups of genes expected to be co-regulated by the same factor.
 Generally, such groups can be inferred either from databases such as Gene Ontology (GO) (Hill et al., 2002) and Kyoto Encyclopedia of Genes and Genomes (KEGG) (Aoki and Kanehisa, 2005) through a binary assignment of the genes to the groups or from functional genomics data such as microarrays or ESTs in which case the specificity of a given gene for a given category (e.g.vertebrate tissues) is measured quantitatively.
 However, also such non-binary data are usually transformed into binary assignments by introducing an arbitrary cut-off, thereby discarding the information about the relative likelihood of a gene belonging to a category.
-2008 The Author(s) This is an Open Access article distributed under the terms of the Creative Commons Attribution Non-Commercial License (http://creativecommons.org/licenses/ by-nc/2.0/uk/) which permits unrestricted non-commercial use, distribution, and reproduction in any medium, provided the original work is properly cited.
+2008 The Author(s) This is an Open Access article distributed under the terms of the Creative Commons Attribution Non-Commercial License (http://creativecommons.org/licenses/by-nc/2.0/uk/) which permits unrestricted non-commercial use, distribution, and reproduction in any medium, provided the original work is properly cited.
 H.G.Roider et al.In this article, we put forward a novel method to detect TFs that are associated with particular functional categories of genes.
 We call our method PASTAA for predicting associated transcription factors from annotated affinities, because as a first step we rank all genes by the predicted affinity of the TF to the genes promoters.
 The expectation, of course, is that target genes of the TF rank high in this list.
@@ -99,7 +97,7 @@ Therefore, there exists an intrinsic negative correlation between the ranks of t
 To assess whether the enrichment is higher than expected, we repeated the entire analysis 10 times, every time assigning a random 200-bp long DNA sequence to each of the genes.
 The difference between the actual results and the ones obtained from the random sequences in each of the 72 bins was finally evaluated by the following t-statistic: ti = bini,g bini,r r (2) where bini,g is the number of TFs assigned to bini using the real genomic sequences, bini,r is the average number of TFs assigned to bin i over all 10 random sequence sets and r is the SD of the number of TFs in bin i obtained over the 10 random sets.
 2.8 Comparison to PAP, z-statistics and Clover The PASTAA algorithm was compared to three widely used methods for predicting TFtissue associations.
-Promoter Analysis Pipeline (PAP) (Chang et al., 2007) was accessed via logging into bioinformatics.wustl.edu/webTools/portalModule/ PromoterSearch.do.
+Promoter Analysis Pipeline (PAP) (Chang et al., 2007) was accessed via logging into bioinformatics.wustl.edu/webTools/portalModule/PromoterSearch.do.
 Clover (Frith et al., 2004a) was obtained from http://zlab.bu.edu/clover/.
 As input we provided the set of 589 TRANSFAC vertebrate PFMs, a sequence set corresponding to the 200 bp promoters of the mouse genes in a given tissue category, and as background DNA all mouse promoter sequences not contained in the tissue category.
 Input and background sequence sets hereby had very similar overall GC content.

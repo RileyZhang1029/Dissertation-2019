@@ -1,6 +1,4 @@
-            Copyedited by: TRJ MANUSCRIPT CATEGORY: ORIGINAL PAPER [18:46 19/7/2012 Bioinformatics-bts330.tex] Page: 2097 20972105 BIOINFORMATICS ORIGINAL PAPER Vol.
-28 no.
-16 2012, pages 20972105doi:10.1093/bioinformatics/bts330 Genome analysis Advance Access publication June 4, 2012 Genomic dark matter: the reliability of short read mapping illustrated by the genome mappability score Hayan Lee1,2, and Michael C. Schatz1,2 1Department of Computer Science, Stony Brook University, Stony Brook, NY, USA and 2Simons Center for Quantitive Biology, Cold Spring Harbor Laboratory, Cold Spring Harbor, NY, USA Associate Editor: Michael Brudno ABSTRACT Motivation: Genome resequencing and short read mapping are two of the primary tools of genomics and are used for many important applications.
+Motivation: Genome resequencing and short read mapping are two of the primary tools of genomics and are used for many important applications.
 The current state-of-the-art in mapping uses the quality values and mapping quality scores to evaluate the reliability of the mapping.
 These attributes, however, are assigned to individual reads and do not directly measure the problematic repeats across the genome.
 Here, we present the Genome Mappability Score (GMS) as a novel measure of the complexity of resequencing a genome.
@@ -156,7 +154,7 @@ For example, Figure 5 shows the GMS profile of a 1000 bp region of human chromos
 Here, just a small region is shown, but the GMA allows one to exactly measure this tradeoff across any region of interest or even the whole genome to see if the extra sequencing cost is justified.
 Furthermore, there is an inverse relationship between error rate and average GMS.
 Figure 6 shows the relationship between error rate and GMS profile using three different error rates for a 10 000 bp Table 1.
-Percentage of highly mappable bases in the genomes of several model species Species Size Paired/ Whole Transcribed (build) Single (%) (%) Yeast (sc2) 12 Mbp Paired 94.85 95.04 Single 94.25 94.62 Fly (dm3) 130 Mbp Paired 90.52 96.14 Single 89.70 95.94 Mouse (mm9) 2.7 Gbp Paired 89.39 96.03 Single 87.47 94.75 Human (hg19) 3.0 Gbp Paired 89.02 97.40 Single 87.79 96.38 Approximately 90% of these genome can be mapped reliably.
+Percentage of highly mappable bases in the genomes of several model species Species Size Paired/Whole Transcribed (build) Single (%) (%) Yeast (sc2) 12 Mbp Paired 94.85 95.04 Single 94.25 94.62 Fly (dm3) 130 Mbp Paired 90.52 96.14 Single 89.70 95.94 Mouse (mm9) 2.7 Gbp Paired 89.39 96.03 Single 87.47 94.75 Human (hg19) 3.0 Gbp Paired 89.02 97.40 Single 87.79 96.38 Approximately 90% of these genome can be mapped reliably.
 Coverage is 100-fold for all experiments, using Illumina-like read characteristics: 2% error rate, 100 bp reads.
 Paired-end reads are sampled from a 300 bp library.
 region of human chromosome X.

@@ -1,5 +1,4 @@
-          OP-CBIO140512 564..571 Vol.
-30 ECCB 2014, pages i564i571 BIOINFORMATICS doi:10.1093/bioinformatics/btu465 Transcriptome-guided amyloid imaging genetic analysis via a novel structured sparse learning algorithm Jingwen Yan1,2, Lei Du2, Sungeun Kim2, Shannon L. Risacher2, Heng Huang3, Jason H. Moore4, Andrew J. Saykin2, Li Shen2,* and for the Alzheimers Disease Neuroimaging Initiative 1BioHealth, Indiana University School of Informatics & Computing, 2Radiology and Imaging Sciences, Indiana University School of Medicine, Indianapolis, IN 46202, USA, 3Computer Science & Engineering, The University of Texas at Arlington, TX 76019, USA and 4Genetics, Community & Family Medicine, Dartmouth Medical School, Lebanon, NH 03756, USA ABSTRACT Motivation: Imaging genetics is an emerging field that studies the influence of genetic variation on brain structure and function.
+Motivation: Imaging genetics is an emerging field that studies the influence of genetic variation on brain structure and function.
 The major task is to examine the association between genetic markers such as single-nucleotide polymorphisms (SNPs) and quantitative traits (QTs) extracted from neuroimaging data.
 The complexity of these datasets has presented critical bioinformatics challenges that require new enabling tools.
 Sparse canonical correlation analysis (SCCA) is a bi-multivariate technique used in imaging genetics to identify complex multi-SNPmulti-QT associations.
@@ -130,7 +129,7 @@ Following their observation, we set 1 and 2 to 1 for simplicity.
 Nested cross-validation can be used for parameter selection but will be extremely time-consuming for the remaining four parameters.
 Thus, we followed the strategy proposed in (Lin et al., 2014): parameters 1; 2 controlling structural constraints were first tuned without considering sparsity constraints.
 Then based on the obtained optimal 1; 2, another nested cross-validation was performed to acquire the optimal 1; 2.
-4 EXPERIMENTAL RESULTS AND DISCUSSIONS We performed comparative studies between the proposed KG-SCCA algorithm and a widely used SCCA implementation i567 Transcriptome-Guided Amyloid Imaging Genetics via KG-SCCA , `` '' , paper Since paper , quite 4  in the PMA package (http://cran.r-project.org/web/packages/ PMA/) (Witten et al., 2009).
+4 EXPERIMENTAL RESULTS AND DISCUSSIONS We performed comparative studies between the proposed KG-SCCA algorithm and a widely used SCCA implementation i567 Transcriptome-Guided Amyloid Imaging Genetics via KG-SCCA , `` '' , paper Since paper , quite 4  in the PMA package (http://cran.r-project.org/web/packages/PMA/) (Witten et al., 2009).
 For PMA experiments, the SCCA parameters were automatically tuned using a permutation scheme provided in PMA.
 Below we report our empirical results using both synthetic data and real imaging genetics data.
 4.1 Results on simulation data Because it was not straightforward to manually construct a dataset with a network structure, we simulated group structures for both datasets and then converted them into network structures for one dataset by connecting all the pairs within each group.
@@ -194,7 +193,7 @@ P-values of paired t-tests were obtained for comparing KG-SCCA and PMA results.
 i569 Transcriptome-Guided Amyloid Imaging Genetics via KG-SCCA Since 5 5 Since due knowledge-guided sparse canonical correlation analysis ( ) ACKNOWLEDGEMENTS Detailed ADNI Acknowledgements information is available in Manuscript_Citations.pdf.
 Data used in preparation of this article were obtained from the Alzheimers Disease Neuroimaging Initiative (ADNI) database (adni.loni.usc.edu).
 As such, the investigators within the ADNI contributed to the design and implementation of ADNI and/or provided data but did not participate in analysis or writing of this report.
-A complete listing of ADNI investigators can be found at: http://adni.loni.usc.edu/ wp-content/uploads/how_to_apply/ADNI_Acknowledgement_ List.pdf.
+A complete listing of ADNI investigators can be found at: http://adni.loni.usc.edu/wp-content/uploads/how_to_apply/ADNI_Acknowledgement_ List.pdf.
 Funding: This work was supported by the National Institutes of Health [R01 LM011360 to L.S.
 and A.S., U01 AG024904 to M.W.
 and A.S., RC2 AG036535 to M.W.

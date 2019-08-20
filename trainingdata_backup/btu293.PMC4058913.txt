@@ -1,5 +1,4 @@
-          OP-CBIO140301 139..148 Vol.
-30 ISMB 2014, pages i139i148 BIOINFORMATICS doi:10.1093/bioinformatics/btu293 Graph-regularized dual Lasso for robust eQTL mapping Wei Cheng1, Xiang Zhang2, Zhishan Guo1, Yu Shi3 and Wei Wang4,* 1Department of Computer Science, UNC at Chapel Hill, Chapel Hill, NC 27599, 2Department of EECS, Case Western Reserve University, OH 44106, USA 3Department of Mathematics, University of Science and Technology of China, Hefei 23002, China and 4Department of Computer Science, University of California, Los Angeles, CA 90095, USA ABSTRACT Motivation: As a promising tool for dissecting the genetic basis of complex traits, expression quantitative trait loci (eQTL) mapping has attracted increasing research interest.
+Motivation: As a promising tool for dissecting the genetic basis of complex traits, expression quantitative trait loci (eQTL) mapping has attracted increasing research interest.
 An important issue in eQTL mapping is how to effectively integrate networks representing interactions among genetic markers and genes.
 Recently, several Lasso-based methods have been proposed to leverage such network information.
 Despite their success, existing methods have three common limitations: (i) a preprocessing step is usually needed to cluster the networks; (ii) the incompleteness of the networks and the noise in them are not considered; (iii) other available information, such as location of genetic markers and pathway information are not integrated.
@@ -261,7 +260,7 @@ It takes 1 day for GGDL, and 10h for GDL to run into completion.
 The intuition behind cis-enrichment analysis is that more cisacting SNPs are expected than trans-acting SNPs.
 A two-step procedure is used in the cis-enrichment analysis (Listgarten et al., 2010): (i) for each model, we apply a one-tailed Mann Whitney test on each SNP to test the null hypothesis that the model ranks its cis hypotheses no better than its trans hypotheses, (ii) for each pair of models compared, we perform a twotailed paired Wilcoxon sign-rank test on the P-values obtained from the previous step.
 The null hypothesis is that the median difference of the P-values in the MannWhitney test for each SNP is zero.
-The trans-enrichment is implemented using similar strategy (Brem et al., 2003), in which genes regulated by transcription factors (obtained from http://www.yeastract.com/ download.php) are used as trans-acting signals.
+The trans-enrichment is implemented using similar strategy (Brem et al., 2003), in which genes regulated by transcription factors (obtained from http://www.yeastract.com/download.php) are used as trans-acting signals.
 In addition to themethods evaluated in the simulation study,GGDL is also evaluatedhere (with =100000; =5; =8; =15; =1) (for GDL, =5; =8; =15; =1; =15; 	=1: The Euclidean (a) (b) (c) (d) Fig.4.
 Power curves for synthetic data.
 The left plots show the ROC curve, where our model GDL achieved maximum power.

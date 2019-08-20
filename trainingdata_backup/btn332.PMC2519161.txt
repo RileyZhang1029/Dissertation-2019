@@ -1,6 +1,4 @@
-           btn332-online BIOINFORMATICS ORIGINAL PAPER Vol.
-24 no.
-17 2008, pages 18741880doi:10.1093/bioinformatics/btn332 Gene expression Unraveling transcriptional regulatory programs by integrative analysis of microarray and transcription factor binding data Huai Li and Ming Zhan Bioinformatics Unit, Branch of Research Resources, National Institute on Aging, NIH, Baltimore, MD 21224, USA Received on March 12, 2008; revised on June 3, 2008; accepted on June 25, 2008 Advance Access publication June 27, 2008 Associate Editor: Joaquin Dopazo ABSTRACT Motivation: Unraveling the transcriptional regulatory program mediated by transcription factors (TFs) is a fundamental objective of computational biology, yet still remains a challenge.
+Motivation: Unraveling the transcriptional regulatory program mediated by transcription factors (TFs) is a fundamental objective of computational biology, yet still remains a challenge.
 Method: Here, we present a new methodology that integrates microarray and TF binding data for unraveling transcriptional regulatory networks.
 The algorithm is based on a two-stage constrained matrix decomposition model.
 The model takes into account the non-linear structure in gene expression data, particularly in the TF-target gene interactions and the combinatorial nature of gene regulation by TFs.
@@ -29,7 +27,7 @@ These approaches allow identification of more functionally coherent regulatory m
 We recently developed a two-stage matrix decomposition method that combine the characteristics of projection and model-based approaches for the discovery of transcriptional modules (Li et al., 2007).
 In the present study, we extend the two-stage decomposition method to incorporating TF binding data for unraveling TF-mediated regulatory programs.
 The new approach provides information of not only transcriptional modules, but also on which of the TFs control which target genes in which specific ways (either activating or inhibiting) in a regulatory program.
-Considering highly non-linear 2008 The Author(s) This is an Open Access article distributed under the terms of the Creative Commons Attribution Non-Commercial License (http://creativecommons.org/licenses/ by-nc/2.0/uk/) which permits unrestricted non-commercial use, distribution, and reproduction in any medium, provided the original work is properly cited.
+Considering highly non-linear 2008 The Author(s) This is an Open Access article distributed under the terms of the Creative Commons Attribution Non-Commercial License (http://creativecommons.org/licenses/by-nc/2.0/uk/) which permits unrestricted non-commercial use, distribution, and reproduction in any medium, provided the original work is properly cited.
 Unraveling transcriptional regulatory programs interactions between TFs and their target genes, we first adopt a non-linear independent component analysis (NICA) method to reduce the non-linear distortion in the data and decompose the data into independent latent components.
 Next, we develop a constrained probabilistic sparse matrix factorization (cPSMF) approach that models the expression of each gene across the independent latent components as a linear weighted combination of activity profiles of a small number of TFs.
 The model takes into account of the combinatorial and sparse nature of gene regulation by TFs.

@@ -1,6 +1,4 @@
-            G:\fpp\tex\journals\oup\BioInfo\Bioinfo-25(15)issue\btp350.dvi [14:06 26/6/2009 Bioinformatics-btp350.tex] Page: 1856 18561861 BIOINFORMATICS ORIGINAL PAPER Vol.
-25 no.
-15 2009, pages 18561861doi:10.1093/bioinformatics/btp350 Genome analysis UTGB toolkit for personalized genome browsers Taro L. Saito1,2, Jun Yoshimura1,2, Shin Sasaki1, Budrul Ahsan1, Atsushi Sasaki1, Reginaldo Kuroshu1 and Shinichi Morishita1,2, 1Department of Computational Biology, Graduate School of Frontier Sciences, The University of Tokyo, 5-1-15 Kashiwanoha, Kashiwa City, Chiba 277-0882 and 2Japan Science and Technology Agency (JST), Tokyo 102-8666, Japan Received on March 24, 2009; revised on May 27, 2009; accepted on May 30, 2009 Advance Access publication June 3, 2009 Associate Editor: Alfonso Valencia ABSTRACT The advent of high-throughput DNA sequencers has increased the pace of collecting enormous amounts of genomic information, yielding billions of nucleotides on a weekly basis.
+The advent of high-throughput DNA sequencers has increased the pace of collecting enormous amounts of genomic information, yielding billions of nucleotides on a weekly basis.
 This advance represents an improvement of two orders of magnitude over traditional Sanger sequencers in terms of the number of nucleotides per unit time, allowing even small groups of researchers to obtain huge volumes of genomic data over fairly short period.
 Consequently, a pressing need exists for the development of personalized genome browsers for analyzing these immense amounts of locally stored data.
 The UTGB (University of Tokyo Genome Browser) Toolkit is designed to meet three major requirements for personalization of genome browsers: easy installation of the system with minimum efforts, browsing locally stored data and rapid interactive design of web interfaces tailored to individual needs.
@@ -22,11 +20,11 @@ First, the users have to upload their novel and confidential data to the server,
 Second, although anonymization of the data is partially supported by UCSC, uploading large volumes of data (e.g.1 GB of Solexa reads data) to the remote web server still needs enourmous amount of time.
 In order to avoid the costs of data uploads, installing a private version of these genome browsers is desirable; however, the task is extremely hard for non-programming biologists because it demands expertise in programming.
 Third, personalization of web interface is limited and time consuming, though personalizing web interface through a variety of rearrangements is an important step toward finding new ideas.
-For example, Affymetrix developed the Integrated Genome Browser (IGB) (Affymetrix, http://www.affymetrix.com/partners_programs/ programs/developer/tools/affytools.affx.)
+For example, Affymetrix developed the Integrated Genome Browser (IGB) (Affymetrix, http://www.affymetrix.com/partners_programs/programs/developer/tools/affytools.affx.)
 for integrating various types of biological data provided by DAS (Distributed Annotation System) (Dowell et al., 2001) servers.
 We developed the (University of Tokyo Genome Browser) UTGB Toolkit to provide solutions to these three major requirements: browsing locally stored data, ease of system installation with minimum effort and custom web interface design.
 Installing the UTGB Toolkit locally on ones own computer is quite easy for inexperienced users because the system can be installed with a few steps, and also avoids uploading confidential data to the remote server.
-Furthermore, the UTGB Toolkit packages ready-to-use functions, such as a stand-alone web server, HTML rendering functionality, database engines, into one component so that these functions can be made available at private sites 2009 The Author(s) This is an Open Access article distributed under the terms of the Creative Commons Attribution Non-Commercial License (http://creativecommons.org/licenses/ by-nc/2.0/uk/) which permits unrestricted non-commercial use, distribution, and reproduction in any medium, provided the original work is properly cited.
+Furthermore, the UTGB Toolkit packages ready-to-use functions, such as a stand-alone web server, HTML rendering functionality, database engines, into one component so that these functions can be made available at private sites 2009 The Author(s) This is an Open Access article distributed under the terms of the Creative Commons Attribution Non-Commercial License (http://creativecommons.org/licenses/by-nc/2.0/uk/) which permits unrestricted non-commercial use, distribution, and reproduction in any medium, provided the original work is properly cited.
 [14:06 26/6/2009 Bioinformatics-btp350.tex] Page: 1857 18561861 UTGB toolkit for personalized genome browsers resize drag and drop Structure of gene Frequency of transcription start sites Nucleosome position Genetic variation Specificity of short reads Repeat masker A B C D removal Fig.1.
 Rapid creation of tailored interface.
 (A) A number of tracks in a UTGB genome browser.
@@ -91,7 +89,7 @@ Our matching algorithm translates the table data to a set of class objects by co
 The matching algorithm automatically converts the data types between table and class objects using the reflection mechanism in the Java language, which provides the information of parameter names and types in the class definitions.
 Thus, no manual mapping configuration is required to bind table data to class objects.
 2.5 Importing biological data The UTGB Toolkit supports visualiztion of commonly used biological data formats, such as BED, DAS (Dowell et al., 2001), etc.
-To create a track for displaying biological features mapped onto the genome, the user has to specify the data files to load (see the documentation at http://utgenome.org/toolkit/ for details).
+To create a track for displaying biological features mapped onto the genome, the user has to specify the data files to load (see the documentation at http://utgenome.org/toolkit/for details).
 The UTGB parses these biological data files in a stream manner and generates graphics that display the features in the region specified in the genome browser.
 Access to DAS data is also supported in the UTGB Toolkit for utilizing existing biological data resources in conjunction with the users own tracks.
 We are continuing the effort of improving the UTGB Toolkit to support other biological data formats, such as AGP, GFF, PSL, AXT (alignment data), etc.
@@ -182,7 +180,7 @@ The Apache License is applied on a file basis; i.e.modified source files must be
 A portal collects links to internal or external data sources (e.g.PubMed and ENCODEdb); search engines, such as Google and Yahoo, also belong to this category.
 The second type, compound, displays several database contents at the same time in the browser window.
 The interface of the UTGB can support this type of data visualization.
-The IGB (Affymetrix, http://www.affymetrix.com/ partners_programs/programs/developer/tools/affytools.affx.)
+The IGB (Affymetrix, http://www.affymetrix.com/partners_programs/programs/developer/tools/affytools.affx.)
 is also a compoond browser and supports the integration of genome data resources provided by DAS protocol using the Java-based GUI.
 Another example is iGoogle (http://www.google.co.jp/ig), a web service consisting of user-customizable gadgets, sub windows that can display, for example, news or a calendar.
 The third type comprises fully integrated databases that merge several databases into a single DBMS to support queries across these databases; this type of integration is common in centralized database centers such as NCBI and Ensembl.

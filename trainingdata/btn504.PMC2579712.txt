@@ -1,0 +1,56 @@
+Summary: Profile Comparer (PRC) is a stand-alone program for scoring and aligning profile hidden Markov models (HMMs) of protein families.
+PRC can read models produced by SAM and HMMER, two popular profile HMM packages, as well as PSI-BLAST checkpoint files.
+This application note provides a brief description of the profile profile algorithm used by PRC.
+Availability: The C source code licensed under the GNU General Public Licence and Linux and Mac OS X binaries can be downloaded from http://supfam.org/PRC.
+Contact: martin.madera@gmail.com Supplementary information: Supplementary data are available at Bioinformatics online.
+1 INTRODUCTION Profile Comparer (PRC) is a program for scoring and aligning a profile hidden Markov model (HMM) of a protein family against other profile HMMs.
+Profiles are tables that give a score for a particular amino acid to be found at a particular position in an alignment of a protein family.
+The best known profile method is probably PSI-BLAST (Altschul et al., 1997).
+Profile HMMs are similar to profiles, but replace scores with probabilities, and introduce additional probabilities for insertions and deletions at each position in the profile (Durbin et al., 1998; Eddy, 1998).
+All probabilities are placed within a single statistical framework, an HMM.
+In this note, we shall count profile HMMs among profile methods.
+It is now well established that profileprofile methods detect more distant homologies than profilesequence methods, which in turn are more powerful than sequencesequence methods (see e.g.Sadreyev and Grishin, 2008; Soding, 2005).
+Profileprofile methods also generate the most accurate alignments; in fact, profileprofile methods were first used in progressive multiple sequence alignment and only later for homology recognition.
+Out of profilesequence methods, the SAM and HMMER profile HMM programs (Eddy, 1998; Hughey and Krogh, 1996) are believed to be the best (Fig.1).
+In addition to insertion and deletion probabilities that vary along the profile, the improvement over, e.g.PSI-BLAST comes from a number of other innovations, including use of the forward algorithm instead of Viterbi (Durbin et al., To whom correspondence should be addressed.
+1998) and a better algorithm for estimating a profile from a given alignment.
+The goal of PRC is to apply lessons learned from development of SAM and HMMER to the profileprofile case.
+PRC was first publicly released in 2002 and has been used by Pfam since 2005.
+Recently PRC has performed well in benchmarks (Sadreyev and Grishin, 2008; Soding, 2006) carried out by the authors of the two main alternative profileprofile methods, COMPASS (Sadreyev and Grishin, 2008) and HHsearch (Soding, 2005).
+Here, we provide an overview of the PRC algorithm (version 1.5.5) and explain how to use the program.
+2 THE PRC ALGORITHM When scoring a profile HMM against a library of profile HMMs, PRC reports E-values, which give an estimate of how significant the matches are.
+In order to calculate E-values, PRC first calculates three other scores: co-emission, simple and reverse.
+Each score builds upon the previous one, until finally reverse scores are converted into E-values.
+The co-emission score Sco-em is a generalization of the log-odds score Slog-odds calculated by SAM and HMMER, Slog-odds = log P ( |HMM) P ( |null) , (1) to the HMMHMM case: Sco-em ( 1,2 )= log P ( |HMM1)P( |HMM2) P ( |null).
+(2) The sum is over all possible amino acid sequences , and the probability P ( |HMM) that the profile HMM emits a sequence is calculated using the forward algorithm (Durbin et al., 1998).
+When one of the HMMs is extremely narrow, e.g.it only emits a single sequence with a non-zero probability (P ( |HMM)=1 if = , 0 otherwise), the co-emission score tends to the profile HMM log-odds score for.
+The null model emits random sequences with background amino acid frequencies and a geometric distribution of lengths.
+The simple score Ssimple is the same as the co-emission score Sco-em, but both profile HMMs are restricted to regions of significant similarity.
+The regions are found by an iterative procedure that picks a new end point as the maximum of the forward score in the dynamic programming matrix, and a start point as the maximum of the backward score.
+2008 The Author(s) This is an Open Access article distributed under the terms of the Creative Commons Attribution Non-Commercial License (http://creativecommons.org/licenses/by-nc/2.0/uk/) which permits unrestricted non-commercial use, distribution, and reproduction in any medium, provided the original work is properly cited.
+Profile Comparer 0.001 0.01 0.1 1 10 errors per query 0 0.1 0.2 0.3 0.4 0.5 0.6 0.7 co ve ra ge PRC 1.5.5 SAM 3.4 PSI-BLAST 2.2.18 BLAST 2.2.18 Fig.1.
+A SCOP domain benchmark (Madera and Gough, 2002) of PRC, illustrating the improvement over standard methods.
+The SCOP seed sequences were filtered to <25% sequence identity.
+PRC and SAM (Hughey and Krogh, 1996) used SUPERFAMILY profile HMMs (Gough et al., 2001).
+PSI-BLAST (Altschul et al., 1997) checkpoint files used in the benchmark were derived from SUPERFAMILY profile HMMs and use identical probabilities for the profile part.
+For a comparison of PRC to competing profileprofile methods, the reader is referred to Soding (2006) and Sadreyev and Grishin (2008).
+The reverse score Srev for two profile HMMs 1 and 2 is defined as Srev ( 1,2 )=Ssimple ( 1,2 )Ssimple ( rev1,2 ) , (3) where the reverse HMM is defined as follows: for every , P ( |revHMM) = P(rev |HMM).
+(4) Here, rev is a reverse operator that maps residue or model segment i (1 iL) onto residue Li+1.
+This is a generalization of the reverse sequence null model used by SAM (Karplus et al., 2005).
+Finally, for library runs the reverse score Srev is turned into an E-value by fitting the following function to the observed distribution of reverse scores: E ( Srev >x )= nunrel 1+exp(x+).
+(5) The E-value E is the expected number of random matches with a reverse score better than x, and nunrel is the number of profile HMMs in the library that are unrelated to the query.
+The formula is a slight generalization of the function used by SAM (Karplus et al., 2005).
+Optimal values of the two parameters and for each run are found using a censored Maximum Likelihood fitting procedure.
+HMMHMM alignments are computed by finding the Viterbi path that maximizes the sum of forwardbackward odds scores (Durbin et al., 1998).
+3 USING PRC PRC can read SAM3 (ASCII and binary) and HMMER2 model files, and PSI-BLAST checkpoint files.
+The same internal profile HMM is used for scoring all three.
+For PSI-BLAST checkpoint files, the profile part is taken from the checkpoint file and the insertion and deletion probabilities are set to default values, constant throughout the model.
+For best performance, users should build a full profile HMM using the SAM w0.5 script.
+For accurate E-values, the library should contain at least 1000 profile HMMs.
+For libraries of sufficient size, E < 0.003 can be taken as indicative of homology and E < 105 as a strong match.
+When a large library is not available, Equation (5) with = 0.8, = 0 can be used as a conservative guide.
+Starting with version 1.5.5, the PRC source code also includes a simple Perl script, merge_aligns.pl.
+Given two HMMsequence alignments in the SAM a2m format, and a PRC alignment between the two HMMs, the script will output a pairwise alignment between the two sequences.
+Users who would like to visualize their HMM HMM alignments are referred to the pairwise HMM logos server (Schuster-Bockler and Bateman, 2005).
+Funding: M.M.s Internal Graduate Studentship from Trinity College, Cambridge, UK; the UK Medical Research Council and the Laboratory of Molecular Biology, Cambridge, UK (Cyrus Chothias group); the European Bioinformatics Institute (Nick Goldmans group); Kevin Karpluss National Institutes of Health grant R01 GM068570; Julian Goughs European Union Framework Programme 7 IMPACT grant.
+Conflict of Interest: none declared.

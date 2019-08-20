@@ -1,6 +1,4 @@
-            [15:22 26/6/03 Bioinformatics-btn143.tex] Page: i407 i407i413 BIOINFORMATICS Vol.
-24 ISMB 2008, pages i407i413doi:10.1093/bioinformatics/btn143 Reversible jump MCMC approach for peak identification for stroke SELDI mass spectrometry using mixture model Yuan Wang1,2, Xiaobo Zhou1,, Honghui Wang3, King Li1, Lixiu Yao2 and Stephen T.C.
-Wong1 1Center for Biotechnology and Informatics (CBI), The Methodist Hospital Research Institute, and Department of Radiology, The Methodist Hospital, Weill Cornell Medical College, Houston, TX 77030, USA, 2School of Electronics, Information and Electrical Engineering, Shanghai Jiao Tong University, China and 3Critical Care Medicine Department, Clinical Center, National Institutes of Health, Bethesda, MD 20892, USA ABSTRACT Mass spectrometry (MS) has shown great potential in detecting disease-related biomarkers for early diagnosis of stroke.
+Mass spectrometry (MS) has shown great potential in detecting disease-related biomarkers for early diagnosis of stroke.
 To discover potential biomarkers from large volume of noisy MS data, peak detection must be performed first.
 This article proposes a novel automatic peak detection method for the stroke MS data.
 In this method, a mixture model is proposed to model the spectrum.
@@ -67,7 +65,7 @@ Based on the SELDI MS spectrum data {(xi,yi)}Ni=1, we estimate number of peaks K
 Given a set of observations O {x1,...,xN ,y1,...,yN }, our goal is to estimate K and K. Accurately estimating 1:K is not an easy job.
 So we first assume 1:K as a constant and K becomes K ={ ,, 2 }.
 Following Andrieu et al.(2001), Bayesian inference is used to estimate the unknown parameters K and K. Hyper-parameter ,2 R + are introduced and presumed to be independent of each other.
-We assume 2 have a prior distribution of 1/ 2.
+We assume 2 have a prior distribution of 1/2.
 2 follows inverse-gamma distribution, i.e.2IG(2,10), and follows gamma distribution, i.e.Ga(1/2,0).
 According to Bayes theorem, the joint posterior distribution can be formalized as: p(K,,, 2|x,y)p(y|K,,, 2,x)p(K,,, 2), (6) where, p(y|K,,, 2,x) is the likelihood and p(K,,, 2) is the prior distribution.
 The likelihood for mixture model (4) is: p(y|K,K ,x)= (2 2)N/2 exp ( 1 2 2 (yD)(yD)).
@@ -121,7 +119,7 @@ In fact, our experiment result (Section 3.2) shows that noise is not evenly dist
 Noise variance tends to be high (a large ) in low m/z region and low (a small ) in high m/z region.
 Instead of performing denoising on the whole spectrum, region-based denoising may smooth the data more precisely.
 The whole algorithm of detecting peaks from raw SELDI MS data based on the mixture model of Equation (5) can be described in the following steps: (1) Divide the whole spectrum into segments.2 (2) Initialization: i = 0; set K (0) as Kmax; sample ( (0) 1:K , (0) 1:K ) according to their prior distributions.
-(3) while i T3 Random a decision and make move (birth/death/merge/split/ update/random walk) based on the decision, i.e.perform the reversible jump process.
+(3) while i T3 Random a decision and make move (birth/death/merge/split/update/random walk) based on the decision, i.e.perform the reversible jump process.
 K (i),(i)1:K are updated from the move according to Equation (9).
 For each (i) j , from its neighborhood [(i) j h(i) j , (i) j +h(i) j ], and update (i)j using Equations (11) and (12).
 1 In our program, we first convert m/z of the process spectrum to [0 1], so the random sampler can work at a proper data range.

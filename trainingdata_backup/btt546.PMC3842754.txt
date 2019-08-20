@@ -1,6 +1,4 @@
-          OP-CBIO130560 3113..3120 Vol.
-29 no.
-24 2013, pages 31133120 BIOINFORMATICS ORIGINAL PAPER doi:10.1093/bioinformatics/btt546 Genome analysis Advance Access publication September 23, 2013 Methods and challenges in timing chromosomal abnormalities within cancer samples Elizabeth Purdom1,*, Christine Ho1, Catherine S. Grasso2, Michael J. Quist2, Raymond J. Cho3 and Paul Spellman2 1Department of Statistics, University of California, Berkeley, 367 Evans Hall Berkeley, CA 94720-3860, USA, 2Department of Molecular and Medical Genetics, Oregon Health & Science University, Portland, OR 97239, USA and 3Department of Dermatology, University of California, San Francisco, CA 94115, USA Associate Editor: Janet Kelso ABSTRACT Motivation: Tumors acquire many chromosomal amplifications, and those acquired early in the lifespan of the tumor may be not only important for tumor growth but also can be used for diagnostic purposes.
+Motivation: Tumors acquire many chromosomal amplifications, and those acquired early in the lifespan of the tumor may be not only important for tumor growth but also can be used for diagnostic purposes.
 Many methods infer the order of the accumulation of abnormalities based on their occurrence in a large cohort of patients.
 Recently, Durinck et al.(2011) and Greenman et al.(2012) developed methods to order a single tumors chromosomal amplifications based on the patterns of mutations accumulated within those regions.
 This method offers an unprecedented opportunity to assess the etiology of a single tumor sample, but has not been widely evaluated.
@@ -121,7 +119,7 @@ Mild levels of sub-clonal populations that do not contain the region will not ne
 2.4 Estimating from tumors We can then estimate using maximum-likelihood techniques; unlike Greenman et al.(2012), we expand our likelihood to include the sequencing variability and sequencing error described earlier in text.
 For large amount of sequencing depth, there is likely to be little difference in the two methods, but for lower levels of sequencing, explicitly accounting for the sequencing variability brings improved stability.
 We assume in what follows that A defines an identifiable model.
-As q/ A, and both q and must sum to 1, q lies in a constrained set.
+As q/A, and both q and must sum to 1, q lies in a constrained set.
 If A is square, we can write this as  fq : A1q 0, 1Tq 1:g. Then by the invariance property of the MLE it is sufficient to find the MLE of q, with the constraint that q 2 and then solve for.
 We use an EM algorithm to estimate q from the data X1,... ,XN, where the M-step involves a constrained maximization (see Supplementary Appendix 4 for details).
 The most important factor in the ability to estimate the timing of events is the true value of the vector.

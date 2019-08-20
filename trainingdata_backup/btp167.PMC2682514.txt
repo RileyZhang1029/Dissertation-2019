@@ -1,6 +1,4 @@
-            g:\fpp\tex\journals\oup\bioinfo\bioinfo-25(11)issue\btp167.dvi [11:42 14/5/2009 Bioinformatics-btp167.tex] Page: 1470 14701471 BIOINFORMATICS APPLICATIONS NOTE Vol.
-25 no.
-11 2009, pages 14701471doi:10.1093/bioinformatics/btp167 Data and text mining KEGGgraph: a graph approach to KEGG PATHWAY in R and bioconductor Jitao David Zhang and Stefan Wiemann Division of Molecular Genome Analysis, German Cancer Research Center (DKFZ), INF 580, 69120 Heidelberg, Germany Received on December 15, 2008; revised on February 23, 2009; accepted on March 19, 2009 Advance Access publication March 23, 2009 Associate Editor: Thomas Lengauer ABSTRACT Motivation: KEGG PATHWAY is a service of Kyoto Encyclopedia of Genes and Genomes (KEGG), constructing manually curated pathway maps that represent current knowledge on biological networks in graph models.
+Motivation: KEGG PATHWAY is a service of Kyoto Encyclopedia of Genes and Genomes (KEGG), constructing manually curated pathway maps that represent current knowledge on biological networks in graph models.
 While valuable graph tools have been implemented in R/Bioconductor, to our knowledge there is currently no software package to parse and analyze KEGG pathways with graph theory.
 Results: We introduce the software package KEGGgraph in R and Bioconductor, an interface between KEGG pathways and graph models as well as a collection of tools for these graphs.
 Superior to existing approaches, KEGGgraph captures the pathway topology and allows further analysis or dissection of pathway graphs.
@@ -28,8 +26,8 @@ Visualization: KEGGgraph provides functions to visualize KEGG graphs with custom
 Nevertheless, users are not restricted by them, alternatively they are free to render the graph with other tools like the ones in Rgraphviz.
 Besides the functionalities described above, KEGGgraph also provides tools for remote KGML file retrieval, graph feature study and other related tasks.
 We refer interested readers to the vignettes released along the package.
-3 EXAMPLE Software usage is demonstrated by exploring the graph characteristics of pancreatic cancer pathway (http://www.genome.jp/ dbget-bin/show_pathway?hsa05212), as KEGG provides pathways also of human diseases.
-2009 The Author(s) This is an Open Access article distributed under the terms of the Creative Commons Attribution Non-Commercial License (http://creativecommons.org/licenses/ by-nc/2.0/uk/) which permits unrestricted non-commercial use, distribution, and reproduction in any medium, provided the original work is properly cited.
+3 EXAMPLE Software usage is demonstrated by exploring the graph characteristics of pancreatic cancer pathway (http://www.genome.jp/dbget-bin/show_pathway?hsa05212), as KEGG provides pathways also of human diseases.
+2009 The Author(s) This is an Open Access article distributed under the terms of the Creative Commons Attribution Non-Commercial License (http://creativecommons.org/licenses/by-nc/2.0/uk/) which permits unrestricted non-commercial use, distribution, and reproduction in any medium, provided the original work is properly cited.
 [11:42 14/5/2009 Bioinformatics-btp167.tex] Page: 1471 14701471 KEGGgraph TP53 GRB2 EGFR                                           Fig.1.
 Nodes with the highest relative betweenness centrality (in orange) and their interacting partners (blue) in the pancreatic cancer pathway.
 Relative betweenness centrality estimates the relative importance or role in global network organization.

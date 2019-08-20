@@ -1,5 +1,4 @@
-            G:\fpp\tex\journals\oup\BioInfo\Bioinfo-25-ISMB-ECCB\btp219.dvi [10:07 15/5/2009 Bioinformatics-btp219.tex] Page: i276 i276i280 BIOINFORMATICS Vol.
-25 ISMB 2009, pages i276i280doi:10.1093/bioinformatics/btp219 A framework to refine particle clusters produced by EMAN Liya Fan1,2, Fa Zhang1,, Gongming Wang1,2 and Zhiyong Liu1, 1Institute of Computing Technology, Chinese Academy of Sciences and 2Graduate University of Chinese Academy of Sciences, Beijing, China ABSTRACT Motivation: EMAN is one of the most popular software packages for single particle reconstruction.
+Motivation: EMAN is one of the most popular software packages for single particle reconstruction.
 But the particle clusters produced during its model refining stage are of low qualities.
 We attempt to refine the particle clusters by more accurately determining orientations of particles, and thereby achieving higher resolutions of consequent 3D structures.
 Results: A particle reclustering framework (PRF) is introduced, which consists of three components.
@@ -46,7 +45,7 @@ The basic operation of the third step is estimating the similarity between each 
 Specifically, a score sij is evaluated to reflect the similarity between the i-th projection and the j-th particle.
 The larger the score is, the closer the projection and particle are.
 For the following discussions, we suppose there are totally m projections and n particles.
-Thus, the j-th particle can be represented by an m-dimensional similarity vector pj= (s1j,s2j,...,smj)T 1 jn 2009 The Author(s) This is an Open Access article distributed under the terms of the Creative Commons Attribution Non-Commercial License (http://creativecommons.org/licenses/ by-nc/2.0/uk/) which permits unrestricted non-commercial use, distribution, and reproduction in any medium, provided the original work is properly cited.
+Thus, the j-th particle can be represented by an m-dimensional similarity vector pj= (s1j,s2j,...,smj)T 1 jn 2009 The Author(s) This is an Open Access article distributed under the terms of the Creative Commons Attribution Non-Commercial License (http://creativecommons.org/licenses/by-nc/2.0/uk/) which permits unrestricted non-commercial use, distribution, and reproduction in any medium, provided the original work is properly cited.
 [10:07 15/5/2009 Bioinformatics-btp219.tex] Page: i277 i276i280 Framework to refine particle clusters The algorithm of EMAN finds the element, say skj , with the largest value in the vector.
 The cluster associated with the particle is then determined by the position of such element.
 In this example, it is k, and the corresponding cluster is ck.

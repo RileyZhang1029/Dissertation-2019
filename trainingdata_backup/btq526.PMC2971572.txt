@@ -1,6 +1,4 @@
-            btq526.dvi [12:00 19/10/2010 Bioinformatics-btq526.tex] Page: 2803 28032810 BIOINFORMATICS ORIGINAL PAPER Vol.
-26 no.
-22 2010, pages 28032810doi:10.1093/bioinformatics/btq526 Sequence analysis Advance Access publication September 21, 2010 SeqEM: an adaptive genotype-calling approach for next-generation sequencing studies E. R. Martin, D. D. Kinnamon, M. A. Schmidt, E. H. Powell, S. Zuchner and R. W. Morris John P. Hussman Institute for Human Genomics and the Dr. John T. Macdonald Foundation Department of Human Genetics, Miller School of Medicine, University of Miami, Miami, Florida, USA Associate Editor: Joaquin Dopazo ABSTRACT Motivation: Next-generation sequencing presents several statistical challenges, with one of the most fundamental being determining an individuals genotype from multiple aligned short read sequences at a position.
+Motivation: Next-generation sequencing presents several statistical challenges, with one of the most fundamental being determining an individuals genotype from multiple aligned short read sequences at a position.
 Some simple approaches for genotype calling apply fixed filters, such as calling a heterozygote if more than a specified percentage of the reads have variant nucleotide calls.
 Other genotype-calling methods, such as MAQ and SOAPsnp, are implementations of Bayes classifiers in that they classify genotypes using posterior genotype probabilities.
 Results: Here, we propose a novel genotype-calling algorithm that, in contrast to the other methods, estimates parameters underlying the posterior probabilities in an adaptive way rather than arbitrarily specifying them a priori.
@@ -31,7 +29,7 @@ These use fixed prior values for heterozygote probabilities and nucleotide-read 
 These approaches make genotype calls for a single individual at a time, and thus do not utilize information from additional individuals in the sample.
 Anticipating that most resequencing studies will produce data for multiple individuals, we recognized that there The Author(s) 2010.
 Published by Oxford University Press.
-This is an Open Access article distributed under the terms of the Creative Commons Attribution Non-Commercial License (http://creativecommons.org/licenses/ by-nc/2.5), which permits unrestricted non-commercial use, distribution, and reproduction in any medium, provided the original work is properly cited.
+This is an Open Access article distributed under the terms of the Creative Commons Attribution Non-Commercial License (http://creativecommons.org/licenses/by-nc/2.5), which permits unrestricted non-commercial use, distribution, and reproduction in any medium, provided the original work is properly cited.
 [12:00 19/10/2010 Bioinformatics-btq526.tex] Page: 2804 28032810 E.R.Martin et al.is information about sample allele frequency and nucleotide-read error in the data.
 Consequently, genotype-calling algorithms could be improved by incorporating this information.
 Accordingly, we propose a novel approach for genotype calling using next-generation sequencing data from multiple unrelated individuals.

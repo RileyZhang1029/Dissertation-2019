@@ -1,6 +1,4 @@
-            btq725.dvi [14:35 2/2/2011 Bioinformatics-btq725.tex] Page: 611 611618 BIOINFORMATICS ORIGINAL PAPER Vol.
-27 no.
-5 2011, pages 611618doi:10.1093/bioinformatics/btq725 Sequence analysis Advance Access publication January 13, 2011 Clustering 16S rRNA for OTU prediction: a method of unsupervised Bayesian clustering Xiaolin Hao1, Rui Jiang2 and Ting Chen1, 1Molecular and Computational Biology Program, Department of Biology, University of Southern California, University Park, Los Angeles, CA 90089, USA and 2MOE Key Laboratory of Bioinformatics and Bioinformatics Division, TNLIST/Department of Automation, Tsinghua University, Beijing, 100084, China Associate Editor: Ivo Hofacker ABSTRACT Motivation: With the advancements of next-generation sequencing technology, it is now possible to study samples directly obtained from the environment.
+Motivation: With the advancements of next-generation sequencing technology, it is now possible to study samples directly obtained from the environment.
 Particularly, 16S rRNA gene sequences have been frequently used to profile the diversity of organisms in a sample.
 However, such studies are still taxed to determine both the number of operational taxonomic units (OTUs) and their relative abundance in a sample.
 Results: To address these challenges, we propose an unsupervised Bayesian clustering method termed Clustering 16S rRNA for OTU Prediction (CROP).
@@ -28,7 +26,7 @@ For example, mothur included a single linkage preclustering module to merge simi
 The large size of datasets currently being produced by the nextgeneration sequencing machines accounts for still another challenge in clustering 16S rRNA sequences.
 In the process of hierarchical clustering, it is necessary to calculate a distance matrix by comparing The Author(s) 2011.
 Published by Oxford University Press.
-This is an Open Access article distributed under the terms of the Creative Commons Attribution Non-Commercial License (http://creativecommons.org/licenses/ by-nc/2.5), which permits unrestricted non-commercial use, distribution, and reproduction in any medium, provided the original work is properly cited.
+This is an Open Access article distributed under the terms of the Creative Commons Attribution Non-Commercial License (http://creativecommons.org/licenses/by-nc/2.5), which permits unrestricted non-commercial use, distribution, and reproduction in any medium, provided the original work is properly cited.
 [14:35 2/2/2011 Bioinformatics-btq725.tex] Page: 612 611618 X.Hao et al.all pairs of sequences in order to find the proper clusters to merge (Johnson, 1967).
 As a result, the computational complexity is at least quadratic, O(N2), in terms of the number of sequences (N).
 Thus, for large-scale datasets, traditional hierarchical clustering methods quickly arrive at a bottleneck in terms of computational time and memory usage.

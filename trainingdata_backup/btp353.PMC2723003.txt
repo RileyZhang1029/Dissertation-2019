@@ -1,6 +1,4 @@
-            G:\fpp\tex\journals\oup\BioInfo\Bioinfo-25(16)issue\btp353.dvi [17:47 15/7/2009 Bioinformatics-btp353.tex] Page: 2140 21402146 BIOINFORMATICS ORIGINAL PAPER Vol.
-25 no.
-16 2009, pages 21402146doi:10.1093/bioinformatics/btp353 Systems biology Identifying the topology of protein complexes from affinity purification assays Caroline C. Friedel and Ralf Zimmer Institut fr Informatik, Ludwig-Maximilians-Universitt Mnchen, Amalienstrae 17, 80333 Mnchen, Germany Received on October 21, 2008; revised on April 20, 2009; accepted on June 1, 2009 Advance Access publication June 8, 2009 Associate Editor: Trey Ideker ABSTRACT Motivation: Recent advances in high-throughput technologies have made it possible to investigate not only individual protein interactions, but also the association of these proteins in complexes.
+Motivation: Recent advances in high-throughput technologies have made it possible to investigate not only individual protein interactions, but also the association of these proteins in complexes.
 So far the focus has been on the prediction of complexes as sets of proteins from the experimental results.
 The modular substructure and the physical interactions within the protein complexes have been mostly ignored.
 Results: We present an approach for identifying the direct physical interactions and the subcomponent structure of protein complexes predicted from affinity purification assays.
@@ -9,7 +7,7 @@ In a subsequent step this network is extended to interactions which are not acco
 We show that the interactions identified with this approach are more accurate in predicting experimentally derived physical interactions than baseline approaches.
 Based on these networks, the subcomponent structure of the complexes can be resolved more satisfactorily and subcomplexes can be identified.
 The usefulness of our method is illustrated on the RNA polymerases for which the modular substructure can be successfully reconstructed.
-Availability: A Java implementation of the prediction methods and supplementary material are available at http://www.bio.ifi.lmu.de/ Complexes/Substructures/.
+Availability: A Java implementation of the prediction methods and supplementary material are available at http://www.bio.ifi.lmu.de/Complexes/Substructures/.
 Contact: caroline.friedel@bio.ifi.lmu.de Supplementary information: Supplementary data are available at Bioinformatics online.
 1 INTRODUCTION Cellular processes of all sorts are shaped by proteins associated in complexes.
 Thus, the identification of such complexes and the interactions within the complexes have become a major experimental focus.
@@ -32,7 +30,7 @@ The method of Hollunder et al.(2007) identifies subsets of proteins which occur 
 Gavin et al.(2006) distinguished between core elements and modules or attachments in their protein complex predictions, but did not predict direct interactions.
 Scholtens et al.(2005) and Bernard et al.(2007) developed approaches to model the physical topology of protein complexes from affinity purification results as well as physical interactions from Y2H experiments.
 However, Scholtens et al.used this only as an intermediate step in predicting protein complexes and did not evaluate the actual interactions they predicted.
-Bernard et al.2009 The Author(s) This is an Open Access article distributed under the terms of the Creative Commons Attribution Non-Commercial License (http://creativecommons.org/licenses/ by-nc/2.0/uk/) which permits unrestricted non-commercial use, distribution, and reproduction in any medium, provided the original work is properly cited.
+Bernard et al.2009 The Author(s) This is an Open Access article distributed under the terms of the Creative Commons Attribution Non-Commercial License (http://creativecommons.org/licenses/by-nc/2.0/uk/) which permits unrestricted non-commercial use, distribution, and reproduction in any medium, provided the original work is properly cited.
 [17:47 15/7/2009 Bioinformatics-btp353.tex] Page: 2141 21402146 Identifying the topology of protein complexes A 0.4 A B C D E F 0.40.4 0.4 0.5 0.6 0.8 0.8 0.7 B 0.7 A B C D 0.9 0.80.5 E F G 0.9 0.5 0.5 0.8 0.7 0.6 C Algorithm: MST extension-Calculate MST scaffold S-Sort remaining edges-e = ( , ) S in non-increasing order Find optimal path P in S from u to  Add e to S If  (e)  w(P) Fig.1.
 (A) The algorithm for determining the union of all MSTs (Bandelt et al., 1999).
 Edge weights are processed in decreasing order.
@@ -192,7 +190,7 @@ For six complexes (spliceosome; the vacuolar ATPase; the 90S preribosome in two 
 For another five complexes (Proteasome, regulatory particle; mitochondrial large ribosomal subunit; small subunit of the ribosome; RNase MRP; and vesicle transport complexes), subsets of proteins were identified for which it was not quite clear how they corresponded to the subcomponent structure of the complex as it was not sufficiently described in the literature.
 For the 16 complexes described above, similarity of the subcomponents as described in the GO was increased in the subcomplexes compared with the complete complex (15 complexes) or stayed the same (1 complex).
 For the remaining five of the 21 analyzed complexes, similarity of subcomponents was slightly lower (by 2.4%) in the subcomplexes we identified than in the complete complex as no detailed subcomplex structure has been described in the GO.
-However, we could recover several subcomplexes that have previously been described in the literature such as the RIX1 and YTM1-ERB1-NOP7 subcomplexes of the preribosome (Krogan et al., 2004) (see http://www.bio.ifi.lmu.de/Complexes/ Substructures/ for detailed results).
+However, we could recover several subcomplexes that have previously been described in the literature such as the RIX1 and YTM1-ERB1-NOP7 subcomplexes of the preribosome (Krogan et al., 2004) (see http://www.bio.ifi.lmu.de/Complexes/Substructures/for detailed results).
 In the following, we illustrate with the example of the DNA-directed RNA polymerase complexes how a detailed analysis of the complex scaffold and the predicted subcomplexes can lead to a better understanding of the complex structure.
 3.5 Analysis of the DNA-directed RNA polymerase The DNA-directed RNA polymerase complex is one of the largest predicted complexes in the BT-409 set and contains 46 proteins.
 It effectively consists of three separate RNA polymerase complexes (RNA polymerase I, II and III), which have been clustered into one complex since they have many proteins in common.

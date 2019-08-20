@@ -1,6 +1,4 @@
-          OP-CBIO140547 3029..3035 Vol.
-30 no.
-21 2014, pages 30293035 BIOINFORMATICS ORIGINAL PAPER doi:10.1093/bioinformatics/btu502 Structural bioinformatics Advance Access publication July 26, 2014 CCBuilder: an interactive web-based tool for building, designing and assessing coiled-coil protein assemblies Christopher W. Wood1,2,*, Marc Bruning1, Amaurys A. Ibarra2, Gail J. Bartlett1, Andrew R. Thomson1, Richard B. Sessions2, R Leo Brady2 and Derek N. Woolfson1,2,* 1School of Chemistry, University of Bristol, Cantocks Close, BS8 1TS and 2School of Biochemistry, University of Bristol, Medical Sciences Building, University Walk, BS8 1TD, Bristol, UK Associate Editor: Alfonso Valencia ABSTRACT Motivation: The ability to accurately model protein structures at the atomistic level underpins efforts to understand protein folding, to engineer natural proteins predictably and to design proteins de novo.
+Motivation: The ability to accurately model protein structures at the atomistic level underpins efforts to understand protein folding, to engineer natural proteins predictably and to design proteins de novo.
 Homology-based methods are well established and produce impressive results.
 However, these are limited to structures presented by and resolved for natural proteins.
 Addressing this problem more widely and deriving truly ab initio models requires mathematical descriptions for protein folds; the means to decorate these with natural, engineered or de novo sequences; and methods to score the resulting models.
@@ -8,7 +6,7 @@ Results: We present CCBuilder, a web-based application that tackles the problem 
 CCBuilder generates coiled-coil backbones, builds side chains onto these frameworks and provides a range of metrics to measure the quality of the models.
 Its straightforward graphical user interface provides broad functionality that allows users to build and assess models, in which helix geometry, coiled-coil architecture and topology and protein sequence can be varied rapidly.
 We demonstrate the utility of CCBuilder by assembling models for 653 coiled-coil structures from the PDB, which cover496% of the known coiled-coil types, and by generating models for rarer and de novo coiled-coil structures.
-Availability and implementation: CCBuilder is freely available, without registration, at http://coiledcoils.chm.bris.ac.uk/app/cc_builder/ Contact: D.N.Woolfson@bristol.ac.uk or Chris.Wood@bristol.ac.uk Received on May 6, 2014; revised on July 12, 2014; accepted on July 17, 2014 1 INTRODUCTION The accurate prediction and modelling of protein structures remain key challenges in structural bioinformatics.
+Availability and implementation: CCBuilder is freely available, without registration, at http://coiledcoils.chm.bris.ac.uk/app/cc_builder/Contact: D.N.Woolfson@bristol.ac.uk or Chris.Wood@bristol.ac.uk Received on May 6, 2014; revised on July 12, 2014; accepted on July 17, 2014 1 INTRODUCTION The accurate prediction and modelling of protein structures remain key challenges in structural bioinformatics.
 Advances here enable applications in protein folding, design and engineering, where sequence information needs to be translated to give insight into protein structure, function and mutation.
 However, given the degrees of freedom inherent in polypeptide chains, the modelling of all potential structures that a sequence, even of modest length, could adopt is intractable computationally.
 Therefore, it is necessary to restrict the structural space being searched and modelled.
@@ -53,7 +51,7 @@ This covers 96.3% of coiled coils in CC+ (Testa et al., 2009) with 50% sequence 
 Furthermore, an Advanced builder mode allows parameters to be specified for individual-helices around a super-helical axis, enabling some of the remaining more unusual coiled-coil conformations to be modelled.
 It also presents opportunities for building models for the many as yet unobserved, but theoretically possible, coiled-coil structures.
 2 METHODS 2.1 Application architecture CCBuilder has three main parts: a web-based graphical user interface (GUI), a coiled coil modelling component and a validation/scoring method.
-The GUI is set up as part of a Linux, Apache, NoSQL/ MongoDB, Python/Django stack with a browser-based front end for collecting input parameters and returning the resultant models to the user.
+The GUI is set up as part of a Linux, Apache, NoSQL/MongoDB, Python/Django stack with a browser-based front end for collecting input parameters and returning the resultant models to the user.
 As models are generated server side, modelling, validation and visualization can be performed on any device with a WebGL-enabled browser, including certain mobile platforms.
 The GUI has a GLmol-powered molecular viewer (http://webglmol.
 sourceforge.jp/index-en.html) to display the models generated (Fig.2a).
@@ -177,5 +175,5 @@ Thus, we suggest that CCBuilder is the best currently available tool for the des
 Funding: C.W.W.
 thanks the BBSRC for a PhD studentship through the South West Doctoral Training Partnership.
 D.N.W.
-thanks the EPSRC (EP/J001430/1), BBSRC (BB/ J008990/1; grant with RLB) and the ERC (340764) for financial support.
+thanks the EPSRC (EP/J001430/1), BBSRC (BB/J008990/1; grant with RLB) and the ERC (340764) for financial support.
 Conflict of Interest: none declared.

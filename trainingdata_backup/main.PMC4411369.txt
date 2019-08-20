@@ -1,4 +1,4 @@
-                 Bayesian Peak Picking for NMR Spectra Genomics Proteomics Bioinformatics 12 (2014) 3947 Genomics Proteomics Bioinformatics www.elsevier.com/locate/gpb www.sciencedirect.com ORIGINAL RESEARCH Bayesian Peak Picking for NMR Spectra Yichen Cheng 1, Xin Gao 2, Faming Liang 1,* 1 Department of Statistics, Texas A&M University, College Station, TX 77843, USA 2 Computer, Electrical and Mathematical Sciences and Engineering Division, King Abdullah University of Science and Technology (KAUST), Thuwal 23955-6900, Saudi Arabia Received 1 June 2013; accepted 29 July 2013 Available online 31 October 2013 * Pe C 16 by ht KEYWORDS Markov chain Monte Carlo; Nuclear magnetic resonance; Peak picking Corresponding author.
+Bayesian Peak Picking for NMR Spectra Genomics Proteomics Bioinformatics 12 (2014) 3947 Genomics Proteomics Bioinformatics www.elsevier.com/locate/gpb www.sciencedirect.com ORIGINAL RESEARCH Bayesian Peak Picking for NMR Spectra Yichen Cheng 1, Xin Gao 2, Faming Liang 1,* 1 Department of Statistics, Texas A&M University, College Station, TX 77843, USA 2 Computer, Electrical and Mathematical Sciences and Engineering Division, King Abdullah University of Science and Technology (KAUST), Thuwal 23955-6900, Saudi Arabia Received 1 June 2013; accepted 29 July 2013 Available online 31 October 2013 * Pe C 16 by ht KEYWORDS Markov chain Monte Carlo; Nuclear magnetic resonance; Peak picking Corresponding author.
 E-mail: fliang@stat.tamu.e er review under responsibil hinese Academy of Sciences a Production an 72-0229/$-see front matter Elsevier B.V. All rights reserv tp://dx.doi.org/10.1016/j.gpb.20 du (Liang ity of B nd Gene d hostin 2013 Beij ed.
 13.07.003 Abstract Protein structure determination is a very important topic in structural genomics, which helps people to understand varieties of biological functions such as protein-protein interactions, proteinDNA interactions and so on.
 Nowadays, nuclear magnetic resonance (NMR) has often been used to determine the three-dimensional structures of protein in vivo.
@@ -51,7 +51,7 @@ Let #= (#1,... ,#n), where #i li1;li2; log s2i1  ; log s2i2 .
 Then the likelihood function of the model (1) is given by 12 as an example axis is for the intensity of the spectrum.
 B.
 A contour plot of the in hydrogen dimension and N dimension corresponds to chemical 8 ppm and one unit in D dimension represents 0.0873 ppm.
-Cheng Y et al/ Bayesian Peak Picking for NMR Spectra 41 fYj#;a;r2;m 1 2pn=2jr2Imjn=2 exp 1 2 YUaTr2In 1YUa  ; where Im denotes an m m identity matrix.
+Cheng Y et al/Bayesian Peak Picking for NMR Spectra 41 fYj#;a;r2;m 1 2pn=2jr2Imjn=2 exp 1 2 YUaTr2In 1YUa  ; where Im denotes an m m identity matrix.
 To conduct Bayesian analysis for the model (1), we consider the following prior distributions for the unknown parameters: a N0; r2V; li1 U0;L; li2 U0;W; s2i1 IGa; b; s2i2 IGa; b; m r2 v2m ; where IG (, ) denotes an inverse gamma distribution, U (, ) denotes a uniform distribution, and m, V are hyperparameters to be specified by the user.
 In this paper, we set V= (U0U)1; that is, we specify a Zellners g-prior for the regression coefficients a with g = 1.
 Following [8], we set m = 1 and a = b = 0.05.
@@ -64,7 +64,7 @@ In practice, one may set k to a small number to avoid finding too many false pea
 In this paper, we set k = 1 in all computations which yield good results.
 Our numerical results indicate that the choice of mmax is not crucial for peak picking, as long as it is not too small, e.g., smaller than the number of true peaks.
 In this paper, we set mmax to 10 for the simulation studies, and a relatively small number, e.g., two times of the number of amino acids, for a given protein.
-Integrating out a and r2 gives us the posterior f#; jMj mjY/ k m m!
+Integrating out a and r2 gives us the posterior f#; jMj mjY/k m m!
 1 LmWm Ym i1 ba Ca s 2 i1 a1 exp b s2i1  Ym i1 ba Ca s 2 i2 a1 exp b s2i2  PYj#;m; 3 where PYj#;m C vn 2  vv=2 pn=2C v 2  jInUVUTj1=2 fvY TIUVUT1Yg vn=2 : Note that the intensity for a true peak should be positive for the 2D NMR spectrum considered here.
 However, in our model, no any constraints are imposed concerning the value of a.
 This allows us to integrate out a from the posterior and, as a consequence, this accelerates the convergence of the simulation of the posterior.
@@ -93,7 +93,7 @@ A brief review of the SAMC algorithm Let f(x) = cw(x), x 2 v, denote a distribut
 Let U(x) = log(w(x)) denote the energy function of the distribution.
 SAMC works on a partitioned sample space.
 For example, the sample space can be partitioned into j disjoint subregions according to the energy function: E1 = {x:U(x) < u1}, E2 = {x:u1 6 U(x) < u2},... , Ek1 = {x:uj2 6 U(x) < uj1} and Ej = {x: U(x) P uj1}, where u1, u2,... ,uj1 are prespecified numbers.
-SAMC algorithm aims to sample from the following distribution: Phx/ Xj i wx ehi Ix 2 Ei; 4 where h = (h1,... ,hk) and hi log R Ei wxdx, and I () is the indicator function.
+SAMC algorithm aims to sample from the following distribution: Phx/Xj i wx ehi Ix 2 Ei; 4 where h = (h1,... ,hk) and hi log R Ei wxdx, and I () is the indicator function.
 It is easy to see that sampling from (Eq.
 (4)) will lead to a random walk in the space of energy, if the sample space is partitioned according to the energy function and each subregion is treated as a point.
 However, h is usually unknown.
@@ -101,14 +101,14 @@ SAMC provides an automatic mechanism to estimate h in simulations from f(x).
 As shown in [10], SAMC is essentially a dynamic importance sampling algorithm.
 Let hti denote the estimate of log R Ei wxdx at 42 Genomics Proteomics Bioinformatics 12 (2014) 3947 iteration t, and define ht = (ht1,... ,htk).
 Then one iteration of the SAMC algorithm can be described as follows.
-(1) Conditioned on the current sample x(t), simulate a sample x(t + 1) according to a Markov transition kernel, which admits the following distribution as the invariant distribution: Phtx/ Xj i wx ehti Ix 2 Ei 5 (2) Set ht+1 = ht + ct + 1(et+1 1/j), where et + 1 = (et + 1,1,... ,et + 1,m), et + 1,i = 1 if x (t + 1) 2 Ei and 0 otherwise, and ct + 1 is called the gain factor.
+(1) Conditioned on the current sample x(t), simulate a sample x(t + 1) according to a Markov transition kernel, which admits the following distribution as the invariant distribution: Phtx/Xj i wx ehti Ix 2 Ei 5 (2) Set ht+1 = ht + ct + 1(et+1 1/j), where et + 1 = (et + 1,1,... ,et + 1,m), et + 1,i = 1 if x (t + 1) 2 Ei and 0 otherwise, and ct + 1 is called the gain factor.
 The gain factor sequence {ct} is positive and non-decreasing, and satisfies the conditions P ct 1 and P cnt <1 for some n 2 (1,2).
 In this paper, we set ct dt0maxt0 ;t ; t0 5000; d 0:5.
 When the dimension of x is high or when the sampling space X is too large, SAMC may take long time to converge.
 For this reason, we adopt a variant of SAMC, annealing stochastic approximation Monte Carlo [11], for simulating from the posterior (Eq.
 (3)).
 Annealing SAMC shrinks the sample space at each iteration according to the current sample.
-To be precise, at each iteration, annealing SAMC draws samples from the distribution Phtx/ XQ Utmin@ i fx exp ht1 Ix 2 Ei 6 where U t min is the best value of U(x) obtained by iteration t,@ > 0 is a user-defined parameter that determines the broadness of the sample space at each iteration, and P(u) denotes the index of subregions based on the energy function; if ui1 < u < ui, then P(u) = i.
+To be precise, at each iteration, annealing SAMC draws samples from the distribution Phtx/XQ Utmin@ i fx exp ht1 Ix 2 Ei 6 where U t min is the best value of U(x) obtained by iteration t,@ > 0 is a user-defined parameter that determines the broadness of the sample space at each iteration, and P(u) denotes the index of subregions based on the energy function; if ui1 < u < ui, then P(u) = i.
 Clearly, if @ is large, say @P 20, then it follows from the principle Occams razor [12] that the samples simulated using annealing SAMC can still be used for Bayesian inference.
 In this paper, we set @ 1000.
 SAMC for Bayesian peak picking In this section, we useM* to denote the proposedmodel, useM(t) to denote the current model, use#* to denote the parameter vector proposed for themodelM*, anduse#(t) to denote the parameter vector of the current model.
@@ -133,7 +133,7 @@ jMtj QjMtj !
 jMj PBirthjM PDeathjMt RPU  14 where RPU exp h J#t n o P# ;jMjjYT#!#t exp hJ#f gP#t ;jMt jjYT#t!# is the acceptance rate for position update move.
 where J(#) denotes the index of the subregion that the corresponding model belongs to; QM !Mt=QMt !M jPtIj= PtR 1  accounts for the probability of removing a component from the current model; T( fi ) denotes the proposed distribution determined by Eqs.
 (9)(12); P(Birth M*) = 1/3 if 1 < M* < mmax, P(Birth M*) = 2/3 if M* = 1, and P(Birth M*) = 0 if M* = mmax; and P(Death M(t)) = 1/3 if 1 < M(t) < mmax, P(Death M(t)) = 0 if M(t) = 1, and P(Death M(t)) = 2/3 if M(t) = mmax.
-Cheng Y et al/ Bayesian Peak Picking for NMR Spectra 43 Peak identification At the end of the SAMC run, the peaks can be identified according to the marginal inclusion probability, that is, the posterior probability of each pole.
+Cheng Y et al/Bayesian Peak Picking for NMR Spectra 43 Peak identification At the end of the SAMC run, the peaks can be identified according to the marginal inclusion probability, that is, the posterior probability of each pole.
 Since SAMC is essentially a dynamic importance sampling algorithm [10], the marginal inclusion probability for a given pole can be estimated by bIi Pt1t2tt11Iti exphJ#tPt1t2 tt11 exphJ#t ; i 1; 2;... ;N; 15 where t1 denotes the number of burn-in iterations, t2 denotes the number of iterations used for posterior calculation, and Iti is an indicator variable which is 1 if the i-th candidate peak is included in the model M(t) and 0 otherwise.
 In this paper, we set t1 = t2 = 50,000 for the simulation study and t1 = t2 = 250,000 for the real data examples.
 Alternatively, the peaks can be identified based on the maximum a posteriori (MAP) model.
@@ -184,7 +184,7 @@ In the 2D space, a peak is considered correct if both the N and H dimensions are
 Let NT denote the number of true peaks in a given spectrum, let NP denote the number of peaks being picked and let TP denote the number of true peaks being picked.
 Then the recall rate is defined as TP/NT, which is the identification rate of a true peak; and the precision is defined as TP/NP, which is the proportion of true peaks among the identified peaks.
 Figure 4 shows the results of our method for protein 1 mension represents 0.0873 ppm.
-Cheng Y et al/ Bayesian Peak Picking for NMR Spectra 45 SAM domain, SH3 domain and nuclear localization signals 1(HACS1), where the asterisk (*) denotes the true peaks and the circle denotes the identified peaks using the proposed method.
+Cheng Y et al/Bayesian Peak Picking for NMR Spectra 45 SAM domain, SH3 domain and nuclear localization signals 1(HACS1), where the asterisk (*) denotes the true peaks and the circle denotes the identified peaks using the proposed method.
 The only peak that was not identified by our method is the one around the grid point (109,200).
 The contour plot given in Figure 5 shows that the intensity around the grid point (109,200) is very low.
 Figure 6 gives the peak picking results using our method for protein coilin.
@@ -231,5 +231,5 @@ XG collected the data and YC analyzed the data.
 YC, XG and FL wrote the paper.
 All authors read and approved the final manuscript.
 Competing interests The authors declared that no competing interests exist.
-Cheng Y et al/ Bayesian Peak Picking for NMR Spectra 47 Acknowledgements This study was partially supported by grants from the National Science Foundation of USA (Grant No.
+Cheng Y et al/Bayesian Peak Picking for NMR Spectra 47 Acknowledgements This study was partially supported by grants from the National Science Foundation of USA (Grant No.
 DMS1007457 and DMS-1106494) and the award (KUS-C1-01604) made by King Abdullah University of Science and Technology (KAUST) to FL.

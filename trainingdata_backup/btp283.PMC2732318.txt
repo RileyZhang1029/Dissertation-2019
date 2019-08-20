@@ -1,7 +1,4 @@
-            G:\fpp\tex\journals\oup\BioInfo\Bioinfo-25(13)issue\btp283.dvi [10:24 6/6/2009 Bioinformatics-btp283.tex] Page: 1640 16401646 BIOINFORMATICS ORIGINAL PAPER Vol.
-25 no.
-13 2009, pages 16401646doi:10.1093/bioinformatics/btp283 Gene expression Optimizing static thermodynamic models of transcriptional regulation Denis C. Bauer and Timothy L. Bailey Institute for Molecular Bioscience, The University of Queensland, Brisbane, Qld.
-4072, Australia Received on January 22, 2009; revised on March 31, 2009; accepted on April 21, 2009 Advance Access publication April 27, 2009 Associate Editor: Olga Troyanskaya ABSTRACT Motivation: Modeling transcriptional regulation using thermodynamic modeling approaches has become increasingly relevant as a way to gain a detailed understanding of transcriptional regulation.
+Motivation: Modeling transcriptional regulation using thermodynamic modeling approaches has become increasingly relevant as a way to gain a detailed understanding of transcriptional regulation.
 Thermodynamic models are able to model the interactions between transcription factors (TFs) and DNA that lead to a specific transcriptional output of the target gene.
 Such models can be trained by fitting their free parameters to data on the transcription rate of a gene and the concentrations of its regulating factors.
 However, the parameter fitting process is computationally very expensive and this limits the number of alternative types of model that can be explored.
@@ -34,7 +31,7 @@ The model proposed by Reinitz et al.(2003) (herein called the Reinitz model), co
 (The role of the TF can be specified by the user, but could also be considered a binary free parameter.)
 The Reinitz model contains two additional parameters representing the maximal transcription rate and the Gibbs free energy barrier to transcription.
 The model proposed by Segal et al.(2008) additionally includes one parameter per TF, describing the strength of synergistic effects, as well as the PWMs as free parameters, greatly increasing the total number of free parameters.
-Creating a thermodynamic model of transcription requires tuning the free parameters to minimize the difference in predicted 2009 The Author(s) This is an Open Access article distributed under the terms of the Creative Commons Attribution Non-Commercial License (http://creativecommons.org/licenses/ by-nc/2.0/uk/) which permits unrestricted non-commercial use, distribution, and reproduction in any medium, provided the original work is properly cited.
+Creating a thermodynamic model of transcription requires tuning the free parameters to minimize the difference in predicted 2009 The Author(s) This is an Open Access article distributed under the terms of the Creative Commons Attribution Non-Commercial License (http://creativecommons.org/licenses/by-nc/2.0/uk/) which permits unrestricted non-commercial use, distribution, and reproduction in any medium, provided the original work is properly cited.
 [10:24 6/6/2009 Bioinformatics-btp283.tex] Page: 1641 16401646 Thermodynamic model optimization and observed rates of transcription.
 This amounts to function optimization, where the inputs to the function are measurements of TF concentrations and the output is the transcription rate of the modeled gene.
 Because the models are highly non-linear and have many free parameters, their optimization requires large amounts of computer time.

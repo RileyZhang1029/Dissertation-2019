@@ -1,6 +1,4 @@
-          OP-CBIO140488 386..392 Vol.
-30 ECCB 2014, pages i386i392 BIOINFORMATICS doi:10.1093/bioinformatics/btu443 Two-dimensional segmentation for analyzing Hi-C data Celine Levy-Leduc1,*, M. Delattre1, T. Mary-Huard1,2 and S. Robin1 1AgroParisTech/INRA MIA 518, 75005 Paris and 2UMR de Genetique Vegetale, INRA/Univ.
-Paris-Sud/CNRS, 91190 Gif-sur-Yvette, France ABSTRACT Motivation: The spatial conformation of the chromosome has a deep influence on gene regulation and expression.
+Motivation: The spatial conformation of the chromosome has a deep influence on gene regulation and expression.
 Hi-C technology allows the evaluation of the spatial proximity between any pair of loci along the genome.
 It results in a data matrix where blocks corresponding to (self-)interacting regions appear.
 The delimitation of such blocks is critical to better understand the spatial organization of the chromatin.
@@ -165,7 +163,7 @@ We then consider the test statistic Q0= P i;j 2 T0 Y 2 i =N0.
 Reminding that, if Y has a Poisson distribution with mean , we have EY2=+2 and VY2=43+62+, it follows that ffiffiffiffiffiffi N0 p Q0 +2ffiffiffiffiffiffiffiffiffiffiffiffiffiffiffiffiffiffiffiffiffiffiffiffiffiffiffiffiffi 43+62+ q N0; 1 under the hypothesis that all observations from T0 arise from the same Poisson distribution.
 Following this rule, we chose Model (5) (B) only for Chromosomes 1 and 2.
 We can see from this figure that with the naked eye, the diagonal blocks found with our strategy present a lot of similarities with those found by Dixon et al.(2012).
-We did not report the segmentations that we obtained for the Chromosomes 122, but they are available from the Web page of the corresponding author http://www.agroparistech.fr/mmip/ maths/essaimia/_media/equipes:membres:page:supplementary_ eccb.pdf.
+We did not report the segmentations that we obtained for the Chromosomes 122, but they are available from the Web page of the corresponding author http://www.agroparistech.fr/mmip/maths/essaimia/_media/equipes:membres:page:supplementary_ eccb.pdf.
 4 CONCLUSION 4.1 HiCseg R package In this article, we propose a new method for detecting cis-interacting regions in Hi-C data and compare it with a methodology proposed by Dixon et al.(2012).
 Our approach described in Section 2 is implemented in the R package HiCseg, which is available from the Web page of the corresponding author es:membres:page:hicseg_1.1.tar.gz and from the Comprehensive R Archive Network.
 In the course of this study, we have shown that HiCseg is an efficient technique for achieving such a segmentation based on a maximum likelihood approach.

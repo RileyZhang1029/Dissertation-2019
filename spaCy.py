@@ -20,11 +20,12 @@ def readCSV():
         if reader.line_num == 1:
             continue
         articleList.append(item[0])
+        # if " " not in item[2]:
         st_men_all.append(item[2])
         articleDict.setdefault(item[0].lstrip("bioj:a"), []).append(item[2])
     csvFile.close()
 
-    st_men_all = sorted(set(st_men_all))
+    # st_men_all = sorted(set(st_men_all))
 
     return (articleDict, st_men_all)
 
@@ -43,16 +44,17 @@ def NER(model, folder_out):
 
     with open('NER_results.txt', "w", encoding='utf-8') as f:
         for txt_nosupple in txtFiles_nosupple:
-            f.write(txt_nosupple.rstrip(".txt") + ":\n")
-            f.write("Howison Results: ")
+            f.write(txt_nosupple.rstrip(".txt") + " & ")
+            #f.write("Howison Results: ")
+            f.write(r"\tabincell{l}{")
             if txt_nosupple.rstrip(".txt") in articleDict.keys():
                 n += 1
                 for word in articleDict[txt_nosupple.rstrip(".txt")]:
-                    f.write(word + ", ")
+                    f.write(word + r"\\ ")
             else:
-                f.write("No Software Mentions, ")
-            f.write("\n")
-            f.write("NER Results: ")
+                f.write(r"--\\ ")
+            f.write("} & ")
+            #f.write("NER Results: ")
 
             for txtFile in txtFiles:
                 wordlist = []
@@ -63,6 +65,7 @@ def NER(model, folder_out):
                     os.chdir(folder_out)
                     document = open(txtFile, "r", encoding='utf-8').read()
                     doc = nlp(document)
+                    f.write(r"\tabincell{l}{")
                     for ent in doc.ents:
                         if (ent.label_ == "SOFTWARE"):
                             wordlist.append(ent.text)
@@ -70,14 +73,15 @@ def NER(model, folder_out):
                             # print(ent.text, ent.start_char, ent.end_char, ent.label_)
                     if wordlist != []:
                         for i in sorted(set(wordlist)):
-                            f.write(i + ", ")
+                            f.write(i + r"\\ ")
 
                     else:
-                        f.write("No Software Mentions, ")
-            f.write('\n\n')
-    wordlist_all_sorted = sorted(set(wordlist_all))
+                        f.write(r"-- \\ ")
+            f.write(r"} \\")
+            f.write('\n')
+    # wordlist_all = sorted(set(wordlist_all))
     print("n =", n)
-    return wordlist_all_sorted
+    return wordlist_all
 
 
 def readHow():
@@ -95,12 +99,14 @@ def PRF(list1, list2):
     list1 = [i.lower() for i in list1]
     list2 = [i.lower() for i in list2]
     tplist = [i for i in list1 if i in list2]
-    tplist = sorted(set(tplist))
+    # tplist = sorted(set(tplist))
     wrongExamples = [i for i in list2 if i not in tplist]
     notFound = [i for i in list1 if i not in tplist and " " not in i]
-    with open("/home/riley/Documents/Github/Dissertation-2019/Prodigy/wrongExamples2.txt", 'w', encoding="utf8") as f:
+    with open("/home/riley/Documents/Github/Dissertation-2019/Prodigy/st_patterns_wrong2.jsonl", 'w', encoding="utf8") as f:
         for w in wrongExamples:
+            f.write("{\"label\":\"SOFTWARE\",\"pattern\":[{\"lower\":\"")
             f.write(w.lower())
+            f.write("\"}]}")
             f.write("\n")
     with open("/home/riley/Documents/Github/Dissertation-2019/Prodigy/st_patterns_notfound2.jsonl", 'w', encoding="utf8") as j:
         for w in notFound:
@@ -119,8 +125,7 @@ def PRF(list1, list2):
 
 
 if __name__ == '__main__':
-
-    model = '/home/riley/Documents/Github/models/st-model-notfound'
+    model = '/home/riley/Documents/Github/models/st-model-all-nn-it30dp20bt16'
     folder_out = os.getcwd() + "/testdata"
     word_list_sorted = NER(model, folder_out)
     print(word_list_sorted)

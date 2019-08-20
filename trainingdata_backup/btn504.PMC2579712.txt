@@ -1,6 +1,4 @@
-           btn504 BIOINFORMATICS APPLICATIONS NOTE Vol.
-24 no.
-22 2008, pages 26302631doi:10.1093/bioinformatics/btn504 Sequence analysis Profile Comparer: a program for scoring and aligning profile hidden Markov models Martin Madera Department of Computer Science, University of Bristol, Bristol, UK Received on August 8, 2008; revised on September 11, 2008; accepted on September 19, 2008 Advance Access publication October 9, 2008 Associate Editor: Alex Bateman ABSTRACT Summary: Profile Comparer (PRC) is a stand-alone program for scoring and aligning profile hidden Markov models (HMMs) of protein families.
+Summary: Profile Comparer (PRC) is a stand-alone program for scoring and aligning profile hidden Markov models (HMMs) of protein families.
 PRC can read models produced by SAM and HMMER, two popular profile HMM packages, as well as PSI-BLAST checkpoint files.
 This application note provides a brief description of the profile profile algorithm used by PRC.
 Availability: The C source code licensed under the GNU General Public Licence and Linux and Mac OS X binaries can be downloaded from http://supfam.org/PRC.
@@ -29,7 +27,7 @@ When one of the HMMs is extremely narrow, e.g.it only emits a single sequence wi
 The null model emits random sequences with background amino acid frequencies and a geometric distribution of lengths.
 The simple score Ssimple is the same as the co-emission score Sco-em, but both profile HMMs are restricted to regions of significant similarity.
 The regions are found by an iterative procedure that picks a new end point as the maximum of the forward score in the dynamic programming matrix, and a start point as the maximum of the backward score.
-2008 The Author(s) This is an Open Access article distributed under the terms of the Creative Commons Attribution Non-Commercial License (http://creativecommons.org/licenses/ by-nc/2.0/uk/) which permits unrestricted non-commercial use, distribution, and reproduction in any medium, provided the original work is properly cited.
+2008 The Author(s) This is an Open Access article distributed under the terms of the Creative Commons Attribution Non-Commercial License (http://creativecommons.org/licenses/by-nc/2.0/uk/) which permits unrestricted non-commercial use, distribution, and reproduction in any medium, provided the original work is properly cited.
 Profile Comparer 0.001 0.01 0.1 1 10 errors per query 0 0.1 0.2 0.3 0.4 0.5 0.6 0.7 co ve ra ge PRC 1.5.5 SAM 3.4 PSI-BLAST 2.2.18 BLAST 2.2.18 Fig.1.
 A SCOP domain benchmark (Madera and Gough, 2002) of PRC, illustrating the improvement over standard methods.
 The SCOP seed sequences were filtered to <25% sequence identity.

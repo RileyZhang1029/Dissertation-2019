@@ -1,5 +1,4 @@
-            G:\fpp\tex\journals\oup\BioInfo\Bioinfo-25-ISMB-ECCB\btp206.dvi [10:00 15/5/2009 Bioinformatics-btp206.tex] Page: i119 i119i127 BIOINFORMATICS Vol.
-25 ISMB 2009, pages i119i127doi:10.1093/bioinformatics/btp206 Clustered alignments of gene-expression time series data Adam A. Smith1,2,, Aaron Vollrath3, Christopher A. Bradfield3 and Mark Craven1,2, 1Department of Biostatistics & Medical Informatics, 2Department of Computer Sciences and 3Department of Oncology, University of Wisconsin, Madison, USA ABSTRACT Motivation: Characterizing and comparing temporal geneexpression responses is an important computational task for answering a variety of questions in biological studies.
+Motivation: Characterizing and comparing temporal geneexpression responses is an important computational task for answering a variety of questions in biological studies.
 Algorithms for aligning time series represent a valuable approach for such analyses.
 However, previous approaches to aligning gene-expression time series have assumed that all genes should share the same alignment.
 Our work is motivated by the need for methods that identify sets of genes that differ in similar ways between two time series, even when their expression profiles are quite different.
@@ -37,7 +36,7 @@ But, it may also happen that some genes need to be warped separately from the ot
 Therefore, we want to allow a type of local alignment in which the end of one series is unaligned.
 We refer to this case as shorting the alignment.
 The two main contributions of this work are algorithms that are designed to address both of these issues when computing time-series alignments.
-2009 The Author(s) This is an Open Access article distributed under the terms of the Creative Commons Attribution Non-Commercial License (http://creativecommons.org/licenses/ by-nc/2.0/uk/) which permits unrestricted non-commercial use, distribution, and reproduction in any medium, provided the original work is properly cited.
+2009 The Author(s) This is an Open Access article distributed under the terms of the Creative Commons Attribution Non-Commercial License (http://creativecommons.org/licenses/by-nc/2.0/uk/) which permits unrestricted non-commercial use, distribution, and reproduction in any medium, provided the original work is properly cited.
 [10:00 15/5/2009 Bioinformatics-btp206.tex] Page: i120 i119i127 A.A.Smith et al.Fig.2.
 Alignment space example.
 The multi-segment alignment path characterizes correspondences between two series, as shown by the dotted lines.
@@ -213,7 +212,7 @@ Further it performs a complete search for the best segments to use, rather than 
 The next baseline we consider is traditional Euclidean dynamic time warping (Sakoe and Chiba, 1978; Sankoff and Kruskal, 1983).
 Briefly, this method computes alignments by creating a matrix with elements defined recursively as i,j=D(di,qj)+min [ predDTW(i,j) ] (11) where D(di,qj) is the Euclidean distance between points di and qj in the two series and predDTW(i,j) refers to the matrix elements adjacent to i,j with both indices less than or equal to i and j, respectively.
 The first element 0,0 is just the Euclidean distance at time 0, and each other element i,j is the score of warping d from times 0 to i and q from 0 to j.
-We then create a normalized score matrix where i,j=i,j/ |i|2+| j|2.
+We then create a normalized score matrix where i,j=i,j/|i|2+| j|2.
 (12) This makes it reasonable to compare warpings with different treatments, where one or the other dimension has been shorted.
 i123 [10:00 15/5/2009 Bioinformatics-btp206.tex] Page: i124 i119i127 A.A.Smith et al.Fig.4.
 Treatment and alignment accuracies when there is no temporal distortion (A), and when there is (B).

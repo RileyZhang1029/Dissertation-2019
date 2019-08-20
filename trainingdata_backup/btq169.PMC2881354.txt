@@ -1,12 +1,10 @@
-            G:\bioinformatics\Bioinfo-26(12)issue\btq169.dvi [14:41 14/5/2010 Bioinformatics-btq169.tex] Page: 1542 15421547 BIOINFORMATICS ORIGINAL PAPER Vol.
-26 no.
-12 2010, pages 15421547doi:10.1093/bioinformatics/btq169 Systems biology Advance Access publication May 6, 2010 Computing biological functions using Bio, a formal description of biological processes based on elementary bricks of actions Sabine Prs, Liza Felicori, Stphanie Rialle, Elodie Jobard and Franck Molina Sysdiag CNRS Bio-Rad UMR 3145, Cap delta/Parc euromdecine, 1682 rue de la Valsire CS 61003, 34184 Montpellier Cedex 4, France Associate Editor: Trey Ideker ABSTRACT Motivation: In the available databases, biological processes are described from molecular and cellular points of view, but these descriptions are represented with text annotations that make it difficult to handle them for computation.
+Motivation: In the available databases, biological processes are described from molecular and cellular points of view, but these descriptions are represented with text annotations that make it difficult to handle them for computation.
 Consequently, there is an obvious need for formal descriptions of biological processes.
 Results: We present a formalism that uses the Bio concepts to model biological processes from molecular details to networks.
 This computational approach, based on elementary bricks of actions, allows us to calculate on biological functions (e.g.process comparison, mapping structurefunction relationships, etc.).
 We illustrate its application with two examples: the functional comparison of proteases and the functional description of the glycolysis network.
 This computational approach is compatible with detailed biological knowledge and can be applied to different kinds of systems of simulation.
-Availability: www.sysdiag.cnrs.fr/publications/supplementary-materials/ BioPsi_Manager/ Contact: sabine.peres@sysdiag.cnrs.fr; franck.molina@sysdiag.cnrs.fr Supplementary information: Supplementary data are available at Bioinformatics online.
+Availability: www.sysdiag.cnrs.fr/publications/supplementary-materials/BioPsi_Manager/Contact: sabine.peres@sysdiag.cnrs.fr; franck.molina@sysdiag.cnrs.fr Supplementary information: Supplementary data are available at Bioinformatics online.
 Received on December 7, 2009; revised on March 12, 2010; accepted on April 13, 2010 1 INTRODUCTION The identification of the biological functions of all genes and gene products and the understanding of how they interact to yield a living cell is still a challenge for post-genomic biology despite the fact that a huge amount of detailed information on molecular functions has been accumulated by biologists.
 Indeed, such detailed functional knowledge is poorly accessible for biocomputing since it is not (or rarely) formalized and it is often partial.
 On the other hand, the biological systems modelling community has developed robust formalisms, in which molecular processes can be implemented in a very simplified way.
@@ -35,7 +33,7 @@ Moreover, the same process can be performed by different proteins depending on t
 As a consequence, it would be an advantage to describe processes in a generic form.
 For this, it is necessary to take into account the The Author(s) 2010.
 Published by Oxford University Press.
-This is an Open Access article distributed under the terms of the Creative Commons Attribution Non-Commercial License (http://creativecommons.org/licenses/ by-nc/2.5), which permits unrestricted non-commercial use, distribution, and reproduction in any medium, provided the original work is properly cited.
+This is an Open Access article distributed under the terms of the Creative Commons Attribution Non-Commercial License (http://creativecommons.org/licenses/by-nc/2.5), which permits unrestricted non-commercial use, distribution, and reproduction in any medium, provided the original work is properly cited.
 [14:41 14/5/2010 Bioinformatics-btq169.tex] Page: 1543 15421547 Computing biological functions using Bio multi-functionality of a molecule, the context dependencies and the functional modularity.
 Thus, to describe biological processes in a relevant way there are some key requirements: Object and process separation: molecular objects and processes must be described separately.
 Modularity: the BioObject structure performing the processes should be described at different levels when possible.
@@ -93,7 +91,7 @@ Biological roles (BRs) represent the combination of the BFs of different molecul
 It is important to note that BEAs representation is not a chemical reaction equation, but a way to specify a type of elementary molecular modification.
 BEAs do not have any chemical reality on their own but identify elements of transformation from input to output molecules.
 They fall in four classes: bond modifications, transfers, chemical reorganizations and non-covalent actions.
-The complete list of the four BEA classes and the table of correspondence between EC number and BEA are at: http://www.sysdiag.cnrs.fr/publications/supplementarymaterials/BioPsi_Manager/ 3 SYNTAX 3.1 BioObjects Bio manipulates formal objects that represent biochemical objects ranging from motifs, domains, molecular entities to modules of macromolecules.
+The complete list of the four BEA classes and the table of correspondence between EC number and BEA are at: http://www.sysdiag.cnrs.fr/publications/supplementarymaterials/BioPsi_Manager/3 SYNTAX 3.1 BioObjects Bio manipulates formal objects that represent biochemical objects ranging from motifs, domains, molecular entities to modules of macromolecules.
 We define all these biological objects with the term of BioObjects.
 In a formal way, biological processes at any level are represented by functions whose parameters are biochemical objects.
 Thus, the syntax of BioObjects can be expressed using the following grammar: BioObjects = Smallmolecule | Macromolecule Smallmolecule = Sugar | Lipid | Ion | AA | NA | Metabolite Macromolecule = Protein | Complex | DNA | RNA A BioObject can be either a small molecule or a macromolecule.
@@ -198,7 +196,7 @@ Bio clearly separates process description and BioObject description and focuses 
 All other existing function annotations do not or only partially address this view.
 Bio is based on the integration of all these levels and it could extend to additional levels if required.
 We described BEA at the chemical level, which can be considered as the elementary bricks that compose all functions in Nature.
-BEAs fall into four classes and their relationships with EC are available at BioDB (http://www.sysdiag.cnrs.fr/publications/ supplementary-materials/BioPsi_Manager/).
+BEAs fall into four classes and their relationships with EC are available at BioDB (http://www.sysdiag.cnrs.fr/publications/supplementary-materials/BioPsi_Manager/).
 Obviously, the description of elementary actions provides a generic view of a biological process.
 It can be used as an element of comparison.
 To integrate available knowledge on functions, we can complement the description of a biological process with parameters such as substrate specificity, kinetics, conditionality of the process execution based on contextual information (pH, temperature, etc.).

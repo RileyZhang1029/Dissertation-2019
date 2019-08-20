@@ -1,5 +1,4 @@
-          OP-CBIO150025 1632..1639 Systems biology Topology-function conservation in proteinprotein interaction networks Darren Davis1, Omer Nebil Yaveroglu1,2, Noel Malod-Dognin2, Aleksandar Stojmirovic3,4 and Natasa Przulj2,* 1California Institute of Telecommunications and Technology (Calit2), University of California Irvine, Irvine, CA, USA, 2Department of Computing, Imperial College London, London, UK, 3National Center for Biotechnology Information (NCBI), Bethesda, MD, USA and 4Janssen Research and Development, LLC, Spring House, PA, USA *To whom correspondence should be addressed.
-Associate Editor: Igor Jurisica Received on September 10, 2014; revised on December 5, 2014; accepted on January 11, 2015 Abstract Motivation: Proteins underlay the functioning of a cell and the wiring of proteins in proteinprotein interaction network (PIN) relates to their biological functions.
+Motivation: Proteins underlay the functioning of a cell and the wiring of proteins in proteinprotein interaction network (PIN) relates to their biological functions.
 Proteins with similar wiring in the PIN (topology around them) have been shown to have similar functions.
 This property has been successfully exploited for predicting protein functions.
 Topological similarity is also used to guide network alignment algorithms that find similarly wired proteins between PINs of different species; these similarities are used to transfer annotation across PINs, e.g.from model organisms to human.
@@ -105,7 +104,7 @@ We adjust the estimated P-values using BenjaminiHochberg correction for the stat
 We include all physical interactions that are identified by any of the relevant experimental evidence codes, while excluding interactions that are annotated only as genetic interactions.
 We remove the ubiquitin proteins from the PINs of both species (i.e.UBC from human and UBI4 from yeast), because these proteins can bind to almost all proteins in the PIN, hiding the topological characteristics of functional interactions and generating noisy topological patterns.
 The resulting human PIN contains 13 410 proteins (nodes) and 116 552 interactions (edges), while the yeast PIN contains 77 360 interactions among 5 831 proteins.
-2.2.2 Gene ontology (GO) annotations We obtain GO term annotations for the human and yeast proteins from the NCBI FTP Server (ftp://ftp.ncbi.nlm.nih.gov/gene/DATA/ gene2go.gz) (downloaded on June 11, 2013) (Maglott et al., 2013).
+2.2.2 Gene ontology (GO) annotations We obtain GO term annotations for the human and yeast proteins from the NCBI FTP Server (ftp://ftp.ncbi.nlm.nih.gov/gene/DATA/gene2go.gz) (downloaded on June 11, 2013) (Maglott et al., 2013).
 GO annotations from all GO evidence codes are included in the dataset, but annotations with qualifiers (e.g.NOT, colocalizes-with) are excluded.
 GO terms labelled by an alternate ID are remapped to the unique ID for the term.
 We use the full GO hierarchy (http://www.geneontology.org/ontology/obo_format_1_2/) and infer parent GO annotations from is-a relationships.
@@ -126,7 +125,7 @@ Next, we focus on identifying the subset of these patterns that are conserved be
 We identify the GO terms with consistent topology-function relationships across yeast and human by utilizing orbit contribution similarities and multi-species structure association strengths.
 A GO term is accepted to have a significantly conserved topology-function relationship if the following conditions hold: (i) the multi-species structure association strength of the GO term has an adjusted P-value 0:05, and (ii) the orbit contribution similarity of the GO term has an adjusted P-value 0:05.
 Based on these conditions, we show that 15 BP terms and nine CC terms have significantly conserved topology-function relationships, while no molecular function terms have such patterns.
-Note that these patterns provide further evidence of the link between network topology and biological function, since it is not possible to Topology-function conservation in PPI networks 1635 see ( PINs) &ndash; , since , , , , ftp://ftp.ncbi.nlm.nih.gov/gene/DATA/gene2go.gz ftp://ftp.ncbi.nlm.nih.gov/gene/DATA/gene2go.gz 1 06/11/ , to 5 5 Supp.
+Note that these patterns provide further evidence of the link between network topology and biological function, since it is not possible to Topology-function conservation in PPI networks 1635 see ( PINs) &ndash; , since , , , , ftp://ftp.ncbi.nlm.nih.gov/gene/DATA/gene2go.gz ftp://ftp.ncbi.nlm.nih.gov/gene/DATA/gene2go.gz 1 06/11/, to 5 5 Supp.
 Supp.
 biological process 9 cellular component obtain such large numbers of significant topology-function relationships from meaningless randomized networks, as explained in Supplementary Section S.6.
 We say that two GO terms are redundant if they annotate similar sets of proteins and have similar meanings.

@@ -1,5 +1,4 @@
-            [21:27 18/6/03 Bioinformatics-btn181.tex] Page: i268 i268i276 BIOINFORMATICS Vol.
-24 ISMB 2008, pages i268i276doi:10.1093/bioinformatics/btn181 Detection of IUPAC and IUPAC-like chemical names Roman Klinger1,, Corinna Kolrik1,2, Juliane Fluck1, Martin Hofmann-Apitius1,2 and Christoph M. Friedrich1 1Fraunhofer Institute Algorithms and Scientific Computing (SCAI), Department of Bioinformatics, Schlo Birlinghoven, 53574 Sankt Augustin and 2Bonn-Aachen International Center for Information Technology (B-IT), Department of Applied Life Science Informatics, Dahlmannstrasse 2, D-53113 Bonn, Germany ABSTRACT Motivation: Chemical compounds like small signal molecules or other biological active chemical substances are an important entity class in life science publications and patents.
+Motivation: Chemical compounds like small signal molecules or other biological active chemical substances are an important entity class in life science publications and patents.
 Several representations and nomenclatures for chemicals like SMILES, InChI, IUPAC or trivial names exist.
 Only SMILES and InChI names allow a direct structure search, but in biomedical texts trivial names and IUPAC like names are used more frequent.
 While trivial names can be found with a dictionary-based approach and in such a way mapped to their corresponding structures, it is not possible to enumerate all IUPAC names.
@@ -58,8 +57,8 @@ They report to find 3 623 248 unique chemical structures from 4 375 036 US paten
 The absolute numbers of found patents for the top 25 drugs listed by Humana (2005) are given.
 The program developed by (Sun et al., 2007) focuses on finding sum formulas like CH3(CH2)2OH in text using support vector machines (Schlkopf and Smola, 2002) and CRFs (Lafferty et al., 2001).
 In the work of Corbett et al.(2007), first-order Hidden Markov Models (Rabiner, 1989) implemented in the toolkit LingPipe3 are combined with other methods for the identification of chemical entities.
-The program finds e.g.structural classes, atoms 1http://redpoll.pharmacy.ualberta.ca/drugbank/ 2U.S.
-National Library of Medicine (2007), http://mplus.nlm.nih.gov/ medlineplus/druginformation.html 3http://alias-i.com/lingpipe/ and elements, fragments, trivial names, SMILES and InChI as well as IUPAC names.
+The program finds e.g.structural classes, atoms 1http://redpoll.pharmacy.ualberta.ca/drugbank/2U.S.
+National Library of Medicine (2007), http://mplus.nlm.nih.gov/medlineplus/druginformation.html 3http://alias-i.com/lingpipe/and elements, fragments, trivial names, SMILES and InChI as well as IUPAC names.
 They give an inter-annotator F1 measure of 93% for chemical names on their annotated corpus.
 The performance is evaluated on different corpora, recall rates are between 69.1% and 80.8% and precision rates beween 64.1% and 75.3% (Corbett and Murray-Rust, 2006).
 A seperate evaluation of the included named entity recognition modules from the toolkit LingPipe results in an F1 measure of 74% (Corbett et al., 2007).
@@ -176,7 +175,7 @@ The evaluation of the different parameters is given.
 3.1 Parameter selection For model selection, the impact of the following parameters of the CRF are evaluated by applying 30-fold bootstrapping on the training set TrainM : features representing the text like Bag-Of-Words or morphological features (cf.
 Table 1), the order of the CRF and the order of the offset conjunction.
 The feature set of the system with the best performance consists of automatically added features based on Bag-Of-Words as well as Autom.
-Prefixes/Suffixes of length two.Additionally, the membership to Prefix/Suffix lists containing prefixes or suffixes of length four 8http://www.eyesopen.com/products/toolkits/lexichem.html 9Version of October 11, 2006, http://oscar3-chem.sourceforge.net 10Version 1.0.1 of June 26, 2007, cdk.sourceforge.net/ of last or intermediate tokens from IUPAC names is considered.
+Prefixes/Suffixes of length two.Additionally, the membership to Prefix/Suffix lists containing prefixes or suffixes of length four 8http://www.eyesopen.com/products/toolkits/lexichem.html 9Version of October 11, 2006, http://oscar3-chem.sourceforge.net 10Version 1.0.1 of June 26, 2007, cdk.sourceforge.net/of last or intermediate tokens from IUPAC names is considered.
 From the set of static morphological features, All Caps, Real Number, Is Dash, Is Slash and Is Quote are used.
 The Spaces features to determine if the token is preceded or succeeded by white space is also included.
 Many other features, mainly from the field of gene and protein recognition were also tested, e.g.mapping the token to regular expressions representing greek letters, combinations of alpha-numerical symbols, natural numbers, etc.

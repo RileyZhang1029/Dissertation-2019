@@ -26,16 +26,16 @@ def convert_pdf_to_txt(path):
 
         textClearLink = re.sub(r"[\n](http://[^ ]+)[\n]", '', text_fil)
         textClearLink = ' '.join(textClearLink.split())
-        textNoSpace = textClearLink.replace('\n\n', '\n').replace('\n', ' ').replace(' .', '.').replace(' ,', ',').replace(' -', '-').replace('- ', '-').replace('// ', '//').replace('www. ', 'www.').replace('Fig. ', 'Fig.').replace('e.g.\n', 'e.g.').replace(' .', '.')
-        case = [' /', ' / ']
+        textNoSpace = textClearLink.replace('\n\n', '\n').replace('\n', ' ').replace('  ', ' ')
+        case = [' /', '/ ', ' -', '- ', '// ', 'www. ', 'Fig. ', ' .']
         for c in case:
             if c in textNoSpace:
-                textNoSpace = textNoSpace.replace(c, '/')
+                textNoSpace = textNoSpace.replace(c, c.strip(' '))
 
         sentences = sent_tokenize(textNoSpace)
         with open(path[:-3] + 'txt', "w", encoding='utf-8') as f:
             for s in sentences:
-                f.write(s)
+                f.write(s.strip(' '))
                 if s.endswith('e.g.') or s.endswith('i.e.') or s.endswith('et al.'):
                     f.write('')
                 else:
@@ -44,9 +44,6 @@ def convert_pdf_to_txt(path):
     except Exception as e:
         print("ERROR：" + path)
         pass
-
-
-
 
 
 def convert_xls_to_txt(path):
@@ -69,8 +66,8 @@ def traversal(rootdir):
             filenamefull = os.path.join(parent, filename)
             if filenamefull.lower().endswith('pdf'):
                 convert_pdf_to_txt(filenamefull)
-            if filenamefull.lower().endswith('xls'):
-                convert_xls_to_txt(filenamefull)
+            # if filenamefull.lower().endswith('xls'):
+            #     convert_xls_to_txt(filenamefull)
             # if filenamefull.lower().endswith('doc'):
             #     convert_doc_to_txt(filenamefull)
 

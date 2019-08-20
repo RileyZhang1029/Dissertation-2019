@@ -1,6 +1,4 @@
-            G:\fpp\tex\journals\oup\BioInfo\Bioinfo-26(3)issue\btp687.dvi [14:24 8/1/2010 Bioinformatics-btp687.tex] Page: 295 295301 BIOINFORMATICS ORIGINAL PAPER Vol.
-26 no.
-3 2010, pages 295301doi:10.1093/bioinformatics/btp687 Genome analysis Estimating DNA coverage and abundance in metagenomes using a gamma approximation Sean D. Hooper1,, Daniel Dalevi2, Amrita Pati1, Konstantinos Mavromatis1, Natalia N. Ivanova1 and Nikos C. Kyrpides1 1Department of Energy Joint Genome Institute (DOE-JGI), Genome Biology Program, 2800 Mitchell Drive, Walnut Creek, CA 94598 and 2Biological Data Management and Technology Center, Lawrence Berkeley National Laboratory, Berkeley, CA 94720, USA Received on June 19, 2009; revised on November 14, 2009; accepted on December 9, 2009 Advance Access publication December 14, 2009 Associate Editor: Alex Bateman ABSTRACT Motivation: Shotgun sequencing generates large numbers of short DNA reads from either an isolated organism or, in the case of metagenomics projects, from the aggregate genome of a microbial community.
+Motivation: Shotgun sequencing generates large numbers of short DNA reads from either an isolated organism or, in the case of metagenomics projects, from the aggregate genome of a microbial community.
 These reads are then assembled based on overlapping sequences into larger, contiguous sequences (contigs).
 The feasibility of assembly and the coverage achieved (reads per nucleotide or distinct sequence of nucleotides) depend on several factors: the number of reads sequenced, the read length and the relative abundances of their source genomes in the microbial community.
 A low coverage suggests that most of the genomic DNA in the sample has not been sequenced, but it is often difficult to estimate either the extent of the uncaptured diversity or the amount of additional sequencing that would be most efficacious.
@@ -31,7 +29,7 @@ In ecology, the estimation of macrobiological species richness also requires tha
 Chao and co-workers (Chao, 1984; Chao et al., 1992) studied the lower bounds of the number of unobservables by non-parametric measures and by using mixed Poisson distributions (Chao and Bunge, 2002).
 Analogously, for metagenomes, 16S rDNA can be used as markers of species, which can be estimated using compound Poisson models (Quince et al., 2008) who also estimate the total amount of DNA by The Author(s) 2009.
 Published by Oxford University Press.
-This is an Open Access article distributed under the terms of the Creative Commons Attribution Non-Commercial License (http://creativecommons.org/licenses/ by-nc/2.5) which permits unrestricted non-commercial use, distribution, and reproduction in any medium, provided the original work is properly cited.
+This is an Open Access article distributed under the terms of the Creative Commons Attribution Non-Commercial License (http://creativecommons.org/licenses/by-nc/2.5) which permits unrestricted non-commercial use, distribution, and reproduction in any medium, provided the original work is properly cited.
 [14:24 8/1/2010 Bioinformatics-btp687.tex] Page: 296 295301 S.D.Hooper et al.assuming that all genomes have the same number of genes.
 However, this assumption may hold better in the case of viromes, where genome sizes are more or less equal.
 Angly and coworkers used this assumption to good effect when estimating the species richnesses from the full DNA sample (Angly et al., 2005).
@@ -72,7 +70,7 @@ If there were two paralogous bins with identical nucleotide sequences, we would 
 A similar multiplication effect can result when repetitive DNA, such as transposons or prophages, blurs the distinction between bins.
 However, these effects are often of little consequence in most sequencing projects of isolated organisms (G = 1) given a high average coverage.
 When the sample includes more than one genome (G>1), we cannot assume the same g for all bins from all genomes.
-The expected number of reads per bin will depend on the relative abundance of the source genomes in the sample (Fig.1) so that the expected number of reads per bin for bins in genome i (assuming that the effects of repeated identical sequences is negligible) is i =Rpi/ j jpj , where R is the total number of reads, pi is the relative proportion of genome i in the metagenome and j is the number of bins in genome j.
+The expected number of reads per bin will depend on the relative abundance of the source genomes in the sample (Fig.1) so that the expected number of reads per bin for bins in genome i (assuming that the effects of repeated identical sequences is negligible) is i =Rpi/j jpj , where R is the total number of reads, pi is the relative proportion of genome i in the metagenome and j is the number of bins in genome j.
 Therefore, a more general form of Equation (1) is needed a mixed Poisson distribution for all values of g, where g is itself distributed according to a secondary distribution.
 f (k|g)= =0 kge g k!
 f (g|,)d. (2) When G = 1, f (g) is a constant; when G > 1, it varies with a secondary probability distribution that reflects the relative abundance of the source genomes.

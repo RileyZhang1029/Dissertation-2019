@@ -1,5 +1,4 @@
-          OP-CBIO140505 505..511 Vol.
-30 ECCB 2014, pages i505i511 BIOINFORMATICS doi:10.1093/bioinformatics/btu457 Assessing the local structural quality of transmembrane protein models using statistical potentials (QMEANBrane) Gabriel Studer1,2, Marco Biasini1,2 and Torsten Schwede1,2,* 1Biozentrum, University of Basel, Basel, 4056, Switzerland and 2SIB Swiss Institute of Bioinformatics, Basel, 4056, Switzerland ABSTRACT Motivation: Membrane proteins are an important class of biological macromolecules involved in many cellular key processes including signalling and transport.
+Motivation: Membrane proteins are an important class of biological macromolecules involved in many cellular key processes including signalling and transport.
 They account for one third of genes in the human genome and450% of current drug targets.
 Despite their importance, experimental structural data are sparse, resulting in high expectations for computational modelling tools to help fill this gap.
 However, as many empirical methods have been trained on experimental structural data, which is biased towards soluble globular proteins, their accuracy for transmembrane proteins is often limited.
@@ -39,7 +38,7 @@ In this work, we use a similar but simplified approach, still resulting in a rob
 The energy expression is defined as "G= X i wat!bilf zi ASAi 1 with wat!bil representing the transfer energy from water to decadiene for atom i per A2 (Lomize et al., 2004), f(zi) the hydrophobicity as a function of the distance to the membrane centre zi and ASAi the accessible surface area of atom i in A2 as calculated with NACCESS (www.bioinf.manches ter.ac.uk/naccess).
 Not all surface-facing atoms, as determined by NACCESS are in contact with the membrane, even if they fall in between the lipid bilayer, e.g.as is the case for hydrophilic pores.
 To determine the subset of surface atoms in direct contact with the lipid bilayer, the protein structure surface as calculated by MSMS (Sanner et al., 1996) is placed onto a 3D grid, marking every cube in the grid containing surface vertices.
-The application of a flood fill algorithm (http://lodev.org/cgtutor/ floodfill.html) on every layer along the z-axis then allows the generation of a subset of potentially membrane facing atoms.
+The application of a flood fill algorithm (http://lodev.org/cgtutor/floodfill.html) on every layer along the z-axis then allows the generation of a subset of potentially membrane facing atoms.
 The parameters describing the membrane (i.e.tilt angle relative to z-axis, rotation angle around z-axis, membrane width and distance of membrane centre to origin) first undergo a coarse grained sampling to identify the 10 best parameter sets for further refinement using a LevenbergMarquardt minimizer.
 This procedure is repeated several times with different initial orientations of the structure to find the set of parameters leading to the lowest total free energy.
 The bilayer consists of a hydrocarbon core flanked by interface regions with a large chemical heterogeneity (White et al., 2001).
@@ -53,7 +52,7 @@ Interactions originating from atoms of residues closer in sequence than this thr
 In case of glycine, a representative of the C position gets constructed using the backbone as anchor.
 The same sequence separation as in the all-atom interaction is applied.
 (3) Solvation Term: Statistics are created by counting surrounding atoms around all chemically distinguishable heavy atoms not belonging to the assessed residue itself.
-(4) Torsion Term: The central/ angles of three consecutive amino acids are assessed based on the identity of the involved amino acids using a grouping scheme described by Solis and Rachovsky (Solis and Rackovsky, 2006).
+(4) Torsion Term: The central/angles of three consecutive amino acids are assessed based on the identity of the involved amino acids using a grouping scheme described by Solis and Rachovsky (Solis and Rackovsky, 2006).
 Fig.2.
 Local QMEANBrane scores mapped on the best performing model (mod9jk) regarding RMSD of the GPCR Dock experiment 2008.
 Reference structure (2.6 A crystal structure of a human A2A adenosine receptor bound to ZM241385, PDB: 3eml) and membrane-defining planes are shown in white Fig.1.

@@ -1,6 +1,4 @@
-            Copyedited by: MANUSCRIPT CATEGORY: APPLICATIONS NOTE [19:02 19/7/2012 Bioinformatics-bts345.tex] Page: 2191 21912192 BIOINFORMATICS APPLICATIONS NOTE Vol.
-28 no.
-16 2012, pages 21912192doi:10.1093/bioinformatics/bts345 Structural bioinformatics Advance Access publication June 19, 2012 Accelerated protein structure comparison using TM-score-GPU Ling-Hong Hung and Ram Samudrala Department of Microbiology, University of Washington, Seattle, WA 98195-7735, USA Associate Editor: Anna Tramontano ABSTRACT Motivation: Accurate comparisons of different protein structures play important roles in structural biology, structure prediction and functional annotation.
+Motivation: Accurate comparisons of different protein structures play important roles in structural biology, structure prediction and functional annotation.
 The root-mean-square-deviation (RMSD) after optimal superposition is the predominant measure of similarity due to the ease and speed of computation.
 However, global RMSD is dependent on the length of the protein and can be dominated by divergent loops that can obscure local regions of similarity.
 A more sophisticated measure of structure similarity, Template Modeling (TM)-score, avoids these problems, and it is one of the measures used by the community-wide experiments of critical assessment of protein structure prediction to compare predicted models with experimental structures.
@@ -38,7 +36,7 @@ The quaternion algorithm obtains the optimal superposition and RMSD by solving f
 d from Equation (3) is also an eigenvalue of matrix S. The fast analytical method from qcprot (Liu et al., 2010) is then used to solve for the eigenvectors of matrix S and construct the rotation matrix [Equations (24) and Equations (18) in Supplemental materials].
 This hybrid method avoids the complicated branching code used to calculate The Author(s) 2012.
 Published by Oxford University Press.
-This is an Open Access article distributed under the terms of the Creative Commons Attribution License (http://creativecommons.org/licenses/ by/3.0), which permits unrestricted use, distribution, and reproduction in any medium, provided the original work is properly cited.
+This is an Open Access article distributed under the terms of the Creative Commons Attribution License (http://creativecommons.org/licenses/by/3.0), which permits unrestricted use, distribution, and reproduction in any medium, provided the original work is properly cited.
 Copyedited by: MANUSCRIPT CATEGORY: APPLICATIONS NOTE [19:02 19/7/2012 Bioinformatics-bts345.tex] Page: 2192 21912192 L.-H.Hung and R.Samudrala Fig.1.
 Speed of TM-score-GPU versus CPU implementations.
 The times required to calculate the TM-score between all pairs of structures in six different ensembles of 1000 models are shown.
@@ -69,6 +67,6 @@ Our particular application is for large community grid projects where few volunt
 In addition, the new SIMD friendly superposition routine will be useful in software where fast parallel superpositions are required.
 Finally, our implementation is in OpenCL, which is a very new language for GPUs.
 We anticipate that our implementation be of interest to others who wish to port code from languages that have been deprecated (Brook+) or may soon be deprecated (CUDA).
-The complete source code, including the GPU and superposition subroutines, is available for unrestricted use from http://software.compbio.washington.edu/misc/downloads/ tmscore/ 4 ACKNOWLEDGEMENTS The authors thank Yang Zhang for making the TM-score code freely available; Gaurav Chopra, Jeremy Horst and Ambrish Roy for their helpful comments on the manuscript and Thomas Wood for testing the source distribution.
+The complete source code, including the GPU and superposition subroutines, is available for unrestricted use from http://software.compbio.washington.edu/misc/downloads/tmscore/4 ACKNOWLEDGEMENTS The authors thank Yang Zhang for making the TM-score code freely available; Gaurav Chopra, Jeremy Horst and Ambrish Roy for their helpful comments on the manuscript and Thomas Wood for testing the source distribution.
 Funding: The NIH Directors Pioneer Award 1DP1OD006779-01.
 Conflict of Interest: None declared.
