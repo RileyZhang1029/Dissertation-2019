@@ -44,17 +44,16 @@ def NER(model, folder_out):
 
     with open('NER_results.txt', "w", encoding='utf-8') as f:
         for txt_nosupple in txtFiles_nosupple:
-            f.write(txt_nosupple.rstrip(".txt") + " & ")
-            #f.write("Howison Results: ")
-            f.write(r"\tabincell{l}{")
+            f.write(txt_nosupple.rstrip(".txt") + ":\n")
+            f.write("Howison Results: ")
             if txt_nosupple.rstrip(".txt") in articleDict.keys():
                 n += 1
                 for word in articleDict[txt_nosupple.rstrip(".txt")]:
-                    f.write(word + r"\\ ")
+                    f.write(word + ", ")
             else:
-                f.write(r"--\\ ")
-            f.write("} & ")
-            #f.write("NER Results: ")
+                f.write("No Software Mentions, ")
+            f.write("\n")
+            f.write("NER Results: ")
 
             for txtFile in txtFiles:
                 wordlist = []
@@ -65,7 +64,6 @@ def NER(model, folder_out):
                     os.chdir(folder_out)
                     document = open(txtFile, "r", encoding='utf-8').read()
                     doc = nlp(document)
-                    f.write(r"\tabincell{l}{")
                     for ent in doc.ents:
                         if (ent.label_ == "SOFTWARE"):
                             wordlist.append(ent.text)
@@ -73,12 +71,11 @@ def NER(model, folder_out):
                             # print(ent.text, ent.start_char, ent.end_char, ent.label_)
                     if wordlist != []:
                         for i in sorted(set(wordlist)):
-                            f.write(i + r"\\ ")
+                            f.write(i + ", ")
 
                     else:
-                        f.write(r"-- \\ ")
-            f.write(r"} \\")
-            f.write('\n')
+                        f.write("No Software Mentions, ")
+            f.write('\n\n')
     # wordlist_all = sorted(set(wordlist_all))
     print("n =", n)
     return wordlist_all
@@ -125,7 +122,7 @@ def PRF(list1, list2):
 
 
 if __name__ == '__main__':
-    model = '/home/riley/Documents/Github/models/st-model-all-nn-it30dp20bt16'
+    model = '/home/riley/Documents/Github/models/st-model-all-nnm-it30dp20bt16'
     folder_out = os.getcwd() + "/testdata"
     word_list_sorted = NER(model, folder_out)
     print(word_list_sorted)
