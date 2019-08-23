@@ -1,9 +1,14 @@
+"""
+B134977
+Convert PDF files in test data into Texts (do not remove contents before abstract)
+link to the Github Repostory: https://github.com/RileyZhang1029/Dissertation-2019
+"""
+
 import os
-import re
 import string
 from tika import parser
 from nltk.tokenize import sent_tokenize
-import xlrd  # 打开excel文件
+import xlrd
 
 
 def convert_pdf_to_txt(path):
@@ -24,9 +29,8 @@ def convert_pdf_to_txt(path):
             if ch not in printable:
                 text_fil = text_fil.replace(ch, '')
 
-        textClearLink = re.sub(r"[\n](http://[^ ]+)[\n]", '', text_fil)
-        textClearLink = ' '.join(textClearLink.split())
-        textNoSpace = textClearLink.replace('\n\n', '\n').replace('\n', ' ').replace('  ', ' ')
+
+        textNoSpace = text_fil.replace('\n\n', '\n').replace('\n', ' ').replace('  ', ' ')
         case = [' /', '/ ', ' -', '- ', '// ', 'www. ', 'Fig. ', ' .']
         for c in case:
             if c in textNoSpace:
@@ -58,21 +62,12 @@ def convert_xls_to_txt(path):
                     f.write(str(text))
                     f.write('\n')
 
-
-
 def traversal(rootdir):
     for parent, dirnames, filenames in os.walk(rootdir):
         for filename in filenames:
             filenamefull = os.path.join(parent, filename)
             if filenamefull.lower().endswith('pdf'):
                 convert_pdf_to_txt(filenamefull)
-            # if filenamefull.lower().endswith('xls'):
-            #     convert_xls_to_txt(filenamefull)
-            # if filenamefull.lower().endswith('doc'):
-            #     convert_doc_to_txt(filenamefull)
-
-
-
 
 if __name__ == '__main__':
     rootdir = os.getcwd() + "/testdata"
